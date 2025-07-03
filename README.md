@@ -1,4 +1,4 @@
-# 🐊 Bombardiro Crocodilo Invaders
+# 🐊 Crocodilo Invaders
 
 ![Gameplay Screenshot](croc_example1.png)
 
