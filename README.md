@@ -42,7 +42,7 @@ Melhoria dos sistemas existentes e otimização de código
 
 Novos tipos de inimigos e chefes
 
-Port para Unity e posteriormente postar na play store talvez.
+Publicação da versão Unity/WebGL e possíveis outras plataformas.
 
 Diferentes fases
 
@@ -67,6 +67,8 @@ Diferentes fases
 
 ## Como Jogar
 
-1. Baixe os arquivos e extraia em uma pasta
-2. Execute o "Brainrot Game.por" e clique no símbolo de play dentro do Portugol
+O repositório mantém as duas versões:
+
+- **Portugol Studio:** abra `Gaming portugol/Crocodilo Invaders.por` no Portugol Studio e execute.
+- **Unity / WebGL:** abra a pasta `unity/` no Unity Hub. Veja o [guia da versão Unity](unity/README.md) para jogar no editor e gerar o build WebGL.
    

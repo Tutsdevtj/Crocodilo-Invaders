@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061b2b">
+  <title>Crocodilo Invaders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="brand"><span class="brand-icon">🐊</span><span>CROCODILO <strong>INVADERS</strong></span></div>
+      <p>Um jogo arcade por Arthur Reis e Erik Andriani Vargas</p>
+    </header>
+
+    <section class="game-shell" aria-label="Jogo Crocodilo Invaders">
+      <div class="game-frame">
+        <canvas id="unity-canvas" width="1200" height="720" tabindex="0" aria-label="Jogo Crocodilo Invaders"></canvas>
+        <div id="loading" class="loading" role="status" aria-live="polite">
+          <div class="loading-content">
+            <div class="loading-icon">🐊</div>
+            <strong>Preparando a missão...</strong>
+            <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+            <span id="progress-text">0%</span>
+          </div>
+        </div>
+        <div id="error" class="error" hidden></div>
+      </div>
+      <div class="toolbar">
+        <span>Use o teclado para jogar</span>
+        <button id="fullscreen" type="button" disabled>Tela cheia ⛶</button>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Controles">
+      <div><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd><span>Mover</span></div>
+      <div><kbd>Espaço</kbd><span>Atirar</span></div>
+      <div><kbd>C</kbd><span>Especial</span></div>
+      <div><kbd>Enter</kbd><span>Selecionar</span></div>
+      <div><kbd>Esc</kbd><span>Menu</span></div>
+    </section>
+    <p class="hint">Clique no jogo para dar foco ao teclado. Os power-ups recuperam vida.</p>
+  </main>
+
+  <script>
+    window.crocodiloBuild = {
+      loaderUrl: "Build/{{{ LOADER_FILENAME }}}",
+      config: {
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}"
+      }
+    };
+  </script>
+  <script src="app.js" defer></script>
+</body>
+</html>
