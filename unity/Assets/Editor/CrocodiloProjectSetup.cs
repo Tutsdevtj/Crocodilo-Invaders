@@ -20,7 +20,7 @@ public static class CrocodiloProjectSetup
     private static void EnsureSceneAndSettings()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) return;
-        PlayerSettings.companyName = "Arthur Reis e Erik Andriani Vargas";
+        PlayerSettings.companyName = "Arthur Reis";
         PlayerSettings.productName = "Crocodilo Invaders";
         PlayerSettings.defaultScreenWidth = 1200;
         PlayerSettings.defaultScreenHeight = 720;

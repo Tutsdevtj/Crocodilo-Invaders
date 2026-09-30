@@ -8,7 +8,7 @@ programa
 
 /*.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
  |                                                                       |
- |      Jogo feito por Arthur Reis e Erik Andriani Vargas                |
+ |      Jogo feito por Arthur Reis                                        |
  |      para a disciplina Algoritmos e Programação do                    |
  |      Curso de Ciência da Computação                                   |
  |                                                                       |

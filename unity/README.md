@@ -1,6 +1,6 @@
 # Crocodilo Invaders — Unity / WebGL
 
-Port jogável do arquivo `Gaming portugol/Crocodilo Invaders.por`. O projeto Portugol permanece intacto na pasta original. As imagens e os sons foram copiados para `Assets/Resources`; os GIFs foram convertidos em sequências PNG para a Unity.
+Port jogável do arquivo `Gaming portugol/Crocodilo Invaders.por`. O projeto Portugol continua na pasta original. As imagens e os sons foram copiados para `Assets/Resources`; os GIFs foram convertidos em sequências PNG para a Unity.
 
 ## Abrir e jogar
 
@@ -15,7 +15,9 @@ Se o projeto não aceitar `Input.GetKey`, em **Edit > Project Settings > Player 
 
 Instale **WebGL Build Support** para a versão de Unity usada no Hub. No editor, clique em **Crocodilo > Build WebGL**. A saída será `unity/Builds/WebGL/`, já com `index.html`, `style.css`, `app.js` e a pasta `Build/`. A Unity pode solicitar a troca de plataforma e recompilar os assets antes do build. Para testar, use **Build And Run** no Build Settings ou sirva a pasta gerada em um servidor HTTP local; abrir `index.html` diretamente via `file://` não executa corretamente o WebGL.
 
-O template da página está em `Assets/WebGLTemplates/Crocodilo/`. Edite esses arquivos para mudar o site e gere o WebGL novamente. Para publicar, envie **todo o conteúdo** de `Builds/WebGL/` para uma hospedagem estática compatível com os arquivos WebGL da Unity. O projeto ativa o fallback de descompressão para facilitar a publicação em serviços estáticos sem configurar os cabeçalhos de compressão. O site é a página que a Unity gera no build; não é preciso programar outro carregador em HTML/JS.
+O template da página está em `Assets/WebGLTemplates/Crocodilo/`. Edite esses arquivos para mudar o site e gere o WebGL novamente. **Não copie os arquivos gerados para dentro de `WebGLTemplates`**: a Unity já usa esse template para montar a página final em `Builds/WebGL/`. Para publicar, envie **todo o conteúdo** dessa pasta de saída, sem separar `index.html` da pasta `Build/`, para uma hospedagem estática compatível com WebGL. O projeto ativa o fallback de descompressão para facilitar a publicação em serviços estáticos sem configurar os cabeçalhos de compressão.
+
+Para testar no próprio computador, use **Build And Run** no editor ou abra um terminal dentro de `Builds/WebGL/`, execute `py -m http.server 8000` (se tiver Python) e acesse `http://localhost:8000/`. Abrir `index.html` com duplo clique usa `file://` e geralmente impede a Unity de carregar os arquivos do jogo.
 
 ## Controles
 
