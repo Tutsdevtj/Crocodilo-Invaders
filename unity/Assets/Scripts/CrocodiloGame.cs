@@ -2,49 +2,82 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Port da fase de "Crocodilo Invaders.por". Todas as posições usam o espaço 1200 x 720.
-// O OnGUI é apenas o renderer 2D; a simulação roda a 60 passos por segundo.
+// Simulação do jogo. A cena, os sprites, os colliders e a UI são assets editáveis.
+// As posições internas usam pixels; CrocodiloVisual converte para unidades da Unity.
 public sealed class CrocodiloGame : MonoBehaviour
 {
     private const float Width = 1200f;
     private const float Height = 720f;
-    private const float StepSeconds = 1f / 60f;
+    private const float StepSeconds = 0.003f;
+    private const float MaxFrameSeconds = 0.1f;
+    private const int MenuOptionCount = 2;
 
-    private enum ScreenMode { Menu, About, Playing, GameOver, Victory }
+    [Header("Objetos salvos na cena")]
+    public CrocodiloSceneView sceneView;
+    [Header("Partida")]
+    public bool startInGameplay;
+    [Min(0.1f)] public float simulationSpeed = 1f;
+    [Min(1)] public int killsToBoss = 15;
+    public Rect playerMovementLimits = new Rect(1, 4, 648, 445);
+    [Min(1)] public int powerUpHealing = 6;
+    public Vector2 normalShotOffset = new Vector2(0, 45), specialShotOffset = Vector2.zero;
+    [Min(0)] public float specialBossDamageMultiplier = 1.25f;
+    [Min(0.01f)] public float missileIntervalSeconds = 0.54f;
+    [Min(0)] public float bossVictoryDelay = 2.1f;
+    [Header("Laser do chefe (segundos)")]
+    [Min(0.1f)] public float laserWarningSeconds = 1.5f;
+    [Min(0.1f)] public float laserFiringSeconds = 1.2f;
+    [Min(0)] public int laserDamage = 5;
+    [Min(0)] public float firstLaserDelay = 2.5f;
+    [Min(0.1f)] public float horizontalLaserCooldown = 4.5f, verticalLaserCooldown = 6f;
+    public Vector2 firstHorizontalLaserRange = new Vector2(80, 300), secondHorizontalLaserRange = new Vector2(350, 600);
+    public Vector2 firstVerticalLaserRange = new Vector2(75, 500), secondVerticalLaserRange = new Vector2(400, 550);
+
+    private enum ScreenMode { Menu, About, Playing, GameOver, Victory, Paused }
     private enum LaserPhase { Off, Warning, Firing }
 
     private sealed class Enemy
     {
-        public float X, Y, BulletX;
+        public float X, Y;
         public int Health;
+        public EnemyBullet Bullet;
+        public CrocodiloVisual View;
+    }
+
+    private sealed class EnemyBullet
+    {
+        public float X, Y;
+        public bool Active = true;
+        public CrocodiloVisual View;
     }
 
     private sealed class Laser
     {
         public bool Vertical;
         public float Position;
-        public int Ticks;
+        public float RemainingSeconds, PhaseStarted;
         public LaserPhase Phase;
         public bool DamagedPlayer;
+        public CrocodiloLaserView View;
     }
 
     private sealed class Missile
     {
         public float X, Y;
         public bool Active;
+        public CrocodiloVisual View;
     }
 
     private sealed class Effect
     {
         public string Animation;
         public float X, Y, Started, Duration;
+        public CrocodiloVisual View;
     }
 
-    private static CrocodiloGame instance;
-    private readonly Dictionary<string, Texture2D> images = new Dictionary<string, Texture2D>();
-    private readonly Dictionary<string, Texture2D[]> animations = new Dictionary<string, Texture2D[]>();
     private readonly Dictionary<string, AudioClip> sounds = new Dictionary<string, AudioClip>();
     private readonly List<Effect> effects = new List<Effect>();
+    private readonly List<EnemyBullet> enemyBullets = new List<EnemyBullet>();
     private readonly Laser[] lasers = { new Laser(), new Laser(), new Laser(), new Laser() };
     private readonly Missile[] missiles = { new Missile(), new Missile(), new Missile(), new Missile(), new Missile() };
     private readonly Enemy[] enemies = { new Enemy(), new Enemy() };
@@ -52,76 +85,98 @@ public sealed class CrocodiloGame : MonoBehaviour
     private AudioSource music;
     private AudioSource effectsAudio;
     private ScreenMode screen = ScreenMode.Menu;
-    private GUIStyle darkText, lightText, largeText, scoreText;
     private int menuChoice;
-    private float accumulated, simTime;
+    private double accumulated;
+    private float simTime;
+    private Vector2 movementInput;
+    private bool normalFireInput, specialFireInput;
     private float playerX, playerY;
     private int playerHealth, charge, kills, points;
     private bool normalShot, specialShot;
     private float shotX, shotY, specialX, specialY;
     private int powerCount;
-    private float powerX, powerY, groundX1, groundX2, cloudX1, cloudX2, cloudY1, cloudY2;
+    private float powerX, powerY, groundX1, cloudX1, cloudX2, cloudY1, cloudY2;
     private float bossX, bossY, bossWinDelay;
-    private int bossHealth, missileTimer, nextLaserTimer;
+    private int bossHealth, missileTimer;
+    private float nextLaserTimer;
     private bool bossActive, bossDying, nextLaserVertical, borderAlert;
     private float borderAlertUntil;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private static void CreateGame()
-    {
-        if (instance != null) return;
-        GameObject root = new GameObject("Crocodilo Invaders");
-        DontDestroyOnLoad(root);
-        root.AddComponent<CrocodiloGame>();
-    }
+    private Vector2 playerStart, bossSpawn, bossTarget, cloudStart1, cloudStart2;
+    private readonly Vector2[] enemySpawns = new Vector2[2], enemyTargets = new Vector2[2];
+    private float groundStartX;
 
     private void Awake()
     {
-        if (instance != null && instance != this) { Destroy(gameObject); return; }
-        instance = this;
+        if (sceneView == null)
+        {
+            Debug.LogError("Abra Assets/Scenes/JogoEditavel.unity: CrocodiloGame precisa das referências da cena.", this);
+            enabled = false;
+            return;
+        }
         Application.targetFrameRate = 60;
-        music = gameObject.AddComponent<AudioSource>();
-        music.loop = true;
-        music.volume = 0.65f;
-        effectsAudio = gameObject.AddComponent<AudioSource>();
-        effectsAudio.volume = 0.8f;
+        music = sceneView.musicSource;
+        effectsAudio = sceneView.effectsSource;
+        playerStart = sceneView.player.SpawnPosition;
+        bossSpawn = sceneView.boss.SpawnPosition;
+        bossTarget = sceneView.boss.GamePosition;
+        cloudStart1 = sceneView.clouds[0].GamePosition; cloudStart2 = sceneView.clouds[1].GamePosition;
+        groundStartX = sceneView.ground.GamePosition.x;
+        for (int i = 0; i < enemies.Length; ++i)
+        {
+            enemies[i].View = sceneView.enemies[i];
+            enemySpawns[i] = enemies[i].View.SpawnPosition;
+            enemyTargets[i] = enemies[i].View.GamePosition;
+        }
+        for (int i = 0; i < missiles.Length; ++i) missiles[i].View = sceneView.missiles[i];
+        for (int i = 0; i < lasers.Length; ++i) lasers[i].View = sceneView.lasers[i];
         ResetRun();
-        PlayMusic("menu_music");
+        screen = startInGameplay ? ScreenMode.Playing : ScreenMode.Menu;
+        if (!startInGameplay) PlayMusic("menu_music");
+        SyncVisuals();
     }
 
     private void Update()
     {
         if (screen == ScreenMode.Menu)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow)) { menuChoice = (menuChoice + 2) % 3; PlaySound("selection"); }
-            if (Input.GetKeyDown(KeyCode.DownArrow)) { menuChoice = (menuChoice + 1) % 3; PlaySound("selection"); }
+            if (Input.GetKeyDown(KeyCode.UpArrow)) { MoveMenuSelection(-1); PlaySound("selection"); }
+            if (Input.GetKeyDown(KeyCode.DownArrow)) { MoveMenuSelection(1); PlaySound("selection"); }
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) SelectMenu();
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector2 mouse = MouseGamePosition();
-                if (mouse.x >= 320 && mouse.x <= 775 && mouse.y >= 330 && mouse.y < 665)
-                {
-                    menuChoice = Mathf.Clamp(Mathf.FloorToInt((mouse.y - 330) / 110), 0, 2);
-                    SelectMenu();
-                }
-            }
             return;
         }
 
         if (screen == ScreenMode.About)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) screen = ScreenMode.Menu;
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)) ReturnToMenu();
             return;
         }
 
         if (screen == ScreenMode.GameOver || screen == ScreenMode.Victory)
         {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0)) ReturnToMenu();
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) ReturnToMenu();
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) { ReturnToMenu(); return; }
-        accumulated = Mathf.Min(accumulated + Time.deltaTime, StepSeconds * 5f);
+        if (screen == ScreenMode.Paused)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) ResumeGame();
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) { PauseGame(); return; }
+        movementInput = new Vector2(
+            (Input.GetKey(KeyCode.RightArrow) ? 1 : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1 : 0),
+            (Input.GetKey(KeyCode.DownArrow) ? 1 : 0) - (Input.GetKey(KeyCode.UpArrow) ? 1 : 0));
+        normalFireInput = Input.GetKey(KeyCode.Space);
+        specialFireInput = Input.GetKey(KeyCode.C);
+        AdvanceSimulation(Time.deltaTime);
+    }
+
+    private void AdvanceSimulation(float frameSeconds)
+    {
+        if (screen != ScreenMode.Playing) return;
+        // O limite protege contra pausas longas, sem reduzir a velocidade a 30/60/144 FPS.
+        accumulated += Mathf.Clamp(frameSeconds, 0f, MaxFrameSeconds) * simulationSpeed;
         while (accumulated >= StepSeconds && screen == ScreenMode.Playing)
         {
             Tick();
@@ -139,34 +194,85 @@ public sealed class CrocodiloGame : MonoBehaviour
             if (music != null) music.Stop();
         }
         else if (menuChoice == 1) screen = ScreenMode.About;
-        else Application.Quit(); // Sem efeito no navegador; o menu permanece aberto.
+    }
+
+    public void PlayFromMenu() { menuChoice = 0; SelectMenu(); }
+    public void AboutFromMenu() { menuChoice = 1; SelectMenu(); }
+    public void BackToMenu() { ReturnToMenu(); }
+    public void PauseGame()
+    {
+        if (screen != ScreenMode.Playing) return;
+        screen = ScreenMode.Paused;
+        ClearInput();
+        if (music != null) music.Pause();
+        if (effectsAudio != null) effectsAudio.Pause();
+        SyncVisuals();
+        sceneView.SelectContinueButton();
+    }
+
+    public void ResumeGame()
+    {
+        if (screen != ScreenMode.Paused) return;
+        screen = ScreenMode.Playing;
+        ClearInput();
+        if (music != null) music.UnPause();
+        if (effectsAudio != null) effectsAudio.UnPause();
+        SyncVisuals();
+    }
+
+    private void ClearInput()
+    {
+        movementInput = Vector2.zero;
+        normalFireInput = specialFireInput = false;
+    }
+    private void LateUpdate() { if (sceneView != null) SyncVisuals(); }
+
+    private void MoveMenuSelection(int direction)
+    {
+        menuChoice = (menuChoice + direction + MenuOptionCount) % MenuOptionCount;
     }
 
     private void ReturnToMenu()
     {
         screen = ScreenMode.Menu;
         menuChoice = 0;
+        ClearInput();
+        if (effectsAudio != null) effectsAudio.Stop();
         PlayMusic("menu_music");
+        SyncVisuals();
     }
 
     private void ResetRun()
     {
-        simTime = accumulated = 0f;
-        playerX = 100; playerY = 319; playerHealth = 30;
+        simTime = 0f;
+        accumulated = 0;
+        ClearInput();
+        playerX = playerStart.x; playerY = playerStart.y; playerHealth = sceneView.player.maxHealth;
         charge = kills = points = powerCount = 0;
         normalShot = specialShot = false;
         shotX = specialX = -1000; shotY = specialY = -1000;
         powerX = -300; powerY = 0;
-        groundX1 = 0; groundX2 = 1200;
-        cloudX1 = 400; cloudX2 = 750; cloudY1 = 15; cloudY2 = 55;
-        enemies[0].X = 1400; enemies[0].Y = 350; enemies[0].BulletX = 900; enemies[0].Health = 4;
-        enemies[1].X = 1700; enemies[1].Y = 400; enemies[1].BulletX = 850; enemies[1].Health = 4;
-        bossX = 1700; bossY = 90; bossHealth = 108;
+        groundX1 = groundStartX;
+        cloudX1 = cloudStart1.x; cloudX2 = cloudStart2.x; cloudY1 = cloudStart1.y; cloudY2 = cloudStart2.y;
+        for (int i = 0; i < enemies.Length; ++i)
+        {
+            enemies[i].X = enemySpawns[i].x; enemies[i].Y = enemySpawns[i].y;
+            enemies[i].Bullet = null; enemies[i].Health = enemies[i].View.maxHealth;
+        }
+        foreach (EnemyBullet bullet in enemyBullets) if (bullet.View != null) Destroy(bullet.View.gameObject);
+        enemyBullets.Clear();
+        bossX = bossSpawn.x; bossY = bossSpawn.y; bossHealth = sceneView.boss.maxHealth;
         bossActive = bossDying = nextLaserVertical = false;
-        bossWinDelay = 0; missileTimer = 180; nextLaserTimer = 200;
+        bossWinDelay = 0; missileTimer = Mathf.CeilToInt(missileIntervalSeconds / StepSeconds); nextLaserTimer = firstLaserDelay;
         borderAlert = false; borderAlertUntil = 0;
-        foreach (Laser laser in lasers) { laser.Phase = LaserPhase.Off; laser.Ticks = 0; laser.DamagedPlayer = false; }
+        foreach (Laser laser in lasers)
+        {
+            laser.Phase = LaserPhase.Off;
+            laser.RemainingSeconds = laser.PhaseStarted = 0;
+            laser.DamagedPlayer = false;
+        }
         foreach (Missile missile in missiles) missile.Active = false;
+        foreach (Effect effect in effects) if (effect.View != null) Destroy(effect.View.gameObject);
         effects.Clear();
     }
 
@@ -177,11 +283,16 @@ public sealed class CrocodiloGame : MonoBehaviour
         MovePlayer();
         UpdateShots();
         if (!bossActive) UpdateEnemies();
+        UpdateEnemyBullets();
         UpdatePowerUp();
-        if (kills >= 15 && !bossActive) StartBoss();
+        if (kills >= killsToBoss && !bossActive) StartBoss();
         if (bossActive) UpdateBoss();
         for (int i = effects.Count - 1; i >= 0; --i)
-            if (simTime - effects[i].Started >= effects[i].Duration) effects.RemoveAt(i);
+            if (simTime - effects[i].Started >= effects[i].Duration)
+            {
+                if (effects[i].View != null) Destroy(effects[i].View.gameObject);
+                effects.RemoveAt(i);
+            }
         if (playerHealth <= 0 && screen == ScreenMode.Playing)
         {
             screen = ScreenMode.GameOver;
@@ -192,23 +303,20 @@ public sealed class CrocodiloGame : MonoBehaviour
 
     private void ScrollMap()
     {
-        groundX1 -= 1; groundX2 -= 1;
-        if (groundX1 <= -1200) groundX1 += 2400;
-        if (groundX2 <= -1200) groundX2 += 2400;
-        cloudX1 -= 2; cloudX2 -= 2;
+        groundX1 -= sceneView.ground.moveSpeed * StepSeconds;
+        if (groundX1 <= -Width) groundX1 += Width;
+        cloudX1 -= sceneView.clouds[0].moveSpeed * StepSeconds; cloudX2 -= sceneView.clouds[1].moveSpeed * StepSeconds;
         if (cloudX1 <= -200) { cloudX1 = 2000; cloudY1 = cloudY1 + 45 > 200 ? 33 : cloudY1 + 45; }
         if (cloudX2 <= -200) { cloudX2 = 2000; cloudY2 = cloudY2 + 75 > 300 ? 78 : cloudY2 + 75; }
     }
 
     private void MovePlayer()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) playerY -= 1;
-        if (Input.GetKey(KeyCode.DownArrow)) playerY += 1;
-        if (Input.GetKey(KeyCode.LeftArrow)) playerX -= 1;
-        if (Input.GetKey(KeyCode.RightArrow)) playerX += 1;
-        playerX = Mathf.Clamp(playerX, 1, 649);
-        playerY = Mathf.Clamp(playerY, 4, 449);
-        if (playerX >= 649 && Input.GetKey(KeyCode.RightArrow))
+        playerX += movementInput.x * sceneView.player.moveSpeed * StepSeconds;
+        playerY += movementInput.y * sceneView.player.moveSpeed * StepSeconds;
+        playerX = Mathf.Clamp(playerX, playerMovementLimits.xMin, playerMovementLimits.xMax);
+        playerY = Mathf.Clamp(playerY, playerMovementLimits.yMin, playerMovementLimits.yMax);
+        if (playerX >= playerMovementLimits.xMax && movementInput.x > 0)
         {
             borderAlert = true;
             borderAlertUntil = simTime + 0.9f;
@@ -218,62 +326,74 @@ public sealed class CrocodiloGame : MonoBehaviour
 
     private void UpdateShots()
     {
-        if (Input.GetKey(KeyCode.Space) && !normalShot)
+        if (normalFireInput && !normalShot)
         {
             normalShot = true;
-            shotX = playerX; shotY = playerY + 45;
+            shotX = playerX + normalShotOffset.x; shotY = playerY + normalShotOffset.y;
             charge = Mathf.Min(10, charge + 1);
             PlaySound("mainC_projectile_sound");
         }
-        if (normalShot) { shotX += 5; if (shotX > 1225) normalShot = false; }
-        if (Input.GetKey(KeyCode.C) && !specialShot && charge >= 10)
+        if (normalShot) { shotX += sceneView.normalShot.moveSpeed * StepSeconds; if (shotX > 1225) normalShot = false; }
+        if (specialFireInput && !specialShot && charge >= 10)
         {
             specialShot = true;
-            specialX = playerX; specialY = playerY;
+            specialX = playerX + specialShotOffset.x; specialY = playerY + specialShotOffset.y;
             charge = 0;
             PlaySound("sp_sound");
         }
-        if (specialShot) { specialX += 5; if (specialX > 1320) specialShot = false; }
+        if (specialShot) { specialX += sceneView.specialShot.moveSpeed * StepSeconds; if (specialX > 1320) specialShot = false; }
     }
 
     private void UpdateEnemies()
     {
         Enemy first = enemies[0];
         Enemy second = enemies[1];
-        if (first.X > 899) first.X -= 1;
-        if (first.X <= 899 && first.Y > 225) first.Y -= 1;
-        if (second.X > 850) second.X -= 1;
-        if (first.X <= 899 && first.Y <= 225) MoveEnemyBullet(first, first.Y + 10);
-        if (second.X <= 850) MoveEnemyBullet(second, second.Y + 10);
+        if (first.X > enemyTargets[0].x) first.X = Mathf.Max(enemyTargets[0].x, first.X - first.View.moveSpeed * StepSeconds);
+        if (first.X <= enemyTargets[0].x && first.Y > enemyTargets[0].y) first.Y = Mathf.Max(enemyTargets[0].y, first.Y - first.View.moveSpeed * StepSeconds);
+        if (second.X > enemyTargets[1].x) second.X = Mathf.Max(enemyTargets[1].x, second.X - second.View.moveSpeed * StepSeconds);
+        if (first.X <= enemyTargets[0].x && first.Y <= enemyTargets[0].y) FireEnemyBullet(first);
+        if (second.X <= enemyTargets[1].x) FireEnemyBullet(second);
 
         for (int i = 0; i < enemies.Length; ++i)
         {
             Enemy enemy = enemies[i];
             if (enemy.X >= 1200) continue;
-            Rect hitbox = new Rect(enemy.X + (i == 0 ? 6 : 0), enemy.Y - 37, 65, 58);
-            if (normalShot && Overlaps(new Rect(shotX, shotY, 25, 25), hitbox))
+            Rect hitbox = EnemyRect(enemy);
+            if (normalShot && Overlaps(NormalShotRect(), hitbox))
             {
-                HitEnemy(i, 1, false, shotX, shotY);
+                HitEnemy(i, sceneView.normalShot.damage, false, shotX, shotY);
                 normalShot = false;
             }
-            if (specialShot && Overlaps(new Rect(specialX, specialY, 50, 25), hitbox))
+            if (specialShot && Overlaps(SpecialShotRect(), hitbox))
             {
-                HitEnemy(i, 4, true, specialX, specialY);
+                HitEnemy(i, sceneView.specialShot.damage, true, specialX, specialY);
                 specialShot = false;
             }
         }
     }
 
-    private void MoveEnemyBullet(Enemy enemy, float y)
+    private void FireEnemyBullet(Enemy enemy)
     {
-        enemy.BulletX -= 2;
-        if (enemy.BulletX <= -200) enemy.BulletX = enemy.X;
-        if (Mathf.Abs(enemy.BulletX - 840) < 0.1f) PlaySound("enemy_projectile_sound");
-        if (Overlaps(new Rect(enemy.BulletX, y, 25, 25), PlayerRect()))
+        if (enemy.Bullet != null && enemy.Bullet.Active) return;
+        enemy.Bullet = new EnemyBullet { X = enemy.X, Y = enemy.Y + 10, View = sceneView.CreateBullet() };
+        enemyBullets.Add(enemy.Bullet);
+        PlaySound("enemy_projectile_sound");
+    }
+
+    private void UpdateEnemyBullets()
+    {
+        for (int i = enemyBullets.Count - 1; i >= 0; --i)
         {
-            playerHealth -= 1;
-            enemy.BulletX = -200;
-            PlaySound("mainC_dmg");
+            EnemyBullet bullet = enemyBullets[i];
+            bullet.X -= bullet.View.moveSpeed * StepSeconds;
+            if (Overlaps(bullet.View.CollisionRectAt(bullet.X, bullet.Y), PlayerRect()))
+            {
+                playerHealth -= bullet.View.damage;
+                bullet.Active = false;
+                PlaySound("mainC_dmg");
+            }
+            if (bullet.X + 25 < 0) bullet.Active = false;
+            if (!bullet.Active) { Destroy(bullet.View.gameObject); enemyBullets.RemoveAt(i); }
         }
     }
 
@@ -290,10 +410,11 @@ public sealed class CrocodiloGame : MonoBehaviour
         SpawnEffect("coin", playerX + 60, playerY - 20, 1.65f);
         kills++;
         powerCount += special && index == 0 ? 2 : 1;
-        enemy.Health = 4;
-        enemy.X = 1400;
-        enemy.Y = index == 0 ? UnityEngine.Random.Range(300, 501) : UnityEngine.Random.Range(250, 501);
-        enemy.BulletX = enemy.X;
+        enemy.Health = enemy.View.maxHealth;
+        enemy.X = enemySpawns[index].x;
+        enemy.Y = UnityEngine.Random.Range(enemy.View.respawnY.x, enemy.View.respawnY.y);
+        // O novo inimigo pode atirar; a bala anterior continua na lista independente.
+        enemy.Bullet = null;
         if (powerCount >= 13 && powerX < -200)
         {
             powerX = 1300;
@@ -304,10 +425,10 @@ public sealed class CrocodiloGame : MonoBehaviour
     private void UpdatePowerUp()
     {
         if (powerX < -200) return;
-        powerX -= 1;
-        if (Overlaps(PlayerRect(), new Rect(powerX, powerY, 62, 69)))
+        powerX -= sceneView.powerUp.moveSpeed * StepSeconds;
+        if (Overlaps(PlayerRect(), sceneView.powerUp.CollisionRectAt(powerX, powerY)))
         {
-            playerHealth = Mathf.Min(30, playerHealth + 6);
+            playerHealth = Mathf.Min(sceneView.player.maxHealth, playerHealth + powerUpHealing);
             powerCount = 0;
             powerX = -300;
             SpawnEffect("hp_up", playerX + 40, playerY - 30, 1.1f);
@@ -338,45 +459,49 @@ public sealed class CrocodiloGame : MonoBehaviour
             return;
         }
 
-        if (bossX > 750) { bossX -= 1; return; }
-        Rect body = new Rect(bossX + 150, bossY + 80, 230, 250);
-        Rect wing1 = new Rect(bossX + 45, bossY + 160, 50, 50);
-        Rect wing2 = new Rect(bossX + 150, bossY + 160, 50, 50);
-        if (normalShot && HitsBoss(new Rect(shotX, shotY, 25, 25), body, wing1, wing2))
+        if (Mathf.Abs(bossX - bossTarget.x) > 0.001f || Mathf.Abs(bossY - bossTarget.y) > 0.001f)
+        {
+            bossX = Mathf.MoveTowards(bossX, bossTarget.x, sceneView.boss.moveSpeed * StepSeconds);
+            bossY = Mathf.MoveTowards(bossY, bossTarget.y, sceneView.boss.moveSpeed * StepSeconds);
+            return;
+        }
+        if (normalShot && HitsBoss(NormalShotRect()))
         {
             normalShot = false;
-            DamageBoss(1, shotX, shotY, false);
+            DamageBoss(sceneView.normalShot.damage, shotX, shotY, false);
         }
-        if (specialShot && !bossDying && HitsBoss(new Rect(specialX, specialY, 50, 25), body, wing1, wing2))
+        if (specialShot && !bossDying && HitsBoss(SpecialShotRect()))
         {
             specialShot = false;
-            DamageBoss(5, specialX, specialY, true);
+            DamageBoss(Mathf.CeilToInt(sceneView.specialShot.damage * specialBossDamageMultiplier), specialX, specialY, true);
         }
         if (bossDying) return;
 
         bool allLasersOff = true;
         foreach (Laser laser in lasers) if (laser.Phase != LaserPhase.Off) allLasersOff = false;
-        if (allLasersOff && --nextLaserTimer <= 0)
+        if (allLasersOff) nextLaserTimer -= StepSeconds;
+        if (allLasersOff && nextLaserTimer <= 0)
         {
             for (int i = 0; i < 2; ++i)
             {
                 Laser laser = lasers[nextLaserVertical ? i + 2 : i];
                 laser.Vertical = nextLaserVertical;
-                laser.Position = nextLaserVertical
-                    ? UnityEngine.Random.Range(i == 0 ? 75 : 400, i == 0 ? 501 : 551)
-                    : UnityEngine.Random.Range(i == 0 ? 80 : 350, i == 0 ? 301 : 601);
-                laser.Ticks = 110;
+                Vector2 range = nextLaserVertical ? (i == 0 ? firstVerticalLaserRange : secondVerticalLaserRange)
+                    : (i == 0 ? firstHorizontalLaserRange : secondHorizontalLaserRange);
+                laser.Position = UnityEngine.Random.Range(range.x, range.y);
+                laser.RemainingSeconds = laserWarningSeconds;
+                laser.PhaseStarted = simTime;
                 laser.Phase = LaserPhase.Warning;
                 laser.DamagedPlayer = false;
             }
             nextLaserVertical = !nextLaserVertical;
-            nextLaserTimer = nextLaserVertical ? 1500 : 2000;
+            nextLaserTimer = nextLaserVertical ? horizontalLaserCooldown : verticalLaserCooldown;
         }
         foreach (Laser laser in lasers) UpdateLaser(laser);
 
         if (--missileTimer <= 0)
         {
-            missileTimer = 180;
+            missileTimer = Mathf.CeilToInt(missileIntervalSeconds / StepSeconds);
             foreach (Missile missile in missiles)
             {
                 if (missile.Active) continue;
@@ -390,10 +515,10 @@ public sealed class CrocodiloGame : MonoBehaviour
         foreach (Missile missile in missiles)
         {
             if (!missile.Active) continue;
-            missile.X -= 3;
-            if (Overlaps(new Rect(missile.X, missile.Y, 30, 15), PlayerRect()))
+            missile.X -= missile.View.moveSpeed * StepSeconds;
+            if (Overlaps(missile.View.CollisionRectAt(missile.X, missile.Y), PlayerRect()))
             {
-                playerHealth -= 1;
+                playerHealth -= missile.View.damage;
                 missile.Active = false;
                 PlaySound("mainC_dmg");
             }
@@ -404,24 +529,34 @@ public sealed class CrocodiloGame : MonoBehaviour
     private void UpdateLaser(Laser laser)
     {
         if (laser.Phase == LaserPhase.Off) return;
-        if (--laser.Ticks <= 0)
+        laser.RemainingSeconds -= StepSeconds;
+        if (laser.RemainingSeconds <= 0)
         {
             if (laser.Phase == LaserPhase.Warning)
             {
                 laser.Phase = LaserPhase.Firing;
-                laser.Ticks = 150;
+                laser.RemainingSeconds = laserFiringSeconds;
+                laser.PhaseStarted = simTime;
                 PlaySound("laser_beam_sound");
             }
             else laser.Phase = LaserPhase.Off;
         }
         if (laser.Phase != LaserPhase.Firing || laser.DamagedPlayer) return;
-        Rect beam = laser.Vertical ? new Rect(laser.Position, 0, 30, 720) : new Rect(0, laser.Position, 1200, 30);
+        Rect beam = LaserRect(laser, sceneView.VisibleRect, laser.View.damageThickness);
         if (Overlaps(PlayerRect(), beam))
         {
-            playerHealth -= 5;
+            playerHealth -= laserDamage;
             laser.DamagedPlayer = true; // um disparo causa dano uma vez por faixa
             PlaySound("mainC_dmg");
         }
+    }
+
+    private static Rect LaserRect(Laser laser, Rect visible, float thickness)
+    {
+        float center = laser.Position + laser.View.damageThickness / 2f;
+        return laser.Vertical
+            ? new Rect(center - thickness / 2f, visible.yMin, thickness, visible.height)
+            : new Rect(visible.xMin, center - thickness / 2f, visible.width, thickness);
     }
 
     private void DamageBoss(int damage, float x, float y, bool special)
@@ -432,7 +567,7 @@ public sealed class CrocodiloGame : MonoBehaviour
         if (bossHealth > 0) return;
         bossHealth = 0;
         bossDying = true;
-        bossWinDelay = 700f * StepSeconds;
+        bossWinDelay = bossVictoryDelay;
         points += 40000;
         SpawnEffect("coin", playerX + 60, playerY - 20, 1.65f);
         kills += 10;
@@ -442,24 +577,33 @@ public sealed class CrocodiloGame : MonoBehaviour
         foreach (Missile missile in missiles) missile.Active = false;
     }
 
-    private static bool HitsBoss(Rect projectile, Rect body, Rect wing1, Rect wing2)
+    private bool HitsBoss(Rect projectile)
     {
-        return Overlaps(projectile, body) || Overlaps(projectile, wing1) || Overlaps(projectile, wing2);
+        if (Overlaps(projectile, sceneView.boss.CollisionRectAt(bossX, bossY))) return true;
+        foreach (BoxCollider2D wing in sceneView.bossWingHitboxes)
+            if (Overlaps(projectile, CrocodiloVisual.ColliderRectAt(wing, sceneView.boss.transform, bossX, bossY))) return true;
+        return false;
     }
 
-    private Rect PlayerRect() { return new Rect(playerX, playerY, 100, 83); }
+    private Rect PlayerRect() { return sceneView.player.CollisionRectAt(playerX, playerY); }
+    private Rect NormalShotRect() { return sceneView.normalShot.CollisionRectAt(shotX, shotY); }
+    private Rect SpecialShotRect() { return sceneView.specialShot.CollisionRectAt(specialX, specialY); }
+    private static Rect EnemyRect(Enemy enemy)
+    {
+        return enemy.View.CollisionRectAt(enemy.X, enemy.Y);
+    }
     private static bool Overlaps(Rect a, Rect b) { return a.Overlaps(b); }
 
     private void SpawnEffect(string animation, float x, float y, float duration)
     {
-        effects.Add(new Effect { Animation = animation, X = x, Y = y, Started = simTime, Duration = duration });
+        effects.Add(new Effect { Animation = animation, X = x, Y = y, Started = simTime, Duration = duration, View = sceneView.CreateEffect(animation) });
     }
 
     private void PlaySound(string name)
     {
         if (!sounds.TryGetValue(name, out AudioClip clip))
         {
-            clip = Resources.Load<AudioClip>("Audio/" + name);
+            clip = sceneView.SoundClip(name);
             sounds[name] = clip;
         }
         if (clip != null && effectsAudio != null) effectsAudio.PlayOneShot(clip);
@@ -471,201 +615,66 @@ public sealed class CrocodiloGame : MonoBehaviour
         music.Stop();
         if (!sounds.TryGetValue(name, out AudioClip clip))
         {
-            clip = Resources.Load<AudioClip>("Audio/" + name);
+            clip = sceneView.SoundClip(name);
             sounds[name] = clip;
         }
         music.clip = clip;
         if (clip != null) music.Play();
     }
 
-    private Texture2D Image(string name)
+    private void SyncVisuals()
     {
-        if (!images.TryGetValue(name, out Texture2D texture))
+        sceneView.FitCamera();
+        sceneView.ShowScreen((int)screen, bossActive);
+        if (screen == ScreenMode.Menu) sceneView.HighlightMenu(menuChoice);
+        sceneView.ScrollGround(groundX1);
+        sceneView.sun.Show(true, simTime);
+        sceneView.clouds[0].GamePosition = new Vector2(cloudX1, cloudY1);
+        sceneView.clouds[1].GamePosition = new Vector2(cloudX2, cloudY2);
+        sceneView.player.GamePosition = new Vector2(playerX, playerY);
+        sceneView.player.Show(true, simTime);
+        sceneView.normalShot.GamePosition = new Vector2(shotX, shotY);
+        sceneView.normalShot.Show(normalShot, simTime);
+        sceneView.specialShot.GamePosition = new Vector2(specialX, specialY);
+        sceneView.specialShot.Show(specialShot, simTime);
+        foreach (Enemy enemy in enemies)
         {
-            texture = Resources.Load<Texture2D>("Art/" + name);
-            images[name] = texture;
+            enemy.View.GamePosition = new Vector2(enemy.X, enemy.Y);
+            enemy.View.Show(!bossActive, simTime);
         }
-        return texture;
-    }
-
-    private Texture2D AnimationFrame(string name, float elapsed)
-    {
-        if (!animations.TryGetValue(name, out Texture2D[] frames))
+        sceneView.boss.GamePosition = new Vector2(bossX, bossY);
+        sceneView.boss.Show(bossActive, simTime);
+        foreach (EnemyBullet bullet in enemyBullets)
         {
-            frames = Resources.LoadAll<Texture2D>("Art/Anim/" + name);
-            Array.Sort(frames, (a, b) => string.CompareOrdinal(a.name, b.name));
-            animations[name] = frames;
-        }
-        if (frames.Length == 0) return null;
-        float frameLength = AnimationFrameSeconds(name);
-        int index = Mathf.FloorToInt(Mathf.Max(0f, elapsed) / frameLength) % frames.Length;
-        return frames[index];
-    }
-
-    private static float AnimationFrameSeconds(string name)
-    {
-        switch (name)
-        {
-            case "alert": return 0.09f;
-            case "boss_death_effect": return 0.15f;
-            case "boss_missile": return 0.12f;
-            case "coin": case "hit_effect": return 0.04f;
-            case "enemy1": return 0.14f;
-            case "enemy_death": case "laser_beam": case "laser_beam_vertical": return 0.05f;
-            case "health_box": case "hp_up": case "newboss": case "sun": return 0.08f;
-            case "sp_hit_effect": return 0.16f;
-            case "Sprojectile_effect": return 0.01f;
-            default: return 0.1f;
-        }
-    }
-
-    private void Draw(Texture2D texture, float x, float y, float width = -1, float height = -1)
-    {
-        if (texture == null) return;
-        GUI.DrawTexture(new Rect(x, y, width > 0 ? width : texture.width, height > 0 ? height : texture.height), texture, ScaleMode.StretchToFill, true);
-    }
-    private void DrawImage(string name, float x, float y, float width = -1, float height = -1) { Draw(Image(name), x, y, width, height); }
-    private void DrawAnimation(string name, float x, float y, float elapsed, float width = -1, float height = -1)
-    {
-        Draw(AnimationFrame(name, elapsed), x, y, width, height);
-    }
-
-    private void OnGUI()
-    {
-        float scale = Mathf.Min(Screen.width / Width, Screen.height / Height);
-        float offsetX = (Screen.width - Width * scale) / 2f;
-        float offsetY = (Screen.height - Height * scale) / 2f;
-        Matrix4x4 previous = GUI.matrix;
-        GUI.matrix = Matrix4x4.TRS(new Vector3(offsetX, offsetY, 0), Quaternion.identity, new Vector3(scale, scale, 1));
-        EnsureStyles();
-        switch (screen)
-        {
-            case ScreenMode.Menu: DrawMenu(); break;
-            case ScreenMode.About: DrawImage("sobre", 0, 0, Width, Height); break;
-            case ScreenMode.Playing: DrawGame(); break;
-            case ScreenMode.GameOver: DrawGame(); DrawGameOver(); break;
-            case ScreenMode.Victory: DrawVictory(); break;
-        }
-        GUI.matrix = previous;
-    }
-
-    private void EnsureStyles()
-    {
-        if (darkText != null) return;
-        darkText = new GUIStyle(GUI.skin.label) { fontSize = 16, fontStyle = FontStyle.Bold, normal = { textColor = Color.black } };
-        lightText = new GUIStyle(GUI.skin.label) { fontSize = 14, normal = { textColor = Color.white } };
-        largeText = new GUIStyle(GUI.skin.label) { fontSize = 42, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter, normal = { textColor = Color.white } };
-        scoreText = new GUIStyle(GUI.skin.label) { fontSize = 30, fontStyle = FontStyle.Bold, normal = { textColor = Color.white } };
-    }
-
-    private void DrawMenu()
-    {
-        DrawImage("mainMenu", 0, 0, Width, Height);
-        DrawImage("seta", 780, menuChoice == 0 ? 347 : menuChoice == 1 ? 457 : 570);
-        GUI.Label(new Rect(20, 652, 600, 20), "Setas direcionais para se mover", lightText);
-        GUI.Label(new Rect(20, 668, 600, 20), "Pressione ESPAÇO para atacar", lightText);
-        GUI.Label(new Rect(20, 684, 600, 20), "Pressione C para ataque especial", lightText);
-        GUI.Label(new Rect(20, 700, 650, 20), "Pegue os power-ups para recuperar vida", lightText);
-    }
-
-    private void DrawGame()
-    {
-        DrawImage("background", 0, 0);
-        DrawImage("ground", groundX1, 530);
-        DrawImage("ground", groundX2, 530);
-        DrawAnimation("sun", 510, 70, simTime);
-        DrawImage("cloud", cloudX1, cloudY1);
-        DrawImage("cloud", cloudX2, cloudY2);
-
-        DrawImage("character", playerX, playerY);
-        if (normalShot) DrawImage("projectile", shotX, shotY);
-        if (specialShot) DrawAnimation("Sprojectile_effect", specialX, specialY, simTime);
-        if (!bossActive)
-        {
-            foreach (Enemy enemy in enemies)
-            {
-                DrawAnimation("enemy1", enemy.X, enemy.Y, simTime);
-                if (enemy.X <= 899 && enemy.BulletX > -100 && enemy.BulletX < 1200)
-                    DrawImage("enemy_projectile", enemy.BulletX, enemy.Y + 10);
-            }
-        }
-        else
-        {
-            DrawAnimation("newboss", bossX, bossY, simTime);
-            DrawBossAttacks();
-        }
-        if (powerX >= -200) DrawAnimation("health_box", powerX, powerY, simTime);
-        foreach (Effect effect in effects)
-        {
-            float elapsed = simTime - effect.Started;
-            DrawAnimation(effect.Animation, effect.X, effect.Animation == "coin" ? effect.Y - elapsed * 60f : effect.Y, elapsed);
-        }
-        if (borderAlert) DrawAnimation("alert", playerX + 70, playerY - 40, simTime);
-        DrawHud();
-    }
-
-    private void DrawBossAttacks()
-    {
-        foreach (Laser laser in lasers)
-        {
-            if (laser.Phase == LaserPhase.Warning)
-                DrawImage(laser.Vertical ? "laser_trace_vertical" : "laser_trace", laser.Vertical ? laser.Position : 0, laser.Vertical ? 0 : laser.Position);
-            else if (laser.Phase == LaserPhase.Firing)
-                DrawAnimation(laser.Vertical ? "laser_beam_vertical" : "laser_beam", laser.Vertical ? laser.Position - 150 : 0,
-                    laser.Vertical ? -150 : laser.Position - 125, simTime);
+            bullet.View.GamePosition = new Vector2(bullet.X, bullet.Y);
+            bullet.View.Show(true, simTime);
         }
         foreach (Missile missile in missiles)
-            if (missile.Active) DrawAnimation("boss_missile", missile.X, missile.Y, simTime);
+        {
+            missile.View.GamePosition = new Vector2(missile.X, missile.Y);
+            missile.View.Show(bossActive && missile.Active, simTime);
+        }
+        foreach (Laser laser in lasers)
+            laser.View.Show(bossActive ? (int)laser.Phase : 0, laser.Position, sceneView.VisibleRect, simTime - laser.PhaseStarted);
+        sceneView.powerUp.GamePosition = new Vector2(powerX, powerY);
+        sceneView.powerUp.Show(powerX >= -200, simTime);
+        sceneView.borderAlert.GamePosition = new Vector2(playerX + 70, playerY - 40);
+        sceneView.borderAlert.Show(borderAlert, simTime);
+        foreach (Effect effect in effects)
+        {
+            if (effect.View == null) continue;
+            float elapsed = simTime - effect.Started;
+            effect.View.GamePosition = new Vector2(effect.X, effect.Animation == "coin" ? effect.Y - elapsed * 60f : effect.Y);
+            effect.View.Show(true, elapsed);
+        }
+        sceneView.UpdateHud(playerHealth, sceneView.player.maxHealth, charge, points, kills, bossHealth, sceneView.boss.maxHealth);
     }
 
-    private void DrawHud()
+    private static Rect VisibleGameRect(int screenWidth, int screenHeight)
     {
-        DrawImage("portrait", 20, 600);
-        string healthImage = "hp_bar";
-        if (playerHealth <= 0) healthImage = "hp-8";
-        else if (playerHealth <= 5) healthImage = "hp-7";
-        else if (playerHealth <= 12) healthImage = "hp-6";
-        else if (playerHealth <= 15) healthImage = "hp-5";
-        else if (playerHealth <= 18) healthImage = "hp-4";
-        else if (playerHealth <= 21) healthImage = "hp-3";
-        else if (playerHealth <= 24) healthImage = "hp-2";
-        else if (playerHealth <= 27) healthImage = "hp-1";
-        DrawImage(healthImage, 140, 650);
-        DrawImage(charge >= 10 ? "special" : charge >= 6 ? "special-1" : charge >= 4 ? "special-2" : charge >= 2 ? "special-3" : "special-4", 140, 680);
-        GUI.Label(new Rect(165, 626, 230, 24), "B. Crocodilo", darkText);
-        GUI.Label(new Rect(450, 655, 270, 25), "Pontos: " + points, darkText);
-        GUI.Label(new Rect(450, 682, 270, 25), "Inimigos: " + kills, darkText);
-        if (!bossActive) return;
-        DrawImage("b_portrait", 1070, 600);
-        int barIndex = Mathf.Clamp(12 - Mathf.CeilToInt(bossHealth / 9f), 0, 12);
-        DrawImage(barIndex == 0 ? "hp_boss" : "hp_boss" + barIndex, 745, 650);
-        GUI.Label(new Rect(967, 625, 200, 25), "Executor V-9", darkText);
-    }
-
-    private void DrawGameOver()
-    {
-        Color previous = GUI.color;
-        GUI.color = new Color(0, 0, 0, 0.75f);
-        Draw(Texture2D.whiteTexture, 260, 190, 680, 300);
-        GUI.color = previous;
-        GUI.Label(new Rect(260, 220, 680, 80), "FIM DE JOGO", largeText);
-        GUI.Label(new Rect(440, 320, 450, 25), "Pontos: " + points + "    Inimigos: " + kills, lightText);
-        GUI.Label(new Rect(405, 400, 500, 25), "ENTER ou clique para voltar ao menu", lightText);
-    }
-
-    private void DrawVictory()
-    {
-        DrawImage("win_menu", 0, 0, Width, Height);
-        GUI.Label(new Rect(620, 275, 160, 44), points.ToString(), scoreText);
-        GUI.Label(new Rect(735, 344, 60, 44), kills.ToString(), scoreText);
-        GUI.Label(new Rect(668, 532, 110, 60), "SS", largeText);
-        GUI.Label(new Rect(850, 692, 330, 24), "ENTER ou clique para voltar ao menu", lightText);
-    }
-
-    private static Vector2 MouseGamePosition()
-    {
-        float scale = Mathf.Min(Screen.width / Width, Screen.height / Height);
-        return new Vector2((Input.mousePosition.x - (Screen.width - Width * scale) / 2f) / scale,
-            (Screen.height - Input.mousePosition.y - (Screen.height - Height * scale) / 2f) / scale);
+        float scale = Mathf.Min(Mathf.Max(1, screenWidth) / Width, Mathf.Max(1, screenHeight) / Height);
+        float visibleWidth = Mathf.Max(1, screenWidth) / scale;
+        float visibleHeight = Mathf.Max(1, screenHeight) / scale;
+        return new Rect((Width - visibleWidth) / 2f, (Height - visibleHeight) / 2f, visibleWidth, visibleHeight);
     }
 }

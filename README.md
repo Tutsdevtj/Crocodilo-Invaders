@@ -1,5 +1,7 @@
 # Crocodilo Invaders 🐊
 
+**[Jogar no navegador — Unity WebGL](https://crocodilo-invaders.netlify.app/)**
+
 ![Gameplay Screenshot](croc_example1.png)
 
 ![Gameplay Screenshot](croc_example2.png)
@@ -42,7 +44,7 @@ Melhoria dos sistemas existentes e otimização de código
 
 Novos tipos de inimigos e chefes
 
-Publicação da versão Unity/WebGL e possíveis outras plataformas.
+Possíveis versões para outras plataformas.
 
 Diferentes fases
 
@@ -53,6 +55,7 @@ Diferentes fases
 - **Setas direcionais** — Movimentam o personagem
 - **Barra de espaço** — Dispara o projétil básico
 - **Tecla C** — Dispara o ataque especial (quando a barra estiver cheia)
+- **Esc (Unity/WebGL)** — Pausa/continua a partida; a pausa inclui “Voltar ao menu”
 - **Power-Ups** — Pegue encostando neles para ganhar buffs especiais (vida, ataque especial ou velocidade de ataque)
 
 ---

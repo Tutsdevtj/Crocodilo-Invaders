@@ -3,13 +3,11 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-// A Unity cria a cena versionada na primeira importação e inclui-a no build.
-// Assim o projeto pode ser aberto direto pelo Hub, sem passos manuais de configuração.
+// A cena editável acompanha o projeto; o setup apenas configura o build.
 public static class CrocodiloProjectSetup
 {
-    private const string ScenePath = "Assets/Scenes/Jogo.unity";
+    private const string ScenePath = CrocodiloSceneBuilder.ScenePath;
 
     [InitializeOnLoadMethod]
     private static void ScheduleSetup()
@@ -27,21 +25,6 @@ public static class CrocodiloProjectSetup
         PlayerSettings.WebGL.template = "PROJECT:Crocodilo";
         PlayerSettings.WebGL.decompressionFallback = true;
 
-        if (!File.Exists(ScenePath))
-        {
-            Directory.CreateDirectory("Assets/Scenes");
-            Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
-            GameObject cameraObject = new GameObject("Camera");
-            Camera camera = cameraObject.AddComponent<Camera>();
-            camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = Color.black;
-            cameraObject.AddComponent<AudioListener>();
-            cameraObject.transform.position = new Vector3(0, 0, -10);
-            EditorSceneManager.SaveScene(scene, ScenePath);
-            EditorSceneManager.CloseScene(scene, true);
-            AssetDatabase.Refresh();
-        }
-
         EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
     }
 
@@ -49,6 +32,7 @@ public static class CrocodiloProjectSetup
     public static void PrepareScene()
     {
         EnsureSceneAndSettings();
+        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         EditorSceneManager.OpenScene(ScenePath);
     }
 
@@ -56,6 +40,11 @@ public static class CrocodiloProjectSetup
     public static void BuildWebGL()
     {
         EnsureSceneAndSettings();
+        if (!File.Exists(ScenePath))
+        {
+            Debug.LogError("Cena editável ausente. Use Crocodilo > Criar ou abrir cena editável.");
+            return;
+        }
         if (!EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.WebGL, BuildTarget.WebGL))
         {
             Debug.LogError("Instale o módulo WebGL Build Support no Unity Hub.");
