@@ -1,0 +1,14 @@
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Logs/
+/UserSettings/
+/.vs/
+/UIElementsSchema/
+/Tools/SceneBackups/
+/*.csproj
+/*.sln
+/*.slnx
+*.unitypackage
