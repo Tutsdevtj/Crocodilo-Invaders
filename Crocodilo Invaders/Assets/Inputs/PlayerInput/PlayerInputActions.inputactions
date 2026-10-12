@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "name": "PlayerInputActions",
+  "maps": [
+    {
+      "name": "Gameplay",
+      "id": "33e16cef-38f6-4b8b-86bc-585aba8fabb7",
+      "actions": [
+        {
+          "name": "New action",
+          "type": "Value",
+          "id": "3b205566-86f9-4395-928d-eeea58fc3f73",
+          "expectedControlType": "Vector2",
+          "processors": "",
+          "interactions": "",
+          "initialStateCheck": true,
+          "priority": 0
+        },
+        {
+          "name": "Fire",
+          "type": "Button",
+          "id": "920530eb-45df-4766-b3fa-b049f4d3d4d1",
+          "expectedControlType": "Button",
+          "processors": "",
+          "interactions": "",
+          "initialStateCheck": false,
+          "priority": 0
+        },
+        {
+          "name": "Special",
+          "type": "Button",
+          "id": "8b934a33-9e32-4f99-81bf-8b0895224993",
+          "expectedControlType": "Button",
+          "processors": "",
+          "interactions": "",
+          "initialStateCheck": false,
+          "priority": 0
+        }
+      ],
+      "bindings": [
+        {
+          "name": "2D Vector",
+          "id": "e12c7592-79f2-4fda-9758-be459f24701e",
+          "path": "2DVector(mode=1)",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "New action",
+          "isComposite": true,
+          "isPartOfComposite": false
+        },
+        {
+          "name": "up",
+          "id": "550b5291-acee-4183-88a6-bf951710027c",
+          "path": "<Keyboard>/upArrow",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "New action",
+          "isComposite": false,
+          "isPartOfComposite": true
+        },
+        {
+          "name": "down",
+          "id": "29b93731-0277-4109-a721-0373d5d659d9",
+          "path": "<Keyboard>/downArrow",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "New action",
+          "isComposite": false,
+          "isPartOfComposite": true
+        },
+        {
+          "name": "left",
+          "id": "0b3c6414-f620-44ad-b547-a29fc35cc344",
+          "path": "<Keyboard>/leftArrow",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "New action",
+          "isComposite": false,
+          "isPartOfComposite": true
+        },
+        {
+          "name": "right",
+          "id": "81a25bd0-f50d-4c25-9b3e-9266e45c3047",
+          "path": "<Keyboard>/rightArrow",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "New action",
+          "isComposite": false,
+          "isPartOfComposite": true
+        },
+        {
+          "name": "",
+          "id": "b620f81d-641e-4ab8-b582-c9f7f70a81ad",
+          "path": "<Keyboard>/space",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "Fire",
+          "isComposite": false,
+          "isPartOfComposite": false
+        },
+        {
+          "name": "",
+          "id": "8c2c0042-91b8-40dc-86d5-85330a36f091",
+          "path": "<Keyboard>/c",
+          "interactions": "",
+          "processors": "",
+          "groups": "",
+          "action": "Special",
+          "isComposite": false,
+          "isPartOfComposite": false
+        }
+      ]
+    }
+  ],
+  "controlSchemes": []
+}
