@@ -60,6 +60,8 @@ public static class CrocodiloWindowsBuild
         string[] scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path).ToArray();
         if (scenes.Length < 2 || scenes[0] != Menu || scenes[1] != Gameplay)
             throw new BuildFailedException("Build must start with MainMenu followed by PlayerMovementTest.");
+        foreach (string path in new[] { "Assets/Prefabs/UI/Leaderboard.prefab", "Assets/Prefabs/UI/PlayerName.prefab" })
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null) throw new BuildFailedException("Leaderboard UI is missing: " + path);
         var catalog = AssetDatabase.LoadAssetAtPath<UpgradeCardCatalog>("Assets/Data/UpgradeCards.asset");
         if (catalog == null || !catalog.IsValid) throw new BuildFailedException("Upgrade card catalog must contain all 25 cards.");
         int[] counts = new int[5];

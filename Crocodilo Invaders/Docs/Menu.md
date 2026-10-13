@@ -3,17 +3,18 @@
 Abra `Assets/Scenes/MainMenu.unity` e entre em Play Mode. A cena usa o prefab
 `Assets/Prefabs/UI/MainMenu.prefab`: fundo, logo, três nuvens e os cinco botões
 ficam visíveis e editáveis na Hierarchy, sem construção de UI em runtime.
+O botão de troféu no canto inferior direito abre o [leaderboard local](Leaderboard.md).
 
 ## Ações e navegação
 
 - Mouse: passar sobre um botão transfere a seleção; clicar confirma.
 - Teclado: setas para cima/baixo navegam; Enter confirma. A navegação dá a volta
   entre Jogar e Sair. O Input System UI também oferece os controles padrão de gamepad.
-- Jogar abre `PlayerMovementTest` e solicita `WaveController.StartRun()` após
+- Jogar solicita o nome do jogador. Enter ou Iniciar abre `PlayerMovementTest` e solicita `WaveController.StartRun()` após
   carregar a cena. O anúncio da primeira onda aparece sem outro clique em Iniciar.
 - Abrir a cena de gameplay diretamente ainda conserva o botão provisório Iniciar.
 - Sair fecha o aplicativo em builds desktop; no Editor, encerra somente o Play Mode.
-- Online, Sobre e Opções têm seleção e animação, mas ainda não executam ações.
+- Opções abre os ajustes de áudio. Online e Sobre conservam a apresentação provisória.
 
 ## Responsabilidades
 

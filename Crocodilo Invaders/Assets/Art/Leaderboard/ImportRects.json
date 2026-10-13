@@ -1,0 +1,147 @@
+{
+  "items": [
+    {
+      "name": "Back",
+      "width": 2048,
+      "height": 768,
+      "bbox": [
+        329,
+        148,
+        1721,
+        627
+      ]
+    },
+    {
+      "name": "Divider",
+      "width": 2172,
+      "height": 724,
+      "bbox": [
+        125,
+        267,
+        2046,
+        464
+      ]
+    },
+    {
+      "name": "Header",
+      "width": 1430,
+      "height": 1100,
+      "bbox": [
+        56,
+        486,
+        1375,
+        610
+      ]
+    },
+    {
+      "name": "Mascot",
+      "width": 1402,
+      "height": 1122,
+      "bbox": [
+        68,
+        9,
+        1314,
+        1108
+      ]
+    },
+    {
+      "name": "MenuButton",
+      "width": 1362,
+      "height": 1155,
+      "bbox": [
+        172,
+        75,
+        1191,
+        1103
+      ]
+    },
+    {
+      "name": "Next",
+      "width": 2014,
+      "height": 781,
+      "bbox": [
+        160,
+        114,
+        1855,
+        661
+      ]
+    },
+    {
+      "name": "Panel",
+      "width": 1122,
+      "height": 1402,
+      "bbox": [
+        50,
+        52,
+        1072,
+        1347
+      ]
+    },
+    {
+      "name": "Player",
+      "width": 2172,
+      "height": 724,
+      "bbox": [
+        161,
+        211,
+        2008,
+        521
+      ]
+    },
+    {
+      "name": "Points",
+      "width": 2172,
+      "height": 724,
+      "bbox": [
+        251,
+        209,
+        1924,
+        530
+      ]
+    },
+    {
+      "name": "Position",
+      "width": 1774,
+      "height": 887,
+      "bbox": [
+        299,
+        247,
+        1476,
+        656
+      ]
+    },
+    {
+      "name": "Separator",
+      "width": 1774,
+      "height": 887,
+      "bbox": [
+        97,
+        433,
+        1677,
+        451
+      ]
+    },
+    {
+      "name": "Title",
+      "width": 2172,
+      "height": 724,
+      "bbox": [
+        92,
+        250,
+        2080,
+        481
+      ]
+    },
+    {
+      "name": "Start",
+      "width": 2172,
+      "height": 724,
+      "bbox": [
+        179,
+        92,
+        1993,
+        623
+      ]
+    }
+  ]
+}

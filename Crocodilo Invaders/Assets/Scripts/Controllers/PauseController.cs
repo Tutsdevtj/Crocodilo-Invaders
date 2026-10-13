@@ -67,6 +67,8 @@ public sealed class PauseController : MonoBehaviour
         int index = SceneUtility.GetBuildIndexByScenePath(menuScene);
         if (index < 0) { Debug.LogError("Inclua MainMenu nas cenas do build.", this); return; }
         leaving = true;
+        LeaderboardSession.SaveCompletedRun();
+        LeaderboardSession.Cancel();
         MenuReturnRequested?.Invoke();
         view.HideForSceneChange();
         StartCoroutine(LoadMenu(index));

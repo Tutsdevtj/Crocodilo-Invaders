@@ -2,12 +2,14 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public sealed class WavesUI : MonoBehaviour
 {
     [SerializeField] private WaveController waves;
     [SerializeField] private GameObject startPanel;
     [SerializeField] private Button startButton;
+    [SerializeField] private Button returnButton;
     [SerializeField] private TMP_Text panelTitle;
     [SerializeField] private TMP_Text panelDetails;
     [SerializeField] private TMP_Text waveCounter;
@@ -32,6 +34,7 @@ public sealed class WavesUI : MonoBehaviour
     private void OnEnable()
     {
         startButton.onClick.AddListener(StartRun);
+        if (returnButton != null) returnButton.onClick.AddListener(ReturnToMenu);
         waves.WaveAnnounced += ShowWave;
         waves.WaveCleared += ShowCleared;
         waves.RunEnded += ShowResult;
@@ -44,6 +47,7 @@ public sealed class WavesUI : MonoBehaviour
     private void OnDisable()
     {
         startButton.onClick.RemoveListener(StartRun);
+        if (returnButton != null) returnButton.onClick.RemoveListener(ReturnToMenu);
         waves.WaveAnnounced -= ShowWave;
         waves.WaveCleared -= ShowCleared;
         waves.RunEnded -= ShowResult;
@@ -81,6 +85,7 @@ public sealed class WavesUI : MonoBehaviour
     private void ShowResult(bool completed)
     {
         RefreshPanel();
+        if (returnButton != null && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(returnButton.gameObject);
         AudioClip clip = completed ? winSound : lossSound;
         if (resultAudio != null && clip != null) resultAudio.PlayOneShot(clip);
     }
@@ -92,11 +97,21 @@ public sealed class WavesUI : MonoBehaviour
         bool ended = completed || waves.Phase == WaveController.RunPhase.Failed;
         startPanel.SetActive((waiting && !suppressStartPanel) || ended);
         startButton.gameObject.SetActive(waiting);
+        if (returnButton != null) returnButton.gameObject.SetActive(ended);
         panelTitle.text = waiting ? "PRONTO?" : completed ? "VITÓRIA" : "FIM DE JOGO";
         panelDetails.text = waiting ? "Elimine os inimigos para avançar." : $"{waves.Score.Points} pontos • {waves.Score.Kills} inimigos";
         if (waiting) waveCounter.text = string.Empty;
         if (ended && animationRoutine != null) StopCoroutine(animationRoutine);
         if (ended) bannerGroup.alpha = 0f;
+    }
+
+    private void ReturnToMenu()
+    {
+        if (waves.Phase != WaveController.RunPhase.Completed && waves.Phase != WaveController.RunPhase.Failed) return;
+        var pause = FindAnyObjectByType<PauseController>();
+        if (pause == null) return;
+        pause.PauseGame();
+        pause.ReturnToMenu();
     }
 
     private void ShowBanner(string text, Color color)
