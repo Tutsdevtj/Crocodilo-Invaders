@@ -15,7 +15,7 @@ public sealed class EnemyPresentation : MonoBehaviour
     private Health health;
     private Animator animator;
     private AudioSource source;
-    private EnemyCombat combat;
+    private EnemyAttack combat;
     private Animator smokeAnimator;
     private Color smokeColor;
     private float currentSmokeOpacity;
@@ -28,7 +28,7 @@ public sealed class EnemyPresentation : MonoBehaviour
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
-        combat = GetComponent<EnemyCombat>();
+        combat = GetComponent<EnemyAttack>();
         if (damageSmoke != null)
         {
             smokeAnimator = damageSmoke.GetComponent<Animator>();
@@ -60,7 +60,7 @@ public sealed class EnemyPresentation : MonoBehaviour
 
     private void RefreshDamageState(int current, int maximum)
     {
-        smokeWanted = current > 0 && maximum > 0 && (float)current / maximum <= criticalHealthThreshold;
+        smokeWanted = current > 0 && maximum > 0 && health.Fraction <= criticalHealthThreshold;
         if (!smokeWanted || damageSmoke == null || currentSmokeOpacity > 0f) return;
 
         if (smokeAnimator != null)

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4079254334439760075}
   - component: {fileID: 855567948772229247}
   - component: {fileID: 8366845978674357797}
+  - component: {fileID: 5327393226021235355}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -264,7 +265,7 @@ MonoBehaviour:
   specialOrigin: {fileID: 3052005382654415342}
   normalProjectile: {fileID: 4657968079478714695, guid: ff7345979cadb81469a80f308a5fabe4, type: 3}
   specialProjectile: {fileID: 8711516215085810472, guid: e080c6c59223edd4ba925c6d6e270c84, type: 3}
-  shotInterval: 0.2
+  shotInterval: 0.45
   specialChargeRequired: 10
 --- !u!82 &3377213617932442104
 AudioSource:
@@ -275,7 +276,7 @@ AudioSource:
   m_GameObject: {fileID: 2697288733482791310}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6891719634922633860, guid: 99d4fe848dfc8614fa5b6bf7febfed7b, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -435,3 +436,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthAudio
   damageSound: {fileID: 8300000, guid: 5894b18899e6f784f8c7834b347cc78a, type: 3}
   healSound: {fileID: 8300000, guid: 469e55499c790a84eb0cb83375c3620b, type: 3}
+--- !u!114 &5327393226021235355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697288733482791310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c4aae778544faabcf10b64b0709b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRunUpgrades

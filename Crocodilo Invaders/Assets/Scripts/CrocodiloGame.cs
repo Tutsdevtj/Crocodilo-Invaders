@@ -82,6 +82,8 @@ public sealed class CrocodiloGame : MonoBehaviour
         music.volume = 0.65f;
         effectsAudio = gameObject.AddComponent<AudioSource>();
         effectsAudio.volume = 0.8f;
+        GameAudioSettings.Route(music, AudioChannel.Music);
+        GameAudioSettings.Route(effectsAudio, AudioChannel.Effects);
         ResetRun();
         PlayMusic("menu_music");
     }

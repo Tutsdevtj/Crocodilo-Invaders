@@ -55,7 +55,7 @@ public sealed class PlayerHUD : MonoBehaviour
     private void RefreshHealth(int current, int maximum)
     {
         if (healthSprites != null && healthSprites.Length == 9)
-            healthBar.sprite = healthSprites[HealthStage((float)current / maximum)];
+            healthBar.sprite = healthSprites[HealthStage(health != null ? health.Fraction : (float)current / maximum)];
         RefreshSpecial(combat != null ? combat.Charge : 0, combat != null ? combat.SpecialChargeRequired : 1);
     }
 

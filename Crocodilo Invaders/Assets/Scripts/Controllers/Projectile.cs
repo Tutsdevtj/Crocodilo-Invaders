@@ -12,18 +12,25 @@ public sealed class Projectile : MonoBehaviour
 
     private Rigidbody2D body;
     private bool spent;
+    private float currentDamage;
+    public float BaseDamage => damage;
+    public float Damage => currentDamage;
+
+    public bool TargetsLayer(int layer) => (targetLayers.value & (1 << layer)) != 0;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        currentDamage = damage;
     }
 
-    public void Launch(Vector2 direction, Collider2D ownerCollider)
+    public void Launch(Vector2 direction, Collider2D ownerCollider, float? speedOverride = null, float damageMultiplier = 1f)
     {
+        currentDamage = damage * Mathf.Max(0f, damageMultiplier);
         if (ownerCollider != null)
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), ownerCollider);
 
-        body.linearVelocity = direction.normalized * speed;
+        body.linearVelocity = direction.normalized * Mathf.Max(0f, speedOverride ?? speed);
         // A duração pertence ao projétil, sem depender da câmera ou do input.
         Destroy(gameObject, lifetime);
     }
@@ -34,7 +41,7 @@ public sealed class Projectile : MonoBehaviour
         Health target = other.GetComponentInParent<Health>();
         // Captura o ponto antes do dano: um acerto fatal pode desativar o collider.
         Vector2 hitPosition = other.ClosestPoint(body.position);
-        if (target == null || !target.TakeDamage(damage)) return;
+        if (target == null || !target.TakeDamage(currentDamage)) return;
 
         spent = true;
         GetComponent<Collider2D>().enabled = false;

@@ -1,4 +1,6 @@
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
@@ -10,6 +12,8 @@ using UnityEngine.SceneManagement;
 public static class CrocodiloProjectSetup
 {
     private const string ScenePath = "Assets/Scenes/Jogo.unity";
+    private const string MenuScenePath = "Assets/Scenes/MainMenu.unity";
+    private const string GameplayScenePath = "Assets/Scenes/Tests/PlayerMovementTest.unity";
 
     [InitializeOnLoadMethod]
     private static void ScheduleSetup()
@@ -42,14 +46,20 @@ public static class CrocodiloProjectSetup
             AssetDatabase.Refresh();
         }
 
-        EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+        var scenes = new List<EditorBuildSettingsScene>();
+        foreach (string path in new[] { MenuScenePath, GameplayScenePath, ScenePath })
+            if (File.Exists(path)) scenes.Add(new EditorBuildSettingsScene(path, true));
+        // Preserva outras cenas registradas pelo projeto, sem voltar ao build só do port.
+        foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
+            if (!scenes.Any(existing => existing.path == scene.path)) scenes.Add(scene);
+        EditorBuildSettings.scenes = scenes.ToArray();
     }
 
     [MenuItem("Crocodilo/Preparar cena")]
     public static void PrepareScene()
     {
         EnsureSceneAndSettings();
-        EditorSceneManager.OpenScene(ScenePath);
+        EditorSceneManager.OpenScene(File.Exists(MenuScenePath) ? MenuScenePath : ScenePath);
     }
 
     [MenuItem("Crocodilo/Build WebGL")]
@@ -66,7 +76,7 @@ public static class CrocodiloProjectSetup
         Directory.CreateDirectory(output);
         BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
-            scenes = new[] { ScenePath },
+            scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path).ToArray(),
             locationPathName = output,
             target = BuildTarget.WebGL,
             options = BuildOptions.None

@@ -1,33 +1,20 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-public sealed class EnemyCombat : MonoBehaviour
+public sealed class EnemyCombat : EnemyAttack
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform shotOrigin;
     [SerializeField] private Vector2 fireIntervalRange = new Vector2(1.2f, 2.2f);
 
-    private Enemy enemy;
-    private Collider2D ownerCollider;
-    private Health target;
     private float nextShotTime;
     private bool ready;
-    public event Action ShotFired;
-
-    private void Awake()
-    {
-        enemy = GetComponent<Enemy>();
-        ownerCollider = GetComponent<Collider2D>();
-    }
 
     private void OnEnable() => ready = false;
-    public void SetTarget(Health targetHealth) => target = targetHealth;
 
     private void Update()
     {
-        if (Time.timeScale == 0f || target == null || target.IsDead || enemy.Health.IsDead
-            || !enemy.Movement.HasArrived || projectilePrefab == null || shotOrigin == null) return;
+        if (!CanAttack || projectilePrefab == null || shotOrigin == null) return;
 
         if (!ready)
         {
@@ -37,11 +24,11 @@ public sealed class EnemyCombat : MonoBehaviour
         }
         if (Time.time < nextShotTime) return;
 
-        Vector2 direction = (Vector2)target.transform.position - (Vector2)shotOrigin.position;
+        Vector2 direction = (Vector2)Target.transform.position - (Vector2)shotOrigin.position;
         Projectile shot = Instantiate(projectilePrefab, shotOrigin.position, Quaternion.identity);
-        shot.Launch(direction, ownerCollider);
+        shot.Launch(direction, OwnerCollider);
         ScheduleNextShot();
-        ShotFired?.Invoke();
+        NotifyShotFired();
     }
 
     private void ScheduleNextShot()

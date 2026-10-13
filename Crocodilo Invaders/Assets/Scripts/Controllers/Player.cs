@@ -6,6 +6,7 @@ public sealed class Player : MonoBehaviour
     public PlayerMovement Movement { get; private set; }
     public PlayerCombat Combat { get; private set; }
     public Health Health { get; private set; }
+    private bool gameplayActive = true;
 
     private void Awake()
     {
@@ -26,13 +27,20 @@ public sealed class Player : MonoBehaviour
 
     private void OnDied()
     {
-        Movement.enabled = false;
-        Combat.enabled = false;
+        SetGameplayActive(false);
+    }
+
+    public void SetGameplayActive(bool active)
+    {
+        gameplayActive = active && !Health.IsDead;
+        Movement.SetMoveInput(Vector2.zero);
+        Movement.enabled = gameplayActive;
+        Combat.enabled = gameplayActive;
     }
 
     public void SetMoveInput(Vector2 direction)
     {
-        if (Health.IsDead) return;
+        if (!gameplayActive || Health.IsDead) return;
         Movement.SetMoveInput(direction);
     }
 
