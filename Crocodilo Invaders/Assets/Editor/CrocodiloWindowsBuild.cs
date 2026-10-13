@@ -42,6 +42,8 @@ public static class CrocodiloWindowsBuild
             if (!File.Exists(output) || !File.Exists(Path.Combine(Path.GetDirectoryName(output), "UnityPlayer.dll")))
                 throw new BuildFailedException("Windows build is missing the executable or UnityPlayer.dll.");
             Debug.Log("WINDOWS BUILD SUCCEEDED: " + output + " / " + report.summary.totalSize + " bytes");
+            // GameCI checks this exact signal after Unity exits; emit it only after validating the player.
+            Debug.Log("Build succeeded!");
             if (Application.isBatchMode) EditorApplication.Exit(0);
         }
         catch (Exception error)
