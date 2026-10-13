@@ -61,7 +61,7 @@ public sealed class DamageAppearance : MonoBehaviour
             return;
         }
 
-        float healthFraction = Mathf.Clamp01((float)current / maximum);
+        float healthFraction = health.Fraction;
         float damageAmount = Mathf.InverseLerp(darkeningStartHealth, 0f, healthFraction);
         float brightness = 1f - maximumDarkening * damageAmount;
         bodyRenderer.color = new Color(originalTint.r * brightness, originalTint.g * brightness,

@@ -10,7 +10,7 @@ public sealed class Enemy : MonoBehaviour
 
     public Health Health { get; private set; }
     public EnemyMovement Movement { get; private set; }
-    public EnemyCombat Combat { get; private set; }
+    public EnemyAttack Combat { get; private set; }
     public int PointsOnDefeat => pointsOnDefeat;
     public event Action<Enemy> Defeated;
     public event Action<Enemy> Removed;
@@ -21,7 +21,7 @@ public sealed class Enemy : MonoBehaviour
     {
         Health = GetComponent<Health>();
         Movement = GetComponent<EnemyMovement>();
-        Combat = GetComponent<EnemyCombat>();
+        Combat = GetComponent<EnemyAttack>();
         hitbox = GetComponent<Collider2D>();
     }
 

@@ -7,6 +7,8 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D body;
     private Vector2 moveInput;
+    public float MoveSpeed => moveSpeed;
+    public void SetMoveSpeed(float speed) => moveSpeed = Mathf.Max(0f, speed);
 
     private void Awake()
     {

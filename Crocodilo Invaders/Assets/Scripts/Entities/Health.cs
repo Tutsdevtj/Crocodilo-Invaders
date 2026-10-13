@@ -5,9 +5,12 @@ public sealed class Health : MonoBehaviour
 {
     [SerializeField, Min(1)] private int maxHealth = 30;
 
-    public int CurrentHealth { get; private set; }
+    private float remainingHealth;
+    public int CurrentHealth => Mathf.CeilToInt(remainingHealth);
+    public float PreciseCurrentHealth => remainingHealth;
+    public float Fraction => remainingHealth / maxHealth;
     public int MaxHealth => maxHealth;
-    public bool IsDead => CurrentHealth == 0;
+    public bool IsDead => remainingHealth <= 0f;
     public event Action<int, int> HealthChanged;
     public event Action Damaged;
     public event Action Healed;
@@ -16,15 +19,19 @@ public sealed class Health : MonoBehaviour
     private void Awake()
     {
         maxHealth = Mathf.Max(1, maxHealth);
-        CurrentHealth = maxHealth;
+        remainingHealth = maxHealth;
         HealthChanged?.Invoke(CurrentHealth, maxHealth);
     }
 
     public bool TakeDamage(int amount)
-    {
-        if (!isActiveAndEnabled || IsDead || amount <= 0) return false;
+        => TakeDamage((float)amount);
 
-        CurrentHealth -= Mathf.Min(amount, CurrentHealth);
+    public bool TakeDamage(float amount)
+    {
+        if (!isActiveAndEnabled || IsDead || amount <= 0f || float.IsNaN(amount)) return false;
+
+        remainingHealth -= Mathf.Min(amount, remainingHealth);
+        if (remainingHealth < .0001f) remainingHealth = 0f;
         HealthChanged?.Invoke(CurrentHealth, maxHealth);
         Damaged?.Invoke();
         if (IsDead) Died?.Invoke();
@@ -34,11 +41,22 @@ public sealed class Health : MonoBehaviour
     public bool Heal(int amount)
     {
         // Cura recupera vida de uma entidade viva; não representa um respawn.
-        if (!isActiveAndEnabled || IsDead || amount <= 0 || CurrentHealth == maxHealth) return false;
+        if (!isActiveAndEnabled || IsDead || amount <= 0 || remainingHealth >= maxHealth) return false;
 
-        CurrentHealth += Mathf.Min(amount, maxHealth - CurrentHealth);
+        remainingHealth += Mathf.Min(amount, maxHealth - remainingHealth);
         HealthChanged?.Invoke(CurrentHealth, maxHealth);
         Healed?.Invoke();
+        return true;
+    }
+
+    public bool SetMaximumHealth(int maximum, bool fillAddedCapacity)
+    {
+        if (IsDead || maximum < 1 || maximum == maxHealth) return false;
+        int increase = maximum - maxHealth;
+        maxHealth = maximum;
+        if (fillAddedCapacity && increase > 0) remainingHealth += increase;
+        remainingHealth = Mathf.Min(remainingHealth, maxHealth);
+        HealthChanged?.Invoke(CurrentHealth, maxHealth);
         return true;
     }
 

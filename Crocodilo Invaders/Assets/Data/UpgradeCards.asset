@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da2d3b412734ab39521f511022b8294, type: 3}
+  m_Name: UpgradeCards
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardCatalog
+  cards:
+  - kind: 0
+    rarity: 0
+    percent: 5
+    artworkPath: Cards/AttackDamage/Common
+  - kind: 0
+    rarity: 3
+    percent: 20
+    artworkPath: Cards/AttackDamage/Legendary
+  - kind: 0
+    rarity: 1
+    percent: 10
+    artworkPath: Cards/AttackDamage/Rare
+  - kind: 0
+    rarity: 2
+    percent: 15
+    artworkPath: Cards/AttackDamage/Epic
+  - kind: 0
+    rarity: 4
+    percent: 30
+    artworkPath: Cards/AttackDamage/Mythic
+  - kind: 1
+    rarity: 1
+    percent: 10
+    artworkPath: Cards/AttackSpeed/Rare
+  - kind: 1
+    rarity: 3
+    percent: 20
+    artworkPath: Cards/AttackSpeed/Legendary
+  - kind: 1
+    rarity: 0
+    percent: 5
+    artworkPath: Cards/AttackSpeed/Common
+  - kind: 1
+    rarity: 4
+    percent: 30
+    artworkPath: Cards/AttackSpeed/Mythic
+  - kind: 1
+    rarity: 2
+    percent: 15
+    artworkPath: Cards/AttackSpeed/Epic
+  - kind: 2
+    rarity: 0
+    percent: 10
+    artworkPath: Cards/MaximumHealth/Common
+  - kind: 2
+    rarity: 3
+    percent: 30
+    artworkPath: Cards/MaximumHealth/Legendary
+  - kind: 2
+    rarity: 4
+    percent: 40
+    artworkPath: Cards/MaximumHealth/Mythic
+  - kind: 2
+    rarity: 1
+    percent: 15
+    artworkPath: Cards/MaximumHealth/Rare
+  - kind: 2
+    rarity: 2
+    percent: 20
+    artworkPath: Cards/MaximumHealth/Epic
+  - kind: 3
+    rarity: 1
+    percent: 5
+    artworkPath: Cards/MoveSpeed/Rare
+  - kind: 3
+    rarity: 2
+    percent: 8
+    artworkPath: Cards/MoveSpeed/Epic
+  - kind: 3
+    rarity: 0
+    percent: 3
+    artworkPath: Cards/MoveSpeed/Common
+  - kind: 3
+    rarity: 3
+    percent: 10
+    artworkPath: Cards/MoveSpeed/Legendary
+  - kind: 3
+    rarity: 4
+    percent: 15
+    artworkPath: Cards/MoveSpeed/Mythic
+  - kind: 4
+    rarity: 0
+    percent: 5
+    artworkPath: Cards/SpecialDamage/Common
+  - kind: 4
+    rarity: 1
+    percent: 10
+    artworkPath: Cards/SpecialDamage/Rare
+  - kind: 4
+    rarity: 3
+    percent: 20
+    artworkPath: Cards/SpecialDamage/Legendary
+  - kind: 4
+    rarity: 4
+    percent: 30
+    artworkPath: Cards/SpecialDamage/Mythic
+  - kind: 4
+    rarity: 2
+    percent: 15
+    artworkPath: Cards/SpecialDamage/Epic

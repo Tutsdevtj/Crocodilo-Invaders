@@ -17,9 +17,11 @@ public sealed class ScrollingLayer : MonoBehaviour
     [SerializeField] private SpriteRenderer[] segments;
 
     private float distance;
+    private Rigidbody2D body;
 
     private void Awake()
     {
+        body = GetComponent<Rigidbody2D>();
         if (targetCamera == null) targetCamera = Camera.main;
         if (targetCamera == null || !targetCamera.orthographic || segments == null || segments.Length == 0)
         {
@@ -64,13 +66,24 @@ public sealed class ScrollingLayer : MonoBehaviour
 
     private void MoveSinglePass()
     {
-        transform.position += Vector3.left * (scrollSpeed * Time.deltaTime);
+        if (body == null) transform.position += Vector3.left * (scrollSpeed * Time.deltaTime);
         Bounds bounds = segments[0].bounds;
         float halfWidth = targetCamera.orthographicSize * targetCamera.aspect;
         float cameraX = targetCamera.transform.position.x;
         bool passedLeft = scrollSpeed > 0f && bounds.max.x < cameraX - halfWidth - despawnMargin;
         bool passedRight = scrollSpeed < 0f && bounds.min.x > cameraX + halfWidth + despawnMargin;
         if (passedLeft || passedRight) Destroy(gameObject);
+    }
+
+    private void FixedUpdate()
+    {
+        if (mode == ScrollMode.SinglePass && body != null)
+            body.linearVelocity = Vector2.left * scrollSpeed;
+    }
+
+    private void OnDisable()
+    {
+        if (body != null) body.linearVelocity = Vector2.zero;
     }
 
     private void LayoutSegments()
