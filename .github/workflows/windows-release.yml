@@ -84,9 +84,9 @@ jobs:
           test -s "$player/UnityPlayer.dll"
           test -d "$player/CrocodiloInvaders_Data"
           mkdir -p dist
-          printf 'Extract every file in this ZIP to the same folder, then run CrocodiloInvaders.exe.\n' > "$player/README.txt"
+          printf 'Extract every file in this ZIP to the same folder, then run CrocodiloInvaders.exe.\n' > dist/README.txt
           (cd "$player" && zip -q -r "$GITHUB_WORKSPACE/dist/CrocodiloInvaders-Windows.zip" .)
-          (cd dist && sha256sum CrocodiloInvaders-Windows.zip > SHA256SUMS.txt)
+          (cd dist && zip -q CrocodiloInvaders-Windows.zip README.txt && sha256sum CrocodiloInvaders-Windows.zip > SHA256SUMS.txt)
       - name: Upload downloadable build
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
