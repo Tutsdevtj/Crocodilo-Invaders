@@ -8,6 +8,7 @@
 /.vs/
 /UIElementsSchema/
 /Tools/SceneBackups/
+/Tools/SkyValidation/
 /*.csproj
 /*.sln
 /*.slnx

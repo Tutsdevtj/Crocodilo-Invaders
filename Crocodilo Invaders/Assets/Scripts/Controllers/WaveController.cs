@@ -87,6 +87,7 @@ public sealed class WaveController : MonoBehaviour
     {
         if (!isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return;
         score.ResetScore();
+        LeaderboardSession.StartRun();
         player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
         player.SetGameplayActive(true);
         AnnounceNextWave();
@@ -171,8 +172,11 @@ public sealed class WaveController : MonoBehaviour
         }
         player.SetGameplayActive(false);
         ClearProjectiles(false);
+        LeaderboardSession.Complete(score.Points, score.Kills, completed);
         RunEnded?.Invoke(completed);
     }
+
+    private void OnApplicationQuit() => LeaderboardSession.SaveCompletedRun();
 
     private void ClearProjectiles(bool hostileOnly)
     {
