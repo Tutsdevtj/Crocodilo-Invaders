@@ -1,0 +1,82 @@
+{
+ "frames": [
+  {
+   "filename": "bombardiro_shoot_0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 50
+  },
+  {
+   "filename": "bombardiro_shoot_1.png",
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 70
+  },
+  {
+   "filename": "bombardiro_shoot_2.png",
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 70
+  },
+  {
+   "filename": "bombardiro_shoot_3.png",
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 90
+  },
+  {
+   "filename": "bombardiro_shoot_4.png",
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 110
+  }
+ ],
+ "meta": {
+  "image": "bombardiro_shoot_sheet.png",
+  "size": {
+   "w": 800,
+   "h": 120
+  },
+  "frameTags": [
+   {
+    "name": "bombardiro_shoot",
+    "from": 0,
+    "to": 4,
+    "direction": "forward"
+   }
+  ],
+  "pivot_px": {
+   "x": 72,
+   "y": 80
+  },
+  "pivot_unity_normalized": {
+   "x": 0.45,
+   "y": 0.3333
+  },
+  "muzzle_px_canvas": {
+   "x": 129,
+   "y": 79
+  },
+  "fire_event_frame": 2
+ }
+}

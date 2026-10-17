@@ -15,7 +15,7 @@ public sealed class BossLaser : MonoBehaviour
     [SerializeField, Min(.01f)] private float damageThickness = .45f;
 
     private BoxCollider2D hitbox;
-    private readonly HashSet<Health> damagedTargets = new HashSet<Health>();
+    private readonly HashSet<Health> contactedTargets = new HashSet<Health>();
     public bool IsFiring => hitbox.enabled;
 
     private void Awake()
@@ -88,7 +88,8 @@ public sealed class BossLaser : MonoBehaviour
     {
         if (!hitbox.enabled || (targetLayers.value & (1 << other.gameObject.layer)) == 0) return;
         Health health = other.GetComponentInParent<Health>();
-        if (health != null && !damagedTargets.Contains(health) && health.TakeDamage(damage))
-            damagedTargets.Add(health);
+        if (health == null || contactedTargets.Contains(health)) return;
+        // O contato esquivado conta para este feixe: Stay não cobra o dano depois dos i-frames.
+        if (health.TakeDamage(damage) || health.IsInvulnerable) contactedTargets.Add(health);
     }
 }

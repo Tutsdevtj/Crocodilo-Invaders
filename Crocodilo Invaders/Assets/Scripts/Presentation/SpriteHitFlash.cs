@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Health), typeof(SpriteRenderer))]
+[RequireComponent(typeof(Health))]
 public sealed class SpriteHitFlash : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float holdDuration = 0.045f;
     [SerializeField, Min(0.01f)] private float fadeDuration = 0.065f;
 
     private Health health;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private MaterialPropertyBlock properties;
     private float startedAt;
     private bool flashing;
@@ -16,17 +16,26 @@ public sealed class SpriteHitFlash : MonoBehaviour
     private void Awake()
     {
         health = GetComponent<Health>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         properties = new MaterialPropertyBlock();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("Configure a SpriteRenderer for SpriteHitFlash.", this);
+            enabled = false;
+        }
     }
 
-    private void OnEnable() => health.Damaged += Flash;
+    private void OnEnable()
+    {
+        if (spriteRenderer != null) health.Damaged += Flash;
+    }
 
     private void OnDisable()
     {
         health.Damaged -= Flash;
         flashing = false;
-        SetAmount(0f);
+        if (spriteRenderer != null) SetAmount(0f);
     }
 
     private void Flash()

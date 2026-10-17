@@ -1,0 +1,58 @@
+{
+  "canvas": [
+    32,
+    32
+  ],
+  "bboxExclusive": [
+    4,
+    3,
+    26,
+    31
+  ],
+  "groundY": 30,
+  "pivotProposed": [
+    16,
+    31
+  ],
+  "visiblePixels": 386,
+  "opaqueColorCount": 15,
+  "palette": [
+    "#14231d",
+    "#373a1f",
+    "#787747",
+    "#54502b",
+    "#253b29",
+    "#354e2e",
+    "#d4a143",
+    "#4c623e",
+    "#b99555",
+    "#ead7a2",
+    "#dabd78",
+    "#604933",
+    "#403125",
+    "#27291f",
+    "#4b4a35"
+  ],
+  "alphaValues": [
+    0,
+    255
+  ],
+  "edgePixels": 0,
+  "connectedComponents8": [
+    386
+  ],
+  "previewSize": [
+    256,
+    256
+  ],
+  "previewExactNearestNeighbor8x": true,
+  "aseprite": {
+    "magic": "a5e0",
+    "frames": 1,
+    "canvas": [
+      32,
+      32
+    ]
+  },
+  "realGameContextVerified": false
+}

@@ -2,10 +2,18 @@
 
 O MainMenu passa pelo loading e inicia a partida após ENTER. Ao abrir diretamente
 `Assets/Scenes/Tests/PlayerMovementTest.unity` ou `StageOneWaves.unity`, o botão
-provisório **INICIAR** continua disponível. As duas cenas usam a mesma composição.
+provisório **INICIAR** continua disponível. As duas cenas usam os mesmos pools.
 
 São nove hordas e o boss na décima onda. O aviso e a HUD contam o boss no total,
 sem criar uma décima horda antes dele.
+
+Cada slot das nove hordas possui três opções configuradas. A tabela abaixo mostra
+a **opção A**, que preserva integralmente a composição anterior. A opção B acrescenta
+um patrulheiro; a C acrescenta um patrulheiro e uma unidade do tipo mais avançado
+já presente naquele slot (patrulheiro nas ondas 1–2, interceptor nas 3–5 e artilheiro
+nas 6–9). Intervalo, limite de vivos e ordem dos grupos originais são preservados.
+As faixas de quantidade são, respectivamente: **4–6, 8–10, 12–14, 16–18, 20–22,
+26–28, 32–34, 38–40, 44–46**. Não são geradas composições proceduralmente durante a run.
 
 | Onda | Patrulheiros | Interceptores | Artilheiros | Total | Máximo vivo | Intervalo entre pares |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
@@ -32,8 +40,9 @@ continuam funcionando. As melhorias por carta aumentam a cadência sobre esta ba
 Uma onda termina quando todos os inimigos previstos nasceram e nenhum continua vivo.
 Cada inimigo mantém os pontos configurados no prefab, atualmente **800**.
 Cada onda concluída acrescenta **1.000 pontos**, sem incrementar o contador de inimigos.
-Completar as nove hordas rende **169.000 pontos e 200 inimigos**. O boss concede
-40.000 pontos e um abate: o mínimo da vitória é **209.000 pontos e 201 abates**,
+Conforme as opções sorteadas, as nove hordas contêm **200–218 inimigos** e rendem
+**169.000–183.400 pontos**. O boss concede
+40.000 pontos e um abate: a vitória rende **209.000–223.400 pontos e 201–219 abates**,
 mais 800 pontos e um abate para cada interceptor de reforço realmente derrotado.
 Veja `Docs/Boss.md` para os ataques e reforços.
 Destruir um inimigo sem derrotá-lo não concede pontos por abate.
@@ -52,6 +61,9 @@ Uma nova partida pode ser iniciada voltando ao MainMenu pela pausa.
 - `EnemySpawner`: instancia os inimigos pedidos e conta vivos/pendentes. Não decide
   qual é a próxima onda. Sem um controlador de ondas, mantém o spawn contínuo anterior.
 - `EnemyWave`: grupos, intervalo entre pares e limite de vivos de cada horda.
+- `EnemyWavePool`: opções completas destinadas a um único slot. Rejeita pools
+  sem opções ou com composições inválidas. O controlador sorteia uma opção por
+  slot ao iniciar a run e guarda a sequência; não sorteia novamente durante a horda.
 - `BossReinforcements`: agenda os reforços durante a luta, usa o mesmo spawner,
   limita os reforços vivos e os remove quando o boss para de lutar.
 - `RunScore`: contabiliza abates e pontos, recebe o bônus e informa a HUD existente.
@@ -68,12 +80,19 @@ em `Docs/Cartas.md`. Loja, persistência e rede continuam fora desta etapa.
 
 No GameObject **EnemySpawner**, o componente **WaveController** contém:
 
-- **Wave Composition / Groups**: prefab e quantidade de cada grupo, na ordem de entrada.
-  O número de ondas e os orçamentos vêm desta composição quando ela está preenchida.
-- **Wave Composition / Spawn Interval e Max Alive**: ritmo e pressão de cada onda.
+- **Wave Pools / Options**: um elemento por horda, com uma ou mais composições
+  completas destinadas somente àquela posição. Cada opção contém **Groups**,
+  **Spawn Interval** e **Max Alive**. Para novas variantes, duplique uma opção e
+  ajuste os grupos/valores dentro do limite de dificuldade desejado para o slot.
+- **Use Debug Seed / Debug Seed**: reproduz a seleção da sequência de composições.
+  Não controla posições de spawn, cartas, ataques nem os demais UnityEngine.Random.
+  O sorteio é independente entre runs, sem histórico em disco; repetições são possíveis.
+- **Wave Composition / Groups**: fallback da sequência fixa quando **Wave Pools**
+  está vazio. As configurações anteriores permanecem disponíveis nas duas cenas.
+- **Spawn Interval e Max Alive**: ritmo e pressão da opção escolhida.
   Esses valores são aplicados ao entrar no combate da horda.
-- **Enemies Per Wave**: configuração anterior usada somente quando `Wave Composition`
-  está vazia. Mantém compatibilidade com as cenas que só usam o patrulheiro.
+- **Enemies Per Wave**: fallback quando ambos **Wave Pools** e **Wave Composition**
+  estão vazios. Mantém compatibilidade com as cenas que só usam o patrulheiro.
 - **Announcement Duration**: espera antes do spawn, padrão 1,6 segundo.
 - **Intermission Duration**: intervalo após a conclusão, padrão 2 segundos.
 - **Reward Transition Duration**: espera após escolher a carta, padrão 0,35 segundo.

@@ -1,0 +1,129 @@
+{
+ "frames": [
+  {
+   "filename": "bombardiro_special_0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 80
+  },
+  {
+   "filename": "bombardiro_special_1.png",
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 90
+  },
+  {
+   "filename": "bombardiro_special_2.png",
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 120
+  },
+  {
+   "filename": "bombardiro_special_3.png",
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 70
+  },
+  {
+   "filename": "bombardiro_special_4.png",
+   "frame": {
+    "x": 640,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 90
+  },
+  {
+   "filename": "bombardiro_special_5.png",
+   "frame": {
+    "x": 800,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bombardiro_special_6.png",
+   "frame": {
+    "x": 960,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 80
+  }
+ ],
+ "meta": {
+  "image": "bombardiro_special_sheet.png",
+  "size": {
+   "w": 1120,
+   "h": 120
+  },
+  "frameTags": [
+   {
+    "name": "bombardiro_special",
+    "from": 0,
+    "to": 6,
+    "direction": "forward"
+   }
+  ],
+  "pivot_px": {
+   "x": 72,
+   "y": 80
+  },
+  "pivot_unity_normalized": {
+   "x": 0.45,
+   "y": 0.3333
+  },
+  "spawn_event_frame": 3,
+  "spawn_point_px_canvas": {
+   "x": 130,
+   "y": 79
+  },
+  "palette_added": [
+   [
+    255,
+    254,
+    255
+   ],
+   [
+    104,
+    255,
+    255
+   ],
+   [
+    96,
+    215,
+    255
+   ],
+   [
+    55,
+    137,
+    245
+   ],
+   [
+    64,
+    97,
+    214
+   ]
+  ]
+ }
+}

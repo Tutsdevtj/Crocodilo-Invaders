@@ -1,10 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement), typeof(PlayerCombat), typeof(Health))]
+[RequireComponent(typeof(PlayerDash))]
 public sealed class Player : MonoBehaviour
 {
     public PlayerMovement Movement { get; private set; }
     public PlayerCombat Combat { get; private set; }
+    public PlayerDash Dash { get; private set; }
     public Health Health { get; private set; }
     private bool gameplayActive = true;
 
@@ -12,6 +14,7 @@ public sealed class Player : MonoBehaviour
     {
         Movement = GetComponent<PlayerMovement>();
         Combat = GetComponent<PlayerCombat>();
+        Dash = GetComponent<PlayerDash>();
         Health = GetComponent<Health>();
     }
 
@@ -23,6 +26,7 @@ public sealed class Player : MonoBehaviour
     private void OnDisable()
     {
         Health.Died -= OnDied;
+        Dash.CancelDash();
     }
 
     private void OnDied()
@@ -34,6 +38,7 @@ public sealed class Player : MonoBehaviour
     {
         gameplayActive = active && !Health.IsDead;
         Movement.SetMoveInput(Vector2.zero);
+        Dash.enabled = gameplayActive;
         Movement.enabled = gameplayActive;
         Combat.enabled = gameplayActive;
     }
@@ -47,4 +52,6 @@ public sealed class Player : MonoBehaviour
     public bool TryShoot() => Combat.TryShoot();
 
     public bool TrySpecialAttack() => Combat.TrySpecialAttack();
+
+    public bool TryDash() => isActiveAndEnabled && gameplayActive && !Health.IsDead && Dash.TryDash();
 }

@@ -1,0 +1,3 @@
+const http=require('http'),fs=require('fs'),path=require('path');
+const root=path.resolve('SourceArt/CrocodiloIdle64-v01');
+http.createServer((req,res)=>{try{const part=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);const file=path.resolve(root,'.'+(part==='/'?'/preview.html':part));if(!file.startsWith(root+path.sep)){res.writeHead(403);return res.end()}fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);return res.end()}res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.png':'image/png','.gif':'image/gif','.json':'application/json'})[path.extname(file)]||'application/octet-stream');res.end(data)})}catch(e){res.writeHead(400);res.end()}}).listen(8776,'127.0.0.1',()=>console.log('Idle preview ready at http://127.0.0.1:8776/'));

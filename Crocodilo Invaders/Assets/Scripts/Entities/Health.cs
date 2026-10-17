@@ -11,6 +11,10 @@ public sealed class Health : MonoBehaviour
     public float Fraction => remainingHealth / maxHealth;
     public int MaxHealth => maxHealth;
     public bool IsDead => remainingHealth <= 0f;
+    public bool IsInvulnerable { get; private set; }
+    public void SetInvulnerable(bool invulnerable) => IsInvulnerable = invulnerable;
+
+    private void OnDisable() => IsInvulnerable = false;
     public event Action<int, int> HealthChanged;
     public event Action Damaged;
     public event Action Healed;
@@ -28,7 +32,7 @@ public sealed class Health : MonoBehaviour
 
     public bool TakeDamage(float amount)
     {
-        if (!isActiveAndEnabled || IsDead || amount <= 0f || float.IsNaN(amount)) return false;
+        if (!isActiveAndEnabled || IsDead || IsInvulnerable || amount <= 0f || float.IsNaN(amount)) return false;
 
         remainingHealth -= Mathf.Min(amount, remainingHealth);
         if (remainingHealth < .0001f) remainingHealth = 0f;

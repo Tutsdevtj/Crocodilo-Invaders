@@ -15,3 +15,9 @@
 *.unitypackage
 *.ulf
 *.alf
+
+# Local attachment cache and intermediate art exports.
+/.codex-remote-attachments/
+/SourceArt/**/working/
+/SourceArt/**/aseprite-output.txt
+/SourceArt/**/aseprite-errors.txt

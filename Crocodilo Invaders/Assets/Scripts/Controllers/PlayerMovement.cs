@@ -7,6 +7,9 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D body;
     private Vector2 moveInput;
+    private bool hasVelocityOverride;
+    private Vector2 velocityOverride;
+    public Vector2 MoveInput => moveInput;
     public float MoveSpeed => moveSpeed;
     public void SetMoveSpeed(float speed) => moveSpeed = Mathf.Max(0f, speed);
 
@@ -22,12 +25,21 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.linearVelocity = moveInput * moveSpeed;
+        body.linearVelocity = hasVelocityOverride ? velocityOverride : moveInput * moveSpeed;
     }
+
+    public void SetVelocityOverride(Vector2 velocity)
+    {
+        velocityOverride = velocity;
+        hasVelocityOverride = true;
+    }
+
+    public void ClearVelocityOverride() => hasVelocityOverride = false;
 
     private void OnDisable()
     {
         moveInput = Vector2.zero;
+        ClearVelocityOverride();
         if (body != null) body.linearVelocity = Vector2.zero;
     }
 }

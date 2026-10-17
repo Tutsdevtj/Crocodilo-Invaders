@@ -1,0 +1,67 @@
+{
+ "frames": [
+  {
+   "filename": "bombardiro_hurt_0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 50
+  },
+  {
+   "filename": "bombardiro_hurt_1.png",
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 80
+  },
+  {
+   "filename": "bombardiro_hurt_2.png",
+   "frame": {
+    "x": 320,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 120
+  },
+  {
+   "filename": "bombardiro_hurt_3.png",
+   "frame": {
+    "x": 480,
+    "y": 0,
+    "w": 160,
+    "h": 120
+   },
+   "duration": 110
+  }
+ ],
+ "meta": {
+  "image": "bombardiro_hurt_sheet.png",
+  "size": {
+   "w": 640,
+   "h": 120
+  },
+  "frameTags": [
+   {
+    "name": "bombardiro_hurt",
+    "from": 0,
+    "to": 3,
+    "direction": "forward"
+   }
+  ],
+  "pivot_px": {
+   "x": 72,
+   "y": 80
+  },
+  "pivot_unity_normalized": {
+   "x": 0.45,
+   "y": 0.3333
+  }
+ }
+}

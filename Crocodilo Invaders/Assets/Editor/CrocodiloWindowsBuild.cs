@@ -63,14 +63,7 @@ public static class CrocodiloWindowsBuild
         foreach (string path in new[] { "Assets/Prefabs/UI/Leaderboard.prefab", "Assets/Prefabs/UI/PlayerName.prefab" })
             if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null) throw new BuildFailedException("Leaderboard UI is missing: " + path);
         var catalog = AssetDatabase.LoadAssetAtPath<UpgradeCardCatalog>("Assets/Data/UpgradeCards.asset");
-        if (catalog == null || !catalog.IsValid) throw new BuildFailedException("Upgrade card catalog must contain all 25 cards.");
-        int[] counts = new int[5];
-        for (int roll = 0; roll < 10000; roll++) counts[(int)UpgradeCardCatalog.RarityForRoll(roll)]++;
-        if (!counts.SequenceEqual(new[] { 6000, 2500, 1100, 350, 50 })) throw new BuildFailedException("Upgrade rarity probabilities changed.");
-        var random = new System.Random(7321);
-        for (int i = 0; i < 1000; i++)
-            if (catalog.RollOffers(random).Select(card => card.kind).Distinct().Count() != 3)
-                throw new BuildFailedException("An upgrade offer must contain three distinct kinds.");
+        RogueliteValidation.ValidateCatalog(catalog);
         var mixer = AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/Resources/Audio/GameAudio.mixer");
         if (mixer == null || Enumerable.Range(0, 3).Any(i => !mixer.GetFloat(GameAudioSettings.Parameter((AudioChannel)i), out _)))
             throw new BuildFailedException("Audio mixer must expose all three volume parameters.");
@@ -80,7 +73,14 @@ public static class CrocodiloWindowsBuild
             Scene scene = SceneManager.GetSceneByPath(path);
             bool opened = !scene.IsValid() || !scene.isLoaded;
             if (opened) scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
-            try { foreach (GameObject root in scene.GetRootGameObjects()) ValidateScripts(root, path); }
+            try
+            {
+                foreach (GameObject root in scene.GetRootGameObjects())
+                {
+                    ValidateScripts(root, path);
+                    foreach (var waves in root.GetComponentsInChildren<WaveController>(true)) RogueliteValidation.ValidatePools(waves);
+                }
+            }
             finally { if (opened) EditorSceneManager.CloseScene(scene, true); }
         }
         foreach (string path in AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Prefabs" }).Select(AssetDatabase.GUIDToAssetPath))

@@ -1,0 +1,213 @@
+{
+  "canvas": [
+    64,
+    64
+  ],
+  "paletteColors": 23,
+  "durationMs": 1500,
+  "cellOrigin": [
+    0,
+    0
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "durationMs": 450,
+      "changedFromF0": 0,
+      "changedFromPriorIdle": 0,
+      "bootsChanged": 0,
+      "headIdentityErrors": 0,
+      "tailRootChanges": 0,
+      "outsideAllowedMask": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "connectedComponents8": [
+        1271
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "comparisonErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 1,
+      "durationMs": 250,
+      "changedFromF0": 72,
+      "changedFromPriorIdle": 7,
+      "bootsChanged": 0,
+      "headIdentityErrors": 0,
+      "tailRootChanges": 0,
+      "outsideAllowedMask": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "connectedComponents8": [
+        1283
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "comparisonErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 2,
+      "durationMs": 450,
+      "changedFromF0": 515,
+      "changedFromPriorIdle": 183,
+      "bootsChanged": 0,
+      "headIdentityErrors": 0,
+      "tailRootChanges": 0,
+      "outsideAllowedMask": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        2,
+        48,
+        63
+      ],
+      "connectedComponents8": [
+        1294
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "comparisonErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 3,
+      "durationMs": 350,
+      "changedFromF0": 257,
+      "changedFromPriorIdle": 192,
+      "bootsChanged": 0,
+      "headIdentityErrors": 0,
+      "tailRootChanges": 0,
+      "outsideAllowedMask": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "connectedComponents8": [
+        1271
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "comparisonErrors": 0,
+      "errors": []
+    }
+  ],
+  "adjacentChanges": [
+    72,
+    443,
+    346,
+    257
+  ],
+  "uniqueDrawings": 4,
+  "bootsProtectedRows": [
+    55,
+    63
+  ],
+  "oldFullLowerLockRemoved": true,
+  "gif": {
+    "size": [
+      512,
+      512
+    ],
+    "delay": [
+      450,
+      250,
+      450,
+      350
+    ]
+  },
+  "comparison": {
+    "size": [
+      816,
+      384
+    ],
+    "left": "prior",
+    "right": "revised",
+    "delay": [
+      450,
+      250,
+      450,
+      350
+    ]
+  },
+  "technicalChecksPassed": true,
+  "playbackReview": {
+    "realBrowserPlayback": true,
+    "normalAndQuarterSpeed": true,
+    "nativeAndEnlarged": true,
+    "deliveredGifLoaded": true,
+    "normalCyclesConfirmedAtLeast": 12,
+    "phaseSamples": [
+      "inspiration",
+      "peak",
+      "exhalation",
+      "rest"
+    ],
+    "lastToFirstReviewed": true,
+    "method": "Live browser observations and frame stepping"
+  },
+  "errors": [],
+  "partTextureChecks": [
+    {
+      "region": "left_arm",
+      "frame": 2,
+      "rigidLocalPixelsPreserved": true,
+      "mismatchedChannels": 0
+    },
+    {
+      "region": "left_arm",
+      "frame": 3,
+      "rigidLocalPixelsPreserved": true,
+      "mismatchedChannels": 0
+    },
+    {
+      "region": "right_arm",
+      "frame": 2,
+      "rigidLocalPixelsPreserved": true,
+      "mismatchedChannels": 0
+    },
+    {
+      "region": "right_arm",
+      "frame": 3,
+      "rigidLocalPixelsPreserved": true,
+      "mismatchedChannels": 0
+    },
+    {
+      "region": "tail_tip",
+      "frame": 3,
+      "rigidLocalPixelsPreserved": true,
+      "mismatchedChannels": 0
+    }
+  ]
+}

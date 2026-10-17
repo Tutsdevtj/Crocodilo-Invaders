@@ -11,6 +11,11 @@ public sealed class WaveController : MonoBehaviour
     private int[] enemiesPerWave = { 6, 8, 10 };
     [SerializeField, Tooltip("Grupos de prefabs na ordem em que entram em cada onda.")]
     private EnemyWave[] waveComposition;
+    [SerializeField, Tooltip("Um pool por horda. Quando preenchido, substitui Wave Composition.")]
+    private EnemyWavePool[] wavePools;
+    [SerializeField, Tooltip("Reproduz somente a seleção das composições, sem alterar os outros sorteios do jogo.")]
+    private bool useDebugSeed;
+    [SerializeField] private int debugSeed = 12345;
     [SerializeField, Min(0f)] private float announcementDuration = 1.6f;
     [SerializeField, Min(0f)] private float intermissionDuration = 2f;
     [SerializeField, Min(0f)] private float rewardTransitionDuration = .35f;
@@ -22,6 +27,7 @@ public sealed class WaveController : MonoBehaviour
     private RunScore score;
     private Health playerHealth;
     private float phaseEndsAt;
+    private EnemyWave[] runComposition;
 
     public RunPhase Phase { get; private set; } = RunPhase.Waiting;
     public int CurrentWave { get; private set; }
@@ -43,7 +49,10 @@ public sealed class WaveController : MonoBehaviour
         player.SetGameplayActive(true);
     }
     private bool HasComposition => waveComposition != null && waveComposition.Length > 0;
-    private int CombatWaveCount => HasComposition ? waveComposition.Length : (enemiesPerWave?.Length ?? 0);
+    private bool HasPools => wavePools != null && wavePools.Length > 0;
+    public int CombatWaveCount => HasPools ? wavePools.Length : HasComposition ? waveComposition.Length : (enemiesPerWave?.Length ?? 0);
+    public EnemyWave CurrentComposition => runComposition != null && CurrentWave > 0 && CurrentWave <= runComposition.Length
+        ? runComposition[CurrentWave - 1] : null;
     public int WaveCount => CombatWaveCount + (bossPrefab != null ? 1 : 0);
     public RunScore Score => score;
     public Boss ActiveBoss { get; private set; }
@@ -58,12 +67,33 @@ public sealed class WaveController : MonoBehaviour
         score = GetComponent<RunScore>();
         playerHealth = player != null ? player.GetComponent<Health>() : null;
         spawner.StopSpawning();
-        bool valid = CombatWaveCount > 0;
-        if (HasComposition)
-            foreach (EnemyWave wave in waveComposition) valid &= wave != null && wave.IsValid;
+        bool valid = ValidateWaves(out string error);
         if (playerHealth != null && valid) return;
-        Debug.LogError("Configure o Player e pelo menos uma onda no WaveController.", this);
+        Debug.LogError(playerHealth == null ? "Configure o Player no WaveController." : error, this);
         enabled = false;
+    }
+
+    public bool ValidateWaves(out string error)
+    {
+        error = null;
+        if (CombatWaveCount == 0) error = "Configure pelo menos uma horda no WaveController.";
+        else if (HasPools)
+        {
+            for (int i = 0; i < wavePools.Length; i++)
+            {
+                string detail = "o pool é nulo.";
+                if (wavePools[i] != null && wavePools[i].Validate(out detail)) continue;
+                error = $"Onda {i + 1}: {detail}";
+                break;
+            }
+        }
+        else if (HasComposition)
+        {
+            for (int i = 0; i < waveComposition.Length; i++)
+                if (waveComposition[i] == null || !waveComposition[i].IsValid)
+                { error = $"Onda {i + 1}: composição inválida."; break; }
+        }
+        return error == null;
     }
 
     private void OnEnable()
@@ -86,6 +116,15 @@ public sealed class WaveController : MonoBehaviour
     public void StartRun()
     {
         if (!isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return;
+        if (!ValidateWaves(out string error)) { Debug.LogError(error, this); return; }
+        // Sorteia uma vez por run; EnemySpawner recebe a composição inteira, sem alterá-la.
+        runComposition = HasComposition ? waveComposition : null;
+        if (HasPools)
+        {
+            var random = useDebugSeed ? new System.Random(debugSeed) : new System.Random();
+            runComposition = new EnemyWave[wavePools.Length];
+            for (int i = 0; i < wavePools.Length; i++) runComposition[i] = wavePools[i].Pick(random);
+        }
         score.ResetScore();
         LeaderboardSession.StartRun();
         player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
@@ -104,7 +143,7 @@ public sealed class WaveController : MonoBehaviour
                 return;
             }
             Phase = RunPhase.Combat;
-            if (HasComposition) spawner.BeginWave(waveComposition[CurrentWave - 1]);
+            if (runComposition != null) spawner.BeginWave(CurrentComposition);
             else spawner.BeginWave(Mathf.Max(1, enemiesPerWave[CurrentWave - 1]));
         }
         else if (Phase == RunPhase.Combat && spawner.RemainingToSpawn == 0 && spawner.AliveCount == 0)
