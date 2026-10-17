@@ -1,0 +1,138 @@
+{
+  "baseExact": true,
+  "canvas": [
+    64,
+    64
+  ],
+  "paletteColors": 23,
+  "sheet": [
+    256,
+    64
+  ],
+  "loopMs": 1500,
+  "frames": [
+    {
+      "frame": 0,
+      "duration_ms": 450,
+      "changedPixels": 0,
+      "protectedChanges": 0,
+      "outsideMask": 0,
+      "headErrors": 0,
+      "headShiftY": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 1,
+      "duration_ms": 250,
+      "changedPixels": 65,
+      "protectedChanges": 0,
+      "outsideMask": 0,
+      "headErrors": 0,
+      "headShiftY": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 2,
+      "duration_ms": 450,
+      "changedPixels": 332,
+      "protectedChanges": 0,
+      "outsideMask": 0,
+      "headErrors": 0,
+      "headShiftY": -1,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        2,
+        48,
+        63
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "errors": []
+    },
+    {
+      "frame": 3,
+      "duration_ms": 350,
+      "changedPixels": 65,
+      "protectedChanges": 0,
+      "outsideMask": 0,
+      "headErrors": 0,
+      "headShiftY": 0,
+      "alpha": [
+        0,
+        255
+      ],
+      "newColors": [],
+      "bboxExclusive": [
+        10,
+        3,
+        48,
+        63
+      ],
+      "sheetErrors": 0,
+      "gifErrors": 0,
+      "errors": []
+    }
+  ],
+  "adjacentChangedPixels": [
+    65,
+    267,
+    267,
+    65
+  ],
+  "reusedDrawings": {
+    "F3": "F1"
+  },
+  "gif": {
+    "size": [
+      512,
+      512
+    ],
+    "frames": 4,
+    "delay": [
+      450,
+      250,
+      450,
+      350
+    ],
+    "loop": 0
+  },
+  "technicalChecksPassed": true,
+  "artisticPlaybackReview": {
+    "nativeFramesInspected": true,
+    "enlargedFramesInspected": true,
+    "continuousPlaybackObserved": false,
+    "reason": "The available browser could not reach the local preview; frame-by-frame visual inspection and pixel/timing validation completed."
+  },
+  "errors": []
+}

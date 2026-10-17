@@ -18,6 +18,8 @@ public sealed class UpgradeCard
 public sealed class UpgradeCardCatalog : ScriptableObject
 {
     [SerializeField] private UpgradeCard[] cards;
+    [SerializeField] private RarityWeights earlyRunWeights = new RarityWeights(70f, 24f, 5f, .9f, .1f);
+    [SerializeField] private RarityWeights lateRunWeights = new RarityWeights(30f, 32f, 25f, 10f, 3f);
     private readonly Dictionary<string, Sprite> loadedArt = new Dictionary<string, Sprite>();
     public IReadOnlyList<UpgradeCard> Cards => cards;
     public int LoadedArtworkCount => loadedArt.Count;
@@ -26,7 +28,7 @@ public sealed class UpgradeCardCatalog : ScriptableObject
     {
         get
         {
-            if (cards == null || cards.Length != 25) return false;
+            if (cards == null || cards.Length != 25 || !earlyRunWeights.IsValid || !lateRunWeights.IsValid) return false;
             var keys = new HashSet<int>();
             foreach (UpgradeCard card in cards)
             {
@@ -44,8 +46,10 @@ public sealed class UpgradeCardCatalog : ScriptableObject
         throw new InvalidOperationException("Carta ausente no catálogo.");
     }
 
-    public UpgradeCard[] RollOffers(System.Random random)
+    public UpgradeCard[] RollOffers(System.Random random, float progress = 0f)
     {
+        if (random == null) throw new ArgumentNullException(nameof(random));
+        WeightsAt(progress);
         if (!IsValid) throw new InvalidOperationException("O catálogo precisa conter os cinco buffs nas cinco raridades.");
         var kinds = new[] { UpgradeKind.AttackDamage, UpgradeKind.AttackSpeed, UpgradeKind.MaximumHealth, UpgradeKind.MoveSpeed, UpgradeKind.SpecialDamage };
         var offers = new UpgradeCard[3];
@@ -53,17 +57,35 @@ public sealed class UpgradeCardCatalog : ScriptableObject
         {
             int pick = random.Next(i, kinds.Length);
             (kinds[i], kinds[pick]) = (kinds[pick], kinds[i]);
-            offers[i] = Get(kinds[i], RarityForRoll(random.Next(10000)));
+            offers[i] = Get(kinds[i], RarityForRoll(random.NextDouble(), progress));
         }
         return offers;
     }
 
-    // Cada carta tem seu próprio sorteio; os tipos distintos não alteram as chances de raridade.
-    public static UpgradeRarity RarityForRoll(int roll)
+    public RarityWeights WeightsAt(float progress)
     {
-        if (roll < 0 || roll >= 10000) throw new ArgumentOutOfRangeException(nameof(roll));
-        return roll < 6000 ? UpgradeRarity.Common : roll < 8500 ? UpgradeRarity.Rare
-            : roll < 9600 ? UpgradeRarity.Epic : roll < 9950 ? UpgradeRarity.Legendary : UpgradeRarity.Mythic;
+        if (!earlyRunWeights.IsValid || !lateRunWeights.IsValid)
+            throw new InvalidOperationException("Early/Late Run Weights precisam de pesos finitos, não negativos e soma maior que zero.");
+        if (float.IsNaN(progress) || float.IsInfinity(progress)) throw new ArgumentOutOfRangeException(nameof(progress));
+        return RarityWeights.Lerp(earlyRunWeights, lateRunWeights, Mathf.Clamp01(progress));
+    }
+
+    // Cada carta tem seu próprio sorteio pelo peso total, sem exigir soma igual a 100.
+    public UpgradeRarity RarityForRoll(double roll, float progress)
+    {
+        if (double.IsNaN(roll) || roll < 0d || roll >= 1d) throw new ArgumentOutOfRangeException(nameof(roll));
+        RarityWeights weights = WeightsAt(progress);
+        double threshold = roll * weights.Total;
+        UpgradeRarity lastPositive = UpgradeRarity.Common;
+        for (int i = 0; i < 5; i++)
+        {
+            var rarity = (UpgradeRarity)i;
+            float weight = weights.Weight(rarity);
+            if (weight > 0f) lastPositive = rarity;
+            if (threshold < weight) return rarity;
+            threshold -= weight;
+        }
+        return lastPositive;
     }
 
     public Sprite Artwork(UpgradeCard card)

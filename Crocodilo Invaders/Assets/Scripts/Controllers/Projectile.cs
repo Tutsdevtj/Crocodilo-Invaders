@@ -41,11 +41,14 @@ public sealed class Projectile : MonoBehaviour
         Health target = other.GetComponentInParent<Health>();
         // Captura o ponto antes do dano: um acerto fatal pode desativar o collider.
         Vector2 hitPosition = other.ClosestPoint(body.position);
-        if (target == null || !target.TakeDamage(currentDamage)) return;
+        if (target == null) return;
+        bool damaged = target.TakeDamage(currentDamage);
+        // Um projétil esquivado também é consumido, sem feedback de acerto ou dano atrasado.
+        if (!damaged && !target.IsInvulnerable) return;
 
         spent = true;
         GetComponent<Collider2D>().enabled = false;
-        Hit?.Invoke(hitPosition);
+        if (damaged) Hit?.Invoke(hitPosition);
         Destroy(gameObject);
     }
 }

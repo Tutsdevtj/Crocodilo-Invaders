@@ -1,0 +1,16 @@
+Canvas: 32x32
+Frames: 8
+Opaque colours: 16
+Duration: 1.96s
+Alpha: binary
+Feet: fixed
+Loop: first and last pose equal
+Frame 1: 300ms; bounds (4,2,25,29); changed pixels 0
+Frame 2: 200ms; bounds (4,2,25,29); changed pixels 30
+Frame 3: 200ms; bounds (4,1,25,30); changed pixels 156
+Frame 4: 360ms; bounds (4,1,25,30); changed pixels 33
+Frame 5: 200ms; bounds (4,1,25,30); changed pixels 4
+Frame 6: 200ms; bounds (4,1,25,30); changed pixels 30
+Frame 7: 200ms; bounds (4,2,25,29); changed pixels 153
+Frame 8: 300ms; bounds (4,2,25,29); changed pixels 34
+Unique poses: 7

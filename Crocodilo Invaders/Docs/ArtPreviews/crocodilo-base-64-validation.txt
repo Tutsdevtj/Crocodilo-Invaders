@@ -1,0 +1,7 @@
+Canvas: 64x64
+Frames: 1
+Opaque colours: 30
+Transparent pixels: 2566
+Alpha: binary
+Bounds: (8,3,46,60)
+Enlargement: nearest-neighbour 8x

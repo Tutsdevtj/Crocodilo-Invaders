@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public sealed class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform shotOrigin;
@@ -11,6 +12,9 @@ public sealed class PlayerCombat : MonoBehaviour
     [SerializeField, Min(1)] private int specialChargeRequired = 10;
 
     private Collider2D ownerCollider;
+    private Health health;
+    private bool pendingShot;
+    private bool pendingSpecial;
     private float nextShotTime;
     private Projectile activeSpecialShot;
     private float attackSpeedMultiplier = 1f;
@@ -32,6 +36,9 @@ public sealed class PlayerCombat : MonoBehaviour
 
     public int Charge { get; private set; }
     public int SpecialChargeRequired => specialChargeRequired;
+    public bool HasPendingAttack => pendingShot || pendingSpecial;
+    public event Action ShotStarted;
+    public event Action SpecialStarted;
     public event Action ShotFired;
     public event Action SpecialFired;
     public event Action<int, int> ChargeChanged;
@@ -39,32 +46,61 @@ public sealed class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         ownerCollider = GetComponent<Collider2D>();
+        health = GetComponent<Health>();
     }
+
+    private void OnEnable() => health.Died += CancelPendingAttacks;
+
+    private void OnDisable()
+    {
+        health.Died -= CancelPendingAttacks;
+        CancelPendingAttacks();
+    }
+
+    public void CancelPendingAttacks() => pendingShot = pendingSpecial = false;
 
     public bool TryShoot()
     {
-        if (!isActiveAndEnabled || Time.timeScale == 0f || Time.time < nextShotTime
-            || normalProjectile == null || shotOrigin == null) return false;
+        if (!isActiveAndEnabled || health.IsDead || HasPendingAttack || Time.timeScale == 0f || Time.time < nextShotTime
+            || normalProjectile == null || shotOrigin == null || ShotStarted == null) return false;
 
+        pendingShot = true;
+        nextShotTime = Time.time + ShotInterval;
+        ShotStarted?.Invoke();
+        return true;
+    }
+
+    // Called by the animation event, not by input or a second cooldown timer.
+    public void ReleaseNormalShot()
+    {
+        if (!pendingShot) return;
+        pendingShot = false;
+        if (!isActiveAndEnabled || health.IsDead) return;
         Projectile shot = Instantiate(normalProjectile, shotOrigin.position, shotOrigin.rotation);
         shot.Launch(shotOrigin.right, ownerCollider, damageMultiplier: normalDamageMultiplier);
-        // A cadência pertence ao combate; o tiro anterior pode continuar voando.
-        nextShotTime = Time.time + ShotInterval;
         SetCharge(Mathf.Min(specialChargeRequired, Charge + 1));
         ShotFired?.Invoke();
-        return true;
     }
 
     public bool TrySpecialAttack()
     {
-        if (!isActiveAndEnabled || Time.timeScale == 0f || activeSpecialShot != null
-            || Charge < specialChargeRequired || specialProjectile == null || specialOrigin == null) return false;
+        if (!isActiveAndEnabled || health.IsDead || HasPendingAttack || Time.timeScale == 0f || activeSpecialShot != null
+            || Charge < specialChargeRequired || specialProjectile == null || specialOrigin == null || SpecialStarted == null) return false;
 
+        pendingSpecial = true;
+        SpecialStarted?.Invoke();
+        return true;
+    }
+
+    public void ReleaseSpecial()
+    {
+        if (!pendingSpecial) return;
+        pendingSpecial = false;
+        if (!isActiveAndEnabled || health.IsDead) return;
         activeSpecialShot = Instantiate(specialProjectile, specialOrigin.position, specialOrigin.rotation);
         activeSpecialShot.Launch(specialOrigin.right, ownerCollider, damageMultiplier: specialDamageMultiplier);
         SetCharge(0);
         SpecialFired?.Invoke();
-        return true;
     }
 
     private void SetCharge(int value)

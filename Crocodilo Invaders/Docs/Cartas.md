@@ -6,17 +6,22 @@ A nona escolha prepara o player para o boss da onda 10. A vitória final não ab
 outra recompensa. Novas partidas começam sem os bônus da partida anterior.
 
 Cada oferta contém três tipos diferentes, sorteados entre os cinco buffs. A raridade
-é sorteada independentemente por carta, com estas chances exatas:
+é sorteada independentemente por carta. Os pesos interpolam conforme a progressão:
 
-| Raridade | Chance por carta |
-| --- | ---: |
-| Comum | 60% |
-| Raro | 25% |
-| Épico | 11% |
-| Lendário | 3,5% |
-| Mítico | 0,5% |
+| Raridade | Primeira recompensa | Meio da run | Última recompensa antes do boss |
+| --- | ---: | ---: | ---: |
+| Comum | 70% | 50% | 30% |
+| Raro | 24% | 28% | 32% |
+| Épico | 5% | 15% | 25% |
+| Lendário | 0,9% | 5,45% | 10% |
+| Mítico | 0,1% | 1,55% | 3% |
 
-Não há garantia de carta rara ou mítica por partida. O reroll usa o mesmo sorteio,
+`CardRewardController` captura `RewardProgress` ao abrir a escolha: 0 após a onda 1,
+0,5 após a onda 5 e 1 após a onda 9. Usa `(onda concluída − 1) / (número de
+recompensas − 1)`, com proteção para runs curtas. O catálogo recebe apenas esse
+valor normalizado, sem conhecer WaveController.
+
+Não há garantia de carta rara ou mítica por partida. O reroll usa o progresso capturado na abertura,
 sem melhorar artificialmente as chances. Há **um reroll gratuito por escolha**;
 ele troca as três ofertas e renova somente na próxima onda concluída. O botão
 fica indisponível depois do uso e durante as animações, evitando gastos ou escolhas
@@ -124,8 +129,10 @@ o caráter musical das três revelações; os timbres e as cores acima são esco
 ## Organização e ajustes
 
 - `UpgradeCardCatalog`: dados, chances e sorteio; `Assets/Data/UpgradeCards.asset`
-  contém os 25 registros. Os pesos ficam em `RarityForRoll`, em 10.000 resultados
-  inteiros, permitindo representar 0,5% exatamente.
+  contém os 25 registros e os campos **Early Run Weights / Late Run Weights**.
+  Os cinco pesos são editáveis no Inspector e não precisam somar 100. O catálogo
+  interpola os pesos e sorteia pelo total. Pesos negativos, não finitos ou todos
+  iguais a zero geram erro claro; pesos zero nunca são sorteados.
 - `PlayerRunUpgrades`: acumula porcentagens e aplica os atributos sobre as bases
   capturadas no player da cena, incluindo seus overrides. Reinicia por partida.
 - `CardRewardController`: coordena ondas, escolha, reroll, bloqueio de input e pausa.
@@ -143,7 +150,7 @@ Não há carregamento inicial das 25 texturas nem novas dependências de animaç
 
 ## Validação
 
-Validação automatizada em Play Mode: limites exatos das cinco raridades, 5.000
+A validação original em Play Mode cobriu limites das cinco raridades, 5.000
 ofertas com tipos distintos, soma de bônus, cadência, dano fracionário em colisão
 2D real, dano especial, vida máxima e reset. O fluxo percorre as nove escolhas,
 o boss e seus reforços, loading de nova partida, morte durante recompensa e saída
@@ -151,6 +158,16 @@ pela pausa. Também verifica navegação por setas/Enter, único reroll por esco
 bloqueio da onda e suspensão da animação durante a pausa. Imagens de conferência e
 logs ficam na pasta ignorada `Logs`; a compilação do projeto completo é verificada
 separadamente dos testes.
+
+A progressão atual foi validada no Editor com 100.000 sorteios em cada progresso
+0 / 0,5 / 1, mais tipos distintos, pesos somando 10 e configurações inválidas.
+Resultados comum/raro/épico/lendário/mítico: início **69,761 / 24,105 / 5,117 /
+0,915 / 0,102%**; meio **49,895 / 27,863 / 15,105 / 5,574 / 1,563%**; final
+**30,030 / 31,731 / 25,152 / 10,047 / 3,040%**.
+O comando **Crocodilo → Validate Roguelite** repete essas verificações; a validação
+de build também as executa. Play Mode real percorreu nove recompensas com reroll,
+pausa, aplicação única de carta, boss, pontuação e derrota, usando abates e tempo
+acelerados para exercitar o fluxo. Isso não avalia o balanceamento de uma partida manual.
 
 Os efeitos têm validação adicional: três auras e sons distintos, reprodução única
 do trovão, 48 frames importados, shaders compilados e geometria das partículas

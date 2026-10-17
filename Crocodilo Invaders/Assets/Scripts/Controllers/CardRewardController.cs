@@ -21,6 +21,7 @@ public sealed class CardRewardController : MonoBehaviour
     public RewardState State { get; private set; }
     public IReadOnlyList<UpgradeCard> Offers => offers;
     public int RerollsRemaining { get; private set; }
+    public float RewardProgress { get; private set; }
     public bool CanInteract => State == RewardState.Ready && (pause == null || !pause.IsPaused);
 
     private void Awake()
@@ -51,7 +52,9 @@ public sealed class CardRewardController : MonoBehaviour
         Time.timeScale = 0f;
         if (pause != null) pause.AllowPauseWhileFrozen(true);
         RerollsRemaining = 1;
-        offers = catalog.RollOffers(random);
+        int rewardCount = Mathf.Min(waves.CombatWaveCount, waves.WaveCount - 1);
+        RewardProgress = rewardCount > 1 ? Mathf.Clamp01((wave - 1f) / (rewardCount - 1)) : 0f;
+        offers = catalog.RollOffers(random, RewardProgress);
         State = RewardState.Revealing;
         StartCoroutine(Reveal(false));
     }
@@ -70,7 +73,7 @@ public sealed class CardRewardController : MonoBehaviour
         RerollsRemaining--;
         State = RewardState.Revealing;
         RefreshInteraction();
-        offers = catalog.RollOffers(random);
+        offers = catalog.RollOffers(random, RewardProgress);
         StartCoroutine(Reveal(true));
         return true;
     }

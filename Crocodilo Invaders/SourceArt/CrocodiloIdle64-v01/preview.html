@@ -1,0 +1,14 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Idle do crocodilo</title>
+<style>body{margin:24px;background:#f3f2ed;color:#27382d;font:16px system-ui}h1{font-size:22px}main{display:flex;align-items:flex-start;gap:36px}.art{background:#e2e4e6;image-rendering:pixelated;image-rendering:crisp-edges}.big{width:512px;height:512px}.native{width:64px;height:64px}button{font:inherit;padding:8px 14px;border:1px solid #aaa;background:white;border-radius:6px;cursor:pointer}nav{display:flex;gap:12px;margin:16px 0}p{margin:10px 0}#phase{min-height:24px}</style>
+<h1>Idle do crocodilo</h1><nav><button id="toggle">Pausar</button><button id="speed">Lento</button><button id="next">Próximo frame</button></nav>
+<main><section><p>Ampliado 8×</p><img id="large" class="art big" alt="Crocodilo animado ampliado" src="frames/idle_00.png"></section><section><p>Tamanho original</p><img id="native" class="art native" alt="Crocodilo animado 64 por 64" src="frames/idle_00.png"><p id="phase">Repouso</p><p id="cycles">Ciclos: 0</p><p>4 frames · 1,5 s por ciclo</p></section></main>
+<script>
+const names=['Repouso','Inspiração','Ápice','Expiração'];const durations=[450,250,450,350];
+const pics=Array.from({length:4},(_,f)=>{let im=new Image;im.src='frames/idle_0'+f+'.png';return im});
+let running=true,rate=1,total=0,last=performance.now(),shown=-1,frame=0;
+function display(f){frame=f;document.getElementById('large').src=pics[f].src;document.getElementById('native').src=pics[f].src;document.getElementById('phase').textContent=names[f]+' · '+durations[f]+' ms';document.body.dataset.frame=String(f)}
+document.getElementById('toggle').onclick=()=>{running=!running;document.getElementById('toggle').textContent=running?'Pausar':'Reproduzir'};
+document.getElementById('speed').onclick=()=>{rate=rate===1?0.25:1;document.getElementById('speed').textContent=rate===1?'Lento':'Normal'};
+document.getElementById('next').onclick=()=>{running=false;document.getElementById('toggle').textContent='Reproduzir';frame=(frame+1)%4;total=[0,450,700,1150][frame];shown=frame;display(frame)};
+function tick(now){if(running)total+=(now-last)*rate;last=now;let pos=total%1500,acc=0,f=0;for(let i=0;i<4;i++){acc+=durations[i];if(pos<acc){f=i;break}}if(running&&f!==shown){shown=f;display(f)}document.getElementById('cycles').textContent='Ciclos: '+Math.floor(total/1500);requestAnimationFrame(tick)}display(0);requestAnimationFrame(tick);
+</script></html>

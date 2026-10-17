@@ -7,11 +7,13 @@ public sealed class PlayerInputReader : MonoBehaviour
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference fireAction;
     [SerializeField] private InputActionReference specialAction;
+    [SerializeField] private InputActionReference dashAction;
 
     private Player player;
     private InputAction localMoveAction;
     private InputAction localFireAction;
     private InputAction localSpecialAction;
+    private InputAction localDashAction;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public sealed class PlayerInputReader : MonoBehaviour
         localMoveAction = moveAction.action.Clone();
         localFireAction = fireAction?.action?.Clone();
         localSpecialAction = specialAction?.action?.Clone();
+        localDashAction = dashAction?.action?.Clone();
     }
 
     private void OnEnable()
@@ -34,14 +37,18 @@ public sealed class PlayerInputReader : MonoBehaviour
         localMoveAction?.Enable();
         localFireAction?.Enable();
         localSpecialAction?.Enable();
+        localDashAction?.Enable();
     }
 
     private void Update()
     {
         player.SetMoveInput(localMoveAction.ReadValue<Vector2>());
+        if (localDashAction != null && localDashAction.WasPressedThisFrame()) player.TryDash();
         // Segurar Espaço pede disparos; o combate decide quando pode executar cada um.
-        if (localFireAction != null && localFireAction.IsPressed()) player.TryShoot();
-        if (localSpecialAction != null && localSpecialAction.WasPressedThisFrame()) player.TrySpecialAttack();
+        // If both buttons arrive together, give a charged special its windup first.
+        bool specialStarted = localSpecialAction != null && localSpecialAction.WasPressedThisFrame()
+            && player.TrySpecialAttack();
+        if (!specialStarted && localFireAction != null && localFireAction.IsPressed()) player.TryShoot();
     }
 
     private void OnDisable()
@@ -51,6 +58,7 @@ public sealed class PlayerInputReader : MonoBehaviour
         localMoveAction.Disable();
         localFireAction?.Disable();
         localSpecialAction?.Disable();
+        localDashAction?.Disable();
         player.SetMoveInput(Vector2.zero);
     }
 
@@ -59,5 +67,6 @@ public sealed class PlayerInputReader : MonoBehaviour
         localMoveAction?.Dispose();
         localFireAction?.Dispose();
         localSpecialAction?.Dispose();
+        localDashAction?.Dispose();
     }
 }

@@ -26,6 +26,21 @@ Um novo acerto reinicia flash e lentidão. A redução de velocidade não se mul
 
 Esta etapa usa reação local ao golpe. Congelar o jogo inteiro em cada acerto atrapalharia a cadência do tiro contínuo e tornaria o feedback dependente de um relógio global. Tremor de câmera e efeitos maiores podem ser avaliados depois para eventos fortes, como morte de boss.
 
+## Dano recebido pelo jogador
+
+O prefab `Player` reutiliza o `SpriteHitFlash` e o material do boss. A cada dano
+aceito por `Health`, o personagem fica branco por 0,06 s e recupera sua cor em
+0,09 s. Novos hits reiniciam o flash; cura não o dispara. A transparência do
+sprite é preservada e o efeito congela junto com a pausa do jogo.
+
+As instâncias do jogador nas cenas herdam o efeito pelo prefab. Ajuste **Hold
+Duration** e **Fade Duration** no `SpriteHitFlash` do `Player` para alterar o tempo.
+
+O Bombardiro animado usa o renderer do filho `Visual`, referenciado pelo mesmo
+`SpriteHitFlash`. `PlayerPresentation` acrescenta a pose Hurt e um shake de
+2 pixels por 0,10 s, somente nesse filho e em tempo não escalado. Detalhes de
+animação, releases e isolamento da física em [PlayerAnimado.md](PlayerAnimado.md).
+
 ## Responsabilidades e arquivos
 
 - `Enemy`: conecta o evento de dano à reação do movimento.

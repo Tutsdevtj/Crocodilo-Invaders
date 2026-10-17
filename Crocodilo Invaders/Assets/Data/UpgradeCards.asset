@@ -113,3 +113,15 @@ MonoBehaviour:
     rarity: 2
     percent: 15
     artworkPath: Cards/SpecialDamage/Epic
+  earlyRunWeights:
+    common: 70
+    rare: 24
+    epic: 5
+    legendary: 0.9
+    mythic: 0.1
+  lateRunWeights:
+    common: 30
+    rare: 32
+    epic: 25
+    legendary: 10
+    mythic: 3
