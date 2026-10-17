@@ -1,0 +1,161 @@
+{
+ "name": "gansinho",
+ "canvas": {
+  "w": 36,
+  "h": 28
+ },
+ "facing": "left",
+ "move_direction": {
+  "x": -1,
+  "y": 0
+ },
+ "frame_count": 4,
+ "loop": true,
+ "durations_ms": [
+  80,
+  70,
+  80,
+  70
+ ],
+ "total_ms": 300,
+ "wing_pose_per_frame": [
+  "up",
+  "mid",
+  "down",
+  "mid2"
+ ],
+ "beak_in_flight_loop": "sempre fechado; canto = camada gansinho_beak (ver beak_layer)",
+ "pivot_px": {
+  "x": 19,
+  "y": 14
+ },
+ "pivot_unity_normalized": {
+  "x": 0.5278,
+  "y": 0.5
+ },
+ "visual_bbox_all_frames_px": {
+  "x": 0,
+  "y": 0,
+  "w": 34,
+  "h": 23
+ },
+ "suggested_hitbox_px": {
+  "x": 4,
+  "y": 4,
+  "w": 26,
+  "h": 17,
+  "note": "corpo+cabeça; ignora pontas das asas"
+ },
+ "variants": {
+  "A": [
+   "gansinho_0.png",
+   "gansinho_1.png",
+   "gansinho_2.png",
+   "gansinho_3.png"
+  ],
+  "B": {
+   "frames": [
+    "gansinho_b_0.png",
+    "gansinho_b_1.png",
+    "gansinho_b_2.png",
+    "gansinho_b_3.png"
+   ],
+   "diff": "touca vermelha + óculos baixados nos olhos; mesma silhueta, canvas, pivô e animação"
+  }
+ },
+ "formation_reference": {
+  "file": "gansinho_formation_V_reference_x2.png",
+  "note": "SÓ referência visual. Cada gansinho é um objeto separado.",
+  "offsets_from_leader_px": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 34,
+    "y": -18
+   },
+   {
+    "x": 34,
+    "y": 18
+   },
+   {
+    "x": 68,
+    "y": -36
+   },
+   {
+    "x": 68,
+    "y": 36
+   }
+  ],
+  "variant_per_slot": [
+   "A",
+   "B",
+   "A",
+   "A",
+   "B"
+  ],
+  "start_frame_offset_per_slot": [
+   0,
+   1,
+   1,
+   2,
+   2
+  ]
+ },
+ "import": "Filter Point, Compression None, PPU igual ao do boss",
+ "beak_layer": {
+  "how": "SpriteRenderer filho \"Beak\" no MESMO pivô (posição local 0,0), sortingOrder do corpo +1. Funciona sobre qualquer frame do voo e nas variações A e B.",
+  "canvas": {
+   "w": 36,
+   "h": 28
+  },
+  "pivot_px": {
+   "x": 19,
+   "y": 14
+  },
+  "states": {
+   "0": {
+    "file": "gansinho_beak_0.png",
+    "label": "fechado"
+   },
+   "1": {
+    "file": "gansinho_beak_1.png",
+    "label": "semiaberto"
+   },
+   "2": {
+    "file": "gansinho_beak_2.png",
+    "label": "aberto"
+   }
+  },
+  "state_0_note": "estado 0 = igual ao bico do voo base; pode também simplesmente desligar a camada",
+  "sing_clip": {
+   "states": [
+    0,
+    1,
+    2,
+    1
+   ],
+   "durations_ms": [
+    60,
+    60,
+    120,
+    70
+   ],
+   "total_ms": 310,
+   "loop": false,
+   "then": "volta ao estado 0"
+  },
+  "sound_reference": {
+   "sing_clip_frame": 2,
+   "note": "tocar o grasnado no início do frame 2 do clip de canto (bico totalmente aberto)"
+  },
+  "coral_example_offsets_ms": [
+   0,
+   140,
+   140,
+   280,
+   280
+  ]
+ }
+}

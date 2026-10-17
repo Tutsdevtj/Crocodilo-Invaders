@@ -1,0 +1,247 @@
+{
+ "animation": "gusini_p1_idle",
+ "phase": 1,
+ "loop": true,
+ "frame_count": 4,
+ "durations_ms": [
+  130,
+  170,
+  130,
+  170
+ ],
+ "total_ms": 600,
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "facing": "left",
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "note": "Mesma origem de coordenadas das peças da Fase 1 (canvas de 240x180 ampliado p/ 256x196 à direita/baixo, igual ao da Fase 3). Movimento horizontal fica com a Unity.",
+ "frames": [
+  {
+   "file": "gusini_p1_idle_0.png",
+   "duration_ms": 130
+  },
+  {
+   "file": "gusini_p1_idle_1.png",
+   "duration_ms": 170
+  },
+  {
+   "file": "gusini_p1_idle_2.png",
+   "duration_ms": 130
+  },
+  {
+   "file": "gusini_p1_idle_3.png",
+   "duration_ms": 170
+  }
+ ],
+ "part_offsets_px_per_frame": {
+  "body_cockpit": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 1
+   }
+  ],
+  "cannon": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 1
+   }
+  ],
+  "engine": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 1
+   }
+  ],
+  "head": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "beak_upper": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "beak_lower": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "scarf": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "wing_left": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "wing_right": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ]
+ },
+ "animated_parts": {
+  "scarf": {
+   "frames": [
+    "parts/gusini_p1_scarf_idle_0.png",
+    "parts/gusini_p1_scarf_idle_1.png",
+    "parts/gusini_p1_scarf_idle_2.png",
+    "parts/gusini_p1_scarf_idle_3.png"
+   ],
+   "box_offset_in_boss_px": {
+    "x": 98,
+    "y": 31
+   },
+   "size": {
+    "w": 87,
+    "h": 56
+   },
+   "note": "4 poses; nó no pescoço fixo, só a parte solta muda; F0 = peça aprovada"
+  },
+  "engine": {
+   "frames": [
+    "parts/gusini_p1_engine_idle_0.png",
+    "parts/gusini_p1_engine_idle_1.png",
+    "parts/gusini_p1_engine_idle_2.png",
+    "parts/gusini_p1_engine_idle_3.png"
+   ],
+   "box_offset_in_boss_px": {
+    "x": 194,
+    "y": 102
+   },
+   "size": {
+    "w": 52,
+    "h": 36
+   },
+   "note": "miolo da turbina desliza 1 faixa/frame + chama em 4 formas"
+  },
+  "head_beak_wings_cannon_body": "sem pixels novos: mesmas peças da Fase 1, só deslocadas (ver part_offsets_px_per_frame)"
+ },
+ "unchanged_parts_source": "boss_gusini/gusini_phase1/parts/"
+}

@@ -13,6 +13,7 @@ public sealed class BossPresentation : MonoBehaviour
     [SerializeField] private LineRenderer aimGuide;
 
     private Boss boss;
+    private BossCombat combat;
     private AudioSource sounds;
     private SpriteRenderer body;
     private bool telegraphing;
@@ -22,6 +23,7 @@ public sealed class BossPresentation : MonoBehaviour
     private void Awake()
     {
         boss = GetComponent<Boss>();
+        combat = GetComponent<BossCombat>();
         sounds = GetComponent<AudioSource>();
         body = GetComponent<SpriteRenderer>();
         HideTelegraph();
@@ -32,10 +34,10 @@ public sealed class BossPresentation : MonoBehaviour
         boss.Health.Damaged += OnDamage;
         boss.Health.Died += OnDeath;
         boss.BattleStopped += StopMusic;
-        boss.Combat.TelegraphStarted += ShowTelegraph;
-        boss.Combat.TelegraphFinished += HideTelegraph;
-        boss.Combat.ShotFired += OnShot;
-        boss.Combat.EnrageStarted += OnEnrage;
+        combat.TelegraphStarted += ShowTelegraph;
+        combat.TelegraphFinished += HideTelegraph;
+        combat.ShotFired += OnShot;
+        combat.EnrageStarted += OnEnrage;
     }
 
     private void Start()
@@ -48,10 +50,10 @@ public sealed class BossPresentation : MonoBehaviour
         boss.Health.Damaged -= OnDamage;
         boss.Health.Died -= OnDeath;
         boss.BattleStopped -= StopMusic;
-        boss.Combat.TelegraphStarted -= ShowTelegraph;
-        boss.Combat.TelegraphFinished -= HideTelegraph;
-        boss.Combat.ShotFired -= OnShot;
-        boss.Combat.EnrageStarted -= OnEnrage;
+        combat.TelegraphStarted -= ShowTelegraph;
+        combat.TelegraphFinished -= HideTelegraph;
+        combat.ShotFired -= OnShot;
+        combat.EnrageStarted -= OnEnrage;
         HideTelegraph();
         StopMusic();
     }
@@ -81,7 +83,7 @@ public sealed class BossPresentation : MonoBehaviour
             body.color = color;
         }
         if (!telegraphing) return;
-        Vector3 origin = boss.Combat.ShotOrigin.position;
+        Vector3 origin = combat.ShotOrigin.position;
         if (attack == BossCombat.Attack.Missiles)
         {
             aimGuide.positionCount = 2;

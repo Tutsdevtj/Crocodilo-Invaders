@@ -1,0 +1,445 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2351646275938254408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3199286566884559974}
+  - component: {fileID: 3209987440519174262}
+  m_Layer: 0
+  m_Name: GusiniSquadron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3199286566884559974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351646275938254408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4115105479857085565}
+  - {fileID: 1407140832571925335}
+  - {fileID: 5592043643180688843}
+  - {fileID: 749313505828703560}
+  - {fileID: 3383553333583362397}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3209987440519174262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351646275938254408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05508d161776cd349aa1c49e88d05b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadron
+  speed: 7.2
+  lifetime: 5
+  despawnX: -12
+  spacing: 1
+  geese:
+  - {fileID: 46144751939889237}
+  - {fileID: 3044171561757087615}
+  - {fileID: 8368485086479323619}
+  - {fileID: 3737462536540764512}
+  - {fileID: 1678981870665469301}
+  slotOffsets:
+  - {x: 0, y: 0}
+  - {x: 0.34, y: 0.18}
+  - {x: 0.34, y: -0.18}
+  - {x: 0.68, y: 0.36}
+  - {x: 0.68, y: -0.36}
+  variantB: 0001000001y
+  flightStartTimes:
+  - 0
+  - 0.26666668
+  - 0.26666668
+  - 0.5
+  - 0.5
+  chorusDelays:
+  - 0
+  - 0.14
+  - 0.14
+  - 0.28
+  - 0.28
+--- !u!1001 &65679612057812001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3199286566884559974}
+    m_Modifications:
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265220086469803685, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_Name
+      value: Goose 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+--- !u!4 &1407140832571925335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 65679612057812001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3044171561757087615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086732291713559390, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 65679612057812001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fa09380c7744f46aea66f012647557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadronGoose
+--- !u!1001 &1803802470708138558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3199286566884559974}
+    m_Modifications:
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265220086469803685, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_Name
+      value: Goose 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+--- !u!4 &749313505828703560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 1803802470708138558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3737462536540764512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086732291713559390, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 1803802470708138558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fa09380c7744f46aea66f012647557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadronGoose
+--- !u!1001 &3059552466475434763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3199286566884559974}
+    m_Modifications:
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265220086469803685, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_Name
+      value: Goose 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+--- !u!114 &46144751939889237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086732291713559390, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 3059552466475434763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fa09380c7744f46aea66f012647557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadronGoose
+--- !u!4 &4115105479857085565 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 3059552466475434763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4439062383176345131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3199286566884559974}
+    m_Modifications:
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265220086469803685, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_Name
+      value: Goose 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+--- !u!114 &1678981870665469301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086732291713559390, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 4439062383176345131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fa09380c7744f46aea66f012647557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadronGoose
+--- !u!4 &3383553333583362397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 4439062383176345131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6842254757903563453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3199286566884559974}
+    m_Modifications:
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265220086469803685, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+      propertyPath: m_Name
+      value: Goose 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+--- !u!4 &5592043643180688843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1400193301416861558, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 6842254757903563453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8368485086479323619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3086732291713559390, guid: 77ac1cd278ee81c448dbe16564ff985e, type: 3}
+  m_PrefabInstance: {fileID: 6842254757903563453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fa09380c7744f46aea66f012647557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniSquadronGoose

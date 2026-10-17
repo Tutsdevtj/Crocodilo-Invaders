@@ -1,0 +1,1194 @@
+{
+  "canvas_px": {
+    "w": 182,
+    "h": 56
+  },
+  "display_scale": 2,
+  "unity_canvas_reference": {
+    "w": 1200,
+    "h": 720
+  },
+  "size_in_canvas_px": {
+    "w": 364,
+    "h": 112
+  },
+  "rects_x1": {
+    "dial": [
+      20,
+      34,
+      17
+    ],
+    "plate": [
+      24,
+      17,
+      164,
+      52
+    ],
+    "name_tab": [
+      42,
+      3,
+      152,
+      17
+    ],
+    "hp_fill_area": [
+      42,
+      23,
+      154,
+      30
+    ],
+    "hp_housing": [
+      38,
+      19,
+      158,
+      34
+    ],
+    "sp_fill_area": [
+      42,
+      40,
+      144,
+      46
+    ],
+    "sp_housing": [
+      38,
+      36,
+      148,
+      50
+    ],
+    "turbine": [
+      146,
+      34,
+      177,
+      52
+    ]
+  },
+  "anchors_x1": {
+    "nozzle_flame_origin": [
+      178,
+      43
+    ],
+    "flame_sprite_pivot_px": [
+      0,
+      6
+    ],
+    "activate_flash_center": [
+      178,
+      43
+    ],
+    "lamp": [
+      160,
+      36
+    ],
+    "fan_topleft": [
+      148,
+      37
+    ],
+    "wave_topleft": [
+      42,
+      40
+    ],
+    "bubble_row_y": 43
+  },
+  "sp_thresholds": {
+    "low": "< 1/3",
+    "mid": "1/3 .. <1",
+    "full": "= 1"
+  },
+  "palette": {
+    "ol": [
+      14,
+      16,
+      20
+    ],
+    "pl0": [
+      44,
+      50,
+      30
+    ],
+    "pl1": [
+      66,
+      74,
+      44
+    ],
+    "pl2": [
+      92,
+      100,
+      62
+    ],
+    "pl3": [
+      126,
+      132,
+      84
+    ],
+    "gm0": [
+      26,
+      30,
+      36
+    ],
+    "gm1": [
+      40,
+      46,
+      54
+    ],
+    "gm2": [
+      62,
+      70,
+      80
+    ],
+    "gm3": [
+      98,
+      108,
+      118
+    ],
+    "mt0": [
+      198,
+      192,
+      178
+    ],
+    "mt1": [
+      156,
+      154,
+      150
+    ],
+    "mt2": [
+      110,
+      112,
+      116
+    ],
+    "mt3": [
+      72,
+      76,
+      84
+    ],
+    "br0": [
+      112,
+      72,
+      34
+    ],
+    "br1": [
+      178,
+      122,
+      54
+    ],
+    "br2": [
+      232,
+      182,
+      96
+    ],
+    "tx": [
+      246,
+      236,
+      204
+    ],
+    "face0": [
+      18,
+      22,
+      28
+    ],
+    "face1": [
+      28,
+      34,
+      42
+    ],
+    "hpt0": [
+      40,
+      16,
+      24
+    ],
+    "hpt1": [
+      60,
+      26,
+      36
+    ],
+    "hp0": [
+      255,
+      178,
+      150
+    ],
+    "hp1": [
+      242,
+      104,
+      90
+    ],
+    "hp2": [
+      196,
+      58,
+      66
+    ],
+    "hp3": [
+      122,
+      30,
+      48
+    ],
+    "lag0": [
+      255,
+      232,
+      190
+    ],
+    "lag1": [
+      238,
+      200,
+      152
+    ],
+    "lag2": [
+      196,
+      150,
+      112
+    ],
+    "low0": [
+      255,
+      122,
+      100
+    ],
+    "low1": [
+      250,
+      58,
+      58
+    ],
+    "low2": [
+      172,
+      20,
+      40
+    ],
+    "low3": [
+      94,
+      10,
+      28
+    ],
+    "heal": [
+      255,
+      252,
+      232
+    ],
+    "lowg": [
+      255,
+      70,
+      70
+    ],
+    "spt0": [
+      10,
+      20,
+      36
+    ],
+    "spt1": [
+      16,
+      30,
+      52
+    ],
+    "sl0": [
+      64,
+      120,
+      200
+    ],
+    "sl1": [
+      36,
+      78,
+      160
+    ],
+    "sl2": [
+      24,
+      52,
+      116
+    ],
+    "sm0": [
+      150,
+      236,
+      255
+    ],
+    "sm1": [
+      70,
+      196,
+      250
+    ],
+    "sm2": [
+      36,
+      124,
+      220
+    ],
+    "sm3": [
+      24,
+      72,
+      160
+    ],
+    "sf0": [
+      230,
+      255,
+      255
+    ],
+    "sf1": [
+      120,
+      232,
+      255
+    ],
+    "sf2": [
+      56,
+      170,
+      245
+    ],
+    "sf3": [
+      30,
+      96,
+      200
+    ],
+    "gl": [
+      210,
+      236,
+      244
+    ],
+    "lr": [
+      255,
+      72,
+      60
+    ],
+    "la": [
+      255,
+      190,
+      60
+    ],
+    "lc": [
+      110,
+      240,
+      255
+    ],
+    "loff": [
+      52,
+      40,
+      40
+    ],
+    "fw": [
+      246,
+      255,
+      255
+    ],
+    "f0": [
+      170,
+      244,
+      255
+    ],
+    "f1": [
+      84,
+      200,
+      255
+    ],
+    "f2": [
+      44,
+      120,
+      240
+    ],
+    "f3": [
+      34,
+      64,
+      190
+    ],
+    "sm": [
+      150,
+      156,
+      168
+    ],
+    "smd": [
+      102,
+      108,
+      122
+    ]
+  },
+  "unity_root": {
+    "anchor": "bottom-left",
+    "pivot": [
+      0,
+      0
+    ],
+    "anchoredPosition": [
+      16,
+      16
+    ],
+    "sizeDelta": [
+      364,
+      112
+    ],
+    "note": "usar parts_x2 com PPU 100 ou parts_x1 com PPU 50; Filter Point; Compression None"
+  },
+  "layer_order_bottom_to_top": [
+    "hud_plate",
+    "hud_name",
+    "hp_track",
+    "hp_damage_lag",
+    "hp_fill",
+    "hp_fill_low",
+    "hp_heal_flash",
+    "hp_housing",
+    "hp_emblem",
+    "hp_emblem_low",
+    "hp_dial_crack",
+    "hp_lowhealth_glow",
+    "sp_track",
+    "sp_fill_low",
+    "sp_fill_mid",
+    "sp_fill_full",
+    "sp_wave_{0-3}",
+    "sp_bubble_{0-2}",
+    "sp_refill_flash",
+    "sp_glass",
+    "sp_housing",
+    "sp_turbine",
+    "sp_fan_{0-2}",
+    "sp_lamp_{low,mid,full}",
+    "sp_full_glow",
+    "fx_flame_{0-5}",
+    "fx_shutdown_{0-3}",
+    "fx_activate_{0-2}",
+    "fx_spark_{dot,small,cross,streak}"
+  ],
+  "pieces": [
+    {
+      "order": 1,
+      "name": "hud_plate",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "placa de cockpit oliva com aba, parafusos, rebites, respiro e bezel do mostrador",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 2,
+      "name": "hud_name",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "plaqueta 'B. Crocodilo' (pode ser trocada por TMP com PressStart2P 8 px)",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 3,
+      "name": "hp_track",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        113,
+        8
+      ],
+      "size_ui": [
+        226,
+        16
+      ],
+      "unity_image": "Image Simple",
+      "role": "fundo escuro das placas de blindagem",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        42,
+        23
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        50
+      ]
+    },
+    {
+      "order": 4,
+      "name": "hp_damage_lag",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        113,
+        8
+      ],
+      "size_ui": [
+        226,
+        16
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "faixa de dano atrasado",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        42,
+        23
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        50
+      ]
+    },
+    {
+      "order": 5,
+      "name": "hp_fill",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        113,
+        8
+      ],
+      "size_ui": [
+        226,
+        16
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "integridade do casco (placas a cada 14 px com rebite)",
+      "visible_when": "hp > 0.25",
+      "topleft_px_x1": [
+        42,
+        23
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        50
+      ]
+    },
+    {
+      "order": 6,
+      "name": "hp_fill_low",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        113,
+        8
+      ],
+      "size_ui": [
+        226,
+        16
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "integridade critica (vermelho)",
+      "visible_when": "hp <= 0.25",
+      "topleft_px_x1": [
+        42,
+        23
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        50
+      ]
+    },
+    {
+      "order": 7,
+      "name": "hp_heal_flash",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        113,
+        8
+      ],
+      "size_ui": [
+        226,
+        16
+      ],
+      "unity_image": "Image Filled Horizontal Left (mesmo fillAmount do hp_fill)",
+      "role": "flash ao curar",
+      "visible_when": "0.25 s apos cura",
+      "topleft_px_x1": [
+        42,
+        23
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        50
+      ]
+    },
+    {
+      "order": 8,
+      "name": "hp_housing",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "moldura de metal da HP",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 9,
+      "name": "hp_emblem",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "aviaozinho no mostrador de integridade",
+      "visible_when": "hp > 0.25",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 10,
+      "name": "hp_emblem_low",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "aviaozinho vermelho",
+      "visible_when": "hp <= 0.25",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 11,
+      "name": "hp_dial_crack",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "rachadura no vidro do mostrador",
+      "visible_when": "hp <= 0.25",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 12,
+      "name": "hp_lowhealth_glow",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple + CanvasGroup alpha pulsando",
+      "role": "brilho de alerta",
+      "visible_when": "hp <= 0.25",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 13,
+      "name": "sp_track",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        7
+      ],
+      "size_ui": [
+        206,
+        14
+      ],
+      "unity_image": "Image Simple",
+      "role": "fundo do reservatorio",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        18
+      ]
+    },
+    {
+      "order": 14,
+      "name": "sp_fill_low",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        7
+      ],
+      "size_ui": [
+        206,
+        14
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "energia baixa (azul escuro)",
+      "visible_when": "sp < 1/3",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        18
+      ]
+    },
+    {
+      "order": 15,
+      "name": "sp_fill_mid",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        7
+      ],
+      "size_ui": [
+        206,
+        14
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "energia intermediaria",
+      "visible_when": "1/3 <= sp < 1",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        18
+      ]
+    },
+    {
+      "order": 16,
+      "name": "sp_fill_full",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        7
+      ],
+      "size_ui": [
+        206,
+        14
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "reservatorio cheio",
+      "visible_when": "sp >= 1",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        18
+      ]
+    },
+    {
+      "order": 17,
+      "name": "sp_wave_{0-3}",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        2
+      ],
+      "size_ui": [
+        206,
+        4
+      ],
+      "unity_image": "Image Simple dentro de RectMask2D (largura = fill)",
+      "role": "superficie ondulando do liquido",
+      "visible_when": "sp > 0",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        28
+      ]
+    },
+    {
+      "order": 18,
+      "name": "sp_bubble_{0-2}",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        4,
+        3
+      ],
+      "size_ui": [
+        8,
+        6
+      ],
+      "unity_image": "Image Simple dentro do mesmo RectMask2D",
+      "role": "bolhas subindo durante recarga",
+      "visible_when": "recarregando"
+    },
+    {
+      "order": 19,
+      "name": "sp_refill_flash",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        103,
+        7
+      ],
+      "size_ui": [
+        206,
+        14
+      ],
+      "unity_image": "Image Filled Horizontal Left",
+      "role": "flash ao ganhar carga",
+      "visible_when": "0.2 s",
+      "topleft_px_x1": [
+        42,
+        40
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        84,
+        18
+      ]
+    },
+    {
+      "order": 20,
+      "name": "sp_glass",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "reflexo do vidro do tanque (sobre o liquido)",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 21,
+      "name": "sp_housing",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "moldura do tanque com marcas de bronze em 1/3 e 2/3",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 22,
+      "name": "sp_turbine",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple",
+      "role": "nacele da turbina com anel de bronze e soquete da lampada",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 23,
+      "name": "sp_fan_{0-2}",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        5,
+        13
+      ],
+      "size_ui": [
+        10,
+        26
+      ],
+      "unity_image": "Image Simple (troca de sprite)",
+      "role": "pas da turbina girando",
+      "visible_when": "sp >= 1/3",
+      "topleft_px_x1": [
+        148,
+        37
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        296,
+        12
+      ]
+    },
+    {
+      "order": 24,
+      "name": "sp_lamp_{low,mid,full}",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        3,
+        2
+      ],
+      "size_ui": [
+        6,
+        4
+      ],
+      "unity_image": "Image Simple (troca de sprite)",
+      "role": "lampada de estado: vermelha / ambar / ciano",
+      "visible_when": "sempre",
+      "topleft_px_x1": [
+        160,
+        36
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        320,
+        36
+      ]
+    },
+    {
+      "order": 25,
+      "name": "sp_full_glow",
+      "folder": "parts_x1 / parts_x2",
+      "size_x1": [
+        182,
+        56
+      ],
+      "size_ui": [
+        364,
+        112
+      ],
+      "unity_image": "Image Simple + alpha pulsando",
+      "role": "brilho do tanque cheio",
+      "visible_when": "sp >= 1",
+      "topleft_px_x1": [
+        0,
+        0
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        0,
+        0
+      ]
+    },
+    {
+      "order": 26,
+      "name": "fx_flame_{0-5}",
+      "folder": "fx_x1 / fx_x2",
+      "size_x1": [
+        24,
+        13
+      ],
+      "size_ui": [
+        48,
+        26
+      ],
+      "unity_image": "Image Simple, pivot (0, 0.5) no bocal",
+      "role": "chama azul em loop",
+      "visible_when": "sp >= 1",
+      "topleft_px_x1": [
+        178,
+        37
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        356,
+        12
+      ]
+    },
+    {
+      "order": 27,
+      "name": "fx_shutdown_{0-3}",
+      "folder": "fx_x1 / fx_x2",
+      "size_x1": [
+        24,
+        13
+      ],
+      "size_ui": [
+        48,
+        26
+      ],
+      "unity_image": "Image Simple, mesmo rect da chama",
+      "role": "chama encolhendo e fumaca",
+      "visible_when": "ao gastar o especial",
+      "topleft_px_x1": [
+        178,
+        37
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        356,
+        12
+      ]
+    },
+    {
+      "order": 28,
+      "name": "fx_activate_{0-2}",
+      "folder": "fx_x1 / fx_x2",
+      "size_x1": [
+        17,
+        17
+      ],
+      "size_ui": [
+        34,
+        34
+      ],
+      "unity_image": "Image Simple, centrado no bocal",
+      "role": "flash de ignicao",
+      "visible_when": "ao encher",
+      "topleft_px_x1": [
+        170,
+        35
+      ],
+      "unity_anchoredPosition_bottomleft": [
+        340,
+        8
+      ]
+    },
+    {
+      "order": 29,
+      "name": "fx_spark_{dot,small,cross,streak}",
+      "folder": "fx_x1 / fx_x2",
+      "size_x1": [
+        1,
+        1
+      ],
+      "size_ui": [
+        2,
+        2
+      ],
+      "unity_image": "ParticleSystem UI ou Images pooled",
+      "role": "centelhas saindo do bocal",
+      "visible_when": "ao encher e (raras) durante a chama"
+    }
+  ],
+  "timings": {
+    "flame_loop": {
+      "frames": 6,
+      "ms_per_frame": 80,
+      "loop": true
+    },
+    "activate_flash": {
+      "frames": 3,
+      "ms_per_frame": 100,
+      "then": "fx_flame loop"
+    },
+    "shutdown": {
+      "frames": 4,
+      "ms_per_frame": 100,
+      "then": "esconder"
+    },
+    "spark_burst_on_full": {
+      "count": "6-9",
+      "life_s": [
+        0.25,
+        0.5
+      ],
+      "speed_px_x1_s": [
+        25,
+        60
+      ],
+      "direction": "cone 50 graus para a direita"
+    },
+    "spark_idle_while_full": {
+      "rate_per_s": 2.5
+    },
+    "sp_wave": {
+      "frames": 4,
+      "ms_per_frame": 100,
+      "loop": true
+    },
+    "sp_bubbles": {
+      "frames": 3,
+      "ms_per_frame": 100,
+      "rise_px_x1_per_s": 40,
+      "max_simultaneous": 3,
+      "only_while_recharging": true
+    },
+    "sp_fan": {
+      "frames": 3,
+      "ms_per_frame_mid": 80,
+      "ms_per_frame_full": 50
+    },
+    "sp_full_glow": {
+      "period_s": 1.2,
+      "alpha": [
+        0.35,
+        1.0
+      ]
+    },
+    "sp_refill_flash_s": 0.2,
+    "hp_damage_lag": {
+      "hold_s": 0.35,
+      "drop_per_s": 0.9
+    },
+    "hp_heal_flash_s": 0.25,
+    "hp_low_pulse": {
+      "period_s": 0.9,
+      "alpha": [
+        0.25,
+        1.0
+      ],
+      "threshold": 0.25
+    }
+  },
+  "boss_bar": "nao alterada",
+  "portraits": "nenhum"
+}

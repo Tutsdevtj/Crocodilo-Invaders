@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfea8d59b50aed544aabff76c58488bc, type: 3}
+  m_Name: GusiniAudio
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniAudioConfig
+  sounds:
+  - id: 0
+    group: 0
+    variants:
+    - {fileID: 8300000, guid: e416030e76bd8194ca80d77ca29b6f2a, type: 3}
+    volume: 0.055
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0
+    loop: 1
+    enabled: 1
+  - id: 1
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 2eff77f23d7f1ce4e8745bed24bb5c7a, type: 3}
+    - {fileID: 8300000, guid: cea3c396159eefb47879e22ce46a8fff, type: 3}
+    - {fileID: 8300000, guid: f0c6a2e2672271543a7f5879d9f99ba9, type: 3}
+    volume: 0.52
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 2
+    cooldown: 0.04
+    loop: 0
+    enabled: 1
+  - id: 2
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: b1d7a26461e043449b8273e72ebd1cb4, type: 3}
+    volume: 0.16
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.2
+    loop: 0
+    enabled: 1
+  - id: 3
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 5ae64f30743b28e4b95232490a3ab0a6, type: 3}
+    volume: 0.22
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.6
+    loop: 0
+    enabled: 1
+  - id: 4
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: e8107c761474d7f4c8c8e79c63600534, type: 3}
+    volume: 0.1
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.2
+    loop: 0
+    enabled: 0
+  - id: 5
+    group: 2
+    variants:
+    - {fileID: 8300000, guid: faa4da694e47f6249a6e5175254b9778, type: 3}
+    volume: 0.04
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.9
+    loop: 0
+    enabled: 1
+  - id: 6
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: 509e312af3a61594f998cec4c58e15f5, type: 3}
+    volume: 0.3
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.19
+    loop: 0
+    enabled: 0
+  - id: 7
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: e18a27b8fbdc8d44e8624497317f9147, type: 3}
+    volume: 0.09
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 2
+    loop: 0
+    enabled: 1
+  - id: 8
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: d66bb519e15a5d9459b0fcaffa8c3b4a, type: 3}
+    volume: 0.27
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.19
+    loop: 0
+    enabled: 0
+  - id: 9
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: 8a21f14db31f4b74c83cd6d508bbda8d, type: 3}
+    volume: 0.13
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.08
+    loop: 0
+    enabled: 1
+  - id: 10
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: 0bcf70428e9d3c84da8863bd16aa90e6, type: 3}
+    volume: 0.15
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.12
+    loop: 0
+    enabled: 1
+  - id: 11
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: 4c67238e03fd8f94f9efd0736fa0d6d7, type: 3}
+    volume: 0.2
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.1
+    loop: 0
+    enabled: 1
+  - id: 12
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: bac84873a44a10749a6486899c144c25, type: 3}
+    volume: 0.14
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.1
+    loop: 0
+    enabled: 1
+  - id: 13
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: b1624f8e4fe91de4c94919ae5fb1cd28, type: 3}
+    volume: 0.18
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.06
+    loop: 0
+    enabled: 1
+  - id: 14
+    group: 0
+    variants:
+    - {fileID: 8300000, guid: e95c4e9b383ced7418b7d06e48ccc944, type: 3}
+    volume: 0.025
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 2
+    cooldown: 0
+    loop: 1
+    enabled: 0
+  - id: 15
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: f3ebae1226b4c1d418bacd17d3628bdc, type: 3}
+    volume: 0.23
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 2
+    cooldown: 0.035
+    loop: 0
+    enabled: 1
+  - id: 16
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 5f00188ea5942bc49a2596efb5437006, type: 3}
+    volume: 0.28
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 2
+    cooldown: 0.035
+    loop: 0
+    enabled: 1
+  - id: 17
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: f1f99d4bdf3d630458aa924714ac379a, type: 3}
+    volume: 0.62
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 2
+    cooldown: 0.035
+    loop: 0
+    enabled: 1
+  - id: 18
+    group: 1
+    variants:
+    - {fileID: 8300000, guid: 96d2a2e9bcd8f144082cbe4f60723b34, type: 3}
+    volume: 0.09
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 1
+    cooldown: 0.1
+    loop: 0
+    enabled: 0
+  - id: 19
+    group: 4
+    variants:
+    - {fileID: 8300000, guid: 4437545d5fae41544ab5b7ce67e8cb70, type: 3}
+    - {fileID: 8300000, guid: 5574d203efe489c4d9ea04ea6f6e816f, type: 3}
+    - {fileID: 8300000, guid: f43e97e033e3e5848836abe1357c4e27, type: 3}
+    volume: 0.17
+    pitchRange: {x: 0.97, y: 1.03}
+    maxVoices: 2
+    cooldown: 0.07
+    loop: 0
+    enabled: 1
+  voiceBudget: 0.82

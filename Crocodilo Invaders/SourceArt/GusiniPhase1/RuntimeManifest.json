@@ -1,0 +1,949 @@
+{
+  "sprites": [
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_0.png",
+      "source": "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_0.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "b3ba1c621625f527c137facae8a722c2b9e6d1ce348e8c054712a7028a149580"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_1.png",
+      "source": "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_1.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "3596b8d5f5f34a5c6ec7840a218a382e9fa6a41204de875c36c6aa3f405a62e8"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_2.png",
+      "source": "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_2.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "6c858319e048933d0b9021cda9a458248bdbe64a3a6982da9d7f22fb4893d5b9"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_3.png",
+      "source": "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_3.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "96ab2002d730fe56672be3c1f4ab20a2e0faa86ce8a72f51aeff15fea14bcd6e"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_0.png",
+      "source": "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_0.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "b3ba1c621625f527c137facae8a722c2b9e6d1ce348e8c054712a7028a149580"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_1.png",
+      "source": "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_1.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "56b24a05992170be3b89204d6684af050e80e7b7422b4b687b34aca53870bed1"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_2.png",
+      "source": "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_2.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "0d7ff3a279b58d8b95d7d48bf5f1d51e0f75a74b0f807178f57cf1247721e575"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_3.png",
+      "source": "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_3.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "161f54f83ae21438c616677d00e76a8f6397f35f04ffc2d3729213b1311b2dda"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_4.png",
+      "source": "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_4.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "e696f989fd398b42e4b39d720183ec44e5ecd3e1df2b2ca8eb1940acc75c36e3"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_0.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_0.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "b3ba1c621625f527c137facae8a722c2b9e6d1ce348e8c054712a7028a149580"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_1.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_1.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "85af017239a6f299bd8ba43147b90b6a1fe1606dd308c361f1c8561d918a29cd"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_2.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_2.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "68fa1ccb459cc968477a0d67911190e2a588c06bd1717d90b9118e0cd4b927a0"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_3.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_3.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "4db1b5e5ca11076946a259191bb6099ee0e89eb27f76bb21f679d25c99ebd5a3"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_4.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_4.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "1e85e0c8b93bd77881768f9274341e9aebd5dca41341b5e065b4081151ba8b48"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_5.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_5.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "0493fc2dd65fbdc3ebd84d1371554aab6c54e11359062b54e521449ae315aa53"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_6.png",
+      "source": "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_6.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "ad139236fefd9d499647640045b7371c7f4c51e8e4e829dc18648df57ac0d50f"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_0.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_0.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "b3ba1c621625f527c137facae8a722c2b9e6d1ce348e8c054712a7028a149580"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_1.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_1.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "a10e8fc455dba5345211dc21bb0878209784bdb93dd1cdc94178d402d661d233"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_2.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_2.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "729cfafb4aba6c301cbc604cdf53f646d7be93a453f65f28cc0a9db7f8f05b9d"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_3.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_3.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "91356c25525a564e04c0134801d67cecb29a40cec80fa91f642a90925854f056"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_4.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_4.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "1e57116d0fe24b506789285c1fb029286473d529ab9c783a25b04ff9c84881d9"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_5.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_5.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "6d247044d8e75100735059485ae0054624121107f76bb06fc875783f9c7b8eb7"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_6.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_6.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "62c5848247278eb2b227ee9b1bf62ffc1eb048651a4ef78bfed132c35133d643"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_7.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_7.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "ce931c11fff55fb9c3c35c38d6401be3a4cbd3bdb5738effb64d246da8d79a0b"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_8.png",
+      "source": "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_8.png",
+      "pivotX": 0.4688,
+      "pivotY": 0.398,
+      "width": 256,
+      "height": 196,
+      "sha256": "763492ae19a0385a17081fdd3cfa94959dd5f14ebb1f19d615d53795819cfa0d"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_projectile/gusini_p1_bullet_0.png",
+      "source": "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_0.png",
+      "pivotX": 0.3636,
+      "pivotY": 0.5556,
+      "width": 22,
+      "height": 9,
+      "sha256": "9e7fc717793848f5f89469949a993ed9d58451c00f712c3c99bea06230f6908c"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gusini_p1_projectile/gusini_p1_bullet_1.png",
+      "source": "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_1.png",
+      "pivotX": 0.3636,
+      "pivotY": 0.5556,
+      "width": 22,
+      "height": 9,
+      "sha256": "e32594ddffd84d42c6f39a8d03184e644449e3f182581065667622d1b9bd671f"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_0.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_0.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "97eef5de636f1f13d0d434be82f8e75654e4a8d39a200d2f5f5fe1d2dd84b52e"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_1.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_1.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "dd386a391c61099c98501b1cd21f332bb82a42fa3de1958fe0201e487f0a6d2c"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_2.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_2.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "2f255b624fc84de91f33eb27a67072e776846fed37630fa1ff5bcecd37bde0c8"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_3.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_3.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "de820cf871506c4423c31bd929e7a86db1bb8fb5c66d53e49bae6e7ae7174e1c"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_0.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_b_0.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "27700c0a362f9c65932f3ceaa5bda4b9fcd3c2fa06ac4440c83fac7ebc739b51"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_1.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_b_1.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "801f4b2b7d5e4f92ab9fd45db3018be0fbad8dfd84bcbfc7e68616538cfc67a0"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_2.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_b_2.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "e9220eb515fc764f6786a6f5157e2578c1fed3b7a3d7f43bb081474098e526a3"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_3.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_b_3.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "7d8d59df892b4c198bb026626bf942078f017bf5bb6e25467d2955cc790ae484"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_beak_0.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_beak_0.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "52a0471202bf8cc13fe3780bebbb9d20ba20f64dd25258b949a569993ec0c3bc"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_beak_1.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_beak_1.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "f793715333205b3d7a4b2f357dde47a1efdfca28d81806d50ef4975810900a9b"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_beak_2.png",
+      "source": "gusini_phase1_anim/gansinho/gansinho_beak_2.png",
+      "pivotX": 0.5278,
+      "pivotY": 0.5,
+      "width": 36,
+      "height": 28,
+      "sha256": "d034b9ba8a7e6204e86e84dd5d345ef805ed2e45df76d96d6c4a76b6af61ed56"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_fall.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_fall.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 18,
+      "height": 22,
+      "sha256": "e09ffa736fac12a6e362e113dd2ad03572ee330a90cd4148d2fc547ccf7b17c0"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_0.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_parachute_deploy_0.png",
+      "pivotX": 0.5,
+      "pivotY": 0.2553,
+      "width": 36,
+      "height": 47,
+      "sha256": "494ca8460446492618903c2bde091e67b6220346d2331787b1164047833df631"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_1.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_parachute_deploy_1.png",
+      "pivotX": 0.5,
+      "pivotY": 0.2553,
+      "width": 36,
+      "height": 47,
+      "sha256": "85bdaa725e893081cc68492b5f7e67208c87430985442db15110495e2772d13c"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_2.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_parachute_deploy_2.png",
+      "pivotX": 0.5,
+      "pivotY": 0.2553,
+      "width": 36,
+      "height": 47,
+      "sha256": "3a80fee6b8b90a0038f22c52f6b247d3e12317dc73b8c736353dab058639eeeb"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_open_0.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_parachute_open_0.png",
+      "pivotX": 0.5,
+      "pivotY": 0.2553,
+      "width": 36,
+      "height": 47,
+      "sha256": "4ede2cec07b514e2d0097df331a047fd63c8b772db99a4612fade8a98de83929"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_open_1.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_parachute_open_1.png",
+      "pivotX": 0.5,
+      "pivotY": 0.2553,
+      "width": 36,
+      "height": 47,
+      "sha256": "2e2b62246d24b1227834ca269a6ba116d91f59f421d32ed88daf383fcaac1f77"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_crack_1.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_crack_1.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 18,
+      "height": 22,
+      "sha256": "b74f83b240256b23e3ac8d7bb960562b5657c5fd1978bfd4dc18df110b3d4880"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_crack_2.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_crack_2.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 18,
+      "height": 22,
+      "sha256": "0f612f35b68a48aba36c9d66cb3a7db2765babbfa8bee9b5da42ee0cfa500ed5"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_burst.png",
+      "source": "gusini_phase1_anim/egg_parachute/egg_burst.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 34,
+      "height": 34,
+      "sha256": "bea8754f1e92f8ac4e342b8889a24d25247f53e00c62820a71c6980a299918d1"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/yolk_left.png",
+      "source": "gusini_phase1_anim/egg_parachute/yolk_left.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 14,
+      "height": 12,
+      "sha256": "6fe06145a158df18589978f70b0d58d7ea82cadb17009fa26f2ffbf7a00eb538"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/yolk_up_left.png",
+      "source": "gusini_phase1_anim/egg_parachute/yolk_up_left.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 14,
+      "height": 12,
+      "sha256": "1db74da3bdbfca8df645d1055452436a1fe29b7eafc14aa1c53d28b13c1c7fa1"
+    },
+    {
+      "path": "Assets/Art/Boss/GusiniPhase1/egg_parachute/yolk_down_left.png",
+      "source": "gusini_phase1_anim/egg_parachute/yolk_down_left.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5,
+      "width": 14,
+      "height": 12,
+      "sha256": "9b707c902f147762c0b1e8655cd298c61ff96c82ef356e6340e0bacf3738615e"
+    }
+  ],
+  "clips": [
+    {
+      "name": "Idle",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_idle/gusini_p1_idle_3.png"
+      ],
+      "durations": [
+        130,
+        170,
+        130,
+        170
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "Shoot",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_3.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_shoot/gusini_p1_shoot_4.png"
+      ],
+      "durations": [
+        80,
+        100,
+        60,
+        80,
+        110
+      ],
+      "loop": false,
+      "events": [
+        {
+          "function": "OnShootRelease",
+          "time": 0.18,
+          "value": 0
+        },
+        {
+          "function": "OnAttackFinished",
+          "time": 0.43,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "SquadronCall",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_3.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_4.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_5.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_squadron_call/gusini_p1_squadron_call_6.png"
+      ],
+      "durations": [
+        70,
+        100,
+        110,
+        150,
+        150,
+        180,
+        110
+      ],
+      "loop": false,
+      "events": [
+        {
+          "function": "OnWhistle",
+          "time": 0.17,
+          "value": 0
+        },
+        {
+          "function": "OnSquadronRelease",
+          "time": 0.58,
+          "value": 0
+        },
+        {
+          "function": "OnAttackFinished",
+          "time": 0.87,
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "EggDrop",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_3.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_4.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_5.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_6.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_7.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_egg_drop/gusini_p1_egg_drop_8.png"
+      ],
+      "durations": [
+        80,
+        100,
+        60,
+        70,
+        90,
+        90,
+        70,
+        60,
+        90
+      ],
+      "loop": false,
+      "events": [
+        {
+          "function": "OnEggRelease",
+          "time": 0.4,
+          "value": 0
+        },
+        {
+          "function": "OnAttackFinished",
+          "time": 0.71,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Bullet",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_projectile/gusini_p1_bullet_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gusini_p1_projectile/gusini_p1_bullet_1.png"
+      ],
+      "durations": [
+        60,
+        60
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "FlightA",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_3.png"
+      ],
+      "durations": [
+        80,
+        70,
+        80,
+        70
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "FlightB",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_0.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_1.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_2.png",
+        "Assets/Art/Boss/GusiniPhase1/gansinho/gansinho_b_3.png"
+      ],
+      "durations": [
+        80,
+        70,
+        80,
+        70
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "EggFall",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_fall.png"
+      ],
+      "durations": [
+        100
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "EggDeploy",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_0.png",
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_1.png",
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_deploy_2.png"
+      ],
+      "durations": [
+        60,
+        70,
+        80
+      ],
+      "loop": false,
+      "events": [
+        {
+          "function": "OnParachuteOpened",
+          "time": 0.21,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "EggOpen",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_open_0.png",
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_parachute_open_1.png"
+      ],
+      "durations": [
+        160,
+        160
+      ],
+      "loop": true,
+      "events": []
+    },
+    {
+      "name": "EggCrack1",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_crack_1.png"
+      ],
+      "durations": [
+        260
+      ],
+      "loop": false,
+      "events": []
+    },
+    {
+      "name": "EggCrack2",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_crack_2.png"
+      ],
+      "durations": [
+        220
+      ],
+      "loop": false,
+      "events": []
+    },
+    {
+      "name": "EggBurst",
+      "frames": [
+        "Assets/Art/Boss/GusiniPhase1/egg_parachute/egg_burst.png"
+      ],
+      "durations": [
+        120
+      ],
+      "loop": false,
+      "events": [
+        {
+          "function": "OnYolkRelease",
+          "time": 0,
+          "value": 0
+        },
+        {
+          "function": "OnBurstFinished",
+          "time": 0.12,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "jsons": [
+    "gusini_phase1/gusini_phase1_parts.json",
+    "gusini_phase1_anim/egg_parachute/egg_parachute.json",
+    "gusini_phase1_anim/gansinho/gansinho.json",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop.json",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle.json",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet.json",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot.json",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call.json"
+  ],
+  "shotOrigin": {
+    "x": -0.980128,
+    "y": -0.2400800000000001
+  },
+  "eggOrigin": {
+    "x": -0.26012799999999997,
+    "y": -0.3400800000000001
+  },
+  "slots": [
+    {
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "x": 0.34,
+      "y": 0.18
+    },
+    {
+      "x": 0.34,
+      "y": -0.18
+    },
+    {
+      "x": 0.68,
+      "y": 0.36
+    },
+    {
+      "x": 0.68,
+      "y": -0.36
+    }
+  ],
+  "variantB": [
+    false,
+    true,
+    false,
+    false,
+    true
+  ],
+  "flightStartTimes": [
+    0.0,
+    0.26666666666666666,
+    0.26666666666666666,
+    0.5,
+    0.5
+  ],
+  "chorusDelays": [
+    0.0,
+    0.14,
+    0.14,
+    0.28,
+    0.28
+  ],
+  "singDurations": [
+    0.06,
+    0.06,
+    0.12,
+    0.07
+  ],
+  "yolkDirections": [
+    {
+      "x": -1,
+      "y": 0
+    },
+    {
+      "x": -0.72,
+      "y": 0.69
+    },
+    {
+      "x": -0.72,
+      "y": -0.69
+    }
+  ],
+  "ignored": [
+    "gusini_phase1/gusini_phase1_assembled.png",
+    "gusini_phase1/gusini_phase1_cannon_before_after_x2.png",
+    "gusini_phase1/gusini_phase1_cannon_closeup_x6.png",
+    "gusini_phase1/gusini_phase1_exploded_x3.png",
+    "gusini_phase1/gusini_phase1_parts_sheet.png",
+    "gusini_phase1/gusini_phase1_preview_x4.png",
+    "gusini_phase1/gusini_phase1_scale_vs_bombardiro_x3.png",
+    "gusini_phase1/parts/gusini_p1_beak_lower.png",
+    "gusini_phase1/parts/gusini_p1_beak_upper.png",
+    "gusini_phase1/parts/gusini_p1_body_cockpit.png",
+    "gusini_phase1/parts/gusini_p1_cannon.png",
+    "gusini_phase1/parts/gusini_p1_engine.png",
+    "gusini_phase1/parts/gusini_p1_head.png",
+    "gusini_phase1/parts/gusini_p1_scarf.png",
+    "gusini_phase1/parts/gusini_p1_wing_left.png",
+    "gusini_phase1/parts/gusini_p1_wing_right.png",
+    "gusini_phase1_anim/egg_parachute/egg_attack_sequence_x2.gif",
+    "gusini_phase1_anim/egg_parachute/egg_attack_sequence_x2.png",
+    "gusini_phase1_anim/egg_parachute/egg_crack_to_burst_x6.png",
+    "gusini_phase1_anim/egg_parachute/egg_scale_check_x2.png",
+    "gusini_phase1_anim/egg_parachute/egg_states_sheet_x6.png",
+    "gusini_phase1_anim/egg_parachute/parachute_0.png",
+    "gusini_phase1_anim/egg_parachute/parachute_1.png",
+    "gusini_phase1_anim/egg_parachute/parachute_collapsed.png",
+    "gusini_phase1_anim/egg_parachute/parachute_deploy_0.png",
+    "gusini_phase1_anim/egg_parachute/parachute_deploy_1.png",
+    "gusini_phase1_anim/egg_parachute/parachute_deploy_2.png",
+    "gusini_phase1_anim/egg_parachute/parachute_deploy_strip_x6.png",
+    "gusini_phase1_anim/egg_parachute/yolk_spread_suggestion_x3.png",
+    "gusini_phase1_anim/gansinho/gansinho_b_preview_x8.gif",
+    "gusini_phase1_anim/gansinho/gansinho_b_preview_x8.png",
+    "gusini_phase1_anim/gansinho/gansinho_b_sheet.png",
+    "gusini_phase1_anim/gansinho/gansinho_b_sheet_x6.png",
+    "gusini_phase1_anim/gansinho/gansinho_beak_states_x10.png",
+    "gusini_phase1_anim/gansinho/gansinho_coral_formation_x3.gif",
+    "gusini_phase1_anim/gansinho/gansinho_formation_V_reference_x1.png",
+    "gusini_phase1_anim/gansinho/gansinho_formation_V_reference_x2.gif",
+    "gusini_phase1_anim/gansinho/gansinho_formation_V_reference_x2.png",
+    "gusini_phase1_anim/gansinho/gansinho_preview_x8.gif",
+    "gusini_phase1_anim/gansinho/gansinho_preview_x8.png",
+    "gusini_phase1_anim/gansinho/gansinho_review_x8.png",
+    "gusini_phase1_anim/gansinho/gansinho_sheet.png",
+    "gusini_phase1_anim/gansinho/gansinho_sheet_x6.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_acting_closeup_x4.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_compartment_strip_x6.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_preview_x4.gif",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_preview_x4.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_review.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_sequence_with_egg_x4.gif",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_sheet.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/gusini_p1_egg_drop_sheet_x4.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_close1.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_close2.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_drop.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_latch.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_open.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_open1.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_body_hatch_open2.png",
+    "gusini_phase1_anim/gusini_p1_egg_drop/parts/gusini_p1_goose_wing_point_down.png",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_preview_x4.gif",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_preview_x4.png",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_review.png",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_sheet.png",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_idle_sheet_x4.png",
+    "gusini_phase1_anim/gusini_p1_idle/gusini_p1_scarf_idle_poses_x4.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_engine_idle_0.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_engine_idle_1.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_engine_idle_2.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_engine_idle_3.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_scarf_idle_0.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_scarf_idle_1.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_scarf_idle_2.png",
+    "gusini_phase1_anim/gusini_p1_idle/parts/gusini_p1_scarf_idle_3.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_preview_x12.gif",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_preview_x12.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_review_on_muzzle_x4.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_scale_check_x1.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_scale_check_x2.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_sheet.png",
+    "gusini_phase1_anim/gusini_p1_projectile/gusini_p1_bullet_static.png",
+    "gusini_phase1_anim/gusini_p1_shoot/fx/gusini_p1_muzzle_flash.png",
+    "gusini_phase1_anim/gusini_p1_shoot/fx/gusini_p1_smoke_0.png",
+    "gusini_phase1_anim/gusini_p1_shoot/fx/gusini_p1_smoke_1.png",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_cannon_closeup_x5.png",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_in_context_idle_x3.gif",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_preview_x4.gif",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_preview_x4.png",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_review.png",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_sheet.png",
+    "gusini_phase1_anim/gusini_p1_shoot/gusini_p1_shoot_sheet_x4.png",
+    "gusini_phase1_anim/gusini_p1_shoot/parts/gusini_p1_cannon_glint.png",
+    "gusini_phase1_anim/gusini_p1_shoot/parts/gusini_p1_head_squint.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/fx/gusini_p1_fx_whistle_0.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/fx/gusini_p1_fx_whistle_1.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/fx/gusini_p1_fx_whistle_2.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_acting_closeup_x4.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_in_context_idle_x3.gif",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_preview_x4.gif",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_preview_x4.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_review.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_sheet.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/gusini_p1_squadron_call_sheet_x4.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_beak_lower_open05.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_beak_lower_open14.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_goose_wing_lift.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_goose_wing_point.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_goose_wing_swing.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_goose_wing_up.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_goose_wing_up2.png",
+    "gusini_phase1_anim/gusini_p1_squadron_call/parts/gusini_p1_head_no_wing.png",
+    "gusini_phase2/gusini_phase1_vs_phase2_x3.png",
+    "gusini_phase2/gusini_phase2_assembled.png",
+    "gusini_phase2/gusini_phase2_assembled_noFX.png",
+    "gusini_phase2/gusini_phase2_exploded_x3.png",
+    "gusini_phase2/gusini_phase2_native_check_x1.png",
+    "gusini_phase2/gusini_phase2_parts_sheet.png",
+    "gusini_phase2/gusini_phase2_preview_x4.png",
+    "gusini_phase2/gusini_phase2_scale_vs_bombardiro_x3.png",
+    "gusini_phase2/parts/gusini_p2_alien_module.png",
+    "gusini_phase2/parts/gusini_p2_beak_lower.png",
+    "gusini_phase2/parts/gusini_p2_beak_upper.png",
+    "gusini_phase2/parts/gusini_p2_body_cockpit.png",
+    "gusini_phase2/parts/gusini_p2_cannon.png",
+    "gusini_phase2/parts/gusini_p2_engine.png",
+    "gusini_phase2/parts/gusini_p2_fx_smoke.png",
+    "gusini_phase2/parts/gusini_p2_fx_spark.png",
+    "gusini_phase2/parts/gusini_p2_head.png",
+    "gusini_phase2/parts/gusini_p2_scarf.png",
+    "gusini_phase2/parts/gusini_p2_wing_left.png",
+    "gusini_phase2/parts/gusini_p2_wing_right.png",
+    "gusini_phase3/gusini_phase1_2_3_x3.png",
+    "gusini_phase3/gusini_phase3_assembled.png",
+    "gusini_phase3/gusini_phase3_assembled_noFX.png",
+    "gusini_phase3/gusini_phase3_exploded_x3.png",
+    "gusini_phase3/gusini_phase3_native_check_x1.png",
+    "gusini_phase3/gusini_phase3_parts_sheet.png",
+    "gusini_phase3/gusini_phase3_preview_x4.png",
+    "gusini_phase3/gusini_phase3_scale_vs_bombardiro_x3.png",
+    "gusini_phase3/parts/gusini_p3_alien_core.png",
+    "gusini_phase3/parts/gusini_p3_beak_lower.png",
+    "gusini_phase3/parts/gusini_p3_beak_upper.png",
+    "gusini_phase3/parts/gusini_p3_body_cockpit.png",
+    "gusini_phase3/parts/gusini_p3_cannon.png",
+    "gusini_phase3/parts/gusini_p3_engine.png",
+    "gusini_phase3/parts/gusini_p3_fx_arcs.png",
+    "gusini_phase3/parts/gusini_p3_fx_exhaust.png",
+    "gusini_phase3/parts/gusini_p3_head.png",
+    "gusini_phase3/parts/gusini_p3_scarf.png",
+    "gusini_phase3/parts/gusini_p3_wing_left.png",
+    "gusini_phase3/parts/gusini_p3_wing_right.png"
+  ]
+}

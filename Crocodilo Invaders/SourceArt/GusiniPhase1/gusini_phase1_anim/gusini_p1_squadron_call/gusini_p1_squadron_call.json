@@ -1,0 +1,326 @@
+{
+ "animation": "gusini_p1_squadron_call",
+ "phase": 1,
+ "loop": false,
+ "returns_to": "gusini_p1_idle (frame 0)",
+ "frame_count": 7,
+ "durations_ms": [
+  70,
+  100,
+  110,
+  150,
+  150,
+  180,
+  110
+ ],
+ "total_ms": 870,
+ "labels": [
+  "base (= idle F0)",
+  "preparacao: estufa o peito",
+  "INICIO do assobio (asa sobe)",
+  "assobio sustentado A",
+  "assobio sustentado B",
+  "COMANDO: aponta p/ o Player (SPAWN)",
+  "recuperacao"
+ ],
+ "call_start_frame": 2,
+ "call_start_note": "assobio começa (bom ponto p/ som de assobio / aviso de reforços)",
+ "squadron_spawn_event_frame": 5,
+ "call_to_spawn_ms": 410,
+ "squadron_spawn_note": "índice 0-based; frame em que ele aponta para a esquerda e grita — disparar o Animation Event no início deste frame",
+ "pointing_direction": {
+  "x": -1,
+  "y": 0
+ },
+ "pointing_tip_px": {
+  "x": 82,
+  "y": 75
+ },
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "frames": [
+  {
+   "file": "gusini_p1_squadron_call_0.png",
+   "duration_ms": 70,
+   "label": "base (= idle F0)"
+  },
+  {
+   "file": "gusini_p1_squadron_call_1.png",
+   "duration_ms": 100,
+   "label": "preparacao: estufa o peito"
+  },
+  {
+   "file": "gusini_p1_squadron_call_2.png",
+   "duration_ms": 110,
+   "label": "INICIO do assobio (asa sobe)"
+  },
+  {
+   "file": "gusini_p1_squadron_call_3.png",
+   "duration_ms": 150,
+   "label": "assobio sustentado A"
+  },
+  {
+   "file": "gusini_p1_squadron_call_4.png",
+   "duration_ms": 150,
+   "label": "assobio sustentado B"
+  },
+  {
+   "file": "gusini_p1_squadron_call_5.png",
+   "duration_ms": 180,
+   "label": "COMANDO: aponta p/ o Player (SPAWN)"
+  },
+  {
+   "file": "gusini_p1_squadron_call_6.png",
+   "duration_ms": 110,
+   "label": "recuperacao"
+  }
+ ],
+ "part_offsets_px_per_frame": {
+  "head_beak_scarf_goosewing": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 1,
+    "y": -1
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "body_cockpit_wings_cannon_engine": "parados (0,0) em todos os frames"
+ },
+ "goose_wing_pose_per_frame": [
+  null,
+  "lift",
+  "up",
+  "up2",
+  "up",
+  "point",
+  "lift"
+ ],
+ "beak_open_degrees_per_frame": [
+  0,
+  0,
+  5,
+  5,
+  5,
+  14,
+  0
+ ],
+ "eye_squint_per_frame": [
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false
+ ],
+ "scarf_pose_per_frame": [
+  0,
+  1,
+  2,
+  3,
+  0,
+  1,
+  3
+ ],
+ "engine_cycle_frame_per_frame": [
+  0,
+  1,
+  2,
+  3,
+  0,
+  1,
+  2
+ ],
+ "new_parts": {
+  "goose_wing_lift": {
+   "file": "parts/gusini_p1_goose_wing_lift.png",
+   "offset_in_canvas_px": {
+    "x": 113,
+    "y": 71
+   },
+   "size": {
+    "w": 29,
+    "h": 26
+   },
+   "pivot_local_px": {
+    "x": 20,
+    "y": 17
+   }
+  },
+  "goose_wing_up": {
+   "file": "parts/gusini_p1_goose_wing_up.png",
+   "offset_in_canvas_px": {
+    "x": 126,
+    "y": 51
+   },
+   "size": {
+    "w": 25,
+    "h": 46
+   },
+   "pivot_local_px": {
+    "x": 7,
+    "y": 37
+   }
+  },
+  "goose_wing_up2": {
+   "file": "parts/gusini_p1_goose_wing_up2.png",
+   "offset_in_canvas_px": {
+    "x": 126,
+    "y": 53
+   },
+   "size": {
+    "w": 30,
+    "h": 44
+   },
+   "pivot_local_px": {
+    "x": 7,
+    "y": 35
+   }
+  },
+  "goose_wing_swing": {
+   "file": "parts/gusini_p1_goose_wing_swing.png",
+   "offset_in_canvas_px": {
+    "x": 100,
+    "y": 62
+   },
+   "size": {
+    "w": 42,
+    "h": 35
+   },
+   "pivot_local_px": {
+    "x": 33,
+    "y": 26
+   }
+  },
+  "goose_wing_point": {
+   "file": "parts/gusini_p1_goose_wing_point.png",
+   "offset_in_canvas_px": {
+    "x": 84,
+    "y": 73
+   },
+   "size": {
+    "w": 58,
+    "h": 24
+   },
+   "pivot_local_px": {
+    "x": 49,
+    "y": 15
+   }
+  },
+  "head_no_wing": {
+   "file": "parts/gusini_p1_head_no_wing.png",
+   "offset_in_canvas_px": {
+    "x": 69,
+    "y": 19
+   },
+   "size": {
+    "w": 75,
+    "h": 84
+   },
+   "note": "mesma cabeça aprovada sem a asinha pintada no peito (usar quando a asinha estiver como peça separada)"
+  },
+  "beak_lower_open05": {
+   "file": "parts/gusini_p1_beak_lower_open05.png",
+   "offset_in_canvas_px": {
+    "x": 42,
+    "y": 44
+   },
+   "size": {
+    "w": 37,
+    "h": 14
+   },
+   "hinge_px": {
+    "x": 77,
+    "y": 48
+   }
+  },
+  "beak_lower_open14": {
+   "file": "parts/gusini_p1_beak_lower_open14.png",
+   "offset_in_canvas_px": {
+    "x": 42,
+    "y": 44
+   },
+   "size": {
+    "w": 38,
+    "h": 19
+   },
+   "hinge_px": {
+    "x": 77,
+    "y": 48
+   }
+  }
+ },
+ "fx": {
+  "whistle_0": {
+   "file": "fx/gusini_p1_fx_whistle_0.png",
+   "frame": 2,
+   "offset_in_canvas_px": {
+    "x": 23,
+    "y": 32
+   },
+   "size": {
+    "w": 12,
+    "h": 18
+   },
+   "note": "opcional; já composto no frame"
+  },
+  "whistle_1": {
+   "file": "fx/gusini_p1_fx_whistle_1.png",
+   "frame": 3,
+   "offset_in_canvas_px": {
+    "x": 19,
+    "y": 28
+   },
+   "size": {
+    "w": 15,
+    "h": 27
+   },
+   "note": "opcional; já composto no frame"
+  },
+  "whistle_2": {
+   "file": "fx/gusini_p1_fx_whistle_2.png",
+   "frame": 4,
+   "offset_in_canvas_px": {
+    "x": 16,
+    "y": 26
+   },
+   "size": {
+    "w": 20,
+    "h": 30
+   },
+   "note": "opcional; já composto no frame"
+  }
+ }
+}

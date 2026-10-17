@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "effects": 20,
+  "wav_files": 24,
+  "critical_listening": "not_performed",
+  "files": [
+    {
+      "filename": "SFX_Gusini_Engine_Idle_Loop_01.wav",
+      "duration_ms": 2400.0,
+      "peak_dbfs": -6.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "4d4a60ac9b65050224746354643ffb1d6252d34a173bfed276a9ce6ec54a314a",
+      "seam_jump": 0.0030059814453125,
+      "typical_step_rms": 0.003466529938754445
+    },
+    {
+      "filename": "SFX_Gusini_Shoot_Cannon_01.wav",
+      "duration_ms": 220.0,
+      "peak_dbfs": -1.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "922b7de6dd65d46f965d0f80af3bb577264bdecb9c58235012e2127f72306f15"
+    },
+    {
+      "filename": "SFX_Gusini_Shoot_Cannon_02.wav",
+      "duration_ms": 220.0,
+      "peak_dbfs": -1.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "553c0c0a3dcccbb713ed8179134c1e2772723ac66515db337026eb41853f1737"
+    },
+    {
+      "filename": "SFX_Gusini_Shoot_Cannon_03.wav",
+      "duration_ms": 220.0,
+      "peak_dbfs": -1.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "d8c33e6d1983468f38c0238d98b5871fabeca78824244c3c1634f4f597f53ddc"
+    },
+    {
+      "filename": "SFX_Gusini_Shoot_Cock_01.wav",
+      "duration_ms": 90.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "f695cb02bed1e823fbdb1932b9d11826380e2c6ae00637f49ca3d4fa49e5e772"
+    },
+    {
+      "filename": "SFX_Gusini_Squadron_Whistle_01.wav",
+      "duration_ms": 390.0,
+      "peak_dbfs": -2.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "65dedb24ecdc508d06ff8e7a7aeffdabfa5c5e30412e2c7e8b18100ba86e0fc6"
+    },
+    {
+      "filename": "SFX_Gusini_Squadron_CommandWhoosh_01.wav",
+      "duration_ms": 120.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "a40e127d93a266c614fb5bef30682dc5217117a4f5afba792d48248dedd01312"
+    },
+    {
+      "filename": "SFX_Gusini_Squadron_Flyby_01.wav",
+      "duration_ms": 650.0,
+      "peak_dbfs": -3.0,
+      "channels": 2,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "019fdc124068dd3e373ebc8f8e6f74ba90b210a700ee5d5f57123300c6f9e34d"
+    },
+    {
+      "filename": "SFX_Gusini_Goose_Honk_Low_01.wav",
+      "duration_ms": 190.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "7b0b4aa02602eacfeb22b815129ff6f833197f3dce3600b516f2864b84cb16a9"
+    },
+    {
+      "filename": "SFX_Gusini_Goose_Honk_Mid_01.wav",
+      "duration_ms": 190.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "7c5d44eff7e3414ab1c3b5f58ad58a96f2f9cc8b678c585984a3ae4b123fd705"
+    },
+    {
+      "filename": "SFX_Gusini_Goose_Honk_High_01.wav",
+      "duration_ms": 190.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "1cfd6a76c26f8b844c8f8858805e444d6282f5e61c922d2f02225f1dbffb735f"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_HatchLatch_01.wav",
+      "duration_ms": 100.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "8f66f466efeb242382259a358307be1e4d06c685ed34beae193849f921065eec"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_HatchOpen_01.wav",
+      "duration_ms": 200.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "83c0d99ded030746d9ad039f4d2a1b9685a7ce05a2b154fa9db2e88c49043347"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_Drop_01.wav",
+      "duration_ms": 150.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "7ef6ca249c30568234a18d2681d8e27414a8ea877ec9bcd3c4aaa2c48f62fc89"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_HatchClose_01.wav",
+      "duration_ms": 150.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "cd29c75b86057966c2f45d2dab0c8ca74898e06b6ecd68b46d2546bfe5cfed44",
+      "strongest_transient_ms": 130.0
+    },
+    {
+      "filename": "SFX_Gusini_Egg_ParachuteDeploy_01.wav",
+      "duration_ms": 250.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "40864055a807340478d4c648585700a75f3c7dd099ccd61f7ffe5e41f681be26",
+      "strongest_transient_ms": 210.0
+    },
+    {
+      "filename": "SFX_Gusini_Egg_ParachuteFlutter_Loop_01.wav",
+      "duration_ms": 1280.0,
+      "peak_dbfs": -6.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "304db5e3f1194bcc4463a2be41e7280454a48b688d1c5cdf781a742decd7e5d4",
+      "seam_jump": 0.00011599063873291016,
+      "typical_step_rms": 0.0006483875924455888
+    },
+    {
+      "filename": "SFX_Gusini_Egg_Crack_01.wav",
+      "duration_ms": 120.0,
+      "peak_dbfs": -2.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "356dcd18129da16a0dd53a41ea1e2d7d39b1091251d8b1d3dd8226525fef5f7f"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_Crack_02.wav",
+      "duration_ms": 180.0,
+      "peak_dbfs": -2.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "5e948e3961a1c9407c91d104e30844689c7f5144033f3b4e9924878e5f7b85f4"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_Burst_01.wav",
+      "duration_ms": 350.0,
+      "peak_dbfs": -1.5,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "1caa701def762e1ea9f6c139a863c832e82143a20e6702690002d260ff2417ce"
+    },
+    {
+      "filename": "SFX_Gusini_Egg_YolkWhoosh_01.wav",
+      "duration_ms": 250.0,
+      "peak_dbfs": -4.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "4653a8e9f5135c833988dd42f987768d3da425c5b80b255c853af495c5309a5d"
+    },
+    {
+      "filename": "SFX_Gusini_Hit_01.wav",
+      "duration_ms": 110.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "a7fd8750687bb347d4ae8be7fddbdefcece2b92e63b255a54353278dcbab3412"
+    },
+    {
+      "filename": "SFX_Gusini_Hit_02.wav",
+      "duration_ms": 110.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "1dd0443e5991d845cfe4b2b885ac0e39f242e2e9fb9547b06289b71ed9c71b0d"
+    },
+    {
+      "filename": "SFX_Gusini_Hit_03.wav",
+      "duration_ms": 110.0,
+      "peak_dbfs": -3.0,
+      "channels": 1,
+      "codec": "pcm_s24le",
+      "sample_rate": "48000",
+      "sha256": "0285bcb7dccdef59c81b650c70f37d1869cdf7de728964800ca86c6a54c1f713"
+    }
+  ]
+}

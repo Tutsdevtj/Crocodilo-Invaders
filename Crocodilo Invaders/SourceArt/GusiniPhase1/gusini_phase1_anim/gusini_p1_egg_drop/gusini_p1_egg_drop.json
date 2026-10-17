@@ -1,0 +1,349 @@
+{
+ "animation": "gusini_p1_egg_drop",
+ "phase": 1,
+ "loop": false,
+ "returns_to": "gusini_p1_idle (frame 0)",
+ "frame_count": 9,
+ "durations_ms": [
+  80,
+  100,
+  60,
+  70,
+  90,
+  90,
+  70,
+  60,
+  90
+ ],
+ "total_ms": 710,
+ "labels": [
+  "base (= idle F0)",
+  "antecipacao: destrava (trava pisca)",
+  "compartimento abrindo 1",
+  "compartimento abrindo 2",
+  "compartimento aberto: ovo desponta",
+  "SOLTA O OVO (aponta p/ baixo)",
+  "compartimento fechando 1",
+  "compartimento fechando 2",
+  "fechado / recovery -> idle"
+ ],
+ "egg_drop_event_frame": 5,
+ "egg_drop_position_px": {
+  "x": 94,
+  "y": 152
+ },
+ "egg_drop_note": "posição = pivô (centro) do ovo no canvas do boss, logo abaixo da escotilha aberta; criar o ovo no início do frame 5 com velocidade inicial p/ baixo; no 1º frame desenhar o ovo ATRÁS do boss (a porta aberta fica por cima)",
+ "egg_drop_position_unity_from_pivot_px": {
+  "x": -26,
+  "y": -34
+ },
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "frames": [
+  {
+   "file": "gusini_p1_egg_drop_0.png",
+   "duration_ms": 80,
+   "label": "base (= idle F0)"
+  },
+  {
+   "file": "gusini_p1_egg_drop_1.png",
+   "duration_ms": 100,
+   "label": "antecipacao: destrava (trava pisca)"
+  },
+  {
+   "file": "gusini_p1_egg_drop_2.png",
+   "duration_ms": 60,
+   "label": "compartimento abrindo 1"
+  },
+  {
+   "file": "gusini_p1_egg_drop_3.png",
+   "duration_ms": 70,
+   "label": "compartimento abrindo 2"
+  },
+  {
+   "file": "gusini_p1_egg_drop_4.png",
+   "duration_ms": 90,
+   "label": "compartimento aberto: ovo desponta"
+  },
+  {
+   "file": "gusini_p1_egg_drop_5.png",
+   "duration_ms": 90,
+   "label": "SOLTA O OVO (aponta p/ baixo)"
+  },
+  {
+   "file": "gusini_p1_egg_drop_6.png",
+   "duration_ms": 70,
+   "label": "compartimento fechando 1"
+  },
+  {
+   "file": "gusini_p1_egg_drop_7.png",
+   "duration_ms": 60,
+   "label": "compartimento fechando 2"
+  },
+  {
+   "file": "gusini_p1_egg_drop_8.png",
+   "duration_ms": 90,
+   "label": "fechado / recovery -> idle"
+  }
+ ],
+ "part_offsets_px_per_frame": {
+  "body_cannon_engine_wings": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "head_beak_scarf_goosewing": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": -1
+   },
+   {
+    "x": -1,
+    "y": -1
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ]
+ },
+ "hatch_state_per_frame": [
+  "closed",
+  "latch",
+  "open1",
+  "open2",
+  "open",
+  "drop",
+  "close1",
+  "close2",
+  "closed"
+ ],
+ "hatch_states": {
+  "closed": {
+   "door_angle_deg": 0,
+   "visible_gap_px": 0,
+   "egg_peek": false,
+   "latch_blink": false
+  },
+  "latch": {
+   "door_angle_deg": 0,
+   "visible_gap_px": 0,
+   "egg_peek": false,
+   "latch_blink": true
+  },
+  "open1": {
+   "door_angle_deg": 18,
+   "visible_gap_px": 2,
+   "egg_peek": false,
+   "latch_blink": false
+  },
+  "open2": {
+   "door_angle_deg": 40,
+   "visible_gap_px": 4,
+   "egg_peek": false,
+   "latch_blink": false
+  },
+  "open": {
+   "door_angle_deg": 62,
+   "visible_gap_px": 9,
+   "egg_peek": true,
+   "latch_blink": false
+  },
+  "drop": {
+   "door_angle_deg": 66,
+   "visible_gap_px": 9,
+   "egg_peek": false,
+   "latch_blink": false
+  },
+  "close1": {
+   "door_angle_deg": 38,
+   "visible_gap_px": 4,
+   "egg_peek": false,
+   "latch_blink": false
+  },
+  "close2": {
+   "door_angle_deg": 15,
+   "visible_gap_px": 2,
+   "egg_peek": false,
+   "latch_blink": false
+  }
+ },
+ "compartment_opening_ms": 220,
+ "compartment_closing_ms": 130,
+ "goose_wing_pose_per_frame": [
+  null,
+  "lift",
+  "lift",
+  "up",
+  "up",
+  "point_down",
+  "lift",
+  "lift",
+  null
+ ],
+ "beak_open_degrees_per_frame": [
+  0,
+  0,
+  0,
+  4,
+  4,
+  10,
+  0,
+  0,
+  0
+ ],
+ "scarf_pose_per_frame": [
+  0,
+  1,
+  2,
+  3,
+  0,
+  1,
+  2,
+  3,
+  3
+ ],
+ "engine_cycle_frame_per_frame": [
+  0,
+  1,
+  2,
+  3,
+  0,
+  1,
+  2,
+  3,
+  0
+ ],
+ "new_parts": {
+  "body_hatch_latch": {
+   "file": "parts/gusini_p1_body_hatch_latch.png",
+   "angle_deg": 0,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_open1": {
+   "file": "parts/gusini_p1_body_hatch_open1.png",
+   "angle_deg": 18,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_open2": {
+   "file": "parts/gusini_p1_body_hatch_open2.png",
+   "angle_deg": 40,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_open": {
+   "file": "parts/gusini_p1_body_hatch_open.png",
+   "angle_deg": 62,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_drop": {
+   "file": "parts/gusini_p1_body_hatch_drop.png",
+   "angle_deg": 66,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_close1": {
+   "file": "parts/gusini_p1_body_hatch_close1.png",
+   "angle_deg": 38,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "body_hatch_close2": {
+   "file": "parts/gusini_p1_body_hatch_close2.png",
+   "angle_deg": 15,
+   "offset_in_canvas_px": {
+    "x": 44,
+    "y": 62
+   }
+  },
+  "goose_wing_point_down": {
+   "file": "parts/gusini_p1_goose_wing_point_down.png",
+   "offset_in_canvas_px": {
+    "x": 105,
+    "y": 81
+   }
+  }
+ }
+}

@@ -2,10 +2,16 @@ using UnityEngine;
 
 // Ajusta apenas o cenário visual; os limites da arena continuam independentes.
 [ExecuteAlways]
+[DefaultExecutionOrder(-200)]
 public sealed class BackgroundFit : MonoBehaviour
 {
     [SerializeField] private Camera targetCamera;
     [SerializeField] private SpriteRenderer background;
+
+    // O parallax calcula as larguras em world space: precisa da escala correta
+    // antes de seu Awake/Update, inclusive na troca de resolução.
+    private void Awake() => FitToCamera();
+    private void Update() => FitToCamera();
 
     private void LateUpdate()
     {

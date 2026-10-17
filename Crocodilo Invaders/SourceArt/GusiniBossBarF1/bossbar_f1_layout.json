@@ -1,0 +1,806 @@
+{
+  "canvas_px": {
+    "w": 238,
+    "h": 50
+  },
+  "display_scale": 2,
+  "size_ui": {
+    "w": 476,
+    "h": 100
+  },
+  "fill_rect_x1": [
+    16,
+    24,
+    181,
+    32
+  ],
+  "fill_size_x1": [
+    166,
+    9
+  ],
+  "fill_origin": "Right",
+  "emblem_center_x1": [
+    209,
+    27
+  ],
+  "emblem_radius": 12,
+  "scarf_knot_x1": [
+    211,
+    40
+  ],
+  "glint_spots_x1": {
+    "emblem": [
+      202,
+      19
+    ],
+    "beak": [
+      5,
+      24
+    ],
+    "wing": [
+      231,
+      22
+    ]
+  },
+  "low_health_threshold": 0.3,
+  "palette": {
+    "ol": "#180c22",
+    "p0": "#a276c6",
+    "p1": "#724a9a",
+    "p2": "#4e2e72",
+    "p3": "#341e52",
+    "p4": "#221336",
+    "gh": "#fff6be",
+    "g0": "#fcd648",
+    "g1": "#d6a030",
+    "g2": "#966420",
+    "w0": "#fffffa",
+    "w2": "#bec2d2",
+    "o1": "#f6a030",
+    "o2": "#cc6824",
+    "r0": "#f06050",
+    "r1": "#d63030",
+    "r2": "#961a28",
+    "r3": "#601020",
+    "lc": "#60d7ff",
+    "tx": "#fff8e4",
+    "f0": "#ffe884",
+    "f1": "#ffb03a",
+    "f2": "#ee7a24",
+    "f3": "#a8401e",
+    "v0": "#ff9678",
+    "v1": "#f6423a",
+    "v2": "#b81c2c",
+    "v3": "#700e22",
+    "lg0": "#fff8e6",
+    "lg1": "#f4dec0",
+    "lg2": "#ceac9a",
+    "tk0": "#180c24",
+    "tk1": "#28163a",
+    "wh": "#fffffa",
+    "sh0": "#fffad6",
+    "sh1": "#ffd882",
+    "al": "#ff4a40",
+    "lowg": "#ff4646"
+  },
+  "unity_root": {
+    "name": "BossBar_Gusini_F1",
+    "sizeDelta": [
+      476,
+      100
+    ],
+    "placement_bottom": {
+      "anchor": "bottom-right",
+      "pivot": [
+        1,
+        0
+      ],
+      "anchoredPosition": [
+        -16,
+        14
+      ]
+    },
+    "placement_top": {
+      "anchor": "top-center",
+      "pivot": [
+        0.5,
+        1
+      ],
+      "anchoredPosition": [
+        0,
+        -12
+      ]
+    },
+    "import_settings": "parts_x2/fx_x2 PPU 100 (ou x1 PPU 50) · Filter Point · Compression None · sem mipmaps"
+  },
+  "layer_order_bottom_to_top": [
+    "lowhp_glow",
+    "orn_scarf_tail_{0-3}",
+    "boss_backplate",
+    "nameplate",
+    "orn_star",
+    "name_text",
+    "hp_track",
+    "hp_damage_lag",
+    "hp_fill",
+    "hp_fill_low",
+    "hp_hit_flash",
+    "(fx_shimmer, dentro de RectMask2D)",
+    "(fx_fill_edge)",
+    "boss_frame",
+    "orn_beak",
+    "orn_wings",
+    "emblem_roundel",
+    "emblem_alert",
+    "orn_scarf_knot",
+    "(fx_hit_spark_N)",
+    "(fx_glint_N)"
+  ],
+  "pieces": [
+    {
+      "name": "lowhp_glow",
+      "unity_image": "Image Simple + alpha pulsando",
+      "role": "contorno vermelho de alerta",
+      "animated_in": "vida crítica",
+      "rect_x1": [
+        0,
+        2,
+        206,
+        45
+      ],
+      "size_x1": [
+        207,
+        44
+      ],
+      "size_ui": [
+        414,
+        88
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        0,
+        8
+      ]
+    },
+    {
+      "name": "orn_scarf_tail_{0-3}",
+      "unity_image": "Image Simple, troca de sprite",
+      "role": "pontas do cachecol tremulando",
+      "animated_in": "loop sempre",
+      "rect_x1": [
+        213,
+        36,
+        237,
+        49
+      ],
+      "size_x1": [
+        25,
+        14
+      ],
+      "size_ui": [
+        50,
+        28
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        426,
+        0
+      ]
+    },
+    {
+      "name": "boss_backplate",
+      "unity_image": "Image Simple",
+      "role": "placa escura em forma de asa, borda de fuga com pontas de pena (contraste sobre céu claro)",
+      "animated_in": "entrada",
+      "rect_x1": [
+        15,
+        14,
+        204,
+        43
+      ],
+      "size_x1": [
+        190,
+        30
+      ],
+      "size_ui": [
+        380,
+        60
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        30,
+        12
+      ]
+    },
+    {
+      "name": "nameplate",
+      "unity_image": "Image Simple",
+      "role": "placa do nome, roxa com friso de latão",
+      "animated_in": "entrada",
+      "rect_x1": [
+        112,
+        4,
+        192,
+        17
+      ],
+      "size_x1": [
+        81,
+        14
+      ],
+      "size_ui": [
+        162,
+        28
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        224,
+        64
+      ]
+    },
+    {
+      "name": "orn_star",
+      "unity_image": "Image Simple",
+      "role": "estrela de comandante",
+      "animated_in": "entrada",
+      "rect_x1": [
+        117,
+        8,
+        121,
+        11
+      ],
+      "size_x1": [
+        5,
+        4
+      ],
+      "size_ui": [
+        10,
+        8
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        234,
+        76
+      ]
+    },
+    {
+      "name": "name_text",
+      "unity_image": "Image Simple (ou TMP PressStart2P 8px x2 = 16)",
+      "role": "\"GUSINI\"",
+      "animated_in": "entrada",
+      "rect_x1": [
+        127,
+        7,
+        174,
+        14
+      ],
+      "size_x1": [
+        48,
+        8
+      ],
+      "size_ui": [
+        96,
+        16
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        254,
+        70
+      ]
+    },
+    {
+      "name": "hp_track",
+      "unity_image": "Image Simple",
+      "role": "trilho vazio com barbas de pena",
+      "animated_in": "entrada",
+      "rect_x1": [
+        16,
+        24,
+        181,
+        32
+      ],
+      "size_x1": [
+        166,
+        9
+      ],
+      "size_ui": [
+        332,
+        18
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        32,
+        34
+      ]
+    },
+    {
+      "name": "hp_damage_lag",
+      "unity_image": "Image Filled Horizontal, Origin RIGHT",
+      "role": "vida perdida atrasada (creme)",
+      "animated_in": "damage lag",
+      "rect_x1": [
+        16,
+        24,
+        181,
+        32
+      ],
+      "size_x1": [
+        166,
+        9
+      ],
+      "size_ui": [
+        332,
+        18
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        32,
+        34
+      ]
+    },
+    {
+      "name": "hp_fill",
+      "unity_image": "Image Filled Horizontal, Origin RIGHT",
+      "role": "vida (âmbar)",
+      "animated_in": "entrada (carga), dano",
+      "rect_x1": [
+        16,
+        24,
+        181,
+        32
+      ],
+      "size_x1": [
+        166,
+        9
+      ],
+      "size_ui": [
+        332,
+        18
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        32,
+        34
+      ]
+    },
+    {
+      "name": "hp_fill_low",
+      "unity_image": "Image Filled Horizontal, Origin RIGHT",
+      "role": "vida crítica (vermelho) — troca de sprite do hp_fill",
+      "animated_in": "vida crítica",
+      "rect_x1": [
+        16,
+        24,
+        181,
+        32
+      ],
+      "size_x1": [
+        166,
+        9
+      ],
+      "size_ui": [
+        332,
+        18
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        32,
+        34
+      ]
+    },
+    {
+      "name": "hp_hit_flash",
+      "unity_image": "Image Filled Horizontal, Origin RIGHT (mesmo fillAmount do hp_fill)",
+      "role": "flash branco de dano / flash final da entrada",
+      "animated_in": "dano, entrada",
+      "rect_x1": [
+        16,
+        24,
+        181,
+        32
+      ],
+      "size_x1": [
+        166,
+        9
+      ],
+      "size_ui": [
+        332,
+        18
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        32,
+        34
+      ]
+    },
+    {
+      "name": "fx_shimmer",
+      "type": "fx — posicionado em runtime"
+    },
+    {
+      "name": "fx_fill_edge",
+      "type": "fx — posicionado em runtime"
+    },
+    {
+      "name": "boss_frame",
+      "unity_image": "Image Simple",
+      "role": "moldura de latão com marcas de 25/50/75%; janela da vida transparente",
+      "animated_in": "entrada",
+      "rect_x1": [
+        13,
+        21,
+        197,
+        35
+      ],
+      "size_x1": [
+        185,
+        15
+      ],
+      "size_ui": [
+        370,
+        30
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        26,
+        28
+      ]
+    },
+    {
+      "name": "orn_beak",
+      "unity_image": "Image Simple",
+      "role": "ponta da moldura em forma de bico de ganso",
+      "animated_in": "entrada",
+      "rect_x1": [
+        0,
+        21,
+        13,
+        35
+      ],
+      "size_x1": [
+        14,
+        15
+      ],
+      "size_ui": [
+        28,
+        30
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        0,
+        28
+      ]
+    },
+    {
+      "name": "orn_wings",
+      "unity_image": "Image Simple",
+      "role": "asas de aviador (brevê) atrás do medalhão",
+      "animated_in": "entrada",
+      "rect_x1": [
+        183,
+        20,
+        235,
+        32
+      ],
+      "size_x1": [
+        53,
+        13
+      ],
+      "size_ui": [
+        106,
+        26
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        366,
+        34
+      ]
+    },
+    {
+      "name": "emblem_roundel",
+      "unity_image": "Image Simple",
+      "role": "medalhão de comandante com silhueta simplificada do ganso (não é retrato)",
+      "animated_in": "entrada",
+      "rect_x1": [
+        197,
+        15,
+        221,
+        39
+      ],
+      "size_x1": [
+        25,
+        25
+      ],
+      "size_ui": [
+        50,
+        50
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        394,
+        20
+      ]
+    },
+    {
+      "name": "emblem_alert",
+      "unity_image": "Image Simple + alpha pulsando",
+      "role": "anel interno + lente vermelhos",
+      "animated_in": "vida crítica",
+      "rect_x1": [
+        200,
+        18,
+        218,
+        36
+      ],
+      "size_x1": [
+        19,
+        19
+      ],
+      "size_ui": [
+        38,
+        38
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        400,
+        26
+      ]
+    },
+    {
+      "name": "orn_scarf_knot",
+      "unity_image": "Image Simple",
+      "role": "laço do cachecol",
+      "animated_in": "entrada",
+      "rect_x1": [
+        206,
+        38,
+        216,
+        42
+      ],
+      "size_x1": [
+        11,
+        5
+      ],
+      "size_ui": [
+        22,
+        10
+      ],
+      "anchoredPosition_ui_from_bottomleft": [
+        412,
+        14
+      ]
+    },
+    {
+      "name": "fx_hit_spark_N",
+      "type": "fx — posicionado em runtime"
+    },
+    {
+      "name": "fx_glint_N",
+      "type": "fx — posicionado em runtime"
+    }
+  ],
+  "fx": {
+    "fx_glint_0": {
+      "size_x1": [
+        7,
+        7
+      ],
+      "size_ui": [
+        14,
+        14
+      ]
+    },
+    "fx_glint_1": {
+      "size_x1": [
+        7,
+        7
+      ],
+      "size_ui": [
+        14,
+        14
+      ]
+    },
+    "fx_glint_2": {
+      "size_x1": [
+        7,
+        7
+      ],
+      "size_ui": [
+        14,
+        14
+      ]
+    },
+    "fx_glint_3": {
+      "size_x1": [
+        7,
+        7
+      ],
+      "size_ui": [
+        14,
+        14
+      ]
+    },
+    "fx_hit_spark_0": {
+      "size_x1": [
+        9,
+        13
+      ],
+      "size_ui": [
+        18,
+        26
+      ]
+    },
+    "fx_hit_spark_1": {
+      "size_x1": [
+        9,
+        13
+      ],
+      "size_ui": [
+        18,
+        26
+      ]
+    },
+    "fx_hit_spark_2": {
+      "size_x1": [
+        9,
+        13
+      ],
+      "size_ui": [
+        18,
+        26
+      ]
+    },
+    "fx_fill_edge": {
+      "size_x1": [
+        2,
+        9
+      ],
+      "size_ui": [
+        4,
+        18
+      ]
+    },
+    "fx_shimmer": {
+      "size_x1": [
+        9,
+        9
+      ],
+      "size_ui": [
+        18,
+        18
+      ]
+    }
+  },
+  "entrance_groups": {
+    "bar": [
+      "boss_backplate",
+      "boss_frame",
+      "orn_beak",
+      "hp_track",
+      "hp_damage_lag",
+      "hp_fill"
+    ],
+    "emblem": [
+      "orn_wings",
+      "emblem_roundel",
+      "orn_scarf_knot",
+      "orn_scarf_tail"
+    ],
+    "name": [
+      "nameplate",
+      "orn_star",
+      "name_text"
+    ]
+  },
+  "timings": {
+    "entrance": {
+      "total_s": 1.3,
+      "bar_slide_in": {
+        "t": [
+          0.0,
+          0.28
+        ],
+        "from_offset_ui": [
+          120,
+          0
+        ],
+        "ease": "OutCubic",
+        "alpha": [
+          0,
+          1
+        ]
+      },
+      "emblem_drop": {
+        "t": [
+          0.18,
+          0.4
+        ],
+        "from_offset_ui": [
+          0,
+          20
+        ],
+        "ease": "OutBack (overshoot ~1.9)"
+      },
+      "name_drop": {
+        "t": [
+          0.32,
+          0.46
+        ],
+        "from_offset_ui": [
+          0,
+          12
+        ],
+        "ease": "OutCubic",
+        "alpha": [
+          0,
+          1
+        ]
+      },
+      "scarf_start_s": 0.18,
+      "fill_charge": {
+        "t": [
+          0.5,
+          1.1
+        ],
+        "fillAmount": [
+          0,
+          1
+        ],
+        "ease": "OutCubic",
+        "fx_fill_edge_on_leading_edge": true
+      },
+      "final_flash": {
+        "t": [
+          1.1,
+          1.3
+        ],
+        "hp_hit_flash_alpha": [
+          0.9,
+          0
+        ]
+      },
+      "final_glint": {
+        "t": 1.1,
+        "spot": "emblem",
+        "frames": 4,
+        "ms_per_frame": 60
+      }
+    },
+    "damage": {
+      "hit_flash": {
+        "alpha": [
+          0.85,
+          0
+        ],
+        "s": 0.12
+      },
+      "hit_spark": {
+        "frames": 3,
+        "ms_per_frame": 50,
+        "at": "borda esquerda do fill"
+      },
+      "shake": {
+        "ui_px": 2,
+        "s": 0.1
+      },
+      "lag_hold_s": 0.4,
+      "lag_drop_per_s": 0.8
+    },
+    "shimmer_idle": {
+      "every_s": 4.5,
+      "sweep_s": 0.55,
+      "direction": "direita→esquerda (do emblema para o bico)",
+      "then_glint": {
+        "frames": 4,
+        "ms_per_frame": 60,
+        "alternate_spots": [
+          "emblem",
+          "beak"
+        ]
+      }
+    },
+    "low_health": {
+      "threshold": 0.3,
+      "period_s": 0.8,
+      "emblem_alert_alpha": [
+        0.25,
+        1.0
+      ],
+      "lowhp_glow_alpha": [
+        0.15,
+        0.9
+      ],
+      "fill_sprite": "hp_fill_low",
+      "scarf_ms_per_frame": 80
+    },
+    "scarf_loop": {
+      "frames": 4,
+      "ms_per_frame": 120
+    }
+  },
+  "phase": "Gusini Fase 1 — fases 2 e 3 ainda não existem",
+  "portrait": "nenhum"
+}

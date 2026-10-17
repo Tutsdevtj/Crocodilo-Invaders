@@ -1,23 +1,19 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Serialization;
 
 public sealed class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private RunScore score;
-    [FormerlySerializedAs("healthFill"), SerializeField] private Image healthBar;
-    [FormerlySerializedAs("specialFill"), SerializeField] private Image specialBar;
-    [Tooltip("Sprites da vida cheia até vazia, na ordem do HUD original.")]
-    [SerializeField] private Sprite[] healthSprites;
-    [Tooltip("Sprites do especial cheio até vazio, na ordem do HUD original.")]
-    [SerializeField] private Sprite[] specialSprites;
+    [SerializeField] private PlayerHUDCockpit cockpit;
     [SerializeField] private TMP_Text pointsText;
     [SerializeField] private TMP_Text killsText;
 
     private Health health;
     private PlayerCombat combat;
+
+    // Sincroniza também depois dos Awakes dos componentes de gameplay.
+    private void Start() => ResetDisplay();
 
     private void OnEnable()
     {
@@ -49,22 +45,24 @@ public sealed class PlayerHUD : MonoBehaviour
             if (combat != null) combat.ChargeChanged += RefreshSpecial;
         }
 
-        RefreshHealth(health != null ? health.CurrentHealth : 0, health != null ? health.MaxHealth : 1);
+        ResetDisplay();
+    }
+
+    private void ResetDisplay()
+    {
+        if (cockpit != null)
+            cockpit.ResetDisplay(health != null ? health.Fraction : 0f,
+                combat != null ? (float)combat.Charge / Mathf.Max(1, combat.SpecialChargeRequired) : 0f);
     }
 
     private void RefreshHealth(int current, int maximum)
     {
-        if (healthSprites != null && healthSprites.Length == 9)
-            healthBar.sprite = healthSprites[HealthStage(health != null ? health.Fraction : (float)current / maximum)];
-        RefreshSpecial(combat != null ? combat.Charge : 0, combat != null ? combat.SpecialChargeRequired : 1);
+        if (cockpit != null) cockpit.SetHealth(health != null ? health.Fraction : (float)current / Mathf.Max(1, maximum));
     }
 
     private void RefreshSpecial(int current, int maximum)
     {
-        float charge = (float)current / maximum;
-        int index = charge >= 1f ? 0 : charge >= .6f ? 1 : charge >= .4f ? 2 : charge >= .2f ? 3 : 4;
-        if (specialSprites != null && specialSprites.Length == 5)
-            specialBar.sprite = specialSprites[index];
+        if (cockpit != null) cockpit.SetCharge((float)current / Mathf.Max(1, maximum));
     }
 
     // Apenas apresenta valores fornecidos pelo gameplay; o HUD não conta pontos ou kills.
@@ -72,19 +70,6 @@ public sealed class PlayerHUD : MonoBehaviour
     {
         if (pointsText != null) pointsText.text = $"Pontos: {points}";
         if (killsText != null) killsText.text = $"Inimigos: {kills}";
-    }
-
-    private static int HealthStage(float remaining)
-    {
-        if (remaining <= 0f) return 8;
-        if (remaining <= 1f / 6f) return 7;
-        if (remaining <= .4f) return 6;
-        if (remaining <= .5f) return 5;
-        if (remaining <= .6f) return 4;
-        if (remaining <= .7f) return 3;
-        if (remaining <= .8f) return 2;
-        if (remaining <= .9f) return 1;
-        return 0;
     }
 
     private void Unsubscribe()

@@ -1,0 +1,206 @@
+{
+ "canvas": {
+  "w": 240,
+  "h": 180
+ },
+ "facing": "left",
+ "parts": [
+  {
+   "name": "gusini_p1_wing_right",
+   "file": "parts/gusini_p1_wing_right.png",
+   "sorting_order": 0,
+   "offset_in_boss_px": {
+    "x": 140,
+    "y": 72
+   },
+   "size": {
+    "w": 49,
+    "h": 31
+   },
+   "pivot_local_px": {
+    "x": 12,
+    "y": 26
+   },
+   "pivot_unity_normalized": {
+    "x": 0.2449,
+    "y": 0.1613
+   }
+  },
+  {
+   "name": "gusini_p1_engine",
+   "file": "parts/gusini_p1_engine.png",
+   "sorting_order": 1,
+   "offset_in_boss_px": {
+    "x": 194,
+    "y": 102
+   },
+   "size": {
+    "w": 38,
+    "h": 36
+   },
+   "pivot_local_px": {
+    "x": 4,
+    "y": 17
+   },
+   "pivot_unity_normalized": {
+    "x": 0.1053,
+    "y": 0.5278
+   }
+  },
+  {
+   "name": "gusini_p1_body_cockpit",
+   "file": "parts/gusini_p1_body_cockpit.png",
+   "sorting_order": 2,
+   "offset_in_boss_px": {
+    "x": 44,
+    "y": 62
+   },
+   "size": {
+    "w": 171,
+    "h": 89
+   },
+   "pivot_local_px": {
+    "x": 76,
+    "y": 56
+   },
+   "pivot_unity_normalized": {
+    "x": 0.4444,
+    "y": 0.3708
+   }
+  },
+  {
+   "name": "gusini_p1_cannon",
+   "file": "parts/gusini_p1_cannon.png",
+   "sorting_order": 3,
+   "offset_in_boss_px": {
+    "x": 21,
+    "y": 131
+   },
+   "size": {
+    "w": 66,
+    "h": 23
+   },
+   "pivot_local_px": {
+    "x": 51,
+    "y": 9
+   },
+   "pivot_unity_normalized": {
+    "x": 0.7727,
+    "y": 0.6087
+   }
+  },
+  {
+   "name": "gusini_p1_head",
+   "file": "parts/gusini_p1_head.png",
+   "sorting_order": 4,
+   "offset_in_boss_px": {
+    "x": 69,
+    "y": 19
+   },
+   "size": {
+    "w": 75,
+    "h": 84
+   },
+   "pivot_local_px": {
+    "x": 51,
+    "y": 76
+   },
+   "pivot_unity_normalized": {
+    "x": 0.68,
+    "y": 0.0952
+   }
+  },
+  {
+   "name": "gusini_p1_beak_lower",
+   "file": "parts/gusini_p1_beak_lower.png",
+   "sorting_order": 5,
+   "offset_in_boss_px": {
+    "x": 44,
+    "y": 45
+   },
+   "size": {
+    "w": 35,
+    "h": 11
+   },
+   "pivot_local_px": {
+    "x": 33,
+    "y": 4
+   },
+   "pivot_unity_normalized": {
+    "x": 0.9429,
+    "y": 0.6364
+   }
+  },
+  {
+   "name": "gusini_p1_beak_upper",
+   "file": "parts/gusini_p1_beak_upper.png",
+   "sorting_order": 6,
+   "offset_in_boss_px": {
+    "x": 37,
+    "y": 29
+   },
+   "size": {
+    "w": 44,
+    "h": 23
+   },
+   "pivot_local_px": {
+    "x": 40,
+    "y": 15
+   },
+   "pivot_unity_normalized": {
+    "x": 0.9091,
+    "y": 0.3478
+   }
+  },
+  {
+   "name": "gusini_p1_scarf",
+   "file": "parts/gusini_p1_scarf.png",
+   "sorting_order": 7,
+   "offset_in_boss_px": {
+    "x": 98,
+    "y": 39
+   },
+   "size": {
+    "w": 86,
+    "h": 48
+   },
+   "pivot_local_px": {
+    "x": 16,
+    "y": 37
+   },
+   "pivot_unity_normalized": {
+    "x": 0.186,
+    "y": 0.2292
+   }
+  },
+  {
+   "name": "gusini_p1_wing_left",
+   "file": "parts/gusini_p1_wing_left.png",
+   "sorting_order": 8,
+   "offset_in_boss_px": {
+    "x": 104,
+    "y": 118
+   },
+   "size": {
+    "w": 107,
+    "h": 45
+   },
+   "pivot_local_px": {
+    "x": 24,
+    "y": 10
+   },
+   "pivot_unity_normalized": {
+    "x": 0.2243,
+    "y": 0.7778
+   }
+  }
+ ],
+ "muzzle_point_boss_px": {
+  "x": 27,
+  "y": 142
+ },
+ "muzzle_point_in_cannon_local_px": {
+  "x": 6,
+  "y": 11
+ }
+}

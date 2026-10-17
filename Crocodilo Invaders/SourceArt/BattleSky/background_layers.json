@@ -1,0 +1,330 @@
+{
+  "title": "Background \"Céu de Batalha\" — Crocodilo Invaders",
+  "native_view_px": [
+    600,
+    360
+  ],
+  "display_scale": 2,
+  "pixels_per_unit": 50,
+  "view_units": [
+    12.0,
+    7.2
+  ],
+  "import_settings": "Filter Point · Compression None · sem mipmaps · Wrap Clamp (tiles via ScrollingLayer) · Mesh Type Full Rect",
+  "order_back_to_front": [
+    "L0_sky_base",
+    "L1_alien_mothership_layer",
+    "L2_far_clouds",
+    "L3_distant_battle_layer",
+    "L4_mid_clouds",
+    "L5_horizon_far_layer",
+    "L6_near_clouds",
+    "L7_horizon_near_layer"
+  ],
+  "layers": [
+    {
+      "file": "layers/L0_sky_base.png",
+      "name": "L0_sky_base",
+      "function": "céu base (degradê em faixas, opaco). Não rola.",
+      "size_px": [
+        600,
+        360
+      ],
+      "size_units": [
+        12.0,
+        7.2
+      ],
+      "repeat_horizontal": false,
+      "tile_width_px": null,
+      "transparent": false,
+      "top_y_px_in_600x360_view": 0,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.0,
+      "suggested_scrollSpeed_units_per_s": 0.0,
+      "suggested_sortingOrder": -100
+    },
+    {
+      "file": "layers/L1_alien_mothership_layer.png",
+      "name": "L1_alien_mothership_layer",
+      "function": "cruzador alien gigante ao fundo, dessaturado/enevoado, com avarias. Quase parado.",
+      "size_px": [
+        340,
+        112
+      ],
+      "size_units": [
+        6.8,
+        2.24
+      ],
+      "repeat_horizontal": false,
+      "tile_width_px": null,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 8,
+      "x_px_in_view": 190,
+      "parallax_factor_rel_to_horizon_near": 0.02,
+      "suggested_scrollSpeed_units_per_s": 0.06,
+      "suggested_sortingOrder": -96
+    },
+    {
+      "file": "layers/L2_far_clouds.png",
+      "name": "L2_far_clouds",
+      "function": "estratos altos + banco de cúmulos distante sobre o horizonte (pouco contraste). Cobre a parte de baixo da nave-mãe.",
+      "size_px": [
+        800,
+        360
+      ],
+      "size_units": [
+        16.0,
+        7.2
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 0,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.06,
+      "suggested_scrollSpeed_units_per_s": 0.25,
+      "suggested_sortingOrder": -92
+    },
+    {
+      "file": "layers/L3_distant_battle_layer.png",
+      "name": "L3_distant_battle_layer",
+      "function": "mini batalha estática: silhuetas, contrails, traçantes, flak, disco abatido com rastro.",
+      "size_px": [
+        800,
+        360
+      ],
+      "size_units": [
+        16.0,
+        7.2
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 0,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.1,
+      "suggested_scrollSpeed_units_per_s": 0.4,
+      "suggested_sortingOrder": -88
+    },
+    {
+      "file": "layers/L4_mid_clouds.png",
+      "name": "L4_mid_clouds",
+      "function": "cúmulos médios em alturas variadas.",
+      "size_px": [
+        800,
+        360
+      ],
+      "size_units": [
+        16.0,
+        7.2
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 0,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.22,
+      "suggested_scrollSpeed_units_per_s": 0.9,
+      "suggested_sortingOrder": -84
+    },
+    {
+      "file": "layers/L5_horizon_far_layer.png",
+      "name": "L5_horizon_far_layer",
+      "function": "montanhas azuladas distantes + mar com brilhos + 2 colunas de fumaça na costa. Opaco embaixo.",
+      "size_px": [
+        800,
+        110
+      ],
+      "size_units": [
+        16.0,
+        2.2
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 250,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.3,
+      "suggested_scrollSpeed_units_per_s": 1.2,
+      "suggested_sortingOrder": -76
+    },
+    {
+      "file": "layers/L6_near_clouds.png",
+      "name": "L6_near_clouds",
+      "function": "fragmentos no topo (enquadram) + bruma baixa sobre o mar. Fica ENTRE horizon_far e horizon_near.",
+      "size_px": [
+        800,
+        360
+      ],
+      "size_units": [
+        16.0,
+        7.2
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 0,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 0.55,
+      "suggested_scrollSpeed_units_per_s": 2.2,
+      "suggested_sortingOrder": -72
+    },
+    {
+      "file": "layers/L7_horizon_near_layer.png",
+      "name": "L7_horizon_near_layer",
+      "function": "ilhas: base militar (hangar, torre, radar, antiaérea), farol com palmeiras, promontório com canhão destruído.",
+      "size_px": [
+        800,
+        78
+      ],
+      "size_units": [
+        16.0,
+        1.56
+      ],
+      "repeat_horizontal": true,
+      "tile_width_px": 800,
+      "transparent": true,
+      "top_y_px_in_600x360_view": 282,
+      "x_px_in_view": 0,
+      "parallax_factor_rel_to_horizon_near": 1.0,
+      "suggested_scrollSpeed_units_per_s": 4.0,
+      "suggested_sortingOrder": -68
+    }
+  ],
+  "mothership": {
+    "sprite": "layers/L1_alien_mothership_layer.png",
+    "size_px": [
+      340,
+      112
+    ],
+    "view_pos_px": [
+      190,
+      8
+    ],
+    "damage_points_px_from_topleft": {
+      "breach_top": [
+        238,
+        44
+      ],
+      "prow_hole": [
+        62,
+        64
+      ],
+      "rear": [
+        304,
+        54
+      ],
+      "dome": [
+        186,
+        18
+      ],
+      "fin3_stump": [
+        257,
+        28
+      ]
+    },
+    "damage_points_local_units_from_center": {
+      "breach_top": [
+        1.36,
+        0.24
+      ],
+      "prow_hole": [
+        -2.16,
+        -0.16
+      ],
+      "rear": [
+        2.68,
+        0.04
+      ],
+      "dome": [
+        0.32,
+        0.76
+      ],
+      "fin3_stump": [
+        1.74,
+        0.56
+      ]
+    },
+    "fx_sortingOrder": -95
+  },
+  "mothership_fx": {
+    "explosion": {
+      "files": "fx/fx_ms_explosion_0-5.png",
+      "size_px": [
+        17,
+        17
+      ],
+      "pivot": "center",
+      "ms_per_frame": 100,
+      "loop": false,
+      "use": "ativação aleatória a cada 1.2–2.5 s em um ponto de avaria"
+    },
+    "flash": {
+      "files": "fx/fx_ms_flash_0-2.png",
+      "size_px": [
+        9,
+        9
+      ],
+      "pivot": "center",
+      "ms_per_frame": 50,
+      "loop": false,
+      "use": "junto com o 1º frame da explosão, ou sozinho"
+    },
+    "smoke": {
+      "files": "fx/fx_ms_smoke_0-7.png",
+      "size_px": [
+        22,
+        32
+      ],
+      "pivot": [
+        0.18,
+        0.06
+      ],
+      "ms_per_frame": 110,
+      "loop": true,
+      "use": "coluna contínua em breach_top, rear e fin3_stump (defasar 3 frames entre elas)"
+    },
+    "glitch": {
+      "files": "fx/fx_ms_glitch_0-3.png",
+      "size_px": [
+        7,
+        5
+      ],
+      "pivot": "center",
+      "ms_per_frame": 70,
+      "loop": false,
+      "use": "cintilação no domo/veias a cada 0.8–1.5 s"
+    },
+    "debris": {
+      "files": "fx/fx_ms_debris_0-3.png",
+      "size_px": [
+        3,
+        3
+      ],
+      "ms_per_frame": 80,
+      "loop": true,
+      "use": "2–3 pedaços caindo em arco após cada explosão (gravidade leve), somem em ~1.2 s"
+    }
+  },
+  "distant_battle_live": {
+    "sprites": "sprites/battle_*.png",
+    "pieces": [
+      "battle_human_fighter (9x4, nariz à direita)",
+      "battle_human_bomber (12x5)",
+      "battle_alien_dart (8x3, nariz à esquerda)",
+      "battle_alien_saucer (7x3)",
+      "battle_tracer (3x1)",
+      "battle_alien_shot (3x1)",
+      "battle_explosion_0-3 (7x7, 100 ms)",
+      "battle_flak_0-3 (5x5, 150 ms)"
+    ],
+    "tint_note": "cor base de silhueta; para profundidade multiplique por uma cor próxima do céu (ex.: SpriteRenderer.color = #9FB8D8) e use sortingOrder -88 (com a L4)",
+    "speeds": "naves 15–30 px nativos/s (0.3–0.6 un/s) além do parallax da L4; nunca cruzar o centro da tela em linha reta junto com tiros do jogo"
+  },
+  "replaces": [
+    "AnimatedSun (remover da cena)",
+    "background.png",
+    "ScrollingGround (ground.png)",
+    "Cloud (cloud.png) — opcional manter como nuvem próxima extra"
+  ]
+}

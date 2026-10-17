@@ -79,7 +79,7 @@ public sealed class WavesUI : MonoBehaviour
     private void ShowBoss(Boss boss)
     {
         waveCounter.text = $"ONDA {waves.CurrentWave} / {waves.WaveCount} • BOSS";
-        ShowBanner("EXECUTOR V-9", new Color(1f, .55f, .35f));
+        ShowBanner(boss.DisplayName, new Color(1f, .55f, .35f));
     }
 
     private void ShowResult(bool completed)

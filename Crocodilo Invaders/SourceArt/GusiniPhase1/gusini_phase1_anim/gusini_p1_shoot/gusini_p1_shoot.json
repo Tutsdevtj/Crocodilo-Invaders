@@ -1,0 +1,335 @@
+{
+ "animation": "gusini_p1_shoot",
+ "phase": 1,
+ "loop": false,
+ "returns_to": "gusini_p1_idle (frame 0)",
+ "frame_count": 5,
+ "durations_ms": [
+  80,
+  100,
+  60,
+  80,
+  110
+ ],
+ "total_ms": 430,
+ "labels": [
+  "base (= idle F0)",
+  "antecipação",
+  "DISPARO",
+  "recoil",
+  "recuperação"
+ ],
+ "fire_event_frame": 2,
+ "fire_event_frame_note": "índice 0-based; instanciar o projétil no início deste frame",
+ "muzzle_position_px": {
+  "x": 22,
+  "y": 142
+ },
+ "muzzle_position_unity_from_pivot_px": {
+  "x": -98,
+  "y": -24
+ },
+ "muzzle_bore_center_px": {
+  "x": 27,
+  "y": 142
+ },
+ "fire_direction": {
+  "x": -1,
+  "y": 0
+ },
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "frames": [
+  {
+   "file": "gusini_p1_shoot_0.png",
+   "duration_ms": 80,
+   "label": "base (= idle F0)"
+  },
+  {
+   "file": "gusini_p1_shoot_1.png",
+   "duration_ms": 100,
+   "label": "antecipação"
+  },
+  {
+   "file": "gusini_p1_shoot_2.png",
+   "duration_ms": 60,
+   "label": "DISPARO"
+  },
+  {
+   "file": "gusini_p1_shoot_3.png",
+   "duration_ms": 80,
+   "label": "recoil"
+  },
+  {
+   "file": "gusini_p1_shoot_4.png",
+   "duration_ms": 110,
+   "label": "recuperação"
+  }
+ ],
+ "part_offsets_px_per_frame": {
+  "body_cockpit": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "engine": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "wing_left": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "wing_right": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "cannon": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 2,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": 3,
+    "y": 0
+   },
+   {
+    "x": 1,
+    "y": 0
+   }
+  ],
+  "head": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "beak_upper": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "beak_lower": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ],
+  "scarf": [
+   {
+    "x": 0,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": -1,
+    "y": 0
+   },
+   {
+    "x": 0,
+    "y": -1
+   },
+   {
+    "x": 0,
+    "y": 0
+   }
+  ]
+ },
+ "scarf_pose_per_frame": [
+  0,
+  1,
+  1,
+  2,
+  3
+ ],
+ "engine_cycle_frame_per_frame": [
+  0,
+  1,
+  2,
+  3,
+  0
+ ],
+ "pixel_changes": {
+  "head_squint": "F1–F3: pálpebra 1px mais baixa (parts/gusini_p1_head_squint.png)",
+  "cannon_glint": "F1: brilho dentro do furo = telegraph (parts/gusini_p1_cannon_glint.png)"
+ },
+ "fx": {
+  "muzzle_flash": {
+   "file": "fx/gusini_p1_muzzle_flash.png",
+   "frame": 2,
+   "offset_in_canvas_px": {
+    "x": 5,
+    "y": 134
+   },
+   "size": {
+    "w": 19,
+    "h": 17
+   }
+  },
+  "smoke_0": {
+   "file": "fx/gusini_p1_smoke_0.png",
+   "frame": 3,
+   "offset_in_canvas_px": {
+    "x": 11,
+    "y": 136
+   },
+   "size": {
+    "w": 9,
+    "h": 14
+   }
+  },
+  "smoke_1": {
+   "file": "fx/gusini_p1_smoke_1.png",
+   "frame": 4,
+   "offset_in_canvas_px": {
+    "x": 8,
+    "y": 136
+   },
+   "size": {
+    "w": 8,
+    "h": 14
+   }
+  }
+ }
+}

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class BossCombat : MonoBehaviour
+public sealed class BossCombat : MonoBehaviour, IBossCombatController
 {
     public enum Attack { Fan, Missiles, Sweep, Lasers }
 
@@ -43,6 +43,7 @@ public sealed class BossCombat : MonoBehaviour
     }
 
     public void SetTarget(Health targetHealth) => target = targetHealth;
+    public void StopCombat() => enabled = false;
 
     private IEnumerator Start()
     {

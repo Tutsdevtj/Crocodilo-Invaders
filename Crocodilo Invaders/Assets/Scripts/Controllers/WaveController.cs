@@ -163,6 +163,18 @@ public sealed class WaveController : MonoBehaviour
         else if (Phase == RunPhase.BossDefeated && Time.time >= phaseEndsAt) EndRun(true);
     }
 
+#if UNITY_EDITOR
+    public void StartBossForDevelopment()
+    {
+        if (Phase != RunPhase.Waiting || bossPrefab == null) return;
+        StartRun();
+        if (Phase != RunPhase.Announcing) return;
+        spawner.StopCombat();
+        CurrentWave = WaveCount;
+        BeginBoss();
+    }
+#endif
+
     private void BeginBoss()
     {
         Phase = RunPhase.Boss;

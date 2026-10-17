@@ -531,6 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c5d90e99c148a39f257242c0febb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
+  displayName: EXECUTOR V-9
+  portrait: {fileID: 21300000, guid: 606cd1b49c113c64c829f0c3070f2edf, type: 3}
   patrolArea:
     serializedVersion: 2
     x: 5.6

@@ -1,0 +1,217 @@
+{
+ "attack": "ovo_com_paraquedas",
+ "phase": 1,
+ "boss_animation": {
+  "file": "gusini_p1_egg_drop/gusini_p1_egg_drop.json",
+  "egg_drop_event_frame": 5,
+  "egg_drop_position_px": {
+   "x": 94,
+   "y": 152
+  }
+ },
+ "states": {
+  "egg_fall": {
+   "file": "egg_fall.png",
+   "canvas": {
+    "w": 18,
+    "h": 22
+   },
+   "pivot_px": {
+    "x": 9,
+    "y": 11
+   },
+   "note": "queda livre logo após sair da escotilha",
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.5
+   }
+  },
+  "egg_parachute_open": {
+   "frames": [
+    "egg_parachute_open_0.png",
+    "egg_parachute_open_1.png"
+   ],
+   "durations_ms": [
+    160,
+    160
+   ],
+   "loop": true,
+   "canvas": {
+    "w": 36,
+    "h": 47
+   },
+   "pivot_px": {
+    "x": 18,
+    "y": 35
+   },
+   "note": "sprite único ovo+paraquedas (pivô no centro do ovo). Alternativa modular: parachute_0/1 + egg_*",
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.2553
+   }
+  },
+  "egg_crack_1": {
+   "file": "egg_crack_1.png",
+   "canvas": {
+    "w": 18,
+    "h": 22
+   },
+   "pivot_px": {
+    "x": 9,
+    "y": 11
+   },
+   "suggested_ms": 260,
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.5
+   }
+  },
+  "egg_crack_2": {
+   "file": "egg_crack_2.png",
+   "canvas": {
+    "w": 18,
+    "h": 22
+   },
+   "pivot_px": {
+    "x": 9,
+    "y": 11
+   },
+   "suggested_ms": 220,
+   "note": "tampa levantada + gema brilhando + traços de tensão = aviso de estouro",
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.5
+   }
+  },
+  "egg_burst": {
+   "file": "egg_burst.png",
+   "canvas": {
+    "w": 34,
+    "h": 34
+   },
+   "pivot_px": {
+    "x": 17,
+    "y": 17
+   },
+   "suggested_ms": 120,
+   "note": "frame de estouro; os 3 projéteis nascem no pivô deste sprite",
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.5
+   }
+  },
+  "egg_parachute_deploy": {
+   "frames": [
+    "egg_parachute_deploy_0.png",
+    "egg_parachute_deploy_1.png",
+    "egg_parachute_deploy_2.png"
+   ],
+   "durations_ms": [
+    60,
+    70,
+    80
+   ],
+   "loop": false,
+   "canvas": {
+    "w": 36,
+    "h": 47
+   },
+   "pivot_px": {
+    "x": 18,
+    "y": 35
+   },
+   "labels": [
+    "saquinho salta (pof!)",
+    "tecido sobe estreito",
+    "meio aberto"
+   ],
+   "then": "egg_parachute_open (loop)",
+   "modular": [
+    "parachute_deploy_0.png",
+    "parachute_deploy_1.png",
+    "parachute_deploy_2.png"
+   ],
+   "pivot_unity_normalized": {
+    "x": 0.5,
+    "y": 0.2553
+   }
+  }
+ },
+ "parachute_modular": {
+  "frames": [
+   "parachute_0.png",
+   "parachute_1.png"
+  ],
+  "durations_ms": [
+   160,
+   160
+  ],
+  "canvas": {
+   "w": 36,
+   "h": 26
+  },
+  "attach_point_px": {
+   "x": 18,
+   "y": 25
+  },
+  "egg_top_attach_px": {
+   "x": 9,
+   "y": 1
+  },
+  "note": "colocar o paraquedas de modo que attach_point coincida com egg_top do ovo; cordas fixas, só o tecido respira",
+  "pivot_note": "se usar modular: pivô do paraquedas no attach_point_px"
+ },
+ "parachute_collapsed": {
+  "file": "parachute_collapsed.png",
+  "canvas": {
+   "w": 20,
+   "h": 14
+  },
+  "note": "opcional: após o estouro, sobe/voa embora"
+ },
+ "yolk_projectiles": {
+  "left": {
+   "file": "yolk_left.png",
+   "direction": {
+    "x": -1,
+    "y": 0
+   }
+  },
+  "up_left": {
+   "file": "yolk_up_left.png",
+   "direction": {
+    "x": -0.72,
+    "y": -0.69
+   }
+  },
+  "down_left": {
+   "file": "yolk_down_left.png",
+   "direction": {
+    "x": -0.72,
+    "y": 0.69
+   }
+  }
+ },
+ "yolk_canvas": {
+  "w": 14,
+  "h": 12
+ },
+ "yolk_pivot_px": {
+  "x": 7,
+  "y": 6
+ },
+ "yolk_note": "3 sprites já orientados (sem rotação na Unity): central p/ esquerda, diagonal p/ cima, diagonal p/ baixo",
+ "suggested_flow": [
+  "egg_fall (curto)",
+  "egg_parachute_deploy 0-1-2 (210 ms)",
+  "egg_parachute_open (loop durante a descida lenta)",
+  "egg_crack_1",
+  "egg_crack_2",
+  "egg_burst + 3 yolk + parachute_collapsed (opcional)"
+ ],
+ "import": "Filter Point, Compression None, PPU igual ao do boss",
+ "yolk_pivot_unity_normalized": {
+  "x": 0.5,
+  "y": 0.5
+ }
+}

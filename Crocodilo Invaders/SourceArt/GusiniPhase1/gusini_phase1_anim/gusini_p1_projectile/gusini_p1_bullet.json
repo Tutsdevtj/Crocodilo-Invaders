@@ -1,0 +1,47 @@
+{
+ "name": "gusini_p1_bullet",
+ "phase": 1,
+ "canvas": {
+  "w": 22,
+  "h": 9
+ },
+ "frame_count": 2,
+ "loop": true,
+ "durations_ms": [
+  60,
+  60
+ ],
+ "frames": [
+  "gusini_p1_bullet_0.png",
+  "gusini_p1_bullet_1.png"
+ ],
+ "static_alternative": "gusini_p1_bullet_static.png",
+ "pivot_px": {
+  "x": 8,
+  "y": 4
+ },
+ "pivot_unity_normalized": {
+  "x": 0.3636,
+  "y": 0.5556
+ },
+ "move_direction": {
+  "x": -1,
+  "y": 0
+ },
+ "facing": "left (ogiva à esquerda)",
+ "spawn": {
+  "animation": "gusini_p1_shoot",
+  "fire_event_frame": 2,
+  "position_in_boss_canvas_px": {
+   "x": 22,
+   "y": 142
+  },
+  "note": "instanciar com o pivô do projétil exatamente no muzzle_position_px; desenhar acima do boss (o flash cobre a metade de trás no frame do disparo)"
+ },
+ "size_reference": {
+  "bullet_body_px": "17x9 (+ rastro 4px)",
+  "muzzle_flash_px": "17x15",
+  "cannon_bore_height_px": 10
+ },
+ "import": "Filter Point, Compression None, PPU igual ao do boss"
+}
