@@ -1,0 +1,9 @@
+event,time_seconds,time_ms
+alert_start,0.000000,0.000
+first_reveal_attack,0.240000,240.000
+reveal_animation_start,0.240000,240.000
+impact_core,0.315000,315.000
+impact_peak,0.349000,349.000
+final_decay_start,1.296000,1296.000
+active_end_minus40db,1.429000,1429.000
+file_end,2.000000,2000.000

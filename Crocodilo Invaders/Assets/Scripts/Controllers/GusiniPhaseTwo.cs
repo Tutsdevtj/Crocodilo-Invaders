@@ -15,6 +15,9 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
     [SerializeField] private SpriteRenderer visual;
     [SerializeField, Min(1)] private int phaseTwoHealth = 320;
     [SerializeField, Min(0)] private float recovery = .8f;
+    [SerializeField, Min(1)] private int eggsPerAttack = 3;
+    [SerializeField, Min(0f)] private float eggSpacingPixels = 32f;
+    [SerializeField, Min(0f)] private float patrolSpeedMultiplier = 1.5f;
     private Boss boss;
     private Health target;
     private Animator animator;
@@ -92,6 +95,7 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
         yield return PlayClip("P2Transform");
         if (!Fighting) yield break;
         CurrentStage = Stage.PhaseTwo;
+        boss.Movement.SetPatrolSpeedMultiplier(patrolSpeedMultiplier);
         boss.SetTransitioning(false);
         PhaseTwoStarted?.Invoke();
         while (Fighting)
@@ -249,9 +253,36 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
     private void SpawnEgg()
     {
         EnsureThreats();
-        var egg = GusiniCorruptedEgg.Create(assets, threats, AtPixel(-26f, -34f), PixelScale, audio, visual.sortingOrder);
-        if (audio != null) audio.Play(GusiniSound.EggDrop, egg.transform.position);
-        Released?.Invoke("egg", egg.gameObject);
+        Vector3 origin = AtPixel(-26f, -34f);
+        var burstPoints = new Vector3[eggsPerAttack];
+        for (int i = 0; i < eggsPerAttack; i++)
+        {
+            Vector3 position = origin + Vector3.left * (i * eggSpacingPixels * PixelScale);
+            burstPoints[i] = ChooseEggBurstPoint(burstPoints, i);
+            float travelDuration = .65f + i * .55f + UnityEngine.Random.Range(0f, .12f);
+            var egg = GusiniCorruptedEgg.Create(assets, threats, position, PixelScale, audio, visual.sortingOrder, burstPoints[i], travelDuration);
+            egg.Burst += () => Released?.Invoke("egg_burst", egg.gameObject);
+            Released?.Invoke("egg", egg.gameObject);
+        }
+        if (audio != null) audio.Play(GusiniSound.EggDrop, origin);
+    }
+    private Vector3 ChooseEggBurstPoint(Vector3[] chosen, int count)
+    {
+        Rect arena = Arena;
+        float margin = Mathf.Min(.8f, Mathf.Min(arena.width, arena.height) * .15f);
+        float separation = Mathf.Min(2.2f, Mathf.Min(arena.width, arena.height) * .3f);
+        Vector3 best = Vector3.zero;
+        float bestDistance = -1f;
+        for (int attempt = 0; attempt < 64; attempt++)
+        {
+            Vector3 candidate = new Vector3(UnityEngine.Random.Range(arena.xMin + margin, arena.xMax - margin),
+                UnityEngine.Random.Range(arena.yMin + margin, arena.yMax - margin), 0f);
+            float nearest = float.PositiveInfinity;
+            for (int j = 0; j < count; j++) nearest = Mathf.Min(nearest, Vector3.Distance(candidate, chosen[j]));
+            if (nearest >= separation) return candidate;
+            if (nearest > bestDistance) { best = candidate; bestDistance = nearest; }
+        }
+        return best;
     }
     private void SpawnSquadron(bool spawn)
     {
@@ -264,7 +295,8 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
             {
                 Vector2 slot = Formation(i);
                 var marker = GusiniPhaseTwoEffect.Create(assets.Frames("fx_edge_warning_", 2), new[] { .12f, .12f }, threats,
-                    new Vector3(Arena.xMax - .2f, squadronCenter + slot.y * PixelScale, 0), PixelScale, true, .9f + slot.x / 130f);
+                    new Vector3(Arena.xMax - .2f, squadronCenter + slot.y * PixelScale, 0), PixelScale, true,
+                    .28f + (80f + slot.x) / GusiniCorruptedGoose.FormationSpeedPixels);
                 Released?.Invoke("warning", marker.gameObject);
             }
         }
@@ -275,7 +307,7 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
                 Vector2 slot = Formation(i);
                 Vector3 pos = new Vector3(Arena.xMax + (80f + slot.x) * PixelScale, squadronCenter + slot.y * PixelScale, 0);
                 var goose = GusiniCorruptedGoose.Create(assets, threats, pos, PixelScale, i, target,
-                    boss.Health.Fraction < .6f && (i == 1 || i == 4), Arena, audio);
+                    i == 1 || i == 4, Arena, audio);
                 Released?.Invoke("goose", goose.gameObject);
             }
         }
@@ -348,6 +380,7 @@ public sealed class GusiniPhaseTwo : MonoBehaviour
         if (target != null) target.Died -= Stop;
         target = null;
         WeakpointOpen = false;
+        boss.Movement.SetPatrolSpeedMultiplier(1f);
         boss.Health.IncomingDamageMultiplier = 1f;
         if (audio != null) audio.StopAll();
         if (threats != null) { threats.gameObject.SetActive(false); Destroy(threats.gameObject); threats = null; }

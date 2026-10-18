@@ -49,9 +49,10 @@ passa a `0,45 / 1,35 = 0,333... s`. Dano normal, dano especial e movimento usam
 `valor inicial × (1 + bônus total / 100)`. Os projéteis recebem seu dano na criação;
 o prefab não é alterado e os tiros que já estão voando mantêm o dano recebido.
 
-A vida máxima é arredondada para cima para preservar HP inteiros: 30 HP com +25%
-viram 38 HP. Só a capacidade acrescentada é preenchida. Um player com 25/30 passa
-a 33/38; a carta não cura todo o dano anterior nem revive um player morto.
+A vida máxima é arredondada para cima para preservar HP inteiros: a base de 20 HP
+com +25% vira 25 HP (com +3%, vira 21 HP). Só a capacidade acrescentada é preenchida.
+Um player com 15/20 passa a 20/25; a carta não cura todo o dano anterior nem revive
+um player morto.
 
 O dano conserva frações: um tiro base de 1 com +5% causa 1,05, sem perder o bônus
 no arredondamento. `Health` guarda a vida precisa e expõe `Fraction` para barras,

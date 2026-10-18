@@ -48,7 +48,7 @@ public static class PlayerHUDTools
             for (int i = panel.childCount - 1; i >= 0; i--)
             {
                 var child = panel.GetChild(i);
-                if (child.name != "PointsText" && child.name != "KillsText") UnityEngine.Object.DestroyImmediate(child.gameObject);
+                UnityEngine.Object.DestroyImmediate(child.gameObject);
             }
             var cockpitRect = Rect("Cockpit", panel, new Vector2(16, 16), new Vector2(364, 112));
             var cockpit = cockpitRect.gameObject.AddComponent<PlayerHUDCockpit>();
@@ -115,7 +115,7 @@ public static class PlayerHUDTools
         Require(rect.anchoredPosition == new Vector2(16, 16) && rect.sizeDelta == new Vector2(364, 112), "Cockpit native x2 layout");
         Require(cockpit.GetComponent<Mask>() == null && cockpit.GetComponent<RectMask2D>() == null, "Exhaust can extend beyond panel");
         Require(root.GetComponent<CanvasScaler>().referenceResolution == new Vector2(1200, 720), "Existing canvas resolution");
-        Require(hud.FindProperty("pointsText").objectReferenceValue != null && hud.FindProperty("killsText").objectReferenceValue != null, "Score text references preserved");
+        Require(root.transform.Find("PlayerPanel/PointsText") == null && root.transform.Find("PlayerPanel/KillsText") == null, "Gameplay HUD has no points or kills text");
         var fields = new SerializedObject(cockpit); var property = fields.GetIterator();
         while (property.NextVisible(true))
             if (property.propertyType == SerializedPropertyType.ObjectReference)

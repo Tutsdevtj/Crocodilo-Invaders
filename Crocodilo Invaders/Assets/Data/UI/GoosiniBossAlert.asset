@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b638f541f10477048980b69ebdd23bfe, type: 3}
+  m_Name: GoosiniBossAlert
+  m_EditorClassIdentifier: Assembly-CSharp::BossAlertTheme
+  title: {fileID: 21300000, guid: e47d0a14ca809824ab51eb4204f578b0, type: 3}
+  titleFlash: {fileID: 21300000, guid: 101412bed2ce45f43884c80c46a34116, type: 3}
+  titlePosition: {x: 66, y: 34}
+  bandLength: 236
+  bandHead: {fileID: 0}
+  bandMid: {fileID: 0}
+  bandEnd: {fileID: 0}
+  frontAttachment: {fileID: 21300000, guid: ee67b56a957778f47944492e1f19b71d, type: 3}
+  frontPosition: {x: 30, y: 40}
+  topAccessory: {fileID: 21300000, guid: 0caa0bf04b317e343b8f843123e9c0eb, type: 3}
+  topPosition: {x: 150, y: 0}
+  trailFrames:
+  - {fileID: 21300000, guid: 5b182a8b18f14c74d87b5928651019c6, type: 3}
+  - {fileID: 21300000, guid: 7373d07620138074c9bf9a8f8e42bbfa, type: 3}
+  - {fileID: 21300000, guid: 0ed47317b91915243baee1bc947ccdd4, type: 3}
+  - {fileID: 21300000, guid: f1c3da3c2d5c8bb43bded60bb1f230ab, type: 3}
+  trailFrameMs: 90
+  trailOffset: {x: 2, y: 12}
+  particles:
+  - normal: {fileID: 21300000, guid: ec74b25065e3b8f4ebbc2d29704a55f5, type: 3}
+    dissolve1: {fileID: 21300000, guid: 71fd9d78870449c448329ca14ac7e297, type: 3}
+    dissolve2: {fileID: 21300000, guid: b06b677c01f1d144299e899d35325b52, type: 3}
+  - normal: {fileID: 21300000, guid: 024a2371a06d38f45ab76f26c26e64cd, type: 3}
+    dissolve1: {fileID: 21300000, guid: 1bf5535da6017b74fbd64a5b0df48682, type: 3}
+    dissolve2: {fileID: 21300000, guid: 45261877235f5ac40b09b2d75d6235fa, type: 3}
+  - normal: {fileID: 21300000, guid: e93942b823c328440a11acc37c1c8660, type: 3}
+    dissolve1: {fileID: 21300000, guid: 3189bfc6a3945174e8b363cb1fbcd1df, type: 3}
+    dissolve2: {fileID: 21300000, guid: 9cf9a8aae9aa581499514d77f17eb742, type: 3}
+  - normal: {fileID: 21300000, guid: 71e27b2ca7214b149914560cfa24c5e0, type: 3}
+    dissolve1: {fileID: 21300000, guid: 89812edf7b247a74db3f42c73b824d2b, type: 3}
+    dissolve2: {fileID: 21300000, guid: 3c03d9ac17264094ca58f6b1148e8342, type: 3}
+  transitionParticles: 1
+  alertSound: {fileID: 8300000, guid: 5de69c64bd4f37e448dd381b1a400e63, type: 3}
+  alertVolume: 0.7
+  alertSoundOffsetMs: -150

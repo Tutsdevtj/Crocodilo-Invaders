@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 7327111454952463406}
   - component: {fileID: 5287216999977477215}
   - component: {fileID: 8498317520818807645}
+  - component: {fileID: 11701726301222452}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -197,7 +198,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4378840033004059128
 MonoBehaviour:
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ab82f35fd2c2fe4298b975e1ed8c049, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 0.6
 --- !u!114 &4879311943767182810
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81c14db21d79c3146a294f9052d23f4b, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!114 &7984919780463492775
 MonoBehaviour:
@@ -234,7 +235,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 942fc30b5212bac4ba62c90b70fc684d, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
   moveAction: {fileID: -609194307064811862, guid: a2bfef029b7087e45a75fcc37ad6bb62, type: 3}
   fireAction: {fileID: -7708166941346349920, guid: a2bfef029b7087e45a75fcc37ad6bb62, type: 3}
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1df63875287640d5a9680e8b81a705e0, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
   shotOrigin: {fileID: 8096193299905627473}
   specialOrigin: {fileID: 3052005382654415342}
@@ -411,7 +412,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222e4e6c9a0347539be6a12192bb5fde, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombatAudio
   shotSound: {fileID: 8300000, guid: 22d06b5e2d893f942988aa7cea3c197e, type: 3}
   specialSound: {fileID: 8300000, guid: ccb59435c1aa00f4caf0eae7d146d5b4, type: 3}
@@ -425,9 +426,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72bf7616a373489aa408060a4ae08c71, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 30
+  maxHealth: 20
 --- !u!114 &8366845978674357797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68f9d1e2eb8b4ed086a65c68473e821d, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthAudio
   damageSound: {fileID: 8300000, guid: 5894b18899e6f784f8c7834b347cc78a, type: 3}
   healSound: {fileID: 8300000, guid: 469e55499c790a84eb0cb83375c3620b, type: 3}
@@ -452,7 +453,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6c4aae778544faabcf10b64b0709b89, type: 3}
-  m_Name: 
+  m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRunUpgrades
 --- !u!114 &5621916868042549851
 MonoBehaviour:
@@ -520,10 +521,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dcee392db997b41af10693db0d1cfb, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDash
-  baseDashDistance: 1.5
-  baseDashDuration: 0.15
-  baseCooldown: 1
-  baseInvulnerabilityDuration: 0.11
+  baseDashDistance: 2.2
+  baseDashDuration: 0.16
+  baseCooldown: 1.1
+  baseInvulnerabilityDuration: 0.13
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.65
+      value: 0.8
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &11701726301222452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697288733482791310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31327f89ca924b44997c8ebadbba4d77, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDashVFX
+  ship: {fileID: 7060740473198010594}
+  composition:
+  - {fileID: 7060740473198010594}
+  ignitionHorizontal:
+  - {fileID: 21300000, guid: 97b4cfa4b36dd9546ab759595f289c50, type: 3}
+  - {fileID: 21300000, guid: e3820fcff0b21c84b8b6e5dd8be10338, type: 3}
+  - {fileID: 21300000, guid: 9ad62431e9e02a144a1a0809e3b0e09a, type: 3}
+  - {fileID: 21300000, guid: 0a8a6b4868bae15478fbf34ce6fc1fc8, type: 3}
+  ignitionDiagonal:
+  - {fileID: 21300000, guid: e3a4dc7087a9d0145ba0813bd651ead1, type: 3}
+  - {fileID: 21300000, guid: 3774e6f33af04624a9cac6bf6bee9edd, type: 3}
+  - {fileID: 21300000, guid: d579b6f19ae357a439728c3d1ccad38c, type: 3}
+  - {fileID: 21300000, guid: 198f0e797140d4a4c997ef19f55cf727, type: 3}
+  streakHorizontal:
+  - {fileID: 21300000, guid: dc6f4a7284bee8a449575289537c22b5, type: 3}
+  - {fileID: 21300000, guid: 3c51a5c26d2ec7749ac7ac9e7bd2d792, type: 3}
+  - {fileID: 21300000, guid: 19ac919926c0a1b42a27c0c8d0513233, type: 3}
+  streakDiagonal:
+  - {fileID: 21300000, guid: eaeb524f16ffa564ea8f97e32c5a8889, type: 3}
+  - {fileID: 21300000, guid: ebd46bbc82b1e734cb836bde57f89353, type: 3}
+  - {fileID: 21300000, guid: 3079fffbdced99d42b5cefe58e771408, type: 3}
+  endHorizontal:
+  - {fileID: 21300000, guid: 06b91356f17ce9e44b6f44da07a96029, type: 3}
+  - {fileID: 21300000, guid: 6a1bcefb670f72a4ab4ee15e48b99ad8, type: 3}
+  - {fileID: 21300000, guid: 5271fc2629049a04aad86da31e1799ab, type: 3}
+  - {fileID: 21300000, guid: 5e225bfa5d50d0a49a8db4ef457b882f, type: 3}
+  endDiagonal:
+  - {fileID: 21300000, guid: dbd517856184b1b4187b46d842978467, type: 3}
+  - {fileID: 21300000, guid: 4da45bba32cca0949b932969cf9fdaab, type: 3}
+  - {fileID: 21300000, guid: 9015a007fc1de194482d5909e22c12fe, type: 3}
+  - {fileID: 21300000, guid: d61cf74610682f5418522c40b91b8ecb, type: 3}
+  afterimageMaterial: {fileID: 2100000, guid: b7d813c1e1d474a48a28cf4e0e2363e5, type: 2}
+  dashSound: {fileID: 8300000, guid: 2e054d8accb10bc449dede1291dcc702, type: 3}
+  dashVolume: 0.25
+  afterimageInterval: 0.03
+  afterimageLifetime: 0.13
+  silhouetteSprites:
+  - {fileID: 21300000, guid: 5067011b57405bf469d0e20732894b2e, type: 3}
+  - {fileID: 21300000, guid: affb500a57a3e614e89ad61049fcd9b0, type: 3}
+  - {fileID: 21300000, guid: 51bdd383b87573e49a67a9244a88582c, type: 3}
+  - {fileID: 21300000, guid: f932636fcec51574f847d888609e2416, type: 3}
+  - {fileID: 21300000, guid: 4ab0d55718faa1048bbe82b09034f0a8, type: 3}
+  - {fileID: 21300000, guid: 1ce89c8cc9d81224290c903749b5d321, type: 3}
+  - {fileID: 21300000, guid: dc754b6587f835745876a15a02a2ff02, type: 3}
+  - {fileID: 21300000, guid: 0637875f709609b47abe6d6a113ab505, type: 3}
+  - {fileID: 21300000, guid: 96e3b95a2afd0ad4ea10297e4641f923, type: 3}
+  - {fileID: 21300000, guid: 656c6fc9f9c2a3a41a01649bed643034, type: 3}
+  - {fileID: 21300000, guid: 640f03f08962ea841a582bbf6c9f687f, type: 3}
+  - {fileID: 21300000, guid: 023eb943dbe06344eb92c1ff1e3d4d36, type: 3}
+  - {fileID: 21300000, guid: c03306d1ffaafb246bd49e10b1cdbda3, type: 3}
+  - {fileID: 21300000, guid: 9b286638b4b6e0a429aa7ff279b0c394, type: 3}
+  - {fileID: 21300000, guid: f7155cca96fe9094f970f0abb2bb9d81, type: 3}
+  - {fileID: 21300000, guid: 888591bb728927c4181ba9d8ef294c63, type: 3}
+  - {fileID: 21300000, guid: 490f38d61e381e54082c88a83a625d8e, type: 3}
+  - {fileID: 21300000, guid: 0f42b7d825fff0d4d8afb52686e78477, type: 3}
+  - {fileID: 21300000, guid: 020bb0f3b7cf8324f89321a36149f2a9, type: 3}
+  - {fileID: 21300000, guid: 87ef8dd9c008be747bf9a7e910be77db, type: 3}
+  - {fileID: 21300000, guid: 29b878458aafc76408ff1367b64aeb6f, type: 3}
+  - {fileID: 21300000, guid: 1c387c3ae0a3f7546b2c59c0c0950390, type: 3}
+  - {fileID: 21300000, guid: 2e8300e157707904fa6a83412730d9e3, type: 3}
+  - {fileID: 21300000, guid: 3db0ca395fc241c4bb9912ca9d5ef119, type: 3}
+  - {fileID: 21300000, guid: 1d4b3ca1746ec2c488c4cf703aa7ed5d, type: 3}
+  - {fileID: 21300000, guid: df2f5947e34cc2b4db8ecf528c5bddb2, type: 3}
+  shadeThresholds:
+  - 0.40916666
+  - 0.40916666
+  - 0.4175
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.4175
+  - 0.4175
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.41233334
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.41233334
+  - 0.40916666
+  - 0.40916666
+  - 0.40916666
+  - 0.41233334
+  - 0.41116667
+  - 0.40916666
 --- !u!1 &4626023740265539149
 GameObject:
   m_ObjectHideFlags: 0

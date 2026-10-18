@@ -1,0 +1,43 @@
+{
+  "title": "Going Up - adventure Chiptune",
+  "author": "Ansimuz / Luis Zuno",
+  "source_url": "https://opengameart.org/content/going-up-adventure-chiptune",
+  "archive_url": "https://opengameart.org/sites/default/files/going_up_files_0.zip",
+  "license": "CC0",
+  "source_archive_sha256": "fe79dae11e93ee4b2d214a4d41e4b00b578211493eda68495ef3bbb307a5da50",
+  "selected_file": "Musica/MUS_Crocodilo_Ondas_Loop.wav",
+  "native_original_name": "Going Up.wav",
+  "duration_seconds": 55.0,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "codec": "pcm_s16le",
+  "original_bytes_preserved": true,
+  "loop_start_sample": 0,
+  "loop_end_sample_exclusive": 2640000,
+  "loop_claim": "Author describes it as seamless looped. Final subjective loop audition pending.",
+  "critical_listening_by_agent": false,
+  "selection_basis": "Adventure/stage chiptune by the same composer as both selected boss tracks; editorial suggestion for the pre-boss wave section.",
+  "preview_transition": {
+    "file": "Previas/Ondas_para_Goosini_Fase1.wav",
+    "waves_seconds": [
+      0,
+      12
+    ],
+    "wave_fadeout_seconds": [
+      11,
+      12
+    ],
+    "illustrative_gap_seconds": [
+      12,
+      12.4
+    ],
+    "boss_start_seconds": 12.4,
+    "boss_title": "Phantasy Boss Battle Encounter",
+    "boss_author": "Ansimuz",
+    "boss_source_url": "https://opengameart.org/content/phantasy-boss-battle-encounter",
+    "boss_license": "CC0",
+    "notes": "Illustrative montage, no gameplay timing changes; actual boss dialogue should control transition."
+  },
+  "generation_credits_spent": 0,
+  "unity_project_modified": false
+}

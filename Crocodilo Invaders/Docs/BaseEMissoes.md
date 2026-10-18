@@ -1,5 +1,12 @@
 # Base 2D e ciclo de missões
 
+Atualização de 18/10/2026: a implementação anterior do personagem e do acompanhamento
+da câmera de `BaseImprovisada` foi removida a pedido do usuário. A cena conserva
+chão/colisões e uma câmera nativa fixa, recebendo a transição ao concluir o capítulo 1. Ver
+[Base Improvisada e rig](BaseImprovisadaRig.md). O restante deste documento continua
+como planejamento; não foram implementados terminal, missões, NPCs ou economia.
+Personagem, rig, animações e lógica de câmera serão refeitos em uma nova etapa.
+
 Planejamento para a próxima etapa do jogo. A base será um cenário lateral
 explorável com um personagem a pé. A missão continuará usando o combate atual,
 com nove ondas e o boss na décima. Uma tentativa termina em vitória ou derrota,

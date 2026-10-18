@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public sealed class GusiniCorruptedEgg : MonoBehaviour
@@ -6,12 +7,15 @@ public sealed class GusiniCorruptedEgg : MonoBehaviour
     private SpriteRenderer egg, parachute;
     private GusiniAudio audio;
     private float age, scale;
+    private Vector3 flightOrigin, burstPosition;
+    private float travelDuration;
+    public event Action Burst;
     private bool popped, burst;
     private int pulseSounds;
     private bool firstCrack, secondCrack;
     private static readonly float[] PulseTimes = { .2f, .55f, .82f, 1f };
     public static GusiniCorruptedEgg Create(GusiniPhaseTwoAssets assets, Transform parent, Vector3 position,
-        float scale, GusiniAudio audio, int bossOrder)
+        float scale, GusiniAudio audio, int bossOrder, Vector3 burstPosition, float travelDuration)
     {
         var root = new GameObject("Indestructible corrupted egg"); root.transform.SetParent(parent, false);
         root.transform.position = position; root.transform.localScale = Vector3.one * scale * 100f;
@@ -22,6 +26,8 @@ public sealed class GusiniCorruptedEgg : MonoBehaviour
         var parachute = canopy.AddComponent<SpriteRenderer>(); parachute.sortingOrder = 24; parachute.enabled = false;
         var component = root.AddComponent<GusiniCorruptedEgg>();
         component.assets = assets; component.egg = egg; component.parachute = parachute; component.scale = scale; component.audio = audio;
+        component.flightOrigin = position; component.burstPosition = burstPosition;
+        component.travelDuration = Mathf.Max(.1f, travelDuration);
         // Sem Health nem collider atingível: os tiros do player passam pelo ovo.
         return component;
     }
@@ -29,7 +35,14 @@ public sealed class GusiniCorruptedEgg : MonoBehaviour
     {
         age += Time.deltaTime;
         if (age > .02f) egg.sortingOrder = 24;
-        if (!burst) transform.position += new Vector3(-15f, age < .25f ? -70f : -23f, 0f) * (scale * Time.deltaTime);
+        if (!burst)
+        {
+            float dropTime = Mathf.Min(age, .46f);
+            Vector3 drop = new Vector3(-15f * dropTime, -70f * Mathf.Min(dropTime, .25f) - 23f * Mathf.Max(0f, dropTime - .25f), 0f) * scale;
+            Vector3 deployedPosition = flightOrigin + drop;
+            float flight = Mathf.Clamp01((age - .46f) / travelDuration);
+            transform.position = Vector3.Lerp(deployedPosition, burstPosition, Mathf.SmoothStep(0f, 1f, flight));
+        }
         if (age < .25f) return;
         parachute.enabled = !burst;
         if (!popped)
@@ -46,7 +59,9 @@ public sealed class GusiniCorruptedEgg : MonoBehaviour
             return;
         }
         parachute.sprite = assets.Get("parachute_p2_" + ((int)((age - .46f) / .16f) % 2));
-        float t = age - .46f;
+        // O aviso de rachadura/estouro só começa após alcançar o ponto sorteado.
+        float t = age - .46f - travelDuration;
+        if (t < 0f) { egg.sprite = assets.Get("egg_p2_idle"); return; }
         while (pulseSounds < PulseTimes.Length && t >= PulseTimes[pulseSounds])
         {
             if (audio != null) audio.Play(GusiniSound.P2EggPulse, transform.position, transform, .85f + .05f * pulseSounds, 1f + .02f * pulseSounds);
@@ -79,6 +94,7 @@ public sealed class GusiniCorruptedEgg : MonoBehaviour
                 Vector2[] directions = { Vector2.up, new Vector2(-1, 1).normalized, Vector2.left, new Vector2(-1, -1).normalized, Vector2.down };
                 for (int i = 0; i < 5; i++) GusiniAcidYolk.Create(assets.Get("yolk_p2_" + names[i]), transform.parent, transform.position, scale, directions[i]);
                 if (audio != null) audio.Play(GusiniSound.P2EggBurst, transform.position, transform.parent);
+                Burst?.Invoke();
             }
             if (t >= 1.63f) Destroy(gameObject);
         }

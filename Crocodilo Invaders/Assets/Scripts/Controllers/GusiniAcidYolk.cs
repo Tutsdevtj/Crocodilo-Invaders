@@ -13,7 +13,7 @@ public sealed class GusiniAcidYolk : MonoBehaviour
         var hitbox = root.AddComponent<CircleCollider2D>(); hitbox.isTrigger = true; hitbox.radius = .04f;
         var body = root.AddComponent<Rigidbody2D>(); body.gravityScale = 0f; body.constraints = RigidbodyConstraints2D.FreezeRotation;
         body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        body.linearVelocity = direction * (145f * scale);
+        body.linearVelocity = direction * (420f * scale);
         root.AddComponent<GusiniAcidYolk>();
     }
     private void Update() { age += Time.deltaTime; if (age > 7f) Destroy(gameObject); }

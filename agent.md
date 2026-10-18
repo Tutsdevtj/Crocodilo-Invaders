@@ -41,14 +41,15 @@ Todos os caminhos `Assets/`, `Docs/`, `SourceArt/`, `Tools/`, `Packages/` e `Pro
 | Patrulheiro, interceptor e artilheiro | Implementados |
 | Gusini Fase 1, transformação e Fase 2 com quatro ataques | Boss ativo; integrado ao fluxo da run |
 | HUD cockpit do player e barra própria do Gusini | Implementadas |
+| Anúncio "ONDA N" em PNG e alerta ONDA 10 → PERIGO! GOOSINI com SFX sincronizado | Implementado em 18/10/2026; substitui o banner TMP antigo. Ver `Docs/AnunciosOndasBoss.md` |
 | Céu de Batalha com FX e parallax | Implementado; refinamento mais recente está local, sem commit no início deste guia |
 | Ranking | Local, persistente; não é serviço online |
 | Executor V-9 | Boss anterior preservado, com lógica e HUD compatíveis |
 | Diálogos e cenas narrativas (abertura da run, encontro com Gusini, falsa derrota antes da F2) | Implementados em 18/10/2026; ver `Docs/Cinematicas.md` |
-| Encerramento do capítulo 1 (parasita destruído, Gusini resgatado, Central, fade para `BaseImprovisada`) | Implementado; substitui a tela de vitória. Sem a cena no build, mostra aviso de desenvolvimento |
+| Encerramento do capítulo 1 (parasita destruído, Gusini resgatado, Central, fade para `BaseImprovisada`) | Implementado; substitui a tela de vitória. Base mínima agora existe e está no build |
 | Música do Gusini F1/F2 | Implementada (`GusiniMusic`); mixagem ainda sem escuta crítica |
 | HQ de introdução | Oito imagens sem texto existem; não confundir assets com uma sequência jogável integrada |
-| Base lateral com personagem a pé, seleção de missão e retorno após vitória/derrota | Planejamento e estudos de arte; fluxo ainda não implementado |
+| Base lateral com personagem a pé, seleção de missão e retorno após vitória/derrota | Blockout BaseImprovisada preservado; personagem/rig/Idle/Run e lógica da câmera removidos a pedido do usuário para refazer. Missões continuam planejadas |
 | Gusini Fase 3 | Descartada: o boss tem só duas fases |
 | Metaprogressão, loja e multiplayer | Não implementados nesta etapa |
 
@@ -69,12 +70,13 @@ Alguns documentos registram etapas anteriores. Exemplos: `Docs/Pausa.md` ainda m
 | `Assets/Scenes/MainMenu.unity` | Entrada de produção; cena 0 do build |
 | `Assets/Scenes/Tests/PlayerMovementTest.unity` | **Gameplay real**, apesar do nome; cena 1 do build |
 | `Assets/Scenes/Jogo.unity` | Port legado com `CrocodiloGame.cs`; cena 2 habilitada atualmente |
+| `Assets/Scenes/BaseImprovisada.unity` | Base lateral mínima após o capítulo 1; cena 3 habilitada. Chão/paredes e câmera nativa fixa; sem personagem, rig, animações, lógica de câmera ou HUD |
 | `Assets/Scenes/Tests/StageOneWaves.unity` | Cena alternativa de desenvolvimento das hordas |
 | `Assets/Scenes/Tests/GusiniBossTest.unity` | Teste direto de Gusini F1 no Editor |
 
-As duas últimas não estão na lista habilitada atual de `EditorBuildSettings`. Não assuma que `SceneManager.LoadScene` consegue abri-las em um player. O teste direto do boss usa `BossDevelopmentStart` e `WaveController.StartBossForDevelopment()`, protegido por `UNITY_EDITOR`. Na cena GusiniBossTest, o starter aplica após o reset da run um kit de teste: 240 HP cheios, normal x4, especial x3, cadência x2,5, movimento x1,4, dash com distância x1,3/cooldown x0,4/i-frames x1,4 e especial inicialmente carregado (recarrega em cinco tiros). Só nessa cena e no Editor; não muda o prefab/base das runs normais. Valores principais ajustáveis no Inspector.
+As duas últimas não estão na lista habilitada atual de `EditorBuildSettings`. Não assuma que `SceneManager.LoadScene` consegue abri-las em um player. O teste direto do boss usa `BossDevelopmentStart` e `WaveController.StartBossForDevelopment()`, protegido por `UNITY_EDITOR`; desde 18/10/2026 ele passa pelo mesmo anúncio da onda do boss (ONDA 10 → PERIGO! GOOSINI, 2,5 s) antes de instanciar o Gusini. Na cena GusiniBossTest, o starter aplica após o reset da run um kit de teste: 240 HP cheios, normal x4, especial x3, cadência x2,5, movimento x1,4, dash com distância x1,3/cooldown x0,4/i-frames x1,4 e especial inicialmente carregado (recarrega em cinco tiros). Só nessa cena e no Editor; não muda o prefab/base das runs normais. Valores principais ajustáveis no Inspector.
 
-Fluxo atual: **MainMenu → Jogar → nome → loading assíncrono → ENTER → fade → abertura por rádio (fase `Intro`) → nove hordas com nove escolhas de cartas → entrada do Gusini + diálogo → boss F1 → falsa derrota + diálogo → transformação → F2 → parasita destruído + diálogo final + RÁDIO → fade → `BaseImprovisada` (aviso de desenvolvimento enquanto a cena não existir)**. Derrota do player ainda mostra "FIM DE JOGO" → menu. Também é possível perder ou abandonar pela pausa. Abrir diretamente a cena de gameplay conserva um botão provisório INICIAR.
+Fluxo atual: **MainMenu → Jogar → nome → loading assíncrono → ENTER → fade → abertura por rádio (fase `Intro`) → nove hordas com nove escolhas de cartas → ONDA 10 → penas → PERIGO! GOOSINI → entrada do Gusini + diálogo → boss F1 → falsa derrota + diálogo → transformação → F2 → parasita destruído + diálogo final + RÁDIO → fade → `BaseImprovisada` (aviso de desenvolvimento enquanto a cena não existir)**. Derrota do player ainda mostra "FIM DE JOGO" → menu. Também é possível perder ou abandonar pela pausa. Abrir diretamente a cena de gameplay conserva um botão provisório INICIAR.
 
 Controles atuais:
 
@@ -107,7 +109,7 @@ Convenções existentes: componentes pequenos, referências serializadas nos pre
 - **`PlayerMovement` é o único escritor da `Rigidbody2D.linearVelocity` do player.** Dash fornece um override, em vez de disputar a física ou teleportar.
 - `Health` conserva vida fracionária, `Fraction`, eventos de dano/cura/morte e invulnerabilidade. `CurrentHealth` e o evento inteiro continuam disponíveis; o número visível arredonda para cima enquanto vivo. Não arredonde o dano real: +5% sobre 1 deve causar 1,05.
 - `Projectile` concentra lançamento, layers atingíveis, contato e dano. Seu dano recebe multiplicador na criação; tiros que já voam não mudam quando uma carta é adquirida.
-- Base atual: 30 HP; intervalo normal 0,45 s; carga especial exige dez tiros normais efetivamente liberados. Não trocar carga por abates.
+- Base atual: 20 HP nas partidas normais (ajuste de 18/10/2026); intervalo normal 0,45 s; carga especial exige dez tiros normais efetivamente liberados. Não trocar carga por abates. O kit de GusiniBossTest continua com 240 HP.
 - `PlayerCombat` aceita o pedido e emite `ShotStarted`/`SpecialStarted`. **O projétil só nasce no release do Animation Event.** `ShotFired`/`SpecialFired` significam criação real e sincronizam áudio/carga.
 - No máximo um ataque pendente; especial carregado tem prioridade sobre input simultâneo de tiro. Carga é consumida no release do especial, com no máximo um projétil especial ativo. Morte/disable cancelam pendências.
 
@@ -127,11 +129,13 @@ Convenções existentes: componentes pequenos, referências serializadas nos pre
 
 ### Dash
 
-Base no prefab: distância 1,5 unidade, duração 0,15 s, cooldown 1 s desde o início, invulnerabilidade 0,11 s. Direção é normalizada e fixada ao começar; segurar Shift não repete. Tempos são escalados e congelam na pausa. Cancelar limpa override e i-frames, mantendo o cooldown já iniciado.
+Atualização de 18/10/2026: base 2,2 unidades/0,16 s, cooldown 1,1 s e proteção 0,13 s. Curva editável 2,0 → 0,8 (65%) → 0,2, integral acumulada normalizada em 256 intervalos, diferenças por passo preservando distância independente de FPS/curva. PlayerMovement segue como único escritor da velocidade. Teste detectou tunneling com upgrade e obstáculo fino; somente o Rigidbody2D do player passou a Continuous, sem mudar física global.
 
-`PlayerDash.SetUpgradeMultipliers(distance, cooldown, invulnerability)` recebe totais relativos às bases; não multiplique valores já modificados. I-frames são limitados à duração. A API existe para melhorias futuras, mas não há cartas de dash, cargas extras, HUD ou VFX próprios implementados.
+Eventos DashStarted, InvulnerabilityEnded, DashEnded e DashCancelled conduzem PlayerDashVFX. 22 PNGs originais Dash_VFX.zip: ignição 8, rastro 6 e fim 8; PPU 100, pivôs exatos e orientações só flips/90°. Ignição/fim em mundo; rastro segue centro real do Visual; seis afterimages em pool, snapshots físicos a ~30 ms, vida 130 ms, silhueta ciano/contorno/sombra conforme manifesto. ShaderHitFlash preserva dano e acrescenta indicador de um pixel somente nos i-frames. Saúde oferece SetInvulnerable(owner,bool), assim o dash não cancela outra proteção. Pausa escala tudo, bloqueio/morte/disable limpam efeitos e unload destrói a raiz da cena.
 
-Projétil esquivado é consumido sem dano/feedback, evitando dano atrasado. `BossLaser` registra o contato esquivado para não reaplicar dano ao acabar o i-frame no mesmo feixe. Preserve esse comportamento.
+SetUpgradeMultipliers continua relativo à base; upgrades em andamento só valem no próximo dash. GusiniBossTest conserva seus bônus de teste anteriores (distância x1,3, cooldown x0,4, i-frames x1,4 limitados a 0,16 s). Não existem cartas/HUD novos. SFX de dash fornecido pelo usuário (originais/A/1.wav) em Assets/Audio/Player/SFX_Player_Dash.wav, ligado em Dash Sound: 2D, Effects, volume local 0,25 ajustável; uma reprodução no início bem-sucedido, sem repetir no cooldown. Original estéreo 48 kHz/0,4865 s preservado, importação PCM com preload. Ver Docs/PlayerDash.md, SourceArt/DashVFX e PlayerDashTools/PlayerDashPlayValidation. 284 verificações de Play Mode, rodada adicional de 63 verificações de input/visual e 69 verificações após ligar o áudio passaram; sem commits nesta tarefa.
+
+Projectile e BossLaser continuam consumindo/registrando contatos esquivados, sem dano retroativo; ataques, bosses e waves não foram modificados.
 
 ## 5. Hordas, inimigos, cura e pontos
 
@@ -142,7 +146,7 @@ Projétil esquivado é consumido sem dano/feedback, evitando dano atrasado. `Bos
 - Ordem de configuração: pools → composição fixa → `enemiesPerWave` legado. Não eliminar fallbacks sem migrar cenas.
 - Uma horda acaba apenas quando não há vivos **nem spawns pendentes**. Cada conclusão concede 1.000 pontos e limpa projéteis inimigos restantes.
 - Após cada horda, `WaveController` espera explicitamente a recompensa; a animação da UI não decide quando avançar.
-- Anúncio padrão 1,6 s; intervalo 2 s; após escolha, transição de 0,35 s. O boss conta como onda 10, sem horda adicional.
+- Anúncio: `WavesUI` segura a fase `Announcing` (`HoldAnnouncement`/`ReleaseAnnouncement` com token) até o `WaveAnnouncer` terminar: 1050 ms por horda, 2500 ms na onda do boss (`IsBossWave`; tema em `Boss.alertTheme`). `announcementDuration` (1,6 s) só vale sem apresentação. Intervalo 2 s; após escolha, transição de 0,35 s. O boss conta como onda 10, sem horda adicional. Não existe mais aviso textual de onda concluída.
 
 Composição A de referência; B/C aumentam ligeiramente o total, sem introduzir um tipo antes da hora:
 
@@ -335,9 +339,12 @@ Identidade: pixel art com leitura clara, céu azul/ciano e nuvens marfim, UI azu
 
 ## 13. Próxima estrutura planejada: base e missões
 
-`Docs/BaseEMissoes.md` é planejamento: Menu → Base lateral → terminal de missões → loading → tentativa de dez ondas → resultado → Base. Personagem a pé separado do `Player` aéreo, com movimento/colisão/interação próprios. Não há implementação concluída desse fluxo.
+`Docs/BaseEMissoes.md` é planejamento: Menu → Base lateral → terminal de missões → loading → tentativa de dez ondas → resultado → Base. A fundação `BaseImprovisada` foi implementada em 18/10/2026 e recebe a transição existente após o capítulo 1; o fluxo completo de missões continua planejado. Ver `Docs/BaseImprovisadaRig.md`.
 
-Classes sugeridas nesse documento (`BaseCharacterController`, `BaseInteractor`, `MissionDefinition`, `GameFlowController`, `RunResult`, etc.) são propostas, não APIs disponíveis. Aproveitar `RunEnded`, `LeaderboardSession`, loading e reset de upgrades quando implementar. Cartas são temporárias da missão; desbloqueios permanentes ainda precisam de regras. Preservar nome/ranking e evitar salvar o mesmo resultado duas vezes nas trocas de cena.
+Em 18/10/2026, por pedido explícito do usuário, foram removidos personagem, rig, prefab, módulos importados, Idle/Run, Animator Controller, ações Base/Move, BaseCharacterController e BaseCameraFraming. As ferramentas BaseImprovisadaTools/BaseRunTools e validadores/geradores relacionados também foram removidos para impedir restauração acidental. O personagem será refeito completamente e a câmera será refeita depois. As aprovações antigas de Idle/Run não valem como ordem de preservar/restaurar a implementação descartada.
+
+BaseImprovisada permanece no build e como destino do capítulo, com chão 60×4, paredes em ±29,7 e câmera ortográfica nativa fixa, sem script. O pixel do chão está em Assets/Art/Environment/BaseBlockoutSolid.png, movido com seu GUID. Originais do ZIP estão em SourceArt/Croc_Rig_Ready, fora de Assets; descartes arquivados em Logs/RemovedBaseSetup-20261018-171046. Estado atual em Docs/BaseImprovisadaRig.md. A limpeza também removeu os TMP PointsText/KillsText do PlayerHUD e WaveCounter do WavesUI, seus campos/eventos e overrides obsoletos. Vida/especial, anúncios de onda/boss, pontuação interna e resultado/ranking continuam. Rebuild Player cockpit não recria os textos removidos. Validações em Logs/BaseAndHudCleanup.log e Logs/BaseAndHudCleanupPlay.log.
+Aproveitar `RunEnded`, `LeaderboardSession`, loading e reset de upgrades ao implementar missões. Cartas são temporárias da missão; desbloqueios permanentes ainda precisam de regras. Preservar nome/ranking e evitar salvar o mesmo resultado duas vezes nas trocas de cena.
 
 ## 14. Como editar e validar sem perder trabalho
 
@@ -364,6 +371,8 @@ Tempos: gameplay/física/dash/cenário usam tempo escalado; UI que aparece com j
 | `Crocodilo/HUD/Validate Gusini F1 bar` | HUD boss e importação |
 | `Crocodilo/Environment/Validate Battle Sky` | Camadas, importação e referências |
 | `Crocodilo/Environment/Apply Battle Sky depth speeds` | Só aplica perfil de velocidades/deriva ao prefab |
+| `Crocodilo/UI/Validate wave and boss announcements` | Importação, exemplos do JSON, curvas, prefab, tema e cenas dos anúncios (Install é a mutação) |
+| `Crocodilo/UI/Validate announcements in Play Mode` | Play Mode real dos anúncios, alerta, áudio, pausa e fluxo; capturas em `Logs/WaveBossUI` |
 
 Comandos **Rebuild/Install/Setup** também existem, mas são mutações, não simples checks: podem reconstruir prefabs/instalar cenário ou modificar cenas. Leia o método antes de chamar. Não rodar toda ferramenta de setup por rotina.
 
@@ -406,6 +415,12 @@ Saída local: `Builds/Windows/CrocodiloInvaders.exe`. Distribuir **pasta inteira
 
 ## 16. Mapa para aprofundar
 
+BaseImprovisada (18/10/2026): implementação anterior de rig/Idle/Run/movimento/câmera removida por pedido do usuário. A cena mantém somente blockout e câmera fixa, pronta para recomeçar. Não restaurar os assets descartados. Ver Docs/BaseImprovisadaRig.md e seção 13; logs BaseAndHudCleanup/Play.
+
+Validação final da segunda rodada de dificuldade (18/10/2026): compilação/integração nativas e 49 checks de Play Mode passaram, incluindo três pontos distintos de estouro dentro da arena, tempos separados, gemas a 420 px/s e mergulhos a 600 px/s. Log `Logs/GusiniEggScatterBalance.log`. Sem playtest manual completo ou nova escuta da mixagem.
+
+Rebalanceamento de 18/10/2026: player normal com 20 HP no prefab; kit GusiniBossTest permanece 240 HP. F2 do Gusini tem três ovos que viajam suavemente a pontos aleatórios da arena e estouram separados por cerca de 0,55 s, com margem das bordas e separação entre destinos. Cada ovo mantém pulsos/rachaduras após chegar, liberando cinco gemas a 420 px/s (antes 145). Gansinhos avançam em V a 180 px/s, slots 1/4 mergulham em toda a fase a 600 px/s; aviso de 400 ms e mira travada preservados. Marcadores ajustados à nova entrada e Rigidbody Continuous nos gansinhos. Patrulha ×1,5 (2,4 → 3,6 un/s), só na F2. Dados de quantidade/espaçamento inicial dos ovos e movimento no Inspector de GusiniPhaseTwo. A primeira rodada passou 45 checks antes da segunda aceleração/dispersão; ainda sem avaliar dificuldade numa run manual. Ver Docs/GusiniFase2.md.
+
 | Tema | Documentação principal |
 | --- | --- |
 | Menu/entrada musical | [Menu](Crocodilo%20Invaders/Docs/Menu.md) |
@@ -419,9 +434,15 @@ Saída local: `Builds/Windows/CrocodiloInvaders.exe`. Distribuir **pasta inteira
 | Diálogos, cenas narrativas e música do boss | [Cinemáticas](Crocodilo%20Invaders/Docs/Cinematicas.md) |
 | Gusini, áudio e Executor | [Boss](Crocodilo%20Invaders/Docs/Boss.md), seções específicas de cada boss |
 | HUDs | [Player](Crocodilo%20Invaders/Docs/PlayerHUD.md), [Gusini](Crocodilo%20Invaders/Docs/GusiniBossBar.md) |
+| Anúncio de ondas e alerta do boss | [Anúncios](Crocodilo%20Invaders/Docs/AnunciosOndasBoss.md) |
 | Parallax/cenário atual | [BattleSky](Crocodilo%20Invaders/Docs/BattleSky.md); Cenario.md registra o cenário anterior |
 | Persistência e build | [Leaderboard](Crocodilo%20Invaders/Docs/Leaderboard.md), [BuildWindows](Crocodilo%20Invaders/Docs/BuildWindows.md) |
 | Fontes/licenças | [Créditos](Crocodilo%20Invaders/Docs/Creditos.md), manifests em SourceArt |
 | HQ/base futura/estudos | [HQ](Crocodilo%20Invaders/Docs/IntroHQ.md), [Base e missões](Crocodilo%20Invaders/Docs/BaseEMissoes.md), CrocodiloBaseIdle.md e CrocodiloBase64.md |
+| Base mínima e rig a pé | [BaseImprovisada e rig](Crocodilo%20Invaders/Docs/BaseImprovisadaRig.md) |
 
 Ao entregar uma mudança, explique em português o comportamento final, os arquivos principais quando úteis, como validou e o que falta verificar. Conserve as decisões já tomadas pelo usuário, especialmente a identidade da arte, soma aditiva de cartas, pausa correta e áudio breve do esquadrão.
+
+### Música das ondas (18/10/2026)
+
+WaveController adiciona WaveMusic automaticamente no Awake válido, sem modificar cenas abertas. Going Up (Ansimuz), WAV original fornecido em Crocodilo_Invaders_Musica_Ondas.zip, em Assets/Resources/Audio/Music/MUS_Crocodilo_Ondas_Loop.wav; streaming estéreo, Music, volume 0,28. Começa no anúncio da primeira horda após a abertura, mantém o loop nas hordas/cartas, fade de 0,9 s no anúncio do boss e parada garantida em BossStarted/RunEnded/disable/unload. Pausa via AudioListener; música do Gusini preservada. Proveniência/licença do pacote em SourceArt/WaveMusic; não importar previews como música.

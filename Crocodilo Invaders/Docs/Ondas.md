@@ -48,7 +48,7 @@ Veja `Docs/Boss.md` para os ataques e reforços.
 Destruir um inimigo sem derrotá-lo não concede pontos por abate.
 
 Na transição, os projéteis inimigos restantes são removidos para não causar dano
-durante o aviso de conclusão. Nas duas cenas configuradas, cada horda abre uma escolha
+antes da recompensa. Não há mais aviso textual de onda concluída. Nas duas cenas configuradas, cada horda abre uma escolha
 de melhoria: o combate fica congelado até selecionar uma carta. A próxima onda espera
 explicitamente pela escolha, independentemente do tempo do intervalo. Ao derrotar o
 boss ou morrer, o combate para e aparece o resultado.
@@ -69,8 +69,10 @@ Uma nova partida pode ser iniciada voltando ao MainMenu pela pausa.
 - `RunScore`: contabiliza abates e pontos, recebe o bônus e informa a HUD existente.
 - `Player`: libera ou bloqueia movimento/combate pelo início/fim da partida. Seus sistemas
   continuam independentes do menu e da progressão de ondas.
-- `WavesUI`: botão provisório, contador, resultado e animação dos avisos. Apenas apresenta
-  os eventos do controlador. A animação não determina a progressão da partida.
+- `WavesUI`: botão provisório, contador, resultado e ponte com o `WaveAnnouncer`. Segura o
+  anúncio (`HoldAnnouncement`) até a apresentação "ONDA N" (1050 ms) ou ONDA 10 → PERIGO!
+  GOOSINI (2500 ms) terminar; quem decide o próximo passo continua sendo o `WaveController`.
+  `announcementDuration` só vale sem apresentação. Detalhes em `Docs/AnunciosOndasBoss.md`.
 - `Projectile`: informa quais layers pode atingir, permitindo limpar os tiros na transição.
 
 As nove escolhas de cartas, suas raridades, reroll e bônus acumulados estão descritos
@@ -106,17 +108,11 @@ No prefab **Player**, `PlayerCombat / Shot Interval` ajusta a cadência inicial.
 No prefab **ExecutorV9**, `BossReinforcements` ajusta a espera inicial de 6 segundos
 após a chegada, intervalo de 9–12 segundos, lote de dois e limite de dois reforços.
 
-No prefab **WavesUI**, os tempos do aviso são ajustáveis: entrada 0,22 segundo,
-leitura 0,65 segundo e saída 0,55 segundo. O texto entra pela direita, freia no centro,
-permanece legível e sai pela esquerda acelerando e desaparecendo. As durações escolhidas
-são um ponto de partida para experimentar o ritmo do jogo.
-
-A entrada usa uma curva cúbica de desaceleração (`ease-out`) e a saída uma curva cúbica
-de aceleração (`ease-in`). A [documentação de transições da Unity](https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-Transitions.html)
-descreve o papel dessas curvas no ritmo da animação. Aqui a apresentação usa o Canvas/uGUI
-e TextMesh Pro já presentes no projeto; o cálculo equivalente fica numa coroutine,
-sem dependência adicional de tween. A [CanvasGroup](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/CanvasGroup.html)
-controla a opacidade, e o aviso não bloqueia cliques.
+O anúncio de cada onda é o banner arcade aprovado ("ONDA N" em PNG, 1050 ms, qualquer
+número), e a onda do boss encadeia ONDA 10 → penas → PERIGO! GOOSINI (2500 ms). A curva,
+a montagem dos algarismos e os tempos vêm do manifesto do pacote; não são ajustados no
+prefab. O antigo texto TMP com entrada/leitura/saída em coroutine foi removido. Veja
+`Docs/AnunciosOndasBoss.md`.
 
 O EventSystem da cena usa **InputSystemUIInputModule**, compatível com o Input System atual.
 O MainMenu inicia a partida na cena de gameplay; os novos inimigos não alteram essa ligação.

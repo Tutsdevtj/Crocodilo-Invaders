@@ -1,5 +1,8 @@
 # Crocodilo da base — um frame de 64 × 64
 
+Registro histórico: os assets deste estudo foram retirados de Assets em
+18/10/2026, junto da implementação descartada da base. Não é o personagem atual.
+
 Redesenho baseado no retrato fornecido pelo usuário: cabeça de crocodilo
 verde escura, focinho largo, olhos âmbar, mandíbula clara e capacete oliva
 arredondado. Corpo inteiro, postura relaxada, camisa de serviço com mangas

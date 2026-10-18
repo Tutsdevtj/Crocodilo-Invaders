@@ -1,0 +1,92 @@
+{
+  "sprites": [
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_h_03.png",
+      "sha256": "df5be2b9b63ede6507bb4df02c9ac30ade50c5cd734b8b8af70252c5f4df7f54"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_d_03.png",
+      "sha256": "1823c14350dd99bb2b417a46277e58689ae87aba90d91d6b57282095c85b983a"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_h_01.png",
+      "sha256": "03b1e2a7448c43592bf95fbc33acb0ea21b5c53daae3a09ee4e5195ac05d6bd2"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_h_00.png",
+      "sha256": "60482be2dd8a3628218d5c25f8efc041e574213f090f0cb14e8327593d35e536"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_h_02.png",
+      "sha256": "85c053d7ef18b00c8e0d524d30324ff9c66fbdca36c463332ee78be1a98c5f94"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_d_02.png",
+      "sha256": "d1dcf944843cb1899b2a5b729a0735218c1abbe4d7ddee84a4862c73977b62ac"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_d_00.png",
+      "sha256": "c6c028296d3645e39df5ec9421b60b91cb3f0851fb76761b5dd93c832a90c099"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_end/dash_end_d_01.png",
+      "sha256": "666dce11f82c3044bf997eb390b06c7969fc5576d4c21ebe6f3462a83b13af56"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_d_02.png",
+      "sha256": "6abb53809574057741122f621f53a8029e6bff4c3d191dbfc4a1a94e1f0b80e8"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_h_00.png",
+      "sha256": "5bf6c465a01220c91f18984b81bd4017fcfef203cd8a98854c428679261386a7"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_h_01.png",
+      "sha256": "a46aa272f98ceb5f0a9a33224369e3e00911220a7414b6ca3a80e316547a8859"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_h_02.png",
+      "sha256": "99ee26caeba53efef2cbd584e94ef83162f816755a68844b5bc93751681e3dbf"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_d_01.png",
+      "sha256": "a5d31b7e8e6bc410c7d98cf6b55d341ac9114aba8862bc5d4e4b92a78bbe640d"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_speed_streak/dash_speed_streak_d_00.png",
+      "sha256": "ad855d2ac8121d12f547259f3e2b3b4499a7963759855426e66f79812eec154a"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_d_02.png",
+      "sha256": "6d5102c96f0c0a341bc54f55a93611a74985abeb5c3cc962cdd2669ae996bdce"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_d_01.png",
+      "sha256": "f7bdc51b84fcb5630135cdde66b1ffcb8fbf59a0b74667cc009331f894aab885"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_h_03.png",
+      "sha256": "bc95d52f20381301640e479fbf8914724315c047fe6967453ea0d969a26158f0"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_h_00.png",
+      "sha256": "5892b8f436edb5ea25fb7b2b5e6ba56138e1c060ba20652d86b39528c4f67f98"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_h_01.png",
+      "sha256": "ba90cfe24474569b3335a640274949e8e2a35cbfde18d45bd039b80820b5a28d"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_d_03.png",
+      "sha256": "836410d5a5e999fa04b010776288cabc54a9d7027133d46fadf121d9c4a0e6f5"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_h_02.png",
+      "sha256": "17a3a63ea33664698a1e3183154d188081da548391bf6d027996f3552e20fd55"
+    },
+    {
+      "path": "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_d_00.png",
+      "sha256": "d8cd77cffcfb64c483477505e01852af17117196eb025b7a41fe771fab7e1a7c"
+    }
+  ]
+}

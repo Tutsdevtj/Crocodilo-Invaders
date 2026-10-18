@@ -2025,6 +2025,7 @@ MonoBehaviour:
   waveClearBonus: 1000
   bossPrefab: {fileID: 5496452159344007952, guid: 11f8f3c292f0f004e834f4ba54e51820, type: 3}
   bossSpawnPoint: {fileID: 1286443873}
+  cutscenes: {fileID: 0}
 --- !u!1 &1866635370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,10 +2937,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
-    - target: {fileID: 7985500034629802369, guid: 53eee7323e560464b8b31fb7cea9d261, type: 3}
-      propertyPath: score
-      value:
-      objectReference: {fileID: 1860622612}
     - target: {fileID: 7985500034629802369, guid: 53eee7323e560464b8b31fb7cea9d261, type: 3}
       propertyPath: player
       value:

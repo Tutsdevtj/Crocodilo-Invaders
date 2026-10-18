@@ -1,0 +1,207 @@
+{
+ "effects": {
+  "dash_ignition": {
+   "variants": {
+    "h": {
+     "files": [
+      "dash_ignition_h_00.png",
+      "dash_ignition_h_01.png",
+      "dash_ignition_h_02.png",
+      "dash_ignition_h_03.png"
+     ],
+     "size": [
+      72,
+      72
+     ]
+    },
+    "d": {
+     "files": [
+      "dash_ignition_d_00.png",
+      "dash_ignition_d_01.png",
+      "dash_ignition_d_02.png",
+      "dash_ignition_d_03.png"
+     ],
+     "size": [
+      72,
+      72
+     ]
+    }
+   },
+   "pivot_px": [
+    36,
+    36
+   ],
+   "pivot_unity": [
+    0.5,
+    0.5
+   ],
+   "fps": 50,
+   "frame_ms": 20,
+   "frames": 4,
+   "duration_ms": 80,
+   "loop": false,
+   "space": "world (não seguir a nave)",
+   "attach": "traseira da nave no início do dash = centroNave - dirDash * R (R: 56 px horizontal, 47 vertical, 52 diagonal)"
+  },
+  "dash_speed_streak": {
+   "variants": {
+    "h": {
+     "files": [
+      "dash_speed_streak_h_00.png",
+      "dash_speed_streak_h_01.png",
+      "dash_speed_streak_h_02.png"
+     ],
+     "size": [
+      176,
+      112
+     ],
+     "pivot_px": [
+      128,
+      56
+     ],
+     "pivot_unity": [
+      0.7273,
+      0.5
+     ]
+    },
+    "d": {
+     "files": [
+      "dash_speed_streak_d_00.png",
+      "dash_speed_streak_d_01.png",
+      "dash_speed_streak_d_02.png"
+     ],
+     "size": [
+      168,
+      168
+     ],
+     "pivot_px": [
+      118,
+      50
+     ],
+     "pivot_unity": [
+      0.7024,
+      0.7024
+     ]
+    }
+   },
+   "fps": 33.3,
+   "frame_ms": 30,
+   "frames": 3,
+   "loop": true,
+   "space": "filho da nave (pivô = centro da nave)",
+   "show": "de +20 ms até o fim do dash; depois 40 ms de saída (alpha 1→0)"
+  },
+  "dash_end": {
+   "variants": {
+    "h": {
+     "files": [
+      "dash_end_h_00.png",
+      "dash_end_h_01.png",
+      "dash_end_h_02.png",
+      "dash_end_h_03.png"
+     ],
+     "size": [
+      64,
+      64
+     ]
+    },
+    "d": {
+     "files": [
+      "dash_end_d_00.png",
+      "dash_end_d_01.png",
+      "dash_end_d_02.png",
+      "dash_end_d_03.png"
+     ],
+     "size": [
+      64,
+      64
+     ]
+    }
+   },
+   "pivot_px": [
+    32,
+    32
+   ],
+   "pivot_unity": [
+    0.5,
+    0.5
+   ],
+   "fps": 40,
+   "frame_ms": 25,
+   "frames": 4,
+   "duration_ms": 100,
+   "loop": false,
+   "space": "world",
+   "attach": "traseira da nave na posição final"
+  }
+ },
+ "orientation": {
+  "source_direction": "todos os efeitos foram desenhados viajando para +X (direita); 'd' = viajando para cima-direita (45°)",
+  "right": "h",
+  "left": "h + flipX",
+  "up": "h + rotZ +90",
+  "down": "h + rotZ -90",
+  "up_right": "d",
+  "up_left": "d + flipX",
+  "down_right": "d + flipY",
+  "down_left": "d + flipX + flipY",
+  "rule": "só flips e rotações de 90° (sem perda de pixel). Nunca girar em ângulos livres."
+ },
+ "ship": {
+  "sprite_canvas": [
+   160,
+   120
+  ],
+  "visual_center_px": [
+   72,
+   59
+  ],
+  "visual_center_offset_from_canvas_center_unity_px": [
+   -8,
+   1
+  ]
+ },
+ "afterimage": {
+  "source": "sprite REAL da nave no instante do spawn (copiar sprite, flipX e posição)",
+  "spawn_every_ms": 30,
+  "count_per_dash": 5,
+  "life_ms": 130,
+  "alpha": "0.70 → 0 linear",
+  "colors_by_age": {
+   "0-45ms": "#AAEAFF (borda de cima #F0FCFF)",
+   "45-90ms": "#46C4FA (borda #AAEAFF)",
+   "90-130ms": "#247CDC"
+  },
+  "shade_bottom": "38% de baixo da silhueta um tom abaixo",
+  "outline": "#1848A0 1 px",
+  "sorting": "atrás da nave"
+ },
+ "invulnerability": {
+  "type": "shader/material de contorno na sprite da nave",
+  "outline_px": 1,
+  "colors": [
+   "#AAEAFF",
+   "#F0FCFF"
+  ],
+  "toggle_ms": 40,
+  "duration": "igual aos i-frames reais (independente do rastro)",
+  "no_flicker": true
+ },
+ "palette": {
+  "C0": "#1848A0",
+  "C1": "#247CDC",
+  "C2": "#46C4FA",
+  "C3": "#AAEAFF",
+  "WH": "#F0FCFF",
+  "amber": [
+   "#EC9628",
+   "#FFCE5A",
+   "#FFF0B4"
+  ],
+  "smoke": [
+   "#96A6B8",
+   "#C8D6E0",
+   "#E8F0F6"
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "file": "Musica/MUS_Crocodilo_Ondas_Loop.wav",
+      "duration_seconds": 55.0,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    },
+    {
+      "file": "Previas/Ondas_para_Goosini_Fase1.wav",
+      "duration_seconds": 24.4,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    },
+    {
+      "file": "Previas/Emenda_do_Loop_em_6s.wav",
+      "duration_seconds": 12.0,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    }
+  ],
+  "original_bytes_preserved": true,
+  "loop_listening_by_agent": false,
+  "unity_project_modified": false
+}

@@ -3066,10 +3066,6 @@ PrefabInstance:
       value: PlayerHUD
       objectReference: {fileID: 0}
     - target: {fileID: 7985500034629802369, guid: 53eee7323e560464b8b31fb7cea9d261, type: 3}
-      propertyPath: score
-      value: 
-      objectReference: {fileID: 1860622612}
-    - target: {fileID: 7985500034629802369, guid: 53eee7323e560464b8b31fb7cea9d261, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 7678123251341501768}

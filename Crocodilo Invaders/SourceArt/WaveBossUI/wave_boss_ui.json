@@ -1,0 +1,1789 @@
+{
+ "meta": {
+  "project": "Crocodilo Invaders",
+  "package": "Wave_Boss_UI",
+  "version": "1.0",
+  "reference_resolution": [
+   1200,
+   720
+  ],
+  "pixel_scale": 2,
+  "import_settings": {
+   "filter": "Point (no filter)",
+   "compression": "None",
+   "mipmaps": false,
+   "ppu": 50,
+   "canvas_reference_ppu": 100,
+   "note": "todos os sprites são nativos (1x); na tela aparecem 2x"
+  },
+  "coords": "px nativos, origem no canto superior esquerdo do banner, y para baixo; todos os sprites com pivô top-left (Unity pivot 0,1)",
+  "alpha": "somente 0/255",
+  "aa": false
+ },
+ "sprites": {
+  "wave_bar_head": {
+   "file": "Wave_UI/sprites/wave_bar_head.png",
+   "w": 138,
+   "h": 42,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "frente da faixa (corte inclinado + cunha). Fixa."
+  },
+  "wave_bar_mid": {
+   "file": "Wave_UI/sprites/wave_bar_mid.png",
+   "w": 1,
+   "h": 42,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "1 coluna. Repetir/esticar horizontalmente (Image Type Tiled ou escala X inteira)."
+  },
+  "wave_bar_end": {
+   "file": "Wave_UI/sprites/wave_bar_end.png",
+   "w": 76,
+   "h": 42,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "fim irregular + cerdas + blocos. Seu x local 0 = L-12 (L = comprimento da faixa)."
+  },
+  "wave_word_onda": {
+   "file": "Wave_UI/sprites/wave_word_onda.png",
+   "w": 90,
+   "h": 31,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_burst": {
+   "file": "Wave_UI/sprites/wave_burst.png",
+   "w": 36,
+   "h": 30,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "estalo de impacto no canto superior direito do ÚLTIMO algarismo"
+  },
+  "wave_speedlines_s_0": {
+   "file": "Wave_UI/sprites/wave_speedlines_s_0.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_speedlines_s_1": {
+   "file": "Wave_UI/sprites/wave_speedlines_s_1.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_speedlines_m_0": {
+   "file": "Wave_UI/sprites/wave_speedlines_m_0.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_speedlines_m_1": {
+   "file": "Wave_UI/sprites/wave_speedlines_m_1.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_speedlines_l_0": {
+   "file": "Wave_UI/sprites/wave_speedlines_l_0.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_speedlines_l_1": {
+   "file": "Wave_UI/sprites/wave_speedlines_l_1.png",
+   "w": 140,
+   "h": 76,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "alternar _0/_1 a cada 33 ms"
+  },
+  "wave_digit_0": {
+   "file": "Wave_UI/digits/wave_digit_0.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_0_pop1": {
+   "file": "Wave_UI/digits/wave_digit_0_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_0_pop2": {
+   "file": "Wave_UI/digits/wave_digit_0_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_0_flash": {
+   "file": "Wave_UI/digits/wave_digit_0_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_1": {
+   "file": "Wave_UI/digits/wave_digit_1.png",
+   "w": 57,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_1_pop1": {
+   "file": "Wave_UI/digits/wave_digit_1_pop1.png",
+   "w": 59,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_1_pop2": {
+   "file": "Wave_UI/digits/wave_digit_1_pop2.png",
+   "w": 62,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_1_flash": {
+   "file": "Wave_UI/digits/wave_digit_1_flash.png",
+   "w": 62,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_2": {
+   "file": "Wave_UI/digits/wave_digit_2.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_2_pop1": {
+   "file": "Wave_UI/digits/wave_digit_2_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_2_pop2": {
+   "file": "Wave_UI/digits/wave_digit_2_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_2_flash": {
+   "file": "Wave_UI/digits/wave_digit_2_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_3": {
+   "file": "Wave_UI/digits/wave_digit_3.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_3_pop1": {
+   "file": "Wave_UI/digits/wave_digit_3_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_3_pop2": {
+   "file": "Wave_UI/digits/wave_digit_3_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_3_flash": {
+   "file": "Wave_UI/digits/wave_digit_3_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_4": {
+   "file": "Wave_UI/digits/wave_digit_4.png",
+   "w": 73,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_4_pop1": {
+   "file": "Wave_UI/digits/wave_digit_4_pop1.png",
+   "w": 76,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_4_pop2": {
+   "file": "Wave_UI/digits/wave_digit_4_pop2.png",
+   "w": 80,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_4_flash": {
+   "file": "Wave_UI/digits/wave_digit_4_flash.png",
+   "w": 80,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_5": {
+   "file": "Wave_UI/digits/wave_digit_5.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_5_pop1": {
+   "file": "Wave_UI/digits/wave_digit_5_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_5_pop2": {
+   "file": "Wave_UI/digits/wave_digit_5_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_5_flash": {
+   "file": "Wave_UI/digits/wave_digit_5_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_6": {
+   "file": "Wave_UI/digits/wave_digit_6.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_6_pop1": {
+   "file": "Wave_UI/digits/wave_digit_6_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_6_pop2": {
+   "file": "Wave_UI/digits/wave_digit_6_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_6_flash": {
+   "file": "Wave_UI/digits/wave_digit_6_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_7": {
+   "file": "Wave_UI/digits/wave_digit_7.png",
+   "w": 75,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_7_pop1": {
+   "file": "Wave_UI/digits/wave_digit_7_pop1.png",
+   "w": 78,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_7_pop2": {
+   "file": "Wave_UI/digits/wave_digit_7_pop2.png",
+   "w": 82,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_7_flash": {
+   "file": "Wave_UI/digits/wave_digit_7_flash.png",
+   "w": 82,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_8": {
+   "file": "Wave_UI/digits/wave_digit_8.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_8_pop1": {
+   "file": "Wave_UI/digits/wave_digit_8_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_8_pop2": {
+   "file": "Wave_UI/digits/wave_digit_8_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_8_flash": {
+   "file": "Wave_UI/digits/wave_digit_8_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_9": {
+   "file": "Wave_UI/digits/wave_digit_9.png",
+   "w": 71,
+   "h": 64,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_9_pop1": {
+   "file": "Wave_UI/digits/wave_digit_9_pop1.png",
+   "w": 74,
+   "h": 67,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_9_pop2": {
+   "file": "Wave_UI/digits/wave_digit_9_pop2.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "wave_digit_9_flash": {
+   "file": "Wave_UI/digits/wave_digit_9_flash.png",
+   "w": 78,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_band_head": {
+   "file": "Boss_UI_Common/boss_band_head.png",
+   "w": 61,
+   "h": 56,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "ponta afiada + cortes de brilho"
+  },
+  "boss_band_mid": {
+   "file": "Boss_UI_Common/boss_band_mid.png",
+   "w": 1,
+   "h": 56,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "1 coluna, esticar"
+  },
+  "boss_band_end": {
+   "file": "Boss_UI_Common/boss_band_end.png",
+   "w": 143,
+   "h": 56,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "fim rasgado + 3 dentes"
+  },
+  "boss_band_full_236": {
+   "file": "Boss_UI_Common/boss_band_full_236.png",
+   "w": 269,
+   "h": 56,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "faixa já montada no comprimento do GOOSINI (236)"
+  },
+  "boss_alert_perigo_red": {
+   "file": "Boss_UI_Common/boss_alert_perigo_red.png",
+   "w": 103,
+   "h": 24,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_alert_perigo_amber": {
+   "file": "Boss_UI_Common/boss_alert_perigo_amber.png",
+   "w": 103,
+   "h": 24,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_alert_perigo_flash": {
+   "file": "Boss_UI_Common/boss_alert_perigo_flash.png",
+   "w": 103,
+   "h": 24,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_impact_burst": {
+   "file": "Boss_UI_Common/boss_impact_burst.png",
+   "w": 40,
+   "h": 34,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_s_0": {
+   "file": "Boss_UI_Common/boss_speedlines_s_0.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_s_1": {
+   "file": "Boss_UI_Common/boss_speedlines_s_1.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_m_0": {
+   "file": "Boss_UI_Common/boss_speedlines_m_0.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_m_1": {
+   "file": "Boss_UI_Common/boss_speedlines_m_1.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_l_0": {
+   "file": "Boss_UI_Common/boss_speedlines_l_0.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "boss_speedlines_l_1": {
+   "file": "Boss_UI_Common/boss_speedlines_l_1.png",
+   "w": 150,
+   "h": 70,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "goosini_title": {
+   "file": "Boss_Goosini/goosini_title.png",
+   "w": 210,
+   "h": 48,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "lettering GOOSINI; os dois O são os óculos azuis"
+  },
+  "goosini_title_flash": {
+   "file": "Boss_Goosini/goosini_title_flash.png",
+   "w": 210,
+   "h": 48,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "1 quadro (33 ms) no impacto"
+  },
+  "goosini_feather_long": {
+   "file": "Boss_Goosini/goosini_feather_long.png",
+   "w": 169,
+   "h": 78,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "pena longa (penacho) — atrás do título, na frente da faixa"
+  },
+  "goosini_scarf_0": {
+   "file": "Boss_Goosini/goosini_scarf_0.png",
+   "w": 64,
+   "h": 40,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "loop 4 quadros, 90 ms cada"
+  },
+  "goosini_scarf_1": {
+   "file": "Boss_Goosini/goosini_scarf_1.png",
+   "w": 64,
+   "h": 40,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "loop 4 quadros, 90 ms cada"
+  },
+  "goosini_scarf_2": {
+   "file": "Boss_Goosini/goosini_scarf_2.png",
+   "w": 64,
+   "h": 40,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "loop 4 quadros, 90 ms cada"
+  },
+  "goosini_scarf_3": {
+   "file": "Boss_Goosini/goosini_scarf_3.png",
+   "w": 64,
+   "h": 40,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "loop 4 quadros, 90 ms cada"
+  },
+  "goosini_beak_tip": {
+   "file": "Boss_Goosini/goosini_beak_tip.png",
+   "w": 40,
+   "h": 48,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "sobre a ponta da faixa (mesma posição da faixa)"
+  },
+  "feather_particle_0": {
+   "file": "Particles_Feathers/feather_particle_0.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "gira trocando de quadro a cada 66 ms (0→1→2→3)"
+  },
+  "feather_particle_0_dissolve_1": {
+   "file": "Particles_Feathers/feather_particle_0_dissolve_1.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_0_dissolve_2": {
+   "file": "Particles_Feathers/feather_particle_0_dissolve_2.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_1": {
+   "file": "Particles_Feathers/feather_particle_1.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "gira trocando de quadro a cada 66 ms (0→1→2→3)"
+  },
+  "feather_particle_1_dissolve_1": {
+   "file": "Particles_Feathers/feather_particle_1_dissolve_1.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_1_dissolve_2": {
+   "file": "Particles_Feathers/feather_particle_1_dissolve_2.png",
+   "w": 24,
+   "h": 14,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_2": {
+   "file": "Particles_Feathers/feather_particle_2.png",
+   "w": 20,
+   "h": 21,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "gira trocando de quadro a cada 66 ms (0→1→2→3)"
+  },
+  "feather_particle_2_dissolve_1": {
+   "file": "Particles_Feathers/feather_particle_2_dissolve_1.png",
+   "w": 20,
+   "h": 21,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_2_dissolve_2": {
+   "file": "Particles_Feathers/feather_particle_2_dissolve_2.png",
+   "w": 20,
+   "h": 21,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_3": {
+   "file": "Particles_Feathers/feather_particle_3.png",
+   "w": 14,
+   "h": 25,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ],
+   "note": "gira trocando de quadro a cada 66 ms (0→1→2→3)"
+  },
+  "feather_particle_3_dissolve_1": {
+   "file": "Particles_Feathers/feather_particle_3_dissolve_1.png",
+   "w": 14,
+   "h": 25,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  },
+  "feather_particle_3_dissolve_2": {
+   "file": "Particles_Feathers/feather_particle_3_dissolve_2.png",
+   "w": 14,
+   "h": 25,
+   "pivot": "top_left",
+   "unity_pivot": [
+    0,
+    1
+   ]
+  }
+ },
+ "wave": {
+  "banner_height": 76,
+  "pieces": {
+   "bar": {
+    "x": 14,
+    "y": 24,
+    "head_w": 138,
+    "end_back": 12,
+    "end_fwd": 64,
+    "L_min": 150
+   },
+   "word_onda": {
+    "x": 40,
+    "y": 32
+   },
+   "digits_top_y": 14,
+   "digits_base_y": 78
+  },
+  "digits": {
+   "0": {
+    "w": 71,
+    "h": 64,
+    "first_x": 132,
+    "bar_end_offset": 48,
+    "burst_offset": [
+     46,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "1": {
+    "w": 57,
+    "h": 64,
+    "first_x": 124,
+    "bar_end_offset": 31,
+    "burst_offset": [
+     36,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -2,
+      -6
+     ],
+     "flash": [
+      -2,
+      -6
+     ]
+    }
+   },
+   "2": {
+    "w": 71,
+    "h": 64,
+    "first_x": 132,
+    "bar_end_offset": 47,
+    "burst_offset": [
+     46,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "3": {
+    "w": 71,
+    "h": 64,
+    "first_x": 126,
+    "bar_end_offset": 45,
+    "burst_offset": [
+     46,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "4": {
+    "w": 73,
+    "h": 64,
+    "first_x": 130,
+    "bar_end_offset": 46,
+    "burst_offset": [
+     50,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "5": {
+    "w": 71,
+    "h": 64,
+    "first_x": 130,
+    "bar_end_offset": 44,
+    "burst_offset": [
+     52,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "6": {
+    "w": 71,
+    "h": 64,
+    "first_x": 132,
+    "bar_end_offset": 43,
+    "burst_offset": [
+     46,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "7": {
+    "w": 75,
+    "h": 64,
+    "first_x": 120,
+    "bar_end_offset": 44,
+    "burst_offset": [
+     52,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "8": {
+    "w": 71,
+    "h": 64,
+    "first_x": 132,
+    "bar_end_offset": 44,
+    "burst_offset": [
+     45,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   },
+   "9": {
+    "w": 71,
+    "h": 64,
+    "first_x": 132,
+    "bar_end_offset": 48,
+    "burst_offset": [
+     46,
+     -6
+    ],
+    "variant_offset": {
+     "pop1": [
+      -1,
+      -3
+     ],
+     "pop2": [
+      -3,
+      -6
+     ],
+     "flash": [
+      -3,
+      -6
+     ]
+    }
+   }
+  },
+  "kerning_advance": {
+   "00": 44,
+   "01": 42,
+   "02": 44,
+   "03": 44,
+   "04": 43,
+   "05": 44,
+   "06": 44,
+   "07": 42,
+   "08": 44,
+   "09": 44,
+   "10": 27,
+   "11": 25,
+   "12": 27,
+   "13": 27,
+   "14": 26,
+   "15": 27,
+   "16": 27,
+   "17": 26,
+   "18": 27,
+   "19": 27,
+   "20": 44,
+   "21": 42,
+   "22": 44,
+   "23": 44,
+   "24": 42,
+   "25": 44,
+   "26": 44,
+   "27": 42,
+   "28": 44,
+   "29": 44,
+   "30": 44,
+   "31": 42,
+   "32": 44,
+   "33": 44,
+   "34": 42,
+   "35": 44,
+   "36": 44,
+   "37": 42,
+   "38": 44,
+   "39": 44,
+   "40": 45,
+   "41": 39,
+   "42": 41,
+   "43": 41,
+   "44": 44,
+   "45": 43,
+   "46": 45,
+   "47": 40,
+   "48": 45,
+   "49": 44,
+   "50": 44,
+   "51": 40,
+   "52": 43,
+   "53": 44,
+   "54": 43,
+   "55": 44,
+   "56": 44,
+   "57": 42,
+   "58": 44,
+   "59": 44,
+   "60": 44,
+   "61": 42,
+   "62": 44,
+   "63": 44,
+   "64": 43,
+   "65": 44,
+   "66": 44,
+   "67": 42,
+   "68": 44,
+   "69": 44,
+   "70": 44,
+   "71": 42,
+   "72": 44,
+   "73": 44,
+   "74": 42,
+   "75": 42,
+   "76": 44,
+   "77": 43,
+   "78": 42,
+   "79": 44,
+   "80": 44,
+   "81": 39,
+   "82": 43,
+   "83": 44,
+   "84": 43,
+   "85": 44,
+   "86": 44,
+   "87": 40,
+   "88": 44,
+   "89": 44,
+   "90": 44,
+   "91": 42,
+   "92": 44,
+   "93": 44,
+   "94": 43,
+   "95": 44,
+   "96": 44,
+   "97": 42,
+   "98": 44,
+   "99": 44
+  },
+  "rules": {
+   "first_digit_x": "digits[d0].first_x",
+   "next_digit_x": "x_prev + kerning_advance[d_prev + d_next]",
+   "bar_length_L": "max(150, x_last + digits[d_last].bar_end_offset - 14)",
+   "bar_assembly": "head em x=14; mid repetido de x=14+138 até x=14+L-12; end em x=14+L-12 (todos y=24)",
+   "burst": "x_last + digits[d_last].burst_offset[0], y = 14 + burst_offset[1] = 8",
+   "speedlines": "x = 14 + L + 50, y = 0; atrás de tudo; só durante entrada/saída",
+   "centering": "centro horizontal = (bbox_x0 + bbox_x1)/2 (ver examples). Na tela: X_banner = 600 - center_x*2 + offset_motion",
+   "vertical": "Y_banner (tela) = 236 - 76 = 160 (ajustável)",
+   "render_order": [
+    "speedlines",
+    "wave_bar (head/mid/end)",
+    "wave_word_onda",
+    "dígitos (esquerda→direita)",
+    "wave_burst"
+   ],
+   "pop": "no assentamento troca o sprite do algarismo: 180–213 ms _flash, 213–246 ms _pop1, depois base. Aplicar variant_offset ao x/y do dígito; o burst desloca +(-variant_offset[0]) em x e usa topo do sprite+offset"
+  },
+  "examples": {
+   "1": {
+    "bar_length_L": 150,
+    "bar_mid_columns": 0,
+    "digit_x": [
+     124
+    ],
+    "burst": [
+     160,
+     8
+    ],
+    "bbox_x": [
+     14,
+     228
+    ],
+    "center_x": 121.0,
+    "speedlines_x": 214
+   },
+   "2": {
+    "bar_length_L": 165,
+    "bar_mid_columns": 15,
+    "digit_x": [
+     132
+    ],
+    "burst": [
+     178,
+     8
+    ],
+    "bbox_x": [
+     14,
+     243
+    ],
+    "center_x": 128.5,
+    "speedlines_x": 229
+   },
+   "3": {
+    "bar_length_L": 157,
+    "bar_mid_columns": 7,
+    "digit_x": [
+     126
+    ],
+    "burst": [
+     172,
+     8
+    ],
+    "bbox_x": [
+     14,
+     235
+    ],
+    "center_x": 124.5,
+    "speedlines_x": 221
+   },
+   "4": {
+    "bar_length_L": 162,
+    "bar_mid_columns": 12,
+    "digit_x": [
+     130
+    ],
+    "burst": [
+     180,
+     8
+    ],
+    "bbox_x": [
+     14,
+     240
+    ],
+    "center_x": 127.0,
+    "speedlines_x": 226
+   },
+   "5": {
+    "bar_length_L": 160,
+    "bar_mid_columns": 10,
+    "digit_x": [
+     130
+    ],
+    "burst": [
+     182,
+     8
+    ],
+    "bbox_x": [
+     14,
+     238
+    ],
+    "center_x": 126.0,
+    "speedlines_x": 224
+   },
+   "6": {
+    "bar_length_L": 161,
+    "bar_mid_columns": 11,
+    "digit_x": [
+     132
+    ],
+    "burst": [
+     178,
+     8
+    ],
+    "bbox_x": [
+     14,
+     239
+    ],
+    "center_x": 126.5,
+    "speedlines_x": 225
+   },
+   "7": {
+    "bar_length_L": 150,
+    "bar_mid_columns": 0,
+    "digit_x": [
+     120
+    ],
+    "burst": [
+     172,
+     8
+    ],
+    "bbox_x": [
+     14,
+     228
+    ],
+    "center_x": 121.0,
+    "speedlines_x": 214
+   },
+   "8": {
+    "bar_length_L": 162,
+    "bar_mid_columns": 12,
+    "digit_x": [
+     132
+    ],
+    "burst": [
+     177,
+     8
+    ],
+    "bbox_x": [
+     14,
+     240
+    ],
+    "center_x": 127.0,
+    "speedlines_x": 226
+   },
+   "9": {
+    "bar_length_L": 166,
+    "bar_mid_columns": 16,
+    "digit_x": [
+     132
+    ],
+    "burst": [
+     178,
+     8
+    ],
+    "bbox_x": [
+     14,
+     244
+    ],
+    "center_x": 129.0,
+    "speedlines_x": 230
+   },
+   "10": {
+    "bar_length_L": 185,
+    "bar_mid_columns": 35,
+    "digit_x": [
+     124,
+     151
+    ],
+    "burst": [
+     197,
+     8
+    ],
+    "bbox_x": [
+     14,
+     263
+    ],
+    "center_x": 138.5,
+    "speedlines_x": 249
+   },
+   "11": {
+    "bar_length_L": 166,
+    "bar_mid_columns": 16,
+    "digit_x": [
+     124,
+     149
+    ],
+    "burst": [
+     185,
+     8
+    ],
+    "bbox_x": [
+     14,
+     244
+    ],
+    "center_x": 129.0,
+    "speedlines_x": 230
+   },
+   "15": {
+    "bar_length_L": 181,
+    "bar_mid_columns": 31,
+    "digit_x": [
+     124,
+     151
+    ],
+    "burst": [
+     203,
+     8
+    ],
+    "bbox_x": [
+     14,
+     259
+    ],
+    "center_x": 136.5,
+    "speedlines_x": 245
+   },
+   "99": {
+    "bar_length_L": 210,
+    "bar_mid_columns": 60,
+    "digit_x": [
+     132,
+     176
+    ],
+    "burst": [
+     222,
+     8
+    ],
+    "bbox_x": [
+     14,
+     288
+    ],
+    "center_x": 151.0,
+    "speedlines_x": 274
+   }
+  },
+  "timing_ms": {
+   "total": 1050,
+   "keyframes": [
+    {
+     "t": 0,
+     "x": 760,
+     "ease": "out_cubic",
+     "to_t": 180,
+     "to_x": 24,
+     "label": "entrada (speedlines on)"
+    },
+    {
+     "t": 180,
+     "x": 24,
+     "ease": "out_cubic",
+     "to_t": 230,
+     "to_x": -8,
+     "label": "assentamento / overshoot (burst aparece)"
+    },
+    {
+     "t": 230,
+     "x": -8,
+     "ease": "out_cubic",
+     "to_t": 280,
+     "to_x": 0,
+     "label": "assentamento"
+    },
+    {
+     "t": 280,
+     "x": 0,
+     "ease": "linear",
+     "to_t": 800,
+     "to_x": -16,
+     "label": "leitura (deriva lenta)"
+    },
+    {
+     "t": 800,
+     "x": -16,
+     "ease": "out_cubic",
+     "to_t": 840,
+     "to_x": -8,
+     "label": "micro-antecipação"
+    },
+    {
+     "t": 840,
+     "x": -8,
+     "ease": "in_cubic",
+     "to_t": 1050,
+     "to_x": -1000,
+     "label": "saída (speedlines on)"
+    }
+   ],
+   "x_unit": "px de TELA (1200x720), relativo ao centro; arredondar para par",
+   "speedlines": "comprimento = min(130, |vel px/ms| * 10) nativo → usar s(<60) / m(<105) / l; alternar _0/_1 a cada 33 ms; esconder se < 6",
+   "easing": {
+    "out_cubic": "1-(1-u)^3",
+    "in_cubic": "u^3"
+   }
+  }
+ },
+ "boss": {
+  "canvas": [
+   340,
+   120
+  ],
+  "generic": {
+   "band": {
+    "x": 30,
+    "y": 40,
+    "length_goosini": 236,
+    "head_w": 61,
+    "end_w": 143,
+    "length_rule": "length = largura do título do boss + 26",
+    "palette": "boss_band_palette_goosini.png (6 tons, escuro→claro) + contorno navy (16,20,48)"
+   },
+   "alert": {
+    "x": 56,
+    "y": 14,
+    "states": [
+     "red",
+     "amber",
+     "flash"
+    ]
+   },
+   "impact_burst": {
+    "x": 40,
+    "y": 0
+   },
+   "speedlines": {
+    "x": 300,
+    "y": 20,
+    "rule": "mesma regra da onda, comprimento = min(140, |vel|*10)"
+   }
+  },
+  "goosini": {
+   "title": {
+    "x": 66,
+    "y": 34
+   },
+   "beak_tip": {
+    "x": 30,
+    "y": 40
+   },
+   "feather_long": {
+    "x": 150,
+    "y": 0
+   },
+   "scarf": {
+    "x": 268,
+    "y": 52,
+    "frames": 4,
+    "frame_ms": 90,
+    "loop": true,
+    "anchor": "x = band.x + length + 2, y = band.y + 12"
+   }
+  },
+  "render_order": [
+   "boss_speedlines",
+   "goosini_scarf",
+   "boss_band",
+   "goosini_beak_tip",
+   "goosini_feather_long",
+   "goosini_title",
+   "boss_alert_perigo",
+   "boss_impact_burst",
+   "feather_particles (camada própria, espaço de tela)"
+  ],
+  "timing_ms": {
+   "total": 1300,
+   "screen_center_y": 228,
+   "keyframes": [
+    {
+     "t": 0,
+     "x": 820,
+     "ease": "out_cubic",
+     "to_t": 200,
+     "to_x": 28,
+     "label": "entrada (penas ficam para trás)"
+    },
+    {
+     "t": 200,
+     "x": 28,
+     "ease": "out_cubic",
+     "to_t": 260,
+     "to_x": -10,
+     "label": "IMPACTO: title_flash 200–233, tag flash→amber→red, burst 200–300"
+    },
+    {
+     "t": 260,
+     "x": -10,
+     "ease": "out_cubic",
+     "to_t": 320,
+     "to_x": 0,
+     "label": "assenta"
+    },
+    {
+     "t": 320,
+     "x": 0,
+     "ease": "linear",
+     "to_t": 1050,
+     "to_x": -20,
+     "label": "leitura (cachecol tremula; PERIGO! pisca 2x)"
+    },
+    {
+     "t": 1050,
+     "x": -20,
+     "ease": "out_cubic",
+     "to_t": 1090,
+     "to_x": -12,
+     "label": "antecipação"
+    },
+    {
+     "t": 1090,
+     "x": -12,
+     "ease": "in_cubic",
+     "to_t": 1300,
+     "to_x": -1100,
+     "label": "saída (penas se soltam e se dissolvem)"
+    }
+   ],
+   "x_unit": "px de TELA relativo a: X_banner = 600 - 340 + x",
+   "alert_timeline": [
+    {
+     "t": [
+      0,
+      200
+     ],
+     "state": "hidden"
+    },
+    {
+     "t": [
+      200,
+      233
+     ],
+     "state": "flash"
+    },
+    {
+     "t": [
+      233,
+      266
+     ],
+     "state": "amber"
+    },
+    {
+     "t": [
+      266,
+      420
+     ],
+     "state": "red"
+    },
+    {
+     "t": [
+      420,
+      480
+     ],
+     "state": "amber"
+    },
+    {
+     "t": [
+      480,
+      540
+     ],
+     "state": "red"
+    },
+    {
+     "t": [
+      540,
+      600
+     ],
+     "state": "amber"
+    },
+    {
+     "t": [
+      600,
+      1300
+     ],
+     "state": "red"
+    }
+   ],
+   "particles": {
+    "life_ms": 260,
+    "frame_ms": 66,
+    "dissolve_1_at": 0.62,
+    "dissolve_2_at": 0.82,
+    "drift_px_per_ms": [
+     0.18,
+     0.06
+    ],
+    "world_space": true,
+    "spawn_entry": "a cada 33 ms de 0 a 200, no lado direito do banner (lx 300–420, ly 40–110 nativos)",
+    "spawn_exit": "a cada 30 ms de 1090 a 1300 + 4 de uma vez em 1090, espalhadas ao longo do banner"
+   }
+  }
+ },
+ "sequence_wave10_to_goosini": {
+  "total_ms": 2500,
+  "steps": [
+   {
+    "t": 0,
+    "what": "Wave UI \"ONDA 10\" (1050 ms, timing normal)"
+   },
+   {
+    "t": 1050,
+    "what": "transição 150 ms: 4 feather_particle atravessam a tela da direita para a esquerda (ease-in), y 150–310 de tela"
+   },
+   {
+    "t": 1200,
+    "what": "banner PERIGO! GOOSINI (1300 ms)"
+   },
+   {
+    "t": 2500,
+    "what": "liberar a cena de entrada/diálogo existente do boss"
+   }
+  ],
+  "rule": "nunca sobrepor: o banner do boss só começa quando a onda terminou de sair (t >= 1050) + transição"
+ },
+ "skip_cancel": {
+  "wave": "Se o jogador pausar: congelar tudo. Pular (botão/skip): se t<800 saltar para t=800 (inicia a saída); nunca cortar sem saída. Se uma nova onda começar antes do fim, terminar a saída em 120 ms (acelerar o tempo restante).",
+  "boss": "Pular durante a apresentação: se t<1050, saltar para t=1050; a saída de 250 ms sempre toca. Pular a sequência inteira: pular a onda (regra acima) e começar o boss já em t=1050.",
+  "gameplay": "Inimigos/projéteis não devem nascer durante os 2500 ms da sequência ONDA 10 → GOOSINI (é o fim do capítulo)."
+ }
+}

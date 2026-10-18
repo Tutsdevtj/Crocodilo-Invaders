@@ -99,3 +99,20 @@ a página do autor solicita atribuição.
 ## Gusini — áudio da Fase 2
 
 29 masters WAV fornecidos pelo usuário em `Gusini_Audio_Phase2.zip`, em 18/10/2026. O pacote registra geração no ElevenLabs e edição editorial própria; os masters foram incorporados sem alteração. Manifesto de origem, mapa de eventos, hashes e informações fornecidas sobre direitos estão preservados em `SourceArt/GusiniAudioPhase2`. Candidatos, previews e os oito opcionais adiados não fazem parte dos assets de runtime.
+
+## B. Crocodilo a pé — rig da Base Improvisada
+
+Pacote `Croc_Rig_Ready.zip` fornecido pelo usuário em 18/10/2026. Os 23 módulos PNG
+foram incorporados sem alteração; master, idle aprovado, manifesto, guia, previews
+e ferramentas originais estão em `SourceArt/Croc_Rig_Ready`. O idle modular da
+Unity transcreve os deslocamentos aprovados. Não se presume licença ou autoria
+externa além das informações fornecidas no pacote.
+
+## Música das ondas
+
+Going Up — adventure Chiptune, de Ansimuz / Luis Zuno. WAV original do pacote fornecido pelo usuário, sem alteração, usado nas hordas antes do boss. O pacote registra CC0; licença original e manifesto preservados em SourceArt/WaveMusic. Fonte registrada: https://opengameart.org/content/going-up-adventure-chiptune .
+
+## Anúncio de ondas e alerta PERIGO! GOOSINI (18/10/2026)
+
+- Arte `Wave_Boss_UI_Goosini.zip` fornecida pelo usuário (cores amostradas do retrato aprovado do Gusini F1; scripts de geração em `Tools/Art/WaveBossUI`): 74 PNGs em `Assets/Art/UI/WaveBanner` e `Assets/Art/UI/BossAlert`, sem alteração. Guia, manifesto, paleta e faixa montada de referência em `SourceArt/WaveBossUI`; previews em `Docs/ArtPreviews/WaveBossUI`. Atlas, variantes `pop2` e GIFs não foram importados. Não se presume autoria externa.
+- SFX `goosini_boss_alert_final.wav` (candidato B1): exportação do ElevenLabs Sound Effects do pacote `Crocodilo_Invaders_Goosini_Boss_Alert.zip`, editada no pacote (DC, corte a 2 s, fades curtos, pico −3 dBFS). O uso segue os termos da conta ElevenLabs do usuário. Prompts, créditos consumidos, proveniência, QA e hashes em `SourceArt/GoosiniBossAlert`. Candidatos, originais e prévias não fazem parte do runtime.

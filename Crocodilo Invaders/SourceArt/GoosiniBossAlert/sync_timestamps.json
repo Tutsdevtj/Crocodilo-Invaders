@@ -1,0 +1,61 @@
+{
+  "audio_file": "goosini_boss_alert_final.wav",
+  "selected": "B1",
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "duration_ms": 2000,
+  "events": [
+    {
+      "event": "alert_start",
+      "time_ms": 0.0,
+      "time_seconds": 0.0,
+      "note": "Início medido do alerta; PERIGO pode entrar aqui."
+    },
+    {
+      "event": "first_reveal_attack",
+      "time_ms": 240.0,
+      "time_seconds": 0.24,
+      "note": "Borda de subida da banda 60–300 Hz a 25% do pico local."
+    },
+    {
+      "event": "reveal_animation_start",
+      "time_ms": 240.0,
+      "time_seconds": 0.24,
+      "note": "Sugestão visual baseada na borda medida, não um segundo ataque independente."
+    },
+    {
+      "event": "impact_core",
+      "time_ms": 315.0,
+      "time_seconds": 0.315,
+      "note": "Banda grave atinge 80% do pico."
+    },
+    {
+      "event": "impact_peak",
+      "time_ms": 349.0,
+      "time_seconds": 0.349,
+      "note": "Pico RMS espectral 60–300 Hz; referência para o slam do nome."
+    },
+    {
+      "event": "final_decay_start",
+      "time_ms": 1296.0,
+      "time_seconds": 1.296,
+      "note": "Após o último acento tardio, envelope cai abaixo de 90% e permanece baixo por 30 ms."
+    },
+    {
+      "event": "active_end_minus40db",
+      "time_ms": 1429.0,
+      "time_seconds": 1.429,
+      "note": "Última janela acima de 1% do pico RMS; não é garantia de silêncio absoluto."
+    },
+    {
+      "event": "file_end",
+      "time_ms": 2000.0,
+      "time_seconds": 2.0,
+      "note": "Fim exato do WAV; diálogo pode começar depois."
+    }
+  ],
+  "method": "RMS waveform onset; 20 ms Hann spectral windows with 1 ms hops; 60–300 Hz impact feature; late envelope decay. Semantic identity requires audition.",
+  "uncertainty_ms_for_spectral_cues": 10,
+  "beep_count_confirmed_by_listening": false,
+  "goose_signature_confirmed_by_listening": false
+}

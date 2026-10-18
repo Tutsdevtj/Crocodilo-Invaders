@@ -4,6 +4,9 @@ Boss ativo da onda 10 em `Assets/Scenes/Tests/PlayerMovementTest.unity` e
 `Assets/Scenes/Tests/StageOneWaves.unity`. A integração preserva o fluxo de
 vitória/derrota e a pontuação de `WaveController`. A F1 descrita abaixo agora leva à
 [Fase 2 corrompida](GusiniFase2.md), importada do novo pacote. A Fase 3 foi descartada.
+Antes da entrada, a onda do boss mostra ONDA 10 → penas → PERIGO! GOOSINI (2500 ms, tema
+`GoosiniBossAlert` em `Boss.alertTheme`); o boss só é instanciado depois. Ver
+[Anúncios](AnunciosOndasBoss.md).
 
 ## Fonte e importação
 
@@ -72,7 +75,8 @@ luta pertence à mesma cena, mas não segue a movimentação do boss.
 - `BossHUD`: seleciona a barra exclusiva do Gusini Fase 1, com preenchimento
   contínuo e efeitos em `BossBarFX`; detalhes em `Docs/GusiniBossBar.md`.
   Executor mantém nome via `Boss.DisplayName`, retrato via `Boss.Portrait`,
-  sprites de HP e enrage legados. `WavesUI` continua usando `Boss.DisplayName`.
+  sprites de HP e enrage legados. `WavesUI` não mostra mais o nome em texto: o boss com
+  `Boss.alertTheme` recebe o alerta PERIGO! (Gusini: `GoosiniBossAlert`); sem tema, só "ONDA 10".
   Gusini Fase 1 não possui enrage.
 
 ## Animator e eventos

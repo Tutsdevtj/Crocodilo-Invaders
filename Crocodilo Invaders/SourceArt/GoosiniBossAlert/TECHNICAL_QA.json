@@ -1,0 +1,37 @@
+{
+  "files": [
+    {
+      "file": "goosini_boss_alert_candidate_A.wav",
+      "duration_ms": 2000,
+      "channels": 2,
+      "sample_rate_hz": 48000,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -3.0
+    },
+    {
+      "file": "goosini_boss_alert_candidate_B.wav",
+      "duration_ms": 2000,
+      "channels": 2,
+      "sample_rate_hz": 48000,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -3.0
+    },
+    {
+      "file": "goosini_boss_alert_candidate_C.wav",
+      "duration_ms": 2000,
+      "channels": 2,
+      "sample_rate_hz": 48000,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -3.0
+    }
+  ],
+  "original_wavs": 12,
+  "all_originals_distinct": true,
+  "source_pcm16_stereo_48000": true,
+  "final_matches_B": true,
+  "critical_listening_by_agent": false,
+  "ui_timings_measured_on_final_file": true,
+  "optional_split_delivered": false,
+  "credits": 84,
+  "cap": 90
+}

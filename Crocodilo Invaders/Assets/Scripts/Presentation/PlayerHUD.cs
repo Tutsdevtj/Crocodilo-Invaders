@@ -1,13 +1,9 @@
-using TMPro;
 using UnityEngine;
 
 public sealed class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private Player player;
-    [SerializeField] private RunScore score;
     [SerializeField] private PlayerHUDCockpit cockpit;
-    [SerializeField] private TMP_Text pointsText;
-    [SerializeField] private TMP_Text killsText;
 
     private Health health;
     private PlayerCombat combat;
@@ -15,21 +11,8 @@ public sealed class PlayerHUD : MonoBehaviour
     // Sincroniza também depois dos Awakes dos componentes de gameplay.
     private void Start() => ResetDisplay();
 
-    private void OnEnable()
-    {
-        Bind(player);
-        if (score != null)
-        {
-            score.Changed += SetScore;
-            SetScore(score.Points, score.Kills);
-        }
-    }
-
-    private void OnDisable()
-    {
-        Unsubscribe();
-        if (score != null) score.Changed -= SetScore;
-    }
+    private void OnEnable() => Bind(player);
+    private void OnDisable() => Unsubscribe();
 
     public void Bind(Player target)
     {
@@ -63,13 +46,6 @@ public sealed class PlayerHUD : MonoBehaviour
     private void RefreshSpecial(int current, int maximum)
     {
         if (cockpit != null) cockpit.SetCharge((float)current / Mathf.Max(1, maximum));
-    }
-
-    // Apenas apresenta valores fornecidos pelo gameplay; o HUD não conta pontos ou kills.
-    public void SetScore(int points, int kills)
-    {
-        if (pointsText != null) pointsText.text = $"Pontos: {points}";
-        if (killsText != null) killsText.text = $"Inimigos: {kills}";
     }
 
     private void Unsubscribe()

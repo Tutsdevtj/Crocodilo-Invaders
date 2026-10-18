@@ -5,6 +5,10 @@ movimento, combate, vida, input, áudio e upgrades no root. O root ganhou Animat
 e `PlayerPresentation`; somente o filho `Visual` contém o SpriteRenderer e treme.
 As cenas `PlayerMovementTest` e `StageOneWaves` herdam essa apresentação.
 
+Vida inicial nas partidas normais: **20 HP**, configurados no prefab compartilhado
+(ajuste de 18/10/2026; antes, 30 HP). Cartas de vida usam essa nova base.
+O kit exclusivo de `GusiniBossTest` continua com 240 HP no Editor.
+
 ## Arte e Animator
 
 Foram importados os 26 PNGs individuais nativos de

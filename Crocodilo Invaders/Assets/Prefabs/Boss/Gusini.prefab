@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   displayName: GUSINI
   portrait: {fileID: 21300000, guid: 0e01c1abc9be6db4a9f963991da8dc0c, type: 3}
+  alertTheme: {fileID: 11400000, guid: 14865a8648600764daa8a5514985ac15, type: 2}
   patrolArea:
     serializedVersion: 2
     x: 5.6
@@ -369,6 +370,9 @@ MonoBehaviour:
   visual: {fileID: 1620649006343108445}
   phaseTwoHealth: 320
   recovery: 0.8
+  eggsPerAttack: 3
+  eggSpacingPixels: 32
+  patrolSpeedMultiplier: 1.5
 --- !u!114 &7357089287056485607
 MonoBehaviour:
   m_ObjectHideFlags: 0

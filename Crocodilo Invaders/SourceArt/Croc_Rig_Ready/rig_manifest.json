@@ -1,0 +1,1428 @@
+{
+ "character": "B. Crocodilo (a pé) — rig 2D",
+ "canvas": [
+  96,
+  184
+ ],
+ "character_pivot": [
+  48,
+  180
+ ],
+ "coords": "px do canvas 96x184, origem no canto SUPERIOR esquerdo, y para baixo (local_unity_px já inverte o y). Articulação (x,y) = canto superior esquerdo do pixel (x,y), mesma convenção do croc_idle.json (pivot geral 48,180).",
+ "ground_y": 180,
+ "import_settings": {
+  "filter": "Point (no filter)",
+  "compression": "None",
+  "ppu": "usar o mesmo PPU do idle; local_units_ppu100 é só referência",
+  "sprite_mode": "Single",
+  "pivot": "Custom = unity_pivot de cada sprite"
+ },
+ "hierarchy_note": "cada nó é um Transform vazio posicionado na articulação; os SpriteRenderers são filhos com localPosition (0,0) e pivô = articulação",
+ "nodes": {
+  "Hips": {
+   "parent": "CharacterRoot",
+   "joint_canvas": [
+    46,
+    94
+   ],
+   "local_px": [
+    -2,
+    -86
+   ],
+   "local_unity_px": [
+    -2,
+    86
+   ],
+   "local_units_ppu100": [
+    -0.02,
+    0.86
+   ],
+   "sprites": [
+    "hips",
+    "pelvis_under"
+   ]
+  },
+  "Torso": {
+   "parent": "Hips",
+   "joint_canvas": [
+    46,
+    86
+   ],
+   "local_px": [
+    0,
+    -8
+   ],
+   "local_unity_px": [
+    0,
+    8
+   ],
+   "local_units_ppu100": [
+    0.0,
+    0.08
+   ],
+   "sprites": [
+    "torso",
+    "torso_side_back"
+   ]
+  },
+  "NeckHead": {
+   "parent": "Torso",
+   "joint_canvas": [
+    49,
+    58
+   ],
+   "local_px": [
+    3,
+    -28
+   ],
+   "local_unity_px": [
+    3,
+    28
+   ],
+   "local_units_ppu100": [
+    0.03,
+    0.28
+   ],
+   "sprites": [
+    "head",
+    "helmet",
+    "eyelid_closed"
+   ]
+  },
+  "ArmBackUpper": {
+   "parent": "Torso",
+   "joint_canvas": [
+    65,
+    61
+   ],
+   "local_px": [
+    19,
+    -25
+   ],
+   "local_unity_px": [
+    19,
+    25
+   ],
+   "local_units_ppu100": [
+    0.19,
+    0.25
+   ],
+   "sprites": [
+    "arm_back_upper",
+    "ring_elbow_back"
+   ]
+  },
+  "ArmBackLower": {
+   "parent": "ArmBackUpper",
+   "joint_canvas": [
+    68,
+    83
+   ],
+   "local_px": [
+    3,
+    22
+   ],
+   "local_unity_px": [
+    3,
+    -22
+   ],
+   "local_units_ppu100": [
+    0.03,
+    -0.22
+   ],
+   "sprites": [
+    "arm_back_lower"
+   ]
+  },
+  "HandBack": {
+   "parent": "ArmBackLower",
+   "joint_canvas": [
+    72,
+    102
+   ],
+   "local_px": [
+    4,
+    19
+   ],
+   "local_unity_px": [
+    4,
+    -19
+   ],
+   "local_units_ppu100": [
+    0.04,
+    -0.19
+   ],
+   "sprites": [
+    "hand_back"
+   ]
+  },
+  "ArmFrontUpper": {
+   "parent": "Torso",
+   "joint_canvas": [
+    21,
+    60
+   ],
+   "local_px": [
+    -25,
+    -26
+   ],
+   "local_unity_px": [
+    -25,
+    26
+   ],
+   "local_units_ppu100": [
+    -0.25,
+    0.26
+   ],
+   "sprites": [
+    "arm_front_upper",
+    "ring_elbow_front"
+   ]
+  },
+  "ArmFrontLower": {
+   "parent": "ArmFrontUpper",
+   "joint_canvas": [
+    15,
+    82
+   ],
+   "local_px": [
+    -6,
+    22
+   ],
+   "local_unity_px": [
+    -6,
+    -22
+   ],
+   "local_units_ppu100": [
+    -0.06,
+    -0.22
+   ],
+   "sprites": [
+    "arm_front_lower"
+   ]
+  },
+  "HandFront": {
+   "parent": "ArmFrontLower",
+   "joint_canvas": [
+    17,
+    103
+   ],
+   "local_px": [
+    2,
+    21
+   ],
+   "local_unity_px": [
+    2,
+    -21
+   ],
+   "local_units_ppu100": [
+    0.02,
+    -0.21
+   ],
+   "sprites": [
+    "hand_front"
+   ]
+  },
+  "LegBackUpper": {
+   "parent": "Hips",
+   "joint_canvas": [
+    56,
+    100
+   ],
+   "local_px": [
+    10,
+    6
+   ],
+   "local_unity_px": [
+    10,
+    -6
+   ],
+   "local_units_ppu100": [
+    0.1,
+    -0.06
+   ],
+   "sprites": [
+    "leg_back_upper",
+    "ring_knee_back"
+   ]
+  },
+  "LegBackLower": {
+   "parent": "LegBackUpper",
+   "joint_canvas": [
+    58,
+    131
+   ],
+   "local_px": [
+    2,
+    31
+   ],
+   "local_unity_px": [
+    2,
+    -31
+   ],
+   "local_units_ppu100": [
+    0.02,
+    -0.31
+   ],
+   "sprites": [
+    "leg_back_lower"
+   ]
+  },
+  "BootBack": {
+   "parent": "LegBackLower",
+   "joint_canvas": [
+    59,
+    158
+   ],
+   "local_px": [
+    1,
+    27
+   ],
+   "local_unity_px": [
+    1,
+    -27
+   ],
+   "local_units_ppu100": [
+    0.01,
+    -0.27
+   ],
+   "sprites": [
+    "boot_back"
+   ]
+  },
+  "LegFrontUpper": {
+   "parent": "Hips",
+   "joint_canvas": [
+    36,
+    100
+   ],
+   "local_px": [
+    -10,
+    6
+   ],
+   "local_unity_px": [
+    -10,
+    -6
+   ],
+   "local_units_ppu100": [
+    -0.1,
+    -0.06
+   ],
+   "sprites": [
+    "leg_front_upper",
+    "ring_knee_front"
+   ]
+  },
+  "LegFrontLower": {
+   "parent": "LegFrontUpper",
+   "joint_canvas": [
+    31,
+    131
+   ],
+   "local_px": [
+    -5,
+    31
+   ],
+   "local_unity_px": [
+    -5,
+    -31
+   ],
+   "local_units_ppu100": [
+    -0.05,
+    -0.31
+   ],
+   "sprites": [
+    "leg_front_lower"
+   ]
+  },
+  "BootFront": {
+   "parent": "LegFrontLower",
+   "joint_canvas": [
+    26,
+    158
+   ],
+   "local_px": [
+    -5,
+    27
+   ],
+   "local_unity_px": [
+    -5,
+    -27
+   ],
+   "local_units_ppu100": [
+    -0.05,
+    -0.27
+   ],
+   "sprites": [
+    "boot_front"
+   ]
+  }
+ },
+ "sprites": {
+  "pelvis_under": {
+   "file": "modules/pelvis_under.png",
+   "w": 39,
+   "h": 25,
+   "x": 27,
+   "y": 94,
+   "node": "Hips",
+   "sorting_order": 0,
+   "pivot_canvas": [
+    46,
+    94
+   ],
+   "pivot_local_px": [
+    19,
+    0
+   ],
+   "unity_pivot": [
+    0.487179,
+    1.0
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -19,
+     -25
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 734,
+   "role": "pelve/assento escondido atrás das coxas"
+  },
+  "boot_back": {
+   "file": "modules/boot_back.png",
+   "w": 31,
+   "h": 27,
+   "x": 49,
+   "y": 152,
+   "node": "BootBack",
+   "sorting_order": 1,
+   "pivot_canvas": [
+    59,
+    158
+   ],
+   "pivot_local_px": [
+    10,
+    6
+   ],
+   "unity_pivot": [
+    0.322581,
+    0.777778
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -10,
+     -21
+    ]
+   },
+   "visible_pixels_at_rest": 536,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "ring_knee_back": {
+   "file": "modules/ring_knee_back.png",
+   "w": 18,
+   "h": 10,
+   "x": 50,
+   "y": 131,
+   "node": "LegBackUpper",
+   "sorting_order": 2,
+   "pivot_canvas": [
+    56,
+    100
+   ],
+   "pivot_local_px": [
+    6,
+    -31
+   ],
+   "unity_pivot": [
+    0.333333,
+    4.1
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -6,
+     -41
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 30,
+   "role": "anel de contorno da articulação (só aparece no lado de fora da dobra)"
+  },
+  "leg_back_lower": {
+   "file": "modules/leg_back_lower.png",
+   "w": 22,
+   "h": 29,
+   "x": 47,
+   "y": 123,
+   "node": "LegBackLower",
+   "sorting_order": 3,
+   "pivot_canvas": [
+    58,
+    131
+   ],
+   "pivot_local_px": [
+    11,
+    8
+   ],
+   "unity_pivot": [
+    0.5,
+    0.724138
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -11,
+     -21
+    ]
+   },
+   "visible_pixels_at_rest": 300,
+   "hidden_pixels": 197,
+   "role": "peça do personagem"
+  },
+  "leg_back_upper": {
+   "file": "modules/leg_back_upper.png",
+   "w": 21,
+   "h": 39,
+   "x": 47,
+   "y": 101,
+   "node": "LegBackUpper",
+   "sorting_order": 4,
+   "pivot_canvas": [
+    56,
+    100
+   ],
+   "pivot_local_px": [
+    9,
+    -1
+   ],
+   "unity_pivot": [
+    0.428571,
+    1.025641
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -9,
+     -40
+    ]
+   },
+   "visible_pixels_at_rest": 694,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "boot_front": {
+   "file": "modules/boot_front.png",
+   "w": 20,
+   "h": 29,
+   "x": 17,
+   "y": 151,
+   "node": "BootFront",
+   "sorting_order": 5,
+   "pivot_canvas": [
+    26,
+    158
+   ],
+   "pivot_local_px": [
+    9,
+    7
+   ],
+   "unity_pivot": [
+    0.45,
+    0.758621
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -9,
+     -22
+    ]
+   },
+   "visible_pixels_at_rest": 440,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "ring_knee_front": {
+   "file": "modules/ring_knee_front.png",
+   "w": 21,
+   "h": 11,
+   "x": 21,
+   "y": 131,
+   "node": "LegFrontUpper",
+   "sorting_order": 6,
+   "pivot_canvas": [
+    36,
+    100
+   ],
+   "pivot_local_px": [
+    15,
+    -31
+   ],
+   "unity_pivot": [
+    0.714286,
+    3.818182
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -15,
+     -42
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 21,
+   "role": "anel de contorno da articulação (só aparece no lado de fora da dobra)"
+  },
+  "leg_front_lower": {
+   "file": "modules/leg_front_lower.png",
+   "w": 26,
+   "h": 29,
+   "x": 16,
+   "y": 122,
+   "node": "LegFrontLower",
+   "sorting_order": 7,
+   "pivot_canvas": [
+    31,
+    131
+   ],
+   "pivot_local_px": [
+    15,
+    9
+   ],
+   "unity_pivot": [
+    0.576923,
+    0.689655
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -15,
+     -20
+    ]
+   },
+   "visible_pixels_at_rest": 279,
+   "hidden_pixels": 252,
+   "role": "peça do personagem"
+  },
+  "leg_front_upper": {
+   "file": "modules/leg_front_upper.png",
+   "w": 27,
+   "h": 40,
+   "x": 20,
+   "y": 101,
+   "node": "LegFrontUpper",
+   "sorting_order": 8,
+   "pivot_canvas": [
+    36,
+    100
+   ],
+   "pivot_local_px": [
+    16,
+    -1
+   ],
+   "unity_pivot": [
+    0.592593,
+    1.025
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -16,
+     -41
+    ]
+   },
+   "visible_pixels_at_rest": 765,
+   "hidden_pixels": 11,
+   "role": "peça do personagem"
+  },
+  "hips": {
+   "file": "modules/hips.png",
+   "w": 40,
+   "h": 19,
+   "x": 26,
+   "y": 83,
+   "node": "Hips",
+   "sorting_order": 9,
+   "pivot_canvas": [
+    46,
+    94
+   ],
+   "pivot_local_px": [
+    20,
+    11
+   ],
+   "unity_pivot": [
+    0.5,
+    0.421053
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -20,
+     -8
+    ]
+   },
+   "visible_pixels_at_rest": 577,
+   "hidden_pixels": 38,
+   "role": "peça do personagem"
+  },
+  "torso_side_back": {
+   "file": "modules/torso_side_back.png",
+   "w": 4,
+   "h": 29,
+   "x": 61,
+   "y": 56,
+   "node": "Torso",
+   "sorting_order": 10,
+   "pivot_canvas": [
+    46,
+    86
+   ],
+   "pivot_local_px": [
+    -15,
+    30
+   ],
+   "unity_pivot": [
+    -3.75,
+    -0.034483
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     15,
+     1
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 29,
+   "role": "contorno da lateral direita do tronco atrás do braço de trás"
+  },
+  "ring_elbow_back": {
+   "file": "modules/ring_elbow_back.png",
+   "w": 10,
+   "h": 4,
+   "x": 64,
+   "y": 86,
+   "node": "ArmBackUpper",
+   "sorting_order": 11,
+   "pivot_canvas": [
+    65,
+    61
+   ],
+   "pivot_local_px": [
+    1,
+    -25
+   ],
+   "unity_pivot": [
+    0.1,
+    7.25
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -1,
+     -29
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 13,
+   "role": "anel de contorno da articulação (só aparece no lado de fora da dobra)"
+  },
+  "arm_back_lower": {
+   "file": "modules/arm_back_lower.png",
+   "w": 15,
+   "h": 37,
+   "x": 63,
+   "y": 78,
+   "node": "ArmBackLower",
+   "sorting_order": 12,
+   "pivot_canvas": [
+    68,
+    83
+   ],
+   "pivot_local_px": [
+    5,
+    5
+   ],
+   "unity_pivot": [
+    0.333333,
+    0.864865
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -5,
+     -32
+    ]
+   },
+   "visible_pixels_at_rest": 199,
+   "hidden_pixels": 92,
+   "role": "peça do personagem"
+  },
+  "arm_back_upper": {
+   "file": "modules/arm_back_upper.png",
+   "w": 17,
+   "h": 33,
+   "x": 57,
+   "y": 56,
+   "node": "ArmBackUpper",
+   "sorting_order": 13,
+   "pivot_canvas": [
+    65,
+    61
+   ],
+   "pivot_local_px": [
+    8,
+    5
+   ],
+   "unity_pivot": [
+    0.470588,
+    0.848485
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -8,
+     -28
+    ]
+   },
+   "visible_pixels_at_rest": 250,
+   "hidden_pixels": 112,
+   "role": "peça do personagem"
+  },
+  "hand_back": {
+   "file": "modules/hand_back.png",
+   "w": 11,
+   "h": 18,
+   "x": 68,
+   "y": 102,
+   "node": "HandBack",
+   "sorting_order": 14,
+   "pivot_canvas": [
+    72,
+    102
+   ],
+   "pivot_local_px": [
+    4,
+    0
+   ],
+   "unity_pivot": [
+    0.363636,
+    1.0
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -4,
+     -18
+    ]
+   },
+   "visible_pixels_at_rest": 150,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "torso": {
+   "file": "modules/torso.png",
+   "w": 43,
+   "h": 40,
+   "x": 21,
+   "y": 45,
+   "node": "Torso",
+   "sorting_order": 15,
+   "pivot_canvas": [
+    46,
+    86
+   ],
+   "pivot_local_px": [
+    25,
+    41
+   ],
+   "unity_pivot": [
+    0.581395,
+    -0.025
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -25,
+     1
+    ]
+   },
+   "visible_pixels_at_rest": 1015,
+   "hidden_pixels": 232,
+   "role": "peça do personagem"
+  },
+  "head": {
+   "file": "modules/head.png",
+   "w": 49,
+   "h": 37,
+   "x": 26,
+   "y": 23,
+   "node": "NeckHead",
+   "sorting_order": 16,
+   "pivot_canvas": [
+    49,
+    58
+   ],
+   "pivot_local_px": [
+    23,
+    35
+   ],
+   "unity_pivot": [
+    0.469388,
+    0.054054
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -23,
+     -2
+    ]
+   },
+   "visible_pixels_at_rest": 1212,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "helmet": {
+   "file": "modules/helmet.png",
+   "w": 39,
+   "h": 18,
+   "x": 26,
+   "y": 8,
+   "node": "NeckHead",
+   "sorting_order": 17,
+   "pivot_canvas": [
+    49,
+    58
+   ],
+   "pivot_local_px": [
+    23,
+    50
+   ],
+   "unity_pivot": [
+    0.589744,
+    -1.777778
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -23,
+     32
+    ]
+   },
+   "visible_pixels_at_rest": 485,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "eyelid_closed": {
+   "file": "modules/eyelid_closed.png",
+   "w": 10,
+   "h": 9,
+   "x": 39,
+   "y": 28,
+   "node": "NeckHead",
+   "sorting_order": 18,
+   "pivot_canvas": [
+    49,
+    58
+   ],
+   "pivot_local_px": [
+    10,
+    30
+   ],
+   "unity_pivot": [
+    1.0,
+    -2.333333
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -10,
+     21
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 14,
+   "role": "overlay da piscada (só no frame de piscada)"
+  },
+  "ring_elbow_front": {
+   "file": "modules/ring_elbow_front.png",
+   "w": 17,
+   "h": 9,
+   "x": 7,
+   "y": 82,
+   "node": "ArmFrontUpper",
+   "sorting_order": 19,
+   "pivot_canvas": [
+    21,
+    60
+   ],
+   "pivot_local_px": [
+    14,
+    -22
+   ],
+   "unity_pivot": [
+    0.823529,
+    3.444444
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -14,
+     -31
+    ]
+   },
+   "visible_pixels_at_rest": 0,
+   "hidden_pixels": 21,
+   "role": "anel de contorno da articulação (só aparece no lado de fora da dobra)"
+  },
+  "arm_front_lower": {
+   "file": "modules/arm_front_lower.png",
+   "w": 17,
+   "h": 32,
+   "x": 7,
+   "y": 75,
+   "node": "ArmFrontLower",
+   "sorting_order": 20,
+   "pivot_canvas": [
+    15,
+    82
+   ],
+   "pivot_local_px": [
+    8,
+    7
+   ],
+   "unity_pivot": [
+    0.470588,
+    0.78125
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -8,
+     -25
+    ]
+   },
+   "visible_pixels_at_rest": 233,
+   "hidden_pixels": 162,
+   "role": "peça do personagem"
+  },
+  "arm_front_upper": {
+   "file": "modules/arm_front_upper.png",
+   "w": 24,
+   "h": 41,
+   "x": 8,
+   "y": 49,
+   "node": "ArmFrontUpper",
+   "sorting_order": 21,
+   "pivot_canvas": [
+    21,
+    60
+   ],
+   "pivot_local_px": [
+    13,
+    11
+   ],
+   "unity_pivot": [
+    0.541667,
+    0.731707
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -13,
+     -30
+    ]
+   },
+   "visible_pixels_at_rest": 644,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  },
+  "hand_front": {
+   "file": "modules/hand_front.png",
+   "w": 17,
+   "h": 18,
+   "x": 10,
+   "y": 103,
+   "node": "HandFront",
+   "sorting_order": 22,
+   "pivot_canvas": [
+    17,
+    103
+   ],
+   "pivot_local_px": [
+    7,
+    0
+   ],
+   "unity_pivot": [
+    0.411765,
+    1.0
+   ],
+   "alt_bottom_left_pivot": {
+    "unity_pivot": [
+     0,
+     0
+    ],
+    "local_position_px": [
+     -7,
+     -18
+    ]
+   },
+   "visible_pixels_at_rest": 207,
+   "hidden_pixels": 0,
+   "role": "peça do personagem"
+  }
+ },
+ "render_order": [
+  "pelvis_under",
+  "boot_back",
+  "ring_knee_back",
+  "leg_back_lower",
+  "leg_back_upper",
+  "boot_front",
+  "ring_knee_front",
+  "leg_front_lower",
+  "leg_front_upper",
+  "hips",
+  "torso_side_back",
+  "ring_elbow_back",
+  "arm_back_lower",
+  "arm_back_upper",
+  "hand_back",
+  "torso",
+  "head",
+  "helmet",
+  "eyelid_closed",
+  "ring_elbow_front",
+  "arm_front_lower",
+  "arm_front_upper",
+  "hand_front"
+ ],
+ "joints_canvas": {
+  "neck": [
+   49,
+   58
+  ],
+  "shoulder_front": [
+   21,
+   60
+  ],
+  "elbow_front": [
+   15,
+   82
+  ],
+  "wrist_front": [
+   17,
+   103
+  ],
+  "shoulder_back": [
+   65,
+   61
+  ],
+  "elbow_back": [
+   68,
+   83
+  ],
+  "wrist_back": [
+   72,
+   102
+  ],
+  "hip_front": [
+   36,
+   100
+  ],
+  "knee_front": [
+   31,
+   131
+  ],
+  "ankle_front": [
+   26,
+   158
+  ],
+  "hip_back": [
+   56,
+   100
+  ],
+  "knee_back": [
+   58,
+   131
+  ],
+  "ankle_back": [
+   59,
+   158
+  ],
+  "hips": [
+   46,
+   94
+  ]
+ },
+ "joint_disc_radius": {
+  "elbow_front": 7,
+  "elbow_back": 5,
+  "knee_front": 9,
+  "knee_back": 8
+ },
+ "rotation_conventions": {
+  "positive": "anti-horário na tela (padrão da Unity, eixo Z)",
+  "suggested_limits_deg": {
+   "ArmUpper": [
+    -60,
+    60
+   ],
+   "ArmLower": [
+    0,
+    110
+   ],
+   "Hand": [
+    -20,
+    20
+   ],
+   "LegUpper": [
+    -45,
+    45
+   ],
+   "LegLower": [
+    -110,
+    0
+   ],
+   "Boot": [
+    -30,
+    25
+   ],
+   "Torso": [
+    -8,
+    8
+   ],
+   "NeckHead": [
+    -6,
+    6
+   ]
+  }
+ },
+ "old_to_new": {
+  "arm_front": [
+   "arm_front_upper",
+   "arm_front_lower"
+  ],
+  "arm_back": [
+   "arm_back_upper",
+   "arm_back_lower"
+  ],
+  "leg_front": [
+   "leg_front_upper",
+   "leg_front_lower"
+  ],
+  "leg_back": [
+   "leg_back_upper",
+   "leg_back_lower"
+  ],
+  "hand_front": [
+   "hand_front"
+  ],
+  "hand_back": [
+   "hand_back"
+  ],
+  "boot_front": [
+   "boot_front"
+  ],
+  "boot_back": [
+   "boot_back"
+  ],
+  "hips": [
+   "hips",
+   "pelvis_under (novo)"
+  ],
+  "torso": [
+   "torso",
+   "torso_side_back (novo)"
+  ],
+  "head": [
+   "head"
+  ],
+  "helmet": [
+   "helmet"
+  ],
+  "eyelid_closed": [
+   "eyelid_closed"
+  ],
+  "novos_aneis": [
+   "ring_elbow_front",
+   "ring_elbow_back",
+   "ring_knee_front",
+   "ring_knee_back"
+  ]
+ },
+ "reassigned_visible_pixels": [
+  {
+   "de": "leg_front_upper",
+   "para": "hand_front",
+   "px": 6
+  },
+  {
+   "de": "arm_back_lower",
+   "para": "leg_back_upper",
+   "px": 5
+  },
+  {
+   "de": "arm_back_lower",
+   "para": "leg_back_upper",
+   "px": 12
+  }
+ ],
+ "idle": {
+  "fps": 6,
+  "frames": [
+   {
+    "frame": 0,
+    "ms": 166,
+    "local_offset_px_ydown": {},
+    "local_offset_unity_y": {}
+   },
+   {
+    "frame": 1,
+    "ms": 166,
+    "local_offset_px_ydown": {
+     "Torso": -1,
+     "NeckHead": 1,
+     "HandFront": 1,
+     "HandBack": 1
+    },
+    "local_offset_unity_y": {
+     "Torso": 1,
+     "NeckHead": -1,
+     "HandFront": -1,
+     "HandBack": -1
+    }
+   },
+   {
+    "frame": 2,
+    "ms": 166,
+    "local_offset_px_ydown": {
+     "Torso": -1
+    },
+    "local_offset_unity_y": {
+     "Torso": 1
+    }
+   },
+   {
+    "frame": 3,
+    "ms": 166,
+    "local_offset_px_ydown": {
+     "Torso": -1
+    },
+    "local_offset_unity_y": {
+     "Torso": 1
+    }
+   },
+   {
+    "frame": 4,
+    "ms": 166,
+    "local_offset_px_ydown": {
+     "NeckHead": -1,
+     "HandFront": -1,
+     "HandBack": -1
+    },
+    "local_offset_unity_y": {
+     "NeckHead": 1,
+     "HandFront": 1,
+     "HandBack": 1
+    }
+   },
+   {
+    "frame": 5,
+    "ms": 166,
+    "local_offset_px_ydown": {},
+    "local_offset_unity_y": {}
+   }
+  ],
+  "blink": "ativar eyelid_closed por 1 frame (~120 ms) a cada 3–5 loops"
+ },
+ "validation": {
+  "rest_vs_master_diff_px": 0,
+  "idle_diff_px_per_frame": [
+   0,
+   20,
+   23,
+   23,
+   4,
+   0
+  ],
+  "blink_diff_px": 0
+ },
+ "careful_joints": [
+  "Rotação na Unity com filtro Point pode \"pontilhar\" o contorno em ângulos que não são múltiplos de 90°; prefira ângulos inteiros e Pixel Perfect Camera.",
+  "Os anéis (ring_*) precisam ficar ABAIXO da peça de baixo da junta (ver sorting_order); se ficarem acima, aparecem no repouso.",
+  "pelvis_under precisa ficar abaixo de TODAS as peças das pernas.",
+  "torso_side_back fica abaixo do braço de trás inteiro, mas é filho do Torso.",
+  "O braço de trás no master só mostra a metade de fora; a metade de dentro foi desenhada escondida sob o tronco (4 px) para o braço não ficar fino ao balançar."
+ ]
+}

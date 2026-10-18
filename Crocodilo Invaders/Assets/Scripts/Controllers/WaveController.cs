@@ -18,7 +18,8 @@ public sealed class WaveController : MonoBehaviour
     [SerializeField, Tooltip("Reproduz somente a seleção das composições, sem alterar os outros sorteios do jogo.")]
     private bool useDebugSeed;
     [SerializeField] private int debugSeed = 12345;
-    [SerializeField, Min(0f)] private float announcementDuration = 1.6f;
+    [SerializeField, Min(0f), Tooltip("Só sem apresentação registrada. Com WavesUI, o combate espera o fim do anúncio.")]
+    private float announcementDuration = 1.6f;
     [SerializeField, Min(0f)] private float intermissionDuration = 2f;
     [SerializeField, Min(0f)] private float rewardTransitionDuration = .35f;
     [SerializeField, Min(0)] private int waveClearBonus = 1000;
@@ -32,6 +33,8 @@ public sealed class WaveController : MonoBehaviour
     private float phaseEndsAt;
     private EnemyWave[] runComposition;
     private bool chapterEnding;
+    private int announcementId, announcementHolds;
+    private bool announcementHeld;
 
     public RunPhase Phase { get; private set; } = RunPhase.Waiting;
     public int CurrentWave { get; private set; }
@@ -60,6 +63,27 @@ public sealed class WaveController : MonoBehaviour
     public int WaveCount => CombatWaveCount + (bossPrefab != null ? 1 : 0);
     public RunScore Score => score;
     public Boss ActiveBoss { get; private set; }
+    public Boss BossPrefab => bossPrefab;
+    // A onda do boss vem depois de todas as hordas configuradas, qualquer que seja o número.
+    public bool IsBossWave(int wave) => bossPrefab != null && wave > CombatWaveCount;
+
+    // Uma apresentação segura o anúncio atual até terminar. O token identifica o anúncio:
+    // liberações atrasadas de um anúncio cancelado não avançam a run.
+    public int HoldAnnouncement()
+    {
+        if (Phase != RunPhase.Announcing) return 0;
+        announcementHeld = true;
+        announcementHolds++;
+        return announcementId;
+    }
+
+    public void ReleaseAnnouncement(int token)
+    {
+        if (token == 0 || token != announcementId || Phase != RunPhase.Announcing || announcementHolds == 0) return;
+        announcementHolds--;
+    }
+
+    private bool AnnouncementFinished => announcementHeld ? announcementHolds == 0 : Time.time >= phaseEndsAt;
     public event Action<int, int> WaveAnnounced;
     public event Action<int, int> WaveCleared;
     public event Action<bool> RunEnded;
@@ -73,7 +97,11 @@ public sealed class WaveController : MonoBehaviour
         playerHealth = player != null ? player.GetComponent<Health>() : null;
         spawner.StopSpawning();
         bool valid = ValidateWaves(out string error);
-        if (playerHealth != null && valid) return;
+        if (playerHealth != null && valid)
+        {
+            if (GetComponent<WaveMusic>() == null) gameObject.AddComponent<WaveMusic>();
+            return;
+        }
         Debug.LogError(playerHealth == null ? "Configure o Player no WaveController." : error, this);
         enabled = false;
     }
@@ -120,7 +148,7 @@ public sealed class WaveController : MonoBehaviour
 
     public void StartRun() => BeginRun(true);
 
-    private void BeginRun(bool playIntro)
+    private void BeginRun(bool playIntro, int completedWaves = 0)
     {
         if (!isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return;
         if (!ValidateWaves(out string error)) { Debug.LogError(error, this); return; }
@@ -132,6 +160,7 @@ public sealed class WaveController : MonoBehaviour
             runComposition = new EnemyWave[wavePools.Length];
             for (int i = 0; i < wavePools.Length; i++) runComposition[i] = wavePools[i].Pick(random);
         }
+        CurrentWave = completedWaves;
         score.ResetScore();
         LeaderboardSession.StartRun();
         player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
@@ -156,9 +185,9 @@ public sealed class WaveController : MonoBehaviour
     private void Update()
     {
         if (Time.timeScale == 0f) return;
-        if (Phase == RunPhase.Announcing && Time.time >= phaseEndsAt)
+        if (Phase == RunPhase.Announcing && AnnouncementFinished)
         {
-            if (CurrentWave > CombatWaveCount)
+            if (IsBossWave(CurrentWave))
             {
                 BeginBoss();
                 return;
@@ -188,11 +217,8 @@ public sealed class WaveController : MonoBehaviour
     public void StartBossForDevelopment()
     {
         if (Phase != RunPhase.Waiting || bossPrefab == null) return;
-        BeginRun(false);
-        if (Phase != RunPhase.Announcing) return;
-        spawner.StopCombat();
-        CurrentWave = WaveCount;
-        BeginBoss();
+        // Mesmo caminho da run: a onda do boss é anunciada (ONDA N → alerta) antes da entrada.
+        BeginRun(false, CombatWaveCount);
     }
 #endif
 
@@ -242,6 +268,9 @@ public sealed class WaveController : MonoBehaviour
         CurrentWave++;
         Phase = RunPhase.Announcing;
         phaseEndsAt = Time.time + announcementDuration;
+        announcementId++;
+        announcementHolds = 0;
+        announcementHeld = false;
         WaveAnnounced?.Invoke(CurrentWave, WaveCount);
     }
 

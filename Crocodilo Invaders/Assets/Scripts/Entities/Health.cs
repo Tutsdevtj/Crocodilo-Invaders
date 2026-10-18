@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class Health : MonoBehaviour
@@ -11,11 +12,19 @@ public sealed class Health : MonoBehaviour
     public float Fraction => remainingHealth / maxHealth;
     public int MaxHealth => maxHealth;
     public bool IsDead => remainingHealth <= 0f;
-    public bool IsInvulnerable { get; private set; }
+    private bool invulnerable;
+    private readonly HashSet<object> protectionOwners = new HashSet<object>();
+    public bool IsInvulnerable => invulnerable || protectionOwners.Count > 0;
     public float IncomingDamageMultiplier { get; set; } = 1f;
-    public void SetInvulnerable(bool invulnerable) => IsInvulnerable = invulnerable;
+    public void SetInvulnerable(bool value) => invulnerable = value;
+    public void SetInvulnerable(object owner, bool value)
+    {
+        if (owner == null) throw new ArgumentNullException(nameof(owner));
+        if (value) protectionOwners.Add(owner);
+        else protectionOwners.Remove(owner);
+    }
 
-    private void OnDisable() => IsInvulnerable = false;
+    private void OnDisable() { invulnerable = false; protectionOwners.Clear(); }
     public event Action<int, int> HealthChanged;
     public event Action Damaged;
     public event Action Healed;

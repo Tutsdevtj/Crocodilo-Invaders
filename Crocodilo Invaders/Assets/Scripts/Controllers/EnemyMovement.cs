@@ -19,6 +19,10 @@ public sealed class EnemyMovement : MonoBehaviour
     private float hitStartedAt = float.NegativeInfinity;
     public bool HasArrived { get; private set; }
     public bool IsDashing { get; private set; }
+    public float PatrolSpeedMultiplier { get; private set; } = 1f;
+
+    public void SetPatrolSpeedMultiplier(float multiplier)
+        => PatrolSpeedMultiplier = Mathf.Max(0f, multiplier);
 
     private void Awake() => body = GetComponent<Rigidbody2D>();
 
@@ -72,7 +76,7 @@ public sealed class EnemyMovement : MonoBehaviour
         }
         Vector2 offset = destination - body.position;
         float distance = offset.magnitude;
-        float speed = IsDashing ? dashSpeed : (HasArrived ? patrolSpeed : moveSpeed);
+        float speed = IsDashing ? dashSpeed : (HasArrived ? patrolSpeed * PatrolSpeedMultiplier : moveSpeed);
         // Freia perto do destino, sem parar no ponto nem teleportar entre posições.
         if (!IsDashing) speed *= Mathf.Clamp(distance / brakingDistance, 0.15f, 1f);
         speed *= HitSpeedFactor();

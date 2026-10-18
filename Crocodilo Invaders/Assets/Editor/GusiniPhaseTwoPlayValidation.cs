@@ -21,6 +21,9 @@ public static class GusiniPhaseTwoPlayValidation
     private static int checks, errors;
     private static readonly Dictionary<string, List<float>> releases = new Dictionary<string, List<float>>();
     private static readonly List<GusiniPhaseTwo.Attack> attacks = new List<GusiniPhaseTwo.Attack>();
+    private static readonly List<Vector3> eggBurstPositions = new List<Vector3>();
+    private static readonly HashSet<GusiniAcidYolk> eggYolks = new HashSet<GusiniAcidYolk>();
+    private static readonly List<float> eggYolkSpeeds = new List<float>();
     private static Boss boss;
     private static Health target;
     private static GusiniPhaseTwo phase;
@@ -28,6 +31,7 @@ public static class GusiniPhaseTwoPlayValidation
     private static BossBarFX bar;
     private static int defeated;
     private static int lowHpDiversSpawned;
+    private static int highHpDiversSpawned;
     private sealed class AudioCue { public GusiniSound id; public float time, volume; public AudioClip clip; }
     private static readonly List<AudioCue> audioCues = new List<AudioCue>();
     private static bool AudioChecks => SessionState.GetBool(Session + ".Audio", false);
@@ -67,7 +71,8 @@ public static class GusiniPhaseTwoPlayValidation
     private static void Begin()
     {
         if (scenario != null) return;
-        checks = errors = defeated = lowHpDiversSpawned = 0; releases.Clear(); attacks.Clear(); audioCues.Clear();
+        checks = errors = defeated = lowHpDiversSpawned = highHpDiversSpawned = 0; releases.Clear(); attacks.Clear(); audioCues.Clear();
+        eggBurstPositions.Clear(); eggYolks.Clear(); eggYolkSpeeds.Clear();
         Application.logMessageReceived += OnLog;
         deadline = EditorApplication.timeSinceStartup + 150;
         scenario = SessionState.GetBool(Session + ".HudOnly", false) ? HudScenario() : Scenario(); EditorApplication.update += Tick;
@@ -122,7 +127,17 @@ public static class GusiniPhaseTwoPlayValidation
         {
             if (!releases.ContainsKey(kind)) releases[kind] = new List<float>();
             releases[kind].Add(Time.time);
-            if (kind == "goose" && boss.Health.Fraction < .6f && (bool)typeof(GusiniCorruptedGoose).GetField("diver", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(entity.GetComponent<GusiniCorruptedGoose>())) lowHpDiversSpawned++;
+            if (kind == "egg_burst")
+            {
+                eggBurstPositions.Add(entity.transform.position);
+                foreach (var yolk in phase.ThreatRoot.GetComponentsInChildren<GusiniAcidYolk>())
+                    if (eggYolks.Add(yolk)) eggYolkSpeeds.Add(yolk.GetComponent<Rigidbody2D>().linearVelocity.magnitude / (Mathf.Abs(yolk.transform.lossyScale.x) / 100f));
+            }
+            if (kind == "goose" && (bool)typeof(GusiniCorruptedGoose).GetField("diver", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(entity.GetComponent<GusiniCorruptedGoose>()))
+            {
+                if (boss.Health.Fraction < .6f) lowHpDiversSpawned++;
+                else highHpDiversSpawned++;
+            }
         };
         var hudRoot = Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UI/BossHUD.prefab"));
         var canvas = hudRoot.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceCamera; canvas.worldCamera = camera; canvas.planeDistance = 1f;
@@ -190,30 +205,35 @@ public static class GusiniPhaseTwoPlayValidation
         while (Count("egg") == 0 && Time.time < until) yield return null;
         var egg = Object.FindFirstObjectByType<GusiniCorruptedEgg>();
         Check(egg != null && egg.GetComponent<Health>() == null && egg.GetComponent<Collider2D>() == null, "Corrupted egg is indestructible");
-        until = Time.time + 3f;
-        while (Object.FindObjectsByType<GusiniAcidYolk>(FindObjectsSortMode.None).Length < 5 && Time.time < until) yield return null;
-        var yolks = Object.FindObjectsByType<GusiniAcidYolk>(FindObjectsSortMode.None);
-        Check(yolks.Length == 5, "Egg bursts into five acid yolks");
-        Check(yolks.All(y => y.transform.rotation == Quaternion.identity), "Pre-oriented yolk sprites remain unrotated");
-        if (AudioChecks)
-        {
-            float eggStart = releases["egg"][0];
-            Check(Cues(GusiniSound.P2ParachutePop).Count() == 1 && Mathf.Abs(Cues(GusiniSound.P2ParachutePop).First().time - eggStart - .25f) < .06f, "Parachute POP follows the egg's own deploy clock");
-            float[] ticks = { .66f, 1.01f, 1.28f, 1.46f };
-            Check(Cues(GusiniSound.P2EggPulse).Count() == 4, "Four pulse ticks, without frame-by-frame audio repetition");
-            for (int i = 0; i < 4; i++) Check(Mathf.Abs(Cues(GusiniSound.P2EggPulse).ElementAt(i).time - eggStart - ticks[i]) < .06f, "Independent egg pulse timestamp " + i);
-            Check(Cues(GusiniSound.P2EggCrack).Count() == 2 && Cues(GusiniSound.P2EggBurst).Count() == 1, "Two cracks and one shared burst for the five yolks");
-        }
         until = Time.time + 5f;
         while (Count("goose") < 5 && Time.time < until) yield return null;
         var geese = Object.FindObjectsByType<GusiniCorruptedGoose>(FindObjectsSortMode.None);
         Check(geese.Length == 5 && Count("warning") == 5, "Each of five geese receives an advance edge marker");
+        Check(highHpDiversSpawned == 2, "The first squadron already has two divers above 60 percent health");
+        Check(Mathf.Approximately(boss.Movement.PatrolSpeedMultiplier, 1.5f), "Phase two uses the faster patrol without changing phase one");
         Check(geese.All(g => g.GetComponent<Health>().MaxHealth == 2), "Geese take two unbuffed shots to defeat");
-        Health gooseHealth = geese[0].GetComponent<Health>(); gooseHealth.TakeDamage(1);
+        // Abate o líder; os dois mergulhadores precisam sobreviver para os checks de áudio.
+        Health gooseHealth = geese.First(g => g.name == "Corrupted goose 0").GetComponent<Health>(); gooseHealth.TakeDamage(1);
         Check(gooseHealth.CurrentHealth == 1 && !gooseHealth.IsDead, "First goose hit survives"); gooseHealth.TakeDamage(1);
         yield return null;
-        Check(geese[0] == null || !geese[0].gameObject.activeInHierarchy, "Second goose hit removes it");
+        Check(gooseHealth == null || !gooseHealth.gameObject.activeInHierarchy, "Second goose hit removes it");
         if (AudioChecks) Check(Cues(GusiniSound.P2GoosePoof).Count() == 1, "Goose defeat releases the new poof once");
+        until = Time.time + 5f;
+        while (Count("egg_burst") < 3 && Time.time < until) yield return null;
+        Check(Count("egg") == 3 && Count("egg_burst") == 3 && eggYolks.Count == 15, "Three separate eggs each release five acid yolks");
+        Check(eggYolks.Where(y => y != null).All(y => y.transform.rotation == Quaternion.identity), "Pre-oriented yolk sprites remain unrotated");
+        Check(eggYolkSpeeds.All(speed => Mathf.Abs(speed - 420f) < .1f), "Every egg projectile launches at 420 pixels per second");
+        Check(eggBurstPositions.All(p => phase.Arena.Contains(p)), "Every egg bursts inside the visible arena");
+        Check(Vector3.Distance(eggBurstPositions[0], eggBurstPositions[1]) >= 2.15f && Vector3.Distance(eggBurstPositions[0], eggBurstPositions[2]) >= 2.15f && Vector3.Distance(eggBurstPositions[1], eggBurstPositions[2]) >= 2.15f, "Random burst points remain spatially separated");
+        Check(releases["egg_burst"][1] - releases["egg_burst"][0] >= .4f && releases["egg_burst"][2] - releases["egg_burst"][1] >= .4f, "Eggs burst individually instead of simultaneously");
+        if (AudioChecks)
+        {
+            float eggStart = releases["egg"][0];
+            Check(Cues(GusiniSound.P2ParachutePop).Count() == 1 && Mathf.Abs(Cues(GusiniSound.P2ParachutePop).First().time - eggStart - .25f) < .06f, "Simultaneous deploy keeps one shared parachute POP");
+            Check(Cues(GusiniSound.P2EggPulse).Count() >= 4 && Cues(GusiniSound.P2EggPulse).Count() <= 12, "Independent egg pulse clocks retain the shared voice limits");
+            Check(Cues(GusiniSound.P2EggCrack).Count() >= 2 && Cues(GusiniSound.P2EggCrack).Count() <= 6, "Independent cracks retain the shared voice limits");
+            Check(Cues(GusiniSound.P2EggBurst).Any() && Cues(GusiniSound.P2EggBurst).All(c => releases["egg_burst"].Any(t => Mathf.Abs(t - c.time) < .02f)), "Egg burst audio follows actual staggered explosions");
+        }
         until = Time.time + 6f;
         while (Count("lane_warning") == 0 && Time.time < until) yield return null;
         Check(Count("lane_warning") == 2, "Two marked lanes leave exactly one safe lane");
@@ -270,15 +290,19 @@ public static class GusiniPhaseTwoPlayValidation
         var diver = secondGeese.FirstOrDefault(g => g != null && (bool)diverField.GetValue(g) && (bool)divingField.GetValue(g));
         Check(diver != null, "Below 60 percent, a designated goose enters its straight dive");
         Vector2 lockedDirection = (Vector2)directionField.GetValue(diver);
+        Vector2 diveStart = diver.GetComponent<Rigidbody2D>().position;
+        float diveStartTime = Time.fixedTime;
         target.transform.position += Vector3.up * 2f;
         float diveCheckAt = Time.time + .15f;
         while (Time.time < diveCheckAt) yield return null;
         Check(diver != null && Vector2.Distance(lockedDirection, (Vector2)directionField.GetValue(diver)) < .001f, "Diver keeps its locked direction when target moves");
+        float measuredDiveSpeed = Vector2.Distance(diveStart, diver.GetComponent<Rigidbody2D>().position) / (Time.fixedTime - diveStartTime);
+        Check(Mathf.Abs(measuredDiveSpeed - 12f) < .2f, "Diver travels at 600 pixels per second at the test scale");
         if (AudioChecks)
         {
-            until = Time.time + 4f; while (Cues(GusiniSound.P2DiveWhoosh).Count() < 2 && Time.time < until) yield return null;
-            Check(Cues(GusiniSound.P2DiverWarning).Count() == 2 && Cues(GusiniSound.P2DiveWhoosh).Count() == 2, "Only the designated diving geese emit warning and launch cues");
-            for (int i = 0; i < 2; i++) Check(Mathf.Abs(Cues(GusiniSound.P2DiveWhoosh).ElementAt(i).time - Cues(GusiniSound.P2DiverWarning).ElementAt(i).time - .4f) < .07f, "400ms warning before diver " + i);
+            until = Time.time + 4f; while (Cues(GusiniSound.P2DiveWhoosh).Count() < 4 && Time.time < until) yield return null;
+            Check(Cues(GusiniSound.P2DiverWarning).Count() == 4 && Cues(GusiniSound.P2DiveWhoosh).Count() == 4, "Both squadrons emit warnings and launches for their two divers");
+            for (int i = 0; i < 4; i++) Check(Mathf.Abs(Cues(GusiniSound.P2DiveWhoosh).ElementAt(i).time - Cues(GusiniSound.P2DiverWarning).ElementAt(i).time - .4f) < .07f, "400ms warning before diver " + i);
             Check(Cues(GusiniSound.P2EnergyPop).Any() && audioCues.Where(c => c.id >= GusiniSound.P2FinalHit).All(c => c.volume <= .5f), "Projectile pops use the new master and F2 per-sound gain remains limited");
             Check(phase.ThreatRoot.GetComponentsInChildren<AudioSource>(true).Length == 0, "Threat entities add no independent audio sources");
         }
@@ -286,6 +310,7 @@ public static class GusiniPhaseTwoPlayValidation
         Check(defeated == 1 && boss.Health.IsDead, "Only F2 depletion produces final defeat once");
         // Desde o encerramento do capítulo 1, a derrota da F2 passa para GusiniDefeat (parasita morre, Gusini fica).
         Check(phase.ThreatRoot == null && phase.CurrentStage == GusiniPhaseTwo.Stage.Defeated && boss.RetainedAfterDefeat, "Final defeat clears all F2 threats immediately and hands over to the parasite defeat");
+        Check(Mathf.Approximately(boss.Movement.PatrolSpeedMultiplier, 1f), "Ending phase two clears its movement multiplier");
         if (AudioChecks) Check(bossAudio.ActiveVoiceCount == 0, "Boss defeat stops all F2 audio immediately");
         yield return null;
         Check(Object.FindObjectsByType<GusiniEnergyBall>(FindObjectsSortMode.None).Length == 0 && Object.FindObjectsByType<GusiniCorruptedGoose>(FindObjectsSortMode.None).Length == 0, "No orphan projectiles or geese remain");

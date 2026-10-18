@@ -1,5 +1,8 @@
 # Crocodilo da base — idle 32 × 32
 
+Registro histórico: os assets deste estudo foram retirados de Assets em
+18/10/2026, junto da implementação descartada da base. Não é o personagem atual.
+
 Interpretação de corpo inteiro, em três quartos voltado para a direita,
 baseada no retrato do crocodilo fornecido pelo usuário.
 Revisão 3: cabeça larga e verde escura, focinho pesado, olhos âmbar estreitos,

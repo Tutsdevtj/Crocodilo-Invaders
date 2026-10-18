@@ -3,7 +3,9 @@
 `Assets/Prefabs/UI/PlayerHUD.prefab` usa as camadas originais de `HUD_Player_v2.zip`.
 O Canvas continua em 1200×720, com escala por resolução e match 0,5. O cockpit
 ocupa 364×112 unidades no canto inferior esquerdo, a 16 unidades das bordas.
-Pontos e inimigos conservam seus objetos, posições e conexão ao `RunScore`.
+Os textos de pontos e inimigos foram removidos do prefab em 18/10/2026, junto
+com os campos e a assinatura de `RunScore` no PlayerHUD. A pontuação interna,
+o ranking e os números do painel de resultado continuam no gameplay.
 As instâncias nas cenas continuam referenciando o mesmo prefab e componente.
 
 `PlayerHUD` assina os eventos de `Health` e `PlayerCombat`. `PlayerHUDCockpit`
@@ -33,11 +35,16 @@ O prefab e os scripts da HUD do boss não fazem parte desta alteração.
 
 No Editor, `Crocodilo → HUD → Validate Player cockpit` confere as referências,
 preenchimentos, layout e importação. `Rebuild Player cockpit` remonta apenas
-a arte do painel a partir do layout original, mantendo os contadores.
+a arte do painel a partir do layout original, sem recriar os textos removidos.
 
-Validação realizada na Unity 6000.6.4f1: **42 verificações em Play Mode**, incluindo
+Validação inicial realizada na Unity 6000.6.4f1: **42 verificações em Play Mode**, incluindo
 dano fracionário, rastro de dano, cura, HP crítico, vida máxima, carga por disparo
 real, uso real do especial, ignição/chama/desligamento, pools, pausa, contadores,
 reativação, vínculo e dano letal. Referências de jogador/score/HUD conferidas em
 PlayerMovementTest, StageOneWaves e GusiniBossTest. Capturas do jogo inspecionadas
 em 1200×720, 1920×1080 e 800×600. O teste não salva alterações nas cenas.
+
+Após a remoção dos textos, a validação dos assets do cockpit passou novamente.
+As três cenas usuárias tiveram o override obsoleto `PlayerHUD.score` removido.
+A rodada atual passou 130 verificações em Play, incluindo a ausência dos três
+textos e a integração dos anúncios; log `Logs/BaseAndHudCleanupPlay.log`.

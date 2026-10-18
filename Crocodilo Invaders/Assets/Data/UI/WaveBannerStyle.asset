@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b63917e8f8b2e42bab51e075feb669, type: 3}
+  m_Name: WaveBannerStyle
+  m_EditorClassIdentifier: Assembly-CSharp::WaveBannerStyle
+  barHead: {fileID: 21300000, guid: db978d4dfd4f8c34c8e709da837608cf, type: 3}
+  barMid: {fileID: 21300000, guid: c8e95d7866799f44db053de6d7b6367c, type: 3}
+  barEnd: {fileID: 21300000, guid: cae2291818c38e840af09c46177053f4, type: 3}
+  word: {fileID: 21300000, guid: 6ffaaeb4ac6627b4881955f773aa15ae, type: 3}
+  burst: {fileID: 21300000, guid: 9b42c1331ac9b144582659266491bd56, type: 3}
+  speedlines:
+  - {fileID: 21300000, guid: 71a49847a973fde4a8908b4b600956f8, type: 3}
+  - {fileID: 21300000, guid: 287a443b81450684499ab92e18aaf1ad, type: 3}
+  - {fileID: 21300000, guid: a1552f5b919138c4cb35652f54488ef5, type: 3}
+  - {fileID: 21300000, guid: a1fcf2fe49c38524bbe76f8e12fc15dc, type: 3}
+  - {fileID: 21300000, guid: 2ee05a4cfd7fb084fbf0cc837a2ca4e6, type: 3}
+  - {fileID: 21300000, guid: 2856b8ed8686ec7459b22d55dc78843f, type: 3}
+  digits:
+  - normal: {fileID: 21300000, guid: 199e55794b723c44986055e1831bd632, type: 3}
+    pop1: {fileID: 21300000, guid: 307a1dc100452904eac2b9f6a0d05579, type: 3}
+    flash: {fileID: 21300000, guid: 5ebc835ccb6ea7e40a6ffec6758028e9, type: 3}
+    firstX: 132
+    barEndOffset: 48
+    burstOffset: {x: 46, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: 0285d04caddfc754f83f015148cbe4be, type: 3}
+    pop1: {fileID: 21300000, guid: 69f1265f602d7ea4785668011465b20a, type: 3}
+    flash: {fileID: 21300000, guid: b9e0af5d1a059ef4b9e43b97d5c4d942, type: 3}
+    firstX: 124
+    barEndOffset: 31
+    burstOffset: {x: 36, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -2, y: -6}
+  - normal: {fileID: 21300000, guid: 669a5ad22783a2a469e4dff169369de4, type: 3}
+    pop1: {fileID: 21300000, guid: 52fbb931fbd221e48b1182796cbe5556, type: 3}
+    flash: {fileID: 21300000, guid: 5c252bc713d7f224e83514c3041cb775, type: 3}
+    firstX: 132
+    barEndOffset: 47
+    burstOffset: {x: 46, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: d4e0b8076101e57409af8bf2bc6ae339, type: 3}
+    pop1: {fileID: 21300000, guid: e0e355f6e7b56664a9554bef8de3f0b1, type: 3}
+    flash: {fileID: 21300000, guid: 5ad944102541c8940af58a6c0e7fb6e6, type: 3}
+    firstX: 126
+    barEndOffset: 45
+    burstOffset: {x: 46, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: fe8ac86eabe26254b96379fdc305be07, type: 3}
+    pop1: {fileID: 21300000, guid: 380e59aea844e1446b81ce2872cadc99, type: 3}
+    flash: {fileID: 21300000, guid: 286439efe257dc5488eec2349618bb6b, type: 3}
+    firstX: 130
+    barEndOffset: 46
+    burstOffset: {x: 50, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: a9b3083f1a5d82a408a543da2d621e7a, type: 3}
+    pop1: {fileID: 21300000, guid: 07c92665611f27044a52ae8275979f7e, type: 3}
+    flash: {fileID: 21300000, guid: a80222ab041846746a8a5493909ef79c, type: 3}
+    firstX: 130
+    barEndOffset: 44
+    burstOffset: {x: 52, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: 3fc54199369dc494eb9590cf9a506d5c, type: 3}
+    pop1: {fileID: 21300000, guid: 76db8880fe27fa6408c2b0a7c889f530, type: 3}
+    flash: {fileID: 21300000, guid: 6f28196247a95784ea1fc8c9a3473d2a, type: 3}
+    firstX: 132
+    barEndOffset: 43
+    burstOffset: {x: 46, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: 70efbcca714347b48bf38cbe4db302fe, type: 3}
+    pop1: {fileID: 21300000, guid: ef6683df3c97c75478adde80328fde84, type: 3}
+    flash: {fileID: 21300000, guid: 86385a2a1c55ed64d81075f4f1555aad, type: 3}
+    firstX: 120
+    barEndOffset: 44
+    burstOffset: {x: 52, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: ef4ae4f3f6146af4abf9d08a9327d95d, type: 3}
+    pop1: {fileID: 21300000, guid: da784c588146dfc46a605c5f655ff25e, type: 3}
+    flash: {fileID: 21300000, guid: 2d2e0022e1da49149866ea416f204141, type: 3}
+    firstX: 132
+    barEndOffset: 44
+    burstOffset: {x: 45, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  - normal: {fileID: 21300000, guid: 861445b1923ed3240b6e40dd0cb8d517, type: 3}
+    pop1: {fileID: 21300000, guid: 27edf805d52decd4ea6161c78e02321b, type: 3}
+    flash: {fileID: 21300000, guid: d423cd4af5531674cb884b467c319d7d, type: 3}
+    firstX: 132
+    barEndOffset: 48
+    burstOffset: {x: 46, y: -6}
+    pop1Offset: {x: -1, y: -3}
+    flashOffset: {x: -3, y: -6}
+  kerning: 2c0000002a0000002c0000002c0000002b0000002c0000002c0000002a0000002c0000002c0000001b000000190000001b0000001b0000001a0000001b0000001b0000001a0000001b0000001b0000002c0000002a0000002c0000002c0000002a0000002c0000002c0000002a0000002c0000002c0000002c0000002a0000002c0000002c0000002a0000002c0000002c0000002a0000002c0000002c0000002d0000002700000029000000290000002c0000002b0000002d000000280000002d0000002c0000002c000000280000002b0000002c0000002b0000002c0000002c0000002a0000002c0000002c0000002c0000002a0000002c0000002c0000002b0000002c0000002c0000002a0000002c0000002c0000002c0000002a0000002c0000002c0000002a0000002a0000002c0000002b0000002a0000002c0000002c000000270000002b0000002c0000002b0000002c0000002c000000280000002c0000002c0000002c0000002a0000002c0000002c0000002b0000002c0000002c0000002a0000002c0000002c000000i
+  barPosition: {x: 14, y: 24}
+  barHeadWidth: 138
+  barEndBack: 12
+  minBarLength: 150
+  wordPosition: {x: 40, y: 32}
+  digitsTop: 14
+  speedlinesGap: 50
+  pixelScale: 2
+  screenCenterX: 600
+  screenTop: 160
+  motion:
+  - startMs: 0
+    endMs: 180
+    fromX: 760
+    toX: 24
+    ease: 1
+  - startMs: 180
+    endMs: 230
+    fromX: 24
+    toX: -8
+    ease: 1
+  - startMs: 230
+    endMs: 280
+    fromX: -8
+    toX: 0
+    ease: 1
+  - startMs: 280
+    endMs: 800
+    fromX: 0
+    toX: -16
+    ease: 0
+  - startMs: 800
+    endMs: 840
+    fromX: -16
+    toX: -8
+    ease: 1
+  - startMs: 840
+    endMs: 1050
+    fromX: -8
+    toX: -1000
+    ease: 2
+  flashStartMs: 180
+  pop1StartMs: 213
+  settledMs: 246
+  burstStartMs: 180
+  skipToMs: 800
+  speedlinesMaxLength: 130

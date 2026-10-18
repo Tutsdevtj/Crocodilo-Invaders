@@ -17,7 +17,7 @@ public sealed class BossDevelopmentStart : MonoBehaviour
     private void Start()
     {
         waves.StartBossForDevelopment();
-        if (waves.Phase != WaveController.RunPhase.Boss
+        if (!waves.IsBossWave(waves.CurrentWave)
             || gameObject.scene.path != "Assets/Scenes/Tests/GusiniBossTest.unity") return;
 
         // StartRun zera os upgrades: o kit de teste entra depois desse reset.

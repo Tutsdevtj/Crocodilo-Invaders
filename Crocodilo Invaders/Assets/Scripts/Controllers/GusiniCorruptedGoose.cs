@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public sealed class GusiniCorruptedGoose : MonoBehaviour
 {
+    public const float FormationSpeedPixels = 180f;
+    public const float DiveSpeedPixels = 600f;
     private GusiniPhaseTwoAssets assets;
     private SpriteRenderer visual, beak, streak;
     private Rigidbody2D body;
@@ -24,6 +26,7 @@ public sealed class GusiniCorruptedGoose : MonoBehaviour
         var visual = root.AddComponent<SpriteRenderer>(); visual.sortingOrder = 25;
         var collider = root.AddComponent<BoxCollider2D>(); collider.isTrigger = true; collider.size = new Vector2(.26f, .17f);
         var body = root.AddComponent<Rigidbody2D>(); body.bodyType = RigidbodyType2D.Kinematic; body.useFullKinematicContacts = true;
+        body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         var beakRoot = new GameObject("Animated beak"); beakRoot.transform.SetParent(root.transform, false);
         var beak = beakRoot.AddComponent<SpriteRenderer>(); beak.sortingOrder = 26;
         var streakRoot = new GameObject("Dive streak"); streakRoot.transform.SetParent(root.transform, false);
@@ -53,10 +56,10 @@ public sealed class GusiniCorruptedGoose : MonoBehaviour
     {
         if (spent) return;
         Vector2 point = body.position;
-        if (diving) point += diveDirection * (280f * scale * Time.fixedDeltaTime);
+        if (diving) point += diveDirection * (DiveSpeedPixels * scale * Time.fixedDeltaTime);
         else if (diveAt < 0f)
         {
-            point.x -= 130f * scale * Time.fixedDeltaTime;
+            point.x -= FormationSpeedPixels * scale * Time.fixedDeltaTime;
             point.y = baseY + Mathf.Sin(age * (2f * Mathf.PI / .8f) + bobPhase) * 8f * scale;
             if (diver && point.x <= diveX)
             {
