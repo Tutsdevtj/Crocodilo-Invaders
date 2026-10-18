@@ -1,0 +1,28 @@
+{
+ "file": "gusini_p2_corrupted_furious.png",
+ "character": "gusini",
+ "phase": 2,
+ "expression": "GUSINI_P2_CORRUPTED_FURIOUS",
+ "canvas": [
+  160,
+  160
+ ],
+ "resolution": "160x160 nativo (mesmo dos portraits da Fase 1)",
+ "pivot_px": [
+  80,
+  0
+ ],
+ "pivot_unity": [
+  0.5,
+  0.0
+ ],
+ "facing": "left",
+ "import": {
+  "filterMode": "Point",
+  "compression": "None",
+  "mipmaps": false,
+  "alpha": "0/255"
+ },
+ "replaces": "gusini_p1_* (troca direta: mesmo canvas, mesmo pivô, capacete/óculos/cachecol/uniforme no mesmo lugar)",
+ "usage": "retrato único da Fase 2 (todas as falas e eventos da fase)"
+}

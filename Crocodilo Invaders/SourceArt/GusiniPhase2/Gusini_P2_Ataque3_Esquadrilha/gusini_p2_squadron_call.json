@@ -1,0 +1,276 @@
+{
+ "animation": "gusini_p2_squadron_call",
+ "phase": 2,
+ "attack": "Esquadrilha Corrompida",
+ "loop": false,
+ "starts_from": "pose base da F2",
+ "returns_to": "pose base da F2",
+ "frame_count": 7,
+ "durations_ms": [
+  70,
+  100,
+  110,
+  150,
+  150,
+  180,
+  110
+ ],
+ "total_ms": 870,
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "events_frame": {
+  "telegraph_start": 0,
+  "call_start": 2,
+  "squadron_spawn": 5,
+  "recover_start": 6
+ },
+ "events_ms": {
+  "telegraph_start": 0,
+  "call_start": 170,
+  "squadron_spawn": 580,
+  "recover_start": 760
+ },
+ "telegraph_timeline_ms": {
+  "call_start (grasnado)": 170,
+  "edge_markers_on (sugestão)": 300,
+  "squadron_spawn (fora da tela)": 580,
+  "primeiro gansinho cruza a borda (sugestão)": 1200
+ },
+ "gansinho": {
+  "canvas": {
+   "w": 36,
+   "h": 28
+  },
+  "pivot_px": {
+   "x": 19,
+   "y": 14
+  },
+  "pivot_unity_normalized": {
+   "x": 0.5278,
+   "y": 0.5
+  },
+  "note": "mesmo canvas, pivô, hitbox (26x17) e animação do gansinho aprovado; só a pintura muda",
+  "fly_A": [
+   "gansinho/gansinho_ca_0.png",
+   "gansinho/gansinho_ca_1.png",
+   "gansinho/gansinho_ca_2.png",
+   "gansinho/gansinho_ca_3.png"
+  ],
+  "fly_B": [
+   "gansinho/gansinho_cb_0.png",
+   "gansinho/gansinho_cb_1.png",
+   "gansinho/gansinho_cb_2.png",
+   "gansinho/gansinho_cb_3.png"
+  ],
+  "fly_durations_ms": [
+   80,
+   70,
+   80,
+   70
+  ],
+  "beak_layer": [
+   "gansinho/gansinho_c_beak_0.png",
+   "gansinho/gansinho_c_beak_1.png",
+   "gansinho/gansinho_c_beak_2.png"
+  ],
+  "sing_clip": {
+   "states": [
+    0,
+    1,
+    2,
+    1
+   ],
+   "durations_ms": [
+    60,
+    60,
+    120,
+    70
+   ],
+   "quack_frame": 2
+  },
+  "diver_flash": {
+   "frames_A": [
+    "gansinho/gansinho_ca_flash_green_0.png",
+    "gansinho/gansinho_ca_flash_green_1.png",
+    "gansinho/gansinho_ca_flash_green_2.png",
+    "gansinho/gansinho_ca_flash_green_3.png"
+   ],
+   "frames_B": [
+    "gansinho/gansinho_cb_flash_green_0.png",
+    "gansinho/gansinho_cb_flash_green_1.png",
+    "gansinho/gansinho_cb_flash_green_2.png",
+    "gansinho/gansinho_cb_flash_green_3.png"
+   ],
+   "how": "alternar voo normal ↔ flash verde a cada 80 ms por 400 ms, parado; depois mergulho reto até a posição do player NAQUELE instante (sem perseguição)",
+   "dive_pose": "use o frame 2 do voo (asa para baixo) + fx_dive_streak atrás"
+  },
+  "hit_flash": {
+   "frames_A": [
+    "gansinho/gansinho_ca_hit_white_0.png",
+    "gansinho/gansinho_ca_hit_white_1.png",
+    "gansinho/gansinho_ca_hit_white_2.png",
+    "gansinho/gansinho_ca_hit_white_3.png"
+   ],
+   "frames_B": [
+    "gansinho/gansinho_cb_hit_white_0.png",
+    "gansinho/gansinho_cb_hit_white_1.png",
+    "gansinho/gansinho_cb_hit_white_2.png",
+    "gansinho/gansinho_cb_hit_white_3.png"
+   ],
+   "ms": 60
+  },
+  "hp": 2,
+  "death_fx": {
+   "frames": [
+    "fx/fx_gansinho_poof_0.png",
+    "fx/fx_gansinho_poof_1.png",
+    "fx/fx_gansinho_poof_2.png",
+    "fx/fx_gansinho_poof_3.png",
+    "fx/fx_gansinho_poof_4.png"
+   ],
+   "canvas": {
+    "w": 40,
+    "h": 40
+   },
+   "pivot": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "durations_ms": [
+    60,
+    60,
+    70,
+    80,
+    90
+   ]
+  }
+ },
+ "edge_warning": {
+  "frames": [
+   "fx/fx_edge_warning_0.png",
+   "fx/fx_edge_warning_1.png"
+  ],
+  "canvas": {
+   "w": 26,
+   "h": 24
+  },
+  "blink_ms": 120,
+  "how": "um marcador por gansinho, colado na borda direita, na altura (y) por onde ele vai entrar; some quando ele cruza a borda"
+ },
+ "dive_streak": {
+  "frames": [
+   "fx/fx_dive_streak_0.png",
+   "fx/fx_dive_streak_1.png",
+   "fx/fx_dive_streak_2.png"
+  ],
+  "canvas": {
+   "w": 24,
+   "h": 12
+  },
+  "ms": 60,
+  "note": "atrás do mergulhador (lado direito)"
+ },
+ "suggested_gameplay": {
+  "formation_offsets_from_leader_px": [
+   [
+    0,
+    0
+   ],
+   [
+    40,
+    -26
+   ],
+   [
+    40,
+    26
+   ],
+   [
+    80,
+    -52
+   ],
+   [
+    80,
+    52
+   ]
+  ],
+  "bob_amplitude_px": 8,
+  "bob_period_s": 0.8,
+  "bob_phase_offset_per_goose": 1.1,
+  "speed_px_s": "120–140",
+  "divers_below_hp": 0.6,
+  "divers_slots": [
+   1,
+   4
+  ],
+  "diver_stop_screen_x": 0.7,
+  "diver_warning_ms": 400
+ },
+ "frames": [
+  {
+   "index": 0,
+   "file": "frames/gusini_p2_squadron_call_0.png",
+   "duration_ms": 70,
+   "start_ms": 0,
+   "label": "base (= pose base F2)",
+   "event": "telegraph_start"
+  },
+  {
+   "index": 1,
+   "file": "frames/gusini_p2_squadron_call_1.png",
+   "duration_ms": 100,
+   "start_ms": 70,
+   "label": "preparação: estufa o peito, olho do módulo acende",
+   "event": null
+  },
+  {
+   "index": 2,
+   "file": "frames/gusini_p2_squadron_call_2.png",
+   "duration_ms": 110,
+   "start_ms": 170,
+   "label": "INÍCIO do grasnado distorcido (bico abre)",
+   "event": "call_start"
+  },
+  {
+   "index": 3,
+   "file": "frames/gusini_p2_squadron_call_3.png",
+   "duration_ms": 150,
+   "start_ms": 280,
+   "label": "grasnado sustentado A (ondas + falha)",
+   "event": null
+  },
+  {
+   "index": 4,
+   "file": "frames/gusini_p2_squadron_call_4.png",
+   "duration_ms": 150,
+   "start_ms": 430,
+   "label": "grasnado sustentado B",
+   "event": null
+  },
+  {
+   "index": 5,
+   "file": "frames/gusini_p2_squadron_call_5.png",
+   "duration_ms": 180,
+   "start_ms": 580,
+   "label": "COMANDO: cabeça avança, bico escancarado (SPAWN)",
+   "event": "squadron_spawn"
+  },
+  {
+   "index": 6,
+   "file": "frames/gusini_p2_squadron_call_6.png",
+   "duration_ms": 110,
+   "start_ms": 760,
+   "label": "recuperação",
+   "event": "recover_start"
+  }
+ ]
+}

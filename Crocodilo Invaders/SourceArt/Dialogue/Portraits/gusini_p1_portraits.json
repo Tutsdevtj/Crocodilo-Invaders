@@ -1,0 +1,69 @@
+{
+ "character": "gusini",
+ "phase": 1,
+ "canvas": [
+  160,
+  160
+ ],
+ "pivot_px": [
+  80,
+  0
+ ],
+ "pivot_unity": [
+  0.5,
+  0.0
+ ],
+ "facing": "left",
+ "import": {
+  "filterMode": "Point",
+  "compression": "None",
+  "mipmaps": false,
+  "alpha": "0/255"
+ },
+ "master": "gusini_p1_smug.png",
+ "expressions": [
+  {
+   "id": "GUSINI_P1_SMUG",
+   "file": "gusini_p1_smug.png",
+   "emotion": "debochado / arrogante",
+   "lines": [
+    "Heh... Você sempre aparece na hora de dar sermão, Croc."
+   ]
+  },
+  {
+   "id": "GUSINI_P1_RESENTFUL",
+   "file": "gusini_p1_resentful.png",
+   "emotion": "ressentido / amargo",
+   "lines": [
+    "A mesma voz de sempre... Dando ordens.",
+    "Lembra daquela tempestade? Quando meu motor morreu?",
+    "Eu sei. O esquadrão inteiro nunca me deixou esquecer."
+   ]
+  },
+  {
+   "id": "GUSINI_P1_POWER",
+   "file": "gusini_p1_power.png",
+   "emotion": "eufórico / obcecado por poder",
+   "lines": [
+    "Eles não precisam me salvar, Croc. Eles me deram poder."
+   ]
+  },
+  {
+   "id": "GUSINI_P1_VULNERABLE",
+   "file": "gusini_p1_vulnerable.png",
+   "emotion": "vulnerável / preocupado",
+   "lines": [
+    "...Croc. Vai embora."
+   ]
+  },
+  {
+   "id": "GUSINI_P1_HOSTILE",
+   "file": "gusini_p1_hostile.png",
+   "emotion": "hostil / determinado",
+   "lines": [
+    "Então vai ter que me derrubar."
+   ]
+  }
+ ],
+ "notes": "Todas derivam do mesmo master: capacete, óculos, pescoço, cachecol e uniforme são pixel-idênticos. Só mudam olho, pálpebras, sombra roxa, sobrancelha, vinco do sorriso e abertura do bico inferior."
+}

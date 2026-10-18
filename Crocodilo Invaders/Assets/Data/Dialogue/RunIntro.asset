@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661aa54ffdd7ae546b6ad3e9dc243230, type: 3}
+  m_Name: RunIntro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  cast: {fileID: 11400000, guid: 2c43a4ba8940e0545b9b30ac00bb5d60, type: 2}
+  openDelay: 0.9
+  closeDelay: 0.25
+  lines:
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Central, aqui \xE9 Croc. Tem aeronave nossa caindo por todo lado. Que diabos t\xE1 acontecendo?!"
+    expressionId: alert
+    pauseBefore: 0.7
+    pauseStyle: 1
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Central...? T\xE1 me ouvindo?"
+    expressionId: worried
+    pauseBefore: 1.1
+    pauseStyle: 1
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Merda... Quem ainda estiver voando, aguenta firme. T\xF4 chegando."
+    expressionId: determined
+    pauseBefore: 0.8
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 

@@ -1,0 +1,1461 @@
+{
+  "project": "Crocodilo Invaders",
+  "boss": "Gusini",
+  "phase": 2,
+  "source_zip": "Gusini_Fase2_Pacote_Codex.zip",
+  "status": "P0_GENERATED_P1_DEFERRED_FINAL_LISTENING_PENDING",
+  "generated_at": "2026-10-18",
+  "format_requested": {
+    "container": "WAV",
+    "sample_rate_hz": 48000,
+    "pcm_bit_depth": 24,
+    "channels": "mono unless loop/spatial use requires otherwise",
+    "fallback": "If provider cannot export WAV, retain original MP3 for audition and report limitation; never claim lossy->WAV conversion creates genuine lossless quality"
+  },
+  "generation_policy": {
+    "p0_required": 29,
+    "p1_optional": 8,
+    "candidates_per_required": 2,
+    "candidate_selection": "audition A/B for quality, timing, similarity to F1, nonfatiguing tone; never pretend to have listened",
+    "use_prior_phase1_assets_if_available": true,
+    "do_not_create_baked_sequences": true,
+    "no_background_music": true
+  },
+  "sounds": [
+    {
+      "id": "TR01",
+      "filename": "SFX_Gusini_P2_Transform_FinalHit.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.22–0.40 s",
+      "trigger": "final_hit_frame",
+      "alignment": "0 ms from 30-frame transformation start",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. A crisp, weighty metallic impact on a small purple cartoon aircraft, short frame rattle and feathered mechanical thump, a sense of apparent defeat, no explosion.",
+      "notes": "Freeze existing attacks; do not play defeat jingle.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.75,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 400.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_FinalHit.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TR01/A.wav",
+        "_candidates/TR01/B.wav"
+      ],
+      "source_hashes": {
+        "A": "00b019cb404369546d635a09f119d4c447f187dc5bee462de2832e2c8f745b02",
+        "B": "ce72507b925b4ff8f2af5f477dda5ca252f9522540f3f4e4f87ba4a513c1b64c"
+      }
+    },
+    {
+      "id": "TR02",
+      "filename": "SFX_Gusini_P2_Transform_EngineStall.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.45–0.85 s",
+      "trigger": "start_stagger_frame",
+      "alignment": "160 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Small vintage propeller airplane engine violently sputters and misfires, descending winding pitch, a few loose metal rattles and air pops, abruptly dying away. Not a car engine, not a huge jet.",
+      "notes": "End before quiet fake-death hold if possible. Pause engine loop while this plays.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.65,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 486.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_EngineStall.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TR02/A.wav",
+        "_candidates/TR02/B.wav"
+      ],
+      "source_hashes": {
+        "A": "267e6b05e36a82bda8e5971b186d51296b0055064b7ca08fa54c49a6b119d4a4",
+        "B": "c8e995682787d539dcf939471d9f52473a7337c51d8026082921a66375213309"
+      }
+    },
+    {
+      "id": "TR03",
+      "filename": "SFX_Gusini_P2_Transform_FirstPulse.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.25–0.45 s",
+      "trigger": "first_sign_frame",
+      "alignment": "1330 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Single eerie but charming alien biological electric heartbeat, tiny green-tinged crystalline pulse inside a broken small aircraft, intimate low-mid knock with a brief ascending shimmer; restrained and mysterious.",
+      "notes": "The initial green light AFTER the fake-death silence; no enormous riser.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.7,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 450.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_FirstPulse.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TR03/A.wav",
+        "_candidates/TR03/B.wav"
+      ],
+      "source_hashes": {
+        "A": "2446657eb6732023109599300125e3ce9dfb4590e5ae7c4c82ed59a3b3c025bc",
+        "B": "01041cc4b70f0eb7dd908a0afa706851afd9ee082bfb76c8a4b3ade381c1e40f"
+      }
+    },
+    {
+      "id": "TR04",
+      "filename": "SFX_Gusini_P2_Transform_CorruptionSurge.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.85–1.12 s",
+      "trigger": "corruption_start_frame",
+      "alignment": "1510 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Mutating alien power surges through creaking sheet metal, an organic wet electrical current growing in intensity, crackling pulses and strained servo vibration, short escalating arc, ends in tension, not a full explosion.",
+      "notes": "Can overlap rapid visual flickers; keep under peak hit.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.8,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "user_approved_pilot_B",
+      "user_identity_approval": "approved",
+      "actual_duration_ms": 1000.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_CorruptionSurge.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending.",
+        "B selected and sonic identity explicitly approved by user on 2026-10-18; existing approved master preserved."
+      ],
+      "subjective_quality_status": "pilot_approved",
+      "source_candidates": [
+        "_candidates/TR04/A.wav",
+        "_candidates/TR04/B.wav"
+      ],
+      "source_hashes": {
+        "A": "9b466a6a79698b9747a15da9a7dc419d51816973978b8eafe5b60d267ece4382",
+        "B": "77e16f28b1b8aa67ae9a9d15dd48ee0a190c0aaf2bc8e73e3777f36d850d9489"
+      }
+    },
+    {
+      "id": "TR05",
+      "filename": "SFX_Gusini_P2_Transform_MutationPeak.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.42–0.70 s",
+      "trigger": "transformation_peak_frame",
+      "alignment": "2530 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Compact brilliant alien electrical burst with sharp initial crack, deep-but-contained energy pop, broken ceramic-metal shard scatter and tiny crackles decaying quickly; dramatic but arcade-scaled, no sub-bass cinematic boom.",
+      "notes": "Align transient near 2530 ms; can extend through reveal at 2820ms.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.85,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 606.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_MutationPeak.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TR05/A.wav",
+        "_candidates/TR05/B.wav"
+      ],
+      "source_hashes": {
+        "A": "f506e2269391c85706dd9ff1a7ee5976d3726c5030491d2eb6b7d72b2301cdcd",
+        "B": "abcd6ed0cc27b63522ca43fbc75b32205520552d43ad2bb97b02675b576594d1"
+      }
+    },
+    {
+      "id": "TR06",
+      "filename": "SFX_Gusini_P2_Transform_RevealCry.wav",
+      "category": "Transformation",
+      "priority": "P0",
+      "duration_target_seconds": "0.32–0.58 s",
+      "trigger": "return_pose_frame",
+      "alignment": "3230 ms; phase2_ready_frame at 3800 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Short angry tortured cartoon goose honk-growl distorted by alien resonance, still unmistakably goose-like, crackling in the tail, a living creature struggling against possession, no human speech, no horror scream.",
+      "notes": "He is recoverable and will become an NPC; avoid grotesque monster vocal.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "generated",
+      "suggested_volume": 0.75,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 486.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Transformation/SFX_Gusini_P2_Transform_RevealCry.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TR06/A.wav",
+        "_candidates/TR06/B.wav"
+      ],
+      "source_hashes": {
+        "A": "89e096cee0d5b0cc63f73003b2c632dc3c9e47356b4734091cfe7488afcc1991",
+        "B": "30a64412953366ab8f5f4355f322e1d4af87558b5e889727393e5e7e13f0b196"
+      }
+    },
+    {
+      "id": "EN01",
+      "filename": "SFX_Gusini_P2_Energy_Charge.wav",
+      "category": "EnergyShot",
+      "priority": "P0",
+      "duration_target_seconds": "0.40–0.49 s",
+      "trigger": "telegraph_start",
+      "alignment": "0 ms; charge_full at 360 ms; first fire at 490 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Mechanical alien cannon charging: claw-like metal plates spread, tiny sparks gathering around an energy sphere, short layered rising electrical hum with increasingly fast crackles, stops cleanly before the blast. Clear telegraph.",
+      "notes": "Do not make it a full 1.5-second cue; aim at the 0–490 ms anticipation.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_energy_shot.json",
+      "status": "generated",
+      "suggested_volume": 0.7,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 480.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_Charge.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EN01/A.wav",
+        "_candidates/EN01/B.wav"
+      ],
+      "source_hashes": {
+        "A": "3dea306e8b4800d12e61f25d9a17808758aa686ba69ccb78ca03be585ffa1e4e",
+        "B": "70568037dec79ca9fb05e10b455255c61ab0278d1a5e9f47b5e629f041f43c6f"
+      }
+    },
+    {
+      "id": "EN02",
+      "filename": "SFX_Gusini_P2_Energy_Fire.wav",
+      "category": "EnergyShot",
+      "priority": "P0",
+      "duration_target_seconds": "0.20–0.35 s",
+      "trigger": "fire_1 / fire_2 / fire_3",
+      "alignment": "490 / 790 / 1090 ms in 1530 ms animation",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Huge but playful alien energy ball launched from an organic-mechanical cannon, sharp compressed electric thwump and spiraling green plasma fizz, tight punch and fast tail, slightly clumsy mechanical recoil. No bullet crack, no laser zap cliché.",
+      "notes": "ONE file replayed at all three fire events; pitch varied ±2% at most; ensure 300 ms rapid repeats do not build a wall of sound.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_energy_shot.json",
+      "status": "generated",
+      "suggested_volume": 0.65,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 290.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_Fire.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EN02/A.wav",
+        "_candidates/EN02/B.wav"
+      ],
+      "source_hashes": {
+        "A": "c493686d6107ddc37675db9c86b61d9aebf2b9df4847eec37f385db0b57c2fdd",
+        "B": "702b0c234ba3ab9d098725c4f34d5a8713c93c04737ae3ad98c1549a57bda4cc"
+      }
+    },
+    {
+      "id": "EN03",
+      "filename": "SFX_Gusini_P2_Energy_BallPop.wav",
+      "category": "EnergyShot",
+      "priority": "P0",
+      "duration_target_seconds": "0.17–0.32 s",
+      "trigger": "ball_pop",
+      "alignment": "When each energy ball hits or dissipates; not tied to boss clip",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Medium-sized alien plasma orb destabilizes and pops: brief twisting electric crunch, tiny sparkle fragments and a sucking implosion tail. Punchy but quieter than the main gunshot, no gunshot.",
+      "notes": "Do not play all pops at full volume if three projectiles end at once.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_energy_shot.json",
+      "status": "generated",
+      "suggested_volume": 0.6,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 320.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_BallPop.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EN03/A.wav",
+        "_candidates/EN03/B.wav"
+      ],
+      "source_hashes": {
+        "A": "dca95d6d4cf2f7d069113b1e050f19b70587e101f4535568e68ada86bf253f61",
+        "B": "63154d0912d5d798f76cab21cae1dc181af0368ca4cf1302f7dacaf0b3bc70a7"
+      }
+    },
+    {
+      "id": "EG01",
+      "filename": "SFX_Gusini_P2_Egg_ParachutePop.wav",
+      "category": "CorruptedEgg",
+      "priority": "P0",
+      "duration_target_seconds": "0.18–0.27 s",
+      "trigger": "Deploy start",
+      "alignment": "About 250 ms after egg spawn (estimated gameplay), deploy 60+70+80 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Tiny torn fabric parachute snaps open over a corrupted cartoon egg, a crisp elastic POP plus airy fabric flutter and one faint wet-electric sparkle, playful but increasingly ominous.",
+      "notes": "Prominent attack tell; mix brighter than ambient, not an explosive blast.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "generated",
+      "suggested_volume": 0.9,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 270.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_ParachutePop.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EG01/A.wav",
+        "_candidates/EG01/B.wav"
+      ],
+      "source_hashes": {
+        "A": "0d3f48aae2d2bd8d123715cc3d6bd1969cab157bda4d37e8a4607615c7367843",
+        "B": "73527c2a6041aee90bb548d2e39b37db5df192a2f10449b522658f30e05dd2b8"
+      }
+    },
+    {
+      "id": "EG02",
+      "filename": "SFX_Gusini_P2_Egg_PulseTick.wav",
+      "category": "CorruptedEgg",
+      "priority": "P0",
+      "duration_target_seconds": "0.10–0.18 s",
+      "trigger": "egg pulse",
+      "alignment": "During descent; pulse windows at 0.20 / 0.55 / 0.82 / 1.00 sec from descent start, per JSON",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Tiny sinister alien egg heartbeat tick: taut wet membrane knock layered with a soft rising crystalline electric chirp; extremely short, clear, sounds like one organic countdown pulse, no beeping computer timer.",
+      "notes": "Reuse same sample with tiny volume/pitch changes and tighter timing; do not play continuous loop.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "generated",
+      "suggested_volume": 0.55,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 180.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_PulseTick.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EG02/A.wav",
+        "_candidates/EG02/B.wav"
+      ],
+      "source_hashes": {
+        "A": "4ab69dd5219ea3ed9a9ebc8c87ee2f19d10257dcfeb0f7d8d17df37266afbf4d",
+        "B": "f1332e1fcdfd486b7765de4216eb746dc15021a8bbc16d57256532e9d70b8ce7"
+      }
+    },
+    {
+      "id": "EG03",
+      "filename": "SFX_Gusini_P2_Egg_Crack.wav",
+      "category": "CorruptedEgg",
+      "priority": "P0",
+      "duration_target_seconds": "0.12–0.22 s",
+      "trigger": "Crack1 and Crack2",
+      "alignment": "After 1.0–1.3 s descent; Crack1 lasts ~200 ms; Crack2 ~160 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Brittle eggshell crack with a moist organic tension underneath and very small alien-green electrical crackle, short and tactile, no loud explosion.",
+      "notes": "Use one small variation or dynamic pitch for Crack2; keep same material identity.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "generated",
+      "suggested_volume": 0.7,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 160.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_Crack.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EG03/A.wav",
+        "_candidates/EG03/B.wav"
+      ],
+      "source_hashes": {
+        "A": "32ccb2db33be1ea7f659e1e6be11694b7230f3c89a50ce05fb79ab4e7db3c03c",
+        "B": "7d2a752d1a0339c4fcfc17ab2cb1ccf2de011a989c53c4f9d07d33643aa28ca5"
+      }
+    },
+    {
+      "id": "EG04",
+      "filename": "SFX_Gusini_P2_Egg_Burst.wav",
+      "category": "CorruptedEgg",
+      "priority": "P0",
+      "duration_target_seconds": "0.24–0.40 s",
+      "trigger": "OnEggBurst",
+      "alignment": "Start of Burst state after Crack2; creates FIVE acid yolk projectiles",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Surprising cartoony rotten alien egg burst: brittle shell snap, bright acidic goo splat, a five-droplet outward flick and very brief electric fizz, mischievous but dangerous, no grenade explosion.",
+      "notes": "One burst sound for all five yolks; DO NOT generate five simultaneous launch sounds.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "generated",
+      "suggested_volume": 0.85,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 400.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_Burst.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/EG04/A.wav",
+        "_candidates/EG04/B.wav"
+      ],
+      "source_hashes": {
+        "A": "47b229d8d458844a7fdbf8a68feaf88d24775c622a6cf0fc60d3653d64e3dff2",
+        "B": "8a37dba5bde9c1f193526fe66dc185a16e31cd669ae262d608a6ec5ad9e4d4a3"
+      }
+    },
+    {
+      "id": "SQ01",
+      "filename": "SFX_Gusini_P2_Squadron_CorruptCall.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.36–0.52 s",
+      "trigger": "call_start",
+      "alignment": "170 ms in 870 ms boss animation; squadron spawns at 580 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. A goose commander gives one strained commanding HONK with alien buzzing harmonics, starts natural honk and briefly glitches into green electrical overtone, strong clear midrange warning. No words, no human voice, no electronic siren.",
+      "notes": "Voice still Gusini from phase 1, not a generic monster; end near summon at 580ms.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.75,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 410.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Squadron_CorruptCall.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ01/A.wav",
+        "_candidates/SQ01/B.wav"
+      ],
+      "source_hashes": {
+        "A": "380b97538696b3f1302f6e62b724474a6058ee6345327351b5015d8e4d6dd77e",
+        "B": "56a648f094c7ec268ad73d11b0e8b4a9ed5bb9c4bbf1e45ae2579eee1d135b4e"
+      }
+    },
+    {
+      "id": "SQ02",
+      "filename": "SFX_Gusini_P2_Squadron_EdgeMark.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.12–0.25 s",
+      "trigger": "edge_markers_on",
+      "alignment": "~300 ms boss animation; first goose enters ~1200 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Short soft alarm flicker for incoming aerial formations: two quick organic electrical tics with a tiny wing flutter, distinct from a UI beep, perceivable but subordinate to goose call.",
+      "notes": "ONE warning onset for all 5 entry markers; do not fire per marker blink.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.6,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 250.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Squadron_EdgeMark.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ02/A.wav",
+        "_candidates/SQ02/B.wav"
+      ],
+      "source_hashes": {
+        "A": "0f1893bc5c83a0efa4e5af9046f4fbb98fecfe6103adc1f7536b82ac69a18167",
+        "B": "1d0cd2c4962eea3a22571ce4bcc270ac06a410875d01e203ea0b57c431551a75"
+      }
+    },
+    {
+      "id": "SQ03",
+      "filename": "SFX_Gusini_P2_Goose_Honk_Low.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.14–0.28 s",
+      "trigger": "OnQuack",
+      "alignment": "When individual goose beak reaches open state (120 ms into singing clip)",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. One short low-pitched small goose honk, cartoonish, slightly alien throat resonance and a subtle crackle, playful but unsettling, clean attack. Same species and timbre as the mid/high family; no words.",
+      "notes": "LOW member of coherent 3-note goose family. Keep one attack transient.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.55,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 280.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_Low.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ03/A.wav",
+        "_candidates/SQ03/B.wav"
+      ],
+      "source_hashes": {
+        "A": "79bb2b1ec7d98738d9762893c5f94f07ed7f83b3ea5c6e60eebe1cbb4bef83dd",
+        "B": "c19d99a2b492499b84bd63d0762fbc1a792a8e45f407891b498a65040342c1c4"
+      }
+    },
+    {
+      "id": "SQ04",
+      "filename": "SFX_Gusini_P2_Goose_Honk_Mid.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.14–0.28 s",
+      "trigger": "OnQuack",
+      "alignment": "When individual goose beak reaches open state",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. One short mid-register small goose honk, cartoonish, slightly alien throat resonance and subtle crackle, playful but unsettling. Exact same creature family and acoustic feel as LOW and HIGH notes, no words.",
+      "notes": "MID member. Phase offsets follow squadron setup, not a baked chorus.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.5,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 280.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_Mid.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ04/A.wav",
+        "_candidates/SQ04/B.wav"
+      ],
+      "source_hashes": {
+        "A": "100b196de544dac4ff8dd4b2df51b3debe85d1b212eeeec451abe38bb39ca22d",
+        "B": "e29b03721708d13d70aafbc7ffc4813f8877aa3180329389a41a21095ae002ce"
+      }
+    },
+    {
+      "id": "SQ05",
+      "filename": "SFX_Gusini_P2_Goose_Honk_High.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.12–0.25 s",
+      "trigger": "OnQuack",
+      "alignment": "When individual goose beak reaches open state",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. One short higher-register small goose honk, cartoonish, slightly alien throat resonance and subtle crackle. Sweetly ridiculous, not shrill or piercing. Same species and timbre as LOW/MID, no words.",
+      "notes": "HIGH member; avoid harsh 3–6 kHz peaks. Each honk mono.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.45,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 250.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_High.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ05/A.wav",
+        "_candidates/SQ05/B.wav"
+      ],
+      "source_hashes": {
+        "A": "b231f348e94d13e0874078446a589671093f4c0cedc1fdc0aaa06037e9c8964f",
+        "B": "3ae63d95fc6bb0e27435a0c43b7f2f270d5871c00e7171fb67345663112fd0c5"
+      }
+    },
+    {
+      "id": "SQ06",
+      "filename": "SFX_Gusini_P2_Goose_DiverWarning.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.28–0.40 s",
+      "trigger": "diver_flash_start",
+      "alignment": "400 ms warning before dive; only specific geese below 60% boss HP",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Small corrupted goose preparing an attack dive, quick shaky anxious honk chirrup layered with a compact alien energy whirr rising in pitch. Audible cue that something is about to dive, funny but clear.",
+      "notes": "Once per diver at warning start, not every 80 ms flash.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.8,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 390.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_DiverWarning.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ06/A.wav",
+        "_candidates/SQ06/B.wav"
+      ],
+      "source_hashes": {
+        "A": "8c5cf8f1a830eba39ea6d71c9627329c5862801ad72f3aa163c65c795aac8262",
+        "B": "8e47031f11d18bf35ae8b61257760e15b3e6ed88e4324e0a50b0d817d4cb7f2d"
+      }
+    },
+    {
+      "id": "SQ07",
+      "filename": "SFX_Gusini_P2_Goose_DiveWhoosh.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.23–0.40 s",
+      "trigger": "diver_launch",
+      "alignment": "After 400 ms stationary flash warning; targeted straight line, no homing",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Tiny goose fighter dive-bomb whoosh: fast air rush with flapping wings and a short green crackling jet-like squeal, accelerating leftward through the air, no explosion, no speech.",
+      "notes": "Multiple simultaneous diving geese: cap voice count and vary stereo pan gently.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.65,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 400.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_DiveWhoosh.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ07/A.wav",
+        "_candidates/SQ07/B.wav"
+      ],
+      "source_hashes": {
+        "A": "7ef38df8902bb962c85d33f3e40e1c09585c5e14a58138ac1ecd4cf878a32fca",
+        "B": "62de0d7dae120eedc1cebfc5ea1100bfeedea1a557bb26491f9bc42bcc98bf15"
+      }
+    },
+    {
+      "id": "SQ08",
+      "filename": "SFX_Gusini_P2_Goose_Poof.wav",
+      "category": "CorruptedSquadron",
+      "priority": "P0",
+      "duration_target_seconds": "0.22–0.40 s",
+      "trigger": "goose_defeated",
+      "alignment": "On gansinho HP reaching 0; 5-frame 60/60/70/80/90 ms death FX",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Tiny corrupted cartoon goose pops into feathers and sparks, soft cartoony puff, very small feather flutter and a short acidic electric fizz, not a gruesome impact or full explosion.",
+      "notes": "Many can die close together; cap at 2 concurrent poofs.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "generated",
+      "suggested_volume": 0.7,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 400.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Poof.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/SQ08/A.wav",
+        "_candidates/SQ08/B.wav"
+      ],
+      "source_hashes": {
+        "A": "534f853856e1da48c34e60fe6b94a72776f73beb910b3c46dbbce5934e12b44a",
+        "B": "1224af410fd8f06c37bfc0a659b5cc911b2b609107081206784a98fd5b7039c9"
+      }
+    },
+    {
+      "id": "TE01",
+      "filename": "SFX_Gusini_P2_Tentacle_ModuleCrack.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.16–0.30 s",
+      "trigger": "start telegraph",
+      "alignment": "Module pulses at 80 ms; begins cracking before 190 ms emergence",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Small alien carapace on aircraft splits under pressure: hard brittle shell crunch with wet organic tearing beneath and a thin electrical hiss, close and deliberate, not an explosion.",
+      "notes": "Beginning of exclusive tentacle attack. No full-body horror.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.6,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 300.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_ModuleCrack.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE01/A.wav",
+        "_candidates/TE01/B.wav"
+      ],
+      "source_hashes": {
+        "A": "abe3729cd6931d5c7b309d014c7c426ed73e7fa961fcfa5e188e5a0ac4cc927f",
+        "B": "a37376b2364c55ed9664784f853d2042990c620583ce1197fc7e344639ab0f6d"
+      }
+    },
+    {
+      "id": "TE02",
+      "filename": "SFX_Gusini_P2_Tentacle_Emerge.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.30–0.51 s",
+      "trigger": "tentacles_emerge",
+      "alignment": "190 ms in 610 ms start clip",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Two armored alien tentacles force themselves out of a cracked engine parasite, segmented chitin scrape, sinewy wet unfurl and faint electric pulse climbing through plates. Distinct attack with a clean end, no fantasy magic whoosh.",
+      "notes": "Should sound like the parasite organism existing dark slate carapace, not bare tentacle slime.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.65,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 486.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_Emerge.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE02/A.wav",
+        "_candidates/TE02/B.wav"
+      ],
+      "source_hashes": {
+        "A": "3643b1fd2c004f241517df4c43747a56c12a4a832fe89ff3642077e13dcf0406",
+        "B": "fe153d774a0dc8584c66d54e5bb7fbfb401153c329ffbe894c29ebd2343160c9"
+      }
+    },
+    {
+      "id": "TE03",
+      "filename": "SFX_Gusini_P2_Tentacle_LaneWarning.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.74–0.89 s",
+      "trigger": "warn_loop_start",
+      "alignment": "At start of EACH ~900 ms warning for two of three lanes",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Restrained alien danger telegraph, soft pulsing electrical throbs progressively tightening toward the end, undercurrent of tense shell vibration, with a clear last pulse right before impact; easy to hear over gameplay but not an alarm siren.",
+      "notes": "ONE cue per warning cycle, NOT on every visual blink, and silent safe lane.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.75,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 886.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_LaneWarning.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE03/A.wav",
+        "_candidates/TE03/B.wav"
+      ],
+      "source_hashes": {
+        "A": "aa96a607f145a086ba77f52ed9b4d455cb725dcd2de14ef3fd7ab13e0d2fb2b0",
+        "B": "3dd6c21f67243175df83fa072d0336de001aafb94ae853334e7f37d1ae81fb66"
+      }
+    },
+    {
+      "id": "TE04",
+      "filename": "SFX_Gusini_P2_Tentacle_Lash.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.26–0.47 s",
+      "trigger": "lash_hit",
+      "alignment": "After warning 900 ms at boss lash frame 2; spawns two lane tentacles",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Armored alien scorpion-like tentacles whip explosively backward then slash across the air: a powerful fast chitin swish with tense sinewy snap and a short green-electric tail, dangerous but compact, no huge bass.",
+      "notes": "One shared lash sound for each of three repetitions; slight pitch variation and voice-limit.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.8,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "user_approved_pilot_B",
+      "user_identity_approval": "approved",
+      "actual_duration_ms": 470.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_Lash.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending.",
+        "B selected and sonic identity explicitly approved by user on 2026-10-18; existing approved master preserved."
+      ],
+      "subjective_quality_status": "pilot_approved",
+      "source_candidates": [
+        "_candidates/TE04/A.wav",
+        "_candidates/TE04/B.wav"
+      ],
+      "source_hashes": {
+        "A": "59717cde2dc0f614389a9f3ab114cda015ca6f06e77e0df09e75c75e5f8cce16",
+        "B": "d6fb35b69ca4cf677240073b7f893ad41ed828839539e10e43e1eaf91f8d5d44"
+      }
+    },
+    {
+      "id": "TE05",
+      "filename": "SFX_Gusini_P2_Tentacle_TipCrack.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.15–0.25 s",
+      "trigger": "lane_strike",
+      "alignment": "160 ms after individual lane_tentacle begins (lane frame 3)",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Sharp alien armored spike reaches full extension and cracks the air, tiny hard crystalline snap and chitin clack, short and percussive, not a gunshot or extra explosion.",
+      "notes": "Could play once for two lanes striking simultaneously, rather than twice.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.65,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 250.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_TipCrack.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE05/A.wav",
+        "_candidates/TE05/B.wav"
+      ],
+      "source_hashes": {
+        "A": "91edfbfb877069ad372d7df90def97ab44ce215e9d4c89e8546fb89a8566b6cb",
+        "B": "bc7487ceb97a88894bf910051f6c792371cf87569ddf78faaa084c4813992db5"
+      }
+    },
+    {
+      "id": "TE06",
+      "filename": "SFX_Gusini_P2_Tentacle_ResistCry.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.35–0.60 s",
+      "trigger": "resist_start",
+      "alignment": "Start of 810 ms resist animation after 3rd lash cycle",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. A cartoon goose pilot gasps and strains against an alien parasite, short strained goose honk with slipping distorted electrical tone, conveys his original personality briefly returning; no human speech, not a demon scream.",
+      "notes": "Leave space for 2.0 s exposed weakpoint. This is a character/narrative cue.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.7,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "A",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 486.5,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_ResistCry.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE06/A.wav",
+        "_candidates/TE06/B.wav"
+      ],
+      "source_hashes": {
+        "A": "c6aabfdad1f14e9be2bac6868b75b18bdde76cedcfb7a1b513ffd1ccfd88b7ac",
+        "B": "4d94beee3a0ca39b6038e9dbc0ee677a8c56fdb23136e43b4ca462cc1dcf56b7"
+      }
+    },
+    {
+      "id": "TE07",
+      "filename": "SFX_Gusini_P2_Tentacle_WeakpointOpen.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.22–0.35 s",
+      "trigger": "weakpoint_open",
+      "alignment": "Resist clip frame 4 begins at +370 ms; core exposed for 2.0 s via loop",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Alien parasite core armor peels open, tight metal-organic click with a fragile glassy green energy ping, inviting an opening to attack. Clearly different from dangerous lash sounds, short and slightly hopeful.",
+      "notes": "Do not generate 2 seconds of constant whine; open one-shot only.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.8,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 350.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_WeakpointOpen.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE07/A.wav",
+        "_candidates/TE07/B.wav"
+      ],
+      "source_hashes": {
+        "A": "49fc8c9958fbf0507b50c8ff597b7e421b4678479eec67c72dc8fb39d47837d5",
+        "B": "1ab9676302408e1305c2077500c9da35f9fde2577eeae284104ebe28be861f56"
+      }
+    },
+    {
+      "id": "TE08",
+      "filename": "SFX_Gusini_P2_Tentacle_WeakpointClose.wav",
+      "category": "Tentacles",
+      "priority": "P0",
+      "duration_target_seconds": "0.16–0.30 s",
+      "trigger": "weakpoint_close",
+      "alignment": "After 2.0 s weakpoint exposure; closes in resist frame 6",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Alien armor plates snap closed over vulnerable core with a small hungry suction, metallic latch and a low electronic gulp, fast and clear, ending the attack opportunity.",
+      "notes": "Do not play immediately 240ms after open; clip frames 4–5 are HELD/LOOPED for 2s.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "generated",
+      "suggested_volume": 0.75,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "selected_candidate": "B",
+      "selection_method": "technical_AB_retained_energy_then_high_frequency_score",
+      "user_identity_approval": "not_individually_reviewed",
+      "subjective_quality_status": "pending_final_listening",
+      "actual_duration_ms": 300.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "source_pcm_bit_depth": 16,
+      "editorial_pcm_bit_depth": 24,
+      "output_path": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_WeakpointClose.wav",
+      "editorial_notes": [
+        "Original provider WAV PCM16 stereo 48 kHz preserved unchanged. Editorial master PCM24 mono does not add source precision.",
+        "Average L/R to mono; DC removal, initial silence trim, end trim within event window, 0.5 ms fade-in and 8 ms fade-out; peak -3 dBFS. No time-stretching or synthesized replacements.",
+        "A/B comparison is technical, not a claim of critical listening. Final subjective listening in game remains pending."
+      ],
+      "source_candidates": [
+        "_candidates/TE08/A.wav",
+        "_candidates/TE08/B.wav"
+      ],
+      "source_hashes": {
+        "A": "552177c2bb3f493ef72d6849c17a6496b4ce63f2e8667c28b9608a12687d52ba",
+        "B": "bc1adcc6c0dc440b1d6f2ec20f71f9c231087d5af056572e4d80fb3abb51c160"
+      }
+    },
+    {
+      "id": "OP01",
+      "filename": "SFX_Gusini_P2_Ambient_DamagedEngine_Loop.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "1.2–2.8 s",
+      "trigger": "phase2_ready_frame",
+      "alignment": "From 3800 ms transform until boss dies",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Subdued seamless loop of a small propeller airplane engine partially overrun by alien static, uneven airy rotor chug with very soft organic electrical heartbeat, low detail, no distinct foreground attacks.",
+      "notes": "Optional, low volume; MUST be seamless and no prominent transitions.",
+      "loop": true,
+      "candidates": 2,
+      "source_reference": "gusini_transform_f1_f2.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP02",
+      "filename": "SFX_Gusini_P2_Energy_ChargeFull.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.08–0.17 s",
+      "trigger": "charge_full",
+      "alignment": "360 ms in EnergyShot",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Very short crisp alien crystalline ping indicating cannon is charged, delicate and tactile, no music tone or warning siren.",
+      "notes": "Optional if already covered by charge crescendo.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_energy_shot.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP03",
+      "filename": "SFX_Gusini_P2_Egg_HatchCorrupt.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.20–0.32 s",
+      "trigger": "hatch_open",
+      "alignment": "180 ms in EggDrop; egg drops at 400 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. A small aircraft egg hatch ratchets open with a squeaky old metal latch and a faint alien glow fizz beneath, continuing the exact same mechanical family as phase 1.",
+      "notes": "Reuse P1 hatch mechanically if available; add this only if cleanly different.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP04",
+      "filename": "SFX_Gusini_P2_Egg_Drop.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.10–0.22 s",
+      "trigger": "egg_drop",
+      "alignment": "400 ms in EggDrop",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Small sinister cartoon egg plunks out of an airplane release hatch with a springy mechanical thunk and a tiny acidic energy chirp, no explosion.",
+      "notes": "Reuse P1 egg drop if this is redundant.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_egg_drop.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP05",
+      "filename": "SFX_Gusini_P2_Squadron_Flyby.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.35–0.65 s",
+      "trigger": "first_goose_enter",
+      "alignment": "Roughly 1200 ms after boss call starts, gameplay-dependent",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. A squad of five tiny alien-corrupted goose fighter pilots rushing into view, faint multi-wing flutter, fast distant air flutter and a subtle electrical rattle, without any honking.",
+      "notes": "One squadron-root cue only; can reuse the F1 flyby at lower level.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP06",
+      "filename": "SFX_Gusini_P2_Tentacle_Retract.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.18–0.38 s",
+      "trigger": "lane retract",
+      "alignment": "From lane_tentacle frame 5, 320 ms after lane spawn",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Fast armored alien tentacle retracts back into shadow, brief slick chitin plate rub with reverse airy zip and small organic coil, no slam.",
+      "notes": "Optional if Lash and TipCrack already communicate all motion.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_tentacles.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP07",
+      "filename": "SFX_Gusini_P2_UI_BarTakeover.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.22–0.44 s",
+      "trigger": "bossbar_takeover",
+      "alignment": "F2 boss bar starts at phase2_reveal_frame 2820 ms",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. UI-scale alien green energy creeps across ornate brass purple boss health bar and transforms it, very short layered crackle with an elegant metallic click and concise confirmation ping; subtle interface polish, not a spell cast.",
+      "notes": "Avoid duplicating TransformationPeak; may be better to use existing transformation impact instead.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "bossbar_f2_layout.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    },
+    {
+      "id": "OP08",
+      "filename": "SFX_Gusini_P2_Goose_Hit.wav",
+      "category": "Optional",
+      "priority": "P1",
+      "duration_target_seconds": "0.08–0.18 s",
+      "trigger": "goose_hit",
+      "alignment": "First of two hits; small 60 ms white flash",
+      "prompt_en": "Clean isolated video game sound effect, stylized 2D pixel-art cartoon aviation invaded by organic alien energy. No music, no words, no background ambience, no long reverb, no clipping. Tiny goose takes a cartoon projectile hit: light papery thip, one feather shake, compact dry metal-ceramic tick; no cry, no heavy hit.",
+      "notes": "Can reuse existing hit if it blends in better.",
+      "loop": false,
+      "candidates": 2,
+      "source_reference": "gusini_p2_squadron_call.json",
+      "status": "deferred",
+      "suggested_volume": 1.0,
+      "suggested_pitch_range": [
+        1.0,
+        1.0
+      ],
+      "deferred_reason": "P0 prioritized; no demonstrated audible mix benefit from extra layers. F1 hatch/drop/flyby/hit may be reused during integration."
+    }
+  ],
+  "generator": "ElevenLabs Sound Effects",
+  "critical_listening": "not_performed_by_agent; user approved TR04 and TE04 identity",
+  "generated_downloaded_effects": 29,
+  "p0_pending_count": 0,
+  "p1_deferred_count": 8,
+  "generation_ui_notes": "Website creates four variants per batch. Only provider candidates 1 and 2 were downloaded as the requested A/B pair; variants 3 and 4 remain in provider history.",
+  "rights_record": {
+    "account_plan_observed": "Starter",
+    "observed_date": "2026-10-18",
+    "official_policy_url": "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform",
+    "policy_summary": "Paid plans include commercial licensing for non-Beta services, subject to IP rights, applicable law, Terms of Service and service-specific terms. No legal guarantee is added by transcoding."
+  },
+  "bulk_production_authorized": true,
+  "approved_total_credit_cap": 350,
+  "candidate_comparison_report": "CANDIDATE_COMPARISON.json",
+  "integration_project_modified": false,
+  "source_download_log": "download_provenance.jsonl",
+  "credits_observed_spent": 215
+}

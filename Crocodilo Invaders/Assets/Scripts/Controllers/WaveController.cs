@@ -4,7 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemySpawner), typeof(RunScore))]
 public sealed class WaveController : MonoBehaviour
 {
-    public enum RunPhase { Waiting, Announcing, Combat, Intermission, Boss, BossDefeated, Completed, Failed }
+    // Intro: abertura narrativa da run, antes do anúncio da primeira horda.
+    // ChapterCompleted: boss resgatado, cena final concluída; aguarda a troca para o HUB (sem tela de vitória).
+    public enum RunPhase { Waiting, Announcing, Combat, Intermission, Boss, BossDefeated, Completed, Failed, Intro, ChapterCompleted }
 
     [SerializeField] private Player player;
     [SerializeField, Tooltip("Usado quando Wave Composition está vazia.")]
@@ -22,12 +24,14 @@ public sealed class WaveController : MonoBehaviour
     [SerializeField, Min(0)] private int waveClearBonus = 1000;
     [SerializeField] private Boss bossPrefab;
     [SerializeField] private Transform bossSpawnPoint;
+    [SerializeField, Tooltip("Opcional: cenas narrativas da abertura e do boss.")] private RunCutscenes cutscenes;
 
     private EnemySpawner spawner;
     private RunScore score;
     private Health playerHealth;
     private float phaseEndsAt;
     private EnemyWave[] runComposition;
+    private bool chapterEnding;
 
     public RunPhase Phase { get; private set; } = RunPhase.Waiting;
     public int CurrentWave { get; private set; }
@@ -60,6 +64,7 @@ public sealed class WaveController : MonoBehaviour
     public event Action<int, int> WaveCleared;
     public event Action<bool> RunEnded;
     public event Action<Boss> BossStarted;
+    public event Action ChapterCompleted;
 
     private void Awake()
     {
@@ -113,7 +118,9 @@ public sealed class WaveController : MonoBehaviour
         if (Phase == RunPhase.Waiting) player.SetGameplayActive(false);
     }
 
-    public void StartRun()
+    public void StartRun() => BeginRun(true);
+
+    private void BeginRun(bool playIntro)
     {
         if (!isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return;
         if (!ValidateWaves(out string error)) { Debug.LogError(error, this); return; }
@@ -128,6 +135,20 @@ public sealed class WaveController : MonoBehaviour
         score.ResetScore();
         LeaderboardSession.StartRun();
         player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
+        // Uma vez por run nova; as ondas só começam quando a abertura termina ou é pulada.
+        if (playIntro && cutscenes != null && cutscenes.PlayRunIntro(FinishIntro))
+        {
+            Phase = RunPhase.Intro;
+            player.SetGameplayActive(false);
+            return;
+        }
+        player.SetGameplayActive(true);
+        AnnounceNextWave();
+    }
+
+    private void FinishIntro()
+    {
+        if (Phase != RunPhase.Intro || playerHealth.IsDead) return;
         player.SetGameplayActive(true);
         AnnounceNextWave();
     }
@@ -160,14 +181,14 @@ public sealed class WaveController : MonoBehaviour
             if (CurrentWave == WaveCount) EndRun(true);
             else AnnounceNextWave();
         }
-        else if (Phase == RunPhase.BossDefeated && Time.time >= phaseEndsAt) EndRun(true);
+        else if (Phase == RunPhase.BossDefeated && !chapterEnding && Time.time >= phaseEndsAt) EndRun(true);
     }
 
 #if UNITY_EDITOR
     public void StartBossForDevelopment()
     {
         if (Phase != RunPhase.Waiting || bossPrefab == null) return;
-        StartRun();
+        BeginRun(false);
         if (Phase != RunPhase.Announcing) return;
         spawner.StopCombat();
         CurrentWave = WaveCount;
@@ -184,6 +205,8 @@ public sealed class WaveController : MonoBehaviour
         ActiveBoss.Defeated += OnBossDefeated;
         BossReinforcements reinforcements = ActiveBoss.GetComponent<BossReinforcements>();
         if (reinforcements != null) reinforcements.Configure(spawner);
+        // Antes de BeginBattle: a cena segura só o início do combate, nunca a entrada.
+        if (cutscenes != null) cutscenes.PrepareBoss(ActiveBoss);
         ActiveBoss.BeginBattle(playerHealth);
         BossStarted?.Invoke(ActiveBoss);
     }
@@ -195,6 +218,23 @@ public sealed class WaveController : MonoBehaviour
         phaseEndsAt = Time.time + boss.DefeatDuration;
         score.RecordDefeat(boss.PointsOnDefeat);
         ClearProjectiles(false);
+        if (!boss.RetainedAfterDefeat) return;
+        // Boss resgatado: o fim de run antigo (RunEnded/painel de vitória) dá lugar à cena final e ao HUB.
+        chapterEnding = true;
+        player.SetGameplayActive(false);
+        if (cutscenes == null || !cutscenes.PlayBossFinale(boss, CompleteChapter)) CompleteChapter();
+    }
+
+    private void CompleteChapter()
+    {
+        if (Phase != RunPhase.BossDefeated || !chapterEnding) return;
+        Phase = RunPhase.ChapterCompleted;
+        spawner.StopCombat();
+        if (ActiveBoss != null) ActiveBoss.Defeated -= OnBossDefeated;
+        player.SetGameplayActive(false);
+        ClearProjectiles(false);
+        LeaderboardSession.Complete(score.Points, score.Kills, true);
+        ChapterCompleted?.Invoke();
     }
 
     private void AnnounceNextWave()
@@ -207,7 +247,7 @@ public sealed class WaveController : MonoBehaviour
 
     private void OnPlayerDied()
     {
-        if (Phase == RunPhase.Completed || Phase == RunPhase.Failed) return;
+        if (Phase == RunPhase.Completed || Phase == RunPhase.Failed || Phase == RunPhase.ChapterCompleted) return;
         EndRun(false);
     }
 

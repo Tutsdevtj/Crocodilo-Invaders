@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
   targetCamera: {fileID: 0}
   mode: 0
-  scrollSpeed: 2.2
+  scrollSpeed: 1.8
   spacing: 0
   alternateMirroring: 0
   despawnMargin: 0.2
@@ -2605,7 +2605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
   targetCamera: {fileID: 0}
   mode: 0
-  scrollSpeed: 0.25
+  scrollSpeed: 0.2
   spacing: 0
   alternateMirroring: 0
   despawnMargin: 0.2
@@ -2752,7 +2752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
   targetCamera: {fileID: 0}
   mode: 0
-  scrollSpeed: 4
+  scrollSpeed: 3.4
   spacing: 0
   alternateMirroring: 0
   despawnMargin: 0.2
@@ -2954,6 +2954,7 @@ GameObject:
   - component: {fileID: 7983329549069409324}
   - component: {fileID: 8113523465555526836}
   - component: {fileID: 8364270197778428415}
+  - component: {fileID: 8261940737180124503}
   m_Layer: 0
   m_Name: L1_alien_mothership_layer
   m_TagString: Untagged
@@ -3113,6 +3114,21 @@ MonoBehaviour:
   - {x: 2.68, y: 0.04}
   - {x: 0.32, y: 0.76}
   - {x: 1.74, y: 0.56}
+--- !u!114 &8261940737180124503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610545628491323258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04938717d729ed942a6efc5ca2211b3f, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundShipDrift
+  targetCamera: {fileID: 0}
+  scrollSpeed: 0.08
+  loopMargin: 0.35
 --- !u!1 &8029162002186516337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,6 +3292,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a897531bf16f719478d499905ead1ab7, type: 3}
   - {fileID: 21300000, guid: ce8afbb4c9effc34eac47922bbc71d77, type: 3}
   - {fileID: 21300000, guid: 1c5e95badebabe64ba915f05cb2abdec, type: 3}
+  parallaxSpeed: 0.38
 --- !u!1 &8186557715630067465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,7 +3525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
   targetCamera: {fileID: 0}
   mode: 0
-  scrollSpeed: 1.2
+  scrollSpeed: 0.52
   spacing: 0
   alternateMirroring: 0
   despawnMargin: 0.2
@@ -3747,7 +3764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingLayer
   targetCamera: {fileID: 0}
   mode: 0
-  scrollSpeed: 0.4
+  scrollSpeed: 0.38
   spacing: 0
   alternateMirroring: 0
   despawnMargin: 0.2

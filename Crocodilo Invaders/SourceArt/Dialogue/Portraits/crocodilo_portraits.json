@@ -1,0 +1,108 @@
+{
+ "scene": "pre_boss_gusini_f1",
+ "notes": [
+  "Ordem das falas reconstruída alternando Croc/Gusini a partir das falas citadas no pedido; confirme a ordem com o roteiro.",
+  "Portraits do Gusini ainda não foram entregues: portraitFilename = null nessas falas (expressionId já está definido para quando forem feitos)."
+ ],
+ "portraitFolder": "portraits/",
+ "lines": [
+  {
+   "index": 1,
+   "speakerId": "crocodilo",
+   "text": "Gusini...? Que porra tu tá fazendo? Aqueles eram dos nossos!",
+   "expressionId": "CROC_01",
+   "portraitFilename": "crocodilo_01_surpreso_indignado.png"
+  },
+  {
+   "index": 2,
+   "speakerId": "gusini",
+   "text": "Heh... Você sempre aparece na hora de dar sermão, Croc.",
+   "expressionId": "GUSINI_01",
+   "portraitFilename": null
+  },
+  {
+   "index": 3,
+   "speakerId": "crocodilo",
+   "text": "Baixa esse canhão. Agora.",
+   "expressionId": "CROC_02",
+   "portraitFilename": "crocodilo_02_serio_autoritario.png"
+  },
+  {
+   "index": 4,
+   "speakerId": "gusini",
+   "text": "A mesma voz de sempre... Dando ordens.",
+   "expressionId": "GUSINI_02",
+   "portraitFilename": null
+  },
+  {
+   "index": 5,
+   "speakerId": "crocodilo",
+   "text": "Que papo é esse, irmão? Eu tô tentando falar contigo!",
+   "expressionId": "CROC_03",
+   "portraitFilename": "crocodilo_03_confuso_preocupado.png"
+  },
+  {
+   "index": 6,
+   "speakerId": "gusini",
+   "text": "Lembra daquela tempestade? Quando meu motor morreu?",
+   "expressionId": "GUSINI_02",
+   "portraitFilename": null
+  },
+  {
+   "index": 7,
+   "speakerId": "crocodilo",
+   "text": "Claro que lembro. Eu voltei pra te buscar.",
+   "expressionId": "CROC_03",
+   "portraitFilename": "crocodilo_03_confuso_preocupado.png"
+  },
+  {
+   "index": 8,
+   "speakerId": "gusini",
+   "text": "Eu sei. O esquadrão inteiro nunca me deixou esquecer.",
+   "expressionId": "GUSINI_02",
+   "portraitFilename": null
+  },
+  {
+   "index": 9,
+   "speakerId": "crocodilo",
+   "text": "Eu voltei porque tu era meu amigo, seu idiota.",
+   "expressionId": "CROC_04",
+   "portraitFilename": "crocodilo_04_sincero_magoado.png"
+  },
+  {
+   "index": 10,
+   "speakerId": "gusini",
+   "text": "Eles não precisam me salvar, Croc. Eles me deram poder.",
+   "expressionId": "GUSINI_03",
+   "portraitFilename": null
+  },
+  {
+   "index": 11,
+   "speakerId": "crocodilo",
+   "text": "Esse poder fez tu atirar nos teus próprios amigos.",
+   "expressionId": "CROC_04",
+   "portraitFilename": "crocodilo_04_sincero_magoado.png"
+  },
+  {
+   "index": 12,
+   "speakerId": "gusini",
+   "text": "...Croc. Vai embora.",
+   "expressionId": "GUSINI_04",
+   "portraitFilename": null
+  },
+  {
+   "index": 13,
+   "speakerId": "crocodilo",
+   "text": "Nem fodendo. Não vou te deixar aqui.",
+   "expressionId": "CROC_05",
+   "portraitFilename": "crocodilo_05_determinado.png"
+  },
+  {
+   "index": 14,
+   "speakerId": "gusini",
+   "text": "Então vai ter que me derrubar.",
+   "expressionId": "GUSINI_05",
+   "portraitFilename": null
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661aa54ffdd7ae546b6ad3e9dc243230, type: 3}
+  m_Name: GusiniBossIntro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  cast: {fileID: 11400000, guid: 2c43a4ba8940e0545b9b30ac00bb5d60, type: 2}
+  openDelay: 0.5
+  closeDelay: 0.4
+  lines:
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Gusini...? Aqueles avi\xF5es eram dos nossos."
+    expressionId: alert
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Olha s\xF3. A estrela do esquadr\xE3o resolveu aparecer."
+    expressionId: smug
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Baixa esse canh\xE3o."
+    expressionId: serious
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: gusini
+    speakerName: 
+    text: Sempre dando ordens. Como naquela tempestade.
+    expressionId: resentful
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: Eu voltei pra te buscar.
+    expressionId: serious
+    pauseBefore: 0.25
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Eu sei. Todo mundo fez quest\xE3o de lembrar."
+    expressionId: resentful
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Eu fiz aquilo porque voc\xEA era meu amigo."
+    expressionId: sincere
+    pauseBefore: 0.2
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: gusini
+    speakerName: 
+    text: "E agora eu n\xE3o preciso mais ser salvo."
+    expressionId: power
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Se \xE9 voc\xEA mesmo a\xED dentro, para com isso."
+    expressionId: worried
+    pauseBefore: 0.3
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Ent\xE3o vem me parar, Croc."
+    expressionId: hostile
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 

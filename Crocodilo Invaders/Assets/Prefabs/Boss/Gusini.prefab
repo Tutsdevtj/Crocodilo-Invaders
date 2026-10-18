@@ -51,6 +51,9 @@ GameObject:
   - component: {fileID: 8540757737939463072}
   - component: {fileID: 7541540619077339281}
   - component: {fileID: 7610014584368490345}
+  - component: {fileID: 7013901953757201666}
+  - component: {fileID: 7357089287056485607}
+  - component: {fileID: 1382995850855924377}
   m_Layer: 9
   m_Name: Gusini
   m_TagString: Untagged
@@ -347,7 +350,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GusiniAudio
   config: {fileID: 11400000, guid: 7408425f0d742294b9e0b743e44a79c2, type: 2}
+  phaseTwoConfig: {fileID: 11400000, guid: b8cf91996b39cda46b38101391b1829e, type: 2}
   poolSize: 10
+--- !u!114 &7013901953757201666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227962336603302642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff03786e9636f14eb9efba9f9da1b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniPhaseTwo
+  assets: {fileID: 11400000, guid: 25997a53dee20a14b823cc0ed5024158, type: 2}
+  phaseTwoController: {fileID: 9100000, guid: 4aed1372b802ca54f8ab154302227c42, type: 2}
+  visual: {fileID: 1620649006343108445}
+  phaseTwoHealth: 320
+  recovery: 0.8
+--- !u!114 &7357089287056485607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227962336603302642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f8bbc6c54e8549b8f237c1a880971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniMusic
+  phaseOneMusic: {fileID: 8300000, guid: e2ebaebe4779b704490b71422131cb40, type: 3}
+  phaseTwoMusic: {fileID: 8300000, guid: cb92a94388ebb8041b18bf398afac124, type: 3}
+  phaseOneVolume: 0.28
+  phaseTwoVolume: 0.24
+  fadeIn: 0.6
+  transitionFadeOut: 0.35
+  stopFadeOut: 1.2
+--- !u!114 &1382995850855924377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227962336603302642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3474dc539adf9d54ebc47c9c41114a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniDefeat
+  defeatController: {fileID: 9100000, guid: f23716f49e4d49b47b8abe75a50d5c95, type: 2}
+  defeatState: P2Defeat
+  recoveredLoop: P1DefeatedIdle
 --- !u!1 &3871817640514651541
 GameObject:
   m_ObjectHideFlags: 0

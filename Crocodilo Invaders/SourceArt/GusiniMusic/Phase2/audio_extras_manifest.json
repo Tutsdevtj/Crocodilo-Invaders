@@ -1,0 +1,133 @@
+{
+  "dialogue_variants": [
+    {
+      "id": "BLIP01",
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_01.wav",
+      "source": "Dialogo/Originais/blipUI1.wav",
+      "duration_ms": 50,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -12,
+      "spectral_centroid_hz": 1750.0,
+      "energy_above_6khz": 0.0,
+      "edits": "First 50 ms, remove DC, 1 ms fade-in/5 ms fade-out, peak -12 dBFS; resample original 44.1 kHz to 48 kHz. No oscillator or synthesized replacement."
+    },
+    {
+      "id": "BLIP02",
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_02.wav",
+      "source": "Dialogo/Originais/blipUI2.wav",
+      "duration_ms": 50,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -12,
+      "spectral_centroid_hz": 1000.0,
+      "energy_above_6khz": 0.0,
+      "edits": "First 50 ms, remove DC, 1 ms fade-in/5 ms fade-out, peak -12 dBFS; resample original 44.1 kHz to 48 kHz. No oscillator or synthesized replacement."
+    },
+    {
+      "id": "BLIP03",
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_03.wav",
+      "source": "Dialogo/Originais/blipUI3.wav",
+      "duration_ms": 50,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -12,
+      "spectral_centroid_hz": 1381.0,
+      "energy_above_6khz": 0.0331,
+      "edits": "First 50 ms, remove DC, 1 ms fade-in/5 ms fade-out, peak -12 dBFS; resample original 44.1 kHz to 48 kHz. No oscillator or synthesized replacement."
+    },
+    {
+      "id": "BLIP04",
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_04.wav",
+      "source": "Dialogo/Originais/blipUI4.wav",
+      "duration_ms": 50,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -12,
+      "spectral_centroid_hz": 750.0,
+      "energy_above_6khz": 0.0,
+      "edits": "First 50 ms, remove DC, 1 ms fade-in/5 ms fade-out, peak -12 dBFS; resample original 44.1 kHz to 48 kHz. No oscillator or synthesized replacement."
+    },
+    {
+      "id": "BLIP05",
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_05.wav",
+      "source": "Dialogo/Originais/blipUI5.wav",
+      "duration_ms": 50,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -12,
+      "spectral_centroid_hz": 826.2,
+      "energy_above_6khz": 0.01614,
+      "edits": "First 50 ms, remove DC, 1 ms fade-in/5 ms fade-out, peak -12 dBFS; resample original 44.1 kHz to 48 kHz. No oscillator or synthesized replacement."
+    }
+  ],
+  "dialogue_preview_cues": [
+    {
+      "id": "BLIP01",
+      "start_seconds": 0.25,
+      "interval_ms": 80,
+      "blips": 18
+    },
+    {
+      "id": "BLIP02",
+      "start_seconds": 2.55,
+      "interval_ms": 80,
+      "blips": 18
+    },
+    {
+      "id": "BLIP03",
+      "start_seconds": 4.85,
+      "interval_ms": 80,
+      "blips": 18
+    },
+    {
+      "id": "BLIP04",
+      "start_seconds": 7.1499999999999995,
+      "interval_ms": 80,
+      "blips": 18
+    },
+    {
+      "id": "BLIP05",
+      "start_seconds": 9.45,
+      "interval_ms": 80,
+      "blips": 18
+    }
+  ],
+  "music": {
+    "title": "Boss Fight 2",
+    "author": "Ansimuz / Luis Zuno",
+    "source": "https://opengameart.org/content/boss-fight-2",
+    "license": "CC0 on source page; author permission text included",
+    "wav": "Musica/Boss_Fight_2.wav",
+    "ogg": "Musica/Boss_Fight_2.ogg",
+    "mp3": "Musica/Boss_Fight_2.mp3",
+    "duration_seconds": 88.61539583333334,
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "native_wav_codec": "pcm_s16le",
+    "provided_as_loop_by_author": true,
+    "loop_start_sample": 0,
+    "loop_end_sample_exclusive": 4253539,
+    "subjective_listening": "not_performed_by_agent",
+    "source_files_unchanged": true,
+    "seam_preview": "Previas/Emenda_Musica_8seg.wav",
+    "seam_in_preview_at_seconds": 8,
+    "archive_sha256": "c53911291539b7ccd209515c88ccbd008baa7d8f9e496bc2aa4dd827b45fb61b"
+  },
+  "generation_credits_spent": 0,
+  "unity_project_modified": false,
+  "selection_note": "Dialogue comparison and music fit are technical/editorial recommendations; final audition remains for user.",
+  "dialogue_source": {
+    "title": "5 Blip UI sound effects!",
+    "author": "FunnyDude",
+    "license": "CC0",
+    "page": "https://opengameart.org/content/5-blip-ui-sound-effects",
+    "archive_url": "https://opengameart.org/sites/default/files/blipuisfx.zip",
+    "archive_sha256": "8d4a53c7993905f55b3e9a6602d945d89c3309d578694efcfe6894945c5c3a91"
+  }
+}

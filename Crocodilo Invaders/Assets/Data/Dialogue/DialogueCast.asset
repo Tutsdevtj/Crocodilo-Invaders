@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c4844e187040840aaadbd1d4b1efe5, type: 3}
+  m_Name: DialogueCast
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCast
+  speakers:
+  - id: crocodilo
+    displayName: B. Crocodilo
+    accent: {r: 0.5882353, g: 0.74509805, b: 0.3529412, a: 1}
+    side: 0
+    flipX: 0
+    typingPitch: 0.92
+    nameFont: {fileID: 0}
+    nameFontSize: 0
+    expressions:
+    - id: neutral
+      portrait: {fileID: 21300000, guid: 36f8c313853ed6c468dc3aacd6ef95e1, type: 3}
+    - id: alert
+      portrait: {fileID: 21300000, guid: a7d505a72a5705143b225e9eaf3bf132, type: 3}
+    - id: serious
+      portrait: {fileID: 21300000, guid: c9f45b1c0d92f764c8568dd2c54aa185, type: 3}
+    - id: worried
+      portrait: {fileID: 21300000, guid: ab62ae8e9c421b645a850eaf7e890dd9, type: 3}
+    - id: sincere
+      portrait: {fileID: 21300000, guid: bd222e4bfd72e264c8e54c0d23a77f62, type: 3}
+    - id: determined
+      portrait: {fileID: 21300000, guid: 41dca8f3c6dccd1498e3271f6a5d8286, type: 3}
+  - id: gusini
+    displayName: Gusini
+    accent: {r: 0.8862745, g: 0.27450982, b: 0.23529412, a: 1}
+    side: 1
+    flipX: 0
+    typingPitch: 1.08
+    nameFont: {fileID: 0}
+    nameFontSize: 0
+    expressions:
+    - id: smug
+      portrait: {fileID: 21300000, guid: 3d3865586e3751e45a0cd71ae93bb4cb, type: 3}
+    - id: resentful
+      portrait: {fileID: 21300000, guid: 38f700853d730b64b9dacf3f6f1b6d71, type: 3}
+    - id: power
+      portrait: {fileID: 21300000, guid: 50dea83e676452547ac92cd7af1ffd6e, type: 3}
+    - id: vulnerable
+      portrait: {fileID: 21300000, guid: 15d1741b2f0bb0a4f87035c898a848ed, type: 3}
+    - id: hostile
+      portrait: {fileID: 21300000, guid: 6810b74d6124c7e47a248bf6c3bfa7ff, type: 3}
+  - id: gusini_corrupted
+    displayName: Gusini Corrompido
+    accent: {r: 0.4862745, g: 0.9254902, b: 0.28235295, a: 1}
+    side: 1
+    flipX: 0
+    typingPitch: 0.86
+    nameFont: {fileID: 0}
+    nameFontSize: 0
+    expressions:
+    - id: corrupted_furious
+      portrait: {fileID: 21300000, guid: 8652935785f83e842abfbdd984c58ab6, type: 3}
+  - id: radio
+    displayName: "R\xC1DIO"
+    accent: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    side: 2
+    flipX: 0
+    typingPitch: 0.82
+    nameFont: {fileID: 11400000, guid: 130db8622478e01408816834f014f4c7, type: 2}
+    nameFontSize: 22
+    expressions: []

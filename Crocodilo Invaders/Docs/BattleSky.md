@@ -20,17 +20,25 @@ e ilhas alinhados à base da composição.
 | Camada | Velocidade (unidades/s) | Sorting order |
 | --- | ---: | ---: |
 | Céu opaco | 0 | -100 |
-| Nave-mãe | 0, fixa ao enquadramento | -96 |
-| Nuvens distantes | 0,25 | -92 |
-| Batalha distante estática | 0,4 | -88 |
+| Nave-mãe | 0,08 | -96 |
+| Nuvens distantes | 0,20 | -92 |
+| Batalha distante estática | 0,38 | -88 |
 | Nuvens médias | 0,9 | -84 |
-| Horizonte distante | 1,2 | -76 |
-| Nuvens próximas | 2,2 | -72 |
-| Ilhas e base militar | 4 | -68 |
+| Horizonte distante | 0,52 | -76 |
+| Nuvens próximas | 1,8 | -72 |
+| Ilhas e base militar | 3,4 | -68 |
 
 As seis camadas móveis reutilizam `ScrollingLayer`, com dois segmentos de
-16 unidades, sem espelhamento e sem espaçamento. `BackgroundFit` mantém a
-nave-mãe quase imóvel como referência de distância; não é um inimigo.
+16 unidades, sem espelhamento e sem espaçamento. O perfil de profundidade em
+`BattleSkyTools` substitui as velocidades sugeridas no JSON original e também
+é reaplicado ao reconstruir o prefab. O horizonte distante passa mais devagar
+que as nuvens médias. A batalha animada acompanha a velocidade base da L3.
+
+`BackgroundShipDrift` move a nave-mãe lentamente para a esquerda, em unidades
+de mundo por segundo, independente da escala de encaixe do céu. Quando toda
+a nave ultrapassa a margem esquerda, ela reaparece fora da margem direita e
+entra novamente. Fumaça e avarias acompanham o mesmo objeto. O ciclo não cria
+cópias, não altera gameplay e congela na pausa.
 
 `MothershipBackgroundFX` coordena três fumaças com defasagem, explosões nos
 pontos de avaria a cada 1,2–2,5 s, clarões breves, falhas alien a cada 0,8–1,5 s
@@ -55,11 +63,14 @@ Menus no Editor:
 - `Rebuild Battle Sky prefab`: remonta apenas o prefab usando o layout fonte.
 - `Validate Battle Sky`: confere camadas, importação, ordem, ausência de
   componentes físicos/áudio e referências das cenas.
+- `Apply Battle Sky depth speeds`: aplica apenas o perfil de velocidades e a
+  deriva da nave-mãe ao prefab, sem reinstalar as cenas ou reimportar a arte.
 
-Validação na Unity 6000.6.4f1: **59 verificações em Play Mode** passaram. Foram
+Validação na Unity 6000.6.4f1: **64 verificações em Play Mode** passaram. Foram
 conferidos movimento, velocidades, continuidade das seis faixas, escala,
-fumaça/FX/batalha distante, HUDs, pausa, 100 segundos simulados sem crescimento
-de objetos e troca real de cena sem decoração órfã. Capturas da partida foram
+fumaça/FX/batalha distante, HUDs, pausa, deriva da nave a 0,08 un/s com efeitos
+presos, 400 segundos simulados sem crescimento de objetos, reciclagem somente
+fora da câmera e troca real de cena sem decoração órfã. Capturas da partida foram
 inspecionadas em 1200×720, 1920×1080 e 800×600. Os 46 PNGs foram comparados byte
 a byte com a fonte; o céu base é totalmente opaco. A validação de build e as
 validações das HUDs também passaram. As capturas/testes locais ficam em Logs.

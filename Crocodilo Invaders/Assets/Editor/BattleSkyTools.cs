@@ -10,6 +10,12 @@ public static class BattleSkyTools
     private const string Art = "Assets/Art/Environment/BattleSky/";
     private const string Prefab = "Assets/Prefabs/Environment/BattleSky.prefab";
     private static readonly string[] Scenes = {"PlayerMovementTest", "StageOneWaves", "GusiniBossTest"};
+    // Profundidade visual, independente da ordem usada para compor nuvens/bruma.
+    private static readonly (string name, float speed)[] DepthSpeeds = {
+        ("L2_far_clouds", .2f), ("L3_distant_battle_layer", .38f),
+        ("L5_horizon_far_layer", .52f), ("L4_mid_clouds", .9f),
+        ("L6_near_clouds", 1.8f), ("L7_horizon_near_layer", 3.4f)
+    };
     [Serializable] private sealed class Layout { public Layer[] layers; public Mothership mothership; }
     [Serializable] private sealed class Layer
     {
@@ -86,10 +92,35 @@ public static class BattleSkyTools
             var fitFields = new SerializedObject(fit); fitFields.FindProperty("background").objectReferenceValue = baseSky; fitFields.ApplyModifiedPropertiesWithoutUndo();
             BuildMothership(mothership.transform, data.mothership.damage_points_local_units_from_center);
             BuildBattle(root.transform);
+            ApplyDepthProfile(root);
             PrefabUtility.SaveAsPrefabAsset(root, Prefab);
         }
         finally { UnityEngine.Object.DestroyImmediate(root); }
         AssetDatabase.SaveAssets();
+    }
+
+    [MenuItem("Crocodilo/Environment/Apply Battle Sky depth speeds")]
+    public static void ApplyDepthSpeeds()
+    {
+        var root = PrefabUtility.LoadPrefabContents(Prefab);
+        try { ApplyDepthProfile(root); PrefabUtility.SaveAsPrefabAsset(root, Prefab); }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+        AssetDatabase.SaveAssets(); Validate();
+    }
+
+    private static void ApplyDepthProfile(GameObject root)
+    {
+        foreach (var depth in DepthSpeeds)
+        {
+            var fields = new SerializedObject(root.transform.Find(depth.name).GetComponent<ScrollingLayer>());
+            fields.FindProperty("scrollSpeed").floatValue = depth.speed; fields.ApplyModifiedPropertiesWithoutUndo();
+        }
+        var mother = root.transform.Find("L1_alien_mothership_layer");
+        var drift = mother.GetComponent<BackgroundShipDrift>();
+        if (drift == null) drift = mother.gameObject.AddComponent<BackgroundShipDrift>();
+        var driftFields = new SerializedObject(drift); driftFields.FindProperty("scrollSpeed").floatValue = .08f; driftFields.ApplyModifiedPropertiesWithoutUndo();
+        var battleFields = new SerializedObject(root.GetComponentInChildren<DistantAirBattle>());
+        battleFields.FindProperty("parallaxSpeed").floatValue = .38f; battleFields.ApplyModifiedPropertiesWithoutUndo();
     }
 
     private static void BuildMothership(Transform parent, Points points)
@@ -136,6 +167,11 @@ public static class BattleSkyTools
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(Prefab);
         Require(prefab != null && prefab.GetComponent<BackgroundFit>() != null, "Fitted sky prefab");
         Require(prefab.GetComponentsInChildren<ScrollingLayer>(true).Length == 6, "Six repeating parallax layers");
+        foreach (var depth in DepthSpeeds)
+            Require(Mathf.Approximately(new SerializedObject(prefab.transform.Find(depth.name).GetComponent<ScrollingLayer>()).FindProperty("scrollSpeed").floatValue, depth.speed), "Depth speed: " + depth.name);
+        var drift = prefab.GetComponentInChildren<BackgroundShipDrift>();
+        Require(drift != null && new SerializedObject(drift).FindProperty("scrollSpeed").floatValue == .08f, "Slow mothership parallax drift");
+        Require(new SerializedObject(prefab.GetComponentInChildren<DistantAirBattle>()).FindProperty("parallaxSpeed").floatValue == .38f, "Live battle matches distant layer speed");
         Require(prefab.GetComponentsInChildren<Collider2D>(true).Length == 0 && prefab.GetComponentsInChildren<AudioSource>(true).Length == 0, "Visual-only background");
         Require(prefab.GetComponentsInChildren<SpriteRenderer>(true).All(r => r.sortingOrder < 0), "Scenery renders behind gameplay");
         foreach (string path in Directory.GetFiles(Art, "*.png", SearchOption.AllDirectories))

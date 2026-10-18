@@ -1,0 +1,32 @@
+{
+  "files": [
+    {
+      "file": "Musica/MUS_Gusini_Phase1_Loop.wav",
+      "duration_seconds": 66.0,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -0.2125
+    },
+    {
+      "file": "Previas/Conferencia_Loop_Emenda_em_6s.wav",
+      "duration_seconds": 12.0,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -0.2144
+    },
+    {
+      "file": "Previas/Mix_Fase1_com_SFX_30s.wav",
+      "duration_seconds": 30.0,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "codec": "pcm_s16le",
+      "peak_dbfs": -3.1652
+    }
+  ],
+  "author_source_bytes_preserved": true,
+  "critical_listening_by_agent": false,
+  "unity_modified": false,
+  "credits_spent": 0
+}

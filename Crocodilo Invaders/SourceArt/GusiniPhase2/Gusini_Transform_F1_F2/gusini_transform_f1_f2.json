@@ -1,0 +1,593 @@
+{
+ "animation": "gusini_transform_f1_f2",
+ "loop": false,
+ "frame_count": 30,
+ "total_ms": 4100,
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "facing": "left",
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "note": "Mesmo canvas, origem e pivô da gusini_p1_idle (256x196, pivô 120,118). Primeiro frame = pose da F1; último = pose base da F2 aprovada.",
+ "events_frame": {
+  "final_hit_frame": 0,
+  "start_stagger_frame": 2,
+  "apparent_defeat_hold_frame": 6,
+  "first_sign_frame": 8,
+  "corruption_start_frame": 9,
+  "intermediate_frame": 13,
+  "resist_flicker_frame": 15,
+  "transformation_peak_frame": 21,
+  "phase2_reveal_frame": 23,
+  "return_pose_frame": 26,
+  "phase2_ready_frame": 29
+ },
+ "events_ms": {
+  "final_hit_frame": 0,
+  "start_stagger_frame": 160,
+  "apparent_defeat_hold_frame": 690,
+  "first_sign_frame": 1330,
+  "corruption_start_frame": 1510,
+  "intermediate_frame": 1930,
+  "resist_flicker_frame": 2110,
+  "transformation_peak_frame": 2530,
+  "phase2_reveal_frame": 2820,
+  "return_pose_frame": 3230,
+  "phase2_ready_frame": 3800
+ },
+ "suggested_gameplay_hooks": {
+  "p1_health_bar_zero": "frame 0 (0 ms) — barra F1 chega a 0",
+  "invulnerable": "de 0 ms até 4100 ms (toda a sequência)",
+  "safe_window_life_drop": "spawn das 1–2 caixas de vida em start_stagger_frame (160 ms); janela calma até corruption_start_frame (1510 ms)",
+  "enemy_bullets": "limpar/neutralizar os tiros do boss no final_hit_frame",
+  "screen_shake": "leve no final_hit (0 ms) e forte no transformation_peak (2530 ms)",
+  "p2_health_bar_fill": "começa em phase2_reveal (2820 ms) e termina no phase2_ready (3800 ms) — ~980 ms",
+  "phase2_ai_start": "fim do phase2_ready_frame (4100 ms)"
+ },
+ "frames": [
+  {
+   "index": 0,
+   "file": "frames/gusini_transform_00.png",
+   "duration_ms": 70,
+   "start_ms": 0,
+   "state": "white",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_00.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_00.png",
+    "fx": "layers/fx/gusini_transform_fx_00.png"
+   },
+   "tag": "final_hit_frame"
+  },
+  {
+   "index": 1,
+   "file": "frames/gusini_transform_01.png",
+   "duration_ms": 90,
+   "start_ms": 70,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_01.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_01.png",
+    "fx": "layers/fx/gusini_transform_fx_01.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 2,
+   "file": "frames/gusini_transform_02.png",
+   "duration_ms": 110,
+   "start_ms": 160,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_02.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_02.png",
+    "fx": "layers/fx/gusini_transform_fx_02.png"
+   },
+   "tag": "start_stagger_frame"
+  },
+  {
+   "index": 3,
+   "file": "frames/gusini_transform_03.png",
+   "duration_ms": 120,
+   "start_ms": 270,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_03.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_03.png",
+    "fx": "layers/fx/gusini_transform_fx_03.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 4,
+   "file": "frames/gusini_transform_04.png",
+   "duration_ms": 140,
+   "start_ms": 390,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_04.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_04.png",
+    "fx": "layers/fx/gusini_transform_fx_04.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 5,
+   "file": "frames/gusini_transform_05.png",
+   "duration_ms": 160,
+   "start_ms": 530,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_05.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_05.png",
+    "fx": "layers/fx/gusini_transform_fx_05.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 6,
+   "file": "frames/gusini_transform_06.png",
+   "duration_ms": 380,
+   "start_ms": 690,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_06.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_06.png",
+    "fx": "layers/fx/gusini_transform_fx_06.png"
+   },
+   "tag": "apparent_defeat_hold"
+  },
+  {
+   "index": 7,
+   "file": "frames/gusini_transform_07.png",
+   "duration_ms": 260,
+   "start_ms": 1070,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_07.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_07.png",
+    "fx": "layers/fx/gusini_transform_fx_07.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 8,
+   "file": "frames/gusini_transform_08.png",
+   "duration_ms": 180,
+   "start_ms": 1330,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_08.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_08.png",
+    "fx": "layers/fx/gusini_transform_fx_08.png"
+   },
+   "tag": "first_sign_frame"
+  },
+  {
+   "index": 9,
+   "file": "frames/gusini_transform_09.png",
+   "duration_ms": 150,
+   "start_ms": 1510,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_09.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_09.png",
+    "fx": "layers/fx/gusini_transform_fx_09.png"
+   },
+   "tag": "corruption_start_frame"
+  },
+  {
+   "index": 10,
+   "file": "frames/gusini_transform_10.png",
+   "duration_ms": 60,
+   "start_ms": 1660,
+   "state": "white",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_10.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_10.png",
+    "fx": "layers/fx/gusini_transform_fx_10.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 11,
+   "file": "frames/gusini_transform_11.png",
+   "duration_ms": 140,
+   "start_ms": 1720,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_11.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_11.png",
+    "fx": "layers/fx/gusini_transform_fx_11.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 12,
+   "file": "frames/gusini_transform_12.png",
+   "duration_ms": 70,
+   "start_ms": 1860,
+   "state": "green",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_12.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_12.png",
+    "fx": "layers/fx/gusini_transform_fx_12.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 13,
+   "file": "frames/gusini_transform_13.png",
+   "duration_ms": 130,
+   "start_ms": 1930,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_13.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_13.png",
+    "fx": "layers/fx/gusini_transform_fx_13.png"
+   },
+   "tag": "intermediate_frame"
+  },
+  {
+   "index": 14,
+   "file": "frames/gusini_transform_14.png",
+   "duration_ms": 50,
+   "start_ms": 2060,
+   "state": "white",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_14.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_14.png",
+    "fx": "layers/fx/gusini_transform_fx_14.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 15,
+   "file": "frames/gusini_transform_15.png",
+   "duration_ms": 100,
+   "start_ms": 2110,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_15.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_15.png",
+    "fx": "layers/fx/gusini_transform_fx_15.png"
+   },
+   "tag": "resist_flicker_frame"
+  },
+  {
+   "index": 16,
+   "file": "frames/gusini_transform_16.png",
+   "duration_ms": 110,
+   "start_ms": 2210,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_16.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_16.png",
+    "fx": "layers/fx/gusini_transform_fx_16.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 17,
+   "file": "frames/gusini_transform_17.png",
+   "duration_ms": 50,
+   "start_ms": 2320,
+   "state": "green",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_17.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_17.png",
+    "fx": "layers/fx/gusini_transform_fx_17.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 18,
+   "file": "frames/gusini_transform_18.png",
+   "duration_ms": 80,
+   "start_ms": 2370,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_18.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_18.png",
+    "fx": "layers/fx/gusini_transform_fx_18.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 19,
+   "file": "frames/gusini_transform_19.png",
+   "duration_ms": 40,
+   "start_ms": 2450,
+   "state": "white",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_19.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_19.png",
+    "fx": "layers/fx/gusini_transform_fx_19.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 20,
+   "file": "frames/gusini_transform_20.png",
+   "duration_ms": 40,
+   "start_ms": 2490,
+   "state": "green",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_20.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_20.png",
+    "fx": "layers/fx/gusini_transform_fx_20.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 21,
+   "file": "frames/gusini_transform_21.png",
+   "duration_ms": 180,
+   "start_ms": 2530,
+   "state": "white",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_21.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_21.png",
+    "fx": "layers/fx/gusini_transform_fx_21.png"
+   },
+   "tag": "transformation_peak_frame"
+  },
+  {
+   "index": 22,
+   "file": "frames/gusini_transform_22.png",
+   "duration_ms": 110,
+   "start_ms": 2710,
+   "state": "green",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_22.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_22.png",
+    "fx": "layers/fx/gusini_transform_fx_22.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 23,
+   "file": "frames/gusini_transform_23.png",
+   "duration_ms": 160,
+   "start_ms": 2820,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_23.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_23.png",
+    "fx": "layers/fx/gusini_transform_fx_23.png"
+   },
+   "tag": "phase2_reveal_frame"
+  },
+  {
+   "index": 24,
+   "file": "frames/gusini_transform_24.png",
+   "duration_ms": 130,
+   "start_ms": 2980,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_24.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_24.png",
+    "fx": "layers/fx/gusini_transform_fx_24.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 25,
+   "file": "frames/gusini_transform_25.png",
+   "duration_ms": 120,
+   "start_ms": 3110,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_25.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_25.png",
+    "fx": "layers/fx/gusini_transform_fx_25.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 26,
+   "file": "frames/gusini_transform_26.png",
+   "duration_ms": 150,
+   "start_ms": 3230,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_26.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_26.png",
+    "fx": "layers/fx/gusini_transform_fx_26.png"
+   },
+   "tag": "return_pose_frame"
+  },
+  {
+   "index": 27,
+   "file": "frames/gusini_transform_27.png",
+   "duration_ms": 280,
+   "start_ms": 3380,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_27.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_27.png",
+    "fx": "layers/fx/gusini_transform_fx_27.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 28,
+   "file": "frames/gusini_transform_28.png",
+   "duration_ms": 140,
+   "start_ms": 3660,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_28.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_28.png",
+    "fx": "layers/fx/gusini_transform_fx_28.png"
+   },
+   "tag": null
+  },
+  {
+   "index": 29,
+   "file": "frames/gusini_transform_29.png",
+   "duration_ms": 300,
+   "start_ms": 3800,
+   "state": "normal",
+   "layers": {
+    "sprite": "layers/sprite/gusini_transform_sprite_29.png",
+    "corruption": "layers/corruption/gusini_transform_corruption_29.png",
+    "fx": "layers/fx/gusini_transform_fx_29.png"
+   },
+   "tag": "phase2_ready_frame"
+  }
+ ],
+ "fx_standalone": {
+  "fx_tf_smoke_0": {
+   "file": "fx/fx_tf_smoke_0.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    36,
+    76,
+    26,
+    29
+   ]
+  },
+  "fx_tf_smoke_1": {
+   "file": "fx/fx_tf_smoke_1.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    36,
+    75,
+    28,
+    29
+   ]
+  },
+  "fx_tf_smoke_2": {
+   "file": "fx/fx_tf_smoke_2.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    38,
+    73,
+    25,
+    31
+   ]
+  },
+  "fx_tf_smoke_3": {
+   "file": "fx/fx_tf_smoke_3.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    36,
+    72,
+    30,
+    31
+   ]
+  },
+  "fx_tf_ring_0": {
+   "file": "fx/fx_tf_ring_0.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    108,
+    82,
+    41,
+    33
+   ]
+  },
+  "fx_tf_ring_1": {
+   "file": "fx/fx_tf_ring_1.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    92,
+    69,
+    73,
+    59
+   ]
+  },
+  "fx_tf_ring_2": {
+   "file": "fx/fx_tf_ring_2.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    76,
+    56,
+    105,
+    85
+   ]
+  },
+  "fx_tf_burst": {
+   "file": "fx/fx_tf_burst.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    98,
+    74,
+    61,
+    49
+   ]
+  },
+  "fx_tf_shards": {
+   "file": "fx/fx_tf_shards.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    92,
+    71,
+    73,
+    56
+   ]
+  },
+  "fx_tf_bolts_0": {
+   "file": "fx/fx_tf_bolts_0.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    114,
+    82,
+    21,
+    33
+   ]
+  },
+  "fx_tf_bolts_1": {
+   "file": "fx/fx_tf_bolts_1.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    124,
+    93,
+    20,
+    20
+   ]
+  },
+  "fx_tf_bolts_2": {
+   "file": "fx/fx_tf_bolts_2.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    115,
+    82,
+    28,
+    29
+   ]
+  },
+  "fx_tf_hit_0": {
+   "file": "fx/fx_tf_hit_0.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    120,
+    90,
+    17,
+    17
+   ]
+  },
+  "fx_tf_hit_1": {
+   "file": "fx/fx_tf_hit_1.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    123,
+    93,
+    11,
+    11
+   ]
+  },
+  "fx_tf_sputter_0": {
+   "file": "fx/fx_tf_sputter_0.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    128,
+    93,
+    7,
+    10
+   ]
+  },
+  "fx_tf_sputter_1": {
+   "file": "fx/fx_tf_sputter_1.png",
+   "rect_in_canvas_when_centered_at_128_98": [
+    127,
+    94,
+    6,
+    9
+   ]
+  }
+ }
+}

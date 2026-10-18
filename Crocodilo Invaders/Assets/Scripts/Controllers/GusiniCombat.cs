@@ -40,6 +40,7 @@ public sealed class GusiniCombat : MonoBehaviour, IBossCombatController
     public Attack CurrentAttack { get; private set; }
     public bool HasPendingAnimation => animationPending;
     public Transform ThreatRoot => threats;
+    public Health Target => target;
     public event Action<Attack> AttackStarted;
     public event Action<Attack, GameObject> Released;
 
@@ -199,7 +200,7 @@ public sealed class GusiniCombat : MonoBehaviour, IBossCombatController
         animationPending = releasePending = false;
         if (target != null) target.Died -= StopCombat;
         target = null;
-        if (presentation != null) presentation.Cancel();
+        if (presentation != null && presentation.enabled) presentation.Cancel();
         // Todos os descendentes, inclusive gemas que sobrevivem ao ovo, pertencem a esta raiz.
         if (threats == null) return;
         threats.gameObject.SetActive(false);

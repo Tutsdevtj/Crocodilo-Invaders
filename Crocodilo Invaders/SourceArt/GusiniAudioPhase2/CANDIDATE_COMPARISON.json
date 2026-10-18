@@ -1,0 +1,1916 @@
+[
+  {
+    "id": "TR01",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR01/A.wav",
+        "sha256": "00b019cb404369546d635a09f119d4c447f187dc5bee462de2832e2c8f745b02",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -11.495,
+          "energy_above_6khz": 0.03668,
+          "spectral_centroid_hz": 2611.2,
+          "last_third_rms_over_first": 0.0206
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -13.649,
+          "energy_above_6khz": 0.03066,
+          "spectral_centroid_hz": 2458.7,
+          "last_third_rms_over_first": 0.0981
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99996,
+        "selection_score": 0.011201
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR01/B.wav",
+        "sha256": "ce72507b925b4ff8f2af5f477dda5ca252f9522540f3f4e4f87ba4a513c1b64c",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.251,
+          "energy_above_6khz": 0.07495,
+          "spectral_centroid_hz": 2554.0,
+          "last_third_rms_over_first": 0.0138
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -18.445,
+          "energy_above_6khz": 0.06611,
+          "spectral_centroid_hz": 2426.8,
+          "last_third_rms_over_first": 0.0091
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99984,
+        "selection_score": 0.023275
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_FinalHit.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TR02",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR02/A.wav",
+        "sha256": "267e6b05e36a82bda8e5971b186d51296b0055064b7ca08fa54c49a6b119d4a4",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -11.913,
+          "energy_above_6khz": 0.02378,
+          "spectral_centroid_hz": 1421.9,
+          "last_third_rms_over_first": 0.9241
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.914,
+          "energy_above_6khz": 0.02378,
+          "spectral_centroid_hz": 1421.9,
+          "last_third_rms_over_first": 0.9241
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.007134
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR02/B.wav",
+        "sha256": "c8e995682787d539dcf939471d9f52473a7337c51d8026082921a66375213309",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -11.905,
+          "energy_above_6khz": 0.1097,
+          "spectral_centroid_hz": 3334.5,
+          "last_third_rms_over_first": 0.1549
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.915,
+          "energy_above_6khz": 0.1097,
+          "spectral_centroid_hz": 3334.5,
+          "last_third_rms_over_first": 0.1552
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.03291
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_EngineStall.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TR03",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR03/A.wav",
+        "sha256": "2446657eb6732023109599300125e3ce9dfb4590e5ae7c4c82ed59a3b3c025bc",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.705,
+          "energy_above_6khz": 0.01949,
+          "spectral_centroid_hz": 1085.7,
+          "last_third_rms_over_first": 0.0441
+        },
+        "edited_metrics": {
+          "duration_ms": 450.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.372,
+          "energy_above_6khz": 0.01762,
+          "spectral_centroid_hz": 1053.8,
+          "last_third_rms_over_first": 0.1576
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.005865
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR03/B.wav",
+        "sha256": "01041cc4b70f0eb7dd908a0afa706851afd9ee082bfb76c8a4b3ade381c1e40f",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.393,
+          "rms_dbfs": -15.705,
+          "energy_above_6khz": 0.0,
+          "spectral_centroid_hz": 385.2,
+          "last_third_rms_over_first": 0.0304
+        },
+        "edited_metrics": {
+          "duration_ms": 450.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.309,
+          "energy_above_6khz": 0.0,
+          "spectral_centroid_hz": 381.8,
+          "last_third_rms_over_first": 0.0444
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99999,
+        "selection_score": 4.4e-05
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_FirstPulse.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TR04",
+    "selected_candidate": "B",
+    "method": "user_approved_pilot_B",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR04/A.wav",
+        "sha256": "9b466a6a79698b9747a15da9a7dc419d51816973978b8eafe5b60d267ece4382",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 1000.0,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -14.317,
+          "energy_above_6khz": 0.04466,
+          "spectral_centroid_hz": 1821.3,
+          "last_third_rms_over_first": 0.0878
+        },
+        "edited_metrics": {
+          "duration_ms": 1000.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -17.317,
+          "energy_above_6khz": 0.04466,
+          "spectral_centroid_hz": 1821.3,
+          "last_third_rms_over_first": 0.0878
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.013398
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR04/B.wav",
+        "sha256": "77e16f28b1b8aa67ae9a9d15dd48ee0a190c0aaf2bc8e73e3777f36d850d9489",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 1000.0,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.91,
+          "energy_above_6khz": 0.1437,
+          "spectral_centroid_hz": 3374.2,
+          "last_third_rms_over_first": 0.2032
+        },
+        "edited_metrics": {
+          "duration_ms": 1000.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.914,
+          "energy_above_6khz": 0.1437,
+          "spectral_centroid_hz": 3374.2,
+          "last_third_rms_over_first": 0.2033
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.04311
+      }
+    ],
+    "reason": "Approved pilot B retained.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_CorruptionSurge.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TR05",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR05/A.wav",
+        "sha256": "f506e2269391c85706dd9ff1a7ee5976d3726c5030491d2eb6b7d72b2301cdcd",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 606.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -22.006,
+          "energy_above_6khz": 0.66653,
+          "spectral_centroid_hz": 8979.8,
+          "last_third_rms_over_first": 0.015
+        },
+        "edited_metrics": {
+          "duration_ms": 606.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -25.019,
+          "energy_above_6khz": 0.66652,
+          "spectral_centroid_hz": 8979.8,
+          "last_third_rms_over_first": 0.015
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.199959
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR05/B.wav",
+        "sha256": "abcd6ed0cc27b63522ca43fbc75b32205520552d43ad2bb97b02675b576594d1",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 606.5,
+          "peak_dbfs": -0.927,
+          "rms_dbfs": -21.069,
+          "energy_above_6khz": 0.33728,
+          "spectral_centroid_hz": 5436.9,
+          "last_third_rms_over_first": 0.0206
+        },
+        "edited_metrics": {
+          "duration_ms": 606.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -23.143,
+          "energy_above_6khz": 0.33728,
+          "spectral_centroid_hz": 5436.9,
+          "last_third_rms_over_first": 0.0206
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.101184
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_MutationPeak.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TR06",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TR06/A.wav",
+        "sha256": "89e096cee0d5b0cc63f73003b2c632dc3c9e47356b4734091cfe7488afcc1991",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.457,
+          "rms_dbfs": -16.98,
+          "energy_above_6khz": 0.02363,
+          "spectral_centroid_hz": 1986.4,
+          "last_third_rms_over_first": 0.9703
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.523,
+          "energy_above_6khz": 0.02363,
+          "spectral_centroid_hz": 1986.4,
+          "last_third_rms_over_first": 0.9704
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.007089
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TR06/B.wav",
+        "sha256": "30a64412953366ab8f5f4355f322e1d4af87558b5e889727393e5e7e13f0b196",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.435,
+          "energy_above_6khz": 0.00167,
+          "spectral_centroid_hz": 1450.4,
+          "last_third_rms_over_first": 0.001
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.443,
+          "energy_above_6khz": 0.00167,
+          "spectral_centroid_hz": 1450.4,
+          "last_third_rms_over_first": 0.001
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.000501
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Transformation/SFX_Gusini_P2_Transform_RevealCry.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EN01",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EN01/A.wav",
+        "sha256": "3dea306e8b4800d12e61f25d9a17808758aa686ba69ccb78ca03be585ffa1e4e",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -5.541,
+          "rms_dbfs": -19.305,
+          "energy_above_6khz": 0.1019,
+          "spectral_centroid_hz": 3230.2,
+          "last_third_rms_over_first": 0.6423
+        },
+        "edited_metrics": {
+          "duration_ms": 480.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.712,
+          "energy_above_6khz": 0.10096,
+          "spectral_centroid_hz": 3211.7,
+          "last_third_rms_over_first": 0.6525
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.03057
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EN01/B.wav",
+        "sha256": "70568037dec79ca9fb05e10b455255c61ab0278d1a5e9f47b5e629f041f43c6f",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.151,
+          "rms_dbfs": -15.81,
+          "energy_above_6khz": 0.12955,
+          "spectral_centroid_hz": 3292.4,
+          "last_third_rms_over_first": 0.096
+        },
+        "edited_metrics": {
+          "duration_ms": 480.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -18.604,
+          "energy_above_6khz": 0.13018,
+          "spectral_centroid_hz": 3296.1,
+          "last_third_rms_over_first": 0.0997
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.038865
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_Charge.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EN02",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EN02/A.wav",
+        "sha256": "c493686d6107ddc37675db9c86b61d9aebf2b9df4847eec37f385db0b57c2fdd",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.411,
+          "rms_dbfs": -15.347,
+          "energy_above_6khz": 0.08838,
+          "spectral_centroid_hz": 2975.5,
+          "last_third_rms_over_first": 0.1416
+        },
+        "edited_metrics": {
+          "duration_ms": 290.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.829,
+          "energy_above_6khz": 0.06727,
+          "spectral_centroid_hz": 2546.1,
+          "last_third_rms_over_first": 0.7448
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.97352,
+        "selection_score": 0.158897
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EN02/B.wav",
+        "sha256": "702b0c234ba3ab9d098725c4f34d5a8713c93c04737ae3ad98c1549a57bda4cc",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.455,
+          "rms_dbfs": -17.404,
+          "energy_above_6khz": 0.23009,
+          "spectral_centroid_hz": 5433.5,
+          "last_third_rms_over_first": 0.0462
+        },
+        "edited_metrics": {
+          "duration_ms": 290.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.747,
+          "energy_above_6khz": 0.11006,
+          "spectral_centroid_hz": 3576.1,
+          "last_third_rms_over_first": 0.269
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99326,
+        "selection_score": 0.102722
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_Fire.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EN03",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EN03/A.wav",
+        "sha256": "dca95d6d4cf2f7d069113b1e050f19b70587e101f4535568e68ada86bf253f61",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -13.647,
+          "energy_above_6khz": 0.10399,
+          "spectral_centroid_hz": 2578.2,
+          "last_third_rms_over_first": 0.0101
+        },
+        "edited_metrics": {
+          "duration_ms": 320.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.832,
+          "energy_above_6khz": 0.09934,
+          "spectral_centroid_hz": 2462.1,
+          "last_third_rms_over_first": 0.0516
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99989,
+        "selection_score": 0.031749
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EN03/B.wav",
+        "sha256": "63154d0912d5d798f76cab21cae1dc181af0368ca4cf1302f7dacaf0b3bc70a7",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -14.861,
+          "energy_above_6khz": 0.04495,
+          "spectral_centroid_hz": 2281.0,
+          "last_third_rms_over_first": 0.0164
+        },
+        "edited_metrics": {
+          "duration_ms": 320.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.045,
+          "energy_above_6khz": 0.0442,
+          "spectral_centroid_hz": 2258.6,
+          "last_third_rms_over_first": 0.1224
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99975,
+        "selection_score": 0.01474
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/EnergyShot/SFX_Gusini_P2_Energy_BallPop.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EG01",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EG01/A.wav",
+        "sha256": "0d3f48aae2d2bd8d123715cc3d6bd1969cab157bda4d37e8a4607615c7367843",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -15.509,
+          "energy_above_6khz": 0.27021,
+          "spectral_centroid_hz": 4674.9,
+          "last_third_rms_over_first": 0.0154
+        },
+        "edited_metrics": {
+          "duration_ms": 270.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.001,
+          "energy_above_6khz": 0.16472,
+          "spectral_centroid_hz": 3743.5,
+          "last_third_rms_over_first": 0.6521
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99625,
+        "selection_score": 0.099821
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EG01/B.wav",
+        "sha256": "73527c2a6041aee90bb548d2e39b37db5df192a2f10449b522658f30e05dd2b8",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.068,
+          "rms_dbfs": -17.259,
+          "energy_above_6khz": 0.15009,
+          "spectral_centroid_hz": 3026.8,
+          "last_third_rms_over_first": 0.0124
+        },
+        "edited_metrics": {
+          "duration_ms": 270.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -17.638,
+          "energy_above_6khz": 0.214,
+          "spectral_centroid_hz": 3615.9,
+          "last_third_rms_over_first": 0.9296
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99948,
+        "selection_score": 0.047647
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_ParachutePop.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EG02",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EG02/A.wav",
+        "sha256": "4ab69dd5219ea3ed9a9ebc8c87ee2f19d10257dcfeb0f7d8d17df37266afbf4d",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.932,
+          "rms_dbfs": -25.006,
+          "energy_above_6khz": 0.40791,
+          "spectral_centroid_hz": 6291.3,
+          "last_third_rms_over_first": 0.0494
+        },
+        "edited_metrics": {
+          "duration_ms": 180.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -22.624,
+          "energy_above_6khz": 0.58392,
+          "spectral_centroid_hz": 8940.4,
+          "last_third_rms_over_first": 0.6048
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.84358,
+        "selection_score": 0.90449
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EG02/B.wav",
+        "sha256": "f1332e1fcdfd486b7765de4216eb746dc15021a8bbc16d57256532e9d70b8ce7",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -23.153,
+          "energy_above_6khz": 0.26758,
+          "spectral_centroid_hz": 5407.4,
+          "last_third_rms_over_first": 0.0139
+        },
+        "edited_metrics": {
+          "duration_ms": 180.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -21.969,
+          "energy_above_6khz": 0.18992,
+          "spectral_centroid_hz": 4203.9,
+          "last_third_rms_over_first": 0.1276
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99445,
+        "selection_score": 0.10802
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_PulseTick.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EG03",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EG03/A.wav",
+        "sha256": "32ccb2db33be1ea7f659e1e6be11694b7230f3c89a50ce05fb79ab4e7db3c03c",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -20.594,
+          "energy_above_6khz": 0.14324,
+          "spectral_centroid_hz": 2733.0,
+          "last_third_rms_over_first": 0.0463
+        },
+        "edited_metrics": {
+          "duration_ms": 160.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -22.802,
+          "energy_above_6khz": 0.43193,
+          "spectral_centroid_hz": 4895.5,
+          "last_third_rms_over_first": 5.138
+        },
+        "removed_leading_ms": 4.25,
+        "retained_energy_ratio": 0.42745,
+        "selection_score": 2.905698
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EG03/B.wav",
+        "sha256": "7d2a752d1a0339c4fcfc17ab2cb1ccf2de011a989c53c4f9d07d33643aa28ca5",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -21.841,
+          "energy_above_6khz": 0.38762,
+          "spectral_centroid_hz": 5502.1,
+          "last_third_rms_over_first": 0.0563
+        },
+        "edited_metrics": {
+          "duration_ms": 160.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -20.866,
+          "energy_above_6khz": 0.1081,
+          "spectral_centroid_hz": 2632.4,
+          "last_third_rms_over_first": 1.1477
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.82165,
+        "selection_score": 1.008027
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_Crack.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "EG04",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/EG04/A.wav",
+        "sha256": "47b229d8d458844a7fdbf8a68feaf88d24775c622a6cf0fc60d3653d64e3dff2",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -21.881,
+          "energy_above_6khz": 0.2666,
+          "spectral_centroid_hz": 4557.9,
+          "last_third_rms_over_first": 0.0523
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -24.035,
+          "energy_above_6khz": 0.2606,
+          "spectral_centroid_hz": 4623.6,
+          "last_third_rms_over_first": 0.1269
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99999,
+        "selection_score": 0.080032
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/EG04/B.wav",
+        "sha256": "8a37dba5bde9c1f193526fe66dc185a16e31cd669ae262d608a6ec5ad9e4d4a3",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.316,
+          "rms_dbfs": -21.283,
+          "energy_above_6khz": 0.19548,
+          "spectral_centroid_hz": 3788.8,
+          "last_third_rms_over_first": 0.0091
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -22.139,
+          "energy_above_6khz": 0.18857,
+          "spectral_centroid_hz": 3716.7,
+          "last_third_rms_over_first": 0.0259
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99999,
+        "selection_score": 0.05867
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedEgg/SFX_Gusini_P2_Egg_Burst.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ01",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ01/A.wav",
+        "sha256": "380b97538696b3f1302f6e62b724474a6058ee6345327351b5015d8e4d6dd77e",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -2.744,
+          "rms_dbfs": -15.587,
+          "energy_above_6khz": 0.0122,
+          "spectral_centroid_hz": 1264.4,
+          "last_third_rms_over_first": 0.0173
+        },
+        "edited_metrics": {
+          "duration_ms": 410.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.104,
+          "energy_above_6khz": 0.0098,
+          "spectral_centroid_hz": 1215.0,
+          "last_third_rms_over_first": 0.0687
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99997,
+        "selection_score": 0.003796
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ01/B.wav",
+        "sha256": "56a648f094c7ec268ad73d11b0e8b4a9ed5bb9c4bbf1e45ae2579eee1d135b4e",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -10.057,
+          "energy_above_6khz": 0.01556,
+          "spectral_centroid_hz": 1123.6,
+          "last_third_rms_over_first": 0.3209
+        },
+        "edited_metrics": {
+          "duration_ms": 410.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -12.318,
+          "energy_above_6khz": 0.01097,
+          "spectral_centroid_hz": 1015.2,
+          "last_third_rms_over_first": 0.5955
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99996,
+        "selection_score": 0.004863
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Squadron_CorruptCall.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ02",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ02/A.wav",
+        "sha256": "0f1893bc5c83a0efa4e5af9046f4fbb98fecfe6103adc1f7536b82ac69a18167",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.375,
+          "energy_above_6khz": 0.04034,
+          "spectral_centroid_hz": 1654.8,
+          "last_third_rms_over_first": 0.0294
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.513,
+          "energy_above_6khz": 0.02851,
+          "spectral_centroid_hz": 1439.1,
+          "last_third_rms_over_first": 0.4103
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99327,
+        "selection_score": 0.045772
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ02/B.wav",
+        "sha256": "1d0cd2c4962eea3a22571ce4bcc270ac06a410875d01e203ea0b57c431551a75",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.0,
+          "rms_dbfs": -24.413,
+          "energy_above_6khz": 0.57887,
+          "spectral_centroid_hz": 7008.8,
+          "last_third_rms_over_first": 0.197
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -25.171,
+          "energy_above_6khz": 0.52579,
+          "spectral_centroid_hz": 6112.6,
+          "last_third_rms_over_first": 0.4321
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.86466,
+        "selection_score": 0.850346
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Squadron_EdgeMark.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ03",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ03/A.wav",
+        "sha256": "79bb2b1ec7d98738d9762893c5f94f07ed7f83b3ea5c6e60eebe1cbb4bef83dd",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.026,
+          "rms_dbfs": -14.805,
+          "energy_above_6khz": 0.00043,
+          "spectral_centroid_hz": 1054.3,
+          "last_third_rms_over_first": 0.0067
+        },
+        "edited_metrics": {
+          "duration_ms": 280.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.388,
+          "energy_above_6khz": 0.00021,
+          "spectral_centroid_hz": 1138.2,
+          "last_third_rms_over_first": 0.7011
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99949,
+        "selection_score": 0.002695
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ03/B.wav",
+        "sha256": "c19d99a2b492499b84bd63d0762fbc1a792a8e45f407891b498a65040342c1c4",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -13.607,
+          "energy_above_6khz": 0.0001,
+          "spectral_centroid_hz": 1315.5,
+          "last_third_rms_over_first": 0.0006
+        },
+        "edited_metrics": {
+          "duration_ms": 280.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.215,
+          "energy_above_6khz": 0.00013,
+          "spectral_centroid_hz": 1318.0,
+          "last_third_rms_over_first": 0.008
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 3.2e-05
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_Low.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ04",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ04/A.wav",
+        "sha256": "100b196de544dac4ff8dd4b2df51b3debe85d1b212eeeec451abe38bb39ca22d",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -11.904,
+          "energy_above_6khz": 0.00082,
+          "spectral_centroid_hz": 1324.5,
+          "last_third_rms_over_first": 0.149
+        },
+        "edited_metrics": {
+          "duration_ms": 280.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -13.098,
+          "energy_above_6khz": 0.00233,
+          "spectral_centroid_hz": 1203.5,
+          "last_third_rms_over_first": 1.0832
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.91193,
+        "selection_score": 0.44062
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ04/B.wav",
+        "sha256": "e29b03721708d13d70aafbc7ffc4813f8877aa3180329389a41a21095ae002ce",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.039,
+          "energy_above_6khz": 0.00435,
+          "spectral_centroid_hz": 1764.3,
+          "last_third_rms_over_first": 0.0086
+        },
+        "edited_metrics": {
+          "duration_ms": 280.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -12.647,
+          "energy_above_6khz": 0.00388,
+          "spectral_centroid_hz": 1744.3,
+          "last_third_rms_over_first": 0.4374
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99989,
+        "selection_score": 0.001849
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_Mid.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ05",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ05/A.wav",
+        "sha256": "b231f348e94d13e0874078446a589671093f4c0cedc1fdc0aaa06037e9c8964f",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.925,
+          "rms_dbfs": -14.878,
+          "energy_above_6khz": 0.00059,
+          "spectral_centroid_hz": 1224.6,
+          "last_third_rms_over_first": 0.0065
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -13.077,
+          "energy_above_6khz": 0.00042,
+          "spectral_centroid_hz": 1190.4,
+          "last_third_rms_over_first": 0.044
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.9999,
+        "selection_score": 0.000669
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ05/B.wav",
+        "sha256": "3ae63d95fc6bb0e27435a0c43b7f2f270d5871c00e7171fb67345663112fd0c5",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.491,
+          "energy_above_6khz": 0.01172,
+          "spectral_centroid_hz": 1698.3,
+          "last_third_rms_over_first": 0.0126
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -12.666,
+          "energy_above_6khz": 0.00945,
+          "spectral_centroid_hz": 1660.0,
+          "last_third_rms_over_first": 0.3764
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.98737,
+        "selection_score": 0.066673
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Honk_High.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ06",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ06/A.wav",
+        "sha256": "8c5cf8f1a830eba39ea6d71c9627329c5862801ad72f3aa163c65c795aac8262",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.205,
+          "rms_dbfs": -12.448,
+          "energy_above_6khz": 0.00365,
+          "spectral_centroid_hz": 1911.0,
+          "last_third_rms_over_first": 0.1672
+        },
+        "edited_metrics": {
+          "duration_ms": 390.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.285,
+          "energy_above_6khz": 0.00452,
+          "spectral_centroid_hz": 1794.2,
+          "last_third_rms_over_first": 1.0967
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99985,
+        "selection_score": 0.001852
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ06/B.wav",
+        "sha256": "8e47031f11d18bf35ae8b61257760e15b3e6ed88e4324e0a50b0d817d4cb7f2d",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.018,
+          "energy_above_6khz": 0.0045,
+          "spectral_centroid_hz": 1264.8,
+          "last_third_rms_over_first": 0.0244
+        },
+        "edited_metrics": {
+          "duration_ms": 390.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.071,
+          "energy_above_6khz": 0.00475,
+          "spectral_centroid_hz": 1298.1,
+          "last_third_rms_over_first": 0.1235
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99994,
+        "selection_score": 0.001672
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_DiverWarning.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ07",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ07/A.wav",
+        "sha256": "7ef38df8902bb962c85d33f3e40e1c09585c5e14a58138ac1ecd4cf878a32fca",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -13.979,
+          "energy_above_6khz": 0.01686,
+          "spectral_centroid_hz": 1682.4,
+          "last_third_rms_over_first": 0.0061
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.134,
+          "energy_above_6khz": 0.01665,
+          "spectral_centroid_hz": 1632.0,
+          "last_third_rms_over_first": 0.0264
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.005061
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ07/B.wav",
+        "sha256": "62de0d7dae120eedc1cebfc5ea1100bfeedea1a557bb26491f9bc42bcc98bf15",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.726,
+          "rms_dbfs": -18.569,
+          "energy_above_6khz": 0.08249,
+          "spectral_centroid_hz": 2239.1,
+          "last_third_rms_over_first": 0.0226
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.993,
+          "energy_above_6khz": 0.08965,
+          "spectral_centroid_hz": 2348.6,
+          "last_third_rms_over_first": 0.1329
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99998,
+        "selection_score": 0.024849
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_DiveWhoosh.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "SQ08",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/SQ08/A.wav",
+        "sha256": "534f853856e1da48c34e60fe6b94a72776f73beb910b3c46dbbce5934e12b44a",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -17.163,
+          "energy_above_6khz": 0.21354,
+          "spectral_centroid_hz": 3883.4,
+          "last_third_rms_over_first": 0.0108
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.322,
+          "energy_above_6khz": 0.1867,
+          "spectral_centroid_hz": 3464.2,
+          "last_third_rms_over_first": 0.0205
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99996,
+        "selection_score": 0.064272
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/SQ08/B.wav",
+        "sha256": "1224af410fd8f06c37bfc0a659b5cc911b2b609107081206784a98fd5b7039c9",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -15.487,
+          "energy_above_6khz": 0.1788,
+          "spectral_centroid_hz": 4616.7,
+          "last_third_rms_over_first": 0.0689
+        },
+        "edited_metrics": {
+          "duration_ms": 400.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -17.656,
+          "energy_above_6khz": 0.16821,
+          "spectral_centroid_hz": 4239.9,
+          "last_third_rms_over_first": 0.061
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99715,
+        "selection_score": 0.06788
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/CorruptedSquadron/SFX_Gusini_P2_Goose_Poof.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE01",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE01/A.wav",
+        "sha256": "abe3729cd6931d5c7b309d014c7c426ed73e7fa961fcfa5e188e5a0ac4cc927f",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -14.485,
+          "energy_above_6khz": 0.07229,
+          "spectral_centroid_hz": 2441.8,
+          "last_third_rms_over_first": 0.1109
+        },
+        "edited_metrics": {
+          "duration_ms": 300.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.442,
+          "energy_above_6khz": 0.07117,
+          "spectral_centroid_hz": 2408.6,
+          "last_third_rms_over_first": 0.3575
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.98818,
+        "selection_score": 0.080787
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE01/B.wav",
+        "sha256": "a37376b2364c55ed9664784f853d2042990c620583ce1197fc7e344639ab0f6d",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -1.223,
+          "rms_dbfs": -13.798,
+          "energy_above_6khz": 0.11744,
+          "spectral_centroid_hz": 2356.7,
+          "last_third_rms_over_first": 0.4894
+        },
+        "edited_metrics": {
+          "duration_ms": 300.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.243,
+          "energy_above_6khz": 0.1122,
+          "spectral_centroid_hz": 2210.4,
+          "last_third_rms_over_first": 0.809
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.84369,
+        "selection_score": 0.816804
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_ModuleCrack.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE02",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE02/A.wav",
+        "sha256": "3643b1fd2c004f241517df4c43747a56c12a4a832fe89ff3642077e13dcf0406",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -15.048,
+          "energy_above_6khz": 0.06255,
+          "spectral_centroid_hz": 2273.0,
+          "last_third_rms_over_first": 0.0133
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -18.065,
+          "energy_above_6khz": 0.06255,
+          "spectral_centroid_hz": 2273.0,
+          "last_third_rms_over_first": 0.0134
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.018765
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE02/B.wav",
+        "sha256": "fe153d774a0dc8584c66d54e5bb7fbfb401153c329ffbe894c29ebd2343160c9",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.991,
+          "energy_above_6khz": 0.1172,
+          "spectral_centroid_hz": 2575.6,
+          "last_third_rms_over_first": 0.0403
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.994,
+          "energy_above_6khz": 0.1172,
+          "spectral_centroid_hz": 2575.6,
+          "last_third_rms_over_first": 0.0403
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.03516
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_Emerge.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE03",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE03/A.wav",
+        "sha256": "aa96a607f145a086ba77f52ed9b4d455cb725dcd2de14ef3fd7ab13e0d2fb2b0",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 886.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.442,
+          "energy_above_6khz": 0.07873,
+          "spectral_centroid_hz": 2769.6,
+          "last_third_rms_over_first": 0.0123
+        },
+        "edited_metrics": {
+          "duration_ms": 886.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.446,
+          "energy_above_6khz": 0.07873,
+          "spectral_centroid_hz": 2769.6,
+          "last_third_rms_over_first": 0.0118
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.023619
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE03/B.wav",
+        "sha256": "3dd6c21f67243175df83fa072d0336de001aafb94ae853334e7f37d1ae81fb66",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 886.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.291,
+          "energy_above_6khz": 0.07813,
+          "spectral_centroid_hz": 2767.8,
+          "last_third_rms_over_first": 0.0707
+        },
+        "edited_metrics": {
+          "duration_ms": 886.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.299,
+          "energy_above_6khz": 0.07813,
+          "spectral_centroid_hz": 2767.8,
+          "last_third_rms_over_first": 0.0708
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.023439
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_LaneWarning.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE04",
+    "selected_candidate": "B",
+    "method": "user_approved_pilot_B",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE04/A.wav",
+        "sha256": "59717cde2dc0f614389a9f3ab114cda015ca6f06e77e0df09e75c75e5f8cce16",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.946,
+          "energy_above_6khz": 0.28817,
+          "spectral_centroid_hz": 5499.1,
+          "last_third_rms_over_first": 0.0051
+        },
+        "edited_metrics": {
+          "duration_ms": 470.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.807,
+          "energy_above_6khz": 0.28632,
+          "spectral_centroid_hz": 5460.7,
+          "last_third_rms_over_first": 0.0049
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99999,
+        "selection_score": 0.086522
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE04/B.wav",
+        "sha256": "d6fb35b69ca4cf677240073b7f893ad41ed828839539e10e43e1eaf91f8d5d44",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -16.6,
+          "energy_above_6khz": 0.17709,
+          "spectral_centroid_hz": 4077.5,
+          "last_third_rms_over_first": 0.012
+        },
+        "edited_metrics": {
+          "duration_ms": 470.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -19.469,
+          "energy_above_6khz": 0.17499,
+          "spectral_centroid_hz": 4058.2,
+          "last_third_rms_over_first": 0.0154
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.053148
+      }
+    ],
+    "reason": "Approved pilot B retained.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_Lash.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE05",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE05/A.wav",
+        "sha256": "91edfbfb877069ad372d7df90def97ab44ce215e9d4c89e8546fb89a8566b6cb",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -11.745,
+          "energy_above_6khz": 0.06823,
+          "spectral_centroid_hz": 2237.6,
+          "last_third_rms_over_first": 0.2388
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -13.014,
+          "energy_above_6khz": 0.05629,
+          "spectral_centroid_hz": 1974.1,
+          "last_third_rms_over_first": 0.9014
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.78309,
+        "selection_score": 1.105018
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE05/B.wav",
+        "sha256": "bc7487ceb97a88894bf910051f6c792371cf87569ddf78faaa084c4813992db5",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.649,
+          "energy_above_6khz": 0.03354,
+          "spectral_centroid_hz": 1792.3,
+          "last_third_rms_over_first": 0.0287
+        },
+        "edited_metrics": {
+          "duration_ms": 250.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -12.842,
+          "energy_above_6khz": 0.04562,
+          "spectral_centroid_hz": 1986.1,
+          "last_third_rms_over_first": 0.4976
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.98662,
+        "selection_score": 0.076974
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_TipCrack.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE06",
+    "selected_candidate": "A",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE06/A.wav",
+        "sha256": "c6aabfdad1f14e9be2bac6868b75b18bdde76cedcfb7a1b513ffd1ccfd88b7ac",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -12.796,
+          "energy_above_6khz": 1e-05,
+          "spectral_centroid_hz": 995.0,
+          "last_third_rms_over_first": 0.0045
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -15.798,
+          "energy_above_6khz": 1e-05,
+          "spectral_centroid_hz": 995.0,
+          "last_third_rms_over_first": 0.0044
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 3e-06
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE06/B.wav",
+        "sha256": "4d94beee3a0ca39b6038e9dbc0ee677a8c56fdb23136e43b4ca462cc1dcf56b7",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -10.069,
+          "energy_above_6khz": 0.00116,
+          "spectral_centroid_hz": 1230.3,
+          "last_third_rms_over_first": 0.0229
+        },
+        "edited_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -13.07,
+          "energy_above_6khz": 0.00116,
+          "spectral_centroid_hz": 1230.3,
+          "last_third_rms_over_first": 0.0229
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 1.0,
+        "selection_score": 0.000348
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_ResistCry.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE07",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE07/A.wav",
+        "sha256": "49fc8c9958fbf0507b50c8ff597b7e421b4678479eec67c72dc8fb39d47837d5",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -20.856,
+          "energy_above_6khz": 0.41569,
+          "spectral_centroid_hz": 5439.2,
+          "last_third_rms_over_first": 0.0836
+        },
+        "edited_metrics": {
+          "duration_ms": 350.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -22.456,
+          "energy_above_6khz": 0.36116,
+          "spectral_centroid_hz": 4866.7,
+          "last_third_rms_over_first": 0.1628
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99357,
+        "selection_score": 0.156867
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE07/B.wav",
+        "sha256": "1ab9676302408e1305c2077500c9da35f9fde2577eeae284104ebe28be861f56",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.299,
+          "rms_dbfs": -24.105,
+          "energy_above_6khz": 0.37415,
+          "spectral_centroid_hz": 6936.9,
+          "last_third_rms_over_first": 0.0514
+        },
+        "edited_metrics": {
+          "duration_ms": 350.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -25.387,
+          "energy_above_6khz": 0.18257,
+          "spectral_centroid_hz": 5586.0,
+          "last_third_rms_over_first": 0.103
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99745,
+        "selection_score": 0.124995
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_WeakpointOpen.wav",
+    "needs_tail_listening": false
+  },
+  {
+    "id": "TE08",
+    "selected_candidate": "B",
+    "method": "technical_AB_retained_energy_then_high_frequency_score",
+    "candidates": [
+      {
+        "candidate": "A",
+        "provider_candidate": 1,
+        "file": "_candidates/TE08/A.wav",
+        "sha256": "552177c2bb3f493ef72d6849c17a6496b4ce63f2e8667c28b9608a12687d52ba",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": -0.552,
+          "rms_dbfs": -15.82,
+          "energy_above_6khz": 0.15299,
+          "spectral_centroid_hz": 3518.0,
+          "last_third_rms_over_first": 0.1428
+        },
+        "edited_metrics": {
+          "duration_ms": 300.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -16.355,
+          "energy_above_6khz": 0.20144,
+          "spectral_centroid_hz": 3635.4,
+          "last_third_rms_over_first": 0.6344
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.96538,
+        "selection_score": 0.219002
+      },
+      {
+        "candidate": "B",
+        "provider_candidate": 2,
+        "file": "_candidates/TE08/B.wav",
+        "sha256": "bc1adcc6c0dc440b1d6f2ec20f71f9c231087d5af056572e4d80fb3abb51c160",
+        "source_codec": "pcm_s16le",
+        "source_channels": 2,
+        "source_sample_rate_hz": 48000,
+        "source_metrics": {
+          "duration_ms": 486.5,
+          "peak_dbfs": 0.0,
+          "rms_dbfs": -13.648,
+          "energy_above_6khz": 0.12237,
+          "spectral_centroid_hz": 2753.5,
+          "last_third_rms_over_first": 0.0054
+        },
+        "edited_metrics": {
+          "duration_ms": 300.0,
+          "peak_dbfs": -3.0,
+          "rms_dbfs": -14.554,
+          "energy_above_6khz": 0.10629,
+          "spectral_centroid_hz": 2448.5,
+          "last_third_rms_over_first": 0.2684
+        },
+        "removed_leading_ms": 0.0,
+        "retained_energy_ratio": 0.99993,
+        "selection_score": 0.037041
+      }
+    ],
+    "reason": "Lower score favors retaining more native energy in the event window, then lower measured high-frequency proportion; does not establish subjective tone quality.",
+    "master": "Phase2/Tentacles/SFX_Gusini_P2_Tentacle_WeakpointClose.wav",
+    "needs_tail_listening": false
+  }
+]

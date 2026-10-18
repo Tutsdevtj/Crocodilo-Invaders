@@ -1,0 +1,157 @@
+{
+ "scene": "pre_boss_gusini_f1",
+ "notes": [
+  "Ordem das falas reconstruída alternando Croc/Gusini; confirme com o roteiro.",
+  "Cena pré-boss (Fase 1). Para diálogos/eventos da Fase 2 use 04_Portrait_Gusini_F2/gusini_p2_corrupted_furious.png com displayName \"Gusini Corrompido\" e accent #7CEC48."
+ ],
+ "portraitFolder": "portraits/",
+ "lines": [
+  {
+   "index": 1,
+   "speakerId": "crocodilo",
+   "text": "Gusini...? Que porra tu tá fazendo? Aqueles eram dos nossos!",
+   "expressionId": "CROC_01",
+   "portraitFilename": "crocodilo_01_surpreso_indignado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_01_surpreso_indignado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 2,
+   "speakerId": "gusini",
+   "text": "Heh... Você sempre aparece na hora de dar sermão, Croc.",
+   "expressionId": "GUSINI_P1_SMUG",
+   "portraitFilename": "gusini_p1_smug.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_smug.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 3,
+   "speakerId": "crocodilo",
+   "text": "Baixa esse canhão. Agora.",
+   "expressionId": "CROC_02",
+   "portraitFilename": "crocodilo_02_serio_autoritario.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_02_serio_autoritario.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 4,
+   "speakerId": "gusini",
+   "text": "A mesma voz de sempre... Dando ordens.",
+   "expressionId": "GUSINI_P1_RESENTFUL",
+   "portraitFilename": "gusini_p1_resentful.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_resentful.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 5,
+   "speakerId": "crocodilo",
+   "text": "Que papo é esse, irmão? Eu tô tentando falar contigo!",
+   "expressionId": "CROC_03",
+   "portraitFilename": "crocodilo_03_confuso_preocupado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_03_confuso_preocupado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 6,
+   "speakerId": "gusini",
+   "text": "Lembra daquela tempestade? Quando meu motor morreu?",
+   "expressionId": "GUSINI_P1_RESENTFUL",
+   "portraitFilename": "gusini_p1_resentful.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_resentful.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 7,
+   "speakerId": "crocodilo",
+   "text": "Claro que lembro. Eu voltei pra te buscar.",
+   "expressionId": "CROC_03",
+   "portraitFilename": "crocodilo_03_confuso_preocupado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_03_confuso_preocupado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 8,
+   "speakerId": "gusini",
+   "text": "Eu sei. O esquadrão inteiro nunca me deixou esquecer.",
+   "expressionId": "GUSINI_P1_RESENTFUL",
+   "portraitFilename": "gusini_p1_resentful.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_resentful.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 9,
+   "speakerId": "crocodilo",
+   "text": "Eu voltei porque tu era meu amigo, seu idiota.",
+   "expressionId": "CROC_04",
+   "portraitFilename": "crocodilo_04_sincero_magoado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_04_sincero_magoado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 10,
+   "speakerId": "gusini",
+   "text": "Eles não precisam me salvar, Croc. Eles me deram poder.",
+   "expressionId": "GUSINI_P1_POWER",
+   "portraitFilename": "gusini_p1_power.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_power.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 11,
+   "speakerId": "crocodilo",
+   "text": "Esse poder fez tu atirar nos teus próprios amigos.",
+   "expressionId": "CROC_04",
+   "portraitFilename": "crocodilo_04_sincero_magoado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_04_sincero_magoado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 12,
+   "speakerId": "gusini",
+   "text": "...Croc. Vai embora.",
+   "expressionId": "GUSINI_P1_VULNERABLE",
+   "portraitFilename": "gusini_p1_vulnerable.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_vulnerable.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  },
+  {
+   "index": 13,
+   "speakerId": "crocodilo",
+   "text": "Nem fodendo. Não vou te deixar aqui.",
+   "expressionId": "CROC_05",
+   "portraitFilename": "crocodilo_05_determinado.png",
+   "portraitPath": "02_Portraits_BCrocodilo/portraits/crocodilo_05_determinado.png",
+   "displayName": "B. Crocodilo",
+   "nameplateAccent": "#96BE5A"
+  },
+  {
+   "index": 14,
+   "speakerId": "gusini",
+   "text": "Então vai ter que me derrubar.",
+   "expressionId": "GUSINI_P1_HOSTILE",
+   "portraitFilename": "gusini_p1_hostile.png",
+   "portraitPath": "03_Portraits_Gusini_F1/portraits/gusini_p1_hostile.png",
+   "displayName": "Gusini",
+   "nameplateAccent": "#E2463C"
+  }
+ ],
+ "phase2_portrait": {
+  "speakerId": "gusini",
+  "displayName": "Gusini Corrompido",
+  "portraitPath": "04_Portrait_Gusini_F2/gusini_p2_corrupted_furious.png",
+  "nameplateAccent": "#7CEC48"
+ },
+ "ui_guide": "01_Dialogue_UI/DIALOGUE_UI_GUIDE.md"
+}

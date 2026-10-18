@@ -1,0 +1,32 @@
+{
+  "dialogue": [
+    {
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_03.wav",
+      "duration_ms": 50,
+      "peak_dbfs": -11.9999
+    },
+    {
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_02.wav",
+      "duration_ms": 50,
+      "peak_dbfs": -11.9999
+    },
+    {
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_01.wav",
+      "duration_ms": 50,
+      "peak_dbfs": -11.9999
+    },
+    {
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_04.wav",
+      "duration_ms": 50,
+      "peak_dbfs": -11.9999
+    },
+    {
+      "file": "Dialogo/Prontos/SFX_Dialogo_TextBlip_05.wav",
+      "duration_ms": 50,
+      "peak_dbfs": -11.9999
+    }
+  ],
+  "music_original_bytes_preserved": true,
+  "subjective_audition_by_agent": false,
+  "unity_modified": false
+}

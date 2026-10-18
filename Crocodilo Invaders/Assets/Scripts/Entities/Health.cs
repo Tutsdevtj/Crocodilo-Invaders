@@ -12,6 +12,7 @@ public sealed class Health : MonoBehaviour
     public int MaxHealth => maxHealth;
     public bool IsDead => remainingHealth <= 0f;
     public bool IsInvulnerable { get; private set; }
+    public float IncomingDamageMultiplier { get; set; } = 1f;
     public void SetInvulnerable(bool invulnerable) => IsInvulnerable = invulnerable;
 
     private void OnDisable() => IsInvulnerable = false;
@@ -19,6 +20,8 @@ public sealed class Health : MonoBehaviour
     public event Action Damaged;
     public event Action Healed;
     public event Action Died;
+    // Uma entidade multifase pode consumir o esgotamento antes da morte definitiva.
+    public event Action Depleted;
 
     private void Awake()
     {
@@ -34,11 +37,23 @@ public sealed class Health : MonoBehaviour
     {
         if (!isActiveAndEnabled || IsDead || IsInvulnerable || amount <= 0f || float.IsNaN(amount)) return false;
 
-        remainingHealth -= Mathf.Min(amount, remainingHealth);
+        remainingHealth -= Mathf.Min(amount * Mathf.Max(0f, IncomingDamageMultiplier), remainingHealth);
         if (remainingHealth < .0001f) remainingHealth = 0f;
         HealthChanged?.Invoke(CurrentHealth, maxHealth);
         Damaged?.Invoke();
+        if (IsDead) Depleted?.Invoke();
         if (IsDead) Died?.Invoke();
+        return true;
+    }
+
+    public bool RestoreNextPhase(int maximum)
+    {
+        // Não é cura/respawn: somente o dono de uma transição invulnerável pode usar.
+        if (!isActiveAndEnabled || !IsDead || !IsInvulnerable || maximum < 1) return false;
+        maxHealth = maximum;
+        remainingHealth = maximum;
+        IncomingDamageMultiplier = 1f;
+        HealthChanged?.Invoke(CurrentHealth, maxHealth);
         return true;
     }
 

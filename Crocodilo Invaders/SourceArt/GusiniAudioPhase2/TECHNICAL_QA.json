@@ -1,0 +1,218 @@
+{
+  "p0_verified": 29,
+  "distinct_original_candidates": 58,
+  "p1_deferred": 8,
+  "all_master_wavs": "PCM24 mono 48000 Hz",
+  "all_source_wavs": "PCM16 stereo 48000 Hz (verified during processing)",
+  "master_peak_target_dbfs": -3,
+  "approved_pilot_master_bytes_preserved": true,
+  "unity_project_modified": false,
+  "critical_listening_by_agent": false,
+  "credit_cap": 350,
+  "credits_spent_observed": 215,
+  "checks": [
+    {
+      "id": "TR01",
+      "duration_ms": 400.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "de98f8715b3b8e48cbe1fb87e8e560581f1a838dd40f2e2109b99118dfbcbc9a"
+    },
+    {
+      "id": "TR02",
+      "duration_ms": 486.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "73dbda11b0a7e18b3adf1997dfaf69b68ac52070db332430ffc094ca6c1910e1"
+    },
+    {
+      "id": "TR03",
+      "duration_ms": 450.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "13bed692ef9ab42c987b6bc389438e22f13f4f5451edf8c6e83f12d5b48b84b3"
+    },
+    {
+      "id": "TR04",
+      "duration_ms": 1000.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "19c9cfd13ef30a07410663247dcd9638555d4bc7a5b10cf0f4cdb9b7eb442c8c"
+    },
+    {
+      "id": "TR05",
+      "duration_ms": 606.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "9f148bf0bc89a0d006e1b4058854fcc13e06655129bd4be77e81755de719176b"
+    },
+    {
+      "id": "TR06",
+      "duration_ms": 486.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "cd6cf775fe924c08c53ddf8c6380706b2ce4e3b394a71ec58448d97a6b396276"
+    },
+    {
+      "id": "EN01",
+      "duration_ms": 480.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "132aab907b37dbed3b3872e3b52344453c6dbdf2fdba8b7332f78b6d959e9065"
+    },
+    {
+      "id": "EN02",
+      "duration_ms": 290.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "5a20a979bc6f5e1f169bd281b07db0221ee080345244cd765a1ed0f64b66f504"
+    },
+    {
+      "id": "EN03",
+      "duration_ms": 320.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "e2befbc4088df02790734fa3f4fc07a76be0975377c3e59ea75d6f3da1197815"
+    },
+    {
+      "id": "EG01",
+      "duration_ms": 270.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "6ed5df97766147d759cbd3b5484207025464c0f3c23832e26210acdffa00262c"
+    },
+    {
+      "id": "EG02",
+      "duration_ms": 180.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "1f10a0c31fb1fb0c4e030974d5ffe29c600e002d20f14ca4a291ac01e6318e2d"
+    },
+    {
+      "id": "EG03",
+      "duration_ms": 160.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "581330f0c67b2deea15b1c66ef0c8c157cd95e63c44e3004999113d695a8a5db"
+    },
+    {
+      "id": "EG04",
+      "duration_ms": 400.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "483f2279860e9ba173fd4ccfd1f6177b23c0e6694bb73b7fe9dce61a2f5edee6"
+    },
+    {
+      "id": "SQ01",
+      "duration_ms": 410.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "4e3f15fbbd4c6e75c10e0712420db054f157f46dff90154f4e3ea39aec20f926"
+    },
+    {
+      "id": "SQ02",
+      "duration_ms": 250.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "9d24877ce28819d5d9fc9a9a0a18fbe35542ce59a26a79616160e9e866b31b26"
+    },
+    {
+      "id": "SQ03",
+      "duration_ms": 280.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "cae0eb78d416f1992f9e7ca0cd1c56da7c164c987ed4f6d7186e001d2ca399da"
+    },
+    {
+      "id": "SQ04",
+      "duration_ms": 280.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "809dd93f029d3d5cc7743afefa9da10e83f87b95ac4ee5fd09a7da0abcfb0b55"
+    },
+    {
+      "id": "SQ05",
+      "duration_ms": 250.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "e4e8c22b7eb10f8c7839632178fd48a63362e612c9bbbc9776240036887406bc"
+    },
+    {
+      "id": "SQ06",
+      "duration_ms": 390.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "17df3180d4952962f4ed9e035b1c47fa35b9ed4fbc7920a8a19cbfcaa6b6f72a"
+    },
+    {
+      "id": "SQ07",
+      "duration_ms": 400.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "f92925c477d1109902684f48354da5a57be8f510cbb8a09e7022cde747c9fac0"
+    },
+    {
+      "id": "SQ08",
+      "duration_ms": 400.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "252184fb159962f25b156e464eacc2969d49e5ba665ae0bd0b13b680a46ef54a"
+    },
+    {
+      "id": "TE01",
+      "duration_ms": 300.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "7c4a1e2d76d1bf3eead58ed4bc0bf2b7614c05b77c16481731883cee0cac826d"
+    },
+    {
+      "id": "TE02",
+      "duration_ms": 486.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "99391c40fcc9d309ba7f3bac70eb47885deb864a970aedf3852f6c6eb1918e5b"
+    },
+    {
+      "id": "TE03",
+      "duration_ms": 886.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "53d9705e5b867bde7e45ccb1350ebfcf59b3e7ff213ff1d6d0e8749d83619ebf"
+    },
+    {
+      "id": "TE04",
+      "duration_ms": 470.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "a3b24178cc1b40af89ff1a60267cfb10d698d8ee3c36f7d8c8f9b9599684e315"
+    },
+    {
+      "id": "TE05",
+      "duration_ms": 250.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "2bbdc16981563200ba0fd029ef1cf4ea1fda129df1fb89968789525d48b32ce7"
+    },
+    {
+      "id": "TE06",
+      "duration_ms": 486.5,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "3341d69d608d85ec864f8eba09d5a59b9a93820a3d9f3c716d02ef3eaee0d7df"
+    },
+    {
+      "id": "TE07",
+      "duration_ms": 350.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "8869c13c4e7c6274e9b5ee9b3ebd89f8a6a473dde11a86c35737f8da1c69d4a2"
+    },
+    {
+      "id": "TE08",
+      "duration_ms": 300.0,
+      "peak_dbfs": -3.0,
+      "codec": "pcm_s24le",
+      "sha256": "6ebd262597d407f90a30392f2463a56aa9ac0d08344ba28fbb1afdfa6432c658"
+    }
+  ]
+}

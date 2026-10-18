@@ -1,0 +1,174 @@
+{
+ "animation": "gusini_p2_energy_shot",
+ "phase": 2,
+ "attack": "Rajada Corrompida — 3 bolas de energia",
+ "loop": false,
+ "starts_from": "pose base da F2 (= último frame da transformação, sem FX)",
+ "returns_to": "pose base da F2",
+ "frame_count": 13,
+ "durations_ms": [
+  60,
+  90,
+  100,
+  110,
+  130,
+  60,
+  240,
+  60,
+  240,
+  70,
+  120,
+  140,
+  110
+ ],
+ "total_ms": 1530,
+ "canvas": {
+  "w": 256,
+  "h": 196
+ },
+ "pivot_px": {
+  "x": 120,
+  "y": 118
+ },
+ "pivot_unity_normalized": {
+  "x": 0.4688,
+  "y": 0.398
+ },
+ "events_frame": {
+  "telegraph_start": 0,
+  "charge_full": 4,
+  "fire_1": 5,
+  "fire_2": 7,
+  "fire_3": 9,
+  "recover_start": 10,
+  "recover_end": 12
+ },
+ "events_ms": {
+  "telegraph_start": 0,
+  "charge_full": 360,
+  "fire_1": 490,
+  "fire_2": 790,
+  "fire_3": 1090,
+  "recover_start": 1160,
+  "recover_end": 1420
+ },
+ "projectile_spawn_px": {
+  "x": -18,
+  "y": 142
+ },
+ "projectile_spawn_unity_from_pivot_px": {
+  "x": -138,
+  "y": -24
+ },
+ "spawn_note": "centro da bola (sprite 72x72): fica à frente das pinças, com a borda direita encostando no flash. Tocar ball_spawn_0-2 (60 ms cada) e depois o loop.",
+ "fire_direction": {
+  "x": -1,
+  "y": 0
+ },
+ "frames": [
+  {
+   "index": 0,
+   "file": "frames/gusini_p2_energy_shot_0.png",
+   "duration_ms": 60,
+   "start_ms": 0,
+   "label": "base (= pose base F2)",
+   "event": "telegraph_start"
+  },
+  {
+   "index": 1,
+   "file": "frames/gusini_p2_energy_shot_1.png",
+   "duration_ms": 90,
+   "start_ms": 60,
+   "label": "antecipação: mira, pinças abrem, faíscas convergem",
+   "event": null
+  },
+  {
+   "index": 2,
+   "file": "frames/gusini_p2_energy_shot_2.png",
+   "duration_ms": 100,
+   "start_ms": 150,
+   "label": "carga 1",
+   "event": null
+  },
+  {
+   "index": 3,
+   "file": "frames/gusini_p2_energy_shot_3.png",
+   "duration_ms": 110,
+   "start_ms": 250,
+   "label": "carga 2",
+   "event": null
+  },
+  {
+   "index": 4,
+   "file": "frames/gusini_p2_energy_shot_4.png",
+   "duration_ms": 130,
+   "start_ms": 360,
+   "label": "carga máxima (segura)",
+   "event": "charge_full"
+  },
+  {
+   "index": 5,
+   "file": "frames/gusini_p2_energy_shot_5.png",
+   "duration_ms": 60,
+   "start_ms": 490,
+   "label": "DISPARO 1",
+   "event": "fire_1"
+  },
+  {
+   "index": 6,
+   "file": "frames/gusini_p2_energy_shot_6.png",
+   "duration_ms": 240,
+   "start_ms": 550,
+   "label": "recarga",
+   "event": null
+  },
+  {
+   "index": 7,
+   "file": "frames/gusini_p2_energy_shot_7.png",
+   "duration_ms": 60,
+   "start_ms": 790,
+   "label": "DISPARO 2",
+   "event": "fire_2"
+  },
+  {
+   "index": 8,
+   "file": "frames/gusini_p2_energy_shot_8.png",
+   "duration_ms": 240,
+   "start_ms": 850,
+   "label": "recarga (mais forte)",
+   "event": null
+  },
+  {
+   "index": 9,
+   "file": "frames/gusini_p2_energy_shot_9.png",
+   "duration_ms": 70,
+   "start_ms": 1090,
+   "label": "DISPARO 3 (mais forte, cabeça chuta)",
+   "event": "fire_3"
+  },
+  {
+   "index": 10,
+   "file": "frames/gusini_p2_energy_shot_10.png",
+   "duration_ms": 120,
+   "start_ms": 1160,
+   "label": "recoil + vapor",
+   "event": "recover_start"
+  },
+  {
+   "index": 11,
+   "file": "frames/gusini_p2_energy_shot_11.png",
+   "duration_ms": 140,
+   "start_ms": 1280,
+   "label": "recuperação: pinças fechando",
+   "event": null
+  },
+  {
+   "index": 12,
+   "file": "frames/gusini_p2_energy_shot_12.png",
+   "duration_ms": 110,
+   "start_ms": 1420,
+   "label": "volta à base (= frame 0)",
+   "event": "recover_end"
+  }
+ ]
+}

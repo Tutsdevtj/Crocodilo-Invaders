@@ -6,6 +6,7 @@ using UnityEngine;
 public sealed class GusiniAudio : MonoBehaviour
 {
     [SerializeField] private GusiniAudioConfig config;
+    [SerializeField] private GusiniAudioConfig phaseTwoConfig;
     [SerializeField, Range(4,16)] private int poolSize=10;
     private sealed class Voice
     {
@@ -13,6 +14,7 @@ public sealed class GusiniAudio : MonoBehaviour
         public GusiniAudioConfig.Sound sound;
         public float until, gain;
         public Transform loopOwner;
+        public bool ownerBound;
     }
     private Voice[] voices;
     private GusiniAudioConfig.Sound[] sounds;
@@ -26,7 +28,12 @@ public sealed class GusiniAudio : MonoBehaviour
     private readonly System.Random variation=new System.Random();
     public event Action<GusiniSound,AudioClip,float> SoundPlayed;
     public GusiniAudioConfig Config => config;
-    public bool IsRunning => !stopped && isActiveAndEnabled && boss.BattleActive && !boss.Health.IsDead && combat.isActiveAndEnabled;
+    public GusiniAudioConfig PhaseTwoConfig => phaseTwoConfig;
+    public bool IsRunning => !stopped && isActiveAndEnabled && (Defeated || (boss.BattleActive && !boss.Health.IsDead &&
+        (combat.isActiveAndEnabled || (phaseTwo != null && (phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.PhaseTwo || phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.Transforming)))));
+    // A animação de derrota reutiliza masters da F2 depois que a batalha já parou.
+    private bool Defeated => phaseTwo != null && phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.Defeated;
+    private GusiniPhaseTwo phaseTwo;
     public int ActiveVoiceCount
     {
         get { int count=0; if(voices!=null) foreach(var v in voices) if(Active(v)) count++; return count; }
@@ -34,10 +41,11 @@ public sealed class GusiniAudio : MonoBehaviour
 
     private void Awake()
     {
-        boss=GetComponent<Boss>(); combat=GetComponent<GusiniCombat>();
+        boss=GetComponent<Boss>(); combat=GetComponent<GusiniCombat>(); phaseTwo=GetComponent<GusiniPhaseTwo>();
         int count=Enum.GetValues(typeof(GusiniSound)).Length;
         sounds=new GusiniAudioConfig.Sound[count]; nextAllowed=new float[count]; nextVariant=new int[count];
         if(config!=null) foreach(var sound in config.Sounds) sounds[(int)sound.id]=sound;
+        if(phaseTwoConfig!=null) foreach(var sound in phaseTwoConfig.Sounds) sounds[(int)sound.id]=sound;
         voices=new Voice[poolSize];
         for(int i=0;i<voices.Length;i++)
         {
@@ -54,13 +62,24 @@ public sealed class GusiniAudio : MonoBehaviour
         stopped=false;
         Play(GusiniSound.Engine,transform.position,transform);
     }
+    public void BeginPhaseTwo()
+    {
+        StopAll();
+        stopped=false;
+        // O motor danificado opcional não veio no pacote; a F2 não herda o loop F1.
+    }
+    public void BeginDefeat()
+    {
+        StopAll();
+        stopped=false;
+    }
     private bool Active(Voice v) => v.sound!=null && (v.sound.loop || Time.time<v.until);
     private void Update()
     {
         if(stopped) return;
         if(!IsRunning) { StopAll(); return; }
         foreach(var v in voices)
-            if(v.sound!=null && (!Active(v) || (v.sound.loop && (v.loopOwner==null || !v.loopOwner.gameObject.activeInHierarchy)))) Clear(v);
+            if(v.sound!=null && (!Active(v) || (v.ownerBound && (v.loopOwner==null || !v.loopOwner.gameObject.activeInHierarchy)))) Clear(v);
         if(Time.time>=squadronCueAt)
         {
             squadronCueAt=float.PositiveInfinity;
@@ -69,7 +88,7 @@ public sealed class GusiniAudio : MonoBehaviour
         ApplyMix();
     }
 
-    public bool Play(GusiniSound id,Vector3 position,Transform loopOwner=null)
+    public bool Play(GusiniSound id,Vector3 position,Transform loopOwner=null,float gainMultiplier=1f,float pitchMultiplier=1f)
     {
         if(!IsRunning || config==null) return false;
         var sound=sounds[(int)id];
@@ -98,7 +117,8 @@ public sealed class GusiniAudio : MonoBehaviour
         if(clip==null) return false;
         Clear(free);
         float pitch=Mathf.Lerp(sound.pitchRange.x,sound.pitchRange.y,(float)variation.NextDouble());
-        free.sound=sound; free.gain=sound.volume; free.loopOwner=loopOwner;
+        pitch*=Mathf.Clamp(pitchMultiplier,.5f,2f);
+        free.sound=sound; free.gain=sound.volume*Mathf.Clamp01(gainMultiplier); free.loopOwner=loopOwner; free.ownerBound=loopOwner!=null;
         free.until=Time.time+clip.length/Mathf.Max(.1f,Mathf.Abs(pitch));
         free.source.clip=clip; free.source.pitch=pitch; free.source.loop=sound.loop;
         free.source.panStereo=Mathf.Clamp(position.x/10f,-1f,1f)*.12f;
@@ -149,7 +169,7 @@ public sealed class GusiniAudio : MonoBehaviour
     private static void Clear(Voice v)
     {
         if(v.source!=null) { v.source.Stop(); v.source.clip=null; }
-        v.sound=null; v.loopOwner=null;
+        v.sound=null; v.loopOwner=null; v.ownerBound=false;
     }
     private void OnDisable() => StopAll();
 }

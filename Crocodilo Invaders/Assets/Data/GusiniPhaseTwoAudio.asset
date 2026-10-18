@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfea8d59b50aed544aabff76c58488bc, type: 3}
+  m_Name: GusiniPhaseTwoAudio
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniAudioConfig
+  sounds:
+  - id: 20
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: d53ece4bcfd381f4e9c3f75b411d7423, type: 3}
+    volume: 0.35999998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 21
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 9b54a481a46f12541a96fdc79101bf4a, type: 3}
+    volume: 0.31199998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 22
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 0fdd8da17ad51e94a8c716d02e378f86, type: 3}
+    volume: 0.336
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 23
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 252f95f87161ac84b9e6caf828c94af3, type: 3}
+    volume: 0.384
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 24
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: a721831e8141305419f7208f0ac7df51, type: 3}
+    volume: 0.408
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 25
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: fabd693b4ca822d4ca3edf6d29c7e3ef, type: 3}
+    volume: 0.35999998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 26
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 3fa8d0a1457c8c64f88b2bcb7d2f221f, type: 3}
+    volume: 0.336
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 27
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: d7106669520d0cb42a18156e84868009, type: 3}
+    volume: 0.31199998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 28
+    group: 4
+    variants:
+    - {fileID: 8300000, guid: f0980f4cc6d3dc143bbd305f48a5b01f, type: 3}
+    volume: 0.15
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 3
+    cooldown: 0.04
+    loop: 0
+    enabled: 1
+  - id: 29
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 2f6d135d794ee2c479a7c9eb2d642c80, type: 3}
+    volume: 0.495
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 30
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 32c4abe8034cebb42b695fb50c90776f, type: 3}
+    volume: 0.165
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 31
+    group: 4
+    variants:
+    - {fileID: 8300000, guid: cbaf762eb5f802c43a3d3b00b8862393, type: 3}
+    volume: 0.336
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 32
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: ede0361f24e3c4f49a52469f37c07e12, type: 3}
+    volume: 0.408
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 33
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 6fda0e19e0d0d5548ae01f7792911afb, type: 3}
+    volume: 0.35999998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 34
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: c8d96c70fdc0c7b4cacb7988914d5677, type: 3}
+    volume: 0.28800002
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 35
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: 5d1e201ed23637045acdd129699f6003, type: 3}
+    volume: 0.07
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 0
+  - id: 36
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: 961cd023dcaa1de4b9597868281289e2, type: 3}
+    volume: 0.07
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 2
+    loop: 0
+    enabled: 1
+  - id: 37
+    group: 3
+    variants:
+    - {fileID: 8300000, guid: a36f8abfd1adf324cba0fb5809dba99a, type: 3}
+    volume: 0.07
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 0
+  - id: 38
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 1dfdf3e2fd99d834d853f4a4e1bf0fb6, type: 3}
+    volume: 0.44000003
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 2
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 39
+    group: 2
+    variants:
+    - {fileID: 8300000, guid: e7460b15cecb857498ca2cc6d9e9980f, type: 3}
+    volume: 0.31199998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 2
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 40
+    group: 4
+    variants:
+    - {fileID: 8300000, guid: e3b31ee7b69591a4699fb5cc44c89fe0, type: 3}
+    volume: 0.175
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 2
+    cooldown: 0.04
+    loop: 0
+    enabled: 1
+  - id: 41
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 88496d787bc11624791c6f911370027c, type: 3}
+    volume: 0.28800002
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 42
+    group: 5
+    variants:
+    - {fileID: 8300000, guid: 5892f6eb17fbf7f44892b5498341c070, type: 3}
+    volume: 0.31199998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 43
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: ac988a138378e264080938ba9f464f94, type: 3}
+    volume: 0.41250002
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 44
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: fb40ff7a965cc924b914b8bf1d192acd, type: 3}
+    volume: 0.384
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 45
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 0749f8bf3379f2d43a1551f9475ec0b2, type: 3}
+    volume: 0.31199998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 46
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 85d3f9f44b9cee544aa935f0ba126cbc, type: 3}
+    volume: 0.336
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 47
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: a4991923fe48c944abcf6e26bb8130c6, type: 3}
+    volume: 0.384
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  - id: 48
+    group: 6
+    variants:
+    - {fileID: 8300000, guid: 035f02402f873224883f2ddfe6cb8940, type: 3}
+    volume: 0.35999998
+    pitchRange: {x: 1, y: 1}
+    maxVoices: 1
+    cooldown: 0.025
+    loop: 0
+    enabled: 1
+  voiceBudget: 0.82

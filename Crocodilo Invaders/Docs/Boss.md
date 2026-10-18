@@ -1,9 +1,9 @@
-# Gusini — Fase 1
+# Gusini — combate em duas fases
 
 Boss ativo da onda 10 em `Assets/Scenes/Tests/PlayerMovementTest.unity` e
 `Assets/Scenes/Tests/StageOneWaves.unity`. A integração preserva o fluxo de
-vitória/derrota e a pontuação de `WaveController`. Fases 2 e 3 não foram implementadas
-nem importadas; seus conceitos continuam no ZIP original.
+vitória/derrota e a pontuação de `WaveController`. A F1 descrita abaixo agora leva à
+[Fase 2 corrompida](GusiniFase2.md), importada do novo pacote. A Fase 3 foi descartada.
 
 ## Fonte e importação
 
@@ -426,3 +426,7 @@ Os três packs indicados foram consultados. Foi usado o efeito **charged**, de
 os ataques. ARCBIT Lite e a edição gratuita de Super Pixel Effects Gigapack ficaram
 como referências; não foram incorporados assets das versões pagas.
 O registro para a futura tela de créditos está em `Docs/Creditos.md`.
+
+## Gusini Fase 2
+
+A integração atual inclui a transformação F1 → F2, quatro ataques e barra corrompida. A morte da F1 não encerra a run. Veja [Gusini Fase 2](GusiniFase2.md) para comportamento, assets e validação. O Executor descrito nas seções anteriores continua preservado.

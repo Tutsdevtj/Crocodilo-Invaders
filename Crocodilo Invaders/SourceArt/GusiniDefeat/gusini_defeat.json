@@ -1,0 +1,191 @@
+{
+ "name": "gusini_defeat_f2_to_f1",
+ "version": 2,
+ "canvas_px": [
+  256,
+  196
+ ],
+ "pivot_px": [
+  120,
+  118
+ ],
+ "pivot_unity": [
+  0.4688,
+  0.398
+ ],
+ "loop": false,
+ "total_ms": 1900,
+ "frames": [
+  {
+   "index": 0,
+   "file": "frames/gusini_defeat_00.png",
+   "duration_ms": 60,
+   "start_ms": 0,
+   "tag": "defeat_hit",
+   "description": "Golpe final: flash branco (HP da F2 = 0)"
+  },
+  {
+   "index": 1,
+   "file": "frames/gusini_defeat_01.png",
+   "duration_ms": 90,
+   "start_ms": 60,
+   "tag": "stagger_start",
+   "description": "Cambaleia para trás; o verde FALHA (apaga)"
+  },
+  {
+   "index": 2,
+   "file": "frames/gusini_defeat_02.png",
+   "duration_ms": 80,
+   "start_ms": 150,
+   "tag": "core_unstable",
+   "description": "Núcleo pulsa descontrolado: verde estoura + raios"
+  },
+  {
+   "index": 3,
+   "file": "frames/gusini_defeat_03.png",
+   "duration_ms": 70,
+   "start_ms": 230,
+   "tag": null,
+   "description": "Verde apaga de novo"
+  },
+  {
+   "index": 4,
+   "file": "frames/gusini_defeat_04.png",
+   "duration_ms": 70,
+   "start_ms": 300,
+   "tag": null,
+   "description": "Pulso mais forte: anel no módulo + raios"
+  },
+  {
+   "index": 5,
+   "file": "frames/gusini_defeat_05.png",
+   "duration_ms": 60,
+   "start_ms": 370,
+   "tag": null,
+   "description": "Corrupção morre (verde vira cinza escuro)"
+  },
+  {
+   "index": 6,
+   "file": "frames/gusini_defeat_06.png",
+   "duration_ms": 60,
+   "start_ms": 430,
+   "tag": "core_critical",
+   "description": "Núcleo em brasa: módulo fica branco"
+  },
+  {
+   "index": 7,
+   "file": "frames/gusini_defeat_07.png",
+   "duration_ms": 60,
+   "start_ms": 490,
+   "tag": "parasite_burst",
+   "description": "ESTOURO do parasita: núcleo branco, anel e 8 raios (localizado)"
+  },
+  {
+   "index": 8,
+   "file": "frames/gusini_defeat_08.png",
+   "duration_ms": 70,
+   "start_ms": 550,
+   "tag": null,
+   "description": "O estouro se parte: anel abre, detritos da carapaça voam, fumaça verde"
+  },
+  {
+   "index": 9,
+   "file": "frames/gusini_defeat_09.png",
+   "duration_ms": 60,
+   "start_ms": 620,
+   "tag": null,
+   "description": "Anel some; o buraco do parasita fica queimado"
+  },
+  {
+   "index": 10,
+   "file": "frames/gusini_defeat_10.png",
+   "duration_ms": 80,
+   "start_ms": 680,
+   "tag": "face_recovered",
+   "description": "O rosto volta primeiro (cabeça F1 sobre o corpo F2 apagado)"
+  },
+  {
+   "index": 11,
+   "file": "frames/gusini_defeat_11.png",
+   "duration_ms": 40,
+   "start_ms": 760,
+   "tag": null,
+   "description": "Flash branco (troca de forma)"
+  },
+  {
+   "index": 12,
+   "file": "frames/gusini_defeat_12.png",
+   "duration_ms": 90,
+   "start_ms": 800,
+   "tag": "corruption_fading",
+   "description": "Gusini F1 aparece na NAVE AVARIADA, ainda com veias apagadas e fumaça verde subindo"
+  },
+  {
+   "index": 13,
+   "file": "frames/gusini_defeat_13.png",
+   "duration_ms": 100,
+   "start_ms": 890,
+   "tag": null,
+   "description": "Últimas veias somem; fumaça do motor e da cratera começam"
+  },
+  {
+   "index": 14,
+   "file": "frames/gusini_defeat_14.png",
+   "duration_ms": 110,
+   "start_ms": 990,
+   "tag": "gusini_recovered",
+   "description": "Gusini recuperado: corrupção sumiu; ficam a cratera, o resíduo verde morto e os danos"
+  },
+  {
+   "index": 15,
+   "file": "frames/gusini_defeat_15.png",
+   "duration_ms": 140,
+   "start_ms": 1100,
+   "tag": null,
+   "description": "Exausto: afunda e o nariz cai"
+  },
+  {
+   "index": 16,
+   "file": "frames/gusini_defeat_16.png",
+   "duration_ms": 160,
+   "start_ms": 1240,
+   "tag": null,
+   "description": "Afunda mais; faísca no motor"
+  },
+  {
+   "index": 17,
+   "file": "frames/gusini_defeat_17.png",
+   "duration_ms": 500,
+   "start_ms": 1400,
+   "tag": "defeated_hold",
+   "description": "Pose final pós-batalha (segue para o loop defeated_idle)"
+  }
+ ],
+ "events": {
+  "defeat_hit": 0,
+  "stagger_start": 1,
+  "core_unstable": 2,
+  "core_critical": 6,
+  "parasite_burst": 7,
+  "face_recovered": 10,
+  "corruption_fading": 12,
+  "gusini_recovered": 14,
+  "defeated_hold": 17
+ },
+ "then": {
+  "clip": "gusini_p1_defeated_idle",
+  "frames": [
+   "final/gusini_p1_defeated_idle_0.png",
+   "final/gusini_p1_defeated_idle_1.png",
+   "final/gusini_p1_defeated_idle_2.png",
+   "final/gusini_p1_defeated_idle_3.png"
+  ],
+  "frame_ms": 120,
+  "loop": true
+ },
+ "suggested_unity": {
+  "shake": "defeat_hit: 6px/120ms; parasite_burst: 4px/150ms",
+  "slowmo": "opcional: timeScale 0.4 por 180ms em parasite_burst",
+  "screen_flash": "opcional: branco alpha 0.35 por 60ms em parasite_burst"
+ }
+}

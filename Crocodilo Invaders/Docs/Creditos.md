@@ -11,6 +11,36 @@
   - Uso: animação de preparação dos ataques do Executor V-9.
   - Crédito sugerido: “Efeito de carga: ansimuz — Warped Shooting FX”.
 
+## Música do Gusini, som do diálogo e fonte da caixa de diálogo (18/10/2026)
+
+- **Phantasy Boss Battle Encounter — Ansimuz (Luis Zuno)**, música da Fase 1.
+  - Fonte: https://opengameart.org/content/phantasy-boss-battle-encounter — CC0.
+  - Arquivo: `Assets/Audio/Music/MUS_Gusini_Phase1_Loop.wav` (original `BossBattle.wav`, bytes preservados; SHA-256 conferido com o pacote).
+  - Crédito voluntário: “Music: Phantasy Boss Battle Encounter by Ansimuz (CC0)”.
+- **Boss Fight 2 — Ansimuz (Luis Zuno)**, música da Fase 2.
+  - Fonte: https://opengameart.org/content/boss-fight-2 — CC0, com permissão do autor incluída.
+  - Arquivo: `Assets/Audio/Music/MUS_Gusini_Phase2_Loop.wav` (original `Boss_Fight_2.wav`, bytes preservados; SHA-256 conferido).
+- **5 Blip UI sound effects! — FunnyDude**, som das letras do diálogo.
+  - Fonte: https://opengameart.org/content/5-blip-ui-sound-effects — CC0.
+  - Arquivo: `Assets/Audio/Dialogue/SFX_Dialogo_TextBlip_05.wav`, a variante 05 já editada no pacote (50 ms, corte/fades/nível/reamostragem).
+  - Crédito voluntário: “Dialogue blips: FunnyDude (CC0); editorial adaptations”.
+- **Pixelify Sans — The Pixelify Sans Project Authors**, texto das falas.
+  - Fonte: Google Fonts / github.com/google/fonts (ofl/pixelifysans). Licença SIL OFL 1.1 em `Assets/Fonts/PixelifySans/OFL.txt`.
+- Pacotes, licenças, manifests e hashes: `SourceArt/GusiniMusic/Phase1` e `SourceArt/GusiniMusic/Phase2`.
+
+A composição e os sons originais não são do autor do projeto nem do agente. Os
+retratos, a interface "Rádio de Piloto" e a direção dos diálogos foram
+fornecidos pelo autor do projeto (pacote `Dialogo_Completo.zip`); não se presume
+autoria externa para eles.
+
+## Derrota do Gusini (F2 → recuperado) fornecida pelo autor do projeto
+
+Pacote `Gusini_Derrota_F2_F1_v2.zip` (versão com a nave avariada): 18 quadros
+compostos e o loop de 4 quadros do Gusini exausto em `Assets/Art/Boss/GusiniDefeat`,
+copiados sem alteração; JSON e notas em `SourceArt/GusiniDefeat`, geradores em
+`Tools/Art/GusiniDefeat`. Previews, GIFs, sheets, camadas separadas e FX soltos não
+foram importados. Não se presume autoria externa.
+
 ## Arte do novo menu fornecida pelo autor do projeto
 
 Os onze PNGs de céu, logo, botões, diamante e nuvens enviados no chat foram
@@ -65,3 +95,7 @@ A caixa de vida usa cópias de `health_box` e `hp_up` do port em
 Ao usar outros efeitos futuramente, registrar quais arquivos e qual edição foram
 utilizados. No caso do Gigapack, o pedido atual autoriza somente a edição gratuita;
 a página do autor solicita atribuição.
+
+## Gusini — áudio da Fase 2
+
+29 masters WAV fornecidos pelo usuário em `Gusini_Audio_Phase2.zip`, em 18/10/2026. O pacote registra geração no ElevenLabs e edição editorial própria; os masters foram incorporados sem alteração. Manifesto de origem, mapa de eventos, hashes e informações fornecidas sobre direitos estão preservados em `SourceArt/GusiniAudioPhase2`. Candidatos, previews e os oito opcionais adiados não fazem parte dos assets de runtime.

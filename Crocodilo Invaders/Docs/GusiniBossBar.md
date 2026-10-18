@@ -48,3 +48,7 @@ flash/shake/lag, cachecol, shimmer/máscara/glint, pausa, vida crítica, recuper
 troca para Executor e de volta, morte e encerramento. Bindings das cenas
 PlayerMovementTest, StageOneWaves e GusiniBossTest conferidos sem salvar alterações.
 Capturas da partida inspecionadas em 1200×720, 1920×1080 e 800×600.
+
+## Fase 2
+
+A mesma barra agora recebe `BossBarPhaseTwo` e os sprites corrompidos. A F1 fica vazia durante a derrota aparente; a revelação inicia tomada, flash e recarga no lugar. Ver [Gusini Fase 2](GusiniFase2.md) para timings, animações, importação e validação atuais.

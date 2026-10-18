@@ -1,0 +1,298 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661aa54ffdd7ae546b6ad3e9dc243230, type: 3}
+  m_Name: GusiniFinale
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  cast: {fileID: 11400000, guid: 2c43a4ba8940e0545b9b30ac00bb5d60, type: 2}
+  openDelay: 1.3
+  closeDelay: 0.6
+  lines:
+  - speakerId: crocodilo
+    speakerName: 
+    text: Gusini?! Gus, me responde!
+    expressionId: worried
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: Agh... Croc? Que merda aconteceu com a minha nave?
+    expressionId: vulnerable
+    pauseBefore: 0.7
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "A parte boa \xE9 que tu voltou. A ruim \xE9 que tua nave n\xE3o pode dizer o mesmo."
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Eu... ataquei os nossos, n\xE9?"
+    expressionId: vulnerable
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Atacou. Mas aquele bicho tava na tua cabe\xE7a."
+    expressionId: serious
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: Heh... tu me salvou de novo.
+    expressionId: smug
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "N\xE3o acostuma."
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: "...Obrigado, irm\xE3o."
+    expressionId: vulnerable
+    pauseBefore: 0.3
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: radio
+    speakerName: 
+    text: "Aten\xE7\xE3o... aten\xE7\xE3o a todas as aeronaves sobreviventes. Aqui \xE9 a Central de Emerg\xEAncia."
+    expressionId: 
+    pauseBefore: 1
+    pauseStyle: 1
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 1
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: radio
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Central?! Crocodilo na escuta. Tem mais algu\xE9m a\xED?"
+    expressionId: alert
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: radio
+    speakerName: 
+    text: "A base principal foi destru\xEDda. Perdemos a torre de controle e grande parte da frota."
+    expressionId: 
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: Quantos conseguiram escapar?
+    expressionId: worried
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: radio
+    speakerName: 
+    text: "Ainda estamos contando. Os sobreviventes est\xE3o se reunindo numa pista improvisada."
+    expressionId: 
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: radio
+    speakerName: 
+    text: "Transmitindo coordenadas do novo ponto de encontro. Precisamos de toda ajuda dispon\xEDvel."
+    expressionId: 
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: Coordenadas recebidas. Estamos indo.
+    expressionId: determined
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Croc... depois do que eu fiz, ser\xE1 que v\xE3o me deixar entrar l\xE1?"
+    expressionId: vulnerable
+    pauseBefore: 0.9
+    pauseStyle: 1
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: farewell
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Como piloto? N\xE3o sei. Como mec\xE2nico, talvez."
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Talvez?! Eu sou o melhor mec\xE2nico desse esquadr\xE3o!"
+    expressionId: resentful
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Ent\xE3o prova. Essa lata tua t\xE1 caindo aos peda\xE7os."
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: gusini
+    speakerName: 
+    text: "Heh... t\xE1 bom, parceiro. Vamos pra casa."
+    expressionId: smug
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 

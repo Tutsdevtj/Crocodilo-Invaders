@@ -1,0 +1,250 @@
+{
+ "native_scale_note": "arte nativa 1x; na referência 1200x720 exibir em 2x (PPU 50 para 1 unidade = 100 px de tela, ou Canvas com Reference Pixels Per Unit 100 e sprites PPU 50).",
+ "palette": {
+  "outline": [
+   14,
+   16,
+   20
+  ],
+  "slate": [
+   [
+    18,
+    22,
+    28
+   ],
+   [
+    28,
+    34,
+    42
+   ],
+   [
+    40,
+    46,
+    54
+   ],
+   [
+    62,
+    70,
+    80
+   ],
+   [
+    98,
+    108,
+    118
+   ]
+  ],
+  "olive": [
+   [
+    44,
+    50,
+    30
+   ],
+   [
+    66,
+    74,
+    44
+   ],
+   [
+    92,
+    100,
+    62
+   ],
+   [
+    128,
+    136,
+    84
+   ]
+  ],
+  "bronze": [
+   [
+    110,
+    72,
+    30
+   ],
+   [
+    178,
+    122,
+    54
+   ],
+   [
+    226,
+    170,
+    80
+   ],
+   [
+    255,
+    214,
+    130
+   ]
+  ],
+  "amber": [
+   [
+    160,
+    90,
+    20
+   ],
+   [
+    236,
+    150,
+    40
+   ],
+   [
+    255,
+    206,
+    90
+   ],
+   [
+    255,
+    240,
+    180
+   ]
+  ],
+  "led_green": [
+   [
+    20,
+    60,
+    40
+   ],
+   [
+    40,
+    140,
+    70
+   ],
+   [
+    110,
+    230,
+    90
+   ],
+   [
+    210,
+    255,
+    170
+   ]
+  ],
+  "text_cream": [
+   246,
+   236,
+   204
+  ]
+ },
+ "sprites": {
+  "dialogue_panel_backplate": {
+   "size": [
+    64,
+    44
+   ],
+   "nine_slice_border_LRTB": [
+    14,
+    14,
+    12,
+    12
+   ],
+   "pivot": [
+    0.5,
+    0.0
+   ]
+  },
+  "dialogue_panel_frame": {
+   "size": [
+    64,
+    44
+   ],
+   "nine_slice_border_LRTB": [
+    14,
+    14,
+    12,
+    12
+   ],
+   "pivot": [
+    0.5,
+    0.0
+   ],
+   "frame_thickness": 7
+  },
+  "dialogue_highlight": {
+   "size": [
+    64,
+    44
+   ],
+   "nine_slice_border_LRTB": [
+    14,
+    14,
+    12,
+    12
+   ],
+   "pivot": [
+    0.5,
+    0.0
+   ]
+  },
+  "dialogue_nameplate": {
+   "size": [
+    40,
+    15
+   ],
+   "nine_slice_border_LRTB": [
+    10,
+    7,
+    0,
+    0
+   ],
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "text_rect_in_source": {
+    "x": 9,
+    "y_top": 3,
+    "height": 9,
+    "pad_right": 7
+   }
+  },
+  "dialogue_nameplate_accent": {
+   "size": [
+    40,
+    15
+   ],
+   "nine_slice_border_LRTB": [
+    10,
+    7,
+    0,
+    0
+   ],
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "tint": "cor por falante (multiplicativa)"
+  },
+  "dialogue_radio_idle": {
+   "size": [
+    34,
+    17
+   ],
+   "pivot": [
+    1.0,
+    0.0
+   ]
+  },
+  "dialogue_radio_active_0..2": {
+   "size": [
+    34,
+    17
+   ],
+   "pivot": [
+    1.0,
+    0.0
+   ]
+  },
+  "dialogue_continue_0..2": {
+   "size": [
+    11,
+    10
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ]
+  }
+ }
+}

@@ -63,6 +63,8 @@ public static class CrocodiloWindowsBuild
         foreach (string path in new[] { "Assets/Prefabs/UI/Leaderboard.prefab", "Assets/Prefabs/UI/PlayerName.prefab" })
             if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null) throw new BuildFailedException("Leaderboard UI is missing: " + path);
         var catalog = AssetDatabase.LoadAssetAtPath<UpgradeCardCatalog>("Assets/Data/UpgradeCards.asset");
+        GusiniPhaseTwoTools.Validate();
+        GusiniPhaseTwoAudioTools.Validate();
         RogueliteValidation.ValidateCatalog(catalog);
         var mixer = AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/Resources/Audio/GameAudio.mixer");
         if (mixer == null || Enumerable.Range(0, 3).Any(i => !mixer.GetFloat(GameAudioSettings.Parameter((AudioChannel)i), out _)))

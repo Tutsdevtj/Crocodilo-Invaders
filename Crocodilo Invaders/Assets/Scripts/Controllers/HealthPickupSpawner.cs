@@ -53,7 +53,9 @@ public sealed class HealthPickupSpawner : MonoBehaviour
         }
         // Uma caixa em passagem ainda pode ser coletada entre ondas.
         if (activePickup != null) return;
-        if (phase != WaveController.RunPhase.Combat && phase != WaveController.RunPhase.Boss)
+        // Durante o diálogo de entrada o player está sem controle: nenhuma caixa passa sem chance de coleta.
+        bool bossHeld = phase == WaveController.RunPhase.Boss && waves.ActiveBoss != null && waves.ActiveBoss.CombatHeld;
+        if ((phase != WaveController.RunPhase.Combat && phase != WaveController.RunPhase.Boss) || bossHeld)
         {
             needStartedAt = -1f;
             return;
@@ -86,6 +88,21 @@ public sealed class HealthPickupSpawner : MonoBehaviour
         Vector3 position = activePickup.transform.position + new Vector3(x - bounds.center.x, y - bounds.center.y, 0f);
         activePickup.transform.position = position;
         activePickup.GetComponent<Rigidbody2D>().position = position;
+    }
+
+    public bool TrySpawnForBossTransition()
+    {
+        if (!isActiveAndEnabled || activePickup != null || player == null || player.Health.IsDead
+            || waves == null || waves.Phase != WaveController.RunPhase.Boss || pickupPrefab == null
+            || player.Health.MaxHealth - player.Health.PreciseCurrentHealth < pickupPrefab.HealAmount) return false;
+        SpawnPickup();
+        // Recompensa única da transição: perto do player, durante a janela sem ataques.
+        Vector3 position = activePickup.transform.position;
+        float right = targetCamera.transform.position.x + targetCamera.orthographicSize * targetCamera.aspect;
+        position.x = Mathf.Min(player.transform.position.x + 2.5f, right - .8f);
+        activePickup.transform.position = position;
+        activePickup.GetComponent<Rigidbody2D>().position = position;
+        return true;
     }
 
     private void OnPickupRemoved(HealthPickup pickup, bool collected)

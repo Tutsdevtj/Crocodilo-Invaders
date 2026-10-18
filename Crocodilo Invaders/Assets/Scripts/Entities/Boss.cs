@@ -17,7 +17,10 @@ public sealed class Boss : MonoBehaviour
     public string DisplayName => displayName;
     public Sprite Portrait => portrait;
     public bool BattleActive { get; private set; }
-    public bool Ready => BattleActive && Movement.HasArrived && !Health.IsDead;
+    public bool Transitioning { get; private set; }
+    // Uma cena pode segurar o início do combate; a entrada continua normalmente.
+    public bool CombatHeld { get; private set; }
+    public bool Ready => BattleActive && !Transitioning && !CombatHeld && Movement.HasArrived && !Health.IsDead;
     public int PointsOnDefeat => pointsOnDefeat;
     public float DefeatDuration => defeatDuration;
     public event Action<Boss> Defeated;
@@ -25,6 +28,7 @@ public sealed class Boss : MonoBehaviour
 
     private Collider2D[] hitboxes;
     private Rigidbody2D body;
+    private bool holdingForCombat;
 
     private void Awake()
     {
@@ -53,8 +57,22 @@ public sealed class Boss : MonoBehaviour
         Combat.SetTarget(target);
     }
 
+    public void HoldCombat(bool hold)
+    {
+        if (CombatHeld == hold) return;
+        CombatHeld = hold;
+        if (holdingForCombat && !hold && !Transitioning) Movement.HoldPosition(false);
+        holdingForCombat = false;
+    }
+
     private void Update()
     {
+        // Parado durante a conversa, sem trocar a lógica de entrada ou patrulha.
+        if (CombatHeld && !holdingForCombat && BattleActive && Movement.HasArrived)
+        {
+            holdingForCombat = true;
+            Movement.HoldPosition(true);
+        }
         // A entrada não causa dano nem permite acertar um boss fora da arena.
         if (Ready && !hitboxes[0].enabled)
         {
@@ -73,12 +91,24 @@ public sealed class Boss : MonoBehaviour
         BattleStopped?.Invoke();
     }
 
+    public void SetTransitioning(bool value)
+    {
+        Transitioning = value;
+        Movement.HoldPosition(value);
+        Health.SetInvulnerable(value);
+        SetHitboxes(!value && BattleActive);
+    }
+
+    // Um boss resgatado (Gusini) continua em cena após a derrota; quem o retém cuida da apresentação.
+    public bool RetainedAfterDefeat { get; private set; }
+    public void RetainAfterDefeat() => RetainedAfterDefeat = true;
+
     private void OnDied()
     {
         StopBattle();
-        body.linearVelocity = new Vector2(-.55f, -1.1f);
+        if (!RetainedAfterDefeat) body.linearVelocity = new Vector2(-.55f, -1.1f);
         Defeated?.Invoke(this);
-        Destroy(gameObject, defeatDuration);
+        if (!RetainedAfterDefeat) Destroy(gameObject, defeatDuration);
     }
 
     private void SetHitboxes(bool active)

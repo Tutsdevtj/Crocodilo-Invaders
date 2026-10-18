@@ -1,0 +1,441 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe7079bae243464cb3b84df26076b01, type: 3}
+  m_Name: GusiniPhaseTwo
+  m_EditorClassIdentifier: Assembly-CSharp::GusiniPhaseTwoAssets
+  sprites:
+  - key: boss_backplate
+    sprite: {fileID: 21300000, guid: 200c6fc865f34d04281fdc9115453b42, type: 3}
+  - key: boss_frame
+    sprite: {fileID: 21300000, guid: ed1a2638870e98040972c7791d9b2a67, type: 3}
+  - key: emblem_alert
+    sprite: {fileID: 21300000, guid: 7735c7fee278e384d83fce506673baa0, type: 3}
+  - key: emblem_eye_0
+    sprite: {fileID: 21300000, guid: b36ba7e48f6151342ac1505086781956, type: 3}
+  - key: emblem_eye_1
+    sprite: {fileID: 21300000, guid: 7f445d870ab63424bac727201a189d91, type: 3}
+  - key: emblem_eye_2
+    sprite: {fileID: 21300000, guid: 0cb4bb2a0ebd83643bdd2ba30c1b8a1c, type: 3}
+  - key: emblem_eye_3
+    sprite: {fileID: 21300000, guid: 29510dc1de7cd6f4fbe706eaffd1bfac, type: 3}
+  - key: emblem_roundel
+    sprite: {fileID: 21300000, guid: 5f782a16170d7b142949a5de98f3b7f0, type: 3}
+  - key: hp_damage_lag
+    sprite: {fileID: 21300000, guid: 013553b434ecfee4fb227384e810cd65, type: 3}
+  - key: hp_fill
+    sprite: {fileID: 21300000, guid: e9164af01ebdab54e99f8bc8e0d2594a, type: 3}
+  - key: hp_fill_low
+    sprite: {fileID: 21300000, guid: 096c9e41f37de0c49a5e830fce8e63a7, type: 3}
+  - key: hp_hit_flash
+    sprite: {fileID: 21300000, guid: d839357cf2fd1674e96045815eaa48b9, type: 3}
+  - key: hp_track
+    sprite: {fileID: 21300000, guid: 48dbe5894d19951419df3dea8f2d6609, type: 3}
+  - key: lowhp_glow
+    sprite: {fileID: 21300000, guid: 05ec3ed72352668428a9cf5e868deec0, type: 3}
+  - key: nameplate
+    sprite: {fileID: 21300000, guid: 897fa8d12cfaa8b4ea4b8d4935e0d777, type: 3}
+  - key: name_text
+    sprite: {fileID: 21300000, guid: 5ebd5ff3cd9b53d40a34a77f30eee982, type: 3}
+  - key: name_text_glitch_1
+    sprite: {fileID: 21300000, guid: 81812cd03332efc4b8e735cc1a2f1dc7, type: 3}
+  - key: name_text_glitch_2
+    sprite: {fileID: 21300000, guid: 21cf930a06b25db41abed5031639320e, type: 3}
+  - key: orn_beak
+    sprite: {fileID: 21300000, guid: 286cf82fc6b5c3c4e905b25b1000ffb4, type: 3}
+  - key: orn_scarf_knot
+    sprite: {fileID: 21300000, guid: ab373c72f542f024e8aaecb90bb8eb01, type: 3}
+  - key: orn_scarf_tail_0
+    sprite: {fileID: 21300000, guid: 559439eb0ba5bc143be34bb5d10da240, type: 3}
+  - key: orn_scarf_tail_1
+    sprite: {fileID: 21300000, guid: 7f9c1da7077f8cf44843af043c128b0c, type: 3}
+  - key: orn_scarf_tail_2
+    sprite: {fileID: 21300000, guid: 58876f79bfd965f48acda3a5d1741df0, type: 3}
+  - key: orn_scarf_tail_3
+    sprite: {fileID: 21300000, guid: 2e7780086bd58a94dbf9b38c109951dd, type: 3}
+  - key: orn_star
+    sprite: {fileID: 21300000, guid: 9387ad650806bf1408e38785a4ab6457, type: 3}
+  - key: orn_wings
+    sprite: {fileID: 21300000, guid: 7ec45db3cb14f9a41bd7c72b5d7a3ae9, type: 3}
+  - key: takeover_0
+    sprite: {fileID: 21300000, guid: cbdff67b513a18643953d57116ba7cad, type: 3}
+  - key: takeover_1
+    sprite: {fileID: 21300000, guid: 56bb6c88c1e5dfc4ebfcb8d6e00ebc20, type: 3}
+  - key: takeover_2
+    sprite: {fileID: 21300000, guid: 1220a09df65c4ec4499693a678ca4def, type: 3}
+  - key: takeover_3
+    sprite: {fileID: 21300000, guid: e5f2790fa07ef1344b8b3a7d21c8a286, type: 3}
+  - key: fx_fill_edge
+    sprite: {fileID: 21300000, guid: eabd6154c7674ac49b1a38c885782ffa, type: 3}
+  - key: fx_glint_0
+    sprite: {fileID: 21300000, guid: 5c450a2bdc8ad2a43bdf0eb648e29974, type: 3}
+  - key: fx_glint_1
+    sprite: {fileID: 21300000, guid: eae9da7e53f4899418851fcdd5e8cf25, type: 3}
+  - key: fx_glint_2
+    sprite: {fileID: 21300000, guid: b5a2d4029332af2448a19f7637e62fa8, type: 3}
+  - key: fx_glint_3
+    sprite: {fileID: 21300000, guid: 5e000c702264e624587e448a82062944, type: 3}
+  - key: fx_hit_spark_0
+    sprite: {fileID: 21300000, guid: 396cff632e3d2d84aa3471dd8a7e95d2, type: 3}
+  - key: fx_hit_spark_1
+    sprite: {fileID: 21300000, guid: d2da4733f559a50409bb0d7ee72e785d, type: 3}
+  - key: fx_hit_spark_2
+    sprite: {fileID: 21300000, guid: 7356aee4286a5814bae8c926df6cb197, type: 3}
+  - key: fx_mote_0
+    sprite: {fileID: 21300000, guid: e3f4a5e43fd74aa41920a8878623318a, type: 3}
+  - key: fx_mote_1
+    sprite: {fileID: 21300000, guid: 2ec76086d1018124f9b2449e66f056b9, type: 3}
+  - key: fx_mote_2
+    sprite: {fileID: 21300000, guid: 0f1535ac47c341c4c817e89b825994e4, type: 3}
+  - key: fx_shimmer
+    sprite: {fileID: 21300000, guid: fc1c0eeaef37d16458520339a9748613, type: 3}
+  - key: gusini_p2_energy_shot_0
+    sprite: {fileID: 21300000, guid: 0c2d85ceffd7f1e4dbeb80b8a252f0ba, type: 3}
+  - key: gusini_p2_energy_shot_1
+    sprite: {fileID: 21300000, guid: 47d8f9e61bcbc9a4c80a8c45e31cc6ce, type: 3}
+  - key: gusini_p2_energy_shot_2
+    sprite: {fileID: 21300000, guid: 3109a63db0c749644bb632f40dcd16e5, type: 3}
+  - key: gusini_p2_energy_shot_3
+    sprite: {fileID: 21300000, guid: 5a105479e9c00444ebe4913c365adb79, type: 3}
+  - key: gusini_p2_energy_shot_4
+    sprite: {fileID: 21300000, guid: 19ed6210c9f898d4da5abfaf658b53ff, type: 3}
+  - key: gusini_p2_energy_shot_5
+    sprite: {fileID: 21300000, guid: d3f3251570f864341a7b3271368958b9, type: 3}
+  - key: gusini_p2_energy_shot_6
+    sprite: {fileID: 21300000, guid: d7e19026ad9a6fd4889bfe82df66f3c6, type: 3}
+  - key: gusini_p2_energy_shot_7
+    sprite: {fileID: 21300000, guid: 3b33ce1a70ed6cc46bf9bff200f5f9be, type: 3}
+  - key: gusini_p2_energy_shot_8
+    sprite: {fileID: 21300000, guid: 624c8e28562393141b6aaad0cda18c9f, type: 3}
+  - key: gusini_p2_energy_shot_9
+    sprite: {fileID: 21300000, guid: 9fd2e32f44997f74da487dfba46944bd, type: 3}
+  - key: gusini_p2_energy_shot_10
+    sprite: {fileID: 21300000, guid: 4e7dcf3bd9ff39c4fb2f750c2cbd9f11, type: 3}
+  - key: gusini_p2_energy_shot_11
+    sprite: {fileID: 21300000, guid: 9b17ab6f050834b42b9d3efc7802420f, type: 3}
+  - key: gusini_p2_energy_shot_12
+    sprite: {fileID: 21300000, guid: 2a04e3005b7b8924a9b210861a7285ac, type: 3}
+  - key: gusini_p2_energy_ball_0
+    sprite: {fileID: 21300000, guid: d26141e04967f8c4dbd402070bff05aa, type: 3}
+  - key: gusini_p2_energy_ball_1
+    sprite: {fileID: 21300000, guid: 551ca2fa364976c44af2ea88f50ae0f7, type: 3}
+  - key: gusini_p2_energy_ball_2
+    sprite: {fileID: 21300000, guid: 53303677bd40f784eb1c8fd412b93f95, type: 3}
+  - key: gusini_p2_energy_ball_3
+    sprite: {fileID: 21300000, guid: 3e74b97ddd8a76e4085adfe0b8d82e53, type: 3}
+  - key: gusini_p2_energy_ball_4
+    sprite: {fileID: 21300000, guid: e6a019d83f04be94bb6577cc33ad7267, type: 3}
+  - key: gusini_p2_energy_ball_5
+    sprite: {fileID: 21300000, guid: f42870c11f00b8947a4f4c766b7da50e, type: 3}
+  - key: gusini_p2_energy_ball_pop_0
+    sprite: {fileID: 21300000, guid: f6ad52f619833e7459ccd02b2cef7b84, type: 3}
+  - key: gusini_p2_energy_ball_pop_1
+    sprite: {fileID: 21300000, guid: 1b5ad0f2376974c43b300667c5ce48ac, type: 3}
+  - key: gusini_p2_energy_ball_pop_2
+    sprite: {fileID: 21300000, guid: acf94033eb2f5d04cb4a4233c9c5985d, type: 3}
+  - key: gusini_p2_energy_ball_pop_3
+    sprite: {fileID: 21300000, guid: 2c1d92184a4547a4ea65f1641625da80, type: 3}
+  - key: gusini_p2_energy_ball_pop_4
+    sprite: {fileID: 21300000, guid: 37fdd0293a1712e48a455c428182ec95, type: 3}
+  - key: gusini_p2_energy_ball_spawn_0
+    sprite: {fileID: 21300000, guid: 9eb47837151763b4f8151b245c64d910, type: 3}
+  - key: gusini_p2_energy_ball_spawn_1
+    sprite: {fileID: 21300000, guid: 1bb2db4f42418d54fb265d8efc9f3446, type: 3}
+  - key: gusini_p2_energy_ball_spawn_2
+    sprite: {fileID: 21300000, guid: 3835d1c8bf70e704abdc25ffb3722549, type: 3}
+  - key: gusini_p2_energy_trail_0
+    sprite: {fileID: 21300000, guid: f89e5f0b85bf7a648a31a7a3b03bd5c2, type: 3}
+  - key: gusini_p2_energy_trail_1
+    sprite: {fileID: 21300000, guid: 28473c536fa925f4e885c6892a8344d1, type: 3}
+  - key: gusini_p2_energy_trail_2
+    sprite: {fileID: 21300000, guid: 521371c52d99e27438b49bf79226f5c2, type: 3}
+  - key: gusini_p2_egg_drop_0
+    sprite: {fileID: 21300000, guid: 748fa7d8019c7c8439d36492893be572, type: 3}
+  - key: gusini_p2_egg_drop_1
+    sprite: {fileID: 21300000, guid: 5e81612a5fd4b0146a3c7356796cbd82, type: 3}
+  - key: gusini_p2_egg_drop_2
+    sprite: {fileID: 21300000, guid: fd220d9cd5e9deb4d9d8bcdb87b99ff6, type: 3}
+  - key: gusini_p2_egg_drop_3
+    sprite: {fileID: 21300000, guid: 7a5e602d5916e4442bc56dfb9cfe5e76, type: 3}
+  - key: gusini_p2_egg_drop_4
+    sprite: {fileID: 21300000, guid: 0bcaf39bb68718f4b8b734fda46dcc35, type: 3}
+  - key: gusini_p2_egg_drop_5
+    sprite: {fileID: 21300000, guid: 95dea5d176503bc4fbab677adf21ea6e, type: 3}
+  - key: gusini_p2_egg_drop_6
+    sprite: {fileID: 21300000, guid: 63006321d715b5445b8a17932152b71b, type: 3}
+  - key: gusini_p2_egg_drop_7
+    sprite: {fileID: 21300000, guid: 253d58cbf53d6d14c9523db53f8d56a9, type: 3}
+  - key: gusini_p2_egg_drop_8
+    sprite: {fileID: 21300000, guid: bf2ff6bf3d9e0eb42b647d1623b1dbc4, type: 3}
+  - key: egg_p2_burst
+    sprite: {fileID: 21300000, guid: d1023eb3876691c49baf8bfe896bdb9c, type: 3}
+  - key: egg_p2_crack_1
+    sprite: {fileID: 21300000, guid: 35b1f05c57d3c2d41b6f93664696530b, type: 3}
+  - key: egg_p2_crack_2
+    sprite: {fileID: 21300000, guid: f307ab43392484a4f93a5b084b670edd, type: 3}
+  - key: egg_p2_idle
+    sprite: {fileID: 21300000, guid: 5d407578c3132cb419a4752e16d3ed98, type: 3}
+  - key: egg_p2_pulse_1
+    sprite: {fileID: 21300000, guid: ed9b88545710a074d8e352288c5ad064, type: 3}
+  - key: egg_p2_pulse_2
+    sprite: {fileID: 21300000, guid: 00f93b7de4a8dcf4fb259bf357f2fb4e, type: 3}
+  - key: parachute_p2_0
+    sprite: {fileID: 21300000, guid: e775ac4dbd5d73e428feeb6dd74f6252, type: 3}
+  - key: parachute_p2_1
+    sprite: {fileID: 21300000, guid: 16d17ddf6bbb2f440a958784edb106f7, type: 3}
+  - key: parachute_p2_deploy_0
+    sprite: {fileID: 21300000, guid: 75aa0f0d29d7ca646a508c97df55b6b4, type: 3}
+  - key: parachute_p2_deploy_1
+    sprite: {fileID: 21300000, guid: 19a3f2d0d7b616a48bfca31930cb2abf, type: 3}
+  - key: parachute_p2_deploy_2
+    sprite: {fileID: 21300000, guid: 159e1f8fee4440c47832c558365d1d3b, type: 3}
+  - key: yolk_p2_down
+    sprite: {fileID: 21300000, guid: caacdb387e253f947900b4b4cd535336, type: 3}
+  - key: yolk_p2_down_left
+    sprite: {fileID: 21300000, guid: 3705628196df85144a78bde2c26f7ae4, type: 3}
+  - key: yolk_p2_left
+    sprite: {fileID: 21300000, guid: be6d4f6ac1996f942afb17242ec474df, type: 3}
+  - key: yolk_p2_up
+    sprite: {fileID: 21300000, guid: d9b8b041fb57bd9498b5e4de81bef9a9, type: 3}
+  - key: yolk_p2_up_left
+    sprite: {fileID: 21300000, guid: ce71949fbf4d6724ab286f8e7b5adf11, type: 3}
+  - key: fx_parachute_pop_0
+    sprite: {fileID: 21300000, guid: 628b17234f639104282f9d89dca6f5f2, type: 3}
+  - key: fx_parachute_pop_1
+    sprite: {fileID: 21300000, guid: 8293a1e23ba8e1e45bfc37a37b4ab344, type: 3}
+  - key: gusini_p2_squadron_call_0
+    sprite: {fileID: 21300000, guid: b832ef362d4feec4ab380881c7aaf31f, type: 3}
+  - key: gusini_p2_squadron_call_1
+    sprite: {fileID: 21300000, guid: 01e329b69f6c75647b4591ba66e0d4b2, type: 3}
+  - key: gusini_p2_squadron_call_2
+    sprite: {fileID: 21300000, guid: 02ea3b4888b82da42b20a5d7a001e02e, type: 3}
+  - key: gusini_p2_squadron_call_3
+    sprite: {fileID: 21300000, guid: 3fe1dd54f93e7cb48ad905128f71a16d, type: 3}
+  - key: gusini_p2_squadron_call_4
+    sprite: {fileID: 21300000, guid: 518bebf39bdfbe24ba7db334db0bdc46, type: 3}
+  - key: gusini_p2_squadron_call_5
+    sprite: {fileID: 21300000, guid: ae6c3f909a6ad054badec6a1b12bca1b, type: 3}
+  - key: gusini_p2_squadron_call_6
+    sprite: {fileID: 21300000, guid: 78005eb743477124b9be1167cf3b43ac, type: 3}
+  - key: gansinho_ca_0
+    sprite: {fileID: 21300000, guid: ba57584859cec47488f95422edd25b1f, type: 3}
+  - key: gansinho_ca_1
+    sprite: {fileID: 21300000, guid: ae57c2b758c757741bc5e45dea02bfca, type: 3}
+  - key: gansinho_ca_2
+    sprite: {fileID: 21300000, guid: c67e9a8140cd65d4fb8db034de22bcc0, type: 3}
+  - key: gansinho_ca_3
+    sprite: {fileID: 21300000, guid: edf6f9bf0e597ba41aa6959c2e92c1f8, type: 3}
+  - key: gansinho_ca_flash_green_0
+    sprite: {fileID: 21300000, guid: 15ad676f2dd2e4b4190f180022c97dde, type: 3}
+  - key: gansinho_ca_flash_green_1
+    sprite: {fileID: 21300000, guid: 6c19acb086f41da49871eec00abb17e6, type: 3}
+  - key: gansinho_ca_flash_green_2
+    sprite: {fileID: 21300000, guid: 479f9539d0663f84f83b28584d4da8f3, type: 3}
+  - key: gansinho_ca_flash_green_3
+    sprite: {fileID: 21300000, guid: a74042f14627d094fb217e3ea7b0ceb6, type: 3}
+  - key: gansinho_ca_hit_white_0
+    sprite: {fileID: 21300000, guid: a995fc8d712f8d248905f46708aa1c17, type: 3}
+  - key: gansinho_ca_hit_white_1
+    sprite: {fileID: 21300000, guid: 7745c20ec3f834d4982f2798385e738c, type: 3}
+  - key: gansinho_ca_hit_white_2
+    sprite: {fileID: 21300000, guid: fda7e4bcf5e605a40aa04d9aeb99b95d, type: 3}
+  - key: gansinho_ca_hit_white_3
+    sprite: {fileID: 21300000, guid: da01a21535d0f7d458a93e332220e1d0, type: 3}
+  - key: gansinho_cb_0
+    sprite: {fileID: 21300000, guid: 6036ddd93e97ab145b22c533abdffede, type: 3}
+  - key: gansinho_cb_1
+    sprite: {fileID: 21300000, guid: b0c68c25db15a0a46b9a262b2ea44687, type: 3}
+  - key: gansinho_cb_2
+    sprite: {fileID: 21300000, guid: d530ee398831a3d49bb0735688fcc34d, type: 3}
+  - key: gansinho_cb_3
+    sprite: {fileID: 21300000, guid: e8347075c55ffdb4e9fb744aa4992e3b, type: 3}
+  - key: gansinho_cb_flash_green_0
+    sprite: {fileID: 21300000, guid: a9d7382a9a0465e4d9309b27861279cb, type: 3}
+  - key: gansinho_cb_flash_green_1
+    sprite: {fileID: 21300000, guid: c54b9a78a8e332a4a941f601425002cf, type: 3}
+  - key: gansinho_cb_flash_green_2
+    sprite: {fileID: 21300000, guid: 90fb88482cc069649b1e77751aa26cc8, type: 3}
+  - key: gansinho_cb_flash_green_3
+    sprite: {fileID: 21300000, guid: 0b4d4a019428fa142a07a1de8da658e0, type: 3}
+  - key: gansinho_cb_hit_white_0
+    sprite: {fileID: 21300000, guid: dd8f5cb3811b8fc4a8499520d21665cf, type: 3}
+  - key: gansinho_cb_hit_white_1
+    sprite: {fileID: 21300000, guid: 541acf2da96c45047888c8ffa249792c, type: 3}
+  - key: gansinho_cb_hit_white_2
+    sprite: {fileID: 21300000, guid: 483e5e6f877822c4f823efba848cfb09, type: 3}
+  - key: gansinho_cb_hit_white_3
+    sprite: {fileID: 21300000, guid: 979d3f25fceebf74f89dda424957beb2, type: 3}
+  - key: gansinho_c_beak_0
+    sprite: {fileID: 21300000, guid: 594144d77828888478e1b40e4bf62262, type: 3}
+  - key: gansinho_c_beak_1
+    sprite: {fileID: 21300000, guid: 74fa930bc25109d4db70ed40054ac63b, type: 3}
+  - key: gansinho_c_beak_2
+    sprite: {fileID: 21300000, guid: 2d51d88f52aa22e458cc35d1a9ea6d07, type: 3}
+  - key: fx_dive_streak_0
+    sprite: {fileID: 21300000, guid: 8791131bb680f8d48919968ce6a59146, type: 3}
+  - key: fx_dive_streak_1
+    sprite: {fileID: 21300000, guid: cbc1e406b3224c14998f4d17a51eefbd, type: 3}
+  - key: fx_dive_streak_2
+    sprite: {fileID: 21300000, guid: 94cb78f06f129244fadceae169bfad79, type: 3}
+  - key: fx_edge_warning_0
+    sprite: {fileID: 21300000, guid: 5a7d97673fc1e8946909c014fc1ec79b, type: 3}
+  - key: fx_edge_warning_1
+    sprite: {fileID: 21300000, guid: 266ebde77d13d314292addcbc3a43cb2, type: 3}
+  - key: fx_gansinho_poof_0
+    sprite: {fileID: 21300000, guid: b449af5682d4f2540af73554512b80a6, type: 3}
+  - key: fx_gansinho_poof_1
+    sprite: {fileID: 21300000, guid: e007e72c5affcf34ca853614c2dd8a06, type: 3}
+  - key: fx_gansinho_poof_2
+    sprite: {fileID: 21300000, guid: d6d9b28ebaf089243a8d3ce72887e975, type: 3}
+  - key: fx_gansinho_poof_3
+    sprite: {fileID: 21300000, guid: e9eb06114997eea448b92bf770ef619c, type: 3}
+  - key: fx_gansinho_poof_4
+    sprite: {fileID: 21300000, guid: b4215ce9f772ee54084c65a13d50904f, type: 3}
+  - key: gusini_p2_tentacle_start_0
+    sprite: {fileID: 21300000, guid: 42bc8fa6d142bf54f97ff459ecc48daa, type: 3}
+  - key: gusini_p2_tentacle_start_1
+    sprite: {fileID: 21300000, guid: efc90a7a45ce6c44d843edfc99bcae2b, type: 3}
+  - key: gusini_p2_tentacle_start_2
+    sprite: {fileID: 21300000, guid: c85b2cb4df85ec849adc5c8b15d4861b, type: 3}
+  - key: gusini_p2_tentacle_start_3
+    sprite: {fileID: 21300000, guid: 975df3696834a6b4f976d5f8f162cc7f, type: 3}
+  - key: gusini_p2_tentacle_start_4
+    sprite: {fileID: 21300000, guid: 5df4ecfe797a61c4188478cc0471bf92, type: 3}
+  - key: gusini_p2_tentacle_start_5
+    sprite: {fileID: 21300000, guid: 16153b982d7f19942902dbf5e501d9b1, type: 3}
+  - key: gusini_p2_tentacle_lash_0
+    sprite: {fileID: 21300000, guid: 6066d8bf3df171149b853f21eddbef2c, type: 3}
+  - key: gusini_p2_tentacle_lash_1
+    sprite: {fileID: 21300000, guid: 0bd9bdc714498c24bb5e586f09403c41, type: 3}
+  - key: gusini_p2_tentacle_lash_2
+    sprite: {fileID: 21300000, guid: 5c7473ec350801142834020bf7696845, type: 3}
+  - key: gusini_p2_tentacle_lash_3
+    sprite: {fileID: 21300000, guid: 517369eabdea00f4680d7ca7e85f54d2, type: 3}
+  - key: gusini_p2_tentacle_lash_4
+    sprite: {fileID: 21300000, guid: 67d80915cbcf4e74990d4a90ad883fe9, type: 3}
+  - key: gusini_p2_tentacle_resist_0
+    sprite: {fileID: 21300000, guid: 00609697349c7b344a11e1c10b0c07ac, type: 3}
+  - key: gusini_p2_tentacle_resist_1
+    sprite: {fileID: 21300000, guid: 4c7b1dad3c989a14c96028768d9253e8, type: 3}
+  - key: gusini_p2_tentacle_resist_2
+    sprite: {fileID: 21300000, guid: 3e9a7f12fe9212f4184f6883be9e805a, type: 3}
+  - key: gusini_p2_tentacle_resist_3
+    sprite: {fileID: 21300000, guid: be9f085f9e378ca4cb3670853560d24c, type: 3}
+  - key: gusini_p2_tentacle_resist_4
+    sprite: {fileID: 21300000, guid: f4236dac9a6d5b04883dbd455b5d75d8, type: 3}
+  - key: gusini_p2_tentacle_resist_5
+    sprite: {fileID: 21300000, guid: 044db6ad5d425664bad7e1190f3cea33, type: 3}
+  - key: gusini_p2_tentacle_resist_6
+    sprite: {fileID: 21300000, guid: 32e06e31942499c4b8a6b676f27bb6c1, type: 3}
+  - key: gusini_p2_tentacle_resist_7
+    sprite: {fileID: 21300000, guid: 38aaee5a47572b7448ecf21d01c3150c, type: 3}
+  - key: lane_tentacle_0
+    sprite: {fileID: 21300000, guid: 9c9327707d44c9c44bd819b2e4ee1e8d, type: 3}
+  - key: lane_tentacle_1
+    sprite: {fileID: 21300000, guid: 5b4befe9471deb245a6d5aebc7eda8ad, type: 3}
+  - key: lane_tentacle_2
+    sprite: {fileID: 21300000, guid: cd326d89f79d5ac44be5c00d420e5fc3, type: 3}
+  - key: lane_tentacle_3
+    sprite: {fileID: 21300000, guid: d77a7ce57abfee049ae44f435950e02a, type: 3}
+  - key: lane_tentacle_4
+    sprite: {fileID: 21300000, guid: 4699bb950b1fa1e4e8535ab08f017908, type: 3}
+  - key: lane_tentacle_5
+    sprite: {fileID: 21300000, guid: 28437e5aa88e57043ae4e7248982e4f8, type: 3}
+  - key: lane_tentacle_6
+    sprite: {fileID: 21300000, guid: c687e90ad8e2485439c24dda75b805de, type: 3}
+  - key: lane_tentacle_7
+    sprite: {fileID: 21300000, guid: 962e7da3d0f40064499bd50c280a1636, type: 3}
+  - key: lane_warning_arrow_0
+    sprite: {fileID: 21300000, guid: d6378bed0113fe344a9934b1e85b8ca2, type: 3}
+  - key: lane_warning_arrow_1
+    sprite: {fileID: 21300000, guid: 194f2dd408dc98942a5bce67867fa710, type: 3}
+  - key: lane_warning_edge_0
+    sprite: {fileID: 21300000, guid: 542c5670c89d2384885b8e3c7547ba4e, type: 3}
+  - key: lane_warning_edge_1
+    sprite: {fileID: 21300000, guid: 2d9d30fdcb0aacf489c83834723726b1, type: 3}
+  - key: lane_warning_fill_0
+    sprite: {fileID: 21300000, guid: cfcc26764e43e13449e5bfc8307ddcda, type: 3}
+  - key: lane_warning_fill_1
+    sprite: {fileID: 21300000, guid: 6fd71ef2c0dac9f4bbb875aa801b17c5, type: 3}
+  - key: fx_tentacle_crack_0
+    sprite: {fileID: 21300000, guid: 9710054cfd8a688459471da742b06250, type: 3}
+  - key: fx_tentacle_crack_1
+    sprite: {fileID: 21300000, guid: 9a6359fbfcb2c9647ab5da59220772c2, type: 3}
+  - key: fx_tentacle_crack_2
+    sprite: {fileID: 21300000, guid: e4fa4cdf5a1dbf94a92616dcb5f4512a, type: 3}
+  - key: fx_tentacle_crack_3
+    sprite: {fileID: 21300000, guid: 3a3fc4f8f1d47e14a97c21502d2e811a, type: 3}
+  - key: fx_weakpoint_ring_0
+    sprite: {fileID: 21300000, guid: fe2295d227beb944e8d5e1c047af6164, type: 3}
+  - key: fx_weakpoint_ring_1
+    sprite: {fileID: 21300000, guid: 0a9a985c20e16824a8db6c56c3af83d1, type: 3}
+  - key: gusini_transform_00
+    sprite: {fileID: 21300000, guid: 99ffb3cffd8e8d940b803353b812db5f, type: 3}
+  - key: gusini_transform_01
+    sprite: {fileID: 21300000, guid: 510f8b9fe42681c408ed8c6f14790db2, type: 3}
+  - key: gusini_transform_02
+    sprite: {fileID: 21300000, guid: e2bafef05ecb2304e87a75ff3afc6d42, type: 3}
+  - key: gusini_transform_03
+    sprite: {fileID: 21300000, guid: e3cfe0c1263a1b84899a14aeb7b00687, type: 3}
+  - key: gusini_transform_04
+    sprite: {fileID: 21300000, guid: 81550df40a40e484a82f9ec563ce0905, type: 3}
+  - key: gusini_transform_05
+    sprite: {fileID: 21300000, guid: 2fb2e4a64c07dff4194229b8832e956a, type: 3}
+  - key: gusini_transform_06
+    sprite: {fileID: 21300000, guid: 8b585ced3b7048b4286677b2503412f0, type: 3}
+  - key: gusini_transform_07
+    sprite: {fileID: 21300000, guid: 4535d69bcec14de49a5896fea702bfa8, type: 3}
+  - key: gusini_transform_08
+    sprite: {fileID: 21300000, guid: 9d155a57e2be79c45a5405b7b620c0fd, type: 3}
+  - key: gusini_transform_09
+    sprite: {fileID: 21300000, guid: 61e05aacd3d525f48bf02ac48e42a268, type: 3}
+  - key: gusini_transform_10
+    sprite: {fileID: 21300000, guid: 3e2e49ca3bddedf4a905e97bb44f52a1, type: 3}
+  - key: gusini_transform_11
+    sprite: {fileID: 21300000, guid: 0fb0d8dfa449ccd4695ef48840fd9299, type: 3}
+  - key: gusini_transform_12
+    sprite: {fileID: 21300000, guid: 1025fa6e62d4a4b4da8f5b4d82c55368, type: 3}
+  - key: gusini_transform_13
+    sprite: {fileID: 21300000, guid: d2fc67bc166da1f48b43e7ae45a92733, type: 3}
+  - key: gusini_transform_14
+    sprite: {fileID: 21300000, guid: a1b7e6fc8916e484eb73326e4d7a0b41, type: 3}
+  - key: gusini_transform_15
+    sprite: {fileID: 21300000, guid: 39179bc6f8839924b8e9b3f196f4b19f, type: 3}
+  - key: gusini_transform_16
+    sprite: {fileID: 21300000, guid: 90e99c5eed2816a4c88f769788fe881e, type: 3}
+  - key: gusini_transform_17
+    sprite: {fileID: 21300000, guid: 29648084d2c7eb04788b2438920180d2, type: 3}
+  - key: gusini_transform_18
+    sprite: {fileID: 21300000, guid: 015e17fb4bf730b4f8c2385ff8d2049b, type: 3}
+  - key: gusini_transform_19
+    sprite: {fileID: 21300000, guid: 7089642b56aa5364b9f84b563c7d9eba, type: 3}
+  - key: gusini_transform_20
+    sprite: {fileID: 21300000, guid: 07d7b7ee376397b4f85d3d85ea851985, type: 3}
+  - key: gusini_transform_21
+    sprite: {fileID: 21300000, guid: 461225945e928594699b60089d40f839, type: 3}
+  - key: gusini_transform_22
+    sprite: {fileID: 21300000, guid: 0e74cecf31d508447bbabf7be90acca5, type: 3}
+  - key: gusini_transform_23
+    sprite: {fileID: 21300000, guid: f65ce04aa2850bd469374664704afa5a, type: 3}
+  - key: gusini_transform_24
+    sprite: {fileID: 21300000, guid: d3952d7abd503744c832803b67716521, type: 3}
+  - key: gusini_transform_25
+    sprite: {fileID: 21300000, guid: a7b25e9aff7117e4a99d3ad2e124cafb, type: 3}
+  - key: gusini_transform_26
+    sprite: {fileID: 21300000, guid: c0752fb1dc3f7b44eb3641ec8a1da6ad, type: 3}
+  - key: gusini_transform_27
+    sprite: {fileID: 21300000, guid: fead383a0fa5b744da6fb1ddbf6e7e44, type: 3}
+  - key: gusini_transform_28
+    sprite: {fileID: 21300000, guid: 735d49cdc1a0a674f8f1db0fbea2c8fc, type: 3}
+  - key: gusini_transform_29
+    sprite: {fileID: 21300000, guid: 800cb80b167a80f40a5c71750b490b8a, type: 3}
+  - key: gusini_transform_sprite_29
+    sprite: {fileID: 21300000, guid: e9234b151775ee342a8a18d2348479c9, type: 3}

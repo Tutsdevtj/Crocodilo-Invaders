@@ -109,4 +109,12 @@ public sealed class PlayerCombat : MonoBehaviour
         Charge = value;
         ChargeChanged?.Invoke(Charge, specialChargeRequired);
     }
+
+#if UNITY_EDITOR
+    public void ConfigureBossTestSpecial(int shotsToCharge)
+    {
+        specialChargeRequired = Mathf.Max(1, shotsToCharge);
+        SetCharge(specialChargeRequired);
+    }
+#endif
 }

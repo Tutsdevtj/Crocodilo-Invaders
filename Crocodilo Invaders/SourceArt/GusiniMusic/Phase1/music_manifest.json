@@ -1,0 +1,170 @@
+{
+  "track": "Phantasy Boss Battle Encounter",
+  "author": "Ansimuz / Luis Zuno",
+  "license": "CC0",
+  "source_url": "https://opengameart.org/content/phantasy-boss-battle-encounter",
+  "download_url": "https://opengameart.org/sites/default/files/bossbattle_files.zip",
+  "source_archive_sha256": "b8c24cbb1d4cc10a14a5a8a43183239bd92c93f192df918197e41a921628b6c6",
+  "original_name": "BossBattle.wav",
+  "file": "Musica/MUS_Gusini_Phase1_Loop.wav",
+  "duration_seconds": 66.0,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "codec": "pcm_s16le",
+  "source_files_unchanged": true,
+  "loop_start_sample": 0,
+  "loop_end_sample_exclusive": 3168000,
+  "loop_basis": "Author explicitly confirms loop on the source page; subjective seam audition pending.",
+  "selection_basis": "Retro boss-battle track by the same author as Phase 2 Boss Fight 2. Chosen as a Phase 1 option against documented cartoon aviation, mechanical pops, whistle and goose honks; no critical listening claim.",
+  "preview_mix": {
+    "file": "Previas/Mix_Fase1_com_SFX_30s.wav",
+    "duration_seconds": 30,
+    "music_gain": 0.28,
+    "engine_gain": 0.18,
+    "output_gain": 1.0,
+    "events": [
+      {
+        "filename": "SFX_Gusini_Shoot_Cock_01.wav",
+        "start_seconds": 3.08,
+        "gain": 0.3
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_01.wav",
+        "start_seconds": 3.18,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_02.wav",
+        "start_seconds": 3.61,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_03.wav",
+        "start_seconds": 4.04,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cock_01.wav",
+        "start_seconds": 25.08,
+        "gain": 0.3
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_01.wav",
+        "start_seconds": 25.18,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_02.wav",
+        "start_seconds": 25.61,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Shoot_Cannon_03.wav",
+        "start_seconds": 26.04,
+        "gain": 0.85
+      },
+      {
+        "filename": "SFX_Gusini_Squadron_Whistle_01.wav",
+        "start_seconds": 8.17,
+        "gain": 0.8
+      },
+      {
+        "filename": "SFX_Gusini_Squadron_Flyby_01.wav",
+        "start_seconds": 8.58,
+        "gain": 0.5
+      },
+      {
+        "filename": "SFX_Gusini_Goose_Honk_Mid_01.wav",
+        "start_seconds": 9.2,
+        "gain": 0.55
+      },
+      {
+        "filename": "SFX_Gusini_Goose_Honk_Low_01.wav",
+        "start_seconds": 9.34,
+        "gain": 0.55
+      },
+      {
+        "filename": "SFX_Gusini_Goose_Honk_High_01.wav",
+        "start_seconds": 9.34,
+        "gain": 0.48
+      },
+      {
+        "filename": "SFX_Gusini_Goose_Honk_Mid_01.wav",
+        "start_seconds": 9.48,
+        "gain": 0.55
+      },
+      {
+        "filename": "SFX_Gusini_Goose_Honk_High_01.wav",
+        "start_seconds": 9.48,
+        "gain": 0.48
+      },
+      {
+        "filename": "SFX_Gusini_Egg_HatchLatch_01.wav",
+        "start_seconds": 15.08,
+        "gain": 0.35
+      },
+      {
+        "filename": "SFX_Gusini_Egg_HatchOpen_01.wav",
+        "start_seconds": 15.18,
+        "gain": 0.4
+      },
+      {
+        "filename": "SFX_Gusini_Egg_Drop_01.wav",
+        "start_seconds": 15.4,
+        "gain": 0.55
+      },
+      {
+        "filename": "SFX_Gusini_Egg_HatchClose_01.wav",
+        "start_seconds": 15.49,
+        "gain": 0.4
+      },
+      {
+        "filename": "SFX_Gusini_Egg_ParachuteDeploy_01.wav",
+        "start_seconds": 15.65,
+        "gain": 0.5
+      },
+      {
+        "filename": "SFX_Gusini_Egg_Crack_01.wav",
+        "start_seconds": 17.7,
+        "gain": 0.55
+      },
+      {
+        "filename": "SFX_Gusini_Egg_Crack_02.wav",
+        "start_seconds": 17.9,
+        "gain": 0.65
+      },
+      {
+        "filename": "SFX_Gusini_Egg_Burst_01.wav",
+        "start_seconds": 18.06,
+        "gain": 1.0
+      },
+      {
+        "filename": "SFX_Gusini_Hit_01.wav",
+        "start_seconds": 22.0,
+        "gain": 0.45
+      },
+      {
+        "filename": "SFX_Gusini_Hit_02.wav",
+        "start_seconds": 22.08,
+        "gain": 0.45
+      },
+      {
+        "filename": "SFX_Gusini_Hit_03.wav",
+        "start_seconds": 22.16,
+        "gain": 0.45
+      }
+    ],
+    "source_sfx_library_id": "libfile_3137acf0a48c8191aeca5442ca60d526",
+    "source_sfx_archive": "Gusini_Audio_Phase1.zip",
+    "source_sfx_sha256": "4b42742f1fd5da71a42bdb644610aa0c179336c0809308dc0eaaffbd3f79793b",
+    "timing_note": "Illustrative attack order; relative animation events and 430 ms cannon cadence follow Phase 1 manifest. Not a recording of gameplay."
+  },
+  "credits_spent": 0,
+  "critical_listening_by_agent": false,
+  "unity_project_modified": false,
+  "source_metrics": {
+    "peak_dbfs": -0.2125,
+    "head_1s_rms_dbfs": -12.129,
+    "tail_1s_rms_dbfs": -12.868
+  }
+}

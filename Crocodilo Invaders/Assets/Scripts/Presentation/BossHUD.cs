@@ -15,6 +15,8 @@ public sealed class BossHUD : MonoBehaviour
     private Health health;
     private BossCombat legacyCombat;
     private bool showingGusini;
+    private GusiniPhaseTwo phaseTwo;
+    private BossBarPhaseTwo phaseTwoBar;
 
     private void OnEnable()
     {
@@ -50,7 +52,21 @@ public sealed class BossHUD : MonoBehaviour
         if (showingGusini)
         {
             gusiniBar.gameObject.SetActive(true);
+            phaseTwo = target.GetComponent<GusiniPhaseTwo>();
+            phaseTwoBar = gusiniBar.GetComponent<BossBarPhaseTwo>();
+            if (phaseTwoBar != null) phaseTwoBar.ResetPhase();
             gusiniBar.Show(health.Fraction);
+            if (phaseTwo != null)
+            {
+                phaseTwo.TransitionStarted += HoldPhaseOne;
+                phaseTwo.PhaseTwoRevealed += RevealPhaseTwo;
+                if (phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.Transforming)
+                {
+                    HoldPhaseOne();
+                    if (phaseTwo.RevealTime >= 0f) RevealPhaseTwo();
+                }
+                else if (phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.PhaseTwo) RevealPhaseTwo();
+            }
             return;
         }
         legacyCombat = target.GetComponent<BossCombat>();
@@ -66,10 +82,18 @@ public sealed class BossHUD : MonoBehaviour
         Refresh(health.CurrentHealth, health.MaxHealth);
     }
 
+    private void HoldPhaseOne() => gusiniBar.HoldEmpty();
+    private void RevealPhaseTwo()
+    {
+        if (phaseTwoBar != null) phaseTwoBar.Begin(health.Fraction, Mathf.Max(0f, phaseTwo.RevealTime));
+    }
+
     private void Refresh(int current, int maximum)
     {
         if (showingGusini)
         {
+            if (phaseTwo != null && phaseTwo.CurrentStage == GusiniPhaseTwo.Stage.Transforming) return;
+            if (phaseTwoBar != null) phaseTwoBar.SetHealth(health.Fraction);
             gusiniBar.SetHealth(health.Fraction);
             return;
         }
@@ -88,6 +112,12 @@ public sealed class BossHUD : MonoBehaviour
 
     private void Unsubscribe()
     {
+        if (phaseTwo != null)
+        {
+            phaseTwo.TransitionStarted -= HoldPhaseOne;
+            phaseTwo.PhaseTwoRevealed -= RevealPhaseTwo;
+        }
+        phaseTwo = null; phaseTwoBar = null;
         if (health != null) health.HealthChanged -= Refresh;
         if (legacyCombat != null) legacyCombat.EnrageStarted -= ShowEnrage;
         legacyCombat = null;

@@ -1,0 +1,420 @@
+{
+ "name": "Gusini F2 — Ataque 4: Tentáculos do Parasita (v2, refeito do zero)",
+ "canvas_px": [
+  256,
+  196
+ ],
+ "pivot_px": [
+  120,
+  118
+ ],
+ "pivot_unity": [
+  0.4688,
+  0.398
+ ],
+ "notes": "Eventos no início do frame. Durações variáveis. Alpha 0/255. Pose base = frame final da transformação.",
+ "clips": {
+  "gusini_p2_tentacle_start": {
+   "loop": false,
+   "total_ms": 610,
+   "frames": [
+    {
+     "index": 0,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_0.png",
+     "duration_ms": 80,
+     "start_ms": 0,
+     "label": "base (= pose base F2)",
+     "event": "telegraph_start",
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_0.png"
+    },
+    {
+     "index": 1,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_1.png",
+     "duration_ms": 110,
+     "start_ms": 80,
+     "label": "módulo pulsa, cabeça tranca, casco racha",
+     "event": null,
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_1.png"
+    },
+    {
+     "index": 2,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_2.png",
+     "duration_ms": 90,
+     "start_ms": 190,
+     "label": "tentáculos rompem o módulo",
+     "event": "tentacles_emerge",
+     "tentacle_pose": "emerge1",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_2.png"
+    },
+    {
+     "index": 3,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_3.png",
+     "duration_ms": 100,
+     "start_ms": 280,
+     "label": "crescem",
+     "event": null,
+     "tentacle_pose": "emerge2",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_3.png"
+    },
+    {
+     "index": 4,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_4.png",
+     "duration_ms": 140,
+     "start_ms": 380,
+     "label": "POSE DE AMEAÇA: ferrão aponta para o player",
+     "event": null,
+     "tentacle_pose": "threat",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_4.png"
+    },
+    {
+     "index": 5,
+     "file": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_5.png",
+     "duration_ms": 90,
+     "start_ms": 520,
+     "label": "entra no wind-up",
+     "event": "start_end",
+     "tentacle_pose": "wind_a",
+     "sprite": "frames/gusini_p2_tentacle_start/gusini_p2_tentacle_start_5.png"
+    }
+   ]
+  },
+  "gusini_p2_tentacle_lash": {
+   "loop": false,
+   "total_ms": 620,
+   "frames": [
+    {
+     "index": 0,
+     "file": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_0.png",
+     "duration_ms": 150,
+     "start_ms": 0,
+     "label": "WIND-UP A (loop durante o aviso)",
+     "event": "warn_loop_start",
+     "tentacle_pose": "wind_a",
+     "sprite": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_0.png"
+    },
+    {
+     "index": 1,
+     "file": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_1.png",
+     "duration_ms": 150,
+     "start_ms": 150,
+     "label": "WIND-UP B (loop durante o aviso)",
+     "event": "warn_loop_end",
+     "tentacle_pose": "wind_b",
+     "sprite": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_1.png"
+    },
+    {
+     "index": 2,
+     "file": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_2.png",
+     "duration_ms": 90,
+     "start_ms": 300,
+     "label": "CHICOTADA: os dois mergulham para trás (saem pela direita)",
+     "event": "lash_hit",
+     "tentacle_pose": "lash",
+     "sprite": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_2.png"
+    },
+    {
+     "index": 3,
+     "file": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_3.png",
+     "duration_ms": 110,
+     "start_ms": 390,
+     "label": "acompanhamento (tentáculos lá fora, nas faixas)",
+     "event": null,
+     "tentacle_pose": "follow",
+     "sprite": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_3.png"
+    },
+    {
+     "index": 4,
+     "file": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_4.png",
+     "duration_ms": 120,
+     "start_ms": 500,
+     "label": "voltam → próximo wind-up ou resistência",
+     "event": "lash_end",
+     "tentacle_pose": "recoil",
+     "sprite": "frames/gusini_p2_tentacle_lash/gusini_p2_tentacle_lash_4.png"
+    }
+   ]
+  },
+  "gusini_p2_tentacle_resist": {
+   "loop": false,
+   "total_ms": 810,
+   "frames": [
+    {
+     "index": 0,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_0.png",
+     "duration_ms": 100,
+     "start_ms": 0,
+     "label": "tentáculos recolhendo, Gusini tranca",
+     "event": "resist_start",
+     "tentacle_pose": "retract1",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_0.png"
+    },
+    {
+     "index": 1,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_1.png",
+     "duration_ms": 90,
+     "start_ms": 100,
+     "label": "RESISTE: olhos normais (cabeça da F1)",
+     "event": null,
+     "tentacle_pose": "retract1",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_1.png"
+    },
+    {
+     "index": 2,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_2.png",
+     "duration_ms": 70,
+     "start_ms": 190,
+     "label": "parasita puxa de volta",
+     "event": null,
+     "tentacle_pose": "retract2",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_2.png"
+    },
+    {
+     "index": 3,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_3.png",
+     "duration_ms": 110,
+     "start_ms": 260,
+     "label": "resiste de novo: módulo contrai",
+     "event": null,
+     "tentacle_pose": "retract2",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_3.png"
+    },
+    {
+     "index": 4,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_4.png",
+     "duration_ms": 120,
+     "start_ms": 370,
+     "label": "NÚCLEO EXPOSTO A (loop)",
+     "event": "weakpoint_open",
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_4.png"
+    },
+    {
+     "index": 5,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_5.png",
+     "duration_ms": 120,
+     "start_ms": 490,
+     "label": "NÚCLEO EXPOSTO B (loop)",
+     "event": null,
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_5.png"
+    },
+    {
+     "index": 6,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_6.png",
+     "duration_ms": 90,
+     "start_ms": 610,
+     "label": "parasita retoma (cabeça F2)",
+     "event": "weakpoint_close",
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_6.png"
+    },
+    {
+     "index": 7,
+     "file": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_7.png",
+     "duration_ms": 110,
+     "start_ms": 700,
+     "label": "volta à base",
+     "event": "recover_end",
+     "tentacle_pose": "none",
+     "sprite": "frames/gusini_p2_tentacle_resist/gusini_p2_tentacle_resist_7.png"
+    }
+   ]
+  }
+ },
+ "lash_loop": {
+  "warn_loop_frames": [
+   0,
+   1
+  ],
+  "warn_duration_ms": 900,
+  "note": "F0-F1 em loop durante o aviso; F2 dispara lash_hit = soltar os tentáculos de faixa"
+ },
+ "resist_loop": {
+  "weakpoint_frames": [
+   4,
+   5
+  ],
+  "duration_ms": 2000,
+  "weakpoint_canvas_px": [
+   161,
+   102
+  ],
+  "weakpoint_from_pivot_unity_px": [
+   41,
+   16
+  ],
+  "suggested_damage_mult": 2.0
+ },
+ "lane_tentacle": {
+  "canvas_px": [
+   600,
+   128
+  ],
+  "pivot_px": [
+   600,
+   64
+  ],
+  "pivot_unity": [
+   1.0,
+   0.5
+  ],
+  "placement": "pivô na borda direita da tela, no centro da faixa; o tentáculo cresce para a esquerda (a base fica fora da tela)",
+  "preview_scale": 2,
+  "total_ms": 530,
+  "frames": [
+   {
+    "index": 0,
+    "file": "lane_tentacle/lane_tentacle_0.png",
+    "duration_ms": 50,
+    "start_ms": 0,
+    "visible_length_px": 150,
+    "label": "entra 1",
+    "tip_x_px": 450,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 454,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 1,
+    "file": "lane_tentacle/lane_tentacle_1.png",
+    "duration_ms": 50,
+    "start_ms": 50,
+    "visible_length_px": 330,
+    "label": "entra 2",
+    "tip_x_px": 268,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 272,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 2,
+    "file": "lane_tentacle/lane_tentacle_2.png",
+    "duration_ms": 60,
+    "start_ms": 100,
+    "visible_length_px": 500,
+    "label": "entra 3",
+    "tip_x_px": 99,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 103,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 3,
+    "file": "lane_tentacle/lane_tentacle_3.png",
+    "duration_ms": 80,
+    "start_ms": 160,
+    "visible_length_px": 592,
+    "label": "GOLPE (estica)",
+    "tip_x_px": 7,
+    "event": "lane_strike",
+    "hitbox_native": {
+     "x_from": 11,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 4,
+    "file": "lane_tentacle/lane_tentacle_4.png",
+    "duration_ms": 80,
+    "start_ms": 240,
+    "visible_length_px": 586,
+    "label": "segura / tremor",
+    "tip_x_px": 14,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 18,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 5,
+    "file": "lane_tentacle/lane_tentacle_5.png",
+    "duration_ms": 70,
+    "start_ms": 320,
+    "visible_length_px": 440,
+    "label": "recolhe 1",
+    "tip_x_px": 159,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 163,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 6,
+    "file": "lane_tentacle/lane_tentacle_6.png",
+    "duration_ms": 70,
+    "start_ms": 390,
+    "visible_length_px": 260,
+    "label": "recolhe 2",
+    "tip_x_px": 338,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 342,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   },
+   {
+    "index": 7,
+    "file": "lane_tentacle/lane_tentacle_7.png",
+    "duration_ms": 70,
+    "start_ms": 460,
+    "visible_length_px": 90,
+    "label": "recolhe 3",
+    "tip_x_px": 508,
+    "event": null,
+    "hitbox_native": {
+     "x_from": 512,
+     "x_to": 600,
+     "y_from": 30,
+     "y_to": 96
+    }
+   }
+  ],
+  "hitbox_note": "retângulo de y 30 a 96 (nativo) entre tip_x e a borda direita; os espinhos dorsais ficam fora do hitbox de propósito (perdão visual)"
+ },
+ "lane_warning": {
+  "fill": "lane/lane_warning_fill_0-1 (32x32, Tiled, troca a cada 120 ms)",
+  "edge": "lane/lane_warning_edge_0-1 (32x6, Tiled, no topo e na base da faixa; rolar para a esquerda ~80 px/s)",
+  "arrow": "lane/lane_warning_arrow_0-1 (44x56, borda direita, centro da faixa)",
+  "band_height_native": 84,
+  "band_height_x2": 168,
+  "safe_lane": "sem marca nenhuma"
+ },
+ "fx": {
+  "fx_tentacle_crack_0-3": "48x48, 33 ms/frame, na ponta no frame lane_strike",
+  "fx_weakpoint_ring_0-1": "33x33, já composto nos frames 4-5 da resistência"
+ },
+ "suggested_sequence": [
+  "start (610 ms)",
+  "3x [aviso 900 ms (lash F0-F1 em loop) -> lash F2 lash_hit + lane_tentacle 530 ms -> lash F3-F4 -> respiro ~350 ms]",
+  "resist (núcleo exposto 2,0 s)"
+ ],
+ "suggested_safe_lane_order": [
+  "meio",
+  "baixo",
+  "topo"
+ ]
+}
