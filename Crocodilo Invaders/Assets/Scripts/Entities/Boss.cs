@@ -6,7 +6,6 @@ using UnityEngine;
 public sealed class Boss : MonoBehaviour
 {
     [SerializeField] private string displayName = "BOSS";
-    [SerializeField] private Sprite portrait;
     [SerializeField, Tooltip("Apresentação PERIGO! antes da entrada. Vazio: só o anúncio da onda.")] private BossAlertTheme alertTheme;
     [SerializeField] private Rect patrolArea = new Rect(5.6f, -.2f, .8f, 3.8f);
     [SerializeField, Min(0)] private int pointsOnDefeat = 40000;
@@ -16,7 +15,6 @@ public sealed class Boss : MonoBehaviour
     public EnemyMovement Movement { get; private set; }
     public IBossCombatController Combat { get; private set; }
     public string DisplayName => displayName;
-    public Sprite Portrait => portrait;
     public BossAlertTheme AlertTheme => alertTheme;
     public bool BattleActive { get; private set; }
     public bool Transitioning { get; private set; }

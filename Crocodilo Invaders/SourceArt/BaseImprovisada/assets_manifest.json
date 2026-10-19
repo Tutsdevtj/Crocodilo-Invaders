@@ -1,0 +1,654 @@
+{
+  "asset_count": 107,
+  "sources": {
+    "Lote01": "BaseImprovisada_Assets_Lote01.zip",
+    "Lote02": "10 PNGs avulsos",
+    "Lote03": "BaseImprovisada_Assets_Lote03.zip",
+    "buildings": "5 PNGs avulsos"
+  },
+  "background_warning": "RGB opacos, nao podem ser sobrepostos como parallax alpha",
+  "assets": [
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_01.png",
+      "width": 98,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_02.png",
+      "width": 66,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_03.png",
+      "width": 54,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_04.png",
+      "width": 53,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_05.png",
+      "width": 62,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_06.png",
+      "width": 49,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_07.png",
+      "width": 30,
+      "height": 54,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_grama_08.png",
+      "width": 34,
+      "height": 33,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_01.png",
+      "width": 98,
+      "height": 47,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_02.png",
+      "width": 67,
+      "height": 47,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_03.png",
+      "width": 55,
+      "height": 43,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_04.png",
+      "width": 53,
+      "height": 41,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_05.png",
+      "width": 84,
+      "height": 40,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_06.png",
+      "width": 55,
+      "height": 47,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/01_solo/solo_pedra_07.png",
+      "width": 33,
+      "height": 38,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/penhasco_01.png",
+      "width": 56,
+      "height": 98,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/penhasco_02.png",
+      "width": 86,
+      "height": 97,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/penhasco_03.png",
+      "width": 89,
+      "height": 48,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/penhasco_suspenso.png",
+      "width": 94,
+      "height": 103,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/rocha_apoio.png",
+      "width": 73,
+      "height": 64,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/02_rochas/rocha_solida.png",
+      "width": 32,
+      "height": 44,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_01.png",
+      "width": 63,
+      "height": 49,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_02.png",
+      "width": 60,
+      "height": 47,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_03.png",
+      "width": 53,
+      "height": 32,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_04.png",
+      "width": 55,
+      "height": 40,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_05.png",
+      "width": 44,
+      "height": 49,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_06.png",
+      "width": 46,
+      "height": 49,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_solta_07.png",
+      "width": 45,
+      "height": 49,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_01.png",
+      "width": 64,
+      "height": 51,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_02.png",
+      "width": 61,
+      "height": 43,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_03.png",
+      "width": 62,
+      "height": 43,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_04.png",
+      "width": 63,
+      "height": 50,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_05.png",
+      "width": 68,
+      "height": 51,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/03_grama/grama_topo_06.png",
+      "width": 81,
+      "height": 51,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_inferior_01.png",
+      "width": 69,
+      "height": 59,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_inferior_02.png",
+      "width": 83,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_inferior_03.png",
+      "width": 89,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_inferior_04.png",
+      "width": 54,
+      "height": 61,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_inferior_05.png",
+      "width": 46,
+      "height": 59,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_01.png",
+      "width": 58,
+      "height": 28,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_02.png",
+      "width": 40,
+      "height": 27,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_03.png",
+      "width": 70,
+      "height": 27,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_04.png",
+      "width": 69,
+      "height": 26,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_05.png",
+      "width": 61,
+      "height": 27,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/04_pisos_concreto_metal/piso_superior_06.png",
+      "width": 63,
+      "height": 27,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/05_plataformas/plataforma_curta.png",
+      "width": 72,
+      "height": 34,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/05_plataformas/plataforma_metalica_01.png",
+      "width": 94,
+      "height": 58,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/05_plataformas/plataforma_metalica_02.png",
+      "width": 92,
+      "height": 58,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/05_plataformas/plataforma_reforcada.png",
+      "width": 168,
+      "height": 108,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/05_plataformas/plataforma_simples.png",
+      "width": 115,
+      "height": 48,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/blocos_concreto.png",
+      "width": 72,
+      "height": 106,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/madeiramento.png",
+      "width": 79,
+      "height": 104,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/painel_vertical.png",
+      "width": 49,
+      "height": 104,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/parede_aco.png",
+      "width": 63,
+      "height": 104,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/parede_com_lona.png",
+      "width": 120,
+      "height": 118,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/porta_chapa.png",
+      "width": 45,
+      "height": 103,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/porta_grade.png",
+      "width": 44,
+      "height": 102,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/06_paredes_estruturas/trelica_metalica.png",
+      "width": 59,
+      "height": 105,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_01.png",
+      "width": 43,
+      "height": 83,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_02.png",
+      "width": 41,
+      "height": 84,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_03.png",
+      "width": 49,
+      "height": 82,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_04.png",
+      "width": 37,
+      "height": 81,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_05.png",
+      "width": 47,
+      "height": 82,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/07_paineis_chapas/chapa_ondulada_06.png",
+      "width": 59,
+      "height": 86,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/08_cercas_grades_arames/cerca_arame_01.png",
+      "width": 85,
+      "height": 83,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/08_cercas_grades_arames/cerca_chapa_vertical.png",
+      "width": 64,
+      "height": 88,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/08_cercas_grades_arames/cerca_longa.png",
+      "width": 54,
+      "height": 90,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/08_cercas_grades_arames/cerca_malha_01.png",
+      "width": 60,
+      "height": 92,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/08_cercas_grades_arames/cerca_malha_02.png",
+      "width": 110,
+      "height": 86,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/09_escadas/escada_corda.png",
+      "width": 50,
+      "height": 91,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/09_escadas/escada_plataforma.png",
+      "width": 48,
+      "height": 93,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/09_escadas/escada_reta_01.png",
+      "width": 26,
+      "height": 90,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/09_escadas/escada_reta_02.png",
+      "width": 41,
+      "height": 89,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/09_escadas/escadaria_com_corrimao.png",
+      "width": 75,
+      "height": 88,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_alta_01.png",
+      "width": 96,
+      "height": 38,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_alta_02.png",
+      "width": 91,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_alta_03.png",
+      "width": 78,
+      "height": 36,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_alta_04.png",
+      "width": 74,
+      "height": 38,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_baixa_01.png",
+      "width": 96,
+      "height": 56,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_baixa_02.png",
+      "width": 91,
+      "height": 56,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_baixa_03.png",
+      "width": 78,
+      "height": 56,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/01_terreno/10_barreiras_defesas/barreira_baixa_04.png",
+      "width": 74,
+      "height": 56,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/01_caixas_militares_empilhadas.png",
+      "width": 1218,
+      "height": 1254,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/02_caixotes_madeira.png",
+      "width": 1236,
+      "height": 1237,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/03_bau_militar.png",
+      "width": 1238,
+      "height": 1200,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/04_barril_azul.png",
+      "width": 1234,
+      "height": 1226,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/05_barril_ferrugem.png",
+      "width": 1192,
+      "height": 1245,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/06_caixa_ferramentas.png",
+      "width": 1253,
+      "height": 1215,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/07_prateleira_suprimentos.png",
+      "width": 1422,
+      "height": 1077,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/08_palete_suprimentos.png",
+      "width": 1246,
+      "height": 1223,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/09_sacos_areia.png",
+      "width": 1254,
+      "height": 1198,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/02_suprimentos/10_abrigo_suprimentos.png",
+      "width": 1448,
+      "height": 1054,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/01_arvore_de_refugio.png",
+      "width": 382,
+      "height": 467,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/02_tenda_descanso.png",
+      "width": 471,
+      "height": 270,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/03_plataforma_elevada.png",
+      "width": 398,
+      "height": 375,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/04_posto_avancado.png",
+      "width": 315,
+      "height": 413,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/05_lona_cobertura.png",
+      "width": 339,
+      "height": 358,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/06_poste_eletrico.png",
+      "width": 320,
+      "height": 413,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/07_suprimentos_caixas.png",
+      "width": 317,
+      "height": 201,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/08_caminhao_carga.png",
+      "width": 372,
+      "height": 237,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/09_torre_observacao.png",
+      "width": 205,
+      "height": 428,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/03_ambientacao/10_lampada_poste.png",
+      "width": 168,
+      "height": 352,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/04_construcoes/01_hangar_goosini.png",
+      "width": 1448,
+      "height": 1061,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/04_construcoes/02_oficina_auxiliar.png",
+      "width": 1433,
+      "height": 1063,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/04_construcoes/03_enfermaria.png",
+      "width": 1447,
+      "height": 1054,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/04_construcoes/04_comando_danificado.png",
+      "width": 1448,
+      "height": 1065,
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/04_construcoes/05_radio_comunicacoes.png",
+      "width": 1438,
+      "height": 1071,
+      "mode": "RGBA"
+    }
+  ]
+}

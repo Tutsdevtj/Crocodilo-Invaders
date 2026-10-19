@@ -44,12 +44,12 @@ Todos os caminhos `Assets/`, `Docs/`, `SourceArt/`, `Tools/`, `Packages/` e `Pro
 | Anúncio "ONDA N" em PNG e alerta ONDA 10 → PERIGO! GOOSINI com SFX sincronizado | Implementado em 18/10/2026; substitui o banner TMP antigo. Ver `Docs/AnunciosOndasBoss.md` |
 | Céu de Batalha com FX e parallax | Implementado; refinamento mais recente está local, sem commit no início deste guia |
 | Ranking | Local, persistente; não é serviço online |
-| Executor V-9 | Boss anterior preservado, com lógica e HUD compatíveis |
+| Executor V-9 | Lógica anterior preservada; HUD antiga removida das cenas atuais |
 | Diálogos e cenas narrativas (abertura da run, encontro com Gusini, falsa derrota antes da F2) | Implementados em 18/10/2026; ver `Docs/Cinematicas.md` |
 | Encerramento do capítulo 1 (parasita destruído, Gusini resgatado, Central, fade para `BaseImprovisada`) | Implementado; substitui a tela de vitória. Base mínima agora existe e está no build |
 | Música do Gusini F1/F2 | Implementada (`GusiniMusic`); mixagem ainda sem escuta crítica |
 | HQ de introdução | Oito imagens sem texto existem; não confundir assets com uma sequência jogável integrada |
-| Base lateral com personagem a pé, seleção de missão e retorno após vitória/derrota | Blockout BaseImprovisada preservado; personagem/rig/Idle/Run e lógica da câmera removidos a pedido do usuário para refazer. Missões continuam planejadas |
+| Base lateral com personagem a pé, seleção de missão e retorno após vitória/derrota | Cenário v01 da BaseImprovisada implementado em 18/10/2026 (`Docs/BaseImprovisada_Map.md`). Personagem/rig/Idle/Run e lógica da câmera continuam ausentes, por decisão do usuário. Missões continuam planejadas |
 | Gusini Fase 3 | Descartada: o boss tem só duas fases |
 | Metaprogressão, loja e multiplayer | Não implementados nesta etapa |
 
@@ -70,13 +70,13 @@ Alguns documentos registram etapas anteriores. Exemplos: `Docs/Pausa.md` ainda m
 | `Assets/Scenes/MainMenu.unity` | Entrada de produção; cena 0 do build |
 | `Assets/Scenes/Tests/PlayerMovementTest.unity` | **Gameplay real**, apesar do nome; cena 1 do build |
 | `Assets/Scenes/Jogo.unity` | Port legado com `CrocodiloGame.cs`; cena 2 habilitada atualmente |
-| `Assets/Scenes/BaseImprovisada.unity` | Base lateral mínima após o capítulo 1; cena 3 habilitada. Chão/paredes e câmera nativa fixa; sem personagem, rig, animações, lógica de câmera ou HUD |
+| `Assets/Scenes/BaseImprovisada.unity` | Base lateral após o capítulo 1; cena 3 habilitada. Mapa horizontal de 105 unidades (zonas A–G, prefabs `Hub*`, parallax, halos, anchors, setores com estado); câmera nativa fixa (só Y = 2,4); sem personagem, rig, animações, lógica de câmera ou HUD |
 | `Assets/Scenes/Tests/StageOneWaves.unity` | Cena alternativa de desenvolvimento das hordas |
 | `Assets/Scenes/Tests/GusiniBossTest.unity` | Teste direto de Gusini F1 no Editor |
 
 As duas últimas não estão na lista habilitada atual de `EditorBuildSettings`. Não assuma que `SceneManager.LoadScene` consegue abri-las em um player. O teste direto do boss usa `BossDevelopmentStart` e `WaveController.StartBossForDevelopment()`, protegido por `UNITY_EDITOR`; desde 18/10/2026 ele passa pelo mesmo anúncio da onda do boss (ONDA 10 → PERIGO! GOOSINI, 2,5 s) antes de instanciar o Gusini. Na cena GusiniBossTest, o starter aplica após o reset da run um kit de teste: 240 HP cheios, normal x4, especial x3, cadência x2,5, movimento x1,4, dash com distância x1,3/cooldown x0,4/i-frames x1,4 e especial inicialmente carregado (recarrega em cinco tiros). Só nessa cena e no Editor; não muda o prefab/base das runs normais. Valores principais ajustáveis no Inspector.
 
-Fluxo atual: **MainMenu → Jogar → nome → loading assíncrono → ENTER → fade → abertura por rádio (fase `Intro`) → nove hordas com nove escolhas de cartas → ONDA 10 → penas → PERIGO! GOOSINI → entrada do Gusini + diálogo → boss F1 → falsa derrota + diálogo → transformação → F2 → parasita destruído + diálogo final + RÁDIO → fade → `BaseImprovisada` (aviso de desenvolvimento enquanto a cena não existir)**. Derrota do player ainda mostra "FIM DE JOGO" → menu. Também é possível perder ou abandonar pela pausa. Abrir diretamente a cena de gameplay conserva um botão provisório INICIAR.
+Fluxo atual: **MainMenu → Jogar → nome → loading assíncrono → ENTER → fade → abertura por rádio (fase `Intro`) → nove hordas com nove escolhas de cartas → ONDA 10 → penas → PERIGO! GOOSINI → entrada do Gusini + diálogo → boss F1 → falsa derrota + diálogo → transformação → F2 → parasita destruído + diálogo final + RÁDIO → fade → `BaseImprovisada` (aviso de desenvolvimento enquanto a cena não existir)**. Derrota do player ainda mostra "FIM DE JOGO" → menu. Também é possível perder ou abandonar pela pausa. Abrir diretamente a cena de gameplay inicia a abertura da run; PRONTO?/INICIAR foram removidos.
 
 Controles atuais:
 
@@ -246,7 +246,7 @@ O usuário rejeitou fortemente a versão com melodias Low/Mid/High dos passarinh
 
 ### Compatibilidade com Executor V-9
 
-`ExecutorV9.prefab`, `BossCombat`, `BossLaser`, `BossReinforcements` e `BossPresentation` continuam presentes. Executor tem padrões de leque, mísseis, varredura, lasers, segunda fase e reforços interceptores. Não apagar essa implementação por assumir que é código morto; genericidade do `Boss`, `BossHUD` e projéteis ainda a suporta. Leia a seção própria em `Docs/Boss.md`.
+`ExecutorV9.prefab`, `BossCombat`, `BossLaser`, `BossReinforcements` e `BossPresentation` continuam presentes. Executor tem padrões de leque, mísseis, varredura, lasers, segunda fase e reforços interceptores. Essa lógica histórica não foi removida; a HUD antiga e seu fallback em `BossHUD` foram explicitamente descartados pelo usuário. Leia a seção própria em `Docs/Boss.md` como histórico.
 
 ## 8. HUDs novas
 
@@ -257,7 +257,7 @@ O usuário rejeitou fortemente a versão com melodias Low/Mid/High dos passarinh
 - Especial contínuo com máscara, bolhas limitadas, lâmpada, ventilador, ignição/chama e sparks reutilizados; cheio e gasto têm animações próprias.
 - Relógio visual escalado: pausa congela efeitos. Sem cálculo de combate no componente visual.
 
-**Boss:** `Assets/Prefabs/UI/BossHUD.prefab` conserva `BossInfo` antigo e adiciona `GusiniBarF1`. `BossHUD` escolhe conforme presença de `GusiniCombat`; `BossBarFX` anima. Arte em `Assets/Art/UI/GusiniBossBarF1` (29 PNGs x2), fonte/layout em `SourceArt/GusiniBossBarF1`.
+**Boss:** `Assets/Prefabs/UI/BossHUD.prefab` contém apenas `GusiniBarF1`, salva oculta até o encontro. `BossInfo` do Executor e o fallback foram removidos por pedido explícito; não restaurar. `BossHUD` liga Gusini F1/F2 e `BossBarFX` anima. Arte em `Assets/Art/UI/GusiniBossBarF1` (29 PNGs x2), fonte/layout em `SourceArt/GusiniBossBarF1`.
 
 - Barra 476 × 100 no canto inferior direito, margem (-16,14), mesmo Canvas de referência. Nome GUSINI na arte, medalhão de ganso, asas, bico e cachecol.
 - HP esvazia **da esquerda para a direita**, com origem do preenchimento à direita. Não inverter sem pedido.
@@ -373,6 +373,7 @@ Tempos: gameplay/física/dash/cenário usam tempo escalado; UI que aparece com j
 | `Crocodilo/Environment/Apply Battle Sky depth speeds` | Só aplica perfil de velocidades/deriva ao prefab |
 | `Crocodilo/UI/Validate wave and boss announcements` | Importação, exemplos do JSON, curvas, prefab, tema e cenas dos anúncios (Install é a mutação) |
 | `Crocodilo/UI/Validate announcements in Play Mode` | Play Mode real dos anúncios, alerta, áudio, pausa e fluxo; capturas em `Logs/WaveBossUI` |
+| `Crocodilo/Base/Validate BaseImprovisada map` (+ `in Play Mode`) | Importação, escala, setores, colisões, parallax; sonda física e capturas em `Logs/BaseImprovisadaMap`. `Install BaseImprovisada map` é mutação e recria os grupos gerados da cena |
 
 Comandos **Rebuild/Install/Setup** também existem, mas são mutações, não simples checks: podem reconstruir prefabs/instalar cenário ou modificar cenas. Leia o método antes de chamar. Não rodar toda ferramenta de setup por rotina.
 
@@ -415,7 +416,62 @@ Saída local: `Builds/Windows/CrocodiloInvaders.exe`. Distribuir **pasta inteira
 
 ## 16. Mapa para aprofundar
 
-BaseImprovisada (18/10/2026): implementação anterior de rig/Idle/Run/movimento/câmera removida por pedido do usuário. A cena mantém somente blockout e câmera fixa, pronta para recomeçar. Não restaurar os assets descartados. Ver Docs/BaseImprovisadaRig.md e seção 13; logs BaseAndHudCleanup/Play.
+Limites do combate (18/10/2026): `ArenaViewportBounds2D` em ArenaBounds substitui a
+parede direita fixa em X=2,27 por colisões nas quatro bordas visíveis da câmera,
+adaptadas à proporção/tamanho da janela. Ligado em PlayerMovementTest, StageOneWaves
+e GusiniBossTest; limites da Base não mudaram. Resize estreitando a tela recoloca a
+nave dentro do novo viewport; PlayerMovement continua único escritor de velocidade.
+As ferramentas temporárias GameplayCleanupTools/ArenaViewportPlayValidation foram
+arquivadas em Logs/CurrentCombatUiCleanup/ArchivedTools e removidas de Assets após
+a validação. Só o componente de limites é necessário em runtime. Ver `Docs/ArenaBounds.md`.
+
+Limpeza de UI da mesma tarefa: página provisória OptionsPage do PauseMenu removida
+(11 objetos, quatro TMP), junto dos campos optionsPage/optionsBackButton no
+PauseMenuView. Opções atuais continuam usando AudioOptionsView. Excluídos somente
+NewUXMLTemplate.uxml e UI Toolkit/PanelSettings + tema, confirmados sem dependentes.
+TMP ativo de diálogos/cartas/nome/ranking/resultados continua.
+LeaderboardRuntimeValidation não é órfão: é um validador de Editor acionado por flag;
+PlayerState continua usado pelo port Jogo. Não remover por ausência de referências
+serializadas. Auditoria e 130 checks de Play em `Logs/GameplayCleanup`.
+
+Correção seguinte, solicitada com captura da GusiniBossTest: removidos de verdade
+StartButton/Label (verde), PRONTO? e o estado de início provisório de WavesUI.
+O painel Result fica salvo oculto e só mostra derrota/resultado; não deletar esse
+fluxo funcional. WaveController inicia a abertura ao abrir a cena diretamente,
+mas espera GameplayLoadingController quando vier do menu; BossDevelopmentStart
+continua iniciando somente o boss na cena de teste. BossInfo/Name/Bar/Portrait foram
+excluídos de BossHUD.prefab, junto de campos/eventos/fallback do Executor e Boss.Portrait
+sem consumidores. Portraits dos diálogos são separados e continuam intactos.
+Não resolver esta limpeza apenas desativando os objetos velhos em Awake.
+
+Estado atual do HUB (pedido seguinte de 18/10/2026): novo `CrocHub.prefab` simplificado,
+três objetos (raiz física, VisualRoot, CameraTarget), master e seis frames originais do
+pacote `Croc_Hub_Simplified_Idle_v01.zip`. Sprite-swap a 6 FPS/1 s, PPU 80, **sem Run**.
+`HubPlayerInput` lê ações HUB próprias; `HubCharacterMotor2D` aplica velocidade em
+FixedUpdate; `HubCameraController2D` usa janela 20%, foco direcional 12%, amortecimento,
+altura fixa e limites visuais. Built-in preservado; Pixel Perfect standalone 6.0.0 somente
+na câmera da base. O mapa/parallax/setores preexistentes foram preservados. Não restaurar
+o rig/câmera descartados. `Docs/BaseImprovisadaCamera.md` é a referência atual, substituindo
+as descrições históricas de base vazia/câmera fixa abaixo e na seção 13. Validadores nativos
+`HubCharacterTools.Validate` e `HubPlayValidation.Run`. Instalador do mapa preserva Characters.
+
+Revisão de montagem seguinte: usuário pediu corrigir furos/posicionamento e aumentar Croc.
+VisualRoot 2× (canvas 1,8), cápsula 0,88×1,7/offset 0,85 e CameraTarget Y 0,85; PNGs/Idle
+preservados, sem Run. `BaseImprovisadaMapRepairTools` cria recortes nativos TerrainSlices
+com faixas opacas, superfície alinhada à grade de 80 PPU e solo texturizado contínuo.
+Validação renderiza 9600 pixels de largura sem Ground de fundo, conferindo alpha em vez
+de só colisão. Cercas atrás das fachadas, suprimentos agrupados, portão/primeiro plano
+assentados. Instalador do mapa usa essa receita e não restaura os encaixes antigos.
+Ver Docs/BaseImprovisada_Map.md e Logs/MapRepair; ajustes atuais de câmera em
+Docs/BaseImprovisadaCamera.md (subjectHeight 1,8 para não cortar o Croc em janela pequena).
+
+Pausa do HUB: ESC/Start abre o mesmo PauseMenu.prefab do combate, com Continuar, Opções e
+Voltar ao menu. O retorno direto anterior e seu componente/action foram removidos.
+PauseController.playerInput aceita Behaviour (mantém PlayerInputReader nas cenas aéreas;
+na base referencia HubPlayerInput), sem duplicar a implementação do pause. EventSystem
+usa InputSystemUIInputModule. Teste específico: HubPlayValidation.RunPauseMenu.
+
+BaseImprovisada (18/10/2026): implementação anterior de rig/Idle/Run/movimento/câmera removida por pedido do usuário. A cena recebeu depois o cenário v01 (Docs/BaseImprovisada_Map.md: escala 80 px = 1 unidade, Croc 48×72 = 0,9, sorting layers Background*/World*/AmbientEffects, BaseSector para desbloqueios futuros), ainda com câmera fixa e sem personagem. Não restaurar os assets descartados. Ver Docs/BaseImprovisadaRig.md e seção 13; logs BaseAndHudCleanup/Play.
 
 Validação final da segunda rodada de dificuldade (18/10/2026): compilação/integração nativas e 49 checks de Play Mode passaram, incluindo três pontos distintos de estouro dentro da arena, tempos separados, gemas a 420 px/s e mergulhos a 600 px/s. Log `Logs/GusiniEggScatterBalance.log`. Sem playtest manual completo ou nova escuta da mixagem.
 
@@ -435,6 +491,7 @@ Rebalanceamento de 18/10/2026: player normal com 20 HP no prefab; kit GusiniBoss
 | Gusini, áudio e Executor | [Boss](Crocodilo%20Invaders/Docs/Boss.md), seções específicas de cada boss |
 | HUDs | [Player](Crocodilo%20Invaders/Docs/PlayerHUD.md), [Gusini](Crocodilo%20Invaders/Docs/GusiniBossBar.md) |
 | Anúncio de ondas e alerta do boss | [Anúncios](Crocodilo%20Invaders/Docs/AnunciosOndasBoss.md) |
+| Mapa da BaseImprovisada | [Mapa](Crocodilo%20Invaders/Docs/BaseImprovisada_Map.md) |
 | Parallax/cenário atual | [BattleSky](Crocodilo%20Invaders/Docs/BattleSky.md); Cenario.md registra o cenário anterior |
 | Persistência e build | [Leaderboard](Crocodilo%20Invaders/Docs/Leaderboard.md), [BuildWindows](Crocodilo%20Invaders/Docs/BuildWindows.md) |
 | Fontes/licenças | [Créditos](Crocodilo%20Invaders/Docs/Creditos.md), manifests em SourceArt |

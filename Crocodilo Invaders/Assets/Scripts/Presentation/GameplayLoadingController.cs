@@ -15,7 +15,6 @@ public sealed class GameplayLoadingController : MonoBehaviour
     private GameplayLoadingView view;
     private AsyncOperation operation;
     private WaveController waves;
-    private WavesUI wavesUI;
     private string targetScene;
     private float previousTimeScale;
     private bool previousAudioPause;
@@ -84,11 +83,9 @@ public sealed class GameplayLoadingController : MonoBehaviour
         foreach (GameObject root in scene.GetRootGameObjects())
         {
             if (waves == null) waves = root.GetComponentInChildren<WaveController>();
-            if (wavesUI == null) wavesUI = root.GetComponentInChildren<WavesUI>();
             foreach (PlayerInputReader input in root.GetComponentsInChildren<PlayerInputReader>(true)) Block(input);
             foreach (EventSystem input in root.GetComponentsInChildren<EventSystem>(true)) Block(input);
         }
-        if (wavesUI != null) wavesUI.SuppressStartPanel(true);
     }
 
     private void Block(Behaviour input)
@@ -119,7 +116,6 @@ public sealed class GameplayLoadingController : MonoBehaviour
         yield return view.FadeOut();
         RestoreGame();
         waves.StartRun();
-        if (wavesUI != null) wavesUI.SuppressStartPanel(false);
         Destroy(gameObject);
     }
 

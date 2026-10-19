@@ -170,6 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 595817558}
+  - component: {fileID: 595817559}
   m_Layer: 0
   m_Name: ArenaBounds
   m_TagString: Untagged
@@ -196,6 +197,25 @@ Transform:
   - {fileID: 1266076156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595817559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595817557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b9da3eaa7f70448a16b0e4eaec73bc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::ArenaViewportBounds2D
+  arenaCamera: {fileID: 1482587412}
+  leftWall: {fileID: 1866635372}
+  rightWall: {fileID: 1465614090}
+  topWall: {fileID: 934594706}
+  bottomWall: {fileID: 1266076157}
+  playerCollider: {fileID: 7678123251341501771}
+  wallThickness: 0.2
 --- !u!1001 &596935932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 934594704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 6.1, z: 0}
+  m_LocalPosition: {x: 0, y: 6.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -496,7 +516,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 18.6, y: 0.2}
+  m_Size: {x: 17.066666, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &1002916414
 MonoBehaviour:
@@ -635,7 +655,7 @@ Transform:
   m_GameObject: {fileID: 1266076155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -3.11, z: 0}
+  m_LocalPosition: {x: 0, y: -4.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -685,7 +705,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 18.6, y: 0.2}
+  m_Size: {x: 17.066666, y: 0.2}
   m_EdgeRadius: 0
 --- !u!1 &1286443872
 GameObject:
@@ -967,7 +987,7 @@ Transform:
   m_GameObject: {fileID: 1465614088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.27, y: 1, z: 0}
+  m_LocalPosition: {x: 8.433333, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1017,7 +1037,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 10}
+  m_Size: {x: 0.2, y: 10.4}
   m_EdgeRadius: 0
 --- !u!1 &1482587410
 GameObject:
@@ -2052,7 +2072,7 @@ Transform:
   m_GameObject: {fileID: 1866635370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.38, y: 0.99, z: 0}
+  m_LocalPosition: {x: -8.433333, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2102,7 +2122,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2, y: 10}
+  m_Size: {x: 0.2, y: 10.4}
   m_EdgeRadius: 0
 --- !u!114 &1905580746
 MonoBehaviour:
@@ -3140,6 +3160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942fc30b5212bac4ba62c90b70fc684d, type: 3}
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
+--- !u!61 &7678123251341501771 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8585486549941857060, guid: 947eb5306d149074f851ee978f034f84, type: 3}
+  m_PrefabInstance: {fileID: 7678123251341501767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

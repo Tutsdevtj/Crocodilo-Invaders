@@ -125,7 +125,7 @@ public static class CrocodiloLeaderboardSetup
         {
             var wavesView = wavesRoot.GetComponent<WavesUI>();
             var wavesData = new SerializedObject(wavesView);
-            Transform resultPanel = ((GameObject)wavesData.FindProperty("startPanel").objectReferenceValue).transform;
+            Transform resultPanel = ((GameObject)wavesData.FindProperty("resultPanel").objectReferenceValue).transform;
             Transform oldReturn = resultPanel.Find("ReturnToMenuButton");
             if (oldReturn != null) Object.DestroyImmediate(oldReturn.gameObject);
             var backToMenu = ArtButton("ReturnToMenuButton", resultPanel, "Back", new Vector2(200, 68), new Vector2(0, -65));

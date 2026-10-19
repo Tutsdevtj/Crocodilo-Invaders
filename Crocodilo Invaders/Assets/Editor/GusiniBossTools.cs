@@ -79,11 +79,8 @@ public static class GusiniBossTools
         }
         var gusini=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Boss/Gusini.prefab");
         Require(gusini.GetComponent<Boss>().DisplayName=="GUSINI" && gusini.GetComponent<BossCombat>()==null,"Separate Gusini controller");
-        Require(gusini.GetComponent<Boss>().Portrait!=null,"Gusini portrait");
-        var legacy=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Boss/ExecutorV9.prefab").GetComponent<Boss>();
-        Require(legacy.DisplayName=="EXECUTOR V-9" && legacy.Portrait!=null,"Legacy name/portrait");
         var hud=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UI/BossHUD.prefab").GetComponent<BossHUD>();
-        Require(new SerializedObject(hud).FindProperty("portraitImage").objectReferenceValue!=null,"Generic HUD portrait binding");
+        Require(new SerializedObject(hud).FindProperty("gusiniBar").objectReferenceValue!=null && hud.transform.Find("BossInfo")==null,"Current Gusini HUD without the Executor UI");
         Require(gusini.GetComponent<Animator>().applyRootMotion==false,"No root motion");
         foreach (string origin in new[] { "ShotOrigin","EggDropOrigin","SquadronOrigin" }) Require(gusini.transform.Find(origin)!=null,"Root origin "+origin);
         foreach(string path in new[] { "Assets/Scenes/Tests/PlayerMovementTest.unity", "Assets/Scenes/Tests/StageOneWaves.unity", "Assets/Scenes/Tests/GusiniBossTest.unity" })

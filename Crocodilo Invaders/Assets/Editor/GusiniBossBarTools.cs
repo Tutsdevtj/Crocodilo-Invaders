@@ -105,7 +105,7 @@ public static class GusiniBossBarTools
         var bar = hud.FindProperty("gusiniBar").objectReferenceValue as BossBarFX;
         Require(bar != null, "Gusini bar binding"); var rect = (RectTransform)bar.transform;
         Require(rect.sizeDelta == new Vector2(476, 100) && rect.anchoredPosition == new Vector2(-16, 14) && rect.anchorMin == new Vector2(1, 0) && rect.pivot == new Vector2(1, 0), "Native bottom-right layout");
-        foreach (string field in new[] { "healthBar", "nameText", "portraitImage", "content" }) Require(hud.FindProperty(field).objectReferenceValue != null, "Legacy HUD preserved: " + field);
+        Require(root.transform.Find("BossInfo") == null && root.GetComponentsInChildren<TMPro.TMP_Text>(true).Length == 0, "Legacy Executor HUD removed");
         var fields = new SerializedObject(bar); var property = fields.GetIterator();
         while (property.NextVisible(true))
             if (property.propertyType == SerializedPropertyType.ObjectReference) Require(property.objectReferenceValue != null, "Missing bar reference: " + property.propertyPath);
@@ -122,7 +122,7 @@ public static class GusiniBossBarTools
             var importer = (TextureImporter)AssetImporter.GetAtPath(path);
             Require(importer.filterMode == FilterMode.Point && !importer.mipmapEnabled && importer.textureCompression == TextureImporterCompression.Uncompressed && importer.spritePixelsPerUnit == 100, "Pixel art import: " + path);
         }
-        Debug.Log("GUSINI BOSS BAR VALIDATION PASSED: layout, right-origin fills, references, fixed pool, legacy fallback and 29 original sprites.");
+        Debug.Log("GUSINI BOSS BAR VALIDATION PASSED: layout, right-origin fills, references, fixed pool and 29 original sprites; no legacy HUD.");
     }
 
     private static Sprite Load(string name) => AssetDatabase.LoadAssetAtPath<Sprite>(Art + name + ".png") ?? throw new InvalidOperationException(name);

@@ -36,3 +36,18 @@ sem o personagem e sem scripts na câmera.
 
 As aprovações e instruções antigas de Idle/Run pertenciam à implementação removida.
 Não restaurar aquele rig, controlador ou câmera automaticamente ao iniciar a próxima etapa.
+
+## Cenário v01 (18/10/2026)
+
+A cena recebeu o mapa horizontal completo do kit `BaseImprovisada_Kit_Implementacao_v01`
+(ver `Docs/BaseImprovisada_Map.md`). Nessa etapa ainda não havia personagem,
+controlador, Idle/Run ou lógica de câmera. Foi colocado um marcador de escala EditorOnly do Croc
+simplificado 48×72 no spawn, e a câmera existente mudou apenas o Y (0,9 → 2,4). `Ground`,
+`Floor`, `LeftWall` e `RightWall` são os mesmos objetos, redimensionados para o mapa.
+
+## Novo HUB simplificado (18/10/2026, etapa seguinte)
+
+O pedido seguinte substituiu o marcador por `CrocHub.prefab`: corpo físico, VisualRoot
+com seis frames do Idle aprovado e CameraTarget estável. Movimento horizontal próprio
+e câmera com janela/antecipação/limites, sem restaurar o rig anterior e **sem Run**.
+Estado atual, ajustes e testes em `Docs/BaseImprovisadaCamera.md`.

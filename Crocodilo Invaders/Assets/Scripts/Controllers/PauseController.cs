@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public sealed class PauseController : MonoBehaviour
 {
-    [SerializeField] private PlayerInputReader playerInput;
+    [SerializeField, Tooltip("Componente de input da cena: PlayerInputReader no combate ou HubPlayerInput na base.")]
+    private Behaviour playerInput;
     [SerializeField] private PauseMenuView view;
     [SerializeField] private string menuScene = "Assets/Scenes/MainMenu.unity";
 

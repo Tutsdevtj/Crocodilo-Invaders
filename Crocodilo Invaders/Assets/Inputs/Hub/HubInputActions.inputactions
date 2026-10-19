@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "name": "HubInputActions",
+  "maps": [
+    {
+      "name": "Hub",
+      "id": "52c23f11-ff62-423a-9c46-2ef42f1013ca",
+      "actions": [
+        {
+          "name": "Move",
+          "type": "Value",
+          "id": "13bce36b-a3af-43e0-ae9c-7c296a567d11",
+          "expectedControlType": "Axis",
+          "initialStateCheck": true
+        }
+      ],
+      "bindings": [
+        {
+          "name": "Keyboard",
+          "id": "2dcd820d-81a8-424e-96ae-de3cc68e3fa1",
+          "path": "1DAxis",
+          "action": "Move",
+          "isComposite": true
+        },
+        {
+          "name": "negative",
+          "id": "05e53301-9cbc-4f31-92d9-abf4c8f3948e",
+          "path": "<Keyboard>/a",
+          "action": "Move",
+          "isPartOfComposite": true
+        },
+        {
+          "name": "positive",
+          "id": "336cc471-c221-439d-9c57-f96059a0ead7",
+          "path": "<Keyboard>/d",
+          "action": "Move",
+          "isPartOfComposite": true
+        },
+        {
+          "name": "Arrows",
+          "id": "a35fea8f-5e09-42d4-b94e-c6101cd75a62",
+          "path": "1DAxis",
+          "action": "Move",
+          "isComposite": true
+        },
+        {
+          "name": "negative",
+          "id": "2cad4094-fbc4-47b2-bd90-197fdd310e42",
+          "path": "<Keyboard>/leftArrow",
+          "action": "Move",
+          "isPartOfComposite": true
+        },
+        {
+          "name": "positive",
+          "id": "847aeb7c-c159-40e3-a4f0-8e1d88f224de",
+          "path": "<Keyboard>/rightArrow",
+          "action": "Move",
+          "isPartOfComposite": true
+        },
+        {
+          "name": "Stick",
+          "id": "c32b5343-3493-489f-a1a2-319480476bb8",
+          "path": "<Gamepad>/leftStick/x",
+          "processors": "axisDeadzone(min=0.15,max=0.95)",
+          "action": "Move"
+        }
+      ]
+    }
+  ],
+  "controlSchemes": []
+}

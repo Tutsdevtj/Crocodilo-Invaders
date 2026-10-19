@@ -1,0 +1,666 @@
+{
+ "character": "B. Crocodilo — versão HUB simplificada",
+ "source_reference": {
+  "file": "imagem aprovada 1024x1536 RGB, fundo preto",
+  "inferred_cell_px": "≈16,3–16,6 px (irregular, 12–20)"
+ },
+ "canvas": [
+  48,
+  72
+ ],
+ "pivot_character": [
+  24,
+  71
+ ],
+ "ground_y": 71,
+ "feet_last_row": 70,
+ "facing": "direita",
+ "coords": "px do canvas, origem no canto superior esquerdo, y para baixo; articulação (x,y) = canto sup. esq. do pixel. unity_pivot normalizado com origem embaixo",
+ "import_settings": {
+  "filter": "Point (no filter)",
+  "compression": "None",
+  "ppu": "100 (provisório, mesmo do projeto)",
+  "sprite_mode": "Single",
+  "pivot": "Custom = unity_pivot",
+  "mesh": "Full Rect"
+ },
+ "joints_canvas": {
+  "ground": [
+   24,
+   71
+  ],
+  "hips_center": [
+   24,
+   47
+  ],
+  "hip_front": [
+   16,
+   51
+  ],
+  "hip_back": [
+   28,
+   51
+  ],
+  "torso_center": [
+   24,
+   36
+  ],
+  "waist": [
+   24,
+   41
+  ],
+  "neck_base": [
+   25,
+   33
+  ],
+  "shoulder_front": [
+   10,
+   33
+  ],
+  "shoulder_back": [
+   35,
+   35
+  ],
+  "eye": [
+   22,
+   17
+  ]
+ },
+ "hierarchy": {
+  "CrocHub": {
+   "parent": null,
+   "joint": "ground",
+   "joint_canvas_px": [
+    24,
+    71
+   ],
+   "local_px_ydown": [
+    0,
+    0
+   ],
+   "local_unity_px": [
+    0,
+    0
+   ],
+   "local_units_ppu100": [
+    0.0,
+    0.0
+   ],
+   "sprites": []
+  },
+  "Hips": {
+   "parent": "CrocHub",
+   "joint": "hips_center",
+   "joint_canvas_px": [
+    24,
+    47
+   ],
+   "local_px_ydown": [
+    0,
+    -24
+   ],
+   "local_unity_px": [
+    0,
+    24
+   ],
+   "local_units_ppu100": [
+    0.0,
+    0.24
+   ],
+   "sprites": [
+    "hips"
+   ]
+  },
+  "LegBack": {
+   "parent": "Hips",
+   "joint": "hip_back",
+   "joint_canvas_px": [
+    28,
+    51
+   ],
+   "local_px_ydown": [
+    4,
+    4
+   ],
+   "local_unity_px": [
+    4,
+    -4
+   ],
+   "local_units_ppu100": [
+    0.04,
+    -0.04
+   ],
+   "sprites": [
+    "leg_back"
+   ]
+  },
+  "LegFront": {
+   "parent": "Hips",
+   "joint": "hip_front",
+   "joint_canvas_px": [
+    16,
+    51
+   ],
+   "local_px_ydown": [
+    -8,
+    4
+   ],
+   "local_unity_px": [
+    -8,
+    -4
+   ],
+   "local_units_ppu100": [
+    -0.08,
+    -0.04
+   ],
+   "sprites": [
+    "leg_front"
+   ]
+  },
+  "Torso": {
+   "parent": "Hips",
+   "joint": "waist",
+   "joint_canvas_px": [
+    24,
+    41
+   ],
+   "local_px_ydown": [
+    0,
+    -6
+   ],
+   "local_unity_px": [
+    0,
+    6
+   ],
+   "local_units_ppu100": [
+    0.0,
+    0.06
+   ],
+   "sprites": [
+    "torso"
+   ]
+  },
+  "ArmBack": {
+   "parent": "Torso",
+   "joint": "shoulder_back",
+   "joint_canvas_px": [
+    35,
+    35
+   ],
+   "local_px_ydown": [
+    11,
+    -6
+   ],
+   "local_unity_px": [
+    11,
+    6
+   ],
+   "local_units_ppu100": [
+    0.11,
+    0.06
+   ],
+   "sprites": [
+    "arm_back"
+   ]
+  },
+  "Head": {
+   "parent": "Torso",
+   "joint": "neck_base",
+   "joint_canvas_px": [
+    25,
+    33
+   ],
+   "local_px_ydown": [
+    1,
+    -8
+   ],
+   "local_unity_px": [
+    1,
+    8
+   ],
+   "local_units_ppu100": [
+    0.01,
+    0.08
+   ],
+   "sprites": [
+    "head",
+    "eyelid_half",
+    "eyelid_closed"
+   ]
+  },
+  "ArmFront": {
+   "parent": "Torso",
+   "joint": "shoulder_front",
+   "joint_canvas_px": [
+    10,
+    33
+   ],
+   "local_px_ydown": [
+    -14,
+    -8
+   ],
+   "local_unity_px": [
+    -14,
+    8
+   ],
+   "local_units_ppu100": [
+    -0.14,
+    0.08
+   ],
+   "sprites": [
+    "arm_front"
+   ]
+  }
+ },
+ "sprites": {
+  "leg_back": {
+   "file": "modules/leg_back.png",
+   "w": 15,
+   "h": 20,
+   "canvas_x": 23,
+   "canvas_y": 51,
+   "node": "LegBack",
+   "sorting_order": 0,
+   "pivot_canvas_px": [
+    28,
+    51
+   ],
+   "pivot_local_px": [
+    5,
+    0
+   ],
+   "unity_pivot": [
+    0.333333,
+    1.0
+   ],
+   "visible_pixels_at_rest": 195,
+   "hidden_underpaint_pixels": 0,
+   "default_active": true
+  },
+  "leg_front": {
+   "file": "modules/leg_front.png",
+   "w": 16,
+   "h": 20,
+   "canvas_x": 7,
+   "canvas_y": 51,
+   "node": "LegFront",
+   "sorting_order": 1,
+   "pivot_canvas_px": [
+    16,
+    51
+   ],
+   "pivot_local_px": [
+    9,
+    0
+   ],
+   "unity_pivot": [
+    0.5625,
+    1.0
+   ],
+   "visible_pixels_at_rest": 199,
+   "hidden_underpaint_pixels": 3,
+   "default_active": true
+  },
+  "hips": {
+   "file": "modules/hips.png",
+   "w": 26,
+   "h": 13,
+   "canvas_x": 9,
+   "canvas_y": 38,
+   "node": "Hips",
+   "sorting_order": 2,
+   "pivot_canvas_px": [
+    24,
+    47
+   ],
+   "pivot_local_px": [
+    15,
+    9
+   ],
+   "unity_pivot": [
+    0.576923,
+    0.307692
+   ],
+   "visible_pixels_at_rest": 208,
+   "hidden_underpaint_pixels": 63,
+   "default_active": true
+  },
+  "arm_back": {
+   "file": "modules/arm_back.png",
+   "w": 8,
+   "h": 21,
+   "canvas_x": 33,
+   "canvas_y": 34,
+   "node": "ArmBack",
+   "sorting_order": 3,
+   "pivot_canvas_px": [
+    35,
+    35
+   ],
+   "pivot_local_px": [
+    2,
+    1
+   ],
+   "unity_pivot": [
+    0.25,
+    0.952381
+   ],
+   "visible_pixels_at_rest": 100,
+   "hidden_underpaint_pixels": 0,
+   "default_active": true
+  },
+  "torso": {
+   "file": "modules/torso.png",
+   "w": 25,
+   "h": 16,
+   "canvas_x": 10,
+   "canvas_y": 25,
+   "node": "Torso",
+   "sorting_order": 4,
+   "pivot_canvas_px": [
+    24,
+    41
+   ],
+   "pivot_local_px": [
+    14,
+    16
+   ],
+   "unity_pivot": [
+    0.56,
+    0.0
+   ],
+   "visible_pixels_at_rest": 212,
+   "hidden_underpaint_pixels": 64,
+   "default_active": true
+  },
+  "head": {
+   "file": "modules/head.png",
+   "w": 37,
+   "h": 32,
+   "canvas_x": 8,
+   "canvas_y": 2,
+   "node": "Head",
+   "sorting_order": 5,
+   "pivot_canvas_px": [
+    25,
+    33
+   ],
+   "pivot_local_px": [
+    17,
+    31
+   ],
+   "unity_pivot": [
+    0.459459,
+    0.03125
+   ],
+   "visible_pixels_at_rest": 731,
+   "hidden_underpaint_pixels": 0,
+   "default_active": true
+  },
+  "eyelid_half": {
+   "file": "modules/eyelid_half.png",
+   "w": 4,
+   "h": 2,
+   "canvas_x": 21,
+   "canvas_y": 16,
+   "node": "Head",
+   "sorting_order": 6,
+   "pivot_canvas_px": [
+    25,
+    33
+   ],
+   "pivot_local_px": [
+    4,
+    17
+   ],
+   "unity_pivot": [
+    1.0,
+    -7.5
+   ],
+   "visible_pixels_at_rest": 0,
+   "hidden_underpaint_pixels": 0,
+   "default_active": false
+  },
+  "eyelid_closed": {
+   "file": "modules/eyelid_closed.png",
+   "w": 4,
+   "h": 3,
+   "canvas_x": 21,
+   "canvas_y": 16,
+   "node": "Head",
+   "sorting_order": 7,
+   "pivot_canvas_px": [
+    25,
+    33
+   ],
+   "pivot_local_px": [
+    4,
+    17
+   ],
+   "unity_pivot": [
+    1.0,
+    -4.666667
+   ],
+   "visible_pixels_at_rest": 0,
+   "hidden_underpaint_pixels": 0,
+   "default_active": false
+  },
+  "arm_front": {
+   "file": "modules/arm_front.png",
+   "w": 12,
+   "h": 26,
+   "canvas_x": 3,
+   "canvas_y": 29,
+   "node": "ArmFront",
+   "sorting_order": 8,
+   "pivot_canvas_px": [
+    10,
+    33
+   ],
+   "pivot_local_px": [
+    7,
+    4
+   ],
+   "unity_pivot": [
+    0.583333,
+    0.846154
+   ],
+   "visible_pixels_at_rest": 197,
+   "hidden_underpaint_pixels": 0,
+   "default_active": true
+  }
+ },
+ "render_order": [
+  "leg_back",
+  "leg_front",
+  "hips",
+  "arm_back",
+  "torso",
+  "head",
+  "eyelid_half",
+  "eyelid_closed",
+  "arm_front"
+ ],
+ "idle": {
+  "fps": 6,
+  "loop": true,
+  "frames": [
+   {
+    "index": 0,
+    "name": "repouso",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_00.png",
+    "canvas_offset_px_ydown": {
+     "head": 0,
+     "torso": 0,
+     "arm_front": 0,
+     "arm_back": 0
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 0,
+     "Head": 0,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   },
+   {
+    "index": 1,
+    "name": "inspira",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_01.png",
+    "canvas_offset_px_ydown": {
+     "head": 0,
+     "torso": -1,
+     "arm_front": -1,
+     "arm_back": -1
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 1,
+     "Head": -1,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   },
+   {
+    "index": 2,
+    "name": "topo",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_02.png",
+    "canvas_offset_px_ydown": {
+     "head": -1,
+     "torso": -1,
+     "arm_front": -1,
+     "arm_back": -1
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 1,
+     "Head": 0,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   },
+   {
+    "index": 3,
+    "name": "segura",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_03.png",
+    "canvas_offset_px_ydown": {
+     "head": -1,
+     "torso": -1,
+     "arm_front": -1,
+     "arm_back": -1
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 1,
+     "Head": 0,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   },
+   {
+    "index": 4,
+    "name": "expira",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_04.png",
+    "canvas_offset_px_ydown": {
+     "head": -1,
+     "torso": 0,
+     "arm_front": 0,
+     "arm_back": 0
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 0,
+     "Head": 1,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   },
+   {
+    "index": 5,
+    "name": "assenta",
+    "duration_ms": 166,
+    "file": "idle/croc_idle_05.png",
+    "canvas_offset_px_ydown": {
+     "head": 0,
+     "torso": 0,
+     "arm_front": 0,
+     "arm_back": 0
+    },
+    "node_local_offset_unity_px": {
+     "Torso": 0,
+     "Head": 0,
+     "ArmFront": 0,
+     "ArmBack": 0
+    }
+   }
+  ],
+  "sheet": "idle/croc_idle_sheet.png",
+  "sheet_layout": "6 quadros 48x72 em linha"
+ },
+ "blink": {
+  "overlays": [
+   "eyelid_half",
+   "eyelid_closed"
+  ],
+  "sequence": [
+   {
+    "overlay": "eyelid_half",
+    "ms": 60
+   },
+   {
+    "overlay": "eyelid_closed",
+    "ms": 100
+   },
+   {
+    "overlay": "eyelid_half",
+    "ms": 60
+   }
+  ],
+  "interval_seconds": [
+   3,
+   6
+  ],
+  "independent_of_breathing": true,
+  "attach_to": "Head",
+  "frames_preview": [
+   "idle/croc_idle_blink_half.png",
+   "idle/croc_idle_blink_closed.png"
+  ]
+ },
+ "underpaint": {
+  "hips": [
+   [
+    "jaqueta continua sob a borda inferior do tronco (respiração)",
+    58
+   ]
+  ],
+  "torso": [
+   [
+    "gola/pescoço continuam sob o queixo (cabeça sobe 1 px)",
+    42
+   ],
+   [
+    "lateral do tronco continua sob a borda interna dos braços",
+    21
+   ]
+  ],
+  "auto": [
+   [
+    "frestas fechadas por subpintura nas juntas",
+    9
+   ]
+  ]
+ },
+ "validation": {
+  "rest_reconstruction_diff_px": 0,
+  "idle_diff_vs_master_px": [
+   0,
+   252,
+   699,
+   699,
+   449,
+   0
+  ],
+  "missing_files": []
+ }
+}

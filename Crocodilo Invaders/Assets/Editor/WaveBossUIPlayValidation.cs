@@ -45,6 +45,8 @@ public static class WaveBossUIPlayValidation
         if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         WaveBossUITools.Validate();
         EditorSceneManager.OpenScene(Gameplay, OpenSceneMode.Single);
+        // A suíte compõe os banners antes de iniciar a run real.
+        Find<WaveController>().enabled = false;
         SessionState.SetBool(Session, true);
         EditorApplication.isPlaying = true;
     }
@@ -60,11 +62,10 @@ public static class WaveBossUIPlayValidation
         yield return DevelopmentBossFlow();
         yield return Load("Assets/Scenes/BaseImprovisada.unity");
         var baseObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-        Check(!baseObjects.SelectMany(r => r.GetComponentsInChildren<Animator>(true)).Any()
-            && !baseObjects.SelectMany(r => r.GetComponentsInChildren<Rigidbody2D>(true)).Any()
-            && Camera.main != null && Camera.main.GetComponents<MonoBehaviour>().Length == 0,
-            "Chapter base loads without the old character or camera scripts");
-        yield return Capture(1200, 720, "base_after_cleanup");
+        Check(baseObjects.SelectMany(r => r.GetComponentsInChildren<HubCharacterMotor2D>(true)).Count() == 1
+            && Camera.main != null && Camera.main.GetComponent<HubCameraController2D>() != null,
+            "Chapter base loads with its simplified HUB character and dedicated camera");
+        yield return Capture(1200, 720, "base_hub");
     }
 
     // ---------------------------------------------------------------- ONDA N (determinístico, tempo congelado)
@@ -74,7 +75,6 @@ public static class WaveBossUIPlayValidation
         var announcer = ui.Announcer;
         var banner = announcer.Wave;
         var style = banner.Style;
-        ui.SuppressStartPanel(true);
         Time.timeScale = 0f;
         var values = new int[WaveBannerStyle.MaxDigits];
         var xs = new int[WaveBannerStyle.MaxDigits];
@@ -359,7 +359,7 @@ public static class WaveBossUIPlayValidation
         var announcer = ui.Announcer;
         var cutscenes = Find<RunCutscenes>();
         var spawner = waves.GetComponent<EnemySpawner>();
-        ui.SuppressStartPanel(false);
+        waves.enabled = true;
         int bossStarted = 0;
         waves.BossStarted += _ => bossStarted++;
         waves.StartRun();
@@ -415,7 +415,7 @@ public static class WaveBossUIPlayValidation
         var player = Find<Player>();
         player.GetComponent<Health>().TakeDamage(100000f);
         yield return Frames(2);
-        var panel = ui.transform.Find("StartAndResult");
+        var panel = ui.transform.Find("Result");
         Check(waves.Phase == WaveController.RunPhase.Failed && !announcer.IsPlaying && panel.gameObject.activeSelf
             && panel.GetComponentsInChildren<TMP_Text>(true).Any(t => t.text == "FIM DE JOGO")
             && panel.GetComponentsInChildren<Button>(true).Any(bt => bt.name == "ReturnToMenuButton" && bt.gameObject.activeSelf),

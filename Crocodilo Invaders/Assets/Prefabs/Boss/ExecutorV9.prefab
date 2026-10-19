@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   displayName: EXECUTOR V-9
-  portrait: {fileID: 21300000, guid: 606cd1b49c113c64c829f0c3070f2edf, type: 3}
+  alertTheme: {fileID: 0}
   patrolArea:
     serializedVersion: 2
     x: 5.6
@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteHitFlash
   holdDuration: 0.045
   fadeDuration: 0.065
+  spriteRenderer: {fileID: 0}
 --- !u!114 &5022217229709405818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +695,23 @@ MonoBehaviour:
   deathEffect: {fileID: 3037658484762248365, guid: d2cfb2d1a658ff94c94d03fee237d56e, type: 3}
   charge: {fileID: 2094386905802823549}
   aimGuide: {fileID: 5526428334209200057}
+--- !u!114 &4653572793046728530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7490888083327779760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7b12e975a8469c89aeead7adbac82c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BossReinforcements
+  interceptorPrefab: {fileID: 3497707027136282118, guid: 8ba3c8c22e8be684c818d84a85765d54, type: 3}
+  initialDelay: 6
+  intervalRange: {x: 9, y: 12}
+  batchSize: 2
+  maxAlive: 2
 --- !u!1 &7934349299535641255
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,20 +863,3 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &4653572793046728530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7490888083327779760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7b12e975a8469c89aeead7adbac82c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossReinforcements
-  interceptorPrefab: {fileID: 3497707027136282118, guid: 8ba3c8c22e8be684c818d84a85765d54, type: 3}
-  initialDelay: 6
-  intervalRange: {x: 9, y: 12}
-  batchSize: 2
-  maxAlive: 2

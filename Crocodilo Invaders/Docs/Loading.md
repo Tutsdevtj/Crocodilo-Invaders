@@ -14,7 +14,6 @@ Durante a preparação e a confirmação:
 
 - `Time.timeScale` fica em zero e `AudioListener.pause` pausa o áudio;
 - os comandos do player e o EventSystem da fase ficam desabilitados;
-- o painel provisório `INICIAR` fica oculto;
 - nenhuma onda começa antes da confirmação;
 - o ENTER que selecionou `Jogar` precisa ser solto antes de uma nova confirmação.
 
@@ -34,10 +33,10 @@ menu. Uma referência de cena inexistente é rejeitada antes de congelar o jogo.
 - `GameplayLoadingView`: textos, reticências, flutuação e fades em tempo não escalado.
 - `UISilhouette.shader` e `LoadingSilhouette.mat`: tornam branco o sprite existente,
   preservando sua transparência e sem alterar o PNG.
-- `WavesUI.SuppressStartPanel`: oculta o botão provisório durante a transição.
 
-Abrir PlayerMovementTest diretamente continua permitindo o início provisório;
-a confirmação pelo loading pertence ao fluxo iniciado pelo MainMenu.
+O painel PRONTO?/INICIAR foi removido. Abrir PlayerMovementTest ou StageOneWaves
+diretamente inicia a abertura da run; GusiniBossTest continua usando seu starter
+próprio. A confirmação pelo loading pertence ao fluxo iniciado pelo MainMenu.
 
 ## Peso do projeto
 

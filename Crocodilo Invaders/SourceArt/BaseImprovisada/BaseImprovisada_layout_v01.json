@@ -1,0 +1,149 @@
+{
+  "name": "BaseImprovisada",
+  "version": "layout_conceitual_v01",
+  "status": "proposta; ajustar a escala usando prefab e camera existentes",
+  "coord_system": "design_pixels; x cresce para a direita, y_ground=0; converter para world units de acordo com PPU/escala atuais",
+  "width_design_pixels": 8400,
+  "recommended_view_width_design_pixels": 1280,
+  "ground_y_design_pixels": 0,
+  "char_reference": "croc_hub_master 48x72 nativos; herdar PPU/scale do prefab atual em vez de definir por este desenho",
+  "zones": [
+    {
+      "id": "spawn",
+      "x0": 0,
+      "x1": 760,
+      "state": "OPEN",
+      "description": "Entrada, placa, cerca e checkpoint; Croc aparece em x≈430"
+    },
+    {
+      "id": "infirmary",
+      "x0": 760,
+      "x1": 1870,
+      "state": "OPEN",
+      "description": "Posto medico pequeno; humanos feridos futuros (sem inventar personagens agora)"
+    },
+    {
+      "id": "hangar",
+      "x0": 1870,
+      "x1": 3850,
+      "state": "OPEN",
+      "description": "Hangar/oficina avariada; criar GoosiniAnchor sem gerar outro NPC"
+    },
+    {
+      "id": "camp",
+      "x0": 3850,
+      "x1": 5100,
+      "state": "OPEN",
+      "description": "Tenda e area de conversa; poucas pessoas, sem NPCs novos na primeira implementacao"
+    },
+    {
+      "id": "command_ruins",
+      "x0": 5100,
+      "x1": 6250,
+      "state": "SCENIC_LOCKED",
+      "description": "Comando danificado ao fundo, sem lojinha liberada"
+    },
+    {
+      "id": "radio",
+      "x0": 6250,
+      "x1": 7250,
+      "state": "LOCKED",
+      "description": "Radio/comunicacoes fechadas ate progresso futuro"
+    },
+    {
+      "id": "expansion",
+      "x0": 7250,
+      "x1": 8400,
+      "state": "LOCKED",
+      "description": "Portao/ferragens/cercas/placa em construcao; colisao bloqueia"
+    }
+  ],
+  "major_props": [
+    {
+      "asset": "assets/04_construcoes/03_enfermaria.png",
+      "design_center_x": 1260,
+      "placement": "bottom_to_main_ground",
+      "state": "OPEN"
+    },
+    {
+      "asset": "assets/04_construcoes/01_hangar_goosini.png",
+      "design_center_x": 2860,
+      "placement": "bottom_to_main_ground",
+      "state": "OPEN"
+    },
+    {
+      "asset": "assets/03_ambientacao/02_tenda_descanso.png",
+      "design_center_x": 4500,
+      "placement": "bottom_to_main_ground",
+      "state": "OPEN"
+    },
+    {
+      "asset": "assets/04_construcoes/04_comando_danificado.png",
+      "design_center_x": 5660,
+      "placement": "scenic_side",
+      "state": "SCENIC_LOCKED"
+    },
+    {
+      "asset": "assets/04_construcoes/05_radio_comunicacoes.png",
+      "design_center_x": 6680,
+      "placement": "bottom_to_main_ground",
+      "state": "LOCKED"
+    },
+    {
+      "asset": "assets/03_ambientacao/09_torre_observacao.png",
+      "design_center_x": 7440,
+      "placement": "background_or_decor",
+      "state": "LOCKED"
+    },
+    {
+      "asset": "assets/03_ambientacao/06_poste_eletrico.png",
+      "design_center_x": 5180,
+      "placement": "background_decor",
+      "state": "OPEN"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "PlayerSpawn",
+      "design_x": 430
+    },
+    {
+      "id": "GoosiniAnchor",
+      "design_x": 3020
+    },
+    {
+      "id": "MedicNPCAnchor",
+      "design_x": 1460
+    },
+    {
+      "id": "SoldiersChatAnchor",
+      "design_x": 4630
+    },
+    {
+      "id": "RadioLockedAnchor",
+      "design_x": 6740
+    },
+    {
+      "id": "ExpansionGate",
+      "design_x": 7480
+    }
+  ],
+  "collision": "1 rota principal horizontal continua; estruturas, escadas, andares altos inicialmente decorativos; bloqueios reais apenas nos portoes/setores fechados",
+  "building_interactions": "sem lojas, novas falas, IA de NPC ou script de progressao nesta entrega",
+  "parallax": "fundos fornecidos sao RGB opacos; NAO sobrepor os cinco como sprites transparentes. Tratar como referencias ou usar apenas BG0/um panorama e props RGBA de BG4 para parallax provisoria.",
+  "render_order": [
+    "BG0",
+    "BG1",
+    "BG2",
+    "BG3",
+    "BG4",
+    "BackDecor",
+    "Ground",
+    "BackBuildings",
+    "NPCsAndPlayer",
+    "FrontProps",
+    "FrontOverlay",
+    "Lighting"
+  ],
+  "source_caution": "sprites de folhas conceituais podem precisar de polimento de contorno/PPU; evitar colisao automatica por alpha de sprite"
+}

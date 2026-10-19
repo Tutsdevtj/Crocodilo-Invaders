@@ -1,7 +1,7 @@
 # Barra do Gusini — Fase 1
 
-`BossHUD.prefab` contém a nova barra específica do Gusini e a apresentação
-legada do Executor. `BossHUD` escolhe a versão ao receber `BossStarted`, assina
+`BossHUD.prefab` contém somente a barra específica do Gusini. `BossHUD` a conecta
+ao receber `BossStarted`, assina
 o `Health` real e remove os vínculos anteriores ao trocar de boss ou terminar
 a partida. A nova barra não muda combate, atributos, dano ou recompensas.
 
@@ -35,19 +35,25 @@ ancorada à direita: o preenchimento esvazia da esquerda para a direita.
   Desativação/troca de boss descarta os efeitos anteriores. Após o fim da luta,
   reativar a HUD não faz reaparecer uma barra de boss morto ou de partida encerrada.
 
-O fallback do Executor conserva nome dinâmico, portrait, sprites de vida e o
-callback de enrage. A HUD do jogador permanece a mesma da integração v2.
+A apresentação antiga do Executor (BossInfo, nome, portrait e barra) e o código
+do fallback foram removidos em 18/10/2026. A barra do Gusini fica salva oculta no
+prefab e aparece durante o encontro. A HUD do jogador permanece a mesma.
 
 Menus no Editor: `Crocodilo → HUD → Validate Gusini F1 bar` verifica layout,
 referências, preenchimentos, pool e importação. `Rebuild Gusini F1 bar` remonta
-a apresentação nova a partir do layout, preservando a variante antiga.
+a apresentação a partir do layout, sem recriar a variante antiga.
 
-Validação na Unity 6000.6.4f1: **35 verificações em Play Mode** passaram,
+Validação histórica na Unity 6000.6.4f1: **35 verificações em Play Mode** passaram,
 incluindo entrada, dano fracionário durante a carga, dano rápido, borda do fill,
 flash/shake/lag, cachecol, shimmer/máscara/glint, pausa, vida crítica, recuperação,
 troca para Executor e de volta, morte e encerramento. Bindings das cenas
 PlayerMovementTest, StageOneWaves e GusiniBossTest conferidos sem salvar alterações.
 Capturas da partida inspecionadas em 1200×720, 1920×1080 e 800×600.
+
+Após retirar a HUD antiga: validação de anúncios/fluxo/derrota passou 130 checks;
+início direto e via loading passou nove; reativação da barra na derrota aparente
+e na F2 passou sete. Captura da cena fora de Play confirma ausência de PRONTO?,
+botão verde e HUD do Executor. Evidências em `Logs/CurrentCombatUiCleanup*`.
 
 ## Fase 2
 

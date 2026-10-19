@@ -1,10 +1,20 @@
 # Menu de pausa
 
+## Base Improvisada
+
+A BaseImprovisada usa o mesmo `Assets/Prefabs/UI/PauseMenu.prefab`: ESC/Start abre o painel,
+Continuar retoma o passeio, Opções abre a interface de áudio existente e Voltar ao menu
+carrega MainMenu. O retorno direto pelo ESC foi removido. `PauseController.playerInput`
+aceita Behaviour para desabilitar HubPlayerInput na base e manter PlayerInputReader nas
+cenas de combate. As referências antigas continuam no mesmo campo serializado.
+`HubCharacterTools.InstallPauseMenu` conecta o prefab e o EventSystem do Input System.
+Validação específica: `HubPlayValidation.RunPauseMenu`.
+
 ESC abre e fecha a pausa; Start do controle também funciona. Mouse, setas e
-Enter navegam nos botões. No controle, B volta da tela provisória de opções.
+Enter navegam nos botões. No controle, B volta da tela de opções de áudio.
 
 - **Continuar** retoma a mesma partida e a música do ponto em que pararam.
-- **Opções** mostra uma página provisória de “em desenvolvimento”, com Voltar.
+- **Opções** abre a interface de áudio existente, com volumes geral, música e efeitos.
 - **Voltar ao menu** encerra a partida atual e carrega MainMenu. Jogar começa
   uma partida nova normalmente.
 
@@ -34,7 +44,7 @@ do menu inicial: escala, diamantes e sons de foco/clique.
 - `PauseController`: comandos de pausa/volta, bloqueio do input local, relógio,
   áudio e troca para MainMenu. Continuar restaura o estado anterior; voltar ao
   menu restabelece a velocidade normal e libera o áudio para a partida seguinte.
-- `PauseMenuView`: entrada/saída, foco dos botões e página provisória de opções.
+- `PauseMenuView`: entrada/saída, foco dos botões e abertura de `AudioOptionsView`.
 - `PauseBackdrop` e `PauseBlur.shader`: captura, blur e liberação das texturas.
 - `PauseMenuParticles`: animação visual em tempo não escalado, sem consumir o
   Random usado pelo gameplay.

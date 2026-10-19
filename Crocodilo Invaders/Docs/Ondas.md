@@ -1,8 +1,9 @@
 # Progressão de dez ondas
 
 O MainMenu passa pelo loading e inicia a partida após ENTER. Ao abrir diretamente
-`Assets/Scenes/Tests/PlayerMovementTest.unity` ou `StageOneWaves.unity`, o botão
-provisório **INICIAR** continua disponível. As duas cenas usam os mesmos pools.
+`Assets/Scenes/Tests/PlayerMovementTest.unity` ou `StageOneWaves.unity`, a abertura
+da run começa automaticamente, sem o painel provisório PRONTO?/INICIAR. As duas
+cenas usam os mesmos pools.
 
 São nove hordas e o boss na décima onda. O aviso e a HUD contam o boss no total,
 sem criar uma décima horda antes dele.

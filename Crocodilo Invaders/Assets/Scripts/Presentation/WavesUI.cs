@@ -2,15 +2,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
-// Elementos auxiliares da run (painel de início/resultado, retorno ao menu, som do resultado)
+// Resultado da run, retorno ao menu e som do resultado
 // e ponte entre WaveController e WaveAnnouncer: segura o anúncio até a apresentação terminar.
 public sealed class WavesUI : MonoBehaviour
 {
     [SerializeField] private WaveController waves;
     [SerializeField] private WaveAnnouncer announcer;
-    [SerializeField] private GameObject startPanel;
-    [SerializeField] private Button startButton;
+    [SerializeField, FormerlySerializedAs("startPanel")] private GameObject resultPanel;
     [SerializeField] private Button returnButton;
     [SerializeField] private TMP_Text panelTitle;
     [SerializeField] private TMP_Text panelDetails;
@@ -18,20 +18,12 @@ public sealed class WavesUI : MonoBehaviour
     [SerializeField] private AudioClip winSound;
     [SerializeField] private AudioClip lossSound;
 
-    private bool suppressStartPanel;
     private int heldAnnouncement;
 
     public WaveAnnouncer Announcer => announcer;
 
-    public void SuppressStartPanel(bool suppress)
-    {
-        suppressStartPanel = suppress;
-        RefreshPanel();
-    }
-
     private void OnEnable()
     {
-        startButton.onClick.AddListener(StartRun);
         if (returnButton != null) returnButton.onClick.AddListener(ReturnToMenu);
         waves.WaveAnnounced += ShowWave;
         waves.RunEnded += ShowResult;
@@ -40,7 +32,6 @@ public sealed class WavesUI : MonoBehaviour
 
     private void OnDisable()
     {
-        startButton.onClick.RemoveListener(StartRun);
         if (returnButton != null) returnButton.onClick.RemoveListener(ReturnToMenu);
         waves.WaveAnnounced -= ShowWave;
         waves.RunEnded -= ShowResult;
@@ -51,15 +42,9 @@ public sealed class WavesUI : MonoBehaviour
         if (token != 0) waves.ReleaseAnnouncement(token);
     }
 
-    private void StartRun()
-    {
-        waves.StartRun();
-        RefreshPanel();
-    }
-
     private void ShowWave(int current, int total)
     {
-        startPanel.SetActive(false);
+        resultPanel.SetActive(false);
         if (announcer == null) return;
         int token = waves.HoldAnnouncement();
         heldAnnouncement = token;
@@ -86,14 +71,12 @@ public sealed class WavesUI : MonoBehaviour
 
     private void RefreshPanel()
     {
-        bool waiting = waves.Phase == WaveController.RunPhase.Waiting;
         bool completed = waves.Phase == WaveController.RunPhase.Completed;
         bool ended = completed || waves.Phase == WaveController.RunPhase.Failed;
-        startPanel.SetActive((waiting && !suppressStartPanel) || ended);
-        startButton.gameObject.SetActive(waiting);
+        resultPanel.SetActive(ended);
         if (returnButton != null) returnButton.gameObject.SetActive(ended);
-        panelTitle.text = waiting ? "PRONTO?" : completed ? "VITÓRIA" : "FIM DE JOGO";
-        panelDetails.text = waiting ? "Elimine os inimigos para avançar." : $"{waves.Score.Points} pontos • {waves.Score.Kills} inimigos";
+        panelTitle.text = completed ? "VITÓRIA" : "FIM DE JOGO";
+        panelDetails.text = ended ? $"{waves.Score.Points} pontos • {waves.Score.Kills} inimigos" : string.Empty;
     }
 
     private void ReturnToMenu()

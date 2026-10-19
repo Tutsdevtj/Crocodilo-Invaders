@@ -12,9 +12,7 @@ public sealed class PauseMenuView : MonoBehaviour
     [SerializeField] private RectTransform panel;
     [SerializeField] private RectTransform logo;
     [SerializeField] private GameObject mainPage;
-    [SerializeField] private GameObject optionsPage;
     [SerializeField] private Button continueButton;
-    [SerializeField] private Button optionsBackButton;
     [SerializeField] private AudioSource uiAudio;
     [SerializeField] private AudioOptionsView optionsPrefab;
     [SerializeField, Min(.01f)] private float entryDuration = .18f;
@@ -59,7 +57,6 @@ public sealed class PauseMenuView : MonoBehaviour
         if (!pause.IsPaused || ShowingOptions || optionsPrefab == null) return;
         ShowingOptions = true;
         mainPage.SetActive(false);
-        optionsPage.SetActive(false);
         panel.gameObject.SetActive(false);
         logo.gameObject.SetActive(false);
         if (options == null) options = Instantiate(optionsPrefab);
@@ -77,7 +74,6 @@ public sealed class PauseMenuView : MonoBehaviour
         ShowingOptions = false;
         panel.gameObject.SetActive(true);
         logo.gameObject.SetActive(true);
-        optionsPage.SetActive(false);
         mainPage.SetActive(true);
         Select(continueButton);
     }

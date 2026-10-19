@@ -143,7 +143,13 @@ public sealed class WaveController : MonoBehaviour
 
     private void Start()
     {
-        if (Phase == RunPhase.Waiting) player.SetGameplayActive(false);
+        if (Phase != RunPhase.Waiting) return;
+        player.SetGameplayActive(false);
+#if UNITY_EDITOR
+        if (FindAnyObjectByType<BossDevelopmentStart>() != null) return;
+#endif
+        // Loading confirma pelo fluxo existente; abrir a cena diretamente inicia a run.
+        if (FindAnyObjectByType<GameplayLoadingController>() == null) StartRun();
     }
 
     public void StartRun() => BeginRun(true);

@@ -41,6 +41,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackgroundSky
+    uniqueID: 1032408451
+    locked: 0
+  - name: BackgroundClouds
+    uniqueID: 329417836
+    locked: 0
+  - name: BackgroundMountains
+    uniqueID: 1523386225
+    locked: 0
+  - name: BackgroundRuins
+    uniqueID: 2062030096
+    locked: 0
+  - name: BackgroundNear
+    uniqueID: 846437979
+    locked: 0
+  - name: WorldBack
+    uniqueID: 946885853
+    locked: 0
+  - name: WorldGround
+    uniqueID: 51063419
+    locked: 0
+  - name: WorldCharacters
+    uniqueID: 1660887032
+    locked: 0
+  - name: WorldFront
+    uniqueID: 1056036613
+    locked: 0
+  - name: AmbientEffects
+    uniqueID: 1968000416
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []

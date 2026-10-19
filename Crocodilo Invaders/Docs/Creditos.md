@@ -116,3 +116,11 @@ Going Up — adventure Chiptune, de Ansimuz / Luis Zuno. WAV original do pacote 
 
 - Arte `Wave_Boss_UI_Goosini.zip` fornecida pelo usuário (cores amostradas do retrato aprovado do Gusini F1; scripts de geração em `Tools/Art/WaveBossUI`): 74 PNGs em `Assets/Art/UI/WaveBanner` e `Assets/Art/UI/BossAlert`, sem alteração. Guia, manifesto, paleta e faixa montada de referência em `SourceArt/WaveBossUI`; previews em `Docs/ArtPreviews/WaveBossUI`. Atlas, variantes `pop2` e GIFs não foram importados. Não se presume autoria externa.
 - SFX `goosini_boss_alert_final.wav` (candidato B1): exportação do ElevenLabs Sound Effects do pacote `Crocodilo_Invaders_Goosini_Boss_Alert.zip`, editada no pacote (DC, corte a 2 s, fades curtos, pico −3 dBFS). O uso segue os termos da conta ElevenLabs do usuário. Prompts, créditos consumidos, proveniência, QA e hashes em `SourceArt/GoosiniBossAlert`. Candidatos, originais e prévias não fazem parte do runtime.
+
+## Base Improvisada — cenário v01 (18/10/2026)
+
+Arte do kit `BaseImprovisada_Kit_Implementacao_v01.zip` fornecido pelo usuário (lotes 01–03 e construções, gerados para o projeto): PNGs originais em `Assets/Art/Environment/BaseImprovisada`. Os 10 suprimentos entram como cópias reduzidas, e os originais ficam em `SourceArt/BaseImprovisada/Originals`. O panorama é `03_BG2_montanhas_referencia_RGB.png`. Manifest, layout, README e Art Bible estão em `SourceArt/BaseImprovisada`. O marcador de escala usa `croc_hub_master.png` do pacote `Croc_Hub_Simplified_Idle_v01` (usuário). Não se presume autoria externa nem licença.
+
+## B. Crocodilo simplificado — HUB (18/10/2026)
+
+Master 48×72 e seis quadros de Idle de `Croc_Hub_Simplified_Idle_v01.zip`, fornecidos pelo usuário e incorporados sem redesenho/alteração de pixels. ZIP, manifesto e guias preservados em `SourceArt/CrocHubSimplifiedIdle`; runtime em `Assets/Art/Characters/CrocHub`. Usa a alternativa de frames prontos autorizada pelo guia do pacote. Não se presume autoria/licença externa. Nenhuma Run foi incorporada.

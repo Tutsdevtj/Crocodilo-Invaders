@@ -1,5 +1,9 @@
 # Gusini — combate em duas fases
 
+Atualização de UI de 18/10/2026: BossHUD contém apenas a barra do Gusini F1/F2.
+A HUD antiga do Executor e seu fallback foram removidos. Referências abaixo a
+portrait genérico/compatibilidade de HUD descrevem a implementação histórica.
+
 Boss ativo da onda 10 em `Assets/Scenes/Tests/PlayerMovementTest.unity` e
 `Assets/Scenes/Tests/StageOneWaves.unity`. A integração preserva o fluxo de
 vitória/derrota e a pontuação de `WaveController`. A F1 descrita abaixo agora leva à
