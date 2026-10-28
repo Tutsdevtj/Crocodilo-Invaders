@@ -1,0 +1,41 @@
+{
+  "source": "https://opengameart.org/content/gorilla-sounds",
+  "roar_author": "J0ck0",
+  "original_roar": "https://freesound.org/s/397054/",
+  "snarl_source": "mediacollege.com",
+  "editor": "AntumDeluge",
+  "license": "CC0 1.0",
+  "edits": "Gorilla roar, modest pitch lowering/time stretch, low body layer, strong saturation, short quiet stereo echo.",
+  "clips": [
+    {
+      "file": "gorilla_effort.wav",
+      "seconds": 0.8665986394557823,
+      "dry_seconds": 0.3665986394557823,
+      "peak": 0.78,
+      "rms": 0.15561951871528773,
+      "dry_rms": 0.23884955785786668,
+      "sha256": "2426543bbc165b70113f1c04caf24f63f1a1368e96e45ccb1cc8acd7872e8f6c"
+    },
+    {
+      "file": "gorilla_rising.wav",
+      "seconds": 2.365873015873016,
+      "dry_seconds": 1.665873015873016,
+      "peak": 0.86,
+      "rms": 0.25264342648850807,
+      "dry_rms": 0.301077705963584,
+      "sha256": "f9e46e65606ff66a61ae6a6116053ff6a4ced1ee5032498a0011fcbe7f20d26f"
+    },
+    {
+      "file": "gorilla_power.wav",
+      "seconds": 2.9505668934240363,
+      "dry_seconds": 1.8005668934240362,
+      "peak": 0.94,
+      "rms": 0.28214682184479645,
+      "dry_rms": 0.3611776970049936,
+      "sha256": "402391574786a4ee8e2640adb159c2d5d27f673d77b1117b423abad1591b5b72"
+    }
+  ],
+  "timeline_peak": 0.9023999999999999,
+  "main_gain": 0.96,
+  "main_rms_gain_over_v26": 5.769447192170411
+}
