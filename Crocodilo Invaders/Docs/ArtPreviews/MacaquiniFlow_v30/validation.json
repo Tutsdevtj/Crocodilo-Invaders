@@ -1,0 +1,11 @@
+{
+    "checks": 20,
+    "errors": 0,
+    "rounds": 8,
+    "overlaps": 0,
+    "combos": 6,
+    "maxRelocationSpeed": 26.158580780029297,
+    "cueTravel": 7.152141571044922,
+    "minDangerGap": 1.2050089836120605,
+    "minRecovery": 0.4000000059604645
+}
