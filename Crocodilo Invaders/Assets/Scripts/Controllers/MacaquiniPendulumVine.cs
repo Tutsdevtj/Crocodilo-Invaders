@@ -11,7 +11,7 @@ public sealed class MacaquiniPendulumVine : MonoBehaviour
     private int direction,passes,previousPass=-1;
     private bool hit;
     private LineRenderer bark,core,guide,handle,trail,arrow;
-    private Transform[] pieces;
+    private MacaquiniVineRibbon painted;
     private AudioSource voice;
     private AudioClip whip;
     private readonly Collider2D[] contacts=new Collider2D[16];
@@ -25,7 +25,7 @@ public sealed class MacaquiniPendulumVine : MonoBehaviour
     public float WarningRemaining=>Mathf.Max(0,warning-age);
     public Vector2 Pivot=>pivot;
     public int DamageHits{get;private set;}
-    public int PaintedSegments=>pieces==null?0:pieces.Length;
+    public int PaintedSegments=>painted==null?0:painted.DrawnSegments;
     public void Configure(Health player,MacaquiniFlightPresentation source,Material material,Sprite sprite,AudioClip sound,bool fromLeft,bool returns,float prepare=1.15f)
     {
         target=player;actor=source;warning=prepare;direction=fromLeft?1:-1;passes=returns?2:1;whip=sound;
@@ -36,21 +36,13 @@ public sealed class MacaquiniPendulumVine : MonoBehaviour
         length=Mathf.Sqrt(Mathf.Pow(halfHeight*2+3,2)+halfWidth*halfWidth)+2;
         filter=new ContactFilter2D();filter.SetLayerMask(1<<player.gameObject.layer);filter.useTriggers=true;
         bark=Line("PendulumBark",material,.48f,22);core=Line("PendulumCore",material,.1f,24);
+        painted=MacaquiniVineRibbon.Attach(bark,Radius*2);
         guide=Line("SweepWarning",material,.055f,21);guide.positionCount=65;
         handle=Line("MacaquiniControlVine",material,.075f,29);
+        if(actor!=null)MacaquiniVineRibbon.Attach(handle,actor);
         trail=Line("SwingAfterimage",material,.16f,20);
         arrow=Line("SwingDirection",material,.09f,25);arrow.positionCount=3;
         voice=gameObject.AddComponent<AudioSource>();voice.playOnAwake=false;GameAudioSettings.Route(voice,AudioChannel.Effects);
-        if(sprite!=null)
-        {
-            float scale=.9f/Mathf.Max(.01f,sprite.bounds.size.x),step=sprite.bounds.size.y*scale*.85f;
-            pieces=new Transform[Mathf.CeilToInt(length/step)+1];
-            for(int i=0;i<pieces.Length;i++)
-            {
-                var node=new GameObject("SwingVineSegment");node.transform.SetParent(transform,false);var view=node.AddComponent<SpriteRenderer>();view.sprite=sprite;view.sortingOrder=23;
-                node.transform.localScale=Vector3.one*scale;pieces[i]=node.transform;
-            }
-        }
         Angle=-amplitude*direction;Draw();
     }
     private LineRenderer Line(string name,Material material,float width,int order)
@@ -101,7 +93,7 @@ public sealed class MacaquiniPendulumVine : MonoBehaviour
     {
         bool returning=age>=warning+SweepTime&&age<warning+SweepTime+TurnTime;
         bool preparing=age<warning||returning;
-        bark.enabled=core.enabled=preparing||pieces==null;
+        bark.enabled=true;core.enabled=preparing;painted.Tint=new Color(1,1,1,preparing?.5f:1);
         bark.startColor=bark.endColor=new Color(.045f,.095f,.025f,preparing?.65f:1);
         core.startColor=core.endColor=preparing?new Color(1,.74f,.15f):new Color(.42f,.83f,.12f);
         handle.startColor=handle.endColor=new Color(.32f,.65f,.08f,.85f);
@@ -123,19 +115,14 @@ public sealed class MacaquiniPendulumVine : MonoBehaviour
         Vector2 end=pivot+new Vector2(Mathf.Sin(Angle),-Mathf.Cos(Angle))*length;
         for(int i=0;i<33;i++)
         {
-            float t=i/32f;Vector3 p=Vector2.Lerp(pivot,end,t);p.x+=Mathf.Sin(t*Mathf.PI*3-age*9)*.018f*Mathf.Sin(t*Mathf.PI);
+            float t=i/32f;Vector3 p=Vector2.Lerp(pivot,end,t);
             bark.SetPosition(i,p);core.SetPosition(i,p);
             float prior=Angle-(Dangerous?.09f*(PassIndex==0?direction:-direction):0);
             trail.SetPosition(i,pivot+new Vector2(Mathf.Sin(prior),-Mathf.Cos(prior))*length*t);
-            Vector3 hand=actor==null?pivot:(Vector2)actor.VineGripPosition;
-            Vector3 pull=Vector3.Lerp(hand,pivot,t);pull.x+=Mathf.Sin(t*Mathf.PI)*.25f;handle.SetPosition(i,pull);
+            if(actor==null)handle.SetPosition(i,pivot);
         }
+        if(actor!=null)actor.FillUpperVine(handle,actor.VineGripPosition,pivot);
         trail.enabled=Dangerous;trail.startColor=trail.endColor=new Color(.56f,.85f,.19f,.17f);
-        if(pieces!=null)for(int i=0;i<pieces.Length;i++)
-        {
-            pieces[i].gameObject.SetActive(!preparing);pieces[i].position=Vector2.Lerp(pivot,end,i/(float)(pieces.Length-1));
-            pieces[i].rotation=Quaternion.Euler(0,0,Angle*Mathf.Rad2Deg);
-        }
     }
     private void OnDisable(){Dangerous=false;if(voice!=null)voice.Stop();}
 }

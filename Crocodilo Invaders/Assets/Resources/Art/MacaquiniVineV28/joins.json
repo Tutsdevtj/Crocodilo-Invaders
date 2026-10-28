@@ -1,0 +1,684 @@
+{
+  "joins": [
+    {
+      "name": "half_00",
+      "x": 0.17730665066666695,
+      "y": 2.4778427199999995,
+      "dx": 0.08435435510659507,
+      "dy": 0.996435819696658,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_00.png",
+      "sha256": "a273d43fbb5d1373453c74bfc009e3e079c951613df7697cc5fc6f224192cdc9"
+    },
+    {
+      "name": "half_01",
+      "x": 0.16534128533333323,
+      "y": 2.480149088,
+      "dx": 0.010581418150556476,
+      "dy": 0.9999440152278143,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_01.png",
+      "sha256": "b9813bfe96e9fee487e894854a3958c0599491eb91dc03b6e29ac8eaa2d42611"
+    },
+    {
+      "name": "half_02",
+      "x": 0.17212805333333314,
+      "y": 2.5603244480000003,
+      "dx": 0.08173617468675992,
+      "dy": 0.996654001019198,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_02.png",
+      "sha256": "9e48441e9512244a6dbbf96923f7d8f479dff0cc48b8091cbf57f43190afc022"
+    },
+    {
+      "name": "half_03",
+      "x": 0.17879084799999986,
+      "y": 2.5670215999999995,
+      "dx": 0.11821288978511367,
+      "dy": 0.9929882741949435,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_03.png",
+      "sha256": "fc34e9fccaf80fc872a9ca308ad596dde8e0863ead99f64c3667d3c778585c98"
+    },
+    {
+      "name": "half_04",
+      "x": 0.18226716799999992,
+      "y": 2.5439273920000005,
+      "dx": 0.08697078954838139,
+      "dy": 0.9962108620996516,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_04.png",
+      "sha256": "a3cf6b35a0d8fc4378ed9c2f36bed2e4cfd4ab0dd6f5d438a9c12168da158f97"
+    },
+    {
+      "name": "half_05",
+      "x": 0.16167092266666677,
+      "y": 2.5391757760000004,
+      "dx": 0.08435435510659507,
+      "dy": 0.996435819696658,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_05.png",
+      "sha256": "08ccc043ca97f2b84e245027ea5f55fb96c2514e913961b2d5e2c024e00c6a80"
+    },
+    {
+      "name": "half_06",
+      "x": 0.19043215999999993,
+      "y": 2.5562515520000004,
+      "dx": 0.11043152607484653,
+      "dy": 0.9938837346736188,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_06.png",
+      "sha256": "9c98c907610dddac8e2d5911a2451b2efa724f7d746cf156427366a97376660b"
+    },
+    {
+      "name": "half_07",
+      "x": 0.15884836799999996,
+      "y": 2.5493328000000006,
+      "dx": 0.08697078954838139,
+      "dy": 0.9962108620996516,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_07.png",
+      "sha256": "6a19efc468e0216bb5b8296d3a8f64a676635e4ca19dd62aa16ec93795b8b7b9"
+    },
+    {
+      "name": "half_08",
+      "x": 0.17197916800000002,
+      "y": 2.5517116799999995,
+      "dx": 0.09480909262799589,
+      "dy": 0.9954954725939521,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_08.png",
+      "sha256": "bafb897f48b5182f37ecdc2c1653806a2b763f043d980097656515290ce8e46b"
+    },
+    {
+      "name": "half_09",
+      "x": 0.1520571199999999,
+      "y": 2.554038592,
+      "dx": 0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_09.png",
+      "sha256": "2891744a2e67c99651ae84bab1894e3f071bf39537f381f563793c0e0b186a31"
+    },
+    {
+      "name": "half_10",
+      "x": 0.14674623999999986,
+      "y": 2.5640113920000003,
+      "dx": 0.12597253704384725,
+      "dy": 0.9920337292203006,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_10.png",
+      "sha256": "d64bb646848f7076fe9b15fedad1012c424648139f4b7f2ab8192da80d23189f"
+    },
+    {
+      "name": "half_11",
+      "x": 0.19425160000000014,
+      "y": 2.59340544,
+      "dx": 0.07911630099812289,
+      "dy": 0.996865392576337,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_11.png",
+      "sha256": "80574b4e8edd3f7c12d3cfe8a226f0e7d98af9397d5ce1b01bf332bd569917c4"
+    },
+    {
+      "name": "half_12",
+      "x": 0.1770857333333332,
+      "y": 2.543969696,
+      "dx": 0.050201173010695425,
+      "dy": 0.9987391262128216,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_12.png",
+      "sha256": "40661d1bd0edb82b8bcf072c856ea181fd43a9a0657791842df8ac84ce27c163"
+    },
+    {
+      "name": "half_13",
+      "x": 0.18319280000000013,
+      "y": 2.551043712,
+      "dx": 0.07911630099812289,
+      "dy": 0.996865392576337,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_13.png",
+      "sha256": "6db2e6031280722c9b5416bca9620ca362029f1f08a8edb7fb51badd074c43cf"
+    },
+    {
+      "name": "half_14",
+      "x": 0.18630940799999998,
+      "y": 2.551427072,
+      "dx": 0.08697078954838139,
+      "dy": 0.9962108620996516,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_14.png",
+      "sha256": "fc8d49f303a4f87e0650365e1a9219d3a968d793bc51e4be9b6d09a74700a08e"
+    },
+    {
+      "name": "half_15",
+      "x": 0.19672387733333316,
+      "y": 2.572530368,
+      "dx": 0.050201173010695425,
+      "dy": 0.9987391262128216,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_15.png",
+      "sha256": "13135fcf69243847609b144559baba5d61cb5c64687a273d493523adb2e4c231"
+    },
+    {
+      "name": "half_16",
+      "x": 0.17609571733333312,
+      "y": 2.5509670400000006,
+      "dx": 0.15166418153045222,
+      "dy": 0.9884320796294999,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_16.png",
+      "sha256": "ad25e47e665a2b0459f6648fef9e4335c145b9fae1433722c67f51b84b7151f8"
+    },
+    {
+      "name": "half_17",
+      "x": 0.18432373866666688,
+      "y": 2.5724868799999996,
+      "dx": 0.013226356189488146,
+      "dy": 0.9999125279252925,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_17.png",
+      "sha256": "1f2c70e90ee6557822735659f3f581c4fafc59588041f4b50f5318a807c57a1f"
+    },
+    {
+      "name": "half_18",
+      "x": 0.18405036800000013,
+      "y": 2.587173088,
+      "dx": 0.1567675442007071,
+      "dy": 0.9876355284644631,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_18.png",
+      "sha256": "6a5f3550c2e61d6acd8e2189b76ca2e5a2825ff7827d0b80dbd8586c3506e057"
+    },
+    {
+      "name": "half_19",
+      "x": 0.16395929600000017,
+      "y": 2.5648529280000005,
+      "dx": 0.08697078954838139,
+      "dy": 0.9962108620996516,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_19.png",
+      "sha256": "b1bb3ba51f1c386be25d87265f45941a0408f08ed899be78f1712601c4885087"
+    },
+    {
+      "name": "half_20",
+      "x": 0.176504688,
+      "y": 2.5616016000000004,
+      "dx": 0.10262980213099364,
+      "dy": 0.994719620654259,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_20.png",
+      "sha256": "e850efa87fce2150bdbfcef8d78e8ab7a6e2d659a8ce01be7f54b0eb77384873"
+    },
+    {
+      "name": "half_21",
+      "x": 0.17709046400000011,
+      "y": 2.56622688,
+      "dx": 0.14910791780554977,
+      "dy": 0.9888209286052219,
+      "width": 0.2125,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_21.png",
+      "sha256": "35c4f81453ea7a1d814c0fb44f6f0891e7356c8838d37238b7a1d97e393ab321"
+    },
+    {
+      "name": "half_22",
+      "x": 0.15691166400000006,
+      "y": 2.5703750400000005,
+      "dx": 0.08697078954838139,
+      "dy": 0.9962108620996516,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_22.png",
+      "sha256": "b36c78f115a58b5f9d04efc8885b204393a7a962e4d8afe4b3ca4067d74fad9f"
+    },
+    {
+      "name": "half_23",
+      "x": 0.16210373866666677,
+      "y": 2.5864136,
+      "dx": 0.1311329096085031,
+      "dy": 0.9913647966402722,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v11/half_23.png",
+      "sha256": "88f9d41dcfd1b53b3c351b7ff008254847533fa3b97efeefd3cf261b8ba0ceff"
+    },
+    {
+      "name": "transform_00",
+      "x": -1.4730139306666667,
+      "y": 2.1219802880000005,
+      "dx": 0.18208926018230645,
+      "dy": 0.9832820049844604,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_00.png",
+      "sha256": "294cac5a1f97da69857283cac972b1334b6afe56362f4dbc796ec3bd1d10c5c8"
+    },
+    {
+      "name": "transform_01",
+      "x": -1.378365344,
+      "y": 2.0740039679999995,
+      "dx": 0.202091528727869,
+      "dy": 0.9793666392196707,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_01.png",
+      "sha256": "c864ff32acdeaf4329211f310a7e16f6dc232763d2d257aec4a2b1843c320254"
+    },
+    {
+      "name": "transform_02",
+      "x": -1.3604142613333334,
+      "y": 2.17132768,
+      "dx": 0.20705387149050156,
+      "dy": 0.9783295427926086,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_02.png",
+      "sha256": "087f9604a90f0524601eddb79dc64eeea2a5bd8cecf5cdef26a8fc740593b4b3"
+    },
+    {
+      "name": "transform_03",
+      "x": -1.2664331733333332,
+      "y": 2.2182311999999995,
+      "dx": 0.10783314615881108,
+      "dy": 0.994169006049521,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_03.png",
+      "sha256": "539610b3d48bef154a03b855df813662b4a646d6d99ab60be6db60380ebe683e"
+    },
+    {
+      "name": "transform_04",
+      "x": -1.393940293333333,
+      "y": 2.478686528,
+      "dx": 0.1311329096085031,
+      "dy": 0.9913647966402722,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_04.png",
+      "sha256": "f575bc1d3fcaadfa80a415f90e1c45cf887f971ba0809898dcded91877a0a022"
+    },
+    {
+      "name": "transform_05",
+      "x": -1.5408892799999996,
+      "y": 2.429216768,
+      "dx": 0.21693045781865616,
+      "dy": 0.9761870601839528,
+      "width": 0.2625,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_05.png",
+      "sha256": "028bc3498a41b95e9138a699e293b479ab1bbee230daa8861ea408c30674cb41"
+    },
+    {
+      "name": "transform_06",
+      "x": -1.411837173333333,
+      "y": 2.536303328,
+      "dx": 0.20705387149050156,
+      "dy": 0.9783295427926086,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_06.png",
+      "sha256": "de136841e4f5fa19776005bd0a7c7222435adb00940fbf26ac41c4ee049e5c64"
+    },
+    {
+      "name": "transform_07",
+      "x": -1.266482042666667,
+      "y": 2.491889568,
+      "dx": 0.19711357197896595,
+      "dy": 0.9803806606322328,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_07.png",
+      "sha256": "2157103a1d0f15007b793f27c4cb26160f3eeaf69715d05b2a7cbb8891aeb5ee"
+    },
+    {
+      "name": "transform_08",
+      "x": -1.7253352800000001,
+      "y": 2.9766872320000006,
+      "dx": 0.28874179552044416,
+      "dy": 0.9574070061993646,
+      "width": 0.25,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_08.png",
+      "sha256": "dcae7a17f44fb8204ac979d222beab047542ddf70afcc79d5ebfb5f682616172"
+    },
+    {
+      "name": "transform_09",
+      "x": -1.6139298666666666,
+      "y": 2.9754207359999993,
+      "dx": 0.21938935929353395,
+      "dy": 0.9756373860347772,
+      "width": 0.25,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_09.png",
+      "sha256": "2294fb852c1ac3225525dea00544a4a974116f125247bf8457d46b5ebf9e121c"
+    },
+    {
+      "name": "transform_10",
+      "x": -1.482758826666667,
+      "y": 2.96098832,
+      "dx": 0.2557519663917188,
+      "dy": 0.9667424329606976,
+      "width": 0.25,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_10.png",
+      "sha256": "5ff3836fa3e815a3049557453cbff0e348a987c8f64089bcebc1205e09c7887b"
+    },
+    {
+      "name": "transform_11",
+      "x": -1.3279388533333336,
+      "y": 3.0998821120000004,
+      "dx": 0.19960448214422677,
+      "dy": 0.9798765487080172,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_11.png",
+      "sha256": "6bdee5f547c0f0718415aabc2b3f5c15b70bc15e57ea748137e15b70a608d07d"
+    },
+    {
+      "name": "transform_12",
+      "x": -1.5558677439999997,
+      "y": 2.597365568,
+      "dx": 0.2095290887308722,
+      "dy": 0.9778024140774098,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_12.png",
+      "sha256": "3585189c23b6be5654508857d7e25f2756d49210917d6587bc9218f840909bb8"
+    },
+    {
+      "name": "transform_13",
+      "x": -0.7287762933333329,
+      "y": 2.06292112,
+      "dx": -0.565231440294017,
+      "dy": 0.8249323723209989,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_13.png",
+      "sha256": "fc8cf92f41c98cbe74ee26b7e4a8e50155a93ed61324ed940b11bbdaaa852e22"
+    },
+    {
+      "name": "transform_14",
+      "x": -0.7629662773333333,
+      "y": 2.05685808,
+      "dx": -0.12855402864139373,
+      "dy": 0.9917025066621883,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_14.png",
+      "sha256": "ccaa51bc0612ed49b56eeb8512c2c9291debc70411ef2120ad6a69df7e4d190e"
+    },
+    {
+      "name": "transform_15",
+      "x": -0.686627386666667,
+      "y": 2.0475792,
+      "dx": 0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_15.png",
+      "sha256": "149f4432e6e957c1f746912315ec0f90d49cf295f6b0117b96c9d02204125ed6"
+    },
+    {
+      "name": "transform_16",
+      "x": -0.7383730506666669,
+      "y": 2.105496576,
+      "dx": 0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_16.png",
+      "sha256": "a705f541501d511d161d9ce172b6f4d3c84c5944bc93ef4ac34977dc8566f673"
+    },
+    {
+      "name": "transform_17",
+      "x": -0.6707374880000003,
+      "y": 2.1183132479999998,
+      "dx": 0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_17.png",
+      "sha256": "3cbd3be6f5dcd901f8e153a993c402111cf0797b60b587a34d7e7ebc17187662"
+    },
+    {
+      "name": "transform_18",
+      "x": -0.6784013333333331,
+      "y": 2.1394256319999996,
+      "dx": -0.07387168551531074,
+      "dy": 0.9972677544567092,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_18.png",
+      "sha256": "1d41273cfc097f4c7c97ed6bc0412bceac1933a94c550b88c8d707f708b73817"
+    },
+    {
+      "name": "transform_19",
+      "x": -0.7784741599999997,
+      "y": 2.129042432,
+      "dx": 0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_19.png",
+      "sha256": "0999940dba8d10cbe955ef8adc26ae406e068a73691efad9ddcc112f761c95d8"
+    },
+    {
+      "name": "transform_20",
+      "x": -0.7742184000000002,
+      "y": 2.147159552,
+      "dx": -0.11043152607484653,
+      "dy": 0.9938837346736188,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_20.png",
+      "sha256": "988510985f3fd58f7ac2289687ba2d1faecc15fc378c5686ffa2e406fe714b0b"
+    },
+    {
+      "name": "transform_21",
+      "x": -0.6346732000000003,
+      "y": 2.1412410559999997,
+      "dx": 0.1643989873053573,
+      "dy": 0.9863939238321437,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_21.png",
+      "sha256": "b8e4d5d2136aba7c65108ea5c194638caff45084318345888cd8c348bf8096b4"
+    },
+    {
+      "name": "transform_22",
+      "x": -0.6504178133333329,
+      "y": 2.152389504,
+      "dx": -0.07387168551531074,
+      "dy": 0.9972677544567092,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_22.png",
+      "sha256": "8f6e40933ae38198b5ec8c9bfff1cedce1b3f814b14f9d70dc33de5b77c4df40"
+    },
+    {
+      "name": "transform_23",
+      "x": -0.69566728,
+      "y": 2.14418176,
+      "dx": -0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_23.png",
+      "sha256": "dce987047b1589352456d4e1432a8f59028495ba89d777b4a73f05fcd1b0442a"
+    },
+    {
+      "name": "transform_24",
+      "x": -0.6992967200000002,
+      "y": 2.188251872,
+      "dx": -0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_24.png",
+      "sha256": "54be1b136da29a5318e9dfbac0ed0cbc7fb1fcb0f892e1c3d08f8f9f36ce5a86"
+    },
+    {
+      "name": "transform_25",
+      "x": -0.7516850773333335,
+      "y": 2.2059200000000003,
+      "dx": -0.07387168551531074,
+      "dy": 0.9972677544567092,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_25.png",
+      "sha256": "01c33b5f193b8f14712f429dcadc2aaa8eb7677aaf3cd4e5bc9698324057f8d4"
+    },
+    {
+      "name": "transform_26",
+      "x": -0.6383878933333331,
+      "y": 2.1982627839999997,
+      "dx": -0.07387168551531074,
+      "dy": 0.9972677544567092,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_26.png",
+      "sha256": "1b8264ab442d57a2f0832dc478085ef91fd6af0c048d846fb4d16082b132aa80"
+    },
+    {
+      "name": "transform_27",
+      "x": -0.7001753226666668,
+      "y": 2.198567936,
+      "dx": -0.09219821056073717,
+      "dy": 0.99574067405595,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v17/transform_27.png",
+      "sha256": "009ce1255ce9ac03844e1e944781bbd28d7d7eae185b47d22ea17b3c91b908ff"
+    },
+    {
+      "name": "transform_28",
+      "x": -1.412406,
+      "y": 2.063775264,
+      "dx": 0.2533593918376837,
+      "dy": 0.9673722233802451,
+      "width": 0.1625,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_28.png",
+      "sha256": "8093d7c4fffa381e919c4ed9d436ffee0a18d1897ef0fd1cb576234b241259b4"
+    },
+    {
+      "name": "transform_29",
+      "x": -0.8060916800000001,
+      "y": 1.7170177600000003,
+      "dx": 0.21693045781865325,
+      "dy": 0.9761870601839534,
+      "width": 0.07,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_29.png",
+      "sha256": "5310b0eefab3f025d6f57eab178c938bfa0488f5d8e0320683e023cac1489659"
+    },
+    {
+      "name": "transform_30",
+      "x": -1.259697413333333,
+      "y": 2.1365570239999996,
+      "dx": -0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_30.png",
+      "sha256": "12658fdc9261d76f68c9f3305ca909c07f83dae367bf2488a0a2c83d1dcd6a73"
+    },
+    {
+      "name": "transform_31",
+      "x": -1.2029298933333332,
+      "y": 2.2869892800000002,
+      "dx": -0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_31.png",
+      "sha256": "37581fe5587bc68e2085fdb8813cf767f87f3a3a1f86809b085b3de015dc1073"
+    },
+    {
+      "name": "transform_32",
+      "x": -1.1749175200000004,
+      "y": 2.306267552,
+      "dx": 0.05547001962252291,
+      "dy": 0.9984603532054125,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_32.png",
+      "sha256": "33cc797cdc58856b2b376d066622b855c1af5603b533218909f525dd216e490f"
+    },
+    {
+      "name": "transform_33",
+      "x": -1.1812272533333332,
+      "y": 2.313912608,
+      "dx": 0.03701166050988131,
+      "dy": 0.999314833766767,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_33.png",
+      "sha256": "e3fdc0b59d0b0544aeab88793b4f061b902595e9e85dce6efc55c3034383219f"
+    },
+    {
+      "name": "transform_34",
+      "x": -0.6761784693333329,
+      "y": 1.9752144,
+      "dx": -0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_34.png",
+      "sha256": "8bf1b8785e3f63215bc16f9c27f1c37186f9880e3cb3c60332e15b5d64872ae5"
+    },
+    {
+      "name": "transform_35",
+      "x": -0.6383573066666667,
+      "y": 1.94809536,
+      "dx": 0.018515344006019896,
+      "dy": 0.9998285763251312,
+      "width": 0.27,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_35.png",
+      "sha256": "caa9f8d04a277328df320cdb456a93eb6cb44b6d0c779e531c9c9194a5c33096"
+    },
+    {
+      "name": "transform_36",
+      "x": 1.2293199199999996,
+      "y": 2.603122688,
+      "dx": 0.14910791780554675,
+      "dy": 0.9888209286052224,
+      "width": 0.1875,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_36.png",
+      "sha256": "51e77927de787ac7f1699af3f57440d8172394b2bca176bd897ce4e022663f63"
+    },
+    {
+      "name": "transform_37",
+      "x": 1.2324643573333334,
+      "y": 2.66006736,
+      "dx": -0.12338848382052402,
+      "dy": 0.9923584443438129,
+      "width": 0.1625,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_37.png",
+      "sha256": "a6667424c103f78fa4d0b541d4c7952f355d84f2bc8c353c42b0283eb5cde2c2"
+    },
+    {
+      "name": "transform_38",
+      "x": 1.0761804533333332,
+      "y": 3.014800288,
+      "dx": 0.08958542548184001,
+      "dy": 0.9959791421215797,
+      "width": 0.2375,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_38.png",
+      "sha256": "a5cf1ad12e299748e9fb5fe1ea50517ad5d6ad94cc53d281f98ae8c216a26797"
+    },
+    {
+      "name": "transform_39",
+      "x": 1.04605648,
+      "y": 3.00508928,
+      "dx": 0.06336447318278016,
+      "dy": 0.9979904526288158,
+      "width": 0.2375,
+      "source": "Assets/Art/JungleStage/Macaquini_v18/transform_39.png",
+      "sha256": "3e6557af87ef0e0464bf6105c32561a82760d034cbc3b95b049b842c10675d43"
+    },
+    {
+      "name": "transform_40",
+      "x": 0.9113642933333338,
+      "y": 2.9986369920000002,
+      "dx": 0.07387168551531387,
+      "dy": 0.9972677544567088,
+      "width": 0.2375,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_40.png",
+      "sha256": "8bb13df219dae5d3a53c54806e3f350aa9ad23ef78ae81455828d3a47c797f3d"
+    },
+    {
+      "name": "transform_41",
+      "x": 0.9410522399999998,
+      "y": 2.9968704,
+      "dx": 0.0158710166267265,
+      "dy": 0.999874047483599,
+      "width": 0.225,
+      "source": "Assets/Art/JungleStage/Macaquini_v13/transform_41.png",
+      "sha256": "3fbb09bcbf4f8b4ed5c9b09cea28fbe749cc670a8aa95d1ff02e308a1d7daed8"
+    },
+    {
+      "name": "kick_00",
+      "x": 0.7708333333333336,
+      "y": 3.0625,
+      "dx": 0.18208926018230945,
+      "dy": 0.9832820049844598,
+      "width": 0.1875,
+      "source": "Assets/Art/JungleStage/Macaquini_v20/kick_00.png",
+      "sha256": "2c808417312501498220d75d14c254680462db2242b43a81309c05671e3b7a59"
+    },
+    {
+      "name": "kick_05",
+      "x": 0.1875,
+      "y": 3.2,
+      "dx": 0.11043152607484653,
+      "dy": 0.9938837346736188,
+      "width": 0.2625,
+      "source": "Assets/Art/JungleStage/Macaquini_v20/kick_05.png",
+      "sha256": "61e22fbb84ed8f64bfc2b390030cba7da44289c8948b2aca2fe766ee7d1add08"
+    }
+  ]
+}
