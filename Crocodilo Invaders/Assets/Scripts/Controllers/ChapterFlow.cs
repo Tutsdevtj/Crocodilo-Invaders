@@ -17,7 +17,8 @@ public sealed class ChapterFlow : MonoBehaviour
     {
         if (Completed || chapter == null || transition == null) return;
         Completed = true;
-        foreach (string flag in chapter.CompletionFlags) CampaignProgress.Record(flag);
+        if (!DevelopmentBossSession.IsActive)
+            foreach (string flag in chapter.CompletionFlags) CampaignProgress.Record(flag);
         transition.Go(chapter.NextScene, chapter.UnavailableMessage);
     }
 }
