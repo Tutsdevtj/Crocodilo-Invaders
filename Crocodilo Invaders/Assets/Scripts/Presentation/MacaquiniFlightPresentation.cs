@@ -36,6 +36,8 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
     private float motionPhase,recoilOffset,recoilVelocity;
     private float visualTearProgress;
     private bool wasTransforming;
+    private bool upperVineShown;
+    private Vector3 canopyAnchor;
     private AnimationCurve smokeGrowthCurve;
     public bool HalfShell => phase.CurrentStage==MacaquiniPhaseTwo.Stage.HalfShell;
     public bool Transforming => phase.CurrentStage==MacaquiniPhaseTwo.Stage.Tearing;
@@ -55,7 +57,19 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
     public Sprite CurrentSprite => view.sprite;
     public bool VineVisible => HalfShell || Transforming&&(chronologicalTransformation?Frame>=transformationVineStart&&transformationVineStart>=0:TearProgress>=.90f);
     public Vector3 MuzzlePosition => shotOrigin.position;
-    public Vector3 VineGripPosition=>view.transform.TransformPoint(HalfShell&&swingVines!=null&&swingVines.Length>Frame?(Vector3)swingVines[Frame]:new Vector3(.2f,3f));
+    public float PaintedScale=>Mathf.Abs(view.transform.lossyScale.x);
+    public Vector3 VineGripPosition
+    {
+        get { var join=MacaquiniVineRibbon.For(view.sprite);Vector3 local=join!=null?new Vector3(join.x,join.y):HalfShell&&swingVines!=null&&swingVines.Length>Frame?(Vector3)swingVines[Frame]:new Vector3(.2f,3f);if(view.flipX)local.x=-local.x;return view.transform.TransformPoint(local); }
+    }
+    public float VineJoinWidth { get { var join=MacaquiniVineRibbon.For(view.sprite);return (join==null?.18f:join.width)*PaintedScale; } }
+    public Vector3 VineJoinDirection { get { var join=MacaquiniVineRibbon.For(view.sprite);Vector3 local=join==null?Vector3.up:new Vector3(join.dx,join.dy);if(view.flipX)local.x=-local.x;return view.transform.TransformDirection(local).normalized; } }
+    public Vector3 CanopyAnchor=>canopyAnchor;
+    public void FillUpperVine(LineRenderer line,Vector3 start,Vector3 top)
+    {
+        float length=Vector3.Distance(start,top);Vector3 p1=start+VineJoinDirection*Mathf.Min(.9f,length*.3f),p2=top-Vector3.up*Mathf.Min(1.4f,length*.35f);
+        for(int i=0;i<line.positionCount;i++){float t=i/(float)(line.positionCount-1),u=1-t;Vector3 p=u*u*u*start+3*u*u*t*p1+3*u*t*t*p2+t*t*t*top;line.SetPosition(i,line.useWorldSpace?p:line.transform.InverseTransformPoint(p));}
+    }
     private void Awake()
     {
         boss=GetComponent<Boss>();health=GetComponent<Health>();combat=GetComponent<MacaquiniCombat>();
@@ -75,6 +89,7 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
         cracks[0].positionCount=4;cracks[0].SetPositions(new[]{new Vector3(.30f,1.9f),new Vector3(.42f,1.70f),new Vector3(.35f,1.63f),new Vector3(.52f,1.4f)});
         cracks[1].positionCount=4;cracks[1].SetPositions(new[]{new Vector3(.61f,1.5f),new Vector3(.75f,1.27f),new Vector3(.68f,1.2f),new Vector3(.85f,.98f)});
         vine=Line("CanopyVineExtension",.075f);vine.sortingOrder=29;vine.positionCount=18;
+        MacaquiniVineRibbon.Attach(vine,this);
         muzzleFlash=Line("PaintedGunFlash",.065f);muzzleFlash.transform.SetParent(shotOrigin,false);muzzleFlash.sortingOrder=45;muzzleFlash.positionCount=5;
         muzzleFlash.SetPositions(new[]{new Vector3(0,-.1f),new Vector3(-.22f,.04f),new Vector3(.01f,.13f),new Vector3(-.12f,.02f),Vector3.zero});
         var sound=new GameObject("JetpackMotor");sound.transform.SetParent(transform,false);motor=sound.AddComponent<AudioSource>();
@@ -137,6 +152,8 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
         clock+=Time.deltaTime;
         var kick=GetComponent<MacaquiniSwingKick>();
         if(kick!=null&&kick.Running){kick.Present(vine);muzzleFlash.enabled=false;return;}
+        var fighter=GetComponent<MacaquiniFighter>();
+        if(fighter!=null&&fighter.ControlsDrawing){fighter.Present(vine);upperVineShown=false;muzzleFlash.enabled=false;return;}
         Vector2 velocity=body.linearVelocity;
         float desired=naturalMotion?(HalfShell?Mathf.Sin(clock*1.35f)*1.4f:Mathf.Clamp(-velocity.x*1.6f+velocity.y*.8f,-13,13)+Mathf.Sin(clock*1.8f)*.8f):HalfShell?Mathf.Sin(clock*2)*3:Mathf.Clamp(-velocity.x*2.6f+velocity.y*1.2f,-17,17)+Mathf.Sin(clock*3)*2;
         if(HalfShell&&combat.Pendulum!=null)desired-=combat.Pendulum.Angle*Mathf.Rad2Deg*.035f;
@@ -159,10 +176,15 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
         view.color=!(chronologicalTransformation&&Transforming)&&Time.time<flashUntil?new Color(1,.78f,.65f):Color.white;
         wasTransforming=Transforming;
         UpdateMuzzle();Propulsion(velocity.magnitude);
-        muzzleFlash.enabled=Time.time-firedAt<.12f;muzzleFlash.startColor=muzzleFlash.endColor=new Color(1,.9f,.24f);
+        muzzleFlash.enabled=Time.time-firedAt<.08f;muzzleFlash.startWidth=muzzleFlash.endWidth=.035f;muzzleFlash.startColor=muzzleFlash.endColor=new Color(1,.94f,.55f,.7f);
         // Extend only the vine painted into the second form to the moving canopy.
-        vine.enabled=HalfShell||chronologicalTransformation&&VineVisible;
-        if(vine.enabled){Vector3 start=Transforming?(Vector3)transformationVines[Frame]:naturalMotion&&swingVines!=null&&swingVines.Length==swinging.Length?(Vector3)swingVines[Frame]:new Vector3(.18f,3.13f);Vector3 top=vine.transform.InverseTransformPoint(new Vector3(transform.position.x+.4f,8.2f));for(int i=0;i<18;i++){float t=i/17f;Vector3 p=Vector3.Lerp(start,top,t);p.x+=Mathf.Sin(t*Mathf.PI)*Mathf.Sin(clock*2)*.08f;vine.SetPosition(i,p);}vine.startColor=vine.endColor=new Color(.19f,.42f,.08f);}
+        vine.enabled=(HalfShell||chronologicalTransformation&&VineVisible)&&combat.Pendulum==null;
+        if(vine.enabled)
+        {
+            if(!upperVineShown){var camera=Camera.main;canopyAnchor=new Vector3(transform.position.x+.4f,camera==null?8.2f:Mathf.Max(8.2f,camera.transform.position.y+camera.orthographicSize+1.5f));}
+            FillUpperVine(vine,VineGripPosition,canopyAnchor);
+        }
+        upperVineShown=vine.enabled;
     }
     public static int PingPongDrawing(float phase,int count){if(count<=1)return 0;int period=count*2-2,p=Mathf.FloorToInt(Mathf.Repeat(phase,period));return p<count?p:period-p;}
     private void Propulsion(float speed)
@@ -182,10 +204,10 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
         var smain=smoke.main;smain.startLifetime=new ParticleSystem.MinMaxCurve(.7f,1.2f);smain.startSize=new ParticleSystem.MinMaxCurve(.22f,.42f+failure*.4f);smain.startColor=Color.white;
         var se=smoke.emission;se.rateOverTime=SmokeRate*.5f;var sv=smoke.velocityOverLifetime;sv.enabled=true;sv.space=ParticleSystemSimulationSpace.World;sv.x=new ParticleSystem.MinMaxCurve(-.32f,.45f);sv.y=new ParticleSystem.MinMaxCurve(1.05f,1.35f);sv.z=new ParticleSystem.MinMaxCurve(0,0);
         var ss=smoke.sizeOverLifetime;ss.enabled=true;ss.size=new ParticleSystem.MinMaxCurve(1,smokeGrowthCurve);
-        var ke=sparks.emission;ke.rateOverTime=attached&&failure>.5f?(failure-.5f)*28:0;
-        var km=sparks.main;km.startColor=Color.white;km.startLifetime=.35f;km.startSize=.2f;km.startSpeed=2.5f;km.gravityModifier=.4f;
+        var ke=sparks.emission;ke.rateOverTime=attached&&failure>.5f?(failure-.5f)*10:0;
+        var km=sparks.main;km.startColor=new Color(1,.9f,.6f,.7f);km.startLifetime=.22f;km.startSize=.09f;km.startSpeed=1.5f;km.gravityModifier=.4f;
         var sparkShape=sparks.shape;sparkShape.enabled=true;sparkShape.shapeType=ParticleSystemShapeType.Sphere;sparkShape.radius=.08f;
-        for(int i=0;i<cracks.Length;i++){cracks[i].enabled=attached&&failure>(i==0?.35f:.65f);cracks[i].startColor=cracks[i].endColor=new Color(1,.22f,.03f,.6f+.4f*Mathf.Sin(clock*21));}
+        for(int i=0;i<cracks.Length;i++){cracks[i].enabled=attached&&failure>(i==0?.35f:.65f);cracks[i].startColor=cracks[i].endColor=new Color(.86f,.8f,.3f,.35f+.15f*Mathf.Sin(clock*8));}
         if(attached){if(!motor.isPlaying&&engineLoop!=null)motor.Play();motor.pitch=.8f+thrust*.24f-failure*.12f;motor.volume=sputter?.025f:.12f+thrust*.035f;}else motor.Stop();
     }
     private void Stop()
@@ -197,6 +219,7 @@ public sealed class MacaquiniFlightPresentation : MonoBehaviour
         if(sparks!=null)sparks.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
         if(cracks!=null)foreach(var c in cracks)c.enabled=false;
         if(vine!=null)vine.enabled=false;
+        upperVineShown=false;
         if(muzzleFlash!=null)muzzleFlash.enabled=false;
     }
     private void OnDestroy(){if(flameFrames!=null)foreach(var frames in flameFrames)foreach(var frame in frames)if(frame!=null)Destroy(frame);}

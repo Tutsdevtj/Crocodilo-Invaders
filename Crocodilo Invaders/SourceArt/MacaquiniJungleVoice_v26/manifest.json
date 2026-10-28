@@ -1,0 +1,52 @@
+{
+  "source_url": "https://opengameart.org/content/monkey-sounds",
+  "download": "https://opengameart.org/sites/default/files/monkey-sounds_0.zip",
+  "author": "AntumDeluge",
+  "license": "CC0 1.0",
+  "description": "Human-performed monkey imitations, not wildlife field recordings.",
+  "edits": "Trim, DC removal, band limiting, modest pitch lowering, stereo tree reflections and short dark diffusion; no music.",
+  "sample_rate": 44100,
+  "channels": 2,
+  "clips": [
+    {
+      "file": "effort_woods.wav",
+      "duration": 2.604625850340136,
+      "dry_duration": 0.954625850340136,
+      "tail_seconds": 1.65,
+      "peak": 0.58,
+      "rms": 0.06491477050256828,
+      "stereo_difference_rms": 0.02325483391402271,
+      "tail_rms": 0.018115058961564616,
+      "source": "monkey-1.wav",
+      "pitch_ratio": 0.96,
+      "sha256": "81f6e62bf6a55fa1cbbb06e166d2408424a4b0f2235dec9593c9051d3afd15fa"
+    },
+    {
+      "file": "tear_call.wav",
+      "duration": 2.7151927437641725,
+      "dry_duration": 1.0151927437641723,
+      "tail_seconds": 1.7,
+      "peak": 0.62,
+      "rms": 0.0673601196572473,
+      "stereo_difference_rms": 0.02494002644607489,
+      "tail_rms": 0.013441731323939502,
+      "source": "monkey-2.wav",
+      "pitch_ratio": 0.86,
+      "sha256": "db50f3263d25b2e8913073a957c090cbc35f8e6b23710c7198ba83ab8b1d10ff"
+    },
+    {
+      "file": "power_call.wav",
+      "duration": 3.487392290249433,
+      "dry_duration": 1.587392290249433,
+      "tail_seconds": 1.9,
+      "peak": 0.68,
+      "rms": 0.07572172692945653,
+      "stereo_difference_rms": 0.026528850962485546,
+      "tail_rms": 0.01108225032931034,
+      "source": "monkey-3.wav",
+      "pitch_ratio": 0.76,
+      "sha256": "ad8464478b3df6f68bf55c2327c371da62c82268b1c9cbaaeacf5af2a7d1cf7a"
+    }
+  ],
+  "voice_mix_preview_peak": 0.42160000000000003
+}

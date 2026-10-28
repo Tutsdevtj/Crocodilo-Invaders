@@ -82,10 +82,10 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
             var fighter=GetComponent<MacaquiniFighter>();
             if(phaseTwo&&fighter!=null&&fighter.isActiveAndEnabled)
             {
-                if(fighter.CompletedRounds>0&&fighter.CompletedRounds%5==0&&!fighterPendulumUsed)
+                if(fighter.CompletedRounds>0&&fighter.CompletedRounds%(fighter.Enraged?4:5)==0&&!fighterPendulumUsed)
                 {fighterPendulumUsed=true;yield return Pattern(Attack.Pendulum);fighter.ThreatEnded();}
                 else {fighterPendulumUsed=false;yield return Pattern(Attack.FighterCombo);}
-                yield return new WaitForSeconds(.18f);continue;
+                yield return new WaitForSeconds(.08f);continue;
             }
             yield return Pattern(NextAttack());
             yield return Recover();

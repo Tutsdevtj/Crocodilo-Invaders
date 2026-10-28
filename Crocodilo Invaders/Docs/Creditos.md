@@ -114,6 +114,10 @@ Revisão v13: cinco folhas finais geradas com image_gen integrado a partir do Ma
 
 Cinco folhas de sprites geradas com o image_gen integrado a partir do modelo já existente do projeto, preservando sua identidade. Fontes e prompts em `SourceArt/Macaquini_v12`, sprites recortados em `Assets/Art/JungleStage/Macaquini_v12`. As imagens anexadas pelo usuário foram referências de movimento, sem incorporar seus personagens. `power_roar_v12.wav` é uma edição em camadas do próprio `growl.wav` já existente do Macaquini; não foi incorporado áudio externo nesta revisão.
 
+## Macaquini — vocalizações de selva v26 (27/10/2026; descartadas)
+
+Estudo rejeitado pelo usuário e retirado dos assets/código ativos. Fonte do estudo: **Monkey Sounds**, por **AntumDeluge**, publicado no [OpenGameArt](https://opengameart.org/content/monkey-sounds), sob CC0 1.0. Originais, licença, receita e manifesto preservados em `SourceArt/MacaquiniJungleVoice_v26`; integração e edições retiradas estão em `SourceArt/MacaquiniAudioRejected`. O áudio anterior à v26 foi restaurado.
+
 ## Música das ondas
 
 Going Up — adventure Chiptune, de Ansimuz / Luis Zuno. WAV original do pacote fornecido pelo usuário, sem alteração, usado nas hordas antes do boss. O pacote registra CC0; licença original e manifesto preservados em SourceArt/WaveMusic. Fonte registrada: https://opengameart.org/content/going-up-adventure-chiptune .

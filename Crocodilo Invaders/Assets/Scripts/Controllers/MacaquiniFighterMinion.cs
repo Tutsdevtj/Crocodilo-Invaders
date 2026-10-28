@@ -42,7 +42,7 @@ public sealed class MacaquiniFighterMinion : MonoBehaviour
     public IEnumerator Assault()
     {
         if(!Alive)yield break;state=State.Cue;aim=target.transform.position;from=body.position;end=aim-HandOffset;
-        float tell=Mathf.Max(.82f,director.NextThreatAt-Time.time);started=Time.time;
+        float tell=Mathf.Max(director.HelperCueDuration,director.NextThreatAt-Time.time);started=Time.time;
         while(Alive&&director.CanContinue&&Time.time-started<tell)yield return null;
         if(!Alive||!director.CanContinue)yield break;
         state=State.Strike;started=Time.time;activeDuration=role==0?.4f:.55f;hit=false;previous=body.position+HandOffset;
@@ -50,8 +50,7 @@ public sealed class MacaquiniFighterMinion : MonoBehaviour
         director.ThreatEnded();if(!Alive)yield break;
         state=State.Exit;started=Time.time;from=body.position;
         var c=Camera.main;end=new Vector2(c.transform.position.x-c.orthographicSize*c.aspect-2,c.transform.position.y+3);
-        while(Alive&&director.CanContinue&&Time.time-started<.65f)yield return null;
-        gameObject.SetActive(false);Destroy(gameObject);
+        // Departure is harmless and runs in FixedUpdate while the boss begins its next cue.
     }
     private void FixedUpdate()
     {
@@ -68,7 +67,7 @@ public sealed class MacaquiniFighterMinion : MonoBehaviour
             if(!hit&&MacaquiniFighter.SweptHit(target,previous,point,role==2?.42f:.23f,1,filter,contacts))hit=true;
             previous=point;
         }
-        else if(state==State.Exit)body.position=Vector2.Lerp(from,end,Mathf.SmoothStep(0,1,Mathf.Clamp01((Time.time-started)/.65f)));
+        else if(state==State.Exit){float u=Mathf.Clamp01((Time.time-started)/.65f);body.position=Vector2.Lerp(from,end,Mathf.SmoothStep(0,1,u));if(u>=1){gameObject.SetActive(false);Destroy(gameObject);}}
     }
     private void LateUpdate()
     {
