@@ -30,6 +30,7 @@ public sealed class MainMenuController : MonoBehaviour
     private void Awake()
     {
         DevelopmentCardSession.End();
+        DevelopmentBossSession.End();
         LeaderboardSession.SaveCompletedRun();
         LeaderboardSession.Cancel();
         developerMenu = gameObject.AddComponent<DeveloperMenuView>();
@@ -80,6 +81,32 @@ public sealed class MainMenuController : MonoBehaviour
         leaderboard.Open(() => RestoreMenu(leaderboardButton));
     }
 
+    public bool BeginDevelopmentBoss(int boss, int phase)
+    {
+        string scene = boss == 1 ? gameplayScene : JungleStageScene;
+        if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
+        DevelopmentCardSession.End();
+        DevelopmentBossSession.Begin(phase);
+        LeaderboardSession.Cancel();
+        var loading = Instantiate(loadingPrefab);
+        if (!loading.Begin(scene))
+        {
+            Destroy(loading.gameObject); DevelopmentBossSession.End(); return false;
+        }
+        leaving = true; menuGroup.interactable = false;
+        return true;
+    }
+
+    public bool BeginDevelopmentBase()
+    {
+        const string scene = "Assets/Scenes/BaseImprovisada.unity";
+        if (leaving || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
+        DevelopmentCardSession.End(); DevelopmentBossSession.End(); LeaderboardSession.Cancel();
+        leaving = true; menuGroup.interactable = false;
+        SceneManager.LoadSceneAsync(scene);
+        return true;
+    }
+
     private void RestoreMenu(Button selected)
     {
         if (leaving) return;
@@ -110,7 +137,7 @@ public sealed class MainMenuController : MonoBehaviour
         }
         if ((Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             && (Gamepad.current == null || !Gamepad.current.buttonEast.wasPressedThisFrame)) return;
-        if (developerMenu != null && developerMenu.IsVisible) developerMenu.Close();
+        if (developerMenu != null && developerMenu.IsVisible) developerMenu.Back();
         else if (options != null && options.IsVisible) options.Close();
         else if (nameView != null && nameView.IsVisible) nameView.Close();
         else if (leaderboard != null && leaderboard.IsVisible) leaderboard.Close();

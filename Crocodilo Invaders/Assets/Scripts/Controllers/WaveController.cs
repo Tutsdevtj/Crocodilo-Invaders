@@ -152,7 +152,11 @@ public sealed class WaveController : MonoBehaviour
         if (FindAnyObjectByType<BossDevelopmentStart>() != null) return;
 #endif
         // Loading confirma pelo fluxo existente; abrir a cena diretamente inicia a run.
-        if (FindAnyObjectByType<GameplayLoadingController>() == null) StartRun();
+        if (FindAnyObjectByType<GameplayLoadingController>() == null)
+        {
+            if (DevelopmentBossSession.IsActive) gameObject.AddComponent<DevelopmentBossSession>().Initialize(this);
+            else StartRun();
+        }
     }
 
     public void StartRun() => BeginRun(true);

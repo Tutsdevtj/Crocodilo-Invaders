@@ -120,6 +120,10 @@ public sealed class GameplayLoadingController : MonoBehaviour
             var development = waves.gameObject.AddComponent<DevelopmentCardTest>();
             development.Initialize(waves, menuScene);
         }
+        else if (DevelopmentBossSession.IsActive)
+        {
+            waves.gameObject.AddComponent<DevelopmentBossSession>().Initialize(waves);
+        }
         else waves.StartRun();
         Destroy(gameObject);
     }

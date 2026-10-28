@@ -1,0 +1,113 @@
+{
+  "tool": "built-in image_gen",
+  "frames": [
+    {
+      "file": "bat_0.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        152,
+        122,
+        724,
+        597
+      ]
+    },
+    {
+      "file": "bat_1.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        0,
+        202,
+        724,
+        581
+      ]
+    },
+    {
+      "file": "bat_2.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        0,
+        219,
+        693,
+        571
+      ]
+    },
+    {
+      "file": "frog_0.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        133,
+        45,
+        650,
+        673
+      ]
+    },
+    {
+      "file": "frog_1.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        115,
+        45,
+        626,
+        673
+      ]
+    },
+    {
+      "file": "frog_2.png",
+      "pixels": [
+        128,
+        112
+      ],
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_crop": [
+        75,
+        45,
+        609,
+        673
+      ]
+    }
+  ]
+}

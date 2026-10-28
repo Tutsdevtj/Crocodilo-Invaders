@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 5762012027135190787}
   - component: {fileID: 3363589590504564833}
   - component: {fileID: 461174189858507783}
+  - component: {fileID: 7353701286979994825}
   m_Layer: 9
   m_Name: Macaquini
   m_TagString: Untagged
@@ -860,6 +861,32 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05fb70d8db573af4a9235d154cd42b4a, type: 3}
   - {fileID: 21300000, guid: e5c5eb3f1c305bd479b1128f4c962abc, type: 3}
   - {fileID: 21300000, guid: 3110b124fa74ceb4ba09c8584d54a18b, type: 3}
+--- !u!114 &7353701286979994825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269616846532913775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951bc7251d6624b48b9e249410505908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MacaquiniFighter
+  poses:
+  - {fileID: 21300000, guid: 04ea66bbfcbfd7b489d89d29e264469a, type: 3}
+  - {fileID: 21300000, guid: e5228b1389ba7c9498eaaf86408a685a, type: 3}
+  - {fileID: 21300000, guid: 57021c8ed2067f348a95a8aa992935aa, type: 3}
+  - {fileID: 21300000, guid: 89d51085ffc1f914ca0bb2447cd68446, type: 3}
+  - {fileID: 21300000, guid: 796917b9bd69f954c9c4a661d0783892, type: 3}
+  - {fileID: 21300000, guid: d6942460bf97b47499fbc94cfa62b2cc, type: 3}
+  helperPoses:
+  - {fileID: 21300000, guid: 5effefe8108ef7c4d8289b5dbc607c77, type: 3}
+  - {fileID: 21300000, guid: 3a92b98e5328f0c46bc8475b8d45512f, type: 3}
+  - {fileID: 21300000, guid: 40e8840ee84690b4eb93ab378620ebfe, type: 3}
+  - {fileID: 21300000, guid: 64fc81aff3fae3c4d955c7a4cba10fac, type: 3}
+  - {fileID: 21300000, guid: 74465b956728edb498d1e717100866be, type: 3}
+  - {fileID: 21300000, guid: d77a3dceb4fb63b4b924326254b5e63f, type: 3}
 --- !u!1 &1297489680233980625
 GameObject:
   m_ObjectHideFlags: 0

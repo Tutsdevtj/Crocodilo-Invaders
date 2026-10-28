@@ -1,0 +1,11 @@
+# Modelos dos ajudantes da primeira forma — v23
+
+Gerados com a ferramenta integrada `image_gen`, fundo transparente. Exportação em `Tools/Art/prepare_macaquini_helpers_v23.py`; fontes completas preservadas nesta pasta. São seis poses de produção, três por espécie, não animação quadro a quadro completa.
+
+## Morcego
+
+Use case: stylized-concept. Production sprite sheet for a side scrolling 2D pixel art jungle shooter. ONE creature species, small infected jungle fruit bat, brown fur, orange banana-gold wing membranes, small bright green eyes, dark navy brown pixel outlines. Match detailed 16-bit arcade pixel art, hand placed square pixels, limited palette, hard edges, no smooth gradients. THREE full-body sprites on a single horizontal row in equal thirds, wide transparent canvas, generous empty transparent margin separating each sprite. Facing LEFT in all three. Left sprite wings raised idle, center sprite wings spread warning mouth open, right sprite streamlined forward diving attack wings swept back. Same creature proportions, same scale, centered in each third, wings completely within cell. No labels no text no ground no background no particles no detached elements. Used at approximately 80 pixels wide ingame, clear readable cute menacing silhouette.
+
+## Perereca
+
+Production pixel art sprite sheet for 2D side scrolling jungle shooter. ONE creature species: small infected tree frog with moss teal green skin, warm ivory yellow belly, tiny luminous green eyes, copper orange throat sac and orange suction toe tips, cartoon menacing but appealing, dark navy outlines. THREE full-body side view sprites facing LEFT, equal thirds in a single horizontal row, generous transparent margins all around each sprite; consistent scale and proportions. Left idle frog clinging to an invisible vertical vine with raised hands and folded hindlegs, center warning same pose throat sac very inflated, right attack same pose mouth open leftwards and throat deflated. No actual vine (added by game), no spit projectile (separate game object), no ground no shadows no labels no text no decorations. Crisp detailed 16 bit arcade pixel art with square hard edge pixels and limited shared palette, no smooth gradients. Clean transparent background. Clear silhouette, will be used around 64 pixels high in game.

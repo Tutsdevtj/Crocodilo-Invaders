@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Boss))]
 public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
 {
-    public enum Attack { BananaVolley, BananaFan, Vines, JetStrafe, JetDash, ExhaustGates, Pendulum, SwingKick }
+    public enum Attack { BananaVolley, BananaFan, Vines, JetStrafe, JetDash, ExhaustGates, Pendulum, SwingKick, FighterCombo, FighterJab, FighterUppercut, FighterHammer, FighterHelpers }
     [SerializeField] private AudioClip pendulumWhip;
     [SerializeField] private bool pendulumEnabled;
     public bool PendulumEnabled=>pendulumEnabled;
@@ -32,6 +32,11 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
     private int bagIndex;
     private bool highSwing;
     private bool phaseTwo;
+    private bool fighterPendulumUsed;
+    private MacaquiniPhaseOneHelpers phaseOneHelpers;
+    private int volleyShot;
+    public Vector2 LastReleaseAim { get; private set; }
+    public int LastReleaseCount { get; private set; }
     public Attack CurrentAttack { get; private set; }
     public Transform ThreatRoot => threats;
     public bool IsTelegraphing { get; private set; }
@@ -48,7 +53,10 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
     private void Awake()
     {
         boss = GetComponent<Boss>(); owner = GetComponent<Collider2D>();
-        if(GetComponent<MacaquiniFlightPresentation>()!=null){bag[0]=Attack.JetStrafe;bag[1]=Attack.JetDash;bag[2]=Attack.ExhaustGates;}
+        if(GetComponent<MacaquiniFlightPresentation>()!=null){bag[0]=Attack.JetStrafe;bag[1]=Attack.JetDash;bag[2]=Attack.ExhaustGates;
+            phaseOneHelpers=GetComponent<MacaquiniPhaseOneHelpers>();
+            if(phaseOneHelpers==null)phaseOneHelpers=gameObject.AddComponent<MacaquiniPhaseOneHelpers>();
+        }
         if (aimGuide != null) aimGuide.enabled = false;
     }
     public void SetTarget(Health value)
@@ -59,6 +67,7 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         stopped = false;
         target.Died += StopCombat;
         bagIndex = 0; lastAttack = null;
+        if(!phaseTwo&&phaseOneHelpers!=null)phaseOneHelpers.Begin(target,aimGuide==null?null:aimGuide.sharedMaterial);
         fight = StartCoroutine(Fight());
     }
     private bool Active => !stopped && isActiveAndEnabled && boss.BattleActive && target != null && !target.IsDead;
@@ -69,6 +78,15 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         while (Active)
         {
             if (!boss.Ready) { yield return null; continue; }
+            if(!phaseTwo&&phaseOneHelpers!=null&&phaseOneHelpers.HasCommittedAttack){yield return null;continue;}
+            var fighter=GetComponent<MacaquiniFighter>();
+            if(phaseTwo&&fighter!=null&&fighter.isActiveAndEnabled)
+            {
+                if(fighter.CompletedRounds>0&&fighter.CompletedRounds%5==0&&!fighterPendulumUsed)
+                {fighterPendulumUsed=true;yield return Pattern(Attack.Pendulum);fighter.ThreatEnded();}
+                else {fighterPendulumUsed=false;yield return Pattern(Attack.FighterCombo);}
+                yield return new WaitForSeconds(.18f);continue;
+            }
             yield return Pattern(NextAttack());
             yield return Recover();
         }
@@ -91,6 +109,14 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         PerformingAttack = true;
         boss.Movement.HoldPosition(true);
         AttackStarted?.Invoke(attack);
+        if(!phaseTwo&&phaseOneHelpers!=null)phaseOneHelpers.PatternStarted(attack);
+        if(attack>=Attack.FighterCombo)
+        {
+            ClearThreats();var fighter=GetComponent<MacaquiniFighter>();
+            int forced=attack==Attack.FighterHelpers?-2:attack==Attack.FighterJab?0:attack==Attack.FighterUppercut?2:attack==Attack.FighterHammer?3:-1;
+            yield return fighter.Round(target,aimGuide.sharedMaterial,pendulumWhip,forced);
+            IsTelegraphing=false;PerformingAttack=false;yield break;
+        }
         if(attack==Attack.SwingKick)
         {
             ClearThreats();var kick=GetComponent<MacaquiniSwingKick>();kick.Begin(target,aimGuide.sharedMaterial,pendulumWhip);
@@ -113,26 +139,30 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
             Material material=aimGuide.sharedMaterial;
             if(attack==Attack.JetDash)
             {
-                // Commit to one visible diagonal. The player can leave it before ignition.
-                Vector2 from=transform.position;
                 Vector2 to=ArenaPoint(new Vector2(-5f,Mathf.Clamp(lockedAim.y,-1.8f,2.2f)));
-                Heat(from,to,material,.95f,1.15f,.8f);
-                yield return new WaitForSeconds(.95f);IsTelegraphing=false;
+                var dashNode=new GameObject("MacaquiniPhysicalDash");dashNode.transform.SetParent(Root(),false);
+                var dash=dashNode.AddComponent<MacaquiniDashAttack>();dash.Configure(boss,target,to);
+                yield return new WaitForSeconds(.9f);IsTelegraphing=false;
                 if(!Active)yield break;
-                boss.Movement.DashTo(to,12f);
+                dash.Launch();boss.Movement.DashTo(to,10.5f);
                 while(Active&&boss.Movement.IsDashing)yield return null;
-                yield return new WaitForSeconds(.45f);
+                if(dash!=null)dash.Complete();
+                yield return new WaitForSeconds(.35f);
             }
             else
             {
-                // Engine purge: two narrow columns lock before firing, separated by a broad escape gap.
-                float x=Mathf.Clamp(lockedAim.x,-6.8f,3f);
-                Heat(new Vector2(x,7.4f),new Vector2(x,-3.4f),material,1.25f,.65f,.7f);
-                Heat(new Vector2(x+2.9f,7.4f),new Vector2(x+2.9f,-3.4f),material,1.25f,.65f,.7f);
-                yield return new WaitForSeconds(1.25f);IsTelegraphing=false;
-                if(!Active)yield break;
-                boss.Movement.DashTo(ArenaPoint(new Vector2(4.5f,2.1f)),6f);
-                yield return new WaitForSeconds(.85f);
+                // Three visible fruits arc overhead and drop through fixed, staggered lanes.
+                var camera=Camera.main;float half=camera.orthographicSize*camera.aspect;
+                float x=Mathf.Clamp(lockedAim.x,camera.transform.position.x-half+2.6f,camera.transform.position.x+half-2.6f);
+                var sprite=bananaPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
+                for(int i=0;i<3;i++)
+                {
+                    var node=new GameObject("MacaquiniFallingFruit");node.transform.SetParent(Root(),false);
+                    node.AddComponent<MacaquiniFallingBanana>().Configure(boss,target,sprite,muzzle.position,
+                        new Vector2(x+(i-1)*2.1f,camera.transform.position.y+camera.orthographicSize-.7f),1.3f+i*.25f,camera.transform.position.y-camera.orthographicSize-1);
+                }
+                yield return new WaitForSeconds(1.8f);IsTelegraphing=false;
+                yield return new WaitForSeconds(.6f);
             }
             PerformingAttack=false;yield break;
         }
@@ -165,24 +195,44 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         yield return new WaitForSeconds(warningDuration);
         if (aimGuide != null) aimGuide.enabled = false;
         IsTelegraphing = false;
-        if(attack==Attack.JetStrafe)boss.Movement.DashTo(ArenaPoint(new Vector2(3.8f,transform.position.y>1.1f?-.5f:2.1f)),.7f);
+        if(attack==Attack.JetStrafe)boss.Movement.DashTo(ArenaPoint(new Vector2(3.8f,transform.position.y>1.1f?-.5f:2.1f)),2.3f);
         int volleys = attack == Attack.BananaVolley || attack == Attack.JetStrafe ? 3 : 1;
         for (int shot = 0; shot < volleys && Active; shot++)
         {
+            volleyShot=shot;
+            if(attack==Attack.JetStrafe&&shot>0)
+            {
+                lockedAim=target.transform.position;IsTelegraphing=true;
+                if(aimGuide!=null)aimGuide.enabled=true;
+                yield return new WaitForSeconds(.28f);
+                if(aimGuide!=null)aimGuide.enabled=false;IsTelegraphing=false;
+                if(!Active)yield break;
+            }
             releasePending = true; clipDone = false;
+            animator.speed=attack==Attack.JetStrafe?1.45f:1f;
             animator.Play("Fire", 0, 0f);
             // Animation events own the release; the deadline only prevents a broken clip hanging combat.
             float deadline = Time.time + 1.5f;
             while (!clipDone && Active && Time.time < deadline) yield return null;
             releasePending = false;
             if (!clipDone && Active) Debug.LogError("Macaquini Fire clip did not complete.", this);
-            yield return new WaitForSeconds(.12f);
+            yield return new WaitForSeconds(attack==Attack.JetStrafe?.06f:.12f);
         }
+        animator.speed=1;
         PerformingAttack = false;
     }
     private IEnumerator Recover()
     {
         if (!Active) yield break;
+        if(!phaseTwo)
+        {
+            highSwing=!highSwing;
+            boss.Movement.DashTo(ArenaPoint(highSwing?new Vector2(4.5f,2.1f):new Vector2(3.1f,-.5f)),4.6f);
+            while(Active&&boss.Movement.IsDashing)yield return null;
+            if(!Active)yield break;
+            boss.Movement.ReturnToPatrol();
+            yield return new WaitForSeconds(.7f);yield break;
+        }
         // Alternate anchors so every recovery crosses a visible arc, instead of picking nearby points.
         highSwing = !highSwing;
         Vector2 landing = ArenaPoint(highSwing ? new Vector2(4.5f, 2.1f) : new Vector2(2.6f, -.5f));
@@ -208,13 +258,20 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         ShotReleased?.Invoke();
         Vector2 direction = lockedAim - (Vector2)muzzle.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        int count = CurrentAttack == Attack.BananaFan ? (phaseTwo ? 7 : 5) : 1;
+        int count = CurrentAttack == Attack.BananaFan ? (phaseTwo ? 7 : 5) : CurrentAttack==Attack.JetStrafe&&volleyShot==2?3:1;
+        LastReleaseAim=lockedAim;LastReleaseCount=count;
         for (int i = 0; i < count; i++)
         {
-            float offset = count == 1 ? 0 : Mathf.Lerp(-32, 32, i / (float)(count - 1));
+            float spread=CurrentAttack==Attack.JetStrafe?18:32;
+            float offset = count == 1 ? 0 : Mathf.Lerp(-spread, spread, i / (float)(count - 1));
             Vector2 heading = Quaternion.Euler(0, 0, offset) * direction.normalized;
             Projectile banana = Instantiate(bananaPrefab, muzzle.position, Quaternion.Euler(0, 0, angle + offset - 180f), Root());
-            banana.Launch(heading, owner, projectileSpeed);
+            if(!phaseTwo)
+            {
+                var trail=banana.GetComponent<TrailRenderer>();
+                if(trail!=null){trail.time=.1f;trail.startWidth=.07f;trail.endWidth=0;trail.startColor=new Color(1,.88f,.36f,.35f);trail.endColor=new Color(.7f,.9f,.3f,0);}
+            }
+            banana.Launch(heading, owner, !phaseTwo?projectileSpeed*1.1f:projectileSpeed);
         }
     }
     public void MacaquiniClipComplete() { clipDone = true; }
@@ -228,12 +285,6 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         }
         return threats;
     }
-    private void Heat(Vector2 from,Vector2 to,Material material,float warning,float duration,float width)
-    {
-        var node=new GameObject("JetpackHeatLane");node.transform.SetParent(Root(),false);
-        var hazard=node.AddComponent<MacaquiniHeatHazard>();hazard.Configure(from,to,target,material,warning,duration,width);
-        if(Mathf.Abs(from.x-to.x)<.01f)hazard.LaunchFuel(transform.position+Vector3.right*.8f);
-    }
     private Vector2 ArenaPoint(Vector2 desired)
     {
         var camera=Camera.main;if(camera==null)return desired;
@@ -242,6 +293,7 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
     }
     private void ClearThreats()
     {
+        var fighter=GetComponent<MacaquiniFighter>();if(fighter!=null)fighter.Cancel();
         var kick=GetComponent<MacaquiniSwingKick>();if(kick!=null)kick.Cancel();
         Pendulum=null;
         if (threats == null) return;
@@ -249,13 +301,14 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
     }
     public void StopCombat()
     {
+        if(phaseOneHelpers!=null)phaseOneHelpers.Cancel();
         stopped = true;
         if (target != null) target.Died -= StopCombat;
         target = null;
         if (fight != null) StopCoroutine(fight);
         fight = null; releasePending = false; clipDone = true; IsTelegraphing = false; PerformingAttack = false;
         if (aimGuide != null) aimGuide.enabled = false;
-        if (animator != null && animator.isActiveAndEnabled) animator.Play("Idle", 0, 0f);
+        if (animator != null && animator.isActiveAndEnabled) { animator.speed=1;animator.Play("Idle", 0, 0f); }
         ClearThreats();
     }
     private void OnDisable() => StopCombat();
@@ -264,8 +317,10 @@ public sealed class MacaquiniCombat : MonoBehaviour, IBossCombatController
         if (!Active || !boss.Ready || Time.timeScale <= 0) return;
         if(attack==Attack.Pendulum&&(!phaseTwo||!pendulumEnabled))return;
         if(attack==Attack.SwingKick&&(!phaseTwo||GetComponent<MacaquiniSwingKick>()==null))return;
+        if(attack>=Attack.FighterCombo&&(!phaseTwo||GetComponent<MacaquiniFighter>()==null||!GetComponent<MacaquiniFighter>().isActiveAndEnabled))return;
         if (fight != null) StopCoroutine(fight);
         ClearThreats(); releasePending = false;
+        if(animator!=null)animator.speed=1;
         if (aimGuide != null) aimGuide.enabled = false;
         fight = StartCoroutine(Forced(attack));
     }

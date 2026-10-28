@@ -1,0 +1,25 @@
+{
+  "reference": "Assets/Art/JungleStage/Macaquini_v20/kick_03.png",
+  "tool": "image_gen.imagegen",
+  "status": "concept only, not integrated",
+  "characters": [
+    "Batedor: lean copper monkey with yellow wrist wraps and a straight punch",
+    "Acrobata: dark lanky monkey with yellow headband, ankle wraps and a short vine kick",
+    "Rolador: round rust monkey with yellow waist sash and a tucked somersault"
+  ],
+  "role": "style and species reference; create distinct small helpers",
+  "layout": "three columns, ready poses above and attacks below",
+  "colorRevision": {
+    "date": "2026-10-24",
+    "fur": "slate blue-gray",
+    "target": "Rolador, preparation and somersault poses",
+    "tool": "image_gen.imagegen",
+    "preserve": [
+      "green eyes",
+      "peach skin",
+      "yellow waist sash",
+      "other four minion poses"
+    ],
+    "source": "macaquinhos-conceitos_v02.png"
+  }
+}
