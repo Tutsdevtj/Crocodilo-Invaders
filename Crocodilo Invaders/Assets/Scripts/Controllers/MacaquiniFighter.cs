@@ -21,20 +21,29 @@ public sealed class MacaquiniFighter : MonoBehaviour
     private Vector3 originalScale;
     private int originalOrder;
     private bool originalFlip,flip,hit;
-    private float started,duration,nextThreatAt;
+    private float started,duration,nextThreatAt,approachArc,carryDrawingUntil=-1;
+    private int completedCombos;
+    private Vector2 guardOrigin;
     private ContactFilter2D filter;
     private readonly Collider2D[] contacts=new Collider2D[16];
     private readonly List<MacaquiniFighterMinion> helpers=new List<MacaquiniFighterMinion>();
-    private readonly int[] bag={0,1,2,3};
+    private readonly int[] bag={0,1,2,3,4,5};
     private int bagAt,lastCombo=-1;
     private static readonly Move[][] combos={
         new[]{Move.Jab,Move.Cross},new[]{Move.Uppercut,Move.Cross,Move.Jab},
-        new[]{Move.Jab,Move.Hammer},new[]{Move.Cross,Move.Uppercut}
+        new[]{Move.Jab,Move.Cross,Move.Hammer},new[]{Move.Cross,Move.Uppercut,Move.Cross},
+        new[]{Move.Jab,Move.Uppercut,Move.Hammer},new[]{Move.Cross,Move.Jab,Move.Cross,Move.Hammer}
     };
     public bool Running {get;private set;}
     public State CurrentState {get;private set;}
     public Move CurrentMove {get;private set;}
-    public bool ControlsDrawing=>Running&&CurrentState!=State.Helpers&&CurrentState!=State.Finisher;
+    public bool ControlsDrawing=>Running&&CurrentState!=State.Helpers&&CurrentState!=State.Finisher||!Running&&Time.time<carryDrawingUntil&&boss.BattleActive&&!boss.Transitioning;
+    public bool Enraged=>boss!=null&&boss.Health.Fraction<=.45f;
+    public float HelperCueDuration=>Enraged?.56f:.70f;
+    public int ComboLength {get;private set;}
+    public int ComboStrikeIndex {get;private set;}
+    public int InterleavedStrikes {get;private set;}
+    public float RecoveryDuration {get;private set;}
     public bool Dangerous=>Running&&CurrentState==State.Strike&&Time.time-started>=.065f&&Time.time-started<duration-.025f;
     public int CompletedRounds {get;private set;}
     public int StrikesStarted {get;private set;}
@@ -53,6 +62,7 @@ public sealed class MacaquiniFighter : MonoBehaviour
     public IEnumerator Round(Health player,Material fx,AudioClip clip,int forced=-1)
     {
         Cancel();target=player;material=fx;sound=clip;Running=true;home=body.position;
+        ComboLength=0;ComboStrikeIndex=0;
         originalScale=view.transform.localScale;originalOrder=view.sortingOrder;originalFlip=view.flipX;
         filter=new ContactFilter2D();filter.SetLayerMask(1<<player.gameObject.layer);filter.useTriggers=true;
         effects=new GameObject("MacaquiniFighterEffects").transform;effects.SetParent(transform,false);
@@ -62,11 +72,13 @@ public sealed class MacaquiniFighter : MonoBehaviour
         voice=effects.gameObject.AddComponent<AudioSource>();voice.playOnAwake=false;GameAudioSettings.Route(voice,AudioChannel.Effects);
         boss.Movement.HoldPosition(true);
         if(forced==-2 || forced<0&&CompletedRounds%3==2)yield return Reinforcements();
-        else if(forced>=0)yield return Perform((Move)forced);
+        else if(forced>=0){ComboLength=1;ComboStrikeIndex=0;yield return Perform((Move)forced);}
         else
         {
-            ComboId=NextCombo();foreach(var move in combos[ComboId]){if(!CanContinue)break;yield return Perform(move);}
-            if(CanContinue&&CompletedRounds%4==3)
+            ComboId=NextCombo();ComboLength=Mathf.Min(combos[ComboId].Length,Enraged?4:3);
+            for(int i=0;i<ComboLength;i++){if(!CanContinue)break;ComboStrikeIndex=i;yield return Perform(combos[ComboId][i]);}
+            if(CanContinue)completedCombos++;
+            if(CanContinue&&completedCombos%(Enraged?2:3)==0)
             {
                 CurrentState=State.Finisher;HideLines();RestoreDrawing();
                 var kick=GetComponent<MacaquiniSwingKick>();kick.Begin(target,material,sound);
@@ -76,13 +88,13 @@ public sealed class MacaquiniFighter : MonoBehaviour
         }
         if(CanContinue)
         {
-            CurrentState=State.Recovery;started=Time.time;duration=boss.Health.Fraction<.45f?.65f:.82f;origin=body.position;
-            var camera=Camera.main;float half=camera.orthographicSize*camera.aspect;
-            end=new Vector2(camera.transform.position.x+(CompletedRounds%2==0?half*.48f:-half*.48f),camera.transform.position.y+.5f);
+            CurrentState=State.Recovery;started=Time.time;duration=RecoveryDuration=Enraged?.4f:.55f;origin=body.position;
+            float side=body.position.x>=target.transform.position.x?1:-1;
+            end=ClampRoot((Vector2)target.transform.position+new Vector2(side*(Enraged?3.6f:4.2f),CompletedRounds%2==0?.6f:-.7f));
             while(CanContinue&&Time.time-started<duration)yield return null;
             CompletedRounds++;
         }
-        Cancel();
+        bool carry=CanContinue;Cancel();if(carry)carryDrawingUntil=Time.time+.24f;
     }
     private int NextCombo()
     {
@@ -98,21 +110,25 @@ public sealed class MacaquiniFighter : MonoBehaviour
         if(!CanContinue)yield break;
         CurrentMove=move;CurrentState=State.Approach;origin=body.position;aim=target.transform.position;flip=aim.x>origin.x;
         float side=flip?-1:1;
+        if(move==Move.Cross&&ComboStrikeIndex>0)side=-side;
         end=ClampRoot(new Vector2(aim.x+side*(move==Move.Uppercut?2.9f:move==Move.Hammer?3.2f:4.2f),aim.y+(move==Move.Uppercut?-3.2f:move==Move.Hammer?2.8f:-1.25f)));
-        started=Time.time;duration=.26f;
+        approachArc=move==Move.Uppercut?-.35f:move==Move.Hammer?.42f:.25f;
+        started=Time.time;duration=Mathf.Max(.22f,Vector2.Distance(origin,end)/(Enraged?16f:13f));
         while(CanContinue&&Time.time-started<duration)yield return null;
         if(!CanContinue)yield break;
-        body.position=end;CurrentState=State.Cue;origin=body.position;aim=target.transform.position;flip=aim.x>origin.x;
-        CueDuration=Mathf.Max(boss.Health.Fraction<.45f?.52f:.68f,nextThreatAt-Time.time);
+        body.position=end;CurrentState=State.Cue;origin=guardOrigin=body.position;aim=target.transform.position;flip=aim.x>origin.x;
+        float cueTime=ComboStrikeIndex==0?(Enraged?.48f:.62f):(Enraged?.40f:.48f);
+        CueDuration=Mathf.Max(cueTime,nextThreatAt-Time.time);
         started=Time.time;duration=CueDuration;end=ClampRoot(aim-Offset(move));
         while(CanContinue&&Time.time-started<duration)yield return null;
         if(!CanContinue)yield break;
-        CurrentState=State.Strike;started=Time.time;duration=move==Move.Hammer?.43f:.34f;hit=false;
+        origin=body.position;CurrentState=State.Strike;started=Time.time;duration=move==Move.Hammer?.39f:move==Move.Uppercut?.34f:.30f;hit=false;
         previousFist=FistPosition;LastDangerGap=Time.time+.065f-LastThreatEnded;StrikesStarted++;
         if(sound!=null){voice.pitch=move==Move.Hammer?.8f:1.2f;voice.PlayOneShot(sound,.48f);}
         while(CanContinue&&Time.time-started<duration)yield return null;
-        ThreatEnded();CurrentState=State.Recovery;origin=body.position;end=origin;started=Time.time;duration=.12f;
-        if(CanContinue)yield return new WaitForSeconds(.12f);
+        ThreatEnded();CurrentState=State.Recovery;origin=body.position;
+        end=ClampRoot(origin+((Vector2)body.position-aim).normalized*.38f+Vector2.up*.06f);started=Time.time;duration=.18f;
+        if(CanContinue)yield return new WaitForSeconds(.18f);
     }
     public void ThreatEnded()
     {
@@ -134,8 +150,18 @@ public sealed class MacaquiniFighter : MonoBehaviour
             helper.Configure(this,target,role,helperPoses,material,new Vector2(right+2+i,camera.transform.position.y+2-i*1.4f),new Vector2(right-1.4f-i*.8f,camera.transform.position.y+1-i*1.5f));
             helpers.Add(helper);HelpersSpawned++;
         }
-        yield return new WaitForSeconds(.8f);
-        foreach(var helper in helpers.ToArray())if(CanContinue&&helper!=null&&helper.Alive)yield return helper.Assault();
+        yield return new WaitForSeconds(.65f);
+        var order=helpers.ToArray();
+        for(int i=0;i<order.Length;i++)
+        {
+            if(!CanContinue)yield break;
+            CurrentState=State.Helpers;RestoreDrawing();
+            if(order[i]!=null&&order[i].Alive)yield return order[i].Assault();
+            if(i<order.Length-1&&CanContinue)
+            {
+                ComboStrikeIndex=0;InterleavedStrikes++;yield return Perform(Enraged?Move.Cross:Move.Jab);
+            }
+        }
     }
     private Vector2 Offset(Move move)
     {
@@ -161,17 +187,28 @@ public sealed class MacaquiniFighter : MonoBehaviour
             if(Dangerous&&!hit&&SweptHit(target,previousFist,point,CurrentMove==Move.Hammer?.62f:.34f,CurrentMove==Move.Jab||CurrentMove==Move.Cross?1:2,filter,contacts)){hit=true;DamageHits++;GusiniPhaseTwoCameraFeedback.Pulse(Camera.main,.06f,.13f);}
             previousFist=point;
         }
-        else if((CurrentState==State.Recovery||CurrentState==State.Approach)&&duration>.2f)body.position=Vector2.Lerp(origin,end,Mathf.SmoothStep(0,1,Mathf.Clamp01(age/duration)));
+        else if(CurrentState==State.Recovery||CurrentState==State.Approach)
+        {
+            float u=Mathf.SmoothStep(0,1,Mathf.Clamp01(age/duration));body.position=Vector2.Lerp(origin,end,u);
+            if(CurrentState==State.Approach)body.position+=Vector2.up*Mathf.Sin(u*Mathf.PI)*approachArc;
+        }
+        else if(CurrentState==State.Cue)
+        {
+            float u=Mathf.Clamp01(age/duration);Vector2 away=(guardOrigin-aim).normalized;
+            body.position=guardOrigin+away*(Mathf.Sin(u*Mathf.PI)*.16f)+Vector2.up*Mathf.Sin(u*Mathf.PI*2)*.025f;
+        }
     }
     public void Present(LineRenderer vine)
     {
         if(!ControlsDrawing)return;
+        if(!Running){view.sprite=poses[0];view.flipX=flip;view.transform.localRotation=Quaternion.identity;vine.enabled=false;return;}
         bool striking=CurrentState==State.Strike&&Time.time-started>.055f;
         int frame=striking?(int)CurrentMove+1:CurrentMove==Move.Hammer?4:CurrentMove==Move.Uppercut?3:0;
         if(striking&&CurrentMove==Move.Hammer)frame=5;
         if(CurrentState==State.Recovery)frame=0;
         view.sprite=poses[Mathf.Clamp(frame,0,5)];view.transform.localPosition=Vector3.zero;view.transform.localScale=originalScale;
-        view.transform.localRotation=Quaternion.Euler(0,0,CurrentState==State.Cue?Mathf.Sin((Time.time-started)*12)*1.3f:0);
+        float poseProgress=Mathf.Clamp01((Time.time-started)/Mathf.Max(.01f,duration));
+        view.transform.localRotation=Quaternion.Euler(0,0,CurrentState==State.Cue?Mathf.Sin(poseProgress*Mathf.PI)*(CurrentMove==Move.Uppercut?-1.5f:1.5f):0);
         view.flipX=flip;view.color=Color.white;view.sortingOrder=originalOrder;view.enabled=true;vine.enabled=false;
         Color color=CurrentMove==Move.Uppercut?new Color(.18f,.85f,1):CurrentMove==Move.Hammer?new Color(1,.3f,.13f):new Color(1,.78f,.16f);
         path.enabled=CurrentState==State.Cue;cue.enabled=CurrentState==State.Cue||CurrentState==State.Recovery;wind.enabled=Dangerous;
@@ -204,7 +241,8 @@ public sealed class MacaquiniFighter : MonoBehaviour
     private void RestoreDrawing(){view.transform.localScale=originalScale;view.transform.localPosition=Vector3.zero;view.transform.localRotation=Quaternion.identity;view.flipX=originalFlip;view.sortingOrder=originalOrder;view.color=Color.white;view.enabled=true;}
     public void Cancel()
     {
-        if(!Running)return;Running=false;CurrentState=State.Idle;HideLines();RestoreDrawing();
+        bool held=Time.time<carryDrawingUntil;carryDrawingUntil=-1;
+        if(!Running){if(held&&view!=null)RestoreDrawing();return;}Running=false;CurrentState=State.Idle;HideLines();RestoreDrawing();
         if(effects!=null){effects.gameObject.SetActive(false);Destroy(effects.gameObject);}helpers.Clear();
     }
     private void OnDisable()=>Cancel();
