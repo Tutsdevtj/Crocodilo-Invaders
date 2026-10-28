@@ -1,0 +1,43 @@
+<div id="croc-foil-preview" aria-label="Coleção de melhorias do Croc">
+  <div class="viz-controls">
+    <label class="form-label">Família <select class="form-select" aria-label="Família da carta"><option value="AttackDamage">Ataque</option><option value="AttackSpeed" selected>Cadência</option><option value="MaximumHealth">Vida</option><option value="MoveSpeed">Movimento</option><option value="SpecialDamage">Especial</option></select></label>
+    <label class="form-label">Inclinação da luz <input class="form-range" type="range" min="-50" max="50" value="12" aria-label="Inclinação da luz"></label>
+    <label class="form-check form-switch"><input class="form-check-input" type="checkbox" checked><span class="form-check-label">Luz em movimento</span></label>
+    <label class="form-check form-switch"><input class="form-check-input" type="checkbox" data-foil checked><span class="form-check-label">Acabamento foil</span></label>
+  </div>
+  <div class="croc-foil-grid viz-dotted-background"></div>
+</div>
+<style>
+#croc-foil-preview .croc-foil-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px;padding:16px 10px 20px}
+#croc-foil-preview figure{margin:0;min-width:0;text-align:center;color:var(--foreground)}
+#croc-foil-preview .croc-foil-stage{perspective:1000px;padding:6px 0 14px}
+#croc-foil-preview canvas{display:block;width:100%;max-width:250px;height:auto;aspect-ratio:180/268;margin:auto;image-rendering:pixelated;border-radius:7px;box-shadow:0 8px 18px #0005;transform:rotateY(var(--croc-tilt,0deg)) rotateX(var(--croc-pitch,0deg));touch-action:pan-y}
+#croc-foil-preview figcaption{display:grid;gap:3px}
+#croc-foil-preview figcaption span{color:var(--muted-foreground)}
+@media(max-width:550px){#croc-foil-preview .croc-foil-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}}
+@media(max-width:370px){#croc-foil-preview .croc-foil-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#croc-foil-preview canvas{transform:none}}
+</style>
+<script>
+(()=>{
+const root=document.getElementById('croc-foil-preview'),grid=root.querySelector('.croc-foil-grid'),selector=root.querySelector('select'),range=root.querySelector('input[type=range]'),motion=root.querySelector('input[type=checkbox]'),foilToggle=root.querySelector('[data-foil]');
+const collection=__COLLECTION_DATA__;
+const descriptions=['Fosca · moldura padrão','Reflexo neutro só no aro da imagem','Arte com reflexo neutro · moldura foil','Moldura com reflexo neutro · Croc destacado','Arte prismática · moldura holográfica escovada'];
+__SHADER_CODE__
+function shader(gl,type,s){const sh=gl.createShader(type);gl.shaderSource(sh,s);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
+function texture(gl,unit,url){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{gl.activeTexture(gl.TEXTURE0+unit);const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,im);resolve(t)};im.onerror=reject;im.src=url});}
+function image(url){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=url});}
+const views=[];let running=motion.checked&&!matchMedia('(prefers-reduced-motion: reduce)').matches,loading=true,loadVersion=0,focus=null;motion.checked=running;
+for(let rank=0;rank<5;rank++){const figure=document.createElement('figure');figure.innerHTML='<div class="croc-foil-stage"><canvas class="cursor-interaction" width="360" height="536" role="img"></canvas></div><figcaption><strong></strong><span class="text-small">'+descriptions[rank]+'</span></figcaption>';grid.append(figure);const canvas=figure.querySelector('canvas'),gl=canvas.getContext('webgl',{preserveDrawingBuffer:true,alpha:true,premultipliedAlpha:false});let view={rank,canvas,figure,gl,textures:[]};
+if(gl){const program=gl.createProgram();gl.attachShader(program,shader(gl,gl.VERTEX_SHADER,vert));gl.attachShader(program,shader(gl,gl.FRAGMENT_SHADER,frag));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const p=gl.getAttribLocation(program,'p');gl.enableVertexAttribArray(p);gl.vertexAttribPointer(p,2,gl.FLOAT,false,0,0);for(const [key,unit]of[['base',0],['labels',1],['materials',2]])gl.uniform1i(gl.getUniformLocation(program,key),unit);gl.uniform1f(gl.getUniformLocation(program,'rank'),rank);view.lamp=gl.getUniformLocation(program,'light');view.foil=gl.getUniformLocation(program,'foilEnabled');}
+else view.fallback=canvas.getContext('2d');views.push(view);canvas.addEventListener('pointermove',e=>{const b=canvas.getBoundingClientRect();focus={x:(e.clientX-b.left)/b.width*2-1,y:(e.clientY-b.top)/b.height*2-1};draw(0)});canvas.addEventListener('pointerleave',()=>{focus=null;draw(0)});}
+async function setFamily(id){const family=collection.find(f=>f.id===id);if(!family)throw Error('Unknown family '+id);selector.value=id;loading=true;root.dataset.ready='false';const version=++loadVersion;
+await Promise.all(views.map(async v=>{const card=family.cards[v.rank];if(v.gl){const textures=await Promise.all([texture(v.gl,0,card.base),texture(v.gl,1,card.labels),texture(v.gl,2,card.materials)]);for(const t of v.textures)v.gl.deleteTexture(t);v.textures=textures;}else{const [art,labels]=await Promise.all([image(card.base),image(card.labels)]);v.fallback.clearRect(0,0,360,536);v.fallback.imageSmoothingEnabled=false;v.fallback.drawImage(art,0,0,360,536);v.fallback.drawImage(labels,0,0);}v.figure.querySelector('strong').textContent=card.name;v.canvas.setAttribute('aria-label',family.label+' '+card.name+', '+descriptions[v.rank]);}));
+if(version!==loadVersion)return;loading=false;root.dataset.family=id;root.dataset.ready='true';draw(0);}
+function draw(t){if(loading)return;const x=focus?focus.x:Number(range.value)/50+(running?Math.sin(t*.0006)*.45:0),y=focus?focus.y:(running?Math.cos(t*.00043)*.22:.1);for(const v of views){if(v.gl){v.gl.uniform1f(v.foil,foilToggle.checked?1:0);v.gl.uniform2f(v.lamp,x,y);v.gl.drawArrays(v.gl.TRIANGLES,0,6);}v.canvas.style.setProperty('--croc-tilt',x*4+'deg');v.canvas.style.setProperty('--croc-pitch',-y*3+'deg');}}
+function loop(t){draw(t);if(running)requestAnimationFrame(loop)}
+range.addEventListener('input',()=>draw(0));foilToggle.addEventListener('change',()=>draw(0));motion.addEventListener('change',()=>{running=motion.checked;if(running)requestAnimationFrame(loop);else draw(0)});selector.addEventListener('change',()=>setFamily(selector.value));
+window.crocFoilPreview={draw,views,setFamily,families:collection.map(f=>f.id),setLight:x=>{running=false;motion.checked=false;range.value=String(x*50);draw(0)}};
+setFamily(selector.value).then(()=>{if(running)requestAnimationFrame(loop)});
+})();
+</script>

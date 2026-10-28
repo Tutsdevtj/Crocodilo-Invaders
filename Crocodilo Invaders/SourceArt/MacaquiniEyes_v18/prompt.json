@@ -1,0 +1,8 @@
+{
+ "tool":"image_gen.imagegen",
+ "mode":"built-in",
+ "transparent_background":true,
+ "reference":"Assets/Art/JungleStage/Macaquini_v13/transform_35.png",
+ "prompt":"Localized pixel-art COLOR correction only. Preserve this exact monkey character, pose, proportions, all details and transparent background. The visible eye looking upward currently has a WHITE sclera patch surrounding the green iris. Remove the white sclera: the ENTIRE exposed eyeball must be saturated supernatural luminous EMERALD GREEN, including the outer area that used to be white. Keep the existing dark eyelid outline and brow, and a tiny pale LIME GREEN glint (no white). No human white eyeball, no new pupil. Do not change face skin, fur, mouth, expression, anatomy, arms, chest, banana peel, tail, legs, pose, position or dimensions. Only recolor the eye interior to match a fully possessed alien-green eye.",
+ "integration":"Generated image provides the color reference. Native final sprites receive pixel-local sclera/glint recoloring, without resampling or anatomical changes; protected pixels and alpha verified identical."
+}

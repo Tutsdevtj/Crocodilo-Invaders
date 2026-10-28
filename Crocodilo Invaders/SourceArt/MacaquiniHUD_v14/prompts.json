@@ -1,0 +1,19 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "transparent_background": true,
+  "phase_one": {
+    "output": "jungle_frame_source.png",
+    "prompt": "Create a single polished pixel art video game boss health-bar FRAME, isolated on transparent background, a very wide short horizontal rectangle aspect ratio 5:1. Thick dark carved tropical hardwood and bamboo outer frame with restrained lush jungle leaves and twisting vines at both ends. Tiny poisonous emerald alien veins in wood. Golden banana-yellow chipped edge accents, mature menacing jungle aesthetic. CENTRAL INTERIOR IS AN EMPTY VERY DARK GREEN RECTANGULAR HEALTH TRACK, perfectly straight horizontal, no filled health, no text, no letters, no portrait, no icons, no separate scattered objects. Rightmost end has a roundish tangled vine medallion opening protruding upwards for a large character portrait to later overlay, but keep it empty dark green. Crisp pixel edges, handpainted rich shading with clear coherent silhouette, fits 1990s premium arcade game. Entire graphic inside canvas with transparent margins, no background scene, no cast shadow outside frame."
+  },
+  "phase_two": {
+    "reference": "jungle_frame_source.png",
+    "output": "jungle_frame_phase2_source.png",
+    "prompt": "Edit this exact pixel art boss health bar to create its PHASE TWO enraged jungle version. Preserve exact overall placement, proportions, horizontal dark health track opening and empty round portrait opening at right; preserve sharp high quality pixel details. Transform the cool green banana infection motifs into darker thorny jungle vines, ripped banana peel scraps, weathered reddish copper wood and warm amber highlights. Make the upper and lower carved frame slightly jagged as though the beast has broken its casing. Keep recognizable same jungle family but clearly a more ferocious second form. Still green leaves, dark wood, no military symbols. No character portrait, no text, no letters, no health fill, transparent background. Do not change the layout or add objects beyond original silhouette."
+  },
+  "portraits": {
+    "method": "Crops of original in-game art with circular alpha and opaque dark green backing; preserve character details.",
+    "phase_one": "Assets/Art/JungleStage/Macaquini_v13/flight_00.png",
+    "phase_two": "Assets/Art/JungleStage/Macaquini_v13/transform_29.png"
+  }
+}

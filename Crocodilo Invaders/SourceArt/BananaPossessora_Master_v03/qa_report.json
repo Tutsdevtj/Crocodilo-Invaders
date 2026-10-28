@@ -1,0 +1,13 @@
+{
+  "canvas": [
+    720,
+    700
+  ],
+  "individual_pngs": 6,
+  "visual_review": "central prisoner removed; closed peel; muscular limbs; tail behind rear hip; attachment positions reviewed",
+  "tail_backmost": true,
+  "generator": "built-in image_gen",
+  "corner_alpha": 0,
+  "all_layers_within_canvas": true,
+  "ora_layers": 6
+}

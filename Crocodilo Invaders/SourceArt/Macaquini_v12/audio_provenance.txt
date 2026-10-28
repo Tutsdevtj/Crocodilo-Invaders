@@ -1,0 +1,5 @@
+power_roar_v12.wav derives only from Assets/Audio/Boss/Macaquini/growl.wav already in this project.
+No external audio was incorporated. Native rip cues reuse Assets/Audio/Boss/Macaquini/whip.wav.
+FFmpeg 7.1, mono PCM16 44100Hz, duration 1.6 seconds, limiter 0.85.
+Reproduction filter:
+[0:a]asplit=2[a][b];[a]asetrate=33075,aresample=44100,apad=pad_dur=0.2,aloop=loop=1:size=44100,afade=t=out:st=1.2:d=0.4,atrim=duration=1.6[low];[b]adelay=140,volume=0.4[high];[low][high]amix=inputs=2:normalize=0,alimiter=limit=0.85[out]

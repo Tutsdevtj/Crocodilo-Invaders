@@ -1,0 +1,254 @@
+{
+  "version": 9,
+  "approved_model": "CardsModel_Approved_v08_20261021",
+  "canvas": [
+    180,
+    268
+  ],
+  "font_layout": "card_typography_v08.cjs",
+  "finish_shader": "foil_preview_v06.html",
+  "families": [
+    {
+      "id": "AttackDamage",
+      "label": "Ataque",
+      "title": "ATAQUE",
+      "attribute": "DANO DE ATAQUE",
+      "values": [
+        5,
+        10,
+        15,
+        20,
+        30
+      ],
+      "atlas_canvas": null,
+      "cards": [
+        {
+          "rank": "Common",
+          "percent": 5,
+          "file": "AttackDamage/Common.png",
+          "sha256": "9724b61a01db4c40b5fd3253ea154d8f66665044ab430fb84b8a59c98018dafd"
+        },
+        {
+          "rank": "Rare",
+          "percent": 10,
+          "file": "AttackDamage/Rare.png",
+          "sha256": "d25ca20e222bcbfe7ddc86eef914a2598ffd525b56a7cc7b6ba75eb18f1619b9"
+        },
+        {
+          "rank": "Epic",
+          "percent": 15,
+          "file": "AttackDamage/Epic.png",
+          "sha256": "8da65533919b86bce4381d6c70abc9d43e273d3795855e6196a0d3603298a0f4"
+        },
+        {
+          "rank": "Legendary",
+          "percent": 20,
+          "file": "AttackDamage/Legendary.png",
+          "sha256": "2fcaae192948e0a62a8e4f2757e30f087185830ed8bade551a5beb0b89940eef"
+        },
+        {
+          "rank": "Mythic",
+          "percent": 30,
+          "file": "AttackDamage/Mythic.png",
+          "sha256": "77c034f0f57289e05603fb55b2213c70b442ae307ba19cb92be22a839927c760"
+        }
+      ]
+    },
+    {
+      "id": "AttackSpeed",
+      "label": "Cadência",
+      "title": "RAJADA",
+      "attribute": "CADÊNCIA",
+      "values": [
+        5,
+        10,
+        15,
+        20,
+        30
+      ],
+      "atlas_canvas": [
+        1254,
+        1254
+      ],
+      "cards": [
+        {
+          "rank": "Common",
+          "percent": 5,
+          "file": "AttackSpeed/Common.png",
+          "sha256": "4c5016d5873d8725c332d03b6cadd601567679ab95de8702f56a413b7bb87a89"
+        },
+        {
+          "rank": "Rare",
+          "percent": 10,
+          "file": "AttackSpeed/Rare.png",
+          "sha256": "9241ecc180b1cb24d98862818507a63d9154c60bd4187cd5fa3d24d38b90242c"
+        },
+        {
+          "rank": "Epic",
+          "percent": 15,
+          "file": "AttackSpeed/Epic.png",
+          "sha256": "588d3392471dee5048bb8096364d264179550d61b260be06b7b32ae3330e39a3"
+        },
+        {
+          "rank": "Legendary",
+          "percent": 20,
+          "file": "AttackSpeed/Legendary.png",
+          "sha256": "de653dd9f85dac0b601afa690d4134e111e2dda26b6ef4dfa4e3ec1808937f86"
+        },
+        {
+          "rank": "Mythic",
+          "percent": 30,
+          "file": "AttackSpeed/Mythic.png",
+          "sha256": "27c81f9387882ef4fbb545f2ae4c126e814cfe89be9c963c31c94573c1add8c5"
+        }
+      ]
+    },
+    {
+      "id": "MaximumHealth",
+      "label": "Vida",
+      "title": "BLINDAGEM",
+      "attribute": "VIDA MÁXIMA",
+      "values": [
+        10,
+        15,
+        20,
+        30,
+        40
+      ],
+      "atlas_canvas": [
+        1254,
+        1254
+      ],
+      "cards": [
+        {
+          "rank": "Common",
+          "percent": 10,
+          "file": "MaximumHealth/Common.png",
+          "sha256": "c384d6d382eadfda51fcc0348bf42f60b78138689240c2abe13238d0dc999dbc"
+        },
+        {
+          "rank": "Rare",
+          "percent": 15,
+          "file": "MaximumHealth/Rare.png",
+          "sha256": "bcb4cee4cf7e893a33b4f808cb9646f176fe16820b3fd45161a4199b64884294"
+        },
+        {
+          "rank": "Epic",
+          "percent": 20,
+          "file": "MaximumHealth/Epic.png",
+          "sha256": "b0a76b9fb65e10578e90a454f7ee8f84b92dd79c25a47bb3771ebc5c6718e765"
+        },
+        {
+          "rank": "Legendary",
+          "percent": 30,
+          "file": "MaximumHealth/Legendary.png",
+          "sha256": "609e6179431b5cc3dc2b93e1aaf39ad8cf44b74930c202f7e2355d95b1ddd8c5"
+        },
+        {
+          "rank": "Mythic",
+          "percent": 40,
+          "file": "MaximumHealth/Mythic.png",
+          "sha256": "4e1855d4a95976bef7bb568e35e16f8931f24b6ebfccef5ee43a68b7d0e3d42e"
+        }
+      ]
+    },
+    {
+      "id": "MoveSpeed",
+      "label": "Movimento",
+      "title": "PROPULSÃO",
+      "attribute": "MOVIMENTO",
+      "values": [
+        3,
+        5,
+        8,
+        10,
+        15
+      ],
+      "atlas_canvas": [
+        1254,
+        1254
+      ],
+      "cards": [
+        {
+          "rank": "Common",
+          "percent": 3,
+          "file": "MoveSpeed/Common.png",
+          "sha256": "090669f957feae4215d508f19406f5bef8c8ed217b15ad67d50d29fb7e5caeec"
+        },
+        {
+          "rank": "Rare",
+          "percent": 5,
+          "file": "MoveSpeed/Rare.png",
+          "sha256": "5bdc86f32fc1458acabb0e24854e1eda79cdc738450ed39be6e0f69fe4a1a233"
+        },
+        {
+          "rank": "Epic",
+          "percent": 8,
+          "file": "MoveSpeed/Epic.png",
+          "sha256": "c78d68da6cc6c3c9aa1f229bad8e0be84692d069de6cf3497cfd6b95b5e4661e"
+        },
+        {
+          "rank": "Legendary",
+          "percent": 10,
+          "file": "MoveSpeed/Legendary.png",
+          "sha256": "2abd0fa420886474edfdb63490092c6e78b91a8334097d5cce8a975d195b2637"
+        },
+        {
+          "rank": "Mythic",
+          "percent": 15,
+          "file": "MoveSpeed/Mythic.png",
+          "sha256": "ef15c4dade46b91d5aade9a9c96b2094a47801cba31501994efbb2a965d6b51a"
+        }
+      ]
+    },
+    {
+      "id": "SpecialDamage",
+      "label": "Especial",
+      "title": "ESPECIAL",
+      "attribute": "DANO ESPECIAL",
+      "values": [
+        5,
+        10,
+        15,
+        20,
+        30
+      ],
+      "atlas_canvas": [
+        1254,
+        1254
+      ],
+      "cards": [
+        {
+          "rank": "Common",
+          "percent": 5,
+          "file": "SpecialDamage/Common.png",
+          "sha256": "90c2fc3f3f4d024f8b312b78ea3f07bc141b48df01478f8bc7165c2364757fbb"
+        },
+        {
+          "rank": "Rare",
+          "percent": 10,
+          "file": "SpecialDamage/Rare.png",
+          "sha256": "a0cdf8a23f31a1e6938ae1e017806da1869d7dd0ff3af05246b778beca3f77be"
+        },
+        {
+          "rank": "Epic",
+          "percent": 15,
+          "file": "SpecialDamage/Epic.png",
+          "sha256": "3d9244e2d47c2f6e743864bc434102be3d98787621472678895ad156346a97ff"
+        },
+        {
+          "rank": "Legendary",
+          "percent": 20,
+          "file": "SpecialDamage/Legendary.png",
+          "sha256": "1b4446f8034aa58a9dd7313f81dd11867d7d73d0c5f97c1aa8a869d2a7ccad38"
+        },
+        {
+          "rank": "Mythic",
+          "percent": 30,
+          "file": "SpecialDamage/Mythic.png",
+          "sha256": "ec86f965480e8287b5fd691b8c2651f1712c8536ad01b013e09616ad29305372"
+        }
+      ]
+    }
+  ]
+}

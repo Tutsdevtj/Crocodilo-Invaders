@@ -1,0 +1,34 @@
+{
+  "weapon_frames": 12,
+  "projectile_separate": true,
+  "native_canvas": [
+    128,
+    96
+  ],
+  "projectile_canvas": [
+    64,
+    32
+  ],
+  "actual_opaque_colors": 18,
+  "palette_limit": 20,
+  "binary_alpha": true,
+  "preview_integer_scale": 4,
+  "preview_frames": 16,
+  "cycle_duration_ms": 1000,
+  "first_last_match": true,
+  "gameplay_integrated": false,
+  "sha256": [
+    "f8c761af20a36235431d0d7e7e7e14fe58aba8904e2a3b5b4c319b0213cb07cd",
+    "d03001b05297a64bd8e7621a9d3b76b7cc26c91334b51cd522b39720e5b612ef",
+    "ec9a924bbcd787ad12337ae0229ddd216396831d42efac9ac00f5d5a58be74e7",
+    "bf677d83b29512a21173323ffb9da0e6cfab81c38575778ed23044f53409cc38",
+    "013b06867c462f3be68c2cea1e57cf027a46bf0937794104f2e7f4e828218e15",
+    "82b67359eb096daa19dfca9555654b7d47c2e94d5237848a97e1107fdf2dc01d",
+    "82b67359eb096daa19dfca9555654b7d47c2e94d5237848a97e1107fdf2dc01d",
+    "cf0481c24d6dcb4886f53f278cb1d6b488712ffe05500dddc29519648cf3547f",
+    "84798d01cf0c288f09d8b50c15ffb50d0d9bc7e361f99cf150e8d3528847fd64",
+    "093ea3dff04647f63bea3bf5e460cfba7c63f15222475f4d55c08ab7baed450e",
+    "a479d0b47c3ed6280a196671905a7bd8d06abde20de405d6728b7f5c8dfc7701",
+    "f8c761af20a36235431d0d7e7e7e14fe58aba8904e2a3b5b4c319b0213cb07cd"
+  ]
+}

@@ -25,8 +25,8 @@ public sealed class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        Health.Died -= OnDied;
-        Dash.CancelDash();
+        if (Health != null) Health.Died -= OnDied;
+        if (Dash != null) Dash.CancelDash();
     }
 
     private void OnDied()
@@ -36,11 +36,15 @@ public sealed class Player : MonoBehaviour
 
     public void SetGameplayActive(bool active)
     {
-        gameplayActive = active && !Health.IsDead;
-        Movement.SetMoveInput(Vector2.zero);
-        Dash.enabled = gameplayActive;
-        Movement.enabled = gameplayActive;
-        Combat.enabled = gameplayActive;
+        // A recompensa pode encerrar durante a destruição da cena, depois do Dash.
+        gameplayActive = active && Health != null && !Health.IsDead;
+        if (Movement != null)
+        {
+            Movement.SetMoveInput(Vector2.zero);
+            Movement.enabled = gameplayActive;
+        }
+        if (Dash != null) Dash.enabled = gameplayActive;
+        if (Combat != null) Combat.enabled = gameplayActive;
     }
 
     public void SetMoveInput(Vector2 direction)

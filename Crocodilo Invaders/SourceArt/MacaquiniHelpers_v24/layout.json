@@ -1,0 +1,282 @@
+{
+  "tool": "built-in image_gen",
+  "frames": [
+    {
+      "file": "bat_0.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        0,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "6da0a90d770220d3d503ba1b821ce5297b433910df1f625e08c80e3f177b2e52"
+    },
+    {
+      "file": "bat_1.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        1,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "665990447c3bcb384fb8807e1735f3faba935c42dcf0d5121a2a25ca1609802f"
+    },
+    {
+      "file": "bat_2.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        2,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "b86e58b0698951a24c560644655c0a53ba50260468460f7073c8d649986272b2"
+    },
+    {
+      "file": "bat_3.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        3,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "1b05c7f16ac2618a2429926716075fe2f767ea5c554554473aa22d8508bc04a4"
+    },
+    {
+      "file": "bat_4.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        0,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "e4fdf84929f585dac6d03c783e87c64be3866ea52d1b09823f9f2dd005511fe1"
+    },
+    {
+      "file": "bat_5.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        1,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "a7eda74cedd670a54e0b2318e4b03b7ee3b38a0f43bcc525fdb4ac8b83d1449f"
+    },
+    {
+      "file": "bat_6.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        2,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "59d9ff371a34fbe5e0b4e24a970814ed548402b54175f87574455ed9a4e56479"
+    },
+    {
+      "file": "bat_7.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        3,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "0e6928c2f409f7660758b8547bdca58d2a7c786736211089f59f58ea6e0d4547"
+    },
+    {
+      "file": "moth_0.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        0,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "2f82b3fb6eb868fb5b4e1f4a95d5aff4d7dcd266f5371b4f0311b53e3a5cef3b"
+    },
+    {
+      "file": "moth_1.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        1,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "4120f41a585a15787d775b23bf3ed7146fc8748d21cff9f3e0447f1791030edb"
+    },
+    {
+      "file": "moth_2.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        2,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "cd996448cebe87e18799a5a3a679a216643e73b5d9f09876756490bdee95093b"
+    },
+    {
+      "file": "moth_3.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        3,
+        0
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "5441a7f96336837bdc4cc7092d8352d3037ffa9e27102fe72490b86598cb7857"
+    },
+    {
+      "file": "moth_4.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        0,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "8e0085a290ff9f695cd36a9e781538919fb98dac5b4b6ee16c6b0233bbf6f8a0"
+    },
+    {
+      "file": "moth_5.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        2,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "a8417fd92520f0d4ff1cd3d6ae1465657e19bc83941e05d866b0b3d64b37254b"
+    },
+    {
+      "file": "moth_6.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        1,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "7053e1f2f82b65fd590d78692d05e4935ecfca2e38cc16cfbf136444571286f5"
+    },
+    {
+      "file": "moth_7.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "source_grid": [
+        3,
+        1
+      ],
+      "eye_px": [
+        44,
+        72
+      ],
+      "sha256": "762578e0d1e0e6b32adda4d221590f156cc746e8d69754cedb97e1525084d9f9"
+    }
+  ],
+  "animation": {
+    "bat_fps": 16,
+    "moth_fps": 24,
+    "frames_per_species": 8
+  }
+}

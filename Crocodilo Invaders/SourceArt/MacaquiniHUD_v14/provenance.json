@@ -1,0 +1,28 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "frame": "jungle_frame_source.png",
+  "prompt": "Single transparent tropical hardwood/bamboo pixel-art boss health frame, jungle leaves and vines, emerald alien veins, banana-gold accents, empty dark green health track and right portrait opening; no text or character.",
+  "portraits": "Exact crops of existing Macaquini flight_00 v13 and transform_29 v13 (angry roar); no character regeneration.",
+  "export": "Tools/Art/prepare_macaquini_hud_v14.cjs",
+  "layout": {
+    "size": [
+      500,
+      167
+    ],
+    "fill": [
+      55,
+      56,
+      332,
+      20
+    ],
+    "portrait": [
+      395,
+      40,
+      104,
+      104
+    ]
+  },
+  "phaseTwoFrame": "jungle_frame_phase2_source.png",
+  "fullPrompts": "prompts.json"
+}

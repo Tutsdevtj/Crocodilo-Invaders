@@ -1,0 +1,14 @@
+{
+  "corner_alpha": 0,
+  "tail_backmost": true,
+  "individual_pngs": 6,
+  "generator": "built-in image_gen",
+  "phase": 1,
+  "canvas": [
+    760,
+    700
+  ],
+  "all_layers_within_canvas": true,
+  "visual_review": "normal lean monkey limbs; closed banana; no peeking face; extended tail root overlaps behind rear hip; parts and source crop boundaries reviewed",
+  "ora_layers": 6
+}

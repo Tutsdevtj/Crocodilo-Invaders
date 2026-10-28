@@ -1,0 +1,392 @@
+{
+  "name": "Banana boss phase1 vine travel and shoot",
+  "phase": 1,
+  "body_peel": "closed_all_frames",
+  "native_canvas": [
+    160,
+    160
+  ],
+  "frame_count": 24,
+  "duration_ms": 4080,
+  "palette_limit": 24,
+  "composition_includes_vines": true,
+  "world_motion_baked_into_frames": true,
+  "loop_preview": true,
+  "clips": [
+    {
+      "id": "swing_jump",
+      "from": 0,
+      "to": 5
+    },
+    {
+      "id": "catch_stop",
+      "from": 6,
+      "to": 11
+    },
+    {
+      "id": "aim_shoot",
+      "from": 12,
+      "to": 17
+    },
+    {
+      "id": "recover_return",
+      "from": 18,
+      "to": 23
+    }
+  ],
+  "projectile": {
+    "file": "projectile/banana.png",
+    "canvas": [
+      64,
+      32
+    ],
+    "spawn_frame": 15,
+    "spawn_time_ms": 2660,
+    "muzzle_px": [
+      34,
+      84
+    ]
+  },
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/phase1_00.png",
+      "label": "Pendurado no cipó A",
+      "clip": "swing_jump",
+      "start_ms": 0,
+      "duration_ms": 220,
+      "support_hand_px": [
+        68,
+        45
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    },
+    {
+      "index": 1,
+      "file": "frames/phase1_01.png",
+      "label": "Balanço para trás",
+      "clip": "swing_jump",
+      "start_ms": 220,
+      "duration_ms": 140,
+      "support_hand_px": [
+        68,
+        45
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    },
+    {
+      "index": 2,
+      "file": "frames/phase1_02.png",
+      "label": "Prepara salto",
+      "clip": "swing_jump",
+      "start_ms": 360,
+      "duration_ms": 140,
+      "support_hand_px": [
+        70,
+        46
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    },
+    {
+      "index": 3,
+      "file": "frames/phase1_03.png",
+      "label": "Impulso",
+      "clip": "swing_jump",
+      "start_ms": 500,
+      "duration_ms": 120,
+      "support_hand_px": [
+        68,
+        45
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    },
+    {
+      "index": 4,
+      "file": "frames/phase1_04.png",
+      "label": "Solta o cipó A",
+      "clip": "swing_jump",
+      "start_ms": 620,
+      "duration_ms": 100,
+      "support_hand_px": [
+        131,
+        56
+      ],
+      "vine_contact": null,
+      "fire_event": false
+    },
+    {
+      "index": 5,
+      "file": "frames/phase1_05.png",
+      "label": "Salta entre cipós",
+      "clip": "swing_jump",
+      "start_ms": 720,
+      "duration_ms": 140,
+      "support_hand_px": [
+        129,
+        58
+      ],
+      "vine_contact": null,
+      "fire_event": false
+    },
+    {
+      "index": 6,
+      "file": "frames/phase1_06.png",
+      "label": "Alcança o cipó B",
+      "clip": "catch_stop",
+      "start_ms": 860,
+      "duration_ms": 120,
+      "support_hand_px": [
+        125,
+        62
+      ],
+      "vine_contact": null,
+      "fire_event": false
+    },
+    {
+      "index": 7,
+      "file": "frames/phase1_07.png",
+      "label": "Agarra o cipó B",
+      "clip": "catch_stop",
+      "start_ms": 980,
+      "duration_ms": 120,
+      "support_hand_px": [
+        116,
+        58
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 8,
+      "file": "frames/phase1_08.png",
+      "label": "Amortece a chegada",
+      "clip": "catch_stop",
+      "start_ms": 1100,
+      "duration_ms": 140,
+      "support_hand_px": [
+        112,
+        56
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 9,
+      "file": "frames/phase1_09.png",
+      "label": "Oscilação de retorno",
+      "clip": "catch_stop",
+      "start_ms": 1240,
+      "duration_ms": 140,
+      "support_hand_px": [
+        126,
+        54
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 10,
+      "file": "frames/phase1_10.png",
+      "label": "Reduz o balanço",
+      "clip": "catch_stop",
+      "start_ms": 1380,
+      "duration_ms": 180,
+      "support_hand_px": [
+        117,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 11,
+      "file": "frames/phase1_11.png",
+      "label": "Para pendurado",
+      "clip": "catch_stop",
+      "start_ms": 1560,
+      "duration_ms": 300,
+      "support_hand_px": [
+        113,
+        49
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 12,
+      "file": "frames/phase1_12.png",
+      "label": "Levanta a arma",
+      "clip": "aim_shoot",
+      "start_ms": 1860,
+      "duration_ms": 180,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 13,
+      "file": "frames/phase1_13.png",
+      "label": "Mira e espera",
+      "clip": "aim_shoot",
+      "start_ms": 2040,
+      "duration_ms": 500,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 14,
+      "file": "frames/phase1_14.png",
+      "label": "Casca da arma abre",
+      "clip": "aim_shoot",
+      "start_ms": 2540,
+      "duration_ms": 120,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 15,
+      "file": "frames/phase1_15.png",
+      "label": "Dispara a banana",
+      "clip": "aim_shoot",
+      "start_ms": 2660,
+      "duration_ms": 80,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": true,
+      "muzzle_px": [
+        34,
+        84
+      ]
+    },
+    {
+      "index": 16,
+      "file": "frames/phase1_16.png",
+      "label": "Recoil inicial",
+      "clip": "aim_shoot",
+      "start_ms": 2740,
+      "duration_ms": 80,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 17,
+      "file": "frames/phase1_17.png",
+      "label": "Recoil máximo",
+      "clip": "aim_shoot",
+      "start_ms": 2820,
+      "duration_ms": 140,
+      "support_hand_px": [
+        129,
+        48
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 18,
+      "file": "frames/phase1_18.png",
+      "label": "Retorna e fecha a arma",
+      "clip": "recover_return",
+      "start_ms": 2960,
+      "duration_ms": 160,
+      "support_hand_px": [
+        131,
+        56
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 19,
+      "file": "frames/phase1_19.png",
+      "label": "Pausa após o tiro",
+      "clip": "recover_return",
+      "start_ms": 3120,
+      "duration_ms": 300,
+      "support_hand_px": [
+        126,
+        57
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 20,
+      "file": "frames/phase1_20.png",
+      "label": "Prepara novo salto",
+      "clip": "recover_return",
+      "start_ms": 3420,
+      "duration_ms": 140,
+      "support_hand_px": [
+        126,
+        57
+      ],
+      "vine_contact": "B",
+      "fire_event": false
+    },
+    {
+      "index": 21,
+      "file": "frames/phase1_21.png",
+      "label": "Solta o cipó B",
+      "clip": "recover_return",
+      "start_ms": 3560,
+      "duration_ms": 120,
+      "support_hand_px": [
+        66,
+        37
+      ],
+      "vine_contact": null,
+      "fire_event": false
+    },
+    {
+      "index": 22,
+      "file": "frames/phase1_22.png",
+      "label": "Alcança o cipó A",
+      "clip": "recover_return",
+      "start_ms": 3680,
+      "duration_ms": 140,
+      "support_hand_px": [
+        68,
+        46
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    },
+    {
+      "index": 23,
+      "file": "frames/phase1_23.png",
+      "label": "Retoma o cipó A",
+      "clip": "recover_return",
+      "start_ms": 3820,
+      "duration_ms": 260,
+      "support_hand_px": [
+        73,
+        46
+      ],
+      "vine_contact": "A",
+      "fire_event": false
+    }
+  ]
+}

@@ -1,5 +1,33 @@
 # Build Windows e publicação automática
 
+## Pacote local DEV — 22/10/2026
+
+Build atual: `Builds/Windows-DEV/CrocodiloInvaders.exe`.
+Pacote atual: `Builds/Pacotes/CrocodiloInvaders-DEV-BrilhoSemMusica-v25-Windows.rar`.
+RAR5 validado por CRC/conteúdo; SHA-256 em `SHA256SUMS-v25.txt`.
+Extraia a pasta inteira e abra o executável. DEV/F8 no menu abre o teste;
+confirme Enter no loading e use R para rerolls infinitos no DEV.
+
+Inclui as 25 cartas v21 de sistemas instalados na nave e nove sons originais.
+Lendárias e míticas têm somente cintilações discretas, sem música de fundo.
+Um brilho por oferta e ganho dividido entre cartas altas evitam acumular volume.
+Os pacotes de áudio externos adicionados foram removidos. Procedência no arquivo
+`Creditos/Audio/ORIGENS.txt`. Efeitos externos crescem gradualmente por raridade.
+
+Unity 6000.6.4f1: build aprovado e inicialização de 8s sem exceções listadas.
+Play Mode: **122 verificações aprovadas**, incluindo duas/três míticas, ganho,
+brilho compartilhado, pausa, reroll, escolha, saída para menu e todas as 25 artes.
+Logs: `Logs/CardAudio-v25-Play.log`, `Logs/WindowsDEV-Sparkle-v25-Build.log`
+e `Logs/WindowsDEV-Sparkle-v25-Startup.log`.
+
+Prévia com áudio: `Docs/ArtPreviews/CardAudio_v25/brilho-sem-musica-volume-controlado.mp4`.
+Fotos atuais: `Docs/ArtPreviews/CardReview`. Detalhes: [AudioCartasBrilho_v25.md](AudioCartasBrilho_v25.md).
+Empacotador ZIP/RAR: `Tools/PackageDev.ps1`. Compilações e arquivos compactados
+ficam em Builds, ignorados pelo Git; o build de PR no CI gera seu próprio artifact.
+
+Os backups completos locais ficam em `Backup/Cartas`, fora da pasta Unity.
+O histórico já rastreado também está preservado nessa pasta no Git.
+
 O workflow da raiz do repositório, `.github/workflows/windows-release.yml`, faz:
 
 1. Validação rápida do projeto em pushes e pull requests para `main`.

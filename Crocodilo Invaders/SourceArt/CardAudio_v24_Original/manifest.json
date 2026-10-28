@@ -1,0 +1,88 @@
+{
+  "version": 24,
+  "external_audio_assets": [],
+  "composition": "Original procedural reward sounds for Crocodilo Invaders",
+  "instruments": [
+    "soft arcade pulse/triangle",
+    "FM crystal chime",
+    "warm sine pad",
+    "seeded noise shuffle"
+  ],
+  "recipe": "Tools/Audio/prepare_card_audio_v24.py",
+  "seed": 24022,
+  "sample_rate": 44100,
+  "outputs": [
+    {
+      "file": "Assets/Audio/CardRewards/CommonReveal.wav",
+      "sha256": "ec8432ac241ff2b254bdd45b120f9d472f7f90e735f4f8423622b265abf706ff",
+      "duration": 0.26,
+      "rms": 0.03454415308704783,
+      "peak": 0.09214648490243918,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/RareReveal.wav",
+      "sha256": "c70cba09f36641f1984f96b153bb6ed421a9db7a585cae394cf61bcdefff2549",
+      "duration": 0.62,
+      "rms": 0.05690358029233259,
+      "peak": 0.17158348261486958,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/EpicReveal.wav",
+      "sha256": "12de434dc446e6e37474835e5c78e1d96762d5b013947e8573970bc7b1834077",
+      "duration": 0.94,
+      "rms": 0.07789250185044229,
+      "peak": 0.22704455718550334,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/LegendaryReveal.wav",
+      "sha256": "8d0845184c2eb274059fff56101ffedea0902aa8536772f00aab5e6e9f3d1aea",
+      "duration": 1.4,
+      "rms": 0.10278268529503207,
+      "peak": 0.2766779230972498,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/MythicReveal.wav",
+      "sha256": "c5d0c096a45494454f0d5ee87db9b7300856274b7c4f9b882ca9cf0142c1fa40",
+      "duration": 1.95,
+      "rms": 0.12168400706867857,
+      "peak": 0.33415709329910853,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/ChooseReward.wav",
+      "sha256": "3851b7c76a0fab6e490cc081e30fc60976589e077bcb3130ef8b7fa3bc083b30",
+      "duration": 0.65,
+      "rms": 0.06500866770567126,
+      "peak": 0.19644607340758397,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/Reroll.wav",
+      "sha256": "115ae8b505bea547259df502b22752925dc6d7fe1ac3fb7815b500207a84ebc6",
+      "duration": 0.2,
+      "rms": 0.020182053769592746,
+      "peak": 0.09152008796014789,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/LegendaryTreasureLoop.wav",
+      "sha256": "a455db61db39c40c9264730b8e3603af08d0b26d61ca3eeed9e420635d3d9d58",
+      "duration": 6.4,
+      "rms": 0.07077336249601635,
+      "peak": 0.21782253705171675,
+      "channels": 1
+    },
+    {
+      "file": "Assets/Audio/CardRewards/MythicTreasureLoop.wav",
+      "sha256": "cd710417877fec0ee20a236ea35cb5887022e0fa31d477a37305a1642de5d9f2",
+      "duration": 6.4,
+      "rms": 0.09336444097714203,
+      "peak": 0.28250001057240787,
+      "channels": 1
+    }
+  ]
+}

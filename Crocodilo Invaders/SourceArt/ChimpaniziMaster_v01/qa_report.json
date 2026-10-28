@@ -1,0 +1,19 @@
+{
+  "recomposition_pixel_difference": 0,
+  "part_count": 19,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "colors_outside_palette": 0,
+  "all_pivots_inside_export": true,
+  "opaque_bounds_px": [
+    20,
+    11,
+    220,
+    243
+  ],
+  "palette_used": 26,
+  "animation_created": false,
+  "unity_modified": false
+}

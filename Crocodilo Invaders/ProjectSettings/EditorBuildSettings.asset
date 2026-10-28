@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BaseImprovisada.unity
     guid: 2789bc50dea4dc444afe71a057dc75b2
+  - enabled: 1
+    path: Assets/Scenes/StageTwoJungle.unity
+    guid: 8169f799738ab0b429e9340cb3698e19
   m_configObjects: {}

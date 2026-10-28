@@ -1,0 +1,83 @@
+{
+  "version": 18,
+  "date": "2026-10-22",
+  "status": "Concept sheets; production textures unchanged",
+  "generator": "Built-in image_gen",
+  "approved_rare_baseline": "Docs/ArtPreviews/CardCollection_v17/ShipSystems-concept-projectile-fixed.png",
+  "order": [
+    "AttackDamage",
+    "AttackSpeed",
+    "MaximumHealth",
+    "MoveSpeed",
+    "SpecialDamage"
+  ],
+  "values": {
+    "Common": [
+      5,
+      5,
+      10,
+      3,
+      5
+    ],
+    "Rare": [
+      10,
+      10,
+      15,
+      5,
+      10
+    ],
+    "Epic": [
+      15,
+      15,
+      20,
+      8,
+      15
+    ],
+    "Legendary": [
+      20,
+      20,
+      30,
+      10,
+      20
+    ],
+    "Mythic": [
+      30,
+      30,
+      40,
+      15,
+      30
+    ]
+  },
+  "sheets": [
+    {
+      "rarity": "Common",
+      "file": "Docs/ArtPreviews/CardCollection_v18/01-comuns.png",
+      "prompt": "Common-prompt.txt",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-4aae2520-ed30-49ab-99bf-a74f5fb8fb03.png"
+    },
+    {
+      "rarity": "Rare",
+      "file": "Docs/ArtPreviews/CardCollection_v18/02-raras.png",
+      "prompt": "Rare-prompt.txt",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-19c026be-353b-4cbf-8133-0d64e6afe727.png"
+    },
+    {
+      "rarity": "Epic",
+      "file": "Docs/ArtPreviews/CardCollection_v18/03-epicas.png",
+      "prompt": "Epic-prompt.txt",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-9703ac44-89a4-4c38-abb1-793b2f69749b.png"
+    },
+    {
+      "rarity": "Legendary",
+      "file": "Docs/ArtPreviews/CardCollection_v18/04-lendarias.png",
+      "prompt": "Legendary-prompt.txt",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-48bf24d6-60fb-4347-9765-45debd6cd7b8.png"
+    },
+    {
+      "rarity": "Mythic",
+      "file": "Docs/ArtPreviews/CardCollection_v18/05-miticas.png",
+      "prompt": "Mythic-prompt.txt",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-7a428d70-377f-4dda-b1f5-9401b76656f3.png"
+    }
+  ]
+}

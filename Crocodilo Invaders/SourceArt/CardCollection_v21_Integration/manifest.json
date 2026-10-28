@@ -1,0 +1,721 @@
+{
+  "version": 21,
+  "approved": "v19 Common/Rare/Epic + v20 Legendary full art / Mythic corrected left Attack rail",
+  "applied": true,
+  "catalogSha256": "b2e7b29fc814bebda640ebdf9158baf9e4a180e260bc9eea7fa2f550d673f9da",
+  "backSha256": "b24bfa4cf09a5786254968033143dc4397ec6bf532accc14b99c1f0d5a7b0c32",
+  "cards": [
+    {
+      "family": "AttackDamage",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/AttackDamage/Common.png",
+      "sha256": "454e0e8a91baebea8425deb1bd4c8fa36727c4f74e2997c1aed3829b413da08d",
+      "metaSha256": "16ed3d66a3e904f3e276decb2765313f30acdd4fadd25257e7752b98921da4df",
+      "percent": 5,
+      "transparentPixels": 18132,
+      "sourceBounds": [
+        25,
+        62,
+        399,
+        635
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Common.png",
+      "sha256": "1632748c0be43869886f735a18fa32a5e909d48fcac785e5fa5519596647373d",
+      "metaSha256": "072b830ac706fbb2dc409188eb965c296260f46b6981d3ea6aee29da8a63851e",
+      "percent": 5,
+      "transparentPixels": 18620,
+      "sourceBounds": [
+        446,
+        62,
+        390,
+        636
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Common.png",
+      "sha256": "610c5e7e2c86fc85677545b7f2bdf650f651189f2837b08b487ebe612043c9e2",
+      "metaSha256": "aac63889895fd5c53ecc56d867f18946422b234750c7c20263f91d98a0a75c18",
+      "percent": 10,
+      "transparentPixels": 18328,
+      "sourceBounds": [
+        856,
+        62,
+        359,
+        636
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Common.png",
+      "sha256": "c2a9c4d88a240e4c61684be60229a5f8d03c9b33693955fc9e3a61bdc60021c5",
+      "metaSha256": "21b5846de9d73a38557041dd42f4e0ec046e9559d09780d01f43cc7396e8976c",
+      "percent": 3,
+      "transparentPixels": 19248,
+      "sourceBounds": [
+        1232,
+        62,
+        393,
+        636
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Common.png",
+      "sha256": "cd613fbc321e1a507cf1782d5dd12649013b875717893037bb61a8e531a37965",
+      "metaSha256": "a5dc9935ab1d53ecccb12ee62b735d434fc16f35d405d3cb5dc85b02fe43cdea",
+      "percent": 5,
+      "transparentPixels": 18416,
+      "sourceBounds": [
+        1646,
+        62,
+        400,
+        636
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/AttackDamage/Rare.png",
+      "sha256": "7efc534526133db3f13c320b81d150951d9be0c887ac6bb06d2a3e13ca5ba197",
+      "metaSha256": "80cacede44c603cb084520e7a72cde76d689bd6c3a78a46bf7f3df4e69e8e800",
+      "percent": 10,
+      "transparentPixels": 22380,
+      "sourceBounds": [
+        14,
+        56,
+        419,
+        638
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Rare.png",
+      "sha256": "06cd148ad04043da8e43e3c20f380297dfdfa6f3f68f5079c1d33231e6e732e1",
+      "metaSha256": "211e5ee1f57807f9f65f7a9e74ad1e1f71824d10a3c0f2f071ff85eb9ce57256",
+      "percent": 10,
+      "transparentPixels": 23072,
+      "sourceBounds": [
+        439,
+        56,
+        412,
+        638
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Rare.png",
+      "sha256": "d7534b0a6970d380eea6d40f69158446371add70f02a347d48564248fdd53dbb",
+      "metaSha256": "05502045f6590474683e3f96dd97729023d6acb6f1c35fb50c6df6c252486c7f",
+      "percent": 15,
+      "transparentPixels": 24792,
+      "sourceBounds": [
+        853,
+        56,
+        366,
+        637
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Rare.png",
+      "sha256": "cc1820765c1f12f36a3d373a63ab26b1929bfa1b528039bfb5e6402bf2255caa",
+      "metaSha256": "e936d1a51895a0858ccd1d075bbac01c4c9ab4b3186b775cb47e16bf01740b6f",
+      "percent": 5,
+      "transparentPixels": 23508,
+      "sourceBounds": [
+        1224,
+        56,
+        406,
+        638
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Rare.png",
+      "sha256": "6430f47fe611b9f7fa068412bc44fb46480c29173e38f81e62188708c5f7433a",
+      "metaSha256": "8423204c621bb566ca699ae739f896bf3b4c39196929aeb7cdb91bbe5d19d585",
+      "percent": 10,
+      "transparentPixels": 23200,
+      "sourceBounds": [
+        1636,
+        56,
+        420,
+        637
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/AttackDamage/Epic.png",
+      "sha256": "0b0b461f567473192ea212c31db5e12d13ec1aa0aefef97e7c96b5189a4e2b8e",
+      "metaSha256": "7a9ff763b96ac49cfd0f6050c9cb5cb965996ca0774c00473590ab8351c58ba5",
+      "percent": 15,
+      "transparentPixels": 23560,
+      "sourceBounds": [
+        14,
+        51,
+        422,
+        655
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Epic.png",
+      "sha256": "ec9eab80b929828df6c6d288c9ece64e180561aa0e31be95178e4be2aefc55ab",
+      "metaSha256": "4d517007777f17dfa02fe8920380c3c2d904f20916cb00aa0354ac8cd1d5ba1e",
+      "percent": 15,
+      "transparentPixels": 25988,
+      "sourceBounds": [
+        434,
+        51,
+        421,
+        655
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Epic.png",
+      "sha256": "b0b355b58a9a91fb5da7e34b7b3d5dc2150cbf9bcbaf14b739a924cabfc70dba",
+      "metaSha256": "83051563d83e391fb12fc442755d6d458b6942a929ef5a7a9ab570ea0e6c97b6",
+      "percent": 20,
+      "transparentPixels": 26156,
+      "sourceBounds": [
+        851,
+        51,
+        397,
+        655
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Epic.png",
+      "sha256": "76b847f92fa04267d6020c440da7a5f9c34281b8d63c14c797a457d3695ace90",
+      "metaSha256": "3f42d39d990dd45e025332bd24671f56ce5d928006838f5a3d843367da516d03",
+      "percent": 8,
+      "transparentPixels": 26624,
+      "sourceBounds": [
+        1239,
+        51,
+        407,
+        655
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Epic.png",
+      "sha256": "2cfa3e4f6ba4b3db941286b2ceb315c614e7ebeb58ab1ef5e119173639285692",
+      "metaSha256": "745644dece1e610f93a22fba91fcfdccaeb95440e6e2069360306eb98b62ca87",
+      "percent": 15,
+      "transparentPixels": 25076,
+      "sourceBounds": [
+        1637,
+        51,
+        421,
+        655
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/AttackDamage/Legendary.png",
+      "sha256": "8a136b081f6fb505e93f1f0187e06bce61d3df65a097632df8c331e929c829e4",
+      "metaSha256": "f8353c95cbee5aa745511e42a62096146d932889909dccf7db910d9267ccd49b",
+      "percent": 20,
+      "transparentPixels": 27608,
+      "sourceBounds": [
+        12,
+        26,
+        422,
+        687
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Legendary.png",
+      "sha256": "d99b614bf6eef5b7c7b701e8dba0f879f7f3e612ee15f9c6b75dfa77276bfc6d",
+      "metaSha256": "773a25c3a413d95457a0efad49b3ef7c374d0127801549f593c967ca7103bf33",
+      "percent": 20,
+      "transparentPixels": 28692,
+      "sourceBounds": [
+        440,
+        26,
+        407,
+        687
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Legendary.png",
+      "sha256": "eeb85c2edb627e4ff9b901405318b15bb1078cae8db40a345c2c6413ea466b4a",
+      "metaSha256": "9eaaac8d94c346a42fc89481393e28dc4b0831a576bc7d94cb42feafd9a70e32",
+      "percent": 30,
+      "transparentPixels": 28028,
+      "sourceBounds": [
+        854,
+        25,
+        363,
+        688
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Legendary.png",
+      "sha256": "bcdebd0bad8855ce26adbab7e35ffc8d5efcd7bdafb2b1aa5453653f7a5e8874",
+      "metaSha256": "246cc259673dc066174af61e2144da499bdf7f5ace5db1d840eb4ee5569c20ee",
+      "percent": 10,
+      "transparentPixels": 27632,
+      "sourceBounds": [
+        1224,
+        26,
+        404,
+        687
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Legendary.png",
+      "sha256": "808bb2ac3d3f5d9341936f7bf950137beb187adc5793ad008351fc811d32e836",
+      "metaSha256": "3640d7cc51ba8459f4eadb5be06406ca1817d719ce7b2cc19da39c9aa361a321",
+      "percent": 20,
+      "transparentPixels": 27128,
+      "sourceBounds": [
+        1637,
+        26,
+        416,
+        687
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/AttackDamage/Mythic.png",
+      "sha256": "59538eaa287de5a0dcc2c333d40a38dafa5a7aa487adb04dba1340586d1967bc",
+      "metaSha256": "221b23c43a83714906e59cf79942c5436277c564e7ff1b0bae3ea73869c15ce9",
+      "percent": 30,
+      "transparentPixels": 31636,
+      "sourceBounds": [
+        38,
+        48,
+        391,
+        645
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Mythic.png",
+      "sha256": "f67631bbf401e9eaddd325b77821d6cd73c66427694341f59eb22e736bd5ce11",
+      "metaSha256": "76c2a15b5a05867c619913e0af3169922da8a695b1c36e796ed74315906d4798",
+      "percent": 30,
+      "transparentPixels": 32264,
+      "sourceBounds": [
+        454,
+        48,
+        393,
+        645
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Mythic.png",
+      "sha256": "d3f2eb460e0aca11ddfdcbeb71bd5b2d261a2e5850c7ae0db715f90578aad493",
+      "metaSha256": "27cc9a1ab7e59dd78f2052244f886e26dea3b0d59de90418dd0563af8ee402ce",
+      "percent": 40,
+      "transparentPixels": 34108,
+      "sourceBounds": [
+        844,
+        48,
+        386,
+        645
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Mythic.png",
+      "sha256": "cd9f29c540fe6e6712722e25b8730671ca759fa9bbda869f85a94d1cd04b46bb",
+      "metaSha256": "f0070f98fb7338e8dfc82d8eb138d68df9d8049b4e4fa686de6263a607fe7cce",
+      "percent": 15,
+      "transparentPixels": 39492,
+      "sourceBounds": [
+        1229,
+        48,
+        390,
+        645
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Mythic.png",
+      "sha256": "c38886d501587c5e5ea9a424c6f3ed93982a89f83b6d84f43a6fb49139b5d484",
+      "metaSha256": "481cc96ed0233718884a39bc8aeb5fc768f3a59296a6428593dc328e74aed041",
+      "percent": 30,
+      "transparentPixels": 38404,
+      "sourceBounds": [
+        1655,
+        47,
+        399,
+        646
+      ],
+      "logicalSize": [
+        172,
+        256
+      ]
+    }
+  ],
+  "sheets": [
+    {
+      "rarity": "Common",
+      "file": "SourceArt/CardCollection_v21_Integration/Sheets/Common.png",
+      "sha256": "7fff0724fee6e1d03454ba079e71b955422be0a9d061c2e722a3c8b0f56b0ef2",
+      "silhouettes": [
+        {
+          "id": 1,
+          "x0": 25,
+          "y0": 62,
+          "x1": 423,
+          "y1": 696,
+          "count": 250563
+        },
+        {
+          "id": 2,
+          "x0": 446,
+          "y0": 62,
+          "x1": 835,
+          "y1": 697,
+          "count": 244904
+        },
+        {
+          "id": 3,
+          "x0": 856,
+          "y0": 62,
+          "x1": 1214,
+          "y1": 697,
+          "count": 225255
+        },
+        {
+          "id": 4,
+          "x0": 1232,
+          "y0": 62,
+          "x1": 1624,
+          "y1": 697,
+          "count": 245464
+        },
+        {
+          "id": 5,
+          "x0": 1646,
+          "y0": 62,
+          "x1": 2045,
+          "y1": 697,
+          "count": 250884
+        }
+      ]
+    },
+    {
+      "rarity": "Rare",
+      "file": "SourceArt/CardCollection_v21_Integration/Sheets/Rare.png",
+      "sha256": "8e15ab854ffee6f76f5a9664d13fa0fa7d458919de5494b1b70a5abfa737c6ea",
+      "silhouettes": [
+        {
+          "id": 1,
+          "x0": 14,
+          "y0": 56,
+          "x1": 432,
+          "y1": 693,
+          "count": 258281
+        },
+        {
+          "id": 2,
+          "x0": 439,
+          "y0": 56,
+          "x1": 850,
+          "y1": 693,
+          "count": 253329
+        },
+        {
+          "id": 3,
+          "x0": 853,
+          "y0": 56,
+          "x1": 1218,
+          "y1": 692,
+          "count": 222629
+        },
+        {
+          "id": 4,
+          "x0": 1224,
+          "y0": 56,
+          "x1": 1629,
+          "y1": 693,
+          "count": 249049
+        },
+        {
+          "id": 5,
+          "x0": 1636,
+          "y0": 56,
+          "x1": 2055,
+          "y1": 692,
+          "count": 257820
+        }
+      ]
+    },
+    {
+      "rarity": "Epic",
+      "file": "SourceArt/CardCollection_v21_Integration/Sheets/Epic.png",
+      "sha256": "e07a57d5b1809cc7cc8e8b974302abe43880f363a572beb37e8b985ffa76b058",
+      "silhouettes": [
+        {
+          "id": 1,
+          "x0": 14,
+          "y0": 51,
+          "x1": 435,
+          "y1": 705,
+          "count": 265785
+        },
+        {
+          "id": 2,
+          "x0": 434,
+          "y0": 51,
+          "x1": 854,
+          "y1": 705,
+          "count": 261204
+        },
+        {
+          "id": 3,
+          "x0": 851,
+          "y0": 51,
+          "x1": 1247,
+          "y1": 705,
+          "count": 246162
+        },
+        {
+          "id": 4,
+          "x0": 1239,
+          "y0": 51,
+          "x1": 1645,
+          "y1": 705,
+          "count": 252277
+        },
+        {
+          "id": 5,
+          "x0": 1637,
+          "y0": 51,
+          "x1": 2057,
+          "y1": 705,
+          "count": 262688
+        }
+      ]
+    },
+    {
+      "rarity": "Legendary",
+      "file": "SourceArt/CardCollection_v21_Integration/Sheets/Legendary.png",
+      "sha256": "6f259053374aa807ea13074063a9c12609ec7ca4fd60c6d1499a57a9ebc56a33",
+      "silhouettes": [
+        {
+          "id": 2,
+          "x0": 12,
+          "y0": 26,
+          "x1": 433,
+          "y1": 712,
+          "count": 271593
+        },
+        {
+          "id": 3,
+          "x0": 440,
+          "y0": 26,
+          "x1": 846,
+          "y1": 712,
+          "count": 260922
+        },
+        {
+          "id": 1,
+          "x0": 854,
+          "y0": 25,
+          "x1": 1216,
+          "y1": 712,
+          "count": 233582
+        },
+        {
+          "id": 4,
+          "x0": 1224,
+          "y0": 26,
+          "x1": 1627,
+          "y1": 712,
+          "count": 260416
+        },
+        {
+          "id": 5,
+          "x0": 1637,
+          "y0": 26,
+          "x1": 2052,
+          "y1": 712,
+          "count": 268591
+        }
+      ]
+    },
+    {
+      "rarity": "Mythic",
+      "file": "SourceArt/CardCollection_v21_Integration/Sheets/Mythic.png",
+      "sha256": "bcd50d0145397dd40fcc2a5ff4e3a420912cc93a6b04fb44704dd543f8046a49",
+      "silhouettes": [
+        {
+          "id": 2,
+          "x0": 38,
+          "y0": 48,
+          "x1": 428,
+          "y1": 692,
+          "count": 230654
+        },
+        {
+          "id": 3,
+          "x0": 454,
+          "y0": 48,
+          "x1": 846,
+          "y1": 692,
+          "count": 231161
+        },
+        {
+          "id": 4,
+          "x0": 844,
+          "y0": 48,
+          "x1": 1229,
+          "y1": 692,
+          "count": 224064
+        },
+        {
+          "id": 5,
+          "x0": 1229,
+          "y0": 48,
+          "x1": 1618,
+          "y1": 692,
+          "count": 219102
+        },
+        {
+          "id": 1,
+          "x0": 1655,
+          "y0": 47,
+          "x1": 2053,
+          "y1": 692,
+          "count": 226165
+        }
+      ]
+    }
+  ]
+}

@@ -47,6 +47,13 @@ public sealed class ScrollingLayer : MonoBehaviour
         scrollSpeed = speed;
     }
 
+    // Called on an inactive layer before Awake, sharing the BattleSky tiling behaviour.
+    public void Configure(Camera camera, float speed, SpriteRenderer[] tiles)
+    {
+        Configure(camera, speed);
+        segments = tiles;
+    }
+
     private void Update()
     {
         if (targetCamera == null) return;

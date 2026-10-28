@@ -1,0 +1,32 @@
+{
+  "version": 20,
+  "date": "2026-10-22",
+  "generator": "Built-in image_gen",
+  "status": "Visual concept, production Unity assets unchanged",
+  "preserved_tiers": [
+    "Docs/ArtPreviews/CardCollection_v19/01-comuns.png",
+    "Docs/ArtPreviews/CardCollection_v19/02-raras.png",
+    "Docs/ArtPreviews/CardCollection_v19/03-epicas.png"
+  ],
+  "sheets": [
+    {
+      "rarity": "Legendary",
+      "file": "Docs/ArtPreviews/CardCollection_v20/04-lendarias-full-art.png",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-28675546-294c-47e8-9183-a3c40cbbe450.png"
+    },
+    {
+      "rarity": "Mythic",
+      "file": "Docs/ArtPreviews/CardCollection_v20/05-miticas-relevo.png",
+      "generated_source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-857713d0-13a6-44f4-87d0-0bf753af487d.png"
+    }
+  ],
+  "changes": {
+    "Legendary": "Continuous full art behind smaller translucent text bands; gold frame contains equipment",
+    "Mythic": "Stronger illustrated relief and connected hardware overlapping side frame, with contact shadows and spaced presentation"
+  },
+  "prompts": [
+    "Legendary-prompt.txt",
+    "Mythic-prompt.txt",
+    "Mythic-refinement-prompt.txt"
+  ]
+}

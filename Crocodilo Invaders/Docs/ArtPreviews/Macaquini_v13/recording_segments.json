@@ -1,0 +1,25 @@
+{
+  "recordedSnapshots": {
+    "cap": 16.462871999999994,
+    "pack": 21.393884
+  },
+  "selected": [
+    {
+      "name": "reach_right",
+      "frame": "frame_00318.png",
+      "time": 22.340806
+    },
+    {
+      "name": "grip_right",
+      "frame": "frame_00324.png",
+      "time": 22.753331
+    },
+    {
+      "name": "half_entry",
+      "frame": "frame_00333.png",
+      "time": 23.387904999999993
+    }
+  ],
+  "focusStart": 13.462871999999994,
+  "focusDuration": 12.5
+}

@@ -1,0 +1,48 @@
+{
+  "generation": "built-in image_gen",
+  "count": 7,
+  "poses": [
+    {
+      "width": 1254,
+      "height": 1254,
+      "sha256": "EBDD5B274A0E72E536E17A81B99F176877BFA76182A9D26EA96D1948B21FF55C",
+      "file": "cipo/boss_semiaberto_cipo.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "02DC2611FC456684CBF8AC7EA321D42E54F792FB4BA173C4794C938B6A121451",
+      "file": "transformacao/transformacao_00.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "A18A39E7F126A2E15B034E3B695A8A36252EAF3B988137ADB21D6AB0A1AC214C",
+      "file": "transformacao/transformacao_01.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "5E3DF875C2597D20CCB7EF3E4F716BD02C69DDACB34546875678D27B09D49C03",
+      "file": "transformacao/transformacao_02.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "CF03C2F6747F5640E8119239A8F3B7B80D09A7DE5B7D5382B6DBC818C1BE0D73",
+      "file": "transformacao/transformacao_03.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "C1D5235CC1C10886B2EFEC06B549D91510CCF389C0F860BEB7CD2432632FC4B0",
+      "file": "transformacao/transformacao_04.png"
+    },
+    {
+      "width": 256,
+      "height": 256,
+      "sha256": "058741405A77C45CC40E0C0BCE34E70C0B40817D8D7EE732F782A0A06F73C33E",
+      "file": "transformacao/transformacao_05.png"
+    }
+  ]
+}

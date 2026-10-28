@@ -1,0 +1,17 @@
+{
+  "individual_pngs": 6,
+  "status": "static modular design master, no gameplay integration",
+  "canvas": [
+    680,
+    650
+  ],
+  "generator": "built-in image_gen",
+  "narrative": "Alien-infected banana imprisons monkey. Defeat banana to free monkey.",
+  "corner_alpha": 0,
+  "references": [
+    "Goosini",
+    "B. Crocodilo",
+    "revision of v01 from this conversation"
+  ],
+  "ora_layers": 6
+}

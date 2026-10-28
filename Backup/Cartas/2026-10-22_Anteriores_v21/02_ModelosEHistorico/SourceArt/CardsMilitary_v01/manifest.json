@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "canvas": [
+    180,
+    268
+  ],
+  "icon_native": [
+    64,
+    64
+  ],
+  "icon_display_scale": 2,
+  "rarities": [
+    {
+      "id": "Common",
+      "label": "COMUM",
+      "color": "#b0c5c9",
+      "insignia_marks": 1
+    },
+    {
+      "id": "Rare",
+      "label": "RARO",
+      "color": "#45b9f2",
+      "insignia_marks": 2
+    },
+    {
+      "id": "Epic",
+      "label": "ÉPICO",
+      "color": "#bb81f0",
+      "insignia_marks": 3
+    },
+    {
+      "id": "Legendary",
+      "label": "LENDÁRIO",
+      "color": "#ffc64b",
+      "insignia_marks": 4
+    },
+    {
+      "id": "Mythic",
+      "label": "MÍTICO",
+      "color": "#ff6950",
+      "insignia_marks": 5
+    }
+  ],
+  "cards": [
+    {
+      "kind": "AttackDamage",
+      "rarity": "Common",
+      "percent": 5,
+      "file": "Assets/Resources/Cards/AttackDamage/Common.png",
+      "sha256": "fb54a1f959eaf7bb8439c979cdada7302f061cd972168bff55c63c0744e33a94"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Rare",
+      "percent": 10,
+      "file": "Assets/Resources/Cards/AttackDamage/Rare.png",
+      "sha256": "148723638287d53dc96c20e4c5836572cbcd174531fe953bcf46973c893a639e"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Epic",
+      "percent": 15,
+      "file": "Assets/Resources/Cards/AttackDamage/Epic.png",
+      "sha256": "380d1c42d62248a8a2b94d06b5cb43d78082d4d665b69710570053a869cab795"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Legendary",
+      "percent": 20,
+      "file": "Assets/Resources/Cards/AttackDamage/Legendary.png",
+      "sha256": "6a7f047acccab93fe73381c766a964da47092dda537d6fe5d0273fb9dfec505b"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Mythic",
+      "percent": 30,
+      "file": "Assets/Resources/Cards/AttackDamage/Mythic.png",
+      "sha256": "baa0a71b74e9d6be9cce2535251bd1d8779440085a74db06c83bd88e66c78e98"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Common",
+      "percent": 5,
+      "file": "Assets/Resources/Cards/AttackSpeed/Common.png",
+      "sha256": "4ceb0db64e7ac7d013e898b00685944935bd00973c04425ffa957085e75852fe"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Rare",
+      "percent": 10,
+      "file": "Assets/Resources/Cards/AttackSpeed/Rare.png",
+      "sha256": "995717ddd22f265501aa64381770938733651e169024c38ae89b21086dab5d25"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Epic",
+      "percent": 15,
+      "file": "Assets/Resources/Cards/AttackSpeed/Epic.png",
+      "sha256": "4e202515aa14d62b652133789355d4a6dddddbda97ef953f790ee7f549ee984e"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Legendary",
+      "percent": 20,
+      "file": "Assets/Resources/Cards/AttackSpeed/Legendary.png",
+      "sha256": "2f28702913992b8a6d4439cd7aeceb1d3b2560588c0d417a26894883a8b42bdf"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Mythic",
+      "percent": 30,
+      "file": "Assets/Resources/Cards/AttackSpeed/Mythic.png",
+      "sha256": "c4755732f45ad333cede2af80356d75755d6d7d95043ee7f922769b4133c6ccc"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Common",
+      "percent": 10,
+      "file": "Assets/Resources/Cards/MaximumHealth/Common.png",
+      "sha256": "d2d041fcb80e08eb8d77e3431eac567fa61924d48e06425e709171177d725ef5"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Rare",
+      "percent": 15,
+      "file": "Assets/Resources/Cards/MaximumHealth/Rare.png",
+      "sha256": "055d6eeca86db748aed8d8d9691242e236211c8bee41dd04e0ac2d5ba88841c9"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Epic",
+      "percent": 20,
+      "file": "Assets/Resources/Cards/MaximumHealth/Epic.png",
+      "sha256": "8460cc661b5113cab17d7c8e5037e1d0d635d725874504a54614dfc991c99ea9"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Legendary",
+      "percent": 30,
+      "file": "Assets/Resources/Cards/MaximumHealth/Legendary.png",
+      "sha256": "97d3a71b819548825d11abdbd8c29e6a7f560e6853716b59be743f092cf72a8e"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Mythic",
+      "percent": 40,
+      "file": "Assets/Resources/Cards/MaximumHealth/Mythic.png",
+      "sha256": "34f5b8d469c7b5b5fc497b923f3e69b8569a1c993cc1a38287867df1c6570116"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Common",
+      "percent": 3,
+      "file": "Assets/Resources/Cards/MoveSpeed/Common.png",
+      "sha256": "6e096921096fbf1e28ee3941aa4eea37276c1bf05a946f5fedab8246a8debf57"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Rare",
+      "percent": 5,
+      "file": "Assets/Resources/Cards/MoveSpeed/Rare.png",
+      "sha256": "23e22412da0702a285f29fb0ce8222fc3839de4a6cb358ed56bfa26f0aa2d8fa"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Epic",
+      "percent": 8,
+      "file": "Assets/Resources/Cards/MoveSpeed/Epic.png",
+      "sha256": "e910734a8e9e35aad30d65944569794c857db6cfa76f27297b832291b77a5fc6"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Legendary",
+      "percent": 10,
+      "file": "Assets/Resources/Cards/MoveSpeed/Legendary.png",
+      "sha256": "91dffebe71ae720336c22436f08efc59248318c689d4c97d0db18a0a536e787d"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Mythic",
+      "percent": 15,
+      "file": "Assets/Resources/Cards/MoveSpeed/Mythic.png",
+      "sha256": "44ca42458e577ecf210b0b1a9ecfb7a51225f6f4d8a64aa9eead52e7be53da1d"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Common",
+      "percent": 5,
+      "file": "Assets/Resources/Cards/SpecialDamage/Common.png",
+      "sha256": "641d1f8d6bb2c940d5865d16f58ca68a8f5a0d6d993574dc78352917c52f4cdb"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Rare",
+      "percent": 10,
+      "file": "Assets/Resources/Cards/SpecialDamage/Rare.png",
+      "sha256": "ca5f2b45d90e554e7881d5a7baaef0868f7fc66f7cdc89b5be193d2e97c36f0e"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Epic",
+      "percent": 15,
+      "file": "Assets/Resources/Cards/SpecialDamage/Epic.png",
+      "sha256": "4f828a66788b6103c077d98ae48a138c72aaf5d622ba2b65166fd1ab7c277104"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Legendary",
+      "percent": 20,
+      "file": "Assets/Resources/Cards/SpecialDamage/Legendary.png",
+      "sha256": "2243d2a0c7343657c0f1a9c918b964ade95ea2c57702ee833550046f33de543b"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Mythic",
+      "percent": 30,
+      "file": "Assets/Resources/Cards/SpecialDamage/Mythic.png",
+      "sha256": "5c3a3a1ac587d00866e335f4e96515d8daa8ee30e13848096a846b51921f71d8"
+    }
+  ],
+  "back": "Assets/Art/Cards/Back.png",
+  "source": "AI-generated atlas, referenced to project Crocodilo portrait and navy/gold UI. Bitmap typography and framing composed by build_military_cards.cjs."
+}

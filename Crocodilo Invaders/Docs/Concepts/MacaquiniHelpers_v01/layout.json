@@ -1,0 +1,91 @@
+{
+  "source": "macaquinhos-conceitos.png",
+  "rectangles": [
+    [
+      0,
+      0,
+      512,
+      512
+    ],
+    [
+      512,
+      0,
+      1024,
+      512
+    ],
+    [
+      1024,
+      0,
+      1536,
+      512
+    ],
+    [
+      0,
+      512,
+      555,
+      1024
+    ],
+    [
+      555,
+      512,
+      1050,
+      1024
+    ],
+    [
+      1050,
+      512,
+      1536,
+      1024
+    ]
+  ],
+  "pelvis": [
+    [
+      280,
+      355
+    ],
+    [
+      760,
+      355
+    ],
+    [
+      1300,
+      355
+    ],
+    [
+      300,
+      805
+    ],
+    [
+      830,
+      815
+    ],
+    [
+      1290,
+      800
+    ]
+  ],
+  "scale": 0.68,
+  "canvas": [
+    384,
+    384
+  ],
+  "anchor": [
+    196,
+    240
+  ],
+  "role_order": [
+    "Batedor",
+    "Acrobata",
+    "Rolador"
+  ],
+  "poses": [
+    "preparacao",
+    "ataque"
+  ],
+  "status": "conceito, sem integração ao jogo",
+  "role_colors": {
+    "Acrobata": "castanho escuro",
+    "Rolador": "cinza-azulado",
+    "Batedor": "cobre"
+  }
+}

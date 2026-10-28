@@ -111,6 +111,7 @@ public sealed class RunCutscenes : MonoBehaviour
     public void PrepareBoss(Boss target)
     {
         Unbind();
+        if (DevelopmentBossSession.IsActive) return;
         if (target == null || target.GetComponent<GusiniCombat>() == null) return;
         boss = target;
         phaseTwo = target.GetComponent<GusiniPhaseTwo>();

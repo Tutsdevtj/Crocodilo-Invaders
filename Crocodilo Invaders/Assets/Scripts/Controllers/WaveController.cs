@@ -25,6 +25,8 @@ public sealed class WaveController : MonoBehaviour
     [SerializeField, Min(0)] private int waveClearBonus = 1000;
     [SerializeField] private Boss bossPrefab;
     [SerializeField] private Transform bossSpawnPoint;
+    [SerializeField, Tooltip("Capítulo sem recuperação específica: conclui após a apresentação de derrota do boss.")]
+    private bool completeChapterOnBossDefeat;
     [SerializeField, Tooltip("Opcional: cenas narrativas da abertura e do boss.")] private RunCutscenes cutscenes;
 
     private EnemySpawner spawner;
@@ -52,7 +54,7 @@ public sealed class WaveController : MonoBehaviour
     {
         if (Phase != RunPhase.Intermission || !AwaitingReward) return;
         AwaitingReward = false;
-        phaseEndsAt = Time.time + rewardTransitionDuration;
+        phaseEndsAt = DevelopmentCardSession.IsActive ? float.PositiveInfinity : Time.time + rewardTransitionDuration;
         player.SetGameplayActive(true);
     }
     private bool HasComposition => waveComposition != null && waveComposition.Length > 0;
@@ -145,14 +147,44 @@ public sealed class WaveController : MonoBehaviour
     {
         if (Phase != RunPhase.Waiting) return;
         player.SetGameplayActive(false);
+        if (DevelopmentCardSession.IsActive) return;
 #if UNITY_EDITOR
         if (FindAnyObjectByType<BossDevelopmentStart>() != null) return;
 #endif
         // Loading confirma pelo fluxo existente; abrir a cena diretamente inicia a run.
-        if (FindAnyObjectByType<GameplayLoadingController>() == null) StartRun();
+        if (FindAnyObjectByType<GameplayLoadingController>() == null)
+        {
+            if (DevelopmentBossSession.IsActive) gameObject.AddComponent<DevelopmentBossSession>().Initialize(this);
+            else StartRun();
+        }
     }
 
     public void StartRun() => BeginRun(true);
+
+    // Uses the actual post-wave event; CardRewardController still owns freezing,
+    // reveal, reroll, choice, upgrades and release of player input.
+    public bool StartCardDevelopment()
+    {
+        if (!DevelopmentCardSession.IsActive || !isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return false;
+        spawner.StopCombat();
+        score.ResetScore();
+        player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
+        Phase = RunPhase.Intermission;
+        phaseEndsAt = float.PositiveInfinity;
+        player.SetGameplayActive(true);
+        return RequestDevelopmentCardReward();
+    }
+
+    public bool RequestDevelopmentCardReward()
+    {
+        if (!DevelopmentCardSession.IsActive || Phase != RunPhase.Intermission || AwaitingReward || playerHealth.IsDead) return false;
+        int rewardCount = Mathf.Min(CombatWaveCount, WaveCount - 1);
+        if (rewardCount < 1) return false;
+        CurrentWave = Mathf.Clamp(DevelopmentCardSession.CompletedWave, 1, rewardCount);
+        phaseEndsAt = float.PositiveInfinity;
+        WaveCleared?.Invoke(CurrentWave, 0);
+        return AwaitingReward;
+    }
 
     private void BeginRun(bool playIntro, int completedWaves = 0)
     {
@@ -216,17 +248,19 @@ public sealed class WaveController : MonoBehaviour
             if (CurrentWave == WaveCount) EndRun(true);
             else AnnounceNextWave();
         }
-        else if (Phase == RunPhase.BossDefeated && !chapterEnding && Time.time >= phaseEndsAt) EndRun(true);
+        else if (Phase == RunPhase.BossDefeated && !chapterEnding && Time.time >= phaseEndsAt)
+        {
+            if (completeChapterOnBossDefeat) { chapterEnding = true; CompleteChapter(); }
+            else EndRun(true);
+        }
     }
 
-#if UNITY_EDITOR
     public void StartBossForDevelopment()
     {
         if (Phase != RunPhase.Waiting || bossPrefab == null) return;
         // Mesmo caminho da run: a onda do boss é anunciada (ONDA N → alerta) antes da entrada.
         BeginRun(false, CombatWaveCount);
     }
-#endif
 
     private void BeginBoss()
     {

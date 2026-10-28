@@ -1,0 +1,227 @@
+{
+  "version": 2,
+  "canvas": [
+    180,
+    268
+  ],
+  "artwork": "Existing game sprites; no generated icon atlas used.",
+  "sprite_sources": [
+    "Assets/Art/Player/Bombardiro/Shoot/bombardiro_shoot_2.png",
+    "Assets/Art/Player/Projectiles/projectile.png",
+    "Assets/Art/Player/Bombardiro/Fly/bombardiro_fly_0.png",
+    "Assets/Art/Portraits/Crocodilo/crocodilo_master_neutral.png",
+    "Assets/Art/Pickups/health_box/000.png",
+    "Assets/Art/Player/DashVFX/dash_ignition/dash_ignition_h_01.png",
+    "Assets/Art/Player/Bombardiro/Special/bombardiro_special_3.png",
+    "Assets/Art/Player/Projectiles/Sprojectile_effect/000.png"
+  ],
+  "frames": [
+    "Chapa de campanha",
+    "Reforços azuis",
+    "Circuitos alienígenas",
+    "Asas douradas",
+    "Mandíbula vermelha"
+  ],
+  "cards": [
+    {
+      "kind": "AttackDamage",
+      "rarity": "Common",
+      "percent": 5,
+      "title": "DENTE DE AÇO",
+      "file": "Assets/Resources/Cards/AttackDamage/Common.png",
+      "sha256": "29ca9b25ec945c0b189a3f241a8b9ff4050775c1091e77590d2a313dde9d09b3"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Rare",
+      "percent": 10,
+      "title": "DENTE DE AÇO",
+      "file": "Assets/Resources/Cards/AttackDamage/Rare.png",
+      "sha256": "0b590fc2cf413e049d144636cbd3d7fe754ceaa8fe32fba3237a48aece530765"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Epic",
+      "percent": 15,
+      "title": "DENTE DE AÇO",
+      "file": "Assets/Resources/Cards/AttackDamage/Epic.png",
+      "sha256": "14693cb6cad2bd77e7043e40fdf0b0b4a22677eb4824ccff56d2fda82da2cf45"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Legendary",
+      "percent": 20,
+      "title": "DENTE DE AÇO",
+      "file": "Assets/Resources/Cards/AttackDamage/Legendary.png",
+      "sha256": "19a6fee09cdefdba612bec95fa680002c5f0fc5e66d2d74598c24b5995ec5dec"
+    },
+    {
+      "kind": "AttackDamage",
+      "rarity": "Mythic",
+      "percent": 30,
+      "title": "DENTE DE AÇO",
+      "file": "Assets/Resources/Cards/AttackDamage/Mythic.png",
+      "sha256": "4ba2603ee0bd00174331ee4813805e39f3b6c9d633c4b21bb6323caa2c0ddcd4"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Common",
+      "percent": 5,
+      "title": "CHUVA DE BALA",
+      "file": "Assets/Resources/Cards/AttackSpeed/Common.png",
+      "sha256": "d61716b8b251d753c992d506435f7ae89bab9dfab675f497b5c87d1282fad0d8"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Rare",
+      "percent": 10,
+      "title": "CHUVA DE BALA",
+      "file": "Assets/Resources/Cards/AttackSpeed/Rare.png",
+      "sha256": "fab93bc8a074f4fde8004a67b4bd8c63c72004a33b4147d6182489c1082c49ff"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Epic",
+      "percent": 15,
+      "title": "CHUVA DE BALA",
+      "file": "Assets/Resources/Cards/AttackSpeed/Epic.png",
+      "sha256": "6a27150c391c190fc41fc1de12531b5005a352fa6d581d47673ae1e4d8ee3601"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Legendary",
+      "percent": 20,
+      "title": "CHUVA DE BALA",
+      "file": "Assets/Resources/Cards/AttackSpeed/Legendary.png",
+      "sha256": "694ae43668bb22d4c6036cfca4cddcb9470cbeb996cf320de146d39441c809c6"
+    },
+    {
+      "kind": "AttackSpeed",
+      "rarity": "Mythic",
+      "percent": 30,
+      "title": "CHUVA DE BALA",
+      "file": "Assets/Resources/Cards/AttackSpeed/Mythic.png",
+      "sha256": "4fe1ddd1329736dbc745d019c9d3273b383de09ea9d1d8a350cbac1652d22a48"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Common",
+      "percent": 10,
+      "title": "CASCO DURO",
+      "file": "Assets/Resources/Cards/MaximumHealth/Common.png",
+      "sha256": "b71e743b33c6cfda8415834af13ccf16f163648f1f31dce0c8b68fe4b11246c9"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Rare",
+      "percent": 15,
+      "title": "CASCO DURO",
+      "file": "Assets/Resources/Cards/MaximumHealth/Rare.png",
+      "sha256": "4360d56c6d0bea3c6d25613bc0c7135f90a4a4a276b7dc610c3221af8949c6fe"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Epic",
+      "percent": 20,
+      "title": "CASCO DURO",
+      "file": "Assets/Resources/Cards/MaximumHealth/Epic.png",
+      "sha256": "7456fe1a0a396ccbf7faab5618e7eb10a124ae8b55d6b3ccb2622d18a1660276"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Legendary",
+      "percent": 30,
+      "title": "CASCO DURO",
+      "file": "Assets/Resources/Cards/MaximumHealth/Legendary.png",
+      "sha256": "65f00d7971cc2779c4edfb38f62c41f1a09d23afe53e8d38813e29a43664e332"
+    },
+    {
+      "kind": "MaximumHealth",
+      "rarity": "Mythic",
+      "percent": 40,
+      "title": "CASCO DURO",
+      "file": "Assets/Resources/Cards/MaximumHealth/Mythic.png",
+      "sha256": "e860db6ec0ca98731caff98f7a328db51eef827a83265d15c85d182fd0f4e9c5"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Common",
+      "percent": 3,
+      "title": "PÉ NA TÁBUA",
+      "file": "Assets/Resources/Cards/MoveSpeed/Common.png",
+      "sha256": "b7bbb95ee57d48d047a8380193a0d16907114c4feed26ffc7b0a76b32846b9c2"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Rare",
+      "percent": 5,
+      "title": "PÉ NA TÁBUA",
+      "file": "Assets/Resources/Cards/MoveSpeed/Rare.png",
+      "sha256": "7689782f0dd578d6af14a9d64deb49f8a508fc5f755c360a1538c95a310ff7b7"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Epic",
+      "percent": 8,
+      "title": "PÉ NA TÁBUA",
+      "file": "Assets/Resources/Cards/MoveSpeed/Epic.png",
+      "sha256": "593c81ecafa5a5913a3eabace94d92d964a8f7f2f815824bef8d2997ac18f867"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Legendary",
+      "percent": 10,
+      "title": "PÉ NA TÁBUA",
+      "file": "Assets/Resources/Cards/MoveSpeed/Legendary.png",
+      "sha256": "5e18115f114408f78ffb3ab8010845b25317b959e3cf4c8f39c1406cf20580b0"
+    },
+    {
+      "kind": "MoveSpeed",
+      "rarity": "Mythic",
+      "percent": 15,
+      "title": "PÉ NA TÁBUA",
+      "file": "Assets/Resources/Cards/MoveSpeed/Mythic.png",
+      "sha256": "3b973d7bf81756092ffdbd1d2bfd51fb6d12979359fc772481db5006d6b1342b"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Common",
+      "percent": 5,
+      "title": "BAFO ATÔMICO",
+      "file": "Assets/Resources/Cards/SpecialDamage/Common.png",
+      "sha256": "ca857690c52852c095e68f3aff44140f8268e51925e41967c9f1acf9944b0651"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Rare",
+      "percent": 10,
+      "title": "BAFO ATÔMICO",
+      "file": "Assets/Resources/Cards/SpecialDamage/Rare.png",
+      "sha256": "67c224f797169c7c2983503a8d9d292c0e04e5210cfd7baf19868f7e9c349a2d"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Epic",
+      "percent": 15,
+      "title": "BAFO ATÔMICO",
+      "file": "Assets/Resources/Cards/SpecialDamage/Epic.png",
+      "sha256": "3d05a2cc1ce1d745f88230625e3b464a9e65c27a99821c5d5fe6ccc15bbb127f"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Legendary",
+      "percent": 20,
+      "title": "BAFO ATÔMICO",
+      "file": "Assets/Resources/Cards/SpecialDamage/Legendary.png",
+      "sha256": "508a348c8e0fda81c2a3cfbbd0178ef02ccde94986914b8c26514786ac8e759b"
+    },
+    {
+      "kind": "SpecialDamage",
+      "rarity": "Mythic",
+      "percent": 30,
+      "title": "BAFO ATÔMICO",
+      "file": "Assets/Resources/Cards/SpecialDamage/Mythic.png",
+      "sha256": "20045fa047945519fb64a8081005ef35c5d8f1ccb079b3cef2eb3798ac21b751"
+    }
+  ]
+}

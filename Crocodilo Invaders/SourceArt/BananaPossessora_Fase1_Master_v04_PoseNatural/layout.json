@@ -1,0 +1,105 @@
+{
+  "layers": [
+    {
+      "file": "parts/rabo.png",
+      "scale": 0.53,
+      "y": 386,
+      "x": 416,
+      "height": 148,
+      "id": "rabo",
+      "source_rect": [
+        1018,
+        675,
+        455,
+        280
+      ],
+      "width": 241,
+      "source_atlas": "atlas_preservado.png"
+    },
+    {
+      "file": "parts/perna_distante.png",
+      "scale": 0.5,
+      "y": 487,
+      "x": 165,
+      "height": 144,
+      "id": "perna_distante",
+      "source_rect": [
+        126,
+        675,
+        263,
+        289
+      ],
+      "width": 132,
+      "source_atlas": "atlas_preservado.png"
+    },
+    {
+      "file": "parts/corpo_banana.png",
+      "scale": 0.9,
+      "y": 30,
+      "x": 200,
+      "height": 594,
+      "id": "corpo_banana",
+      "source_rect": [
+        134,
+        15,
+        332,
+        660
+      ],
+      "width": 299,
+      "source_atlas": "atlas_preservado.png"
+    },
+    {
+      "file": "parts/perna_proxima.png",
+      "scale": 0.5,
+      "y": 502,
+      "x": 334,
+      "height": 149,
+      "id": "perna_proxima",
+      "source_rect": [
+        679,
+        675,
+        268,
+        298
+      ],
+      "width": 134,
+      "source_atlas": "atlas_preservado.png"
+    },
+    {
+      "file": "parts/braco_distante.png",
+      "scale": 0.5,
+      "y": 328,
+      "x": 173,
+      "height": 236,
+      "id": "braco_distante",
+      "source_rect": [
+        727,
+        123,
+        207,
+        471
+      ],
+      "width": 104,
+      "source_atlas": "atlas.png"
+    },
+    {
+      "file": "parts/braco_proximo.png",
+      "scale": 0.55,
+      "y": 332,
+      "x": 423,
+      "height": 268,
+      "id": "braco_proximo",
+      "source_rect": [
+        1220,
+        123,
+        193,
+        487
+      ],
+      "width": 106,
+      "source_atlas": "atlas.png"
+    }
+  ],
+  "draw_order": "back_to_front",
+  "canvas": [
+    760,
+    700
+  ]
+}

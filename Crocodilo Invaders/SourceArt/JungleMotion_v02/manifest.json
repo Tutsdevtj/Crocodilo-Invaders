@@ -1,0 +1,336 @@
+{
+  "version": 2,
+  "tool": "built-in image_gen",
+  "art": [
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/deep.png",
+      "width": 480,
+      "height": 320,
+      "sha256": "2e8963a8bc045dd6b21e54c70ce4a32a757c51a75dbc7d421b80962b1afd34f8",
+      "colors": 24,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/far.png",
+      "width": 480,
+      "height": 320,
+      "sha256": "40b1b9baf7d7bd8a173c2b6e5397bc18da5ba2bcc60e0e893e236020173e84f1",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/trunks.png",
+      "width": 480,
+      "height": 320,
+      "sha256": "b7eac67661e9135171e71f1d6bc76ee0e3ea1e7e2fbf5c9fe716f536da14549a",
+      "colors": 24,
+      "alpha": [
+        255,
+        0
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/canopy.png",
+      "width": 480,
+      "height": 320,
+      "sha256": "c9338c30ea0e64a2f679351dc9b74d02a2e7312af74329379c2a6c0b7ec37428",
+      "colors": 24,
+      "alpha": [
+        255,
+        0
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/ferns.png",
+      "width": 480,
+      "height": 320,
+      "sha256": "b6f7857a7d6627c1717a6a9000a8ce1a4f9875c09f1758608c8c837af25668f3",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_00.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "b1a25c5a4c19acb66aa2486af5dbb581b717d3dc89d1c1983772697a63f10e51",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_01.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "68049001feb1a66d648eb786b70aeb2098a62721dc8da9686c567160f7b6e29e",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_02.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "8ae39450f7b5904e2f0562ca44528ba268a832de74ea01cf5a152260ab8e6460",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_03.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "824d7c0cf6e4dae75ced1f7fffbdd18584ee9356dd51b30f79b954121deebb1c",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_04.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "b8f0b4b51d9e05a41c445f07c56b1434cbcdef22ae7342998be5e817a7ab08b0",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_05.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "e7ed7903db3f0088940330e5572ff078f48a30cff56b451e6b265e9925ad132f",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_06.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "d61827527e18a2f71ca64f8ca17bb2d62e017ed1ce4539d469cd526844208aa0",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_07.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "986a4c5e5c4c7b94e629748d1c6190097a53110622af5222ba1b149c840070ab",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_08.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "10826afcba7dde1e25189b49f767ce632d318dcc0283c14fe578e255799dfbc8",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_09.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "57ba09a7aa534cd462ba2743a01c4a8bbfe020901346432d1f33bb41f4bfa034",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_10.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "43662ce12324a34e8d8008560c4dc1e8b0f4a752eb933bf68e91218fcd71da25",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "Assets/Art/JungleStage/Motion_v02/pose_11.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "8ea6654f850fe7f3bff4964ac475a9d1a3b2c1a43bb1e96fbebc78e9c82c0f1b",
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "canopy",
+      "sha256": "c269009a27cddf1f1fb0e6b742aa7974bbf83854e03421573c958350f31425f9"
+    },
+    {
+      "name": "trunks",
+      "sha256": "f45c4abd545eefa1d854e6bd5af4d0e058351e34f7fa8c2e77e15b68cb1d0d68"
+    },
+    {
+      "name": "poses",
+      "sha256": "d8457f8ca9b060ae1e17e52991031beb27e18a8811cc4206ee2b40fbad555e34"
+    },
+    {
+      "name": "deep",
+      "sha256": "f04f280eb140ef2c1536a01a94206ae1f8826ac5dcc0646678948384fd9ec472"
+    },
+    {
+      "name": "far",
+      "sha256": "36ed032de4cdb7e6a69ac3a315ced84f392a3b06a3e07ef0e9eb027397e915c6"
+    }
+  ],
+  "pose_palette": [
+    [
+      249,
+      214,
+      9
+    ],
+    [
+      10,
+      3,
+      1
+    ],
+    [
+      195,
+      66,
+      39
+    ],
+    [
+      170,
+      52,
+      34
+    ],
+    [
+      219,
+      142,
+      1
+    ],
+    [
+      242,
+      181,
+      2
+    ],
+    [
+      41,
+      14,
+      4
+    ],
+    [
+      92,
+      29,
+      14
+    ],
+    [
+      185,
+      61,
+      37
+    ],
+    [
+      199,
+      69,
+      41
+    ],
+    [
+      109,
+      46,
+      19
+    ],
+    [
+      153,
+      45,
+      32
+    ],
+    [
+      240,
+      136,
+      103
+    ],
+    [
+      249,
+      199,
+      111
+    ],
+    [
+      90,
+      158,
+      26
+    ],
+    [
+      176,
+      107,
+      44
+    ],
+    [
+      73,
+      152,
+      1
+    ],
+    [
+      166,
+      119,
+      1
+    ],
+    [
+      224,
+      145,
+      52
+    ],
+    [
+      249,
+      230,
+      55
+    ],
+    [
+      151,
+      59,
+      31
+    ],
+    [
+      179,
+      59,
+      37
+    ],
+    [
+      250,
+      173,
+      139
+    ],
+    [
+      250,
+      183,
+      152
+    ]
+  ]
+}

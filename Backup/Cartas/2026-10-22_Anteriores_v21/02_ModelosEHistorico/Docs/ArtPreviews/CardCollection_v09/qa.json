@@ -1,0 +1,37 @@
+{
+  "cards": 25,
+  "families": 5,
+  "catalog": "PASS",
+  "webgl": "PASS",
+  "family_selector": "PASS",
+  "matte_common": "PASS",
+  "foil_off": "PASS",
+  "approved_attack": "UNCHANGED",
+  "protected_regions": {
+    "AttackDamage": {
+      "rare_art_matte": 18848,
+      "legendary_croc_matte": 14304
+    },
+    "AttackSpeed": {
+      "rare_art_matte": 18848,
+      "legendary_croc_matte": 13742
+    },
+    "MaximumHealth": {
+      "rare_art_matte": 18848,
+      "legendary_croc_matte": 13742
+    },
+    "MoveSpeed": {
+      "rare_art_matte": 18848,
+      "legendary_croc_matte": 13742
+    },
+    "SpecialDamage": {
+      "rare_art_matte": 18848,
+      "legendary_croc_matte": 13742
+    }
+  },
+  "responsive": [
+    736,
+    360
+  ],
+  "errors": []
+}

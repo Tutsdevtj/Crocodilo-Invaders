@@ -1,0 +1,247 @@
+{
+  "ppu": 64,
+  "frames": [
+    {
+      "name": "fighter_00.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        118,
+        133,
+        279,
+        315
+      ],
+      "colors": 95,
+      "sha256": "185d1749646d00a1e0409b57fd36ce7a33c744f38690e0f357bf3cc5a1e5a291"
+    },
+    {
+      "name": "fighter_01.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        40,
+        126,
+        274,
+        304
+      ],
+      "colors": 94,
+      "sha256": "3be14fcff272a5a5aa40b10aa1b46fb1d0cd31791c3b72535bcd979799ab0cbd"
+    },
+    {
+      "name": "fighter_02.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        32,
+        126,
+        263,
+        307
+      ],
+      "colors": 95,
+      "sha256": "6ed80ea4ecef482fa134a9f3c85c0fe48ac4714c775d54b2157ade028c68ec22"
+    },
+    {
+      "name": "fighter_03.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        105,
+        90,
+        292,
+        323
+      ],
+      "colors": 94,
+      "sha256": "880d59d650fdd74225fc4becbf2b2387ca095f423bcc67f6407eec106373575d"
+    },
+    {
+      "name": "fighter_04.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        110,
+        98,
+        286,
+        306
+      ],
+      "colors": 95,
+      "sha256": "de228a8fe918c232328615ed53062bfd912c3617dccd32bae1420ac05645d45d"
+    },
+    {
+      "name": "fighter_05.png",
+      "ppu": 64,
+      "pivot": [
+        0.5286458333333334,
+        0.3359375
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        67,
+        151,
+        255,
+        348
+      ],
+      "colors": 94,
+      "sha256": "f65523f4ceb73f0e84f891c6a8856df1f02a5cefe08bf1358f75e246446418cc"
+    },
+    {
+      "name": "helper_00.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        34,
+        56,
+        134,
+        146
+      ],
+      "colors": 50,
+      "sha256": "61a7059106c2e3f9ad795ae11aeefeddbf99601526b5895932af7c3586130898"
+    },
+    {
+      "name": "helper_01.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        45,
+        23,
+        137,
+        145
+      ],
+      "colors": 50,
+      "sha256": "774b19ff63dcfe46c5c9e80e91614cb3f930b84307bfde58d8a906005550689f"
+    },
+    {
+      "name": "helper_02.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        34,
+        66,
+        121,
+        145
+      ],
+      "colors": 58,
+      "sha256": "894bc4a185ea81b79adb8be282bc319c3db7060a50fec3feb36329ef58697934"
+    },
+    {
+      "name": "helper_03.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        18,
+        65,
+        141,
+        145
+      ],
+      "colors": 50,
+      "sha256": "cd2efdc0b442a3936ff8ee1723f467d2c4358acc622433934f5dd9b7fee3f45b"
+    },
+    {
+      "name": "helper_04.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        17,
+        36,
+        130,
+        148
+      ],
+      "colors": 52,
+      "sha256": "fdfd6dae27fe8cdb8ed609acc129d9554686294e8ccd5e1dd7fb2d2f25c69374"
+    },
+    {
+      "name": "helper_05.png",
+      "ppu": 64,
+      "pivot": [
+        0.5,
+        0.30000000000000004
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "bounds": [
+        48,
+        75,
+        113,
+        138
+      ],
+      "colors": 54,
+      "sha256": "18d9ff86c8386c53b531023a0a67bce56cbbf89802e7db91e73a4bdf8bb79732"
+    }
+  ],
+  "alpha_policy": "binary alpha >=180, largest connected body, zero RGB outside",
+  "palette_policy": "shared 96 boss /64 helpers; point filtering, nearest export"
+}

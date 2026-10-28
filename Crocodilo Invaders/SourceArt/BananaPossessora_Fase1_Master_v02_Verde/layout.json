@@ -1,0 +1,99 @@
+{
+  "canvas": [
+    760,
+    700
+  ],
+  "draw_order": "back_to_front",
+  "layers": [
+    {
+      "height": 153,
+      "scale": 0.53,
+      "x": 480,
+      "width": 241,
+      "y": 350,
+      "source_rect": [
+        1018,
+        667,
+        455,
+        288
+      ],
+      "file": "parts/rabo.png",
+      "id": "rabo"
+    },
+    {
+      "height": 527,
+      "scale": 0.9,
+      "x": 200,
+      "width": 298,
+      "y": 30,
+      "source_rect": [
+        133,
+        14,
+        331,
+        586
+      ],
+      "file": "parts/corpo_banana.png",
+      "id": "corpo_banana"
+    },
+    {
+      "height": 182,
+      "scale": 0.5,
+      "x": 202,
+      "width": 132,
+      "y": 462,
+      "source_rect": [
+        126,
+        600,
+        263,
+        363
+      ],
+      "file": "parts/perna_distante.png",
+      "id": "perna_distante"
+    },
+    {
+      "height": 150,
+      "scale": 0.5,
+      "x": 395,
+      "width": 134,
+      "y": 464,
+      "source_rect": [
+        679,
+        674,
+        269,
+        299
+      ],
+      "file": "parts/perna_proxima.png",
+      "id": "perna_proxima"
+    },
+    {
+      "height": 136,
+      "scale": 0.5,
+      "x": 145,
+      "width": 138,
+      "y": 328,
+      "source_rect": [
+        648,
+        171,
+        277,
+        271
+      ],
+      "file": "parts/braco_distante.png",
+      "id": "braco_distante"
+    },
+    {
+      "height": 167,
+      "scale": 0.55,
+      "x": 403,
+      "width": 137,
+      "y": 342,
+      "source_rect": [
+        1162,
+        171,
+        249,
+        304
+      ],
+      "file": "parts/braco_proximo.png",
+      "id": "braco_proximo"
+    }
+  ]
+}

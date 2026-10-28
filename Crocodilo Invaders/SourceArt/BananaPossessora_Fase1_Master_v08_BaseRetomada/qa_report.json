@@ -1,0 +1,22 @@
+{
+  "banana_render_sha256_identical_to_selected_base": true,
+  "tail_render_sha256_identical_to_selected_base": true,
+  "new_limb_heights": [
+    163,
+    202,
+    170,
+    176
+  ],
+  "far_leg_behind_banana_tip": true,
+  "method": "native modular master transforms, without generative redesign",
+  "all_exported_parts_match_layout_dimensions": true,
+  "ora_layers": 6,
+  "original_limb_heights": [
+    136,
+    168,
+    144,
+    149
+  ],
+  "all_six_original_source_pngs_preserved": true,
+  "limb_widths_and_root_positions_unchanged": true
+}

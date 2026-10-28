@@ -1,0 +1,17 @@
+BODY:
+Edit ONLY the two SHOULDER peel lips on this exact yellow banana body module. The user says these marks are facing FORWARD but the arms attach farther BEHIND. The face points LEFT; the creature's BACK is RIGHT. Reverse the direction of the two small shoulder lips so their open edge/recess faces RIGHT/BACKWARD, toward the hidden arms, not LEFT/FORWARD.
+Make the two shoulder exit details shallow natural rear-facing cuts in the peel: smooth continuous yellow FRONT surface, only a short external yellow edge covering the arm root, swept toward the BACK. NO forward-pointing yellow hooks or spikes. No complete rings, no inside-facing borders, no black circular sockets. Keep the two small HIP exterior lips as they are.
+Preserve the exact same body silhouette, proportions, grin, eyes, dark stem and tip, green infection marks and pixel shading. YELLOW peel with GREEN eyes and marks only. Same identity, not a redesign. Full isolated body only, no limbs, true transparent alpha, no backdrop, no glow or labels.
+
+LEGS:
+Edit these two separate monkey LEG sprite modules for a modular pixel-art game boss. Reference 1 is the FAR leg, reference 2 the NEAR leg. Create a square 1024x1024 transparent parts sheet with exactly TWO isolated legs: FAR leg centered in LEFT half, NEAR leg centered in RIGHT half. No other objects or labels.
+Keep brown fur, tan long-toed monkey feet pointing LEFT, lean normal monkey anatomy (not muscular), existing bent knee poses, exact foot design, matching pixel clusters and palette.
+Make the legs modestly LONGER, about 18 percent taller from hip to sole, while keeping their WIDTH unchanged. Lengthen mainly the SHINS below the knees; a little added thigh length is fine. No gigantic feet, no additional muscles, no straightening rigid stick legs. Keep soft bent knee pose and convincing ankle. Far leg slightly more bent than near leg.
+Part proportions target: far leg width:height about 0.78; near leg about 0.76. Complete rounded hip roots at top for hiding under banana. Keep clear gap between parts, at least 50px outer margins. True transparent background, no ground shadows, no colored halos, no text, no grid.
+
+FINAL SHOULDER REFINEMENT:
+Targeted final correction to ONLY the shoulder marks on this exact banana body. Do not change ANY other part.
+The current two small shoulder marks are still too far toward the FRONT/face and too high. The LEFT-facing banana's rear is RIGHT. The monkey arms sit BEHIND the banana.
+1. ERASE the small yellow forward-facing protrusion on the LEFT concave edge immediately below the mouth, at about 48 percent of body height. Restore a smooth continuous front contour there. Replace that mark with a subtle short peel OVERLAP lip swept RIGHTWARD into the back, recessed and mostly hidden, not a spike projecting LEFT. No exposed inner socket edge.
+2. ERASE the small yellow shoulder protrusion currently at upper-right around 49 percent of height. Move this shoulder's exterior peel lip DOWN along the convex BACK contour to about 60 percent of total height, where the near arm actually exits behind the body. Make its open edge face RIGHT/BACK, a tiny rearward-facing external flap covering the arm root. It must NOT point left toward the face or upward/front.
+Keep the two HIP lips at lower body unchanged. Preserve exact yellow peel, green eyes and green infection lines, face, outline proportions, stem and tip, pixel art rendering and transparent background. Body module only, no arms/legs/tail, no new rings, no holes.

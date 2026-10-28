@@ -1,0 +1,614 @@
+{
+  "version": 12,
+  "expression_sequence": [
+    "Confiante",
+    "Irritado / mandíbula cerrada",
+    "Furioso / rosnado aberto",
+    "Quase insano / berro",
+    "Insano / gargalhada aberta"
+  ],
+  "masks": {
+    "AttackDamage": [
+      [
+        26,
+        40
+      ],
+      [
+        40,
+        31
+      ],
+      [
+        65,
+        31
+      ],
+      [
+        86,
+        40
+      ],
+      [
+        92,
+        53
+      ],
+      [
+        116,
+        64
+      ],
+      [
+        116,
+        113
+      ],
+      [
+        78,
+        108
+      ],
+      [
+        47,
+        96
+      ],
+      [
+        24,
+        80
+      ],
+      [
+        20,
+        57
+      ]
+    ],
+    "AttackSpeed": [
+      [
+        32,
+        37
+      ],
+      [
+        49,
+        31
+      ],
+      [
+        68,
+        33
+      ],
+      [
+        79,
+        44
+      ],
+      [
+        98,
+        52
+      ],
+      [
+        106,
+        59
+      ],
+      [
+        106,
+        94
+      ],
+      [
+        73,
+        100
+      ],
+      [
+        43,
+        88
+      ],
+      [
+        30,
+        71
+      ],
+      [
+        26,
+        52
+      ]
+    ],
+    "MaximumHealth": [
+      [
+        30,
+        33
+      ],
+      [
+        48,
+        27
+      ],
+      [
+        67,
+        30
+      ],
+      [
+        77,
+        41
+      ],
+      [
+        98,
+        51
+      ],
+      [
+        107,
+        59
+      ],
+      [
+        107,
+        93
+      ],
+      [
+        74,
+        99
+      ],
+      [
+        42,
+        86
+      ],
+      [
+        28,
+        67
+      ],
+      [
+        25,
+        48
+      ]
+    ],
+    "MoveSpeed": [
+      [
+        41,
+        32
+      ],
+      [
+        55,
+        28
+      ],
+      [
+        73,
+        31
+      ],
+      [
+        84,
+        40
+      ],
+      [
+        99,
+        47
+      ],
+      [
+        105,
+        55
+      ],
+      [
+        105,
+        83
+      ],
+      [
+        75,
+        88
+      ],
+      [
+        48,
+        77
+      ],
+      [
+        38,
+        59
+      ],
+      [
+        36,
+        43
+      ]
+    ],
+    "SpecialDamage": [
+      [
+        31,
+        29
+      ],
+      [
+        48,
+        25
+      ],
+      [
+        66,
+        28
+      ],
+      [
+        78,
+        38
+      ],
+      [
+        99,
+        48
+      ],
+      [
+        108,
+        56
+      ],
+      [
+        108,
+        89
+      ],
+      [
+        73,
+        95
+      ],
+      [
+        42,
+        83
+      ],
+      [
+        29,
+        65
+      ],
+      [
+        25,
+        45
+      ]
+    ]
+  },
+  "rareMasks": {
+    "AttackDamage": [
+      [
+        26,
+        40
+      ],
+      [
+        40,
+        31
+      ],
+      [
+        65,
+        31
+      ],
+      [
+        86,
+        40
+      ],
+      [
+        92,
+        53
+      ],
+      [
+        116,
+        64
+      ],
+      [
+        116,
+        83
+      ],
+      [
+        90,
+        76
+      ],
+      [
+        60,
+        62
+      ],
+      [
+        40,
+        50
+      ],
+      [
+        26,
+        48
+      ]
+    ],
+    "AttackSpeed": [
+      [
+        32,
+        37
+      ],
+      [
+        49,
+        31
+      ],
+      [
+        68,
+        33
+      ],
+      [
+        79,
+        44
+      ],
+      [
+        98,
+        52
+      ],
+      [
+        104,
+        59
+      ],
+      [
+        100,
+        69
+      ],
+      [
+        78,
+        61
+      ],
+      [
+        54,
+        51
+      ],
+      [
+        34,
+        48
+      ]
+    ],
+    "MaximumHealth": [
+      [
+        30,
+        33
+      ],
+      [
+        48,
+        27
+      ],
+      [
+        67,
+        30
+      ],
+      [
+        77,
+        41
+      ],
+      [
+        98,
+        51
+      ],
+      [
+        104,
+        58
+      ],
+      [
+        101,
+        67
+      ],
+      [
+        76,
+        58
+      ],
+      [
+        52,
+        47
+      ],
+      [
+        32,
+        44
+      ]
+    ],
+    "MoveSpeed": [
+      [
+        41,
+        32
+      ],
+      [
+        55,
+        28
+      ],
+      [
+        73,
+        31
+      ],
+      [
+        84,
+        40
+      ],
+      [
+        99,
+        47
+      ],
+      [
+        103,
+        53
+      ],
+      [
+        100,
+        61
+      ],
+      [
+        77,
+        53
+      ],
+      [
+        55,
+        43
+      ],
+      [
+        41,
+        42
+      ]
+    ],
+    "SpecialDamage": [
+      [
+        31,
+        29
+      ],
+      [
+        48,
+        25
+      ],
+      [
+        66,
+        28
+      ],
+      [
+        78,
+        38
+      ],
+      [
+        99,
+        48
+      ],
+      [
+        105,
+        55
+      ],
+      [
+        102,
+        64
+      ],
+      [
+        78,
+        55
+      ],
+      [
+        53,
+        44
+      ],
+      [
+        32,
+        41
+      ]
+    ]
+  },
+  "unchanged_cards": 10,
+  "unchanged_labels": 25,
+  "unchanged_materials": 25,
+  "shader": "Identical to v11",
+  "cards": [
+    {
+      "family": "AttackDamage",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "9724b61a01db4c40b5fd3253ea154d8f66665044ab430fb84b8a59c98018dafd"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Rare",
+      "changed_pixels": 2208,
+      "sha256": "6851ad70c9b2a99d40044262f85d597cb8936c3f3c722273382e624ba5f85e92"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Epic",
+      "changed_pixels": 5656,
+      "sha256": "a9c30efc9f37620ad5955a246cd01a7493265b662192dd37de9645f7579db716"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Legendary",
+      "changed_pixels": 5656,
+      "sha256": "398bdf418681f418d013d1e17444e349d1b1421a9c5e605b81e6f79d7c7e3aaa"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "a8f9bc4a1d2212cc2681b0574475e7753a34c88d1edf94c00f9d3a737c1888af"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "4c5016d5873d8725c332d03b6cadd601567679ab95de8702f56a413b7bb87a89"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Rare",
+      "changed_pixels": 1229,
+      "sha256": "3c2b5cde3f771d04db0e1c89f83016d98558e073a73ff5877a70a32cded52a7d"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Epic",
+      "changed_pixels": 4031,
+      "sha256": "66a9a73dff85864e33fed1201a577b2e70862011873bf1d4f070d91fa28738f0"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Legendary",
+      "changed_pixels": 4024,
+      "sha256": "398157487243593ad2e9f4ecd7ac6f64d53239d5baa00867eb34414599d3274d"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "9c7adb5fbc417dbeb13f3875a1167f1c99c86d514668b408861dacd343f1adaa"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "c384d6d382eadfda51fcc0348bf42f60b78138689240c2abe13238d0dc999dbc"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Rare",
+      "changed_pixels": 1261,
+      "sha256": "bbead49a949d12668b1749ac2d0d1e755b62fc2e937ef874799b13d63ca9b90c"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Epic",
+      "changed_pixels": 4270,
+      "sha256": "267db1ba7e3914ef30e5deed1acceb94a4fa0ca0a2dfdf0bd01d7f85109134e2"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Legendary",
+      "changed_pixels": 4272,
+      "sha256": "bdcf0058181ad53628d16ea468a9d46a84c03b9da841b02b83f5cbca89d9eb7b"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "7f6be08da1a3e05fa2ed5368082c3739fda7742c5bead629e9c3d1e30244bfd2"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "090669f957feae4215d508f19406f5bef8c8ed217b15ad67d50d29fb7e5caeec"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Rare",
+      "changed_pixels": 936,
+      "sha256": "bc335e05db80d3ca9cde31610938230cdaf1254f1fad084d04c671540e4d7c11"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Epic",
+      "changed_pixels": 3082,
+      "sha256": "becb1b006e53e3cf9e4cb1a88532347d088ac5c27956ef881f7f53882173022c"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Legendary",
+      "changed_pixels": 3087,
+      "sha256": "c90cb09b3dd663925c808693887762dc33416d47618d088556e369afee9fba50"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "9e8b9f61259e1233b8ac9bce028b3774f1967566def2d7be9e4b2aaf9cd6d73d"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "90c2fc3f3f4d024f8b312b78ea3f07bc141b48df01478f8bc7165c2364757fbb"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Rare",
+      "changed_pixels": 1226,
+      "sha256": "64f1a2e59f73e54957269fe79e70dbde1dcf31050e6a56667e5cbfd939635981"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Epic",
+      "changed_pixels": 4237,
+      "sha256": "a03cf8b3582fb090222609add3fd51ce484d692f6f4ab593c0eeb7e8b0aedc3b"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Legendary",
+      "changed_pixels": 4232,
+      "sha256": "9f898b52aec1d8bd6eca101e5358045552c70d285f5a283c45e6593fd9318a47"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "d7ea04804a4d44c2b9d78403df89001b750bab95f026d901b7b71f3f67a32bd7"
+    }
+  ]
+}

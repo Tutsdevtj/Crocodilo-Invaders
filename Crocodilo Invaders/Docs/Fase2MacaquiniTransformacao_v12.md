@@ -1,0 +1,19 @@
+# Macaquini — transformação v12
+
+Esta revisão implementa os quatro ajustes pedidos: peças que caem até o fundo do mapa, transformação com esforço e grito, roupa fechada contínua e rosto animado sob a banana. A identidade do macaco, o cenário de selva, os ataques e o HUD do padrão Gusini foram preservados.
+
+O voo usa 32 novos sprites completos com boca e olhos expressivos, sem os aros salientes dos ombros. A casca vai da cabeça aos quadris sem uma separação artificial na cintura. O corpo continua em um único desenho por quadro, com pernas relaxadas, fase de animação contínua, inclinação amortecida e recuo suave. Os 24 desenhos do cipó da v11 continuam em uso.
+
+A transformação tem 32 posições temporais em oito segundos. Ele segura e arranca o topo, leva as duas mãos à casca, faz força para abrir o peito e joga fora a casca superior junto com o motor. Depois grita e flexiona os braços antes de procurar e alcançar o cipó. A postura cresce gradualmente 6,5%, de maneira uniforme, e a segunda forma conserva esse aumento. O grito deriva do próprio growl do personagem, com camadas, duração de 1,6 s e limitação de amplitude; passa pelo mixer de efeitos. Rasgo, grito e solturas usam eventos nativos do Animator.
+
+O topo e o conjunto casca/jetpack são sprites independentes com Rigidbody2D dinâmico, gravidade e velocidade angular. Não têm collider ou componente de dano. São criados no mundo e só são removidos depois que o limite superior de seu sprite inteiro passa abaixo de y = -8,5, ou abaixo do limite inferior da câmera menos duas unidades se a arena for mais alta. Não usam temporizador, fade ou troca de quadro para desaparecer. A fumaça acompanha o motor descartado. A pausa congela a física; cancelamento do combate, disable, destruição do boss e troca de cena limpam as peças.
+
+Fontes e prompts do image_gen integrado: `SourceArt/Macaquini_v12`. Os anexos do usuário são referências de ação, sem copiar seus personagens. O exportador `Tools/Art/prepare_macaquini_v12.cjs` recorta componentes inteiros e registra o quadril, preservando a resolução e a paleta RGB das fontes. Duas posições da segunda folha que repetiam o início da transformação foram excluídas; há dois pequenos holds nas poses de esforço. Importação Point, sem mipmaps ou compressão. As margens transparentes maiores evitam cortar mãos, pés e rabo. O analisador `Tools/Art/analyze_macaquini_v12.cjs` ordena o voo pela proximidade dos pés: média combinada de 1,43 px e máximo de 4,44 px entre desenhos, contra 3,76/9,55 px na ordem bruta das novas folhas. A v11 tinha média de 0,88 px e máximo de 2,02 px; o novo desenho mantém pequenas variações, sem passo ou pedalada no ar. O instalador rejeita máximos acima de 4,5 px.
+
+Instalação: `MacaquiniTransformationV12Tools.Install`. Validação: `MacaquiniJetpackValidation.Run`. Build: `MacaquiniTransformationV12Tools.Build`. A instalação atualiza o mesmo prefab real da campanha, preservando seu GUID.
+
+O teste jogável abre diretamente no Macaquini. F1/F2/F3 forçam ataques; J retira 45 HP; K esgota a forma e permite revisar a transformação; I alterna proteção; H cura; R reinicia; ESC pausa. O teste usa progresso separado da campanha principal.
+
+Os resultados e a gravação real ficam em `Docs/ArtPreviews/Macaquini_v12`. A validação cobre ataques, HUD, parallax, fumaça progressiva, pausa, queda das duas peças até o limite inferior, grito, força visual, segunda forma, pontuação final e limpeza durante morte do alvo, disable e destruição. A avaliação estética final continua sendo do usuário.
+
+Validação concluída: 47 verificações do combate/transformação e 93 da campanha, sem erros de gameplay. Checkout com 2291 GUIDs válidos. O vídeo real com áudio foi decodificado sem falhas e o build Windows terminou com sucesso. Logs: `Play-Transformation-v12-ordered.log`, `Campaign-Transformation-v12.log` e `Build-Transformation-v12.log`, em `Logs/JungleStage`.

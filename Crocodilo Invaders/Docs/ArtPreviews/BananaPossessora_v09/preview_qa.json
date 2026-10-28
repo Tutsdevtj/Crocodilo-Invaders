@@ -1,0 +1,14 @@
+{
+  "preview_javascript_parses": true,
+  "gif_frames": 6,
+  "gif_delay_ms": [
+    350,
+    220,
+    220,
+    240,
+    260,
+    900
+  ],
+  "gif_loop": 0,
+  "browser_visual_check": false
+}

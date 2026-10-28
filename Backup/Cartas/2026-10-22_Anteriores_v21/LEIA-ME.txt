@@ -1,0 +1,16 @@
+BACKUP DAS CARTAS — 22/10/2026
+
+01_EmUsoNoJogo: cópia exata das 25 frentes e metadados que estavam em uso,
+verso e documentação anterior. A aplicação da coleção nova preserva os GUIDs.
+02_ModelosEHistorico: modelos, fontes, prévias, prompts e geradores antigos
+movidos para fora da pasta Unity, incluindo as revisões de design mais recentes.
+
+manifest.json registra caminho original, localização, tamanho e SHA256 de cada
+arquivo. Todos os arquivos foram conferidos após cópia/movimentação.
+Para restaurar uma coleção, copie somente suas imagens escolhidas para os
+caminhos correspondentes do projeto, mantendo os metadados corretos.
+Não execute geradores históricos no projeto atual: eles restauram modelos antigos.
+
+Ativos atuais: Crocodilo Invaders/Assets/Resources/Cards.
+Fonte nova: Crocodilo Invaders/SourceArt/CardCollection_v21_Integration.
+O Backup fica ao lado de Crocodilo Invaders e Gaming portugol, fora da Unity.

@@ -1,0 +1,768 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "reference": "chest_color_reference.png",
+  "policy": "Local palette correction on original RGB only; original alpha, silhouette, registration, pixel resolution and all outside-mask pixels verified identical.",
+  "polygon": [
+    [
+      210,
+      301
+    ],
+    [
+      219,
+      294
+    ],
+    [
+      235,
+      291
+    ],
+    [
+      260,
+      281
+    ],
+    [
+      282,
+      272
+    ],
+    [
+      301,
+      278
+    ],
+    [
+      316,
+      291
+    ],
+    [
+      319,
+      308
+    ],
+    [
+      308,
+      324
+    ],
+    [
+      302,
+      346
+    ],
+    [
+      293,
+      375
+    ],
+    [
+      279,
+      377
+    ],
+    [
+      255,
+      362
+    ],
+    [
+      234,
+      343
+    ],
+    [
+      220,
+      327
+    ]
+  ],
+  "frames": [
+    {
+      "frame": 18,
+      "name": "transform_18.png",
+      "polygon": [
+        [
+          251,
+          306
+        ],
+        [
+          265,
+          301
+        ],
+        [
+          277,
+          307
+        ],
+        [
+          280,
+          325
+        ],
+        [
+          275,
+          352
+        ],
+        [
+          264,
+          341
+        ],
+        [
+          252,
+          325
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 792,
+      "originalHash": "50fd8a375ebcdc975bcb6c960852fcbd96620dcc1c80656fe97df49f0f542d0a",
+      "finalHash": "1d41273cfc097f4c7c97ed6bc0412bceac1933a94c550b88c8d707f708b73817",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 19,
+      "name": "transform_19.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": [
+        292,
+        292,
+        48,
+        53
+      ],
+      "changedPixels": 3626,
+      "originalHash": "be79b791500fcc14aa8ebf74102afd478e11cf1d14304e1c91f67af2ca857f96",
+      "finalHash": "0999940dba8d10cbe955ef8adc26ae406e068a73691efad9ddcc112f761c95d8",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 20,
+      "name": "transform_20.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": [
+        302,
+        291,
+        47,
+        49
+      ],
+      "changedPixels": 4516,
+      "originalHash": "22387607bd214f767909c065afa80b8d4b6bf5cd915ee26cbcf5737419b340c6",
+      "finalHash": "988510985f3fd58f7ac2289687ba2d1faecc15fc378c5686ffa2e406fe714b0b",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 21,
+      "name": "transform_21.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 5351,
+      "originalHash": "0b3f3ee20d549839cb73230ecaa95816797889d4f7fa7d81581ce31820f707dd",
+      "finalHash": "b8e4d5d2136aba7c65108ea5c194638caff45084318345888cd8c348bf8096b4",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 22,
+      "name": "transform_22.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 5741,
+      "originalHash": "895ef56579455d67f38e6e853bf5c74fac07c1870c2e478edcc45e58f4dba01f",
+      "finalHash": "8f6e40933ae38198b5ec8c9bfff1cedce1b3f814b14f9d70dc33de5b77c4df40",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 23,
+      "name": "transform_23.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 6441,
+      "originalHash": "e34b142910805157e5fab6074813bc2f6503ff9efe51a18b5a1c471bc8a30a9c",
+      "finalHash": "dce987047b1589352456d4e1432a8f59028495ba89d777b4a73f05fcd1b0442a",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 24,
+      "name": "transform_24.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 6340,
+      "originalHash": "b2c6511eee1606ab466df1c48c7c366b0625d75a4eae0b62345869620966bf1f",
+      "finalHash": "54be1b136da29a5318e9dfbac0ed0cbc7fb1fcb0f892e1c3d08f8f9f36ce5a86",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 25,
+      "name": "transform_25.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 6447,
+      "originalHash": "f7e56b1e05615bb95be043b50ca232d2197eb9d68f7c7ee4d5acde71e076a81e",
+      "finalHash": "01c33b5f193b8f14712f429dcadc2aaa8eb7677aaf3cd4e5bc9698324057f8d4",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 26,
+      "name": "transform_26.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 6266,
+      "originalHash": "341f60d21829b7712da586392fd84329eca7e93b1035d598003d496acdaac484",
+      "finalHash": "1b8264ab442d57a2f0832dc478085ef91fd6af0c048d846fb4d16082b132aa80",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    },
+    {
+      "frame": 27,
+      "name": "transform_27.png",
+      "polygon": [
+        [
+          210,
+          301
+        ],
+        [
+          219,
+          294
+        ],
+        [
+          235,
+          291
+        ],
+        [
+          260,
+          281
+        ],
+        [
+          282,
+          272
+        ],
+        [
+          301,
+          278
+        ],
+        [
+          316,
+          291
+        ],
+        [
+          319,
+          308
+        ],
+        [
+          308,
+          324
+        ],
+        [
+          302,
+          346
+        ],
+        [
+          293,
+          375
+        ],
+        [
+          279,
+          377
+        ],
+        [
+          255,
+          362
+        ],
+        [
+          234,
+          343
+        ],
+        [
+          220,
+          327
+        ]
+      ],
+      "protectedHand": null,
+      "changedPixels": 6384,
+      "originalHash": "6d4b2c7dd631667649b9b70afa8ebabbdba4ba74c6dcccc9ade4a55afa196afe",
+      "finalHash": "009ce1255ce9ac03844e1e944781bbd28d7d7eae185b47d22ea17b3c91b908ff",
+      "outsideMaskIdentical": true,
+      "alphaIdentical": true
+    }
+  ]
+}

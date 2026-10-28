@@ -1,0 +1,53 @@
+{
+  "native_canvas": [
+    256,
+    272
+  ],
+  "gameplay_integrated": false,
+  "unity_editor_validated": false,
+  "parts_count": 6,
+  "checks": [
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "23C074D168AC85C5AE07039F61BFE4CE8DC3452A905E0BC84E4C8852D7F08125",
+      "id": "corpo_banana"
+    },
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "3E4C3525EFAF4046F448FEF0A07154CB8412630344F6E45A95B4EC5606E2CA50",
+      "id": "braco_distante"
+    },
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "24ABF6E2585B9E688CC9B5192A7320A240980BB88245B1F9E4F631DEFDC2F9DA",
+      "id": "braco_proximo"
+    },
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "56E4FC75682DBF087F81EAB4933177733381A154DFD7965134330C42FE1EB679",
+      "id": "perna_distante"
+    },
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "BA4A0D9C457459A98FA4EACA1F672FAB482725D81091A2E76BC73E0FFEE2E7F6",
+      "id": "perna_proxima"
+    },
+    {
+      "inside_canvas": true,
+      "pivot_inside": true,
+      "rgba": true,
+      "sha256": "FF8A5B4D4F8C8BEE277F5911AE01BA3F9FAF4030369F118D5BA72DF1CDF915BC",
+      "id": "rabo"
+    }
+  ]
+}

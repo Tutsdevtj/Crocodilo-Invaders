@@ -1,0 +1,268 @@
+{
+  "version": 2,
+  "type": "frame_by_frame",
+  "frame_count": 24,
+  "canvas": [
+    384,
+    384
+  ],
+  "duration_ms": 4220,
+  "loop": false,
+  "pixels_per_unit": 100,
+  "root_pivot": [
+    0.5,
+    0.08333333333333337
+  ],
+  "spritesheet": {
+    "file": "spritesheet_8x3.png",
+    "columns": 8,
+    "rows": 3,
+    "cell": [
+      384,
+      384
+    ],
+    "order": "left_to_right_top_to_bottom"
+  },
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/transformacao_00.png",
+      "label": "Tensão inicial",
+      "duration_ms": 220,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 1,
+      "file": "frames/transformacao_01.png",
+      "label": "Fecha os dedos",
+      "duration_ms": 150,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 2,
+      "file": "frames/transformacao_02.png",
+      "label": "Fecha os punhos",
+      "duration_ms": 150,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 3,
+      "file": "frames/transformacao_03.png",
+      "label": "Flexiona",
+      "duration_ms": 150,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 4,
+      "file": "frames/transformacao_04.png",
+      "label": "Força aumenta",
+      "duration_ms": 150,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 5,
+      "file": "frames/transformacao_05.png",
+      "label": "Raiva crescente",
+      "duration_ms": 220,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 6,
+      "file": "frames/transformacao_06.png",
+      "label": "Alcança a ponta",
+      "duration_ms": 120,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 7,
+      "file": "frames/transformacao_07.png",
+      "label": "Ergue a mão",
+      "duration_ms": 120,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 8,
+      "file": "frames/transformacao_08.png",
+      "label": "Prepara a pegada",
+      "duration_ms": 120,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 9,
+      "file": "frames/transformacao_09.png",
+      "label": "Agarra a ponta",
+      "duration_ms": 190,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 10,
+      "file": "frames/transformacao_10.png",
+      "label": "Arranca a ponta",
+      "duration_ms": 100,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 11,
+      "file": "frames/transformacao_11.png",
+      "label": "Ponta separada",
+      "duration_ms": 180,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 12,
+      "file": "frames/transformacao_12.png",
+      "label": "Prepara o arremesso",
+      "duration_ms": 120,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 13,
+      "file": "frames/transformacao_13.png",
+      "label": "Solta a ponta",
+      "duration_ms": 90,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 14,
+      "file": "frames/transformacao_14.png",
+      "label": "Ponta voando",
+      "duration_ms": 100,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 15,
+      "file": "frames/transformacao_15.png",
+      "label": "Busca a casca",
+      "duration_ms": 130,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 16,
+      "file": "frames/transformacao_16.png",
+      "label": "Agarra o meio",
+      "duration_ms": 160,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 17,
+      "file": "frames/transformacao_17.png",
+      "label": "Inicia o rasgo",
+      "duration_ms": 160,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 18,
+      "file": "frames/transformacao_18.png",
+      "label": "Puxa para os lados",
+      "duration_ms": 140,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 19,
+      "file": "frames/transformacao_19.png",
+      "label": "Amplia o rasgo",
+      "duration_ms": 140,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 20,
+      "file": "frames/transformacao_20.png",
+      "label": "Rasga com força",
+      "duration_ms": 100,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 21,
+      "file": "frames/transformacao_21.png",
+      "label": "Rugido",
+      "duration_ms": 150,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 22,
+      "file": "frames/transformacao_22.png",
+      "label": "Solta a casca",
+      "duration_ms": 160,
+      "pivot_px": [
+        192,
+        352
+      ]
+    },
+    {
+      "index": 23,
+      "file": "frames/transformacao_23.png",
+      "label": "Forma 2 pronta",
+      "duration_ms": 900,
+      "pivot_px": [
+        192,
+        352
+      ]
+    }
+  ]
+}

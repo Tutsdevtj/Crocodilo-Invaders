@@ -1,0 +1,319 @@
+{
+  "version": 11,
+  "edited": [
+    {
+      "id": "AttackSpeed",
+      "rank": 1,
+      "polygon": [
+        [
+          33,
+          37
+        ],
+        [
+          44,
+          39
+        ],
+        [
+          50,
+          47
+        ],
+        [
+          66,
+          52
+        ],
+        [
+          92,
+          58
+        ],
+        [
+          97,
+          56
+        ],
+        [
+          97,
+          67
+        ],
+        [
+          90,
+          72
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          57,
+          78
+        ],
+        [
+          34,
+          75
+        ],
+        [
+          31,
+          53
+        ]
+      ]
+    },
+    {
+      "id": "AttackSpeed",
+      "rank": 2,
+      "polygon": [
+        [
+          33,
+          37
+        ],
+        [
+          44,
+          39
+        ],
+        [
+          50,
+          47
+        ],
+        [
+          66,
+          52
+        ],
+        [
+          92,
+          58
+        ],
+        [
+          97,
+          56
+        ],
+        [
+          97,
+          67
+        ],
+        [
+          90,
+          72
+        ],
+        [
+          64,
+          68
+        ],
+        [
+          57,
+          78
+        ],
+        [
+          34,
+          75
+        ],
+        [
+          31,
+          53
+        ]
+      ]
+    },
+    {
+      "id": "MoveSpeed",
+      "rank": 1,
+      "polygon": [
+        [
+          43,
+          29
+        ],
+        [
+          51,
+          33
+        ],
+        [
+          58,
+          39
+        ],
+        [
+          75,
+          44
+        ],
+        [
+          96,
+          49
+        ],
+        [
+          98,
+          54
+        ],
+        [
+          91,
+          59
+        ],
+        [
+          69,
+          55
+        ],
+        [
+          62,
+          60
+        ],
+        [
+          45,
+          58
+        ],
+        [
+          42,
+          43
+        ]
+      ]
+    }
+  ],
+  "unchanged_cards": 22,
+  "unchanged_labels": 25,
+  "unchanged_materials": 25,
+  "shader": "Identical to v10",
+  "cards": [
+    {
+      "family": "AttackDamage",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "9724b61a01db4c40b5fd3253ea154d8f66665044ab430fb84b8a59c98018dafd"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Rare",
+      "changed_pixels": 0,
+      "sha256": "d25ca20e222bcbfe7ddc86eef914a2598ffd525b56a7cc7b6ba75eb18f1619b9"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Epic",
+      "changed_pixels": 0,
+      "sha256": "8da65533919b86bce4381d6c70abc9d43e273d3795855e6196a0d3603298a0f4"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Legendary",
+      "changed_pixels": 0,
+      "sha256": "2fcaae192948e0a62a8e4f2757e30f087185830ed8bade551a5beb0b89940eef"
+    },
+    {
+      "family": "AttackDamage",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "a8f9bc4a1d2212cc2681b0574475e7753a34c88d1edf94c00f9d3a737c1888af"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "4c5016d5873d8725c332d03b6cadd601567679ab95de8702f56a413b7bb87a89"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Rare",
+      "changed_pixels": 1465,
+      "sha256": "a811de5dc5884294faa995593d8f11a9519b0c795dbfce7e947d0086c0aa7609"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Epic",
+      "changed_pixels": 1462,
+      "sha256": "69abdbc625afea5340973fc66697a99c635711ea7b610406a058265642eca4d6"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Legendary",
+      "changed_pixels": 0,
+      "sha256": "de653dd9f85dac0b601afa690d4134e111e2dda26b6ef4dfa4e3ec1808937f86"
+    },
+    {
+      "family": "AttackSpeed",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "9c7adb5fbc417dbeb13f3875a1167f1c99c86d514668b408861dacd343f1adaa"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "c384d6d382eadfda51fcc0348bf42f60b78138689240c2abe13238d0dc999dbc"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Rare",
+      "changed_pixels": 0,
+      "sha256": "bcb4cee4cf7e893a33b4f808cb9646f176fe16820b3fd45161a4199b64884294"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Epic",
+      "changed_pixels": 0,
+      "sha256": "b0a76b9fb65e10578e90a454f7ee8f84b92dd79c25a47bb3771ebc5c6718e765"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Legendary",
+      "changed_pixels": 0,
+      "sha256": "609e6179431b5cc3dc2b93e1aaf39ad8cf44b74930c202f7e2355d95b1ddd8c5"
+    },
+    {
+      "family": "MaximumHealth",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "7f6be08da1a3e05fa2ed5368082c3739fda7742c5bead629e9c3d1e30244bfd2"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "090669f957feae4215d508f19406f5bef8c8ed217b15ad67d50d29fb7e5caeec"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Rare",
+      "changed_pixels": 874,
+      "sha256": "b729a522c814b33c11256d67861e848c0cfa9744113edbc308549b048d8a6a0a"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Epic",
+      "changed_pixels": 0,
+      "sha256": "c78d68da6cc6c3c9aa1f229bad8e0be84692d069de6cf3497cfd6b95b5e4661e"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Legendary",
+      "changed_pixels": 0,
+      "sha256": "2abd0fa420886474edfdb63490092c6e78b91a8334097d5cce8a975d195b2637"
+    },
+    {
+      "family": "MoveSpeed",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "9e8b9f61259e1233b8ac9bce028b3774f1967566def2d7be9e4b2aaf9cd6d73d"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Common",
+      "changed_pixels": 0,
+      "sha256": "90c2fc3f3f4d024f8b312b78ea3f07bc141b48df01478f8bc7165c2364757fbb"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Rare",
+      "changed_pixels": 0,
+      "sha256": "a0cdf8a23f31a1e6938ae1e017806da1869d7dd0ff3af05246b778beca3f77be"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Epic",
+      "changed_pixels": 0,
+      "sha256": "3d9244e2d47c2f6e743864bc434102be3d98787621472678895ad156346a97ff"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Legendary",
+      "changed_pixels": 0,
+      "sha256": "1b4446f8034aa58a9dd7313f81dd11867d7d73d0c5f97c1aa8a869d2a7ccad38"
+    },
+    {
+      "family": "SpecialDamage",
+      "rank": "Mythic",
+      "changed_pixels": 0,
+      "sha256": "d7ea04804a4d44c2b9d78403df89001b750bab95f026d901b7b71f3f67a32bd7"
+    }
+  ]
+}

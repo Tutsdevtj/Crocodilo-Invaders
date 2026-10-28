@@ -1,0 +1,62 @@
+{
+  "duration_ms": 2190.0,
+  "note": "Six design keyframes; intermediate animation and gameplay not implemented.",
+  "loop": false,
+  "frames": [
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_00.png",
+      "duration_ms": 350,
+      "index": 0
+    },
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_01.png",
+      "duration_ms": 220,
+      "index": 1
+    },
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_02.png",
+      "duration_ms": 220,
+      "index": 2
+    },
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_03.png",
+      "duration_ms": 240,
+      "index": 3
+    },
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_04.png",
+      "duration_ms": 260,
+      "index": 4
+    },
+    {
+      "canvas": [
+        256,
+        256
+      ],
+      "file": "frames/transformacao_05.png",
+      "duration_ms": 900,
+      "index": 5
+    }
+  ],
+  "type": "design_keyframes"
+}

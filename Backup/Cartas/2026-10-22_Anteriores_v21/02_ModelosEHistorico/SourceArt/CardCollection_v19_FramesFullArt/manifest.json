@@ -1,0 +1,46 @@
+{
+  "version": 19,
+  "date": "2026-10-22",
+  "status": "Visual concept sheets, not installed in Unity",
+  "tool": "Built-in image_gen; common retained from v18",
+  "scope": "Progressive frame architecture and embossed shading; mythic full art",
+  "sheets": [
+    {
+      "rarity": "Common",
+      "file": "Docs/ArtPreviews/CardCollection_v19/01-comuns.png",
+      "source": "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CardCollection_v18/01-comuns.png",
+      "prompt": null
+    },
+    {
+      "rarity": "Rare",
+      "file": "Docs/ArtPreviews/CardCollection_v19/02-raras.png",
+      "source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-0b9be99a-e527-48af-abf6-3221e9625124.png",
+      "prompt": "Rare-prompt.txt"
+    },
+    {
+      "rarity": "Epic",
+      "file": "Docs/ArtPreviews/CardCollection_v19/03-epicas.png",
+      "source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-5f91cafe-a7d9-4bb7-bb2b-0fd38bfc3222.png",
+      "prompt": "Epic-prompt.txt"
+    },
+    {
+      "rarity": "Legendary",
+      "file": "Docs/ArtPreviews/CardCollection_v19/04-lendarias.png",
+      "source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-da2e6704-d0ca-4911-ba51-9d2222ad7400.png",
+      "prompt": "Legendary-prompt.txt"
+    },
+    {
+      "rarity": "Mythic",
+      "file": "Docs/ArtPreviews/CardCollection_v19/05-miticas-full-art.png",
+      "source": "C:\\Users\\berna\\.codex\\generated_images\\01a15baa-92dc-7e70-91ec-db634318efdb\\exec-2fbbcc4f-93d7-4b59-97c0-86fe446babf1.png",
+      "prompt": "Mythic-prompt.txt"
+    }
+  ],
+  "preserved": [
+    "Five aircraft-mounted upgrade systems",
+    "No crocodile or detached equipment",
+    "Bonus values by rarity",
+    "Projectile direction and rearward exhaust"
+  ],
+  "mythic_final_prompt": "Mythic-refinement-prompt.txt"
+}
