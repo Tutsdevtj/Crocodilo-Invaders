@@ -66,6 +66,7 @@ public static class MacaquiniJetpackValidation
         player=Object.FindAnyObjectByType<Player>();player.Health.SetInvulnerable(typeof(MacaquiniJetpackValidation),true);
         var waves=Object.FindAnyObjectByType<WaveController>();yield return Until(()=>waves.ActiveBoss!=null&&waves.ActiveBoss.Ready,"boss ready");
         boss=waves.ActiveBoss;combat=boss.GetComponent<MacaquiniCombat>();actor=boss.GetComponent<MacaquiniFlightPresentation>();phase=boss.GetComponent<MacaquiniPhaseTwo>();
+        var modernFighter=boss.GetComponent<MacaquiniFighter>();if(modernFighter!=null)modernFighter.enabled=false;
         Check(actor!=null&&!actor.VineVisible&&actor.JetpackAttached,"Primeira forma usa jetpack sem cipó");
         Check(!boss.transform.Find("Visual").gameObject.activeSelf,"Rig modular oculto; anatomia pertence ao desenho completo");
         Check(Object.FindAnyObjectByType<BossHUD>().ActiveBar.name=="MacaquiniBar","HUD usa a barra exclusiva Macaquini");

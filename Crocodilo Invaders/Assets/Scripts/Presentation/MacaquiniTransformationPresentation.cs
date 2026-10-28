@@ -81,7 +81,8 @@ public sealed class MacaquiniTransformationPresentation : MonoBehaviour
         if(Time.timeScale<=0)return;
         float strength=actor.HalfShell?1:actor.Transforming?Mathf.SmoothStep(0,1,Mathf.InverseLerp(.48f,.80f,actor.TearProgress)):0;
         var kick=GetComponent<MacaquiniSwingKick>();
-        if(kick==null||!kick.Running)painted.localScale=Vector3.one*(actor.UniformSpriteScale?1f:1+strength*.065f);
+        var fighter=GetComponent<MacaquiniFighter>();
+        if((kick==null||!kick.Running)&&(fighter==null||!fighter.ControlsDrawing))painted.localScale=Vector3.one*(actor.UniformSpriteScale?1f:1+strength*.065f);
         float age=Time.time-waveStart;pressure.enabled=boss.BattleActive&&age>=0&&age<.65f;
         if(pressure.enabled){float t=age/.65f,radius=Mathf.Lerp(.35f,2.6f,t);pressure.startColor=pressure.endColor=new Color(.65f,.74f,.25f,(1-t)*.55f);for(int i=0;i<48;i++){float a=i*Mathf.PI*2/48;pressure.SetPosition(i,new Vector3(Mathf.Cos(a)*radius,1+Mathf.Sin(a)*radius*.6f));}}
         debris.RemoveAll(g=>g==null);
