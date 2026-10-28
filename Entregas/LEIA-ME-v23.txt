@@ -1,0 +1,8 @@
+Projeto completo Crocodilo Invaders - v23 (menu DEV organizado).
+
+Para editar: abra a pasta Crocodilo Invaders no Unity Hub.
+Para jogar: Crocodilo Invaders/Builds/Windows-Dev-Menu-v23/CrocodiloInvaders.exe
+
+Inclui Assets, Packages, ProjectSettings, SourceArt, Tools, Docs e o build Windows atual.
+Caches Library/Temp/Logs, historico Git e builds antigos foram omitidos.
+O Unity recria os caches ao abrir o projeto.
