@@ -25,6 +25,8 @@ public sealed class WaveController : MonoBehaviour
     [SerializeField, Min(0)] private int waveClearBonus = 1000;
     [SerializeField] private Boss bossPrefab;
     [SerializeField] private Transform bossSpawnPoint;
+    [SerializeField, Tooltip("Capítulo sem recuperação específica: conclui após a apresentação de derrota do boss.")]
+    private bool completeChapterOnBossDefeat;
     [SerializeField, Tooltip("Opcional: cenas narrativas da abertura e do boss.")] private RunCutscenes cutscenes;
 
     private EnemySpawner spawner;
@@ -242,17 +244,19 @@ public sealed class WaveController : MonoBehaviour
             if (CurrentWave == WaveCount) EndRun(true);
             else AnnounceNextWave();
         }
-        else if (Phase == RunPhase.BossDefeated && !chapterEnding && Time.time >= phaseEndsAt) EndRun(true);
+        else if (Phase == RunPhase.BossDefeated && !chapterEnding && Time.time >= phaseEndsAt)
+        {
+            if (completeChapterOnBossDefeat) { chapterEnding = true; CompleteChapter(); }
+            else EndRun(true);
+        }
     }
 
-#if UNITY_EDITOR
     public void StartBossForDevelopment()
     {
         if (Phase != RunPhase.Waiting || bossPrefab == null) return;
         // Mesmo caminho da run: a onda do boss é anunciada (ONDA N → alerta) antes da entrada.
         BeginRun(false, CombatWaveCount);
     }
-#endif
 
     private void BeginBoss()
     {

@@ -1,0 +1,22 @@
+[
+  {
+    "source": "pernas_fonte.png",
+    "source_rect": [
+      70,
+      234,
+      543,
+      882
+    ],
+    "id": "perna_distante"
+  },
+  {
+    "source": "pernas_fonte.png",
+    "source_rect": [
+      669,
+      141,
+      541,
+      985
+    ],
+    "id": "perna_proxima"
+  }
+]

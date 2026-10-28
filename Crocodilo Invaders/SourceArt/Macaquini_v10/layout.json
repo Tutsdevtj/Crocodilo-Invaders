@@ -1,0 +1,451 @@
+{
+  "canvas": [
+    384,
+    384
+  ],
+  "nativeSampling": true,
+  "frames": [
+    {
+      "name": "flight_00.png",
+      "opaquePixels": 33478,
+      "sha256": "c92b04753ecc924e72b114ec247294b060c25e73225d98b35cc963a28cb12157"
+    },
+    {
+      "name": "flight_01.png",
+      "opaquePixels": 33462,
+      "sha256": "85708fb7bd14d4b831f67926861ca68f284c92fe2a528e0c7437fa89ae9c13b5"
+    },
+    {
+      "name": "flight_02.png",
+      "opaquePixels": 33619,
+      "sha256": "7c65a0793b21b5e3d71b1d99c4f31c86cbb505f0a3dbfad81de9551bea625639"
+    },
+    {
+      "name": "flight_03.png",
+      "opaquePixels": 32936,
+      "sha256": "c94d1f8923b30500fdc086a1445c70d4b59623691dd513ead5c327ac12bf571e"
+    },
+    {
+      "name": "flight_04.png",
+      "opaquePixels": 33993,
+      "sha256": "17a7db786edc298c18e2f4a5132807b9a3e05f925ae100fe954f57faa67cd188"
+    },
+    {
+      "name": "flight_05.png",
+      "opaquePixels": 32148,
+      "sha256": "98f26a9814f89a2ab0ae6d0133cd701c9f044eba793168aec426ebc37aee9cda"
+    },
+    {
+      "name": "flight_06.png",
+      "opaquePixels": 33394,
+      "sha256": "ef48012a7c5c3623be56a0ae54f4680397324083ca52e6a335b77e0c9807b37d"
+    },
+    {
+      "name": "flight_07.png",
+      "opaquePixels": 32158,
+      "sha256": "898d046b79ee66c171265f46e5b8d657e7a89f28f57f308ecec2e2dfba47c308"
+    },
+    {
+      "name": "flight_08.png",
+      "opaquePixels": 34580,
+      "sha256": "7df9289d035d32e829f5db5b1af3038b14093149af0a2d87d32692bde489db5c"
+    },
+    {
+      "name": "flight_09.png",
+      "opaquePixels": 33071,
+      "sha256": "20ff924d2f87bb02dc3ebe1423740b7a958d21b15a67287e69d14b9f3f8bfb56"
+    },
+    {
+      "name": "flight_10.png",
+      "opaquePixels": 32262,
+      "sha256": "c3e5037bcda644ccade649b70378d7bbdc17c304603b7d15be6ef8c682d427ac"
+    },
+    {
+      "name": "flight_11.png",
+      "opaquePixels": 33012,
+      "sha256": "dbdbd454ab0bbfe9f97093ac78e11520f9960f01c2bbd4298a0e33ae9500bdb1"
+    },
+    {
+      "name": "flight_12.png",
+      "opaquePixels": 33062,
+      "sha256": "046a0812ba5a846f65ca96caf1388943d8754366754bd987024d436d341569fb"
+    },
+    {
+      "name": "flight_13.png",
+      "opaquePixels": 33080,
+      "sha256": "f5f87fbbc16ade796e3f215e8f75f8333de2bb7e6f99d7ac7154ec700250fbdb"
+    },
+    {
+      "name": "flight_14.png",
+      "opaquePixels": 32738,
+      "sha256": "e56956e348237a7beb04ebb3c174a9a9ee2d19d0c3c7ef8441fbf3e3c8aaa61a"
+    },
+    {
+      "name": "flight_15.png",
+      "opaquePixels": 33216,
+      "sha256": "80499e12ce9cf3fb09a9380628960c9ac2ecc1c63bc1265799c0fdc8e5a58866"
+    },
+    {
+      "name": "transform_00.png",
+      "opaquePixels": 32648,
+      "sha256": "dc4d273a5dd5ed0534db86704f5919217b45958a0fba2bbf566297f63181aef0"
+    },
+    {
+      "name": "transform_01.png",
+      "opaquePixels": 32164,
+      "sha256": "284e8d0dd7751d3b9e4e0f6656b254f2da0b9fb7f6f4b927070ebf2ee2db985b"
+    },
+    {
+      "name": "transform_02.png",
+      "opaquePixels": 32216,
+      "sha256": "ab5478ec7e1b7a64e800fa7dc258752751c5c7e89c55b177aff246116974f934"
+    },
+    {
+      "name": "transform_03.png",
+      "opaquePixels": 31795,
+      "sha256": "8d5b3783036a493084885d44c9ac37e480032db01de164c0995549939f13c532"
+    },
+    {
+      "name": "transform_04.png",
+      "opaquePixels": 32306,
+      "sha256": "76549046bde60781439847b55df7cc38320bf8e59885b57f4a648aa7bc60c6e5"
+    },
+    {
+      "name": "transform_05.png",
+      "opaquePixels": 35799,
+      "sha256": "852552443b59787e9ca97771942c8b22ef2a6cc35ef23014267752055005bc82"
+    },
+    {
+      "name": "transform_06.png",
+      "opaquePixels": 34811,
+      "sha256": "78f57dbb4cfb9d2046b491a3d9363e2b4699ab3124f82340613722d9d3d24b8f"
+    },
+    {
+      "name": "transform_07.png",
+      "opaquePixels": 35428,
+      "sha256": "80e9cd30c0b2cd1fee66a79a2f14aa38728e6965da46c2297277d41cb80b5489"
+    },
+    {
+      "name": "transform_08.png",
+      "opaquePixels": 41855,
+      "sha256": "656828a7cf4a743ec268921ce8d68bd5fa20fc4d49f921c2c46e52e5df804ad8"
+    },
+    {
+      "name": "transform_09.png",
+      "opaquePixels": 44749,
+      "sha256": "d5ea479e1f631a0f49610b2bdde1b35c6fd01ef85b27201d92efe295561d13bd"
+    },
+    {
+      "name": "transform_10.png",
+      "opaquePixels": 45845,
+      "sha256": "474028ec83067539df7842aedcd0fdb121e7d531f1369d922a839369725ef225"
+    },
+    {
+      "name": "transform_11.png",
+      "opaquePixels": 35575,
+      "sha256": "f968fbde5bdcd052b79eb28f0e9576d022f20d1cb3511139bfa8ead526f5f2bb"
+    },
+    {
+      "name": "transform_12.png",
+      "opaquePixels": 26553,
+      "sha256": "6c311380d4f2278b1a269d8ebd273de7db06b95f3d07788f8e5b87739c8577a7"
+    },
+    {
+      "name": "transform_13.png",
+      "opaquePixels": 28071,
+      "sha256": "691bc09cebd4182637e5ddd91e0506d35ac1c4f5811bb1338fbffcec5e75c43c"
+    },
+    {
+      "name": "transform_14.png",
+      "opaquePixels": 28270,
+      "sha256": "56dd1dd30bf804654ebd46894ef6417b27e4463580c229c6c5986ab01de64815"
+    },
+    {
+      "name": "transform_15.png",
+      "opaquePixels": 29973,
+      "sha256": "b9f516f16ddd24f91233b291c6dd4df66a5ed4479be3433f011c881c07d3e1c9"
+    }
+  ],
+  "muzzles": [
+    {
+      "name": "flight_00.png",
+      "offset": {
+        "x": -2.3875,
+        "y": 0.6639423076923077
+      }
+    },
+    {
+      "name": "flight_01.png",
+      "offset": {
+        "x": -2.5375,
+        "y": 0.7020833333333332
+      }
+    },
+    {
+      "name": "flight_02.png",
+      "offset": {
+        "x": -2.6125,
+        "y": 0.7916666666666667
+      }
+    },
+    {
+      "name": "flight_03.png",
+      "offset": {
+        "x": -2.65,
+        "y": 0.8904411764705884
+      }
+    },
+    {
+      "name": "flight_04.png",
+      "offset": {
+        "x": -2.425,
+        "y": 0.825
+      }
+    },
+    {
+      "name": "flight_05.png",
+      "offset": {
+        "x": -2.45,
+        "y": 0.6701086956521738
+      }
+    },
+    {
+      "name": "flight_06.png",
+      "offset": {
+        "x": -2.575,
+        "y": 0.8451086956521738
+      }
+    },
+    {
+      "name": "flight_07.png",
+      "offset": {
+        "x": -2.5625,
+        "y": 0.7264423076923077
+      }
+    },
+    {
+      "name": "flight_08.png",
+      "offset": {
+        "x": -2.5125,
+        "y": 0.7208333333333332
+      }
+    },
+    {
+      "name": "flight_09.png",
+      "offset": {
+        "x": -2.475,
+        "y": 0.875
+      }
+    },
+    {
+      "name": "flight_10.png",
+      "offset": {
+        "x": -2.5875,
+        "y": 0.84375
+      }
+    },
+    {
+      "name": "flight_11.png",
+      "offset": {
+        "x": -2.6,
+        "y": 0.697159090909091
+      }
+    },
+    {
+      "name": "flight_12.png",
+      "offset": {
+        "x": -2.45,
+        "y": 0.790625
+      }
+    },
+    {
+      "name": "flight_13.png",
+      "offset": {
+        "x": -2.55,
+        "y": 0.85625
+      }
+    },
+    {
+      "name": "flight_14.png",
+      "offset": {
+        "x": -2.625,
+        "y": 0.7639423076923076
+      }
+    },
+    {
+      "name": "flight_15.png",
+      "offset": {
+        "x": -2.6,
+        "y": 0.7875
+      }
+    },
+    {
+      "name": "half_00.png",
+      "offset": {
+        "x": -2.6166666666666667,
+        "y": 0.75
+      }
+    },
+    {
+      "name": "half_01.png",
+      "offset": {
+        "x": -2.5166666666666666,
+        "y": 0.7638888888888891
+      }
+    },
+    {
+      "name": "half_02.png",
+      "offset": {
+        "x": -2.283333333333333,
+        "y": 0.8479166666666667
+      }
+    },
+    {
+      "name": "half_03.png",
+      "offset": {
+        "x": -2.25,
+        "y": 0.8605263157894735
+      }
+    },
+    {
+      "name": "half_04.png",
+      "offset": {
+        "x": -2.3333333333333335,
+        "y": 0.915740740740741
+      }
+    },
+    {
+      "name": "half_05.png",
+      "offset": {
+        "x": -2.2,
+        "y": 0.9166666666666666
+      }
+    },
+    {
+      "name": "half_06.png",
+      "offset": {
+        "x": -2.3,
+        "y": 0.9416666666666667
+      }
+    },
+    {
+      "name": "half_07.png",
+      "offset": {
+        "x": -1.9833333333333334,
+        "y": 0.9122807017543858
+      }
+    },
+    {
+      "name": "half_08.png",
+      "offset": {
+        "x": -1.95,
+        "y": 0.7111111111111109
+      }
+    },
+    {
+      "name": "half_09.png",
+      "offset": {
+        "x": -2.0166666666666666,
+        "y": 0.6520833333333333
+      }
+    },
+    {
+      "name": "half_10.png",
+      "offset": {
+        "x": -1.95,
+        "y": 0.7616666666666665
+      }
+    },
+    {
+      "name": "half_11.png",
+      "offset": {
+        "x": -2.0166666666666666,
+        "y": 0.746875
+      }
+    },
+    {
+      "name": "half_12.png",
+      "offset": {
+        "x": -2.6333333333333333,
+        "y": 0.925
+      }
+    },
+    {
+      "name": "half_13.png",
+      "offset": {
+        "x": -2.55,
+        "y": 0.8897435897435898
+      }
+    },
+    {
+      "name": "half_14.png",
+      "offset": {
+        "x": -2.466666666666667,
+        "y": 1.013095238095238
+      }
+    },
+    {
+      "name": "half_15.png",
+      "offset": {
+        "x": -2.6,
+        "y": 0.8885964912280703
+      }
+    },
+    {
+      "name": "half_attack_00.png",
+      "offset": {
+        "x": -2.3,
+        "y": 0.636111111111111
+      }
+    },
+    {
+      "name": "half_attack_01.png",
+      "offset": {
+        "x": -2.066666666666667,
+        "y": 0.8357142857142856
+      }
+    },
+    {
+      "name": "half_attack_02.png",
+      "offset": {
+        "x": -2.3,
+        "y": 0.8166666666666667
+      }
+    },
+    {
+      "name": "half_attack_03.png",
+      "offset": {
+        "x": -2.6166666666666667,
+        "y": 0.8478260869565218
+      }
+    },
+    {
+      "name": "half_attack_04.png",
+      "offset": {
+        "x": -2.5,
+        "y": 0.9148809523809524
+      }
+    },
+    {
+      "name": "half_attack_05.png",
+      "offset": {
+        "x": -2.1333333333333333,
+        "y": 0.8314102564102565
+      }
+    },
+    {
+      "name": "half_attack_06.png",
+      "offset": {
+        "x": -2.2666666666666666,
+        "y": 0.9271929824561401
+      }
+    },
+    {
+      "name": "half_attack_07.png",
+      "offset": {
+        "x": -2.3833333333333333,
+        "y": 0.95
+      }
+    }
+  ]
+}

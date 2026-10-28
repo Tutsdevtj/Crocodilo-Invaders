@@ -1,0 +1,116 @@
+{
+  "frame_count": 24,
+  "distinct_frames": 24,
+  "native_canvas": [
+    160,
+    160
+  ],
+  "palette_limit": 24,
+  "actual_frame_colors": 22,
+  "binary_alpha": true,
+  "projectile_separate": true,
+  "phase1_body_closed_visual_review": true,
+  "gif_frames": 24,
+  "duration_ms": 4080,
+  "preview_javascript_parses": true,
+  "unity_editor_validated": false,
+  "gameplay_integrated": false,
+  "checks": [
+    {
+      "index": 0,
+      "sha256": "d55379b2d5c66490642c99a0bb96f1cba9e304cba717e68d5378f02a2d0939d9"
+    },
+    {
+      "index": 1,
+      "sha256": "6ef7336508b61955d52bda5a014f891967a213d3f740dd94462120b122f85222"
+    },
+    {
+      "index": 2,
+      "sha256": "af9183da1b35fa55cbdf7780af444000bb5b5500d721c0182be3878eb179d3e3"
+    },
+    {
+      "index": 3,
+      "sha256": "c973d5e374c9f7a1e936685406d729ee99220156020a8cdf4c88b167ec26aa36"
+    },
+    {
+      "index": 4,
+      "sha256": "6fa60df4495980a6a5ad4917a78b959421f9d7b8326af07612a10893e140a523"
+    },
+    {
+      "index": 5,
+      "sha256": "e1f925fd323ac14f3806445a2bc5fc8d96d2e881a241472e9b8c9e6f519e5c32"
+    },
+    {
+      "index": 6,
+      "sha256": "28fcd25b39cc21baf70394bbe2dac6e57f2f541568f5637109258ee7cb742e94"
+    },
+    {
+      "index": 7,
+      "sha256": "40e1c8ff7d104a2d558443a1f69507607d518a6e66a42d34b6a94cd10cc06e84"
+    },
+    {
+      "index": 8,
+      "sha256": "c3c04b6163e8cae420108e9e608015c69e17ed21e5af19090842b9190d19a6bb"
+    },
+    {
+      "index": 9,
+      "sha256": "09bd48c2ca628b21b45f0eda0a29c3faa4436b21bc465e9a0ebc524e2b70a690"
+    },
+    {
+      "index": 10,
+      "sha256": "bd7614bbd28a351c7ccef3fe47c8a10acd949963fc38035c445d8c004f93c80c"
+    },
+    {
+      "index": 11,
+      "sha256": "17ee56270ee804eb2b8625021f9106ad6473ebf0cda3573b8bf9ff7dd2624795"
+    },
+    {
+      "index": 12,
+      "sha256": "65f643a4c6ef59cea9f4e5f2b3af73e808d0c9e3c39323a754cb069134328221"
+    },
+    {
+      "index": 13,
+      "sha256": "6175c4c80ee8eaba8e06598d03497d5c15e6a311ebb6d6a9b9a4dfa9f2d5f83f"
+    },
+    {
+      "index": 14,
+      "sha256": "fa92fd4a704bca206279525cb688dd79f11a976c5938898f38873923fa2171f8"
+    },
+    {
+      "index": 15,
+      "sha256": "59ff381b6808e6bb889ad965001972eec53675867be957b7a65c4f337b28ea20"
+    },
+    {
+      "index": 16,
+      "sha256": "223cf2ba3e42bfe7dce19392b50be1ced757545eedbfff5dd5c39deaf45ee27c"
+    },
+    {
+      "index": 17,
+      "sha256": "d7bc2ec85f044ec22107a691f69a67192581c43240200c22ee4c57a8364831ee"
+    },
+    {
+      "index": 18,
+      "sha256": "3999be8c9097f091ae8637aa71f450cf53773e7bf8b81ee472c76ce52d1e6ae7"
+    },
+    {
+      "index": 19,
+      "sha256": "6714f9402fd22fa4bb6593d5aaa6bb9a4a01f96057393cd0bca39a466809795c"
+    },
+    {
+      "index": 20,
+      "sha256": "70069649d0c82bb66e3e08591bea59d9f515aedeb5b5bcf69f0a137e650cccf3"
+    },
+    {
+      "index": 21,
+      "sha256": "a43daa6c49d0ce29db7189380a82c691e026e4c67efa07e29d1fc9db11da304a"
+    },
+    {
+      "index": 22,
+      "sha256": "d8f5e634703fbc79890d448c7e83365775c592f96dafa81e602b43391af000e7"
+    },
+    {
+      "index": 23,
+      "sha256": "6332b2c85efb258af1eb056c885f08a60899062c7430ac0607d0234613d2916d"
+    }
+  ]
+}

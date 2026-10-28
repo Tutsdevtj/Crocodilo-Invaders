@@ -13,6 +13,8 @@ public sealed class BossBarFX : MonoBehaviour
     [SerializeField] private Sprite normalFill, criticalFill;
     [SerializeField] private Sprite[] scarfFrames, hitFrames, glintFrames;
 
+    private MacaquiniBossBar jungle;
+    public MacaquiniBossBar JungleView => jungle != null ? jungle : (jungle = GetComponent<MacaquiniBossBar>());
     private readonly float[] sparkStarted = new float[3];
     private float clock, targetHp, initialHp, shownHp, lagHoldUntil;
     private float flashStarted, shakeStarted, nextHitAt, shimmerStarted, nextShimmerAt, glintStarted;
@@ -28,8 +30,25 @@ public sealed class BossBarFX : MonoBehaviour
         phaseOneScarf = scarfFrames; phaseOneHit = hitFrames; phaseOneGlint = glintFrames;
     }
 
+    // A cloned instance keeps the exact frame, anchoring and health feedback of the original HUD.
+    public void SetIdentity(Sprite title, Sprite portrait)
+    {
+        if (JungleView != null) { return; }
+        foreach (Image image in GetComponentsInChildren<Image>(true))
+        {
+            if (image.name == "name_text" && title != null)
+            {
+                image.rectTransform.anchoredPosition += Vector2.right * (image.rectTransform.sizeDelta.x - title.rect.width) * .5f;
+                image.rectTransform.sizeDelta = title.rect.size;
+                image.sprite = title;
+            }
+            if (image.name == "emblem_roundel" && portrait != null) image.sprite = portrait;
+        }
+    }
+
     public void Show(float fraction)
     {
+        if (JungleView != null) { JungleView.Show(fraction); return; }
         phaseTwo = transformationHold = false;
         if (phaseOneFill != null)
         {
@@ -48,6 +67,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void SetHealth(float fraction)
     {
+        if (JungleView != null) { JungleView.SetHealth(fraction); return; }
         if (transformationHold) return;
         targetHp = Mathf.Clamp01(fraction);
         // Guarda dano durante a carga de entrada, sem perder o valor real.
@@ -56,6 +76,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void HoldEmpty()
     {
+        if (JungleView != null) { JungleView.HoldEmpty(); return; }
         transformationHold = true; chargeFinished = true;
         targetHp = shownHp = 0f;
         healthFill.fillAmount = damageLag.fillAmount = hitFlash.fillAmount = 0f;
@@ -64,6 +85,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void BeginPhaseTwoCharge(float fraction, float elapsed = 0f)
     {
+        if (JungleView != null) { JungleView.Reveal(fraction); return; }
         Show(fraction);
         phaseTwo = true;
         clock = Mathf.Max(0f, elapsed);
@@ -107,6 +129,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     private void Update()
     {
+        if (JungleView != null) { return; }
         clock += Time.deltaTime;
         if (!chargeFinished)
         {
@@ -207,6 +230,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     private void OnDisable()
     {
+        if (JungleView != null) { return; }
         shimmerActive = false;
         motion.anchoredPosition = Vector2.zero;
         shimmer.enabled = fillEdge.enabled = glint.enabled = false;

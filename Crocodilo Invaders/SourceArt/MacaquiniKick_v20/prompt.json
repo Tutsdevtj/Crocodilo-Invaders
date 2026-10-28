@@ -1,0 +1,11 @@
+{
+  "constraints": [
+    "preserve reddish brown monkey, light chest, entirely green eyes, yellow torn banana shorts and tail",
+    "3x2 sheet, six full body poses, transparent background",
+    "windup, hand release, kick extension, full kick, aerial recovery, vine catch",
+    "one common scale and pelvis registration; no separate limb rig"
+  ],
+  "reference": "Assets/Art/JungleStage/Macaquini_v18/transform_39.png",
+  "intent": "six complete action poses matching existing monkey boss",
+  "mode": "image_gen.imagegen"
+}

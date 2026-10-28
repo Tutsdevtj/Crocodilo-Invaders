@@ -1,0 +1,40 @@
+{
+  "provenance": "Original deterministic PCM synthesis; no external samples, music or speech.",
+  "clips": [
+    {
+      "name": "launch",
+      "duration": 0.3,
+      "sample_rate": 44100,
+      "peak": 0.68,
+      "sha256": "a25f5455587659605ed44568312917907970afb0638836ae07443ca6eb7a7ef7"
+    },
+    {
+      "name": "charge",
+      "duration": 0.64,
+      "sample_rate": 44100,
+      "peak": 0.68,
+      "sha256": "7c28906395cc098447efac63cb8ad41398225991084fd03e57aeea0737edaacc"
+    },
+    {
+      "name": "whip",
+      "duration": 0.24,
+      "sample_rate": 44100,
+      "peak": 0.68,
+      "sha256": "63ac55f301e785f92bd777e74947f702adea9497e9bda8003c42c1354e456570"
+    },
+    {
+      "name": "growl",
+      "duration": 0.56,
+      "sample_rate": 44100,
+      "peak": 0.68,
+      "sha256": "7db9658ae862e161e6dbb1228e54c5da7cb0dbd8a38ebb8c008844f82fbf9bc8"
+    },
+    {
+      "name": "hurt",
+      "duration": 0.13,
+      "sample_rate": 44100,
+      "peak": 0.68,
+      "sha256": "f2a1fc673459d20603a4f03f0ce777b024795f91cb7c0efdf10ad13c1df6dc7f"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "corner_alpha": 0,
+  "visual_review": "posterior shoulder lip direction and position; external borders retained, internal borders absent; longer lean shins; yellow peel and green details",
+  "individual_pngs": 6,
+  "leg_height_after": [
+    170,
+    176
+  ],
+  "body_covers_roots": true,
+  "ora_layers": 6,
+  "all_layers_within_canvas": true,
+  "hip_positions_preserved": true,
+  "phase": 1,
+  "leg_height_before": [
+    144,
+    149
+  ],
+  "generator": "built-in image_gen",
+  "opaque_overlap_pixels": {
+    "braco_proximo": 3995,
+    "perna_distante": 2985,
+    "rabo": 479,
+    "perna_proxima": 2428,
+    "braco_distante": 2388
+  },
+  "canvas": [
+    760,
+    700
+  ]
+}

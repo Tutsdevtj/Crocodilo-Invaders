@@ -1,0 +1,18 @@
+{
+  "tail_mirrored_for_assembly": true,
+  "ora_layers": 6,
+  "individual_pngs": 6,
+  "status": "static design master, not animated",
+  "corner_alpha": 0,
+  "references": [
+    "user monkey anatomy",
+    "user closed banana",
+    "Goosini style",
+    "B. Crocodilo style"
+  ],
+  "canvas": [
+    680,
+    650
+  ],
+  "generator": "built-in image_gen"
+}

@@ -1,0 +1,160 @@
+{
+  "frames": 24,
+  "distinct_frames": 24,
+  "native_canvas": [
+    128,
+    128
+  ],
+  "palette_limit": 20,
+  "actual_opaque_colors": 20,
+  "binary_alpha": true,
+  "preview_integer_scale": 4,
+  "gif_frames": 24,
+  "duration_ms": 4220,
+  "frames_sha256": [
+    {
+      "index": 0,
+      "sha256": "178f83968e8db403a82fbb3c2be47d3ed4f6318eb3eab1769dee8d9cef1d93cd",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 1,
+      "sha256": "647b009f322f77310d851d55294b780a2c60912d8b2da4ab298863a8766d79cd",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 2,
+      "sha256": "04647c6412589974975ccb00956164c9a2924991b188d9486e85c419c82b47ef",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 3,
+      "sha256": "220522f2aa6adb3a2f77e5a0a0e815e657f35226c7035ea6b39b8428f9c612a9",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 4,
+      "sha256": "9ba7c43ccdc23fcfb13e1c473acd8032b76151178f86656ea2e395739e12a1ad",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 5,
+      "sha256": "0fe016e267613e33a07d67431dd94f90ea8903614334a8711ef390a03518e8d1",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 6,
+      "sha256": "61d0bb646170c63c0106aa96cdffbbfe15c5e52e54b56d964a06ed36a130cc74",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 7,
+      "sha256": "58cd18beb7b121367dcfa2bb683809984e02bea3ad1b18f43fee8fe4d70a7202",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 8,
+      "sha256": "099736d9cd545e3e47a463e51c50c18106e0c102afd882785b550df30adc4804",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 9,
+      "sha256": "9ebf4c89eb4e020a66dc7a3d13eab247fccd86f6685056cd8679fc9439086403",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 10,
+      "sha256": "4d306a4779c8654aa2bde0cefd21bbe0317c0fe057a4848c6d2bec531c75851c",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 11,
+      "sha256": "d2cd72310702924e69078ab791bd7a65a4fe2f9759ea6b63db3bab2e8890b1c1",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 12,
+      "sha256": "978b7787953095505c5867e3a824196be09f9fbdb9b030ddad8efd1b2542f798",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 13,
+      "sha256": "bb37c1afc04fb46d292366c4d213400e1a0b71f497edc83c67878dfaf8213190",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 14,
+      "sha256": "81dd7845aa76180507d826044cddcd938a2f9e69fc07d423f9330bd1347c273a",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 15,
+      "sha256": "c15a5125b244b74077d0d0f000fb704eb8a476a0cdabaeff397d7638752df70f",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 16,
+      "sha256": "4adca87124dc0c7b3c054c0f7d9ce13a2dd9f8c8ffbe93af34da55095e7708b2",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 17,
+      "sha256": "202cd7e72d4c2ad74f04ed2d2d47e6d21d6eed50b2013734ea01433c4cf26331",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 18,
+      "sha256": "acb26607bbe9930fb2d8469d17e7badd302a189099340146a5305bfa697859f8",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 19,
+      "sha256": "900f56c0d0a496fba734887ddcd9ee2e2578a5f23a5648d4c01f159a7c339ba3",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 20,
+      "sha256": "68bcb18e0a08ecae66ec427b34669c51b52419a2fef536b3f879369e7e68ff8c",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 21,
+      "sha256": "adbbdf58594f335bc0238395111d3c21e0a4fe89edf948128bafe883420f447d",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 22,
+      "sha256": "5717b2086ed1b27a653aafb60931707d50842ff0f204756092b614cbc2289fce",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "index": 23,
+      "sha256": "8bfc7cef31f9813af8df03292db3f0e8a3ea6ddd6b8f00d4dd50bb9d61ab7292",
+      "width": 128,
+      "height": 128
+    }
+  ]
+}

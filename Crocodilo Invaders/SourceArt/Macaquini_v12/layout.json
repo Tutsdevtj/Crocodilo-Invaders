@@ -1,0 +1,615 @@
+{
+  "version": 12,
+  "forms": [
+    {
+      "form": "flight",
+      "canvas": 512,
+      "pivot": {
+        "x": 294,
+        "y": 304
+      },
+      "ppu": 80,
+      "frames": [
+        {
+          "name": "flight_00.png",
+          "source": "flight",
+          "cell": 0,
+          "muzzle": {
+            "x": -2.4625,
+            "y": 0.722596153846154
+          }
+        },
+        {
+          "name": "flight_01.png",
+          "source": "flight",
+          "cell": 1,
+          "muzzle": {
+            "x": -2.4375,
+            "y": 0.725
+          }
+        },
+        {
+          "name": "flight_02.png",
+          "source": "flight",
+          "cell": 2,
+          "muzzle": {
+            "x": -2.4,
+            "y": 0.71875
+          }
+        },
+        {
+          "name": "flight_03.png",
+          "source": "flight",
+          "cell": 3,
+          "muzzle": {
+            "x": -2.4,
+            "y": 0.6920000000000002
+          }
+        },
+        {
+          "name": "flight_04.png",
+          "source": "flight",
+          "cell": 4,
+          "muzzle": {
+            "x": -2.425,
+            "y": 0.710096153846154
+          }
+        },
+        {
+          "name": "flight_05.png",
+          "source": "flight",
+          "cell": 5,
+          "muzzle": {
+            "x": -2.3875,
+            "y": 0.7038043478260871
+          }
+        },
+        {
+          "name": "flight_06.png",
+          "source": "flight",
+          "cell": 6,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7147727272727273
+          }
+        },
+        {
+          "name": "flight_07.png",
+          "source": "flight",
+          "cell": 7,
+          "muzzle": {
+            "x": -2.4125,
+            "y": 0.7163043478260871
+          }
+        },
+        {
+          "name": "flight_08.png",
+          "source": "flight",
+          "cell": 8,
+          "muzzle": {
+            "x": -2.4375,
+            "y": 0.6954999999999998
+          }
+        },
+        {
+          "name": "flight_09.png",
+          "source": "flight",
+          "cell": 9,
+          "muzzle": {
+            "x": -2.4,
+            "y": 0.6732142857142858
+          }
+        },
+        {
+          "name": "flight_10.png",
+          "source": "flight",
+          "cell": 10,
+          "muzzle": {
+            "x": -2.4375,
+            "y": 0.725
+          }
+        },
+        {
+          "name": "flight_11.png",
+          "source": "flight",
+          "cell": 11,
+          "muzzle": {
+            "x": -2.45,
+            "y": 0.728804347826087
+          }
+        },
+        {
+          "name": "flight_12.png",
+          "source": "flight",
+          "cell": 12,
+          "muzzle": {
+            "x": -2.4375,
+            "y": 0.7043478260869567
+          }
+        },
+        {
+          "name": "flight_13.png",
+          "source": "flight",
+          "cell": 13,
+          "muzzle": {
+            "x": -2.425,
+            "y": 0.7229166666666668
+          }
+        },
+        {
+          "name": "flight_14.png",
+          "source": "flight",
+          "cell": 14,
+          "muzzle": {
+            "x": -2.4375,
+            "y": 0.714423076923077
+          }
+        },
+        {
+          "name": "flight_15.png",
+          "source": "flight",
+          "cell": 15,
+          "muzzle": {
+            "x": -2.4125,
+            "y": 0.721875
+          }
+        },
+        {
+          "name": "flight_16.png",
+          "source": "flight_b",
+          "cell": 0,
+          "muzzle": {
+            "x": -2.4875,
+            "y": 0.7451086956521739
+          }
+        },
+        {
+          "name": "flight_17.png",
+          "source": "flight_b",
+          "cell": 1,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7326086956521738
+          }
+        },
+        {
+          "name": "flight_18.png",
+          "source": "flight_b",
+          "cell": 2,
+          "muzzle": {
+            "x": -2.4625,
+            "y": 0.73125
+          }
+        },
+        {
+          "name": "flight_19.png",
+          "source": "flight_b",
+          "cell": 3,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7326086956521738
+          }
+        },
+        {
+          "name": "flight_20.png",
+          "source": "flight_b",
+          "cell": 4,
+          "muzzle": {
+            "x": -2.5,
+            "y": 0.7673913043478262
+          }
+        },
+        {
+          "name": "flight_21.png",
+          "source": "flight_b",
+          "cell": 5,
+          "muzzle": {
+            "x": -2.4875,
+            "y": 0.76875
+          }
+        },
+        {
+          "name": "flight_22.png",
+          "source": "flight_b",
+          "cell": 6,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7289999999999999
+          }
+        },
+        {
+          "name": "flight_23.png",
+          "source": "flight_b",
+          "cell": 7,
+          "muzzle": {
+            "x": -2.4875,
+            "y": 0.7701086956521739
+          }
+        },
+        {
+          "name": "flight_24.png",
+          "source": "flight_b",
+          "cell": 8,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.75625
+          }
+        },
+        {
+          "name": "flight_25.png",
+          "source": "flight_b",
+          "cell": 9,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7464999999999999
+          }
+        },
+        {
+          "name": "flight_26.png",
+          "source": "flight_b",
+          "cell": 10,
+          "muzzle": {
+            "x": -2.4625,
+            "y": 0.75
+          }
+        },
+        {
+          "name": "flight_27.png",
+          "source": "flight_b",
+          "cell": 11,
+          "muzzle": {
+            "x": -2.4625,
+            "y": 0.7479166666666668
+          }
+        },
+        {
+          "name": "flight_28.png",
+          "source": "flight_b",
+          "cell": 12,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7535000000000001
+          }
+        },
+        {
+          "name": "flight_29.png",
+          "source": "flight_b",
+          "cell": 13,
+          "muzzle": {
+            "x": -2.4875,
+            "y": 0.784
+          }
+        },
+        {
+          "name": "flight_30.png",
+          "source": "flight_b",
+          "cell": 14,
+          "muzzle": {
+            "x": -2.4875,
+            "y": 0.7791666666666668
+          }
+        },
+        {
+          "name": "flight_31.png",
+          "source": "flight_b",
+          "cell": 15,
+          "muzzle": {
+            "x": -2.475,
+            "y": 0.7610576923076924
+          }
+        }
+      ]
+    },
+    {
+      "form": "transform",
+      "canvas": 512,
+      "pivot": {
+        "x": 256,
+        "y": 320
+      },
+      "ppu": 80,
+      "frames": [
+        {
+          "name": "transform_00.png",
+          "source": "tear_a",
+          "cell": 0,
+          "muzzle": {
+            "x": -1.65,
+            "y": 1.6319196428571427
+          }
+        },
+        {
+          "name": "transform_01.png",
+          "source": "tear_a",
+          "cell": 1,
+          "muzzle": {
+            "x": -1.6875,
+            "y": 1.645777027027027
+          }
+        },
+        {
+          "name": "transform_02.png",
+          "source": "tear_a",
+          "cell": 2,
+          "muzzle": {
+            "x": -1.7,
+            "y": 1.6570238095238097
+          }
+        },
+        {
+          "name": "transform_03.png",
+          "source": "tear_a",
+          "cell": 3,
+          "muzzle": {
+            "x": -1.6875,
+            "y": 1.5457
+          }
+        },
+        {
+          "name": "transform_04.png",
+          "source": "tear_a",
+          "cell": 4,
+          "muzzle": {
+            "x": -1.9,
+            "y": 2.0361979166666666
+          }
+        },
+        {
+          "name": "transform_05.png",
+          "source": "tear_a",
+          "cell": 5,
+          "muzzle": {
+            "x": -1.5875,
+            "y": 1.2080729166666668
+          }
+        },
+        {
+          "name": "transform_06.png",
+          "source": "tear_a",
+          "cell": 6,
+          "muzzle": {
+            "x": -1.6,
+            "y": 1.5425
+          }
+        },
+        {
+          "name": "transform_07.png",
+          "source": "tear_a",
+          "cell": 7,
+          "muzzle": {
+            "x": -2.05,
+            "y": 1.6125
+          }
+        },
+        {
+          "name": "transform_08.png",
+          "source": "tear_a",
+          "cell": 8,
+          "muzzle": {
+            "x": -2.1,
+            "y": 0.7203125
+          }
+        },
+        {
+          "name": "transform_09.png",
+          "source": "tear_a",
+          "cell": 9,
+          "muzzle": {
+            "x": -1.575,
+            "y": 0.4044117647058826
+          }
+        },
+        {
+          "name": "transform_10.png",
+          "source": "tear_a",
+          "cell": 10,
+          "muzzle": {
+            "x": -1.6125,
+            "y": 0.48125
+          }
+        },
+        {
+          "name": "transform_11.png",
+          "source": "tear_a",
+          "cell": 11,
+          "muzzle": {
+            "x": -1.85,
+            "y": 0.7560483870967744
+          }
+        },
+        {
+          "name": "transform_12.png",
+          "source": "tear_a",
+          "cell": 12,
+          "muzzle": {
+            "x": -1.9,
+            "y": 0.7850000000000001
+          }
+        },
+        {
+          "name": "transform_13.png",
+          "source": "tear_a",
+          "cell": 13,
+          "muzzle": {
+            "x": -1.975,
+            "y": 0.703125
+          }
+        },
+        {
+          "name": "transform_14.png",
+          "source": "tear_a",
+          "cell": 14,
+          "muzzle": {
+            "x": -1.9125,
+            "y": 0.7472560975609752
+          }
+        },
+        {
+          "name": "transform_15.png",
+          "source": "tear_a",
+          "cell": 15,
+          "muzzle": {
+            "x": -1.9375,
+            "y": 0.7710227272727274
+          }
+        },
+        {
+          "name": "transform_16.png",
+          "source": "tear_b",
+          "cell": 2,
+          "muzzle": {
+            "x": -2.025,
+            "y": 1.4158898305084748
+          }
+        },
+        {
+          "name": "transform_17.png",
+          "source": "tear_b",
+          "cell": 2,
+          "muzzle": {
+            "x": -2.025,
+            "y": 1.4158898305084748
+          }
+        },
+        {
+          "name": "transform_18.png",
+          "source": "tear_b",
+          "cell": 3,
+          "muzzle": {
+            "x": -1.7875,
+            "y": 1.5700520833333331
+          }
+        },
+        {
+          "name": "transform_19.png",
+          "source": "tear_b",
+          "cell": 3,
+          "muzzle": {
+            "x": -1.7875,
+            "y": 1.5700520833333331
+          }
+        },
+        {
+          "name": "transform_20.png",
+          "source": "tear_b",
+          "cell": 4,
+          "muzzle": {
+            "x": -2.4125,
+            "y": 1.493951612903226
+          }
+        },
+        {
+          "name": "transform_21.png",
+          "source": "tear_b",
+          "cell": 5,
+          "muzzle": {
+            "x": -2.4625,
+            "y": 1.4845108695652176
+          }
+        },
+        {
+          "name": "transform_22.png",
+          "source": "tear_b",
+          "cell": 6,
+          "muzzle": {
+            "x": -2.175,
+            "y": 1.3771484375
+          }
+        },
+        {
+          "name": "transform_23.png",
+          "source": "tear_b",
+          "cell": 7,
+          "muzzle": {
+            "x": -2.0875,
+            "y": 1.6744565217391305
+          }
+        },
+        {
+          "name": "transform_24.png",
+          "source": "tear_b",
+          "cell": 8,
+          "muzzle": {
+            "x": -1.175,
+            "y": 2.4767045454545453
+          }
+        },
+        {
+          "name": "transform_25.png",
+          "source": "tear_b",
+          "cell": 9,
+          "muzzle": {
+            "x": -2.2625,
+            "y": 1.2435344827586206
+          }
+        },
+        {
+          "name": "transform_26.png",
+          "source": "tear_b",
+          "cell": 10,
+          "muzzle": {
+            "x": -1.175,
+            "y": 2.2618055555555556
+          }
+        },
+        {
+          "name": "transform_27.png",
+          "source": "tear_b",
+          "cell": 11,
+          "muzzle": {
+            "x": -2.2625,
+            "y": 0.7422413793103445
+          }
+        },
+        {
+          "name": "transform_28.png",
+          "source": "tear_b",
+          "cell": 12,
+          "muzzle": {
+            "x": -2.075,
+            "y": 1.0672413793103448
+          }
+        },
+        {
+          "name": "transform_29.png",
+          "source": "tear_b",
+          "cell": 13,
+          "muzzle": {
+            "x": -2.375,
+            "y": 0.8048913043478262
+          }
+        },
+        {
+          "name": "transform_30.png",
+          "source": "tear_b",
+          "cell": 14,
+          "muzzle": {
+            "x": -1.9875,
+            "y": 2.276388888888889
+          }
+        },
+        {
+          "name": "transform_31.png",
+          "source": "tear_b",
+          "cell": 15,
+          "muzzle": {
+            "x": -2.3625,
+            "y": 0.7431818181818179
+          }
+        }
+      ]
+    }
+  ],
+  "debris": [
+    {
+      "name": "banana_cap.png",
+      "canvas": 415,
+      "ppu": 400
+    },
+    {
+      "name": "peel_jetpack.png",
+      "canvas": 813,
+      "ppu": 340
+    }
+  ]
+}

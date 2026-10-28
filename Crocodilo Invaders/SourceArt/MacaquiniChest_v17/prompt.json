@@ -1,0 +1,8 @@
+{
+ "tool":"image_gen.imagegen",
+ "mode":"built-in",
+ "transparent_background":true,
+ "references":["Assets/Art/JungleStage/Macaquini_v13/transform_27.png","Assets/Art/JungleStage/Macaquini_v13/transform_29.png"],
+ "prompt":"Edit ONLY the first image, using the second image solely as the exact skin-color reference. The exposed muscular CHEST and ABDOMEN between the banana peel halves in the first image are incorrectly reddish brown. Change only that exposed chest/abdomen skin to the same LIGHT WARM PEACH/TAN skin as the second image's bare chest. Include the pectoral muscles and abdominal muscles as one coherent exposed skin region, preserve existing muscle shading, highlights, crease lines and sharp pixel-art detail. Keep fur on shoulders and arms reddish brown. Strictly preserve the first image's exact pose, anatomy, silhouette, scale, face, hair, hands, legs, feet, tail, jetpack, infected banana peel and all other pixels. Do not redraw any part of the character. Do not borrow the pose from the second image. Retain transparent background and exact placement of first image. Pixel-art local recolor only.",
+ "integration":"Generated image is the color reference only. Final game sprites use a localized palette adjustment on native pixels, retaining original shading and verifying exact equality outside recorded masks. No generated anatomy replaces the game character."
+}

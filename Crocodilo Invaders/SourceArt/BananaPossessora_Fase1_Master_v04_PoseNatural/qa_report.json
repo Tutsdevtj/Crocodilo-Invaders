@@ -1,0 +1,20 @@
+{
+  "canvas": [
+    760,
+    700
+  ],
+  "all_layers_within_canvas": true,
+  "visual_review": "relaxed hanging arms with complete hands; attachment and silhouette checked; far thigh covered by banana; yellow peel and green accents unchanged",
+  "generator": "built-in image_gen",
+  "individual_pngs": 6,
+  "phase": 1,
+  "corner_alpha": 0,
+  "preserved_parts_sha256_identical": [
+    "corpo_banana",
+    "perna_distante",
+    "perna_proxima",
+    "rabo"
+  ],
+  "ora_layers": 6,
+  "far_leg_behind_banana": true
+}

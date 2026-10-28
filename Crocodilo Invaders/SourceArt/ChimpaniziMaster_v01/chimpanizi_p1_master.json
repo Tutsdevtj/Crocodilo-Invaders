@@ -1,0 +1,902 @@
+{
+  "character": "Chimpanizi Bananini",
+  "stage": "static phase-one master",
+  "version": "v01",
+  "status": "proposal_pending_user_review",
+  "canvas": {
+    "w": 256,
+    "h": 256
+  },
+  "pivot_px": [
+    132,
+    154
+  ],
+  "pivot_unity_normalized": [
+    0.515625,
+    0.3984375
+  ],
+  "coordinates": "Top-left origin, y down. Unity y = -pixel y; integer pixel offsets.",
+  "facing": "left / three-quarter",
+  "light": "top-left",
+  "palette": {
+    "outline": [
+      13,
+      13,
+      21
+    ],
+    "fur_deep": [
+      28,
+      35,
+      28
+    ],
+    "fur_shadow": [
+      43,
+      56,
+      36
+    ],
+    "fur_base": [
+      64,
+      79,
+      43
+    ],
+    "fur_light": [
+      94,
+      113,
+      53
+    ],
+    "fur_glint": [
+      131,
+      145,
+      67
+    ],
+    "skin_deep": [
+      77,
+      42,
+      31
+    ],
+    "skin_shadow": [
+      115,
+      60,
+      38
+    ],
+    "skin_base": [
+      157,
+      88,
+      47
+    ],
+    "skin_light": [
+      195,
+      123,
+      64
+    ],
+    "peel_deep": [
+      119,
+      66,
+      29
+    ],
+    "peel_shadow": [
+      177,
+      111,
+      30
+    ],
+    "peel_base": [
+      226,
+      165,
+      37
+    ],
+    "peel_light": [
+      250,
+      207,
+      67
+    ],
+    "peel_glint": [
+      255,
+      231,
+      119
+    ],
+    "pulp_deep": [
+      185,
+      147,
+      76
+    ],
+    "pulp_shadow": [
+      224,
+      191,
+      111
+    ],
+    "pulp_base": [
+      247,
+      222,
+      153
+    ],
+    "pulp_light": [
+      255,
+      242,
+      193
+    ],
+    "stalk_deep": [
+      57,
+      62,
+      30
+    ],
+    "stalk_base": [
+      97,
+      104,
+      42
+    ],
+    "stalk_light": [
+      154,
+      152,
+      60
+    ],
+    "eye": [
+      247,
+      244,
+      206
+    ],
+    "iris": [
+      206,
+      103,
+      32
+    ],
+    "mouth": [
+      61,
+      33,
+      30
+    ],
+    "tooth": [
+      250,
+      231,
+      175
+    ],
+    "nail": [
+      98,
+      76,
+      48
+    ]
+  },
+  "parts": [
+    {
+      "id": "arm_back_upper",
+      "file": "parts/chimpanizi_p1_arm_back_upper.png",
+      "parent": "body",
+      "sorting_order": 0,
+      "offset_in_canvas_px": [
+        142,
+        61
+      ],
+      "offset_in_boss_px": [
+        10,
+        -93
+      ],
+      "size_px": [
+        52,
+        46
+      ],
+      "pivot_canvas_px": [
+        151,
+        92
+      ],
+      "pivot_local_px": [
+        9,
+        31
+      ],
+      "pivot_unity_normalized": [
+        0.17307692307692307,
+        0.32608695652173914
+      ],
+      "joint_from_parent_px": [
+        19,
+        -62
+      ],
+      "sha256": "885cb1f261cf64cbfece92b70e042d3cb334ac6def3bf5630928a79db892a98f"
+    },
+    {
+      "id": "arm_back_forearm",
+      "file": "parts/chimpanizi_p1_arm_back_forearm.png",
+      "parent": "arm_back_upper",
+      "sorting_order": 1,
+      "offset_in_canvas_px": [
+        174,
+        33
+      ],
+      "offset_in_boss_px": [
+        42,
+        -121
+      ],
+      "size_px": [
+        38,
+        56
+      ],
+      "pivot_canvas_px": [
+        185,
+        73
+      ],
+      "pivot_local_px": [
+        11,
+        40
+      ],
+      "pivot_unity_normalized": [
+        0.2894736842105263,
+        0.2857142857142857
+      ],
+      "joint_from_parent_px": [
+        34,
+        -19
+      ],
+      "sha256": "2083d6764fba18d891ea91522eff3f169510fc9bb2a6008d0bf82a113e628297"
+    },
+    {
+      "id": "hand_back_grip",
+      "file": "parts/chimpanizi_p1_hand_back_grip.png",
+      "parent": "arm_back_forearm",
+      "sorting_order": 2,
+      "offset_in_canvas_px": [
+        192,
+        11
+      ],
+      "offset_in_boss_px": [
+        60,
+        -143
+      ],
+      "size_px": [
+        28,
+        32
+      ],
+      "pivot_canvas_px": [
+        204,
+        29
+      ],
+      "pivot_local_px": [
+        12,
+        18
+      ],
+      "pivot_unity_normalized": [
+        0.42857142857142855,
+        0.4375
+      ],
+      "joint_from_parent_px": [
+        19,
+        -44
+      ],
+      "sha256": "33d7ea81781379420e9d1e538b7b54da49c683e5db84091889d4c3ae0479650e"
+    },
+    {
+      "id": "leg_back_thigh",
+      "file": "parts/chimpanizi_p1_leg_back_thigh.png",
+      "parent": "body",
+      "sorting_order": 3,
+      "offset_in_canvas_px": [
+        137,
+        158
+      ],
+      "offset_in_boss_px": [
+        5,
+        4
+      ],
+      "size_px": [
+        39,
+        38
+      ],
+      "pivot_canvas_px": [
+        147,
+        162
+      ],
+      "pivot_local_px": [
+        10,
+        4
+      ],
+      "pivot_unity_normalized": [
+        0.2564102564102564,
+        0.8947368421052632
+      ],
+      "joint_from_parent_px": [
+        15,
+        8
+      ],
+      "sha256": "ccb5ddafe10ed51edb02bea366470519cdb6888114fe7b1e39dfb4513d28c359"
+    },
+    {
+      "id": "leg_back_shin",
+      "file": "parts/chimpanizi_p1_leg_back_shin.png",
+      "parent": "leg_back_thigh",
+      "sorting_order": 4,
+      "offset_in_canvas_px": [
+        152,
+        185
+      ],
+      "offset_in_boss_px": [
+        20,
+        31
+      ],
+      "size_px": [
+        35,
+        34
+      ],
+      "pivot_canvas_px": [
+        163,
+        188
+      ],
+      "pivot_local_px": [
+        11,
+        3
+      ],
+      "pivot_unity_normalized": [
+        0.3142857142857143,
+        0.9117647058823529
+      ],
+      "joint_from_parent_px": [
+        16,
+        26
+      ],
+      "sha256": "775ea64947b951979e43306f8208c12f8e987be5898825f377984f78e5eae79f"
+    },
+    {
+      "id": "foot_back",
+      "file": "parts/chimpanizi_p1_foot_back.png",
+      "parent": "leg_back_shin",
+      "sorting_order": 5,
+      "offset_in_canvas_px": [
+        154,
+        209
+      ],
+      "offset_in_boss_px": [
+        22,
+        55
+      ],
+      "size_px": [
+        43,
+        25
+      ],
+      "pivot_canvas_px": [
+        176,
+        216
+      ],
+      "pivot_local_px": [
+        22,
+        7
+      ],
+      "pivot_unity_normalized": [
+        0.5116279069767442,
+        0.72
+      ],
+      "joint_from_parent_px": [
+        13,
+        28
+      ],
+      "sha256": "172540c8a1ac226c597cbff3a24034046507bdf82262c265c3f4db3c4d2538be"
+    },
+    {
+      "id": "body",
+      "file": "parts/chimpanizi_p1_body.png",
+      "parent": null,
+      "sorting_order": 6,
+      "offset_in_canvas_px": [
+        98,
+        46
+      ],
+      "offset_in_boss_px": [
+        -34,
+        -108
+      ],
+      "size_px": [
+        95,
+        157
+      ],
+      "pivot_canvas_px": [
+        132,
+        154
+      ],
+      "pivot_local_px": [
+        34,
+        108
+      ],
+      "pivot_unity_normalized": [
+        0.35789473684210527,
+        0.3121019108280255
+      ],
+      "joint_from_parent_px": [
+        0,
+        0
+      ],
+      "sha256": "273a6645d266bee0cbeb2f77470a47685e5380055315c5b63bf00960adee6819"
+    },
+    {
+      "id": "stalk",
+      "file": "parts/chimpanizi_p1_stalk.png",
+      "parent": "body",
+      "sorting_order": 7,
+      "offset_in_canvas_px": [
+        116,
+        26
+      ],
+      "offset_in_boss_px": [
+        -16,
+        -128
+      ],
+      "size_px": [
+        25,
+        35
+      ],
+      "pivot_canvas_px": [
+        126,
+        56
+      ],
+      "pivot_local_px": [
+        10,
+        30
+      ],
+      "pivot_unity_normalized": [
+        0.4,
+        0.1428571428571429
+      ],
+      "joint_from_parent_px": [
+        -6,
+        -98
+      ],
+      "sha256": "0112d5b5af1c8f5e442fbd8a3b4ff128790a128cda9be950ac68e2ce553610f3"
+    },
+    {
+      "id": "pulp_face",
+      "file": "parts/chimpanizi_p1_pulp_face.png",
+      "parent": "body",
+      "sorting_order": 8,
+      "offset_in_canvas_px": [
+        102,
+        50
+      ],
+      "offset_in_boss_px": [
+        -30,
+        -104
+      ],
+      "size_px": [
+        48,
+        83
+      ],
+      "pivot_canvas_px": [
+        120,
+        92
+      ],
+      "pivot_local_px": [
+        18,
+        42
+      ],
+      "pivot_unity_normalized": [
+        0.375,
+        0.49397590361445787
+      ],
+      "joint_from_parent_px": [
+        -12,
+        -62
+      ],
+      "sha256": "ff426b0350b88b89db2bca7022ad8385e562cb8da7c0fab2a3d6588a797d3026"
+    },
+    {
+      "id": "peel_back_flap",
+      "file": "parts/chimpanizi_p1_peel_back_flap.png",
+      "parent": "body",
+      "sorting_order": 9,
+      "offset_in_canvas_px": [
+        138,
+        107
+      ],
+      "offset_in_boss_px": [
+        6,
+        -47
+      ],
+      "size_px": [
+        49,
+        65
+      ],
+      "pivot_canvas_px": [
+        141,
+        111
+      ],
+      "pivot_local_px": [
+        3,
+        4
+      ],
+      "pivot_unity_normalized": [
+        0.061224489795918366,
+        0.9384615384615385
+      ],
+      "joint_from_parent_px": [
+        9,
+        -43
+      ],
+      "sha256": "b3983f4aad43700f898bfb197144b58e5c438b6419921b635633b7465744690d"
+    },
+    {
+      "id": "leg_front_thigh",
+      "file": "parts/chimpanizi_p1_leg_front_thigh.png",
+      "parent": "body",
+      "sorting_order": 10,
+      "offset_in_canvas_px": [
+        97,
+        150
+      ],
+      "offset_in_boss_px": [
+        -35,
+        -4
+      ],
+      "size_px": [
+        35,
+        47
+      ],
+      "pivot_canvas_px": [
+        122,
+        158
+      ],
+      "pivot_local_px": [
+        25,
+        8
+      ],
+      "pivot_unity_normalized": [
+        0.7142857142857143,
+        0.8297872340425532
+      ],
+      "joint_from_parent_px": [
+        -10,
+        4
+      ],
+      "sha256": "fb99c14034aacad0c1f697e5fff28d1a180f9be7dcecd5a416d5926d49e71dbf"
+    },
+    {
+      "id": "leg_front_shin",
+      "file": "parts/chimpanizi_p1_leg_front_shin.png",
+      "parent": "leg_front_thigh",
+      "sorting_order": 11,
+      "offset_in_canvas_px": [
+        89,
+        181
+      ],
+      "offset_in_boss_px": [
+        -43,
+        27
+      ],
+      "size_px": [
+        25,
+        46
+      ],
+      "pivot_canvas_px": [
+        109,
+        189
+      ],
+      "pivot_local_px": [
+        20,
+        8
+      ],
+      "pivot_unity_normalized": [
+        0.8,
+        0.8260869565217391
+      ],
+      "joint_from_parent_px": [
+        -13,
+        31
+      ],
+      "sha256": "f7c5f62077e2ac7e3f161edaa2b5fdc7a8dffcdd268ee55e32f4e569b42a4440"
+    },
+    {
+      "id": "foot_front",
+      "file": "parts/chimpanizi_p1_foot_front.png",
+      "parent": "leg_front_shin",
+      "sorting_order": 12,
+      "offset_in_canvas_px": [
+        76,
+        218
+      ],
+      "offset_in_boss_px": [
+        -56,
+        64
+      ],
+      "size_px": [
+        43,
+        25
+      ],
+      "pivot_canvas_px": [
+        98,
+        225
+      ],
+      "pivot_local_px": [
+        22,
+        7
+      ],
+      "pivot_unity_normalized": [
+        0.5116279069767442,
+        0.72
+      ],
+      "joint_from_parent_px": [
+        -11,
+        36
+      ],
+      "sha256": "172540c8a1ac226c597cbff3a24034046507bdf82262c265c3f4db3c4d2538be"
+    },
+    {
+      "id": "arm_front_upper",
+      "file": "parts/chimpanizi_p1_arm_front_upper.png",
+      "parent": "body",
+      "sorting_order": 13,
+      "offset_in_canvas_px": [
+        66,
+        102
+      ],
+      "offset_in_boss_px": [
+        -66,
+        -52
+      ],
+      "size_px": [
+        53,
+        42
+      ],
+      "pivot_canvas_px": [
+        110,
+        111
+      ],
+      "pivot_local_px": [
+        44,
+        9
+      ],
+      "pivot_unity_normalized": [
+        0.8301886792452831,
+        0.7857142857142857
+      ],
+      "joint_from_parent_px": [
+        -22,
+        -43
+      ],
+      "sha256": "85d5ffff1c9fdc81703d62391f4f21b08af266698dc1c260dcd21fe2d73e4df2"
+    },
+    {
+      "id": "arm_front_forearm",
+      "file": "parts/chimpanizi_p1_arm_front_forearm.png",
+      "parent": "arm_front_upper",
+      "sorting_order": 14,
+      "offset_in_canvas_px": [
+        43,
+        119
+      ],
+      "offset_in_boss_px": [
+        -89,
+        -35
+      ],
+      "size_px": [
+        43,
+        34
+      ],
+      "pivot_canvas_px": [
+        77,
+        131
+      ],
+      "pivot_local_px": [
+        34,
+        12
+      ],
+      "pivot_unity_normalized": [
+        0.7906976744186046,
+        0.6470588235294117
+      ],
+      "joint_from_parent_px": [
+        -33,
+        20
+      ],
+      "sha256": "2d8c2cb3a422bac714bad20dfddc0b1e70131bb312c1608e7acd17e502710684"
+    },
+    {
+      "id": "hand_front_fist",
+      "file": "parts/chimpanizi_p1_hand_front_fist.png",
+      "parent": "arm_front_forearm",
+      "sorting_order": 15,
+      "offset_in_canvas_px": [
+        20,
+        123
+      ],
+      "offset_in_boss_px": [
+        -112,
+        -31
+      ],
+      "size_px": [
+        30,
+        29
+      ],
+      "pivot_canvas_px": [
+        36,
+        137
+      ],
+      "pivot_local_px": [
+        16,
+        14
+      ],
+      "pivot_unity_normalized": [
+        0.5333333333333333,
+        0.5172413793103448
+      ],
+      "joint_from_parent_px": [
+        -41,
+        6
+      ],
+      "sha256": "d3f5e31c8e6623d2c21036ff512b165650f379349d4635d2eae6b9231b857b8a"
+    },
+    {
+      "id": "peel_front_flap",
+      "file": "parts/chimpanizi_p1_peel_front_flap.png",
+      "parent": "body",
+      "sorting_order": 16,
+      "offset_in_canvas_px": [
+        99,
+        109
+      ],
+      "offset_in_boss_px": [
+        -33,
+        -45
+      ],
+      "size_px": [
+        30,
+        75
+      ],
+      "pivot_canvas_px": [
+        111,
+        116
+      ],
+      "pivot_local_px": [
+        12,
+        7
+      ],
+      "pivot_unity_normalized": [
+        0.4,
+        0.9066666666666666
+      ],
+      "joint_from_parent_px": [
+        -21,
+        -38
+      ],
+      "sha256": "988caff4a98a025f4905543275166508e62a60c32bf6e10a7b93c7ec3646cf15"
+    },
+    {
+      "id": "eyes_brows",
+      "file": "parts/chimpanizi_p1_eyes_brows.png",
+      "parent": "pulp_face",
+      "sorting_order": 17,
+      "offset_in_canvas_px": [
+        104,
+        78
+      ],
+      "offset_in_boss_px": [
+        -28,
+        -76
+      ],
+      "size_px": [
+        38,
+        19
+      ],
+      "pivot_canvas_px": [
+        121,
+        88
+      ],
+      "pivot_local_px": [
+        17,
+        10
+      ],
+      "pivot_unity_normalized": [
+        0.4473684210526316,
+        0.4736842105263158
+      ],
+      "joint_from_parent_px": [
+        1,
+        -4
+      ],
+      "sha256": "40f251729b199cc1bc61c4d7eea9853b6bf3a7c6e1d978f2b24fdd855cd9f002"
+    },
+    {
+      "id": "mouth",
+      "file": "parts/chimpanizi_p1_mouth.png",
+      "parent": "pulp_face",
+      "sorting_order": 18,
+      "offset_in_canvas_px": [
+        108,
+        98
+      ],
+      "offset_in_boss_px": [
+        -24,
+        -56
+      ],
+      "size_px": [
+        30,
+        26
+      ],
+      "pivot_canvas_px": [
+        119,
+        108
+      ],
+      "pivot_local_px": [
+        11,
+        10
+      ],
+      "pivot_unity_normalized": [
+        0.36666666666666664,
+        0.6153846153846154
+      ],
+      "joint_from_parent_px": [
+        -1,
+        16
+      ],
+      "sha256": "de857539b27ecd47e6c666a39dfbcc7cfb2466e267d2db1193a71e116db6ae4c"
+    }
+  ],
+  "sockets_canvas_px": {
+    "grip_back": [
+      207,
+      23
+    ],
+    "grip_front": [
+      30,
+      136
+    ],
+    "shoulder_back": [
+      151,
+      92
+    ],
+    "elbow_back": [
+      185,
+      73
+    ],
+    "wrist_back": [
+      204,
+      29
+    ],
+    "shoulder_front": [
+      110,
+      111
+    ],
+    "elbow_front": [
+      77,
+      131
+    ],
+    "wrist_front": [
+      36,
+      137
+    ],
+    "hip_front": [
+      122,
+      158
+    ],
+    "knee_front": [
+      109,
+      189
+    ],
+    "ankle_front": [
+      98,
+      225
+    ],
+    "hip_back": [
+      147,
+      162
+    ],
+    "knee_back": [
+      163,
+      188
+    ],
+    "ankle_back": [
+      176,
+      216
+    ],
+    "peel_front_root": [
+      111,
+      116
+    ],
+    "peel_back_root": [
+      141,
+      111
+    ]
+  },
+  "animation": null,
+  "gameplay": null,
+  "suggested_import": {
+    "filter": "Point",
+    "compression": "None",
+    "mipmaps": false,
+    "mesh_type": "FullRect",
+    "ppu": 100,
+    "ppu_status": "provisional; compare in gameplay before integration"
+  },
+  "note": "Native modular source; assembled frames may be exported for sprite-swap animation. No rig or Unity integration supplied."
+}

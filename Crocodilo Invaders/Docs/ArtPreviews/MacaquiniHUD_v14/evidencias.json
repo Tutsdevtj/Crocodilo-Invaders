@@ -1,0 +1,10 @@
+{
+  "source": "Native Unity Play Mode battle, actual HUD at 75% health in both forms.",
+  "phase_one": "damage_75.png",
+  "phase_two": "phase_two_75.png",
+  "portraits": "104px original character crops; exposed enraged monkey roar in phase two",
+  "validation": {
+    "checks": 62,
+    "errors": 0
+  }
+}

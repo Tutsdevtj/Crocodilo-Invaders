@@ -92,6 +92,9 @@ public static class GusiniPhaseTwoPlayValidation
     }
     private static void OnLog(string message, string trace, LogType type)
     {
+        // Unity 6000.6 can fail in its startup search index; this is outside the player simulation.
+        // Matches the filter already used by the card and jungle Play Mode validators.
+        if (trace.Contains("UnityEditor.Search.SearchDatabase")) return;
         if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) errors++;
     }
     private static void Check(bool condition, string message)

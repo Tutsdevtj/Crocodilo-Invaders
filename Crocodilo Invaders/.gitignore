@@ -21,3 +21,8 @@
 /SourceArt/**/working/
 /SourceArt/**/aseprite-output.txt
 /SourceArt/**/aseprite-errors.txt
+
+# Local editor preferences and Python bytecode.
+/.vscode/
+__pycache__/
+*.py[cod]

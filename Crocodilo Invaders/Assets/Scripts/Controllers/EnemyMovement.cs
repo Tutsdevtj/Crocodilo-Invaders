@@ -6,6 +6,8 @@ public sealed class EnemyMovement : MonoBehaviour
     [SerializeField, Min(0f)] private float moveSpeed = 2.5f;
     [SerializeField, Min(0f)] private float patrolSpeed = 1.4f;
     [SerializeField, Min(0.01f)] private float brakingDistance = 0.8f;
+    [SerializeField] private bool smoothDashes;
+    private Vector2 velocityDamping;
     [SerializeField, Range(0.1f, 1f)] private float hitSpeedMultiplier = 0.6f;
     [SerializeField, Min(0f)] private float hitSlowDuration = 0.1f;
     [SerializeField, Min(0.01f)] private float hitRecoveryDuration = 0.12f;
@@ -40,7 +42,7 @@ public sealed class EnemyMovement : MonoBehaviour
     public void HoldPosition(bool hold)
     {
         holding = hold;
-        if (hold) body.linearVelocity = Vector2.zero;
+        if (hold) { body.linearVelocity = Vector2.zero; velocityDamping = Vector2.zero; }
     }
 
     public void DashTo(Vector2 point, float speed)
@@ -79,6 +81,7 @@ public sealed class EnemyMovement : MonoBehaviour
         float speed = IsDashing ? dashSpeed : (HasArrived ? patrolSpeed * PatrolSpeedMultiplier : moveSpeed);
         // Freia perto do destino, sem parar no ponto nem teleportar entre posições.
         if (!IsDashing) speed *= Mathf.Clamp(distance / brakingDistance, 0.15f, 1f);
+        else if (smoothDashes) speed *= Mathf.SmoothStep(.15f, 1f, Mathf.Clamp01(distance / .9f));
         speed *= HitSpeedFactor();
         if (distance <= Mathf.Max(0.02f, speed * Time.fixedDeltaTime))
         {
@@ -96,7 +99,8 @@ public sealed class EnemyMovement : MonoBehaviour
             return;
         }
 
-        body.linearVelocity = offset / distance * speed;
+        Vector2 desiredVelocity = offset / distance * speed;
+        body.linearVelocity = smoothDashes ? Vector2.SmoothDamp(body.linearVelocity, desiredVelocity, ref velocityDamping, .10f, Mathf.Infinity, Time.fixedDeltaTime) : desiredVelocity;
     }
 
     private void OnDisable()

@@ -1,0 +1,128 @@
+{
+  "layers": [
+    {
+      "height": 65,
+      "id": "rabo",
+      "x": 130,
+      "sorting_order": 0,
+      "file": "parts/rabo.png",
+      "y": 132,
+      "width": 103,
+      "source_rect": [
+        1085,
+        653,
+        387,
+        245
+      ],
+      "pivot_top_left_px": [
+        10,
+        42
+      ]
+    },
+    {
+      "height": 101,
+      "id": "perna_distante",
+      "x": 30,
+      "sorting_order": 1,
+      "file": "parts/perna_distante.png",
+      "y": 157,
+      "width": 77,
+      "source_rect": [
+        166,
+        621,
+        263,
+        344
+      ],
+      "pivot_top_left_px": [
+        63,
+        10
+      ]
+    },
+    {
+      "height": 105,
+      "id": "braco_distante",
+      "x": 13,
+      "sorting_order": 2,
+      "file": "parts/braco_distante.png",
+      "y": 96,
+      "width": 97,
+      "source_rect": [
+        634,
+        178,
+        309,
+        336
+      ],
+      "pivot_top_left_px": [
+        86,
+        10
+      ]
+    },
+    {
+      "height": 104,
+      "id": "perna_proxima",
+      "x": 126,
+      "sorting_order": 3,
+      "file": "parts/perna_proxima.png",
+      "y": 154,
+      "width": 76,
+      "source_rect": [
+        664,
+        628,
+        258,
+        352
+      ],
+      "pivot_top_left_px": [
+        14,
+        12
+      ]
+    },
+    {
+      "height": 110,
+      "id": "braco_proximo",
+      "x": 141,
+      "sorting_order": 4,
+      "file": "parts/braco_proximo.png",
+      "y": 92,
+      "width": 66,
+      "source_rect": [
+        1178,
+        181,
+        221,
+        371
+      ],
+      "pivot_top_left_px": [
+        13,
+        13
+      ]
+    },
+    {
+      "height": 180,
+      "id": "corpo_banana",
+      "x": 80,
+      "sorting_order": 5,
+      "file": "parts/corpo_banana.png",
+      "y": 8,
+      "width": 89,
+      "source_rect": [
+        171,
+        12,
+        279,
+        566
+      ],
+      "pivot_top_left_px": [
+        44,
+        90
+      ]
+    }
+  ],
+  "canvas": [
+    256,
+    272
+  ],
+  "root_top_left_px": [
+    128,
+    258
+  ],
+  "draw_order": "back_to_front",
+  "pixels_per_unit": 100
+}

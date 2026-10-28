@@ -1,0 +1,22 @@
+{
+  "individual_pngs": 6,
+  "all_layers_within_canvas": true,
+  "generator": "built-in image_gen",
+  "limb_pngs_preserved_exactly": true,
+  "body_covers_all_limb_roots": true,
+  "opaque_overlap_pixels": {
+    "perna_proxima": 2516,
+    "braco_distante": 2438,
+    "perna_distante": 4127,
+    "braco_proximo": 4398,
+    "rabo": 403
+  },
+  "ora_layers": 6,
+  "canvas": [
+    760,
+    700
+  ],
+  "visual_review": "no socket holes or rings; continuous closed yellow peel with green accents; no floating limb roots; rear leg behind peel",
+  "phase": 1,
+  "corner_alpha": 0
+}

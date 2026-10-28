@@ -1,0 +1,13 @@
+frame,event
+8,open Common
+47,ready Common
+137,reroll 1 Rare
+173,ready Rare
+263,reroll 2 Epic
+301,ready Epic
+391,reroll 3 Legendary
+430,ready Legendary
+520,reroll 4 Mythic
+560,ready Mythic
+650,reroll 5 Mythic
+691,ready Mythic

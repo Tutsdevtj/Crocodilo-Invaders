@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "authoring": "Built-in image_gen; native exports use nearest-neighbor and a closed palette.",
+  "sprites": [
+    {
+      "name": "bat",
+      "width": 96,
+      "height": 66,
+      "colours": 23,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "fe27989f9a61b70cadd2c4911b48881f2f5ff003b133754692baa79361aa64f6",
+      "source_sha256": "72e0f1a0adc334e9536ddbf83f393c586b9d47d14616a8b907a3e04f9edc8ad2"
+    },
+    {
+      "name": "wasp",
+      "width": 80,
+      "height": 62,
+      "colours": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f44f7ad5a2bfdb02a4ef7a93c58dbeb2b8fec250ae2a458df6ee3fdca926bbde",
+      "source_sha256": "e7ee0f2fa8283ec308399d40d4edc265769d31f9f55fc03986cd60092c17b0a1"
+    },
+    {
+      "name": "jungle",
+      "width": 480,
+      "height": 320,
+      "colours": 24,
+      "alpha": [
+        255
+      ],
+      "sha256": "c7c44b3824a45ba1a230dd5f365f66886b57d7493793872b12931e1119f8dd9d",
+      "source_sha256": "fdbd47b46fbf4f55c285f18c28602f689f647856f27942f28323354e9f3e492c"
+    },
+    {
+      "name": "vine_cluster",
+      "width": 73,
+      "height": 256,
+      "colours": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "832ef55edd73bbb20527c14b69b0477e094b0bd585507b9160bff8bf875ea46f",
+      "source_sha256": "611cb942d1693f483f950c91e40775571d75813e029b9b19e0dbb22e2aaf5f52"
+    }
+  ]
+}

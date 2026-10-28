@@ -1,0 +1,14 @@
+{
+  "corner_alpha": 0,
+  "phase": 1,
+  "ora_layers": 6,
+  "visual_review": "YELLOW peel; GREEN eyes and infection details only; slimmer curved reference banana; no peeking monkey; lean brown monkey limbs; rear hip tail attachment; revised crop boundaries and sockets",
+  "individual_pngs": 6,
+  "generator": "built-in image_gen",
+  "tail_backmost": true,
+  "canvas": [
+    760,
+    700
+  ],
+  "all_layers_within_canvas": true
+}
