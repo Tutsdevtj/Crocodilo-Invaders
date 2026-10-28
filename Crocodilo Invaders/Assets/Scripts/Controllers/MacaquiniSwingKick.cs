@@ -123,9 +123,8 @@ public sealed class MacaquiniSwingKick : MonoBehaviour
         vine.enabled=CurrentStage==Stage.Windup||CurrentStage==Stage.Catch&&age>TotalDuration-.13f;
         if(vine.enabled)
         {
-            Vector3 hand=view.transform.TransformPoint(CurrentStage==Stage.Windup?new Vector3(.68f,3.07f):new Vector3(.16f,3.20f));Vector3 top=new Vector3(anchor.x+.4f,centerY+halfHeight+3);
-            for(int i=0;i<vine.positionCount;i++)vine.SetPosition(i,vine.transform.InverseTransformPoint(Vector3.Lerp(hand,top,i/(float)(vine.positionCount-1))));
-            vine.startColor=vine.endColor=new Color(.19f,.42f,.08f);
+            var actor=GetComponent<MacaquiniFlightPresentation>();Vector3 top=new Vector3(anchor.x+.4f,centerY+halfHeight+3);
+            actor.FillUpperVine(vine,actor.VineGripPosition,top);
         }
         warning.enabled=CurrentStage==Stage.Windup&&locked;
         if(warning.enabled){warning.SetPosition(0,anchor);warning.SetPosition(1,aim);warning.SetPosition(2,exit);warning.startColor=warning.endColor=new Color(1,.66f,.14f,.55f+.25f*Mathf.Sin(age*16));}
