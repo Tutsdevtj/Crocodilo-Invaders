@@ -115,7 +115,12 @@ public sealed class GameplayLoadingController : MonoBehaviour
         State = LoadingState.Fading;
         yield return view.FadeOut();
         RestoreGame();
-        waves.StartRun();
+        if (DevelopmentCardSession.IsActive)
+        {
+            var development = waves.gameObject.AddComponent<DevelopmentCardTest>();
+            development.Initialize(waves, menuScene);
+        }
+        else waves.StartRun();
         Destroy(gameObject);
     }
 

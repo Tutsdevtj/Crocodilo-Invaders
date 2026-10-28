@@ -27,10 +27,43 @@ ele troca as três ofertas e renova somente na próxima onda concluída. O botã
 fica indisponível depois do uso e durante as animações, evitando gastos ou escolhas
 duplicadas.
 
-## Valores das artes fornecidas
+## Coleção atual v21 — sistemas da nave — 22/10/2026
 
-As 25 cartas e o verso são cópias dos PNGs originais do usuário. Os valores do
-catálogo correspondem aos números impressos nas cartas:
+As 25 frentes agora mostram os sistemas instalados na nave, sem o croc:
+Ataque, Rajada, Blindagem, Propulsão e Especial. Comum simples em oliva/aço,
+rara azul, épica violeta, lendária dourada full art e mítica carmesim full art
+com relevo ilustrado e sobreposição localizada na moldura. No Ataque mítico
+a borda esquerda permanece inteira e somente a bala atravessa a borda direita.
+
+Sprites individuais em `Assets/Resources/Cards/{família}/{raridade}.png`,
+360×536 RGBA, sobre grade lógica 180×268. As cinco pranchas aprovadas ficam em
+`SourceArt/CardCollection_v21_Integration/Sheets`. O exportador separa as
+silhuetas, remove o fundo externo conectado e padroniza as proporções sem
+cortar a arte. Molduras vizinhas que se tocam na prancha são separadas pelo
+vão de menor custo. Prévia da transparência em quadriculado:
+`Docs/ArtPreviews/CardCollection_v21`.
+
+Aplicação: `node Tools/Art/apply_ship_cards_v21.cjs --apply`.
+Conferência sem mutação: `node Tools/Art/apply_ship_cards_v21.cjs --check`.
+GUIDs, spriteIDs/fileIDs, recortes 360×536, PPU200, filtro Point, valores,
+catálogo, verso, sons e efeitos externos preservados. Foil/holografia e
+relevo desta arte são estáticos; não há nova implementação de material dinâmico.
+
+Backup fora do projeto Unity, ao lado de `Gaming portugol`:
+`Backup/Cartas/2026-10-22_Anteriores_v21`, na raiz Git. Contém uma cópia das
+25 frentes/metadados anteriores em `01_EmUsoNoJogo` e fontes, prévias, prompts,
+geradores e guias históricos em `02_ModelosEHistorico`. Cada arquivo foi
+conferido por SHA-256. Os históricos antigos foram retirados da pasta do jogo;
+o manifesto do backup registra os caminhos de origem e destino.
+
+Teste no menu inicial → DEV ou F8 → Iniciar teste de cartas. O modo ciclo25
+exibe a coleção inteira usando a recompensa normal, com rerolls infinitos no DEV.
+Detalhes de integração: [CartasIntegracao_v21.md](CartasIntegracao_v21.md).
+Histórico completo de arte e documentação anterior preservado no backup.
+
+## Valores das cartas
+
+Os valores do catálogo correspondem aos números impressos nas 25 cartas:
 
 | Buff | Comum | Raro | Épico | Lendário | Mítico |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -84,34 +117,20 @@ A pausa bloqueia escolhas e rerolls sob sua interface. Continuar volta à escolh
 mantendo o combate congelado. Sair para o menu e morrer cancelam a recompensa e
 restauram o relógio da cena; não liberam uma onda após a morte.
 
-### Efeitos das raridades superiores
+### Efeitos e áudio atuais — v25
 
-- Épica: halo e raios de luz roxos, pixels flutuantes e um toque musical curto.
-- Lendária: halo dourado mais intenso, mais pixels e um acorde com mais notas.
-- Mítica: trovão vermelho nas duas laterais durante a revelação, halo vermelho
-  pulsando depois, mais partículas e um som de revelação com impacto grave e textura elétrica.
+Os efeitos externos crescem da comum discreta à mítica com arcos curtos junto
+da moldura. A malha protege os textos e comparações; o raio vertical antigo
+não é mais esticado. As 25 artes e o catálogo preservam a identidade dos sprites.
 
-Os efeitos começam quando a carta vira para a frente, ficam atrás da sua arte e
-acompanham seu movimento e transparência. Nenhum Graphic dos efeitos recebe cliques.
-O trovão usa os 48 frames de `thunder red/spritesheet-red.png`, fornecido pelo usuário,
-copiado sem alterar o PNG. Toca uma vez a 40 fps (1,2 s) e termina; o halo e as
-partículas continuam até escolher ou fazer reroll. O arquivo é importado com filtro
-Point, sem mipmaps ou compressão. Comuns e raras não recebem esses halos.
+As cartas usam nove sons originais sintetizados para o jogo, sem samples de
+terceiros. Lendárias/míticas têm só brilhos curtos e irregulares, sem música,
+acordes ou melodia de fundo. Um brilho compartilhado por oferta e ganho 1/N nas
+revelações altas evitam multiplicar o volume ao cair duas ou três míticas.
+Pausa congela os sons; reroll, escolha e menu encerram a cintilação.
 
-O Canvas existente está em Screen Space Overlay. As luzes são desenhadas na UI por
-um shader aditivo com coordenadas quantizadas, mantendo o aspecto pixelado e evitando
-adicionar câmeras ou iluminação de mundo. Uma camada única de mesh por carta desenha
-os pixels flutuantes, sem instanciar um objeto por partícula. O relógio dos efeitos
-usa tempo não escalado para funcionar com o combate congelado, mas para explicitamente
-quando a pausa é aberta. O som também respeita `AudioListener.pause`.
-
-`CardRarityFeedback` coordena halo, trovão e sua duração; `CardRarityParticles` desenha
-as partículas; `CardRarityAudio` toca um dos três sons originais curtos em
-`Assets/Audio/CardRewards`. Os sons foram sintetizados para este projeto, não extraídos
-de outro jogo. O volume padrão é 0,42 na fonte de cada carta, ajustável no prefab.
-A revelação substitui o clique genérico nessas três raridades, para preservar o som
-distinto sem somá-lo ao som anterior. Reroll, saída e desativação limpam os efeitos e
-interrompem o áudio anterior. Chamadas repetidas de face-up não reiniciam trovão nem som.
+Receita: `Tools/Audio/prepare_card_audio_v25.py`; manifesto completo em
+`SourceArt/CardAudio_v25_Sparkle`. Detalhes: [AudioCartasBrilho_v25.md](AudioCartasBrilho_v25.md).
 
 ## Pesquisa e escolhas de animação
 
@@ -143,9 +162,9 @@ o caráter musical das três revelações; os timbres e as cores acima são esco
   `Reward Transition Duration`, padrão 0,35 s, começa após concluir a escolha.
 
 `Assets/Prefabs/UI/CardRewards.prefab` está nas cenas `PlayerMovementTest` e
-`StageOneWaves`. Os versos e as frentes usam a mesma área visual; o recorte considera
-os pixels visíveis, sem modificar os arquivos originais. As texturas são importadas
-com limite 512, filtro Point, sem mipmaps ou compressão. O catálogo contém caminhos,
+`StageOneWaves`. Os versos e as frentes usam a mesma área visual de 180×268;
+o recorte cobre a tela nativa completa. As texturas são importadas com limite 512,
+filtro Point, sem mipmaps ou compressão. O catálogo contém caminhos,
 e só carrega as frentes oferecidas, guardando-as para reutilização durante a sessão.
 Não há carregamento inicial das 25 texturas nem novas dependências de animação.
 
@@ -170,9 +189,9 @@ de build também as executa. Play Mode real percorreu nove recompensas com rerol
 pausa, aplicação única de carta, boss, pontuação e derrota, usando abates e tempo
 acelerados para exercitar o fluxo. Isso não avalia o balanceamento de uma partida manual.
 
-Os efeitos têm validação adicional: três auras e sons distintos, reprodução única
-do trovão, 48 frames importados, shaders compilados e geometria das partículas
-presente no CanvasRenderer. Verifica pausa do relógio e áudio, limpeza ao fazer
-reroll e sair, ausência de brilho em comuns/raras e cliques sem interceptação.
+Os efeitos têm validação adicional em 122 verificações: auras/sons distintos,
+cintilação compartilhada, duas/três míticas com ganho dividido e geometria
+das partículas presente no CanvasRenderer. Verifica pausa do relógio e áudio, limpeza ao fazer
+reroll e sair, ausência de aura contínua em comuns e cliques sem interceptação.
 As capturas com as três raridades superiores são exemplos de conferência visual,
 sem forçar essas cartas no sorteio da partida.

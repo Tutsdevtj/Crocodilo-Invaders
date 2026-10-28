@@ -21,6 +21,7 @@ public sealed class CardRewardController : MonoBehaviour
     public RewardState State { get; private set; }
     public IReadOnlyList<UpgradeCard> Offers => offers;
     public int RerollsRemaining { get; private set; }
+    public bool HasUnlimitedRerolls => DevelopmentCardSession.IsActive;
     public float RewardProgress { get; private set; }
     public bool CanInteract => State == RewardState.Ready && (pause == null || !pause.IsPaused);
 
@@ -54,7 +55,7 @@ public sealed class CardRewardController : MonoBehaviour
         RerollsRemaining = 1;
         int rewardCount = Mathf.Min(waves.CombatWaveCount, waves.WaveCount - 1);
         RewardProgress = rewardCount > 1 ? Mathf.Clamp01((wave - 1f) / (rewardCount - 1)) : 0f;
-        offers = catalog.RollOffers(random, RewardProgress);
+        offers = DevelopmentCardSession.RollOffers(catalog, random, RewardProgress);
         State = RewardState.Revealing;
         StartCoroutine(Reveal(false));
     }
@@ -69,11 +70,11 @@ public sealed class CardRewardController : MonoBehaviour
 
     public bool TryReroll()
     {
-        if (!CanInteract || RerollsRemaining <= 0) return false;
-        RerollsRemaining--;
+        if (!CanInteract || (!HasUnlimitedRerolls && RerollsRemaining <= 0)) return false;
+        if (!HasUnlimitedRerolls) RerollsRemaining--;
         State = RewardState.Revealing;
         RefreshInteraction();
-        offers = catalog.RollOffers(random, RewardProgress);
+        offers = DevelopmentCardSession.RollOffers(catalog, random, RewardProgress);
         StartCoroutine(Reveal(true));
         return true;
     }
@@ -132,7 +133,8 @@ public sealed class CardRewardController : MonoBehaviour
             if (pause.IsPaused) pause.ResumeGame();
         }
         Time.timeScale = previousTimeScale;
-        if (playerInput != null && !player.Health.IsDead) playerInput.enabled = inputWasEnabled;
+        if (playerInput != null && player != null && player.Health != null && !player.Health.IsDead)
+            playerInput.enabled = inputWasEnabled;
     }
 
     private void OnRunEnded(bool completed) => Cancel();
@@ -140,9 +142,9 @@ public sealed class CardRewardController : MonoBehaviour
     {
         StopAllCoroutines();
         State = RewardState.Closed;
-        view.HideImmediately();
+        if (view != null) view.HideImmediately();
         RestoreFreeze();
-        waves.CompleteWaveReward();
+        if (waves != null) waves.CompleteWaveReward();
     }
 
     private void OnDisable()
@@ -150,6 +152,7 @@ public sealed class CardRewardController : MonoBehaviour
         if (waves != null) { waves.WaveCleared -= OnWaveCleared; waves.RunEnded -= OnRunEnded; }
         if (view != null) { view.ChoiceRequested -= OnChoice; view.RerollRequested -= OnReroll; }
         if (pause != null) { pause.PauseChanged -= OnPauseChanged; pause.MenuReturnRequested -= OnMenuReturn; }
-        if (view != null && waves != null) Cancel();
+        // O relógio precisa ser liberado mesmo se as ondas/UI já foram destruídas.
+        Cancel();
     }
 }

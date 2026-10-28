@@ -1,0 +1,5 @@
+AUDIO ORIGINAL V25 — BRILHO SEM MUSICA
+Revelacoes/confirmacao/reroll: sintese original v24.
+Fundo lendario/mitico: cintilacoes curtas inarmonicas, espacadas irregularmente, sem melodia, acordes ou ritmo.
+Um brilho compartilhado por oferta. Volume de revelacao das cartas altas dividido pela quantidade delas.
+Sem audio de terceiros. Receitas prepare_card_audio_v24.py e prepare_card_audio_v25.py.

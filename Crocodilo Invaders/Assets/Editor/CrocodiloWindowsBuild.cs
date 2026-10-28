@@ -66,6 +66,7 @@ public static class CrocodiloWindowsBuild
         GusiniPhaseTwoTools.Validate();
         GusiniPhaseTwoAudioTools.Validate();
         RogueliteValidation.ValidateCatalog(catalog);
+        CardAudioPackageTools.Validate();
         var mixer = AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/Resources/Audio/GameAudio.mixer");
         if (mixer == null || Enumerable.Range(0, 3).Any(i => !mixer.GetFloat(GameAudioSettings.Parameter((AudioChannel)i), out _)))
             throw new BuildFailedException("Audio mixer must expose all three volume parameters.");

@@ -52,7 +52,7 @@ public sealed class WaveController : MonoBehaviour
     {
         if (Phase != RunPhase.Intermission || !AwaitingReward) return;
         AwaitingReward = false;
-        phaseEndsAt = Time.time + rewardTransitionDuration;
+        phaseEndsAt = DevelopmentCardSession.IsActive ? float.PositiveInfinity : Time.time + rewardTransitionDuration;
         player.SetGameplayActive(true);
     }
     private bool HasComposition => waveComposition != null && waveComposition.Length > 0;
@@ -145,6 +145,7 @@ public sealed class WaveController : MonoBehaviour
     {
         if (Phase != RunPhase.Waiting) return;
         player.SetGameplayActive(false);
+        if (DevelopmentCardSession.IsActive) return;
 #if UNITY_EDITOR
         if (FindAnyObjectByType<BossDevelopmentStart>() != null) return;
 #endif
@@ -153,6 +154,31 @@ public sealed class WaveController : MonoBehaviour
     }
 
     public void StartRun() => BeginRun(true);
+
+    // Uses the actual post-wave event; CardRewardController still owns freezing,
+    // reveal, reroll, choice, upgrades and release of player input.
+    public bool StartCardDevelopment()
+    {
+        if (!DevelopmentCardSession.IsActive || !isActiveAndEnabled || Phase != RunPhase.Waiting || playerHealth.IsDead) return false;
+        spawner.StopCombat();
+        score.ResetScore();
+        player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
+        Phase = RunPhase.Intermission;
+        phaseEndsAt = float.PositiveInfinity;
+        player.SetGameplayActive(true);
+        return RequestDevelopmentCardReward();
+    }
+
+    public bool RequestDevelopmentCardReward()
+    {
+        if (!DevelopmentCardSession.IsActive || Phase != RunPhase.Intermission || AwaitingReward || playerHealth.IsDead) return false;
+        int rewardCount = Mathf.Min(CombatWaveCount, WaveCount - 1);
+        if (rewardCount < 1) return false;
+        CurrentWave = Mathf.Clamp(DevelopmentCardSession.CompletedWave, 1, rewardCount);
+        phaseEndsAt = float.PositiveInfinity;
+        WaveCleared?.Invoke(CurrentWave, 0);
+        return AwaitingReward;
+    }
 
     private void BeginRun(bool playIntro, int completedWaves = 0)
     {

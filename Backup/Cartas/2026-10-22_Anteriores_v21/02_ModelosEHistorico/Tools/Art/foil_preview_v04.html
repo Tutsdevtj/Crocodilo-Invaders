@@ -1,0 +1,56 @@
+<div id="croc-foil-preview" aria-label="Progressão de acabamento das cartas do Croc">
+  <div class="viz-controls">
+    <label class="form-label">Inclinação da luz <input class="form-range" type="range" min="-50" max="50" value="12" aria-label="Inclinação da luz"></label>
+    <label class="form-check form-switch"><input class="form-check-input" type="checkbox" checked><span class="form-check-label">Luz em movimento</span></label>
+  </div>
+  <div class="croc-foil-grid viz-dotted-background"></div>
+</div>
+<style>
+#croc-foil-preview .croc-foil-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 18px;padding:16px 10px 20px}
+#croc-foil-preview figure{margin:0;min-width:0;text-align:center;color:var(--foreground)}
+#croc-foil-preview .croc-foil-stage{perspective:1000px;padding:6px 0 14px}
+#croc-foil-preview canvas{display:block;width:100%;max-width:250px;height:auto;aspect-ratio:180/268;margin:auto;image-rendering:pixelated;border-radius:7px;box-shadow:0 8px 18px #0005;transform:rotateY(var(--croc-tilt,0deg)) rotateX(var(--croc-pitch,0deg));touch-action:pan-y}
+#croc-foil-preview figcaption{display:grid;gap:3px}
+#croc-foil-preview figcaption span{color:var(--muted-foreground)}
+@media(max-width:550px){#croc-foil-preview .croc-foil-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}}
+@media(max-width:370px){#croc-foil-preview .croc-foil-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#croc-foil-preview canvas{transform:none}}
+</style>
+<script>
+(()=>{
+const root=document.getElementById('croc-foil-preview'),grid=root.querySelector('.croc-foil-grid'),range=root.querySelector('input[type=range]'),motion=root.querySelector('input[type=checkbox]');
+const data=__CARD_DATA__;
+const descriptions=['Impressão fosca','Foil somente na ilustração','Ilustração e bordas foil','Arte expandida · relevo do Croc','Full art · holográfico texturizado'];
+const vert=`attribute vec2 p;varying vec2 uv;void main(){uv=(p+1.0)*0.5;gl_Position=vec4(p.x,-p.y,0.,1.);}`;
+const frag=`precision mediump float;
+varying vec2 uv;uniform sampler2D base;uniform sampler2D labels;uniform float rank;uniform vec2 light;
+vec3 spectrum(float t){return .55+.45*cos(6.28318*(vec3(0.,.33,.67)+t));}
+void main(){vec4 src=texture2D(base,uv);vec3 c=src.rgb;float foil=0.;
+bool picture=uv.x>.133&&uv.x<.867&&uv.y>.179&&uv.y<.779;
+if(rank>.5)foil=picture?.38:0.;if(rank>1.5)foil=picture?.44:.58;
+float face=exp(-pow((uv.x-.46)/.29,2.)-pow((uv.y-.35)/.22,2.));
+if(rank>2.5)foil=.65-face*.36;if(rank>3.5)foil=.82-face*.43;
+float diagonal=uv.x*.85+uv.y*.48-light.x*.72-light.y*.2;
+float sheen=pow(max(0.,1.-abs(diagonal-.5)*1.7),9.);
+float fine=pow(max(0.,sin((uv.x*.91+uv.y*.42)*300.+light.x*8.)),18.);
+float emboss=(sin(uv.x*790.+uv.y*510.)*.5+.5)*(sin(uv.x*145.-uv.y*232.)*.5+.5);
+vec3 rainbow=spectrum(diagonal*1.65+light.x*.19);
+vec3 reflected=(1.-(1.-c)*(1.-rainbow*.76));
+c=mix(c,reflected,foil*(.12+sheen*.78));c+=vec3(1.,.97,.84)*sheen*foil*.18;
+if(rank>2.5){c+=spectrum(diagonal+uv.y)*fine*.035*(rank-2.);vec3 edge=texture2D(base,uv+vec2(.003*light.x,.003*light.y)).rgb-src.rgb;c+=edge*sheen*face*.24;}if(rank>3.5)c+=rainbow*emboss*sheen*.15;
+float glint=pow(max(0.,1.-abs(diagonal-.53)*38.),5.);c+=glint*foil*.16;
+vec4 txt=texture2D(labels,uv);c=mix(c,txt.rgb,txt.a);gl_FragColor=vec4(c,1.);}`;
+function shader(gl,type,s){const sh=gl.createShader(type);gl.shaderSource(sh,s);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
+function texture(gl,unit,url){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{gl.activeTexture(gl.TEXTURE0+unit);const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,im);resolve(t)};im.onerror=reject;im.src=url});}
+const views=[];let running=motion.checked&&!matchMedia('(prefers-reduced-motion: reduce)').matches;motion.checked=running;let focus=null;
+const ready=data.map(async d=>{const figure=document.createElement('figure');figure.innerHTML='<div class="croc-foil-stage"><canvas class="cursor-interaction" width="360" height="536" role="img" aria-label="Carta de ataque '+d.name+', '+descriptions[d.rank]+'"></canvas></div><figcaption><strong>'+d.name+'</strong><span class="text-small">'+descriptions[d.rank]+'</span></figcaption>';grid.append(figure);const canvas=figure.querySelector('canvas'),gl=canvas.getContext('webgl',{preserveDrawingBuffer:true,alpha:false});
+if(!gl){canvas.outerHTML='<img style="width:100%" src="'+d.base+'" alt="Carta '+d.name+'">';return;}
+const program=gl.createProgram();gl.attachShader(program,shader(gl,gl.VERTEX_SHADER,vert));gl.attachShader(program,shader(gl,gl.FRAGMENT_SHADER,frag));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const p=gl.getAttribLocation(program,'p');gl.enableVertexAttribArray(p);gl.vertexAttribPointer(p,2,gl.FLOAT,false,0,0);await texture(gl,0,d.base);await texture(gl,1,d.labels);gl.uniform1i(gl.getUniformLocation(program,'base'),0);gl.uniform1i(gl.getUniformLocation(program,'labels'),1);gl.uniform1f(gl.getUniformLocation(program,'rank'),d.rank);const lamp=gl.getUniformLocation(program,'light');
+const view={canvas,gl,lamp,rank:d.rank};views.push(view);canvas.addEventListener('pointermove',e=>{const b=canvas.getBoundingClientRect();focus={x:(e.clientX-b.left)/b.width*2-1,y:(e.clientY-b.top)/b.height*2-1};draw(0)});canvas.addEventListener('pointerleave',()=>{focus=null;draw(0)});});
+function draw(t){const x=focus?focus.x:Number(range.value)/50+(running?Math.sin(t*.0006)*.45:0),y=focus?focus.y:(running?Math.cos(t*.00043)*.22:.1);for(const v of views){v.gl.uniform2f(v.lamp,x,y);v.gl.drawArrays(v.gl.TRIANGLES,0,6);v.canvas.style.setProperty('--croc-tilt',(x*4)+'deg');v.canvas.style.setProperty('--croc-pitch',(-y*3)+'deg');}}
+function loop(t){draw(t);if(running)requestAnimationFrame(loop)}
+range.addEventListener('input',()=>draw(0));motion.addEventListener('change',()=>{running=motion.checked;if(running)requestAnimationFrame(loop);else draw(0)});
+Promise.all(ready).then(()=>{root.dataset.ready='true';window.crocFoilPreview={draw,views,setLight:x=>{running=false;motion.checked=false;range.value=String(x*50);draw(0)}};if(running)requestAnimationFrame(loop);else draw(0);});
+})();
+</script>

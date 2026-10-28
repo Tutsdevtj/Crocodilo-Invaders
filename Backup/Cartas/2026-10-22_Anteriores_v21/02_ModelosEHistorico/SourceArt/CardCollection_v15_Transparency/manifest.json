@@ -1,0 +1,190 @@
+{
+  "version": 15,
+  "assets": [
+    {
+      "file": "Assets/Resources/Cards/AttackDamage/Common.png",
+      "sha256": "ffe1845b37058842fbe8d7215857639aa589757db88feba3b569edf225234bfe",
+      "meta_sha256": "16ed3d66a3e904f3e276decb2765313f30acdd4fadd25257e7752b98921da4df",
+      "transparent_pixels": 5900,
+      "source_sha256": "7680d8da8e9adb76eb7053484b79a7a0cd9f6f0f02a76713bdd4561888da471f"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackDamage/Rare.png",
+      "sha256": "501f75a1a9ff15a4a2038d7840f44442c71bbe4948d16d3357d7804c322753e2",
+      "meta_sha256": "80cacede44c603cb084520e7a72cde76d689bd6c3a78a46bf7f3df4e69e8e800",
+      "transparent_pixels": 6572,
+      "source_sha256": "1567b8215977ebc7bd466962da24a60d5fb858f894c91b8b53e7a576da2f9223"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackDamage/Epic.png",
+      "sha256": "54dbf6e3b520e37f57743492e6a061e8760680c16f1cffc64499ae7cb63a57b5",
+      "meta_sha256": "7a9ff763b96ac49cfd0f6050c9cb5cb965996ca0774c00473590ab8351c58ba5",
+      "transparent_pixels": 4232,
+      "source_sha256": "4da2800b9fd20959e93043c837a558b97082f2a4670fc36a9d58519af66bbf0f"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackDamage/Legendary.png",
+      "sha256": "5cd44c248017434829afb35f8477a4324ec1042110a0205173da68a992eb0d4e",
+      "meta_sha256": "f8353c95cbee5aa745511e42a62096146d932889909dccf7db910d9267ccd49b",
+      "transparent_pixels": 2500,
+      "source_sha256": "2ddbd47f8d9c3af9cc06329f305ec9b55d6b92a0ee69f7b61a3d87e62fe32748"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackDamage/Mythic.png",
+      "sha256": "dee9d2fbc1acd7284a8cd308f07c4f548e3106ec0696a72d6ce64f55fcf77f2c",
+      "meta_sha256": "221b23c43a83714906e59cf79942c5436277c564e7ff1b0bae3ea73869c15ce9",
+      "transparent_pixels": 440,
+      "source_sha256": "a218f32050954010103237c4e706e8bc3a5dbadce4d507eb202990f95fc80c34"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackSpeed/Common.png",
+      "sha256": "885d9fe9586882424e5b0f4b602ecbd5d16cf11d6273c1548996ad002eaaa9f0",
+      "meta_sha256": "072b830ac706fbb2dc409188eb965c296260f46b6981d3ea6aee29da8a63851e",
+      "transparent_pixels": 5684,
+      "source_sha256": "5bc111d2bc647367d10136308fab1105bd4d786326db955e4b5eeec259cd45cf"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackSpeed/Rare.png",
+      "sha256": "74986b023f70e4057d134cd9d9c082c8471f276139de5d33a25506bca44e842c",
+      "meta_sha256": "211e5ee1f57807f9f65f7a9e74ad1e1f71824d10a3c0f2f071ff85eb9ce57256",
+      "transparent_pixels": 6572,
+      "source_sha256": "b924bca270a0ed28ad7dc9377a8d2fa9b236fe8f20d2bedb9b05cd42cb8d3599"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackSpeed/Epic.png",
+      "sha256": "16aef073b6312373f73957a7bd307038acc08fcba43a085b6778b89a1ddc726d",
+      "meta_sha256": "4d517007777f17dfa02fe8920380c3c2d904f20916cb00aa0354ac8cd1d5ba1e",
+      "transparent_pixels": 4200,
+      "source_sha256": "e00cd2bcf632ab68daa9fd2735dafc0193d3ea0038f8ab536554408a888ea29f"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackSpeed/Legendary.png",
+      "sha256": "db6256ee7e8c370fbcb8b396ae5e71289e1c3de8d0c4aa5d52da438052071166",
+      "meta_sha256": "773a25c3a413d95457a0efad49b3ef7c374d0127801549f593c967ca7103bf33",
+      "transparent_pixels": 2500,
+      "source_sha256": "c52b3e238db4ea4bf3f348ecfe01c9c41ff368c102a6085ecf9d6da9ece517df"
+    },
+    {
+      "file": "Assets/Resources/Cards/AttackSpeed/Mythic.png",
+      "sha256": "ec632ac19407fa4c9a7366ab6db34627b63d38e11e0e4382debc89b526202fb3",
+      "meta_sha256": "76c2a15b5a05867c619913e0af3169922da8a695b1c36e796ed74315906d4798",
+      "transparent_pixels": 440,
+      "source_sha256": "fb95b3c2190b2acec9bd3759dfac30eb6aef4820c62715c69ac9d76373615f51"
+    },
+    {
+      "file": "Assets/Resources/Cards/MaximumHealth/Common.png",
+      "sha256": "4ead012f8771832b3512136c99f20a1dc2e000ff49e757b36d457c9830a11c71",
+      "meta_sha256": "aac63889895fd5c53ecc56d867f18946422b234750c7c20263f91d98a0a75c18",
+      "transparent_pixels": 5772,
+      "source_sha256": "0e9bbfe8cc1fbb5918c637c0000e5c34970d9034c172667b2b03920d465b8d04"
+    },
+    {
+      "file": "Assets/Resources/Cards/MaximumHealth/Rare.png",
+      "sha256": "bb87aaff72d3a92cf5386b8ac47a6a41bd4ecab4b228770c111245694209f457",
+      "meta_sha256": "05502045f6590474683e3f96dd97729023d6acb6f1c35fb50c6df6c252486c7f",
+      "transparent_pixels": 6688,
+      "source_sha256": "b27cea58a78e7c913c8b5424f339591060e36e241002252a8e539766e157b086"
+    },
+    {
+      "file": "Assets/Resources/Cards/MaximumHealth/Epic.png",
+      "sha256": "db0498cf701d4aed996ed51f0ba12eccc9dafa4c823c51f695c63a266af66fee",
+      "meta_sha256": "83051563d83e391fb12fc442755d6d458b6942a929ef5a7a9ab570ea0e6c97b6",
+      "transparent_pixels": 4064,
+      "source_sha256": "47189c33112ad3341ef439ebdcd09a7ec4f5b8eef9c2027152608b310f0919e1"
+    },
+    {
+      "file": "Assets/Resources/Cards/MaximumHealth/Legendary.png",
+      "sha256": "3fa670c2e086002e53d43931d3c52185aece5a92701e0bdb7656119a4ae10619",
+      "meta_sha256": "9eaaac8d94c346a42fc89481393e28dc4b0831a576bc7d94cb42feafd9a70e32",
+      "transparent_pixels": 2532,
+      "source_sha256": "2f3da770dbd3738fb656da39f22b80c26119f5f9305c4a4fe82ac2ddbeb4f9fc"
+    },
+    {
+      "file": "Assets/Resources/Cards/MaximumHealth/Mythic.png",
+      "sha256": "07c511ca3e239eb6a29fba7ad2ed598da7f64919e03712713ba44a3bf98dd88f",
+      "meta_sha256": "27cc9a1ab7e59dd78f2052244f886e26dea3b0d59de90418dd0563af8ee402ce",
+      "transparent_pixels": 440,
+      "source_sha256": "990736c59c9bb7e12414f96c8c226e3fc83e1978c858e9d8733207418c0e0243"
+    },
+    {
+      "file": "Assets/Resources/Cards/MoveSpeed/Common.png",
+      "sha256": "70e458570244e33e3a870e825367de9e23c35e86aa395dbb41397529b6cf30e7",
+      "meta_sha256": "21b5846de9d73a38557041dd42f4e0ec046e9559d09780d01f43cc7396e8976c",
+      "transparent_pixels": 6100,
+      "source_sha256": "abae96e7c34c24d86ff1cf5618bf2f79b77641225b592b9c7aaa0eb0ba5560d6"
+    },
+    {
+      "file": "Assets/Resources/Cards/MoveSpeed/Rare.png",
+      "sha256": "4d3ca1a0c544dec01cd3ddad7477f04309233688081dd88d1d9184401d9f551d",
+      "meta_sha256": "e936d1a51895a0858ccd1d075bbac01c4c9ab4b3186b775cb47e16bf01740b6f",
+      "transparent_pixels": 6688,
+      "source_sha256": "4fa21dd3e89402d621288137158c401bc0ea5aeb4de3c2325952ebb28ded5c9f"
+    },
+    {
+      "file": "Assets/Resources/Cards/MoveSpeed/Epic.png",
+      "sha256": "dcdd1af9bd020b5d013428e72a14ef0d58098fb499a5da52e33d5fc7c95755c4",
+      "meta_sha256": "3f42d39d990dd45e025332bd24671f56ce5d928006838f5a3d843367da516d03",
+      "transparent_pixels": 4232,
+      "source_sha256": "73fe6fa68f443c17c807e27c4948fbfc227e19c28d6d148927a33bec8708467f"
+    },
+    {
+      "file": "Assets/Resources/Cards/MoveSpeed/Legendary.png",
+      "sha256": "8b023e3c2ce80e97b491bf32aa46be7f4c10a5bb0eaeac02de07cd893660807a",
+      "meta_sha256": "246cc259673dc066174af61e2144da499bdf7f5ace5db1d840eb4ee5569c20ee",
+      "transparent_pixels": 2532,
+      "source_sha256": "5c93d026f6ae4494562cb9a0f6a8cd6d353a0d9207d0f9979ef2392f7652d1a2"
+    },
+    {
+      "file": "Assets/Resources/Cards/MoveSpeed/Mythic.png",
+      "sha256": "a674285fc782b30610253a791b7b94d87470136198f7321bc4bd8820f315b484",
+      "meta_sha256": "f0070f98fb7338e8dfc82d8eb138d68df9d8049b4e4fa686de6263a607fe7cce",
+      "transparent_pixels": 440,
+      "source_sha256": "150db3d62ce96c16227c123bcfd36226bbe6ba1f4bfc4a1c35985a2d4b808a73"
+    },
+    {
+      "file": "Assets/Resources/Cards/SpecialDamage/Common.png",
+      "sha256": "b7827001ed342a0f7108f564dcbf802c52c3ae552f0be2c337c3c8e2e598c163",
+      "meta_sha256": "a5dc9935ab1d53ecccb12ee62b735d434fc16f35d405d3cb5dc85b02fe43cdea",
+      "transparent_pixels": 5932,
+      "source_sha256": "b2405f4bf793cf111aec235e5067011e254ad3aaec3442d7aff971180cc40d9e"
+    },
+    {
+      "file": "Assets/Resources/Cards/SpecialDamage/Rare.png",
+      "sha256": "efd2a31057fe2c7b023579bcc1430adcc43028eeb99b24b9baa60a2b856fa9d2",
+      "meta_sha256": "8423204c621bb566ca699ae739f896bf3b4c39196929aeb7cdb91bbe5d19d585",
+      "transparent_pixels": 6572,
+      "source_sha256": "cdf46442461188de7b65d92376f895984d4e6bf80d5edb35f62a1023c5533434"
+    },
+    {
+      "file": "Assets/Resources/Cards/SpecialDamage/Epic.png",
+      "sha256": "83f5c2eb79453440c08c1cd0144a6bd98887e0a4a946e6b64e615b966923a179",
+      "meta_sha256": "745644dece1e610f93a22fba91fcfdccaeb95440e6e2069360306eb98b62ca87",
+      "transparent_pixels": 4184,
+      "source_sha256": "728cd31d26b6301bbf42a159b4c667e7530e6bc29376cf1ad72d3e88ea050d63"
+    },
+    {
+      "file": "Assets/Resources/Cards/SpecialDamage/Legendary.png",
+      "sha256": "2cf837655fea2a2c0d2b5d8431476dbf995298bf6ba96c9b910ce447e6eaaee1",
+      "meta_sha256": "3640d7cc51ba8459f4eadb5be06406ca1817d719ce7b2cc19da39c9aa361a321",
+      "transparent_pixels": 2604,
+      "source_sha256": "11293317a460f7f470263d0e9fe297ec29e829d4f1692981fd1fe1d8626c336d"
+    },
+    {
+      "file": "Assets/Resources/Cards/SpecialDamage/Mythic.png",
+      "sha256": "4a5e80eddf0f09c126bffc2ef8607ea30224060b0f03ccacc59901b8ddd177b0",
+      "meta_sha256": "481cc96ed0233718884a39bc8aeb5fc768f3a59296a6428593dc328e74aed041",
+      "transparent_pixels": 440,
+      "source_sha256": "6b37455840f98b222bde92d376f795c7c569088a2721008c4bf020b643805fb6"
+    },
+    {
+      "file": "Assets/Art/Cards/Back.png",
+      "sha256": "b24bfa4cf09a5786254968033143dc4397ec6bf532accc14b99c1f0d5a7b0c32",
+      "meta_sha256": "c85abab256cb45ee0215a83fb16bc62ae3cb1f474c466bd4c6fc94814592bfc2",
+      "transparent_pixels": 578,
+      "source_sha256": "744afbf8ed3ccb581be4b46fcc601e11eb475d1cb4fbe434234e49727a48727c"
+    }
+  ],
+  "applied": true,
+  "changes": "Alpha only; connected exterior matte. One pixel ink edge preserved.",
+  "rgb": "UNCHANGED"
+}

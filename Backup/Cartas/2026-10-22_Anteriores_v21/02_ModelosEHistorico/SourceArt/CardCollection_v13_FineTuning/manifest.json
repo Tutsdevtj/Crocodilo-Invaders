@@ -1,0 +1,2049 @@
+{
+  "version": 13,
+  "text_renderer": "Pillow/FreeType on full padded canvas; no Pango clipping",
+  "card_size": [
+    360,
+    536
+  ],
+  "artwork_outside_text_plates": "UNCHANGED",
+  "cards": [
+    {
+      "family": "AttackDamage",
+      "rarity": "Common",
+      "sha256": "264d6d64833d56d6857f3e10d12031bc503d561dd95067a527d714f08ca2c68c",
+      "source_base_sha256": "3ab3e8bc38238c6a1c110f7e07dfe538397cf472d9092d59fd12786d4e4936ee",
+      "meta_sha256": "2bdf79d99cb2bf1fdb01a1c8fa284e2d12b629752765a95b825c321a8df4602e",
+      "changed_pixels": 4120,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "COMUM",
+          "size": 16,
+          "bounds": [
+            152,
+            36,
+            208,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ATAQUE",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO DE ATAQUE",
+          "size": 16,
+          "bounds": [
+            117,
+            440,
+            243,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+5%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Rare",
+      "sha256": "a00d3c3fd24502ad8d8164503df313651ba9be127c6a559f33efd5d99831891f",
+      "source_base_sha256": "b2494bf5a3f6ed3743f7c0a7501c4394cec614f22cb461cbfde60ea2865d0f85",
+      "meta_sha256": "8dc958a4315f8a6b7239b67c4bb730e99a248d394dd1250e14c377150f911948",
+      "changed_pixels": 4324,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "RARO",
+          "size": 16,
+          "bounds": [
+            160,
+            36,
+            200,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ATAQUE",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO DE ATAQUE",
+          "size": 16,
+          "bounds": [
+            117,
+            440,
+            243,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+10%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Epic",
+      "sha256": "f05ee194b1398657dc00d1dc9c209a34b74538249e23cd3597b57f8dc7e44257",
+      "source_base_sha256": "d4038a1043936c81a27ce3916d4ff1be0b369e0516b6630efe7909f1da858425",
+      "meta_sha256": "8d2e763af228102b01f4dd39bd6d1be6aa446176570c3cb43572aa23f3a27613",
+      "changed_pixels": 4422,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "ÉPICO",
+          "size": 16,
+          "bounds": [
+            156,
+            32,
+            203,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ATAQUE",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO DE ATAQUE",
+          "size": 16,
+          "bounds": [
+            117,
+            440,
+            243,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+15%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Legendary",
+      "sha256": "27746a006bcb1b800cd2740a9480d8c12ebdce8628a546d78d1cc15c879ae622",
+      "source_base_sha256": "ffe8e34c4dc76ee306716a54e875ea54132550ae380b23d117e1ac38401b1bcc",
+      "meta_sha256": "f4708d2ad39d5d5556835bd31c41ca7d34a057ea18a1a6dda219c89421adc6cf",
+      "changed_pixels": 5046,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "LENDÁRIO",
+          "size": 16,
+          "bounds": [
+            142,
+            32,
+            219,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ATAQUE",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO DE ATAQUE",
+          "size": 16,
+          "bounds": [
+            117,
+            440,
+            243,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+20%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Mythic",
+      "sha256": "c1be37aa520e82e07d98e855134f7154fb924e5ff250428054421ed8bc4c2116",
+      "source_base_sha256": "d663cf63114a90b1cc38e1429c8a7c8aeb21f9e22703a348346fee5916676840",
+      "meta_sha256": "f13dba11ef7f9d78009ca79ec120c50d3d56867f48d7534a58227fa9a8d555ba",
+      "changed_pixels": 4758,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "MÍTICO",
+          "size": 16,
+          "bounds": [
+            152,
+            32,
+            209,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ATAQUE",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO DE ATAQUE",
+          "size": 16,
+          "bounds": [
+            117,
+            440,
+            243,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+30%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Common",
+      "sha256": "4c78d941bb56ace2cbd44cb6ba9eceb6e982b78fcfd59cf0f2d776113211c8ae",
+      "source_base_sha256": "2224d404792e3bad254910ae063bb98d8f63b908db9cc9150ec08bc297c9fcd8",
+      "meta_sha256": "9d9c3d26eb35cd48d865ac4bc9d48b213a1020397cc372ac08680881bbf2c033",
+      "changed_pixels": 3737,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "COMUM",
+          "size": 16,
+          "bounds": [
+            152,
+            36,
+            208,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "RAJADA",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "CADÊNCIA",
+          "size": 16,
+          "bounds": [
+            142,
+            439,
+            219,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+5%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Rare",
+      "sha256": "b5aa6e17ee14850061c0b7c7a6704c7689e933618eaa604dc2fb17328fb76fac",
+      "source_base_sha256": "1bf8cb99aa1809cbed5d4aaa4b95da9fddc44b2a018fe8cd2e40152cb67479f6",
+      "meta_sha256": "c02f1a273af1697344a4008306590f6110b4b3c8e69cc3d642b3d636486ad533",
+      "changed_pixels": 3945,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "RARO",
+          "size": 16,
+          "bounds": [
+            160,
+            36,
+            200,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "RAJADA",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "CADÊNCIA",
+          "size": 16,
+          "bounds": [
+            142,
+            439,
+            219,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+10%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Epic",
+      "sha256": "2ce411c874e084feff462d1c0c1a4df8149618f25f76fbff76656c7eb0929913",
+      "source_base_sha256": "9e3c74a22caab751d0a7f4a53cc7f156ddca5f05e5378aec8dfdadeca7d1554f",
+      "meta_sha256": "13fc9c5a126c6957cd5409d7dfba6e3d37566fdc28139a425064a8ef7a36dd66",
+      "changed_pixels": 4039,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "ÉPICO",
+          "size": 16,
+          "bounds": [
+            156,
+            32,
+            203,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "RAJADA",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "CADÊNCIA",
+          "size": 16,
+          "bounds": [
+            142,
+            439,
+            219,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+15%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Legendary",
+      "sha256": "7000f236e50b1954e67199a45276faade05b9334798f2f0053b019778b8005b2",
+      "source_base_sha256": "95f6d27da31c436b3754c60c49ca703446597c2f89d914ea60a1dad805ce59ce",
+      "meta_sha256": "430f3e06dc17626ed107935f3dfbc806f188094af52cb44f3950c126a052bb6a",
+      "changed_pixels": 4663,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "LENDÁRIO",
+          "size": 16,
+          "bounds": [
+            142,
+            32,
+            219,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "RAJADA",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "CADÊNCIA",
+          "size": 16,
+          "bounds": [
+            142,
+            439,
+            219,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+20%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Mythic",
+      "sha256": "f2dad2963a2cf9a57d0765a857ed1a7fe6fac2ffafc5bfd4bd85d8c4ad3cc489",
+      "source_base_sha256": "e44f29693a4b147c5a03a2236dabf4df0d69b9fd4d06e3357fa5987e8eac77a4",
+      "meta_sha256": "cc0fd31770836231d3b487b4ea1790a7765f3094bbc8d2e4435f9122edefb5b5",
+      "changed_pixels": 4375,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "MÍTICO",
+          "size": 16,
+          "bounds": [
+            152,
+            32,
+            209,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "RAJADA",
+          "size": 20,
+          "bounds": [
+            120,
+            53,
+            240,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "CADÊNCIA",
+          "size": 16,
+          "bounds": [
+            142,
+            439,
+            219,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+30%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Common",
+      "sha256": "1bd715872f19c76c5090e3cc65b831e237a7e3818c875365ac43b82eaf1f2055",
+      "source_base_sha256": "939a4b1404405743bb36a335d175a44c5c6fe93cf36f5f569bff2f09aeac021f",
+      "meta_sha256": "8d06308b4c8dea5bc7f3db2d2e958b1676a273934f000db449004da9da99b0c6",
+      "changed_pixels": 5025,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "COMUM",
+          "size": 16,
+          "bounds": [
+            152,
+            36,
+            208,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "BLINDAGEM",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "VIDA MÁXIMA",
+          "size": 16,
+          "bounds": [
+            128,
+            439,
+            231,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+10%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Rare",
+      "sha256": "77be8568a1766d574e6f063f709030799252ed4275bb9381f9edd7e9a7f6f185",
+      "source_base_sha256": "4d3ab935f231027a6e448f95584e9cadeeb6c0737615624f4fd1eb1abed41114",
+      "meta_sha256": "89129a55b40ecd75c70e478b0d69d4dec7e3c9a96eb62f7ce58f2381ad9cb016",
+      "changed_pixels": 5017,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "RARO",
+          "size": 16,
+          "bounds": [
+            160,
+            36,
+            200,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "BLINDAGEM",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "VIDA MÁXIMA",
+          "size": 16,
+          "bounds": [
+            128,
+            439,
+            231,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+15%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Epic",
+      "sha256": "d7a0955f807d5e9b00841f632059986c604f4e025b67046ef1101ceaa5aeabb6",
+      "source_base_sha256": "b61d7138e453eae9b7665894a0e061baef1b2c8f702939034de217c6adb20542",
+      "meta_sha256": "22e73c9b001aa534b98b2b77f15f82c7aa4b2d38f1b6661a93860bb657f527fa",
+      "changed_pixels": 5395,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "ÉPICO",
+          "size": 16,
+          "bounds": [
+            156,
+            32,
+            203,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "BLINDAGEM",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "VIDA MÁXIMA",
+          "size": 16,
+          "bounds": [
+            128,
+            439,
+            231,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+20%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Legendary",
+      "sha256": "82cc2a85403a0ed693d2081e9967a2820ab2245e188eaddb6f363b0b3b5beedc",
+      "source_base_sha256": "cb4d6059a83b302552831b18e2d4923bc1b7a47dbb1dff4478a1d73ffe50326d",
+      "meta_sha256": "2943b0678d7695f4625e438eb6f19863cfc43ef1765409d5d26e4e669356d663",
+      "changed_pixels": 5615,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "LENDÁRIO",
+          "size": 16,
+          "bounds": [
+            142,
+            32,
+            219,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "BLINDAGEM",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "VIDA MÁXIMA",
+          "size": 16,
+          "bounds": [
+            128,
+            439,
+            231,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+30%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Mythic",
+      "sha256": "c1b8c914909e87abdcb1cc7b14cfa611b576778c99dc1b4cdfced67788bb258f",
+      "source_base_sha256": "62d4ad5ed8d797b4e3a2cfe93cd1c303e38d1f2a7901ba9ba50a41f7662e1610",
+      "meta_sha256": "58728b947e00953c4d729478d0d35b488e22d0e2f8a67266e0fb16297760b52d",
+      "changed_pixels": 5195,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "MÍTICO",
+          "size": 16,
+          "bounds": [
+            152,
+            32,
+            209,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "BLINDAGEM",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "VIDA MÁXIMA",
+          "size": 16,
+          "bounds": [
+            128,
+            439,
+            231,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+40%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Common",
+      "sha256": "9b3b7333a5a1f4559ae5d4e857c70033aa254bf7b4ef9a39b88eb3a3dff81d9b",
+      "source_base_sha256": "132b4ae255d1c7a0684891a9da3283d3a28ce5f4e2c056116d490cc96280bb77",
+      "meta_sha256": "a11785a8e262f83cb8f3e99323019cb144163872622f081577bb98d05d2f7ff6",
+      "changed_pixels": 4671,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "COMUM",
+          "size": 16,
+          "bounds": [
+            152,
+            36,
+            208,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "PROPULSÃO",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "MOVIMENTO",
+          "size": 16,
+          "bounds": [
+            134,
+            443,
+            227,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+3%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Rare",
+      "sha256": "14d654cf89b26782084a733b947f6fd2b45c7cf5809b76f55c6807e4df874ac5",
+      "source_base_sha256": "e9d0f70d304106abe5b80043d61a3177126cd8b52bca48566c9b734e2c182ae4",
+      "meta_sha256": "e15eb1bcfc725b0e7fd0cf686a8165a6a047c50409f3229beb62ac6030c1c3d4",
+      "changed_pixels": 4551,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "RARO",
+          "size": 16,
+          "bounds": [
+            160,
+            36,
+            200,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "PROPULSÃO",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "MOVIMENTO",
+          "size": 16,
+          "bounds": [
+            134,
+            443,
+            227,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+5%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Epic",
+      "sha256": "12744abcbfd5ca10d970d10a2fa8862189b1d48d1a2d15219a8984cac7475808",
+      "source_base_sha256": "3f4954ad54995714090fc24e0108d8f4dbad3e5c5972bc60e981a9a0fdde8d81",
+      "meta_sha256": "abc680f4fb17f72ef1fb059f224292b701f60949b2375c329541cfd1c279381a",
+      "changed_pixels": 4653,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "ÉPICO",
+          "size": 16,
+          "bounds": [
+            156,
+            32,
+            203,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "PROPULSÃO",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "MOVIMENTO",
+          "size": 16,
+          "bounds": [
+            134,
+            443,
+            227,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+8%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Legendary",
+      "sha256": "71b44389b6791832c46ca4930ade3befb60ba00d4960fbc7cfc2579f56c1b9fc",
+      "source_base_sha256": "62bcc65ed2809e98f8f3b5cfbc64dcdb05c0ea9297f52ecf96e8eef05985ae8f",
+      "meta_sha256": "6b814bf75a455a551bd8ab6391e2f76046f37cf2b57dbbc8357cd167c8e947e2",
+      "changed_pixels": 5141,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "LENDÁRIO",
+          "size": 16,
+          "bounds": [
+            142,
+            32,
+            219,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "PROPULSÃO",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "MOVIMENTO",
+          "size": 16,
+          "bounds": [
+            134,
+            443,
+            227,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+10%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Mythic",
+      "sha256": "f07dfe783b182f922fbf34b8773ebad0e105ffa65a095b089326ec24a5f927f9",
+      "source_base_sha256": "b7e1c0927879faff86827a4cfc073fa904bfcb84c9ef824d80fc64578e8f952e",
+      "meta_sha256": "82570b299bfa35da4ded25047375d0366f2e6924f7b917d98fec1bf2559f5385",
+      "changed_pixels": 4971,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "MÍTICO",
+          "size": 16,
+          "bounds": [
+            152,
+            32,
+            209,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "PROPULSÃO",
+          "size": 20,
+          "bounds": [
+            90,
+            53,
+            270,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "MOVIMENTO",
+          "size": 16,
+          "bounds": [
+            134,
+            443,
+            227,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+15%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Common",
+      "sha256": "91134fc88da37c96ac941fcd39a2514704d6d1e7c70b3be73a72bb0f4abfa49a",
+      "source_base_sha256": "4ef9543719973f342ed6e1cf5ec076218c195c2a93ba75d0ca1f5dd00be06c51",
+      "meta_sha256": "9c5552d9082226e4cfbcb6a1c7687a81bf1554a8284b9dfaf2c8aff97af4c637",
+      "changed_pixels": 4736,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "COMUM",
+          "size": 16,
+          "bounds": [
+            152,
+            36,
+            208,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ESPECIAL",
+          "size": 20,
+          "bounds": [
+            100,
+            53,
+            260,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO ESPECIAL",
+          "size": 16,
+          "bounds": [
+            120,
+            443,
+            240,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+5%",
+          "size": 32,
+          "bounds": [
+            132,
+            460,
+            228,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Rare",
+      "sha256": "b063020875a65938d65e68ab5c33eb011a8fbd240eec11b16c6e9f1e213e8299",
+      "source_base_sha256": "e70b263ec98227d8b3229dad49f833538d8c7d49037da150a88fe97de3892302",
+      "meta_sha256": "fd560cf1287d2e4a375a3ea4779922d9a3433c257c99ad0d67b2c5b9ba2d3565",
+      "changed_pixels": 4944,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "RARO",
+          "size": 16,
+          "bounds": [
+            160,
+            36,
+            200,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ESPECIAL",
+          "size": 20,
+          "bounds": [
+            100,
+            53,
+            260,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO ESPECIAL",
+          "size": 16,
+          "bounds": [
+            120,
+            443,
+            240,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+10%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Epic",
+      "sha256": "785e9f53915ec442ce4837935b00a47a3823734e9064b664c063e4c2c6fc1998",
+      "source_base_sha256": "631f5043199ea19494041020a392cd654705677d3479c374e09c59b8b29b302e",
+      "meta_sha256": "bc666d22ae21ae4524d3d44cade164c704145b99cd3938a978db7d905119ac20",
+      "changed_pixels": 5038,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "ÉPICO",
+          "size": 16,
+          "bounds": [
+            156,
+            32,
+            203,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ESPECIAL",
+          "size": 20,
+          "bounds": [
+            100,
+            53,
+            260,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO ESPECIAL",
+          "size": 16,
+          "bounds": [
+            120,
+            443,
+            240,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+15%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Legendary",
+      "sha256": "c4e7f643078d063f99904f4029b58c8edd5c4d5cfe8e283dd64420fb23247707",
+      "source_base_sha256": "4913ae99921369e2f80884677b8329db0b3091a058781796df3e65b8624dc689",
+      "meta_sha256": "2d74cd75ed90012943d8fae00c217bd7dccc86a36a26dc149791e1d22e3ac608",
+      "changed_pixels": 5662,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "LENDÁRIO",
+          "size": 16,
+          "bounds": [
+            142,
+            32,
+            219,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ESPECIAL",
+          "size": 20,
+          "bounds": [
+            100,
+            53,
+            260,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO ESPECIAL",
+          "size": 16,
+          "bounds": [
+            120,
+            443,
+            240,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+20%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Mythic",
+      "sha256": "9469f2aa6f4bf9b41068eacdc0e8d3d0257f597d12caa6fcc586f3114e6102a0",
+      "source_base_sha256": "062c2a4993310d817acbd256c45c1cc19f428c90382d5b65ea40c3a8bc25025e",
+      "meta_sha256": "6fb3dec21d3da0a80219abde33ddb00ee4b2551d33cb1ff3bf6caa4955a1fb3a",
+      "changed_pixels": 5374,
+      "labels": [
+        {
+          "role": "rarity",
+          "text": "MÍTICO",
+          "size": 16,
+          "bounds": [
+            152,
+            32,
+            209,
+            47
+          ],
+          "safe_box": [
+            64,
+            30,
+            296,
+            49
+          ]
+        },
+        {
+          "role": "title",
+          "text": "ESPECIAL",
+          "size": 20,
+          "bounds": [
+            100,
+            53,
+            260,
+            73
+          ],
+          "safe_box": [
+            64,
+            51,
+            296,
+            79
+          ]
+        },
+        {
+          "role": "attribute",
+          "text": "DANO ESPECIAL",
+          "size": 16,
+          "bounds": [
+            120,
+            443,
+            240,
+            454
+          ],
+          "safe_box": [
+            64,
+            435,
+            296,
+            457
+          ]
+        },
+        {
+          "role": "bonus",
+          "text": "+30%",
+          "size": 32,
+          "bounds": [
+            116,
+            460,
+            244,
+            492
+          ],
+          "safe_box": [
+            64,
+            458,
+            296,
+            498
+          ]
+        }
+      ]
+    }
+  ],
+  "audio": [
+    {
+      "rarity": "Rare",
+      "file": "Assets\\Audio\\CardRewards\\RareReveal.wav",
+      "sha256": "f04214b1070157610f20535d671458ea6f90ec0b48fa284a907922153f8b214d",
+      "playback_gain": 0.6,
+      "three_card_mix_peak": 0.22731406598101747,
+      "duration": 0.42,
+      "peak": 0.28,
+      "rms": 0.07518608754584434,
+      "notes": [
+        659.255,
+        987.767
+      ],
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    {
+      "rarity": "Epic",
+      "file": "Assets\\Audio\\CardRewards\\EpicReveal.wav",
+      "sha256": "322180de8cc9322ac6950a105d472c83b7be13c1a9657c788474858e2b14d106",
+      "playback_gain": 0.72,
+      "three_card_mix_peak": 0.37697439497054963,
+      "duration": 0.74,
+      "peak": 0.32,
+      "rms": 0.07458915850033657,
+      "notes": [
+        440,
+        554.365,
+        659.255,
+        880
+      ],
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    {
+      "rarity": "Legendary",
+      "file": "Assets\\Audio\\CardRewards\\LegendaryReveal.wav",
+      "sha256": "d99a218eadeaab9b8d9ebcf2961a5cf4477bb93f788e6fcab1f2e58a8cbc4945",
+      "playback_gain": 0.84,
+      "three_card_mix_peak": 0.5737491988891262,
+      "duration": 1.04,
+      "peak": 0.36,
+      "rms": 0.07735208966677302,
+      "notes": [
+        293.665,
+        440,
+        587.33,
+        739.989,
+        880,
+        1174.66
+      ],
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    {
+      "rarity": "Mythic",
+      "file": "Assets\\Audio\\CardRewards\\MythicReveal.wav",
+      "sha256": "3bb3345de2fe8dd342bc4169e3c21f56163f6c28f908c8407c3ad831a59f644c",
+      "playback_gain": 0.96,
+      "three_card_mix_peak": 0.7632361827448348,
+      "duration": 1.42,
+      "peak": 0.32,
+      "rms": 0.09549171081883492,
+      "notes": [
+        146.832,
+        293.665,
+        440,
+        587.33,
+        739.989,
+        880,
+        1174.66
+      ],
+      "sample_rate": 44100,
+      "channels": 1
+    }
+  ],
+  "back": {
+    "file": "Assets/Art/Cards/Back.png",
+    "sha256": "744afbf8ed3ccb581be4b46fcc601e11eb475d1cb4fbe434234e49727a48727c",
+    "size": [
+      180,
+      268
+    ],
+    "source": "Back-source.png",
+    "generator": "Built-in image_gen",
+    "prompt_file": "Back-prompt.txt"
+  }
+}

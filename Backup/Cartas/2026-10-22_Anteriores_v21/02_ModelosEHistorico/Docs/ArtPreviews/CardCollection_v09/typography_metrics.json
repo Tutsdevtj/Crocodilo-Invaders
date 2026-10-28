@@ -1,0 +1,1602 @@
+[
+  {
+    "rank": 0,
+    "name": "rarity",
+    "text": "COMUM",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      152,
+      36,
+      56,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "title",
+    "text": "RAJADA",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      124,
+      56,
+      113,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "attribute",
+    "text": "CADÊNCIA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      143,
+      443,
+      75,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "bonus",
+    "text": "+5%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      136,
+      468,
+      88,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "rarity",
+    "text": "RARO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      160,
+      36,
+      41,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "title",
+    "text": "RAJADA",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      124,
+      56,
+      113,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "attribute",
+    "text": "CADÊNCIA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      143,
+      443,
+      75,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "bonus",
+    "text": "+10%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "rarity",
+    "text": "ÉPICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      156,
+      32,
+      48,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "title",
+    "text": "RAJADA",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      124,
+      56,
+      113,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "attribute",
+    "text": "CADÊNCIA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      143,
+      443,
+      75,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "bonus",
+    "text": "+15%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "rarity",
+    "text": "LENDÁRIO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      139,
+      32,
+      82,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "title",
+    "text": "RAJADA",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      124,
+      56,
+      113,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "attribute",
+    "text": "CADÊNCIA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      143,
+      443,
+      75,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "bonus",
+    "text": "+20%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "rarity",
+    "text": "MÍTICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      151,
+      32,
+      58,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "title",
+    "text": "RAJADA",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      124,
+      56,
+      113,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "attribute",
+    "text": "CADÊNCIA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      143,
+      443,
+      75,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "bonus",
+    "text": "+30%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "rarity",
+    "text": "COMUM",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      152,
+      36,
+      56,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "title",
+    "text": "BLINDAGEM",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "attribute",
+    "text": "VIDA MÁXIMA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      131,
+      443,
+      99,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "bonus",
+    "text": "+10%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "rarity",
+    "text": "RARO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      160,
+      36,
+      41,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "title",
+    "text": "BLINDAGEM",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "attribute",
+    "text": "VIDA MÁXIMA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      131,
+      443,
+      99,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "bonus",
+    "text": "+15%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "rarity",
+    "text": "ÉPICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      156,
+      32,
+      48,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "title",
+    "text": "BLINDAGEM",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "attribute",
+    "text": "VIDA MÁXIMA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      131,
+      443,
+      99,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "bonus",
+    "text": "+20%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "rarity",
+    "text": "LENDÁRIO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      139,
+      32,
+      82,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "title",
+    "text": "BLINDAGEM",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "attribute",
+    "text": "VIDA MÁXIMA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      131,
+      443,
+      99,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "bonus",
+    "text": "+30%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "rarity",
+    "text": "MÍTICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      151,
+      32,
+      58,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "title",
+    "text": "BLINDAGEM",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "attribute",
+    "text": "VIDA MÁXIMA",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      131,
+      443,
+      99,
+      15
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "bonus",
+    "text": "+40%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "rarity",
+    "text": "COMUM",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      152,
+      36,
+      56,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "title",
+    "text": "PROPULSÃO",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "attribute",
+    "text": "MOVIMENTO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      137,
+      447,
+      87,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "bonus",
+    "text": "+3%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      136,
+      468,
+      88,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "rarity",
+    "text": "RARO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      160,
+      36,
+      41,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "title",
+    "text": "PROPULSÃO",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "attribute",
+    "text": "MOVIMENTO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      137,
+      447,
+      87,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "bonus",
+    "text": "+5%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      136,
+      468,
+      88,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "rarity",
+    "text": "ÉPICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      156,
+      32,
+      48,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "title",
+    "text": "PROPULSÃO",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "attribute",
+    "text": "MOVIMENTO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      137,
+      447,
+      87,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "bonus",
+    "text": "+8%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      136,
+      468,
+      88,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "rarity",
+    "text": "LENDÁRIO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      139,
+      32,
+      82,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "title",
+    "text": "PROPULSÃO",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "attribute",
+    "text": "MOVIMENTO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      137,
+      447,
+      87,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "bonus",
+    "text": "+10%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "rarity",
+    "text": "MÍTICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      151,
+      32,
+      58,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "title",
+    "text": "PROPULSÃO",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      94,
+      56,
+      173,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "attribute",
+    "text": "MOVIMENTO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      137,
+      447,
+      87,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "bonus",
+    "text": "+15%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "rarity",
+    "text": "COMUM",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      152,
+      36,
+      56,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "title",
+    "text": "ESPECIAL",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      104,
+      56,
+      153,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "attribute",
+    "text": "DANO ESPECIAL",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      122,
+      447,
+      116,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 0,
+    "name": "bonus",
+    "text": "+5%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      136,
+      468,
+      88,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "rarity",
+    "text": "RARO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      160,
+      36,
+      41,
+      11
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "title",
+    "text": "ESPECIAL",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      104,
+      56,
+      153,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "attribute",
+    "text": "DANO ESPECIAL",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      122,
+      447,
+      116,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 1,
+    "name": "bonus",
+    "text": "+10%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "rarity",
+    "text": "ÉPICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      156,
+      32,
+      48,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "title",
+    "text": "ESPECIAL",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      104,
+      56,
+      153,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "attribute",
+    "text": "DANO ESPECIAL",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      122,
+      447,
+      116,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 2,
+    "name": "bonus",
+    "text": "+15%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "rarity",
+    "text": "LENDÁRIO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      139,
+      32,
+      82,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "title",
+    "text": "ESPECIAL",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      104,
+      56,
+      153,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "attribute",
+    "text": "DANO ESPECIAL",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      122,
+      447,
+      116,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 3,
+    "name": "bonus",
+    "text": "+20%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "rarity",
+    "text": "MÍTICO",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 47,
+    "bounds": [
+      151,
+      32,
+      58,
+      15
+    ],
+    "safe_box": [
+      64,
+      32,
+      296,
+      48
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "title",
+    "text": "ESPECIAL",
+    "font_size": 20,
+    "alignment": "center",
+    "baseline": 73,
+    "bounds": [
+      104,
+      56,
+      153,
+      17
+    ],
+    "safe_box": [
+      64,
+      49,
+      296,
+      78
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "attribute",
+    "text": "DANO ESPECIAL",
+    "font_size": 16,
+    "alignment": "center",
+    "baseline": 458,
+    "bounds": [
+      122,
+      447,
+      116,
+      11
+    ],
+    "safe_box": [
+      64,
+      442,
+      296,
+      462
+    ]
+  },
+  {
+    "rank": 4,
+    "name": "bonus",
+    "text": "+30%",
+    "font_size": 32,
+    "alignment": "center",
+    "baseline": 496,
+    "bounds": [
+      120,
+      468,
+      120,
+      28
+    ],
+    "safe_box": [
+      64,
+      466,
+      296,
+      501
+    ]
+  }
+]

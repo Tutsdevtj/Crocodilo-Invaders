@@ -1,0 +1,7 @@
+SONS ORIGINAIS DAS CARTAS — V24
+Composicoes e timbres sintetizados para Crocodilo Invaders.
+Sem samples, loops, vinhetas ou pacotes de audio de terceiros.
+Geracao: Tools/Audio/prepare_card_audio_v24.py (Python, NumPy e wave).
+Revelacoes: pulso arcade suave, frases ascendentes, acorde maior e cristais FM.
+Fundos: acordes maiores, sinos cintilantes e arpejos; mitica com mais brilho.
+Nove WAVs PCM mono 44,1kHz. Manifesto de hashes acompanha esta receita.

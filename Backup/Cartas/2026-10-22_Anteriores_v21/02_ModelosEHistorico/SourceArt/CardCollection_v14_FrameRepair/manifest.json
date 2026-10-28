@@ -1,0 +1,385 @@
+{
+  "version": 14,
+  "cards": [
+    {
+      "family": "AttackDamage",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/AttackDamage/Common.png",
+      "sha256": "7680d8da8e9adb76eb7053484b79a7a0cd9f6f0f02a76713bdd4561888da471f",
+      "meta_sha256": "16ed3d66a3e904f3e276decb2765313f30acdd4fadd25257e7752b98921da4df",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackDamage/labels_0.png",
+      "labels_sha256": "2c15cd6d72729f5944e7c544336154426c02a19c5c38699332d8e66a1186a9ae",
+      "replacement_pixels": 21384,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/AttackDamage/Rare.png",
+      "sha256": "1567b8215977ebc7bd466962da24a60d5fb858f894c91b8b53e7a576da2f9223",
+      "meta_sha256": "80cacede44c603cb084520e7a72cde76d689bd6c3a78a46bf7f3df4e69e8e800",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackDamage/labels_1.png",
+      "labels_sha256": "103ed3608b57cdad9b342022f2a09bdeedc4db190e5d54801f60d4cd5c8dadb6",
+      "replacement_pixels": 21848,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/AttackDamage/Epic.png",
+      "sha256": "4da2800b9fd20959e93043c837a558b97082f2a4670fc36a9d58519af66bbf0f",
+      "meta_sha256": "7a9ff763b96ac49cfd0f6050c9cb5cb965996ca0774c00473590ab8351c58ba5",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackDamage/labels_2.png",
+      "labels_sha256": "eae6e9addf9fe70eb429614d873d69accf4f2e26728b060485139f7eda136a72",
+      "replacement_pixels": 22954,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/AttackDamage/Legendary.png",
+      "sha256": "2ddbd47f8d9c3af9cc06329f305ec9b55d6b92a0ee69f7b61a3d87e62fe32748",
+      "meta_sha256": "f8353c95cbee5aa745511e42a62096146d932889909dccf7db910d9267ccd49b",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackDamage/labels_3.png",
+      "labels_sha256": "62ef29d86c33545a13c2cc75d3e689118d3be8db09eae0a4d30b1f28f0fb222a",
+      "replacement_pixels": 22966,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackDamage",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/AttackDamage/Mythic.png",
+      "sha256": "a218f32050954010103237c4e706e8bc3a5dbadce4d507eb202990f95fc80c34",
+      "meta_sha256": "221b23c43a83714906e59cf79942c5436277c564e7ff1b0bae3ea73869c15ce9",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackDamage/labels_4.png",
+      "labels_sha256": "670dc03d612e6f0b531be517b449b525e475ecdfae938f05154bd8263ef0ee9b",
+      "replacement_pixels": 24909,
+      "overhang_pixels": 489,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Common.png",
+      "sha256": "5bc111d2bc647367d10136308fab1105bd4d786326db955e4b5eeec259cd45cf",
+      "meta_sha256": "072b830ac706fbb2dc409188eb965c296260f46b6981d3ea6aee29da8a63851e",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackSpeed/labels_0.png",
+      "labels_sha256": "ee2c90f184677fd088fddafb7955429a86aeb23496519aa7a2a63a5bcaa840cd",
+      "replacement_pixels": 22454,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Rare.png",
+      "sha256": "b924bca270a0ed28ad7dc9377a8d2fa9b236fe8f20d2bedb9b05cd42cb8d3599",
+      "meta_sha256": "211e5ee1f57807f9f65f7a9e74ad1e1f71824d10a3c0f2f071ff85eb9ce57256",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackSpeed/labels_1.png",
+      "labels_sha256": "aec9cb9980f2148d764cb636e26fd3ba666e52f10a30949162c467dd0dfaf168",
+      "replacement_pixels": 23066,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Epic.png",
+      "sha256": "e00cd2bcf632ab68daa9fd2735dafc0193d3ea0038f8ab536554408a888ea29f",
+      "meta_sha256": "4d517007777f17dfa02fe8920380c3c2d904f20916cb00aa0354ac8cd1d5ba1e",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackSpeed/labels_2.png",
+      "labels_sha256": "bb80ad259f1ce80dc904953b356fda1bdd947f0f52af2453d0858154c5e9156d",
+      "replacement_pixels": 23098,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Legendary.png",
+      "sha256": "c52b3e238db4ea4bf3f348ecfe01c9c41ff368c102a6085ecf9d6da9ece517df",
+      "meta_sha256": "773a25c3a413d95457a0efad49b3ef7c374d0127801549f593c967ca7103bf33",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackSpeed/labels_3.png",
+      "labels_sha256": "8c83849a433ded26ee07fa6f076184c2b8976ba73b9f10070f08ec663e1559ca",
+      "replacement_pixels": 23638,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "AttackSpeed",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/AttackSpeed/Mythic.png",
+      "sha256": "fb95b3c2190b2acec9bd3759dfac30eb6aef4820c62715c69ac9d76373615f51",
+      "meta_sha256": "76c2a15b5a05867c619913e0af3169922da8a695b1c36e796ed74315906d4798",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/AttackSpeed/labels_4.png",
+      "labels_sha256": "0423dc8630e17b76a9d6f020e1147035e973963be1a9a90007989449f9ac5bcb",
+      "replacement_pixels": 24770,
+      "overhang_pixels": 272,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Common.png",
+      "sha256": "0e9bbfe8cc1fbb5918c637c0000e5c34970d9034c172667b2b03920d465b8d04",
+      "meta_sha256": "aac63889895fd5c53ecc56d867f18946422b234750c7c20263f91d98a0a75c18",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MaximumHealth/labels_0.png",
+      "labels_sha256": "802f70f3d992ad43bcfc772467c35e94785a5eabfa5fb8cf63ede8b49867ebd9",
+      "replacement_pixels": 22551,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Rare.png",
+      "sha256": "b27cea58a78e7c913c8b5424f339591060e36e241002252a8e539766e157b086",
+      "meta_sha256": "05502045f6590474683e3f96dd97729023d6acb6f1c35fb50c6df6c252486c7f",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MaximumHealth/labels_1.png",
+      "labels_sha256": "bfe035fcb209b73de737a1e90785c90a7f4880cb8970c51c5b96ca6d7aae418a",
+      "replacement_pixels": 22532,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Epic.png",
+      "sha256": "47189c33112ad3341ef439ebdcd09a7ec4f5b8eef9c2027152608b310f0919e1",
+      "meta_sha256": "83051563d83e391fb12fc442755d6d458b6942a929ef5a7a9ab570ea0e6c97b6",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MaximumHealth/labels_2.png",
+      "labels_sha256": "47748d3c34205cc5c8b2db15093d9ba95d66b5d1a6b62d4e9c503e13a39f19a1",
+      "replacement_pixels": 23009,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Legendary.png",
+      "sha256": "2f3da770dbd3738fb656da39f22b80c26119f5f9305c4a4fe82ac2ddbeb4f9fc",
+      "meta_sha256": "9eaaac8d94c346a42fc89481393e28dc4b0831a576bc7d94cb42feafd9a70e32",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MaximumHealth/labels_3.png",
+      "labels_sha256": "4b79a09375e7caa9d80688ee5be92a79a6ac7279e21414941e11c62ca5f71f6b",
+      "replacement_pixels": 23400,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MaximumHealth",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/MaximumHealth/Mythic.png",
+      "sha256": "990736c59c9bb7e12414f96c8c226e3fc83e1978c858e9d8733207418c0e0243",
+      "meta_sha256": "27cc9a1ab7e59dd78f2052244f886e26dea3b0d59de90418dd0563af8ee402ce",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MaximumHealth/labels_4.png",
+      "labels_sha256": "e3fd8269e85c4e0035dc20b0a54368109f2b96d035d498eede6a65c38fa3b24e",
+      "replacement_pixels": 24807,
+      "overhang_pixels": 258,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Common.png",
+      "sha256": "abae96e7c34c24d86ff1cf5618bf2f79b77641225b592b9c7aaa0eb0ba5560d6",
+      "meta_sha256": "21b5846de9d73a38557041dd42f4e0ec046e9559d09780d01f43cc7396e8976c",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MoveSpeed/labels_0.png",
+      "labels_sha256": "10211d448e8e420471bdf76692fc60bd02b143fe2aefefceacff674fcb12bcfc",
+      "replacement_pixels": 22863,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Rare.png",
+      "sha256": "4fa21dd3e89402d621288137158c401bc0ea5aeb4de3c2325952ebb28ded5c9f",
+      "meta_sha256": "e936d1a51895a0858ccd1d075bbac01c4c9ab4b3186b775cb47e16bf01740b6f",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MoveSpeed/labels_1.png",
+      "labels_sha256": "df6b33a4fefd2f4a064f0f849608b08cc33608fa01ef324a307aeed4ff1e5b71",
+      "replacement_pixels": 22965,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Epic.png",
+      "sha256": "73fe6fa68f443c17c807e27c4948fbfc227e19c28d6d148927a33bec8708467f",
+      "meta_sha256": "3f42d39d990dd45e025332bd24671f56ce5d928006838f5a3d843367da516d03",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MoveSpeed/labels_2.png",
+      "labels_sha256": "642b6b0223e1561209ea4e50ae4327aff2da69a5dab15a3410ed4141c4fb5c16",
+      "replacement_pixels": 23023,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Legendary.png",
+      "sha256": "5c93d026f6ae4494562cb9a0f6a8cd6d353a0d9207d0f9979ef2392f7652d1a2",
+      "meta_sha256": "246cc259673dc066174af61e2144da499bdf7f5ace5db1d840eb4ee5569c20ee",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MoveSpeed/labels_3.png",
+      "labels_sha256": "a64ff9ff50a9d1bd675eb56a26fa5563c8eed6c5fccc80f993f702c4de23b9c2",
+      "replacement_pixels": 23102,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "MoveSpeed",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/MoveSpeed/Mythic.png",
+      "sha256": "150db3d62ce96c16227c123bcfd36226bbe6ba1f4bfc4a1c35985a2d4b808a73",
+      "meta_sha256": "f0070f98fb7338e8dfc82d8eb138d68df9d8049b4e4fa686de6263a607fe7cce",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/MoveSpeed/labels_4.png",
+      "labels_sha256": "f71765989474ce928d1890a8223f03f469c99380c18fc51206ab89b576eeca33",
+      "replacement_pixels": 24658,
+      "overhang_pixels": 127,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Common",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Common.png",
+      "sha256": "b2405f4bf793cf111aec235e5067011e254ad3aaec3442d7aff971180cc40d9e",
+      "meta_sha256": "a5dc9935ab1d53ecccb12ee62b735d434fc16f35d405d3cb5dc85b02fe43cdea",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/SpecialDamage/labels_0.png",
+      "labels_sha256": "012619954a6a06a155afd6b5feae4d4d82e43cbdcc5b81000a8490e5c67ffdba",
+      "replacement_pixels": 22834,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Rare",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Rare.png",
+      "sha256": "cdf46442461188de7b65d92376f895984d4e6bf80d5edb35f62a1023c5533434",
+      "meta_sha256": "8423204c621bb566ca699ae739f896bf3b4c39196929aeb7cdb91bbe5d19d585",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/SpecialDamage/labels_1.png",
+      "labels_sha256": "6739ee66c503452ae51671b4b56363feed96f266084bfe67d8acd0ab46dbb084",
+      "replacement_pixels": 22983,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Epic",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Epic.png",
+      "sha256": "728cd31d26b6301bbf42a159b4c667e7530e6bc29376cf1ad72d3e88ea050d63",
+      "meta_sha256": "745644dece1e610f93a22fba91fcfdccaeb95440e6e2069360306eb98b62ca87",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/SpecialDamage/labels_2.png",
+      "labels_sha256": "44f7abaf1bf7e28f405b8724f57cf0d733f7ef20bfa90dcf0c0351519ae67bcc",
+      "replacement_pixels": 23008,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Legendary",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Legendary.png",
+      "sha256": "11293317a460f7f470263d0e9fe297ec29e829d4f1692981fd1fe1d8626c336d",
+      "meta_sha256": "3640d7cc51ba8459f4eadb5be06406ca1817d719ce7b2cc19da39c9aa361a321",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/SpecialDamage/labels_3.png",
+      "labels_sha256": "5c54776c51091cc986131bc016e4abf2024463eecae2db5d49078cf7b7b92cc6",
+      "replacement_pixels": 23272,
+      "overhang_pixels": 0,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    },
+    {
+      "family": "SpecialDamage",
+      "rarity": "Mythic",
+      "asset": "Assets/Resources/Cards/SpecialDamage/Mythic.png",
+      "sha256": "6b37455840f98b222bde92d376f795c7c569088a2721008c4bf020b643805fb6",
+      "meta_sha256": "481cc96ed0233718884a39bc8aeb5fc768f3a59296a6428593dc328e74aed041",
+      "labels": "Docs/ArtPreviews/CardCollection_v13/SpecialDamage/labels_4.png",
+      "labels_sha256": "9addd3da98d52b19b9fbe992f63e526f4a11f6d95c968c02a8f27e7a9b75e2a9",
+      "replacement_pixels": 24784,
+      "overhang_pixels": 306,
+      "window_source": "single v12 illustration",
+      "old_background_pixels_in_rebuilt_opening": 0
+    }
+  ],
+  "applied": true,
+  "previous_crop": [
+    24,
+    48,
+    156,
+    208
+  ],
+  "replacement_bounds": [
+    18,
+    42,
+    163,
+    215
+  ],
+  "aperture_polygon": [
+    [
+      23,
+      46
+    ],
+    [
+      157,
+      46
+    ],
+    [
+      158,
+      47
+    ],
+    [
+      158,
+      209
+    ],
+    [
+      157,
+      210
+    ],
+    [
+      23,
+      210
+    ],
+    [
+      22,
+      209
+    ],
+    [
+      22,
+      47
+    ]
+  ],
+  "unmodified": [
+    "v13 labels",
+    "outer frames except rim",
+    "expressions",
+    "audio",
+    "card back",
+    "rarity effects"
+  ]
+}

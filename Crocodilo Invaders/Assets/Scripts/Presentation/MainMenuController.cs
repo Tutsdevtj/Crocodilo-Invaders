@@ -23,11 +23,41 @@ public sealed class MainMenuController : MonoBehaviour
     private AudioOptionsView options;
     private PlayerNameView nameView;
     private LeaderboardView leaderboard;
+    private DeveloperMenuView developerMenu;
 
     private void Awake()
     {
+        DevelopmentCardSession.End();
         LeaderboardSession.SaveCompletedRun();
         LeaderboardSession.Cancel();
+        developerMenu = gameObject.AddComponent<DeveloperMenuView>();
+        developerMenu.Initialize(this, playButton != null ? playButton.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null);
+    }
+
+    public bool TryOpenDeveloperMenu()
+    {
+        if (leaving || !menuGroup.interactable) return false;
+        menuGroup.interactable = false;
+        return true;
+    }
+
+    public void CloseDeveloperMenu() => RestoreMenu(playButton);
+
+    public bool BeginDevelopmentCards()
+    {
+        if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(gameplayScene) < 0) return false;
+        DevelopmentCardSession.Begin();
+        LeaderboardSession.Cancel();
+        GameplayLoadingController loading = Instantiate(loadingPrefab);
+        if (!loading.Begin(gameplayScene))
+        {
+            Destroy(loading.gameObject);
+            DevelopmentCardSession.End();
+            return false;
+        }
+        leaving = true;
+        menuGroup.interactable = false;
+        return true;
     }
 
     public void ShowLeaderboard()
@@ -62,7 +92,8 @@ public sealed class MainMenuController : MonoBehaviour
     {
         if ((Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             && (Gamepad.current == null || !Gamepad.current.buttonEast.wasPressedThisFrame)) return;
-        if (options != null && options.IsVisible) options.Close();
+        if (developerMenu != null && developerMenu.IsVisible) developerMenu.Close();
+        else if (options != null && options.IsVisible) options.Close();
         else if (nameView != null && nameView.IsVisible) nameView.Close();
         else if (leaderboard != null && leaderboard.IsVisible) leaderboard.Close();
     }

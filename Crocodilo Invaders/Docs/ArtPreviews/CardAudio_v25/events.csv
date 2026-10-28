@@ -1,0 +1,14 @@
+frame,event
+8,open Common
+47,ready Common
+137,reroll 1 Rare
+174,ready Rare
+264,reroll 2 Epic
+302,ready Epic
+392,reroll 3 Legendary
+431,ready Legendary
+521,reroll 4 Mythic
+567,ready Mythic
+657,reroll 5 Mythic
+657,test offer: two Mythic and one Common
+699,ready Mythic
