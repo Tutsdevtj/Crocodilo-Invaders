@@ -43,7 +43,7 @@ public sealed class DeveloperMenuView : MonoBehaviour
         bosses = Group("BossesPage", panel);
         firstBoss = DevelopmentUI.Button("Boss1", bosses.transform, font, "BOSS 1 · GUSINI  >", () => SelectBoss(1));
         DevelopmentUI.Button("Boss2", bosses.transform, font, "BOSS 2 · MACAQUINI  >", () => SelectBoss(2));
-        DevelopmentUI.Button("LakeBoss", bosses.transform, font, "SAPO DO PNEU · LAGO", () => { if (owner.BeginDevelopmentBoss(3, 1)) window.SetActive(false); });
+        DevelopmentUI.Button("LakeBoss", bosses.transform, font, "SAPENEU CURURU · LAGO", () => { if (owner.BeginDevelopmentBoss(3, 1)) window.SetActive(false); });
         phases = Group("PhasesPage", panel);
         firstPhase = DevelopmentUI.Button("Phase1", phases.transform, font, "FASE 1", () => LaunchBoss(1));
         DevelopmentUI.Button("Phase2", phases.transform, font, "FASE 2", () => LaunchBoss(2));

@@ -18,11 +18,20 @@ public sealed class LakeBossBar : MonoBehaviour
     private UnityEngine.UI.Image blinkEyes;
     private LakeFrogExpressions expression;
     private Sprite eyePatch;
+    private UnityEngine.UI.Image companionIcon;
+    private SapererecaAssets companionArt;
+    private TMP_Text companionName;
+    private bool companionJumping,companionGone;
+    private float companionJumpAt;
+    private Vector2 companionStart,companionLanding,companionStartSize,companionEndSize;
+    public bool CompanionInHud => companionIcon!=null && companionIcon.enabled && !companionJumping && !companionGone;
+    public bool CompanionJumping => companionJumping;
+    public UnityEngine.UI.Image CompanionIcon => companionIcon;
     public bool IsBlinking => blinkEyes != null && blinkEyes.enabled;
     private float clock, target, shown, hitAt = -10;
     public bool IsBuilt { get; private set; }
     public float DisplayedHealth => shown;
-    public bool IsCritical => target > 0 && target <= .4f;
+    public bool IsCritical => target > 0 && target <= .5f;
     public float AnimationClock => clock;
 
     public void SetIdentity(Sprite sprite, TMP_FontAsset font, LakeFrogExpressions expressions = null)
@@ -46,9 +55,33 @@ public sealed class LakeBossBar : MonoBehaviour
         }
         water=Node("WaterSurface",panel,new Vector2(43,39),new Vector2(FillWidth,18)).gameObject.AddComponent<LakeHudWater>();
         spill=Node("SpilledLife",panel,Vector2.zero,new Vector2(476,112)).gameObject.AddComponent<LakeHudSpill>();
-        title = Label("BossName","SAPO DO PNEU",font,panel,new Vector2(203,69),new Vector2(124,15),9,new Color(.91f,.94f,.72f));
+        title = Label("BossName","SAPENEU CURURU",font,panel,new Vector2(155,69),new Vector2(175,15),8.5f,new Color(.91f,.94f,.72f));
         title.alignment = TextAlignmentOptions.Center;
+        companionArt=Resources.Load<SapererecaAssets>("SapererecaV12/art");
+        if(companionArt!=null)
+        {
+            companionIcon=Image("SapererecaHud",panel,new Vector2(72,96),new Vector2(65,58),Color.white);
+            companionIcon.sprite=companionArt.frames[0];companionIcon.preserveAspect=true;
+            companionName=Label("CompanionEntranceName","SAPERERECA\nA MULHER DO SAPO",font,panel,new Vector2(30,160),new Vector2(290,35),9,new Color(1,.87f,.68f));
+            companionName.alignment=TextAlignmentOptions.Center;companionName.enabled=false;
+        }
         IsBuilt = true;
+    }
+    public void BeginCompanionJump(Vector2 landing)
+    {
+        if(companionIcon==null || companionGone || companionJumping)return;
+        Canvas.ForceUpdateCanvases();var camera=Camera.main;var canvas=panel.GetComponentInParent<Canvas>();
+        var screen=camera.WorldToScreenPoint(landing);var uiCamera=canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:canvas.worldCamera;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(panel,screen,uiCamera,out companionLanding);
+        companionStart=companionIcon.rectTransform.anchoredPosition;companionStartSize=companionIcon.rectTransform.sizeDelta;
+        float scale=camera.pixelHeight/(camera.orthographicSize*2)/canvas.scaleFactor;
+        companionEndSize=companionArt.frames[2].bounds.size*scale;
+        companionLanding-=new Vector2(companionEndSize.x*.5f,companionEndSize.y*.03f);
+        companionJumpAt=clock;companionJumping=true;companionName.enabled=true;
+    }
+    public void HideCompanion()
+    {
+        companionJumping=false;companionGone=true;if(companionIcon!=null)companionIcon.enabled=false;if(companionName!=null)companionName.enabled=false;
     }
     public void Show(float value)
     {
@@ -67,6 +100,19 @@ public sealed class LakeBossBar : MonoBehaviour
         clock+=Time.deltaTime;
         shown=clock<1.1f ? target*(1-Mathf.Pow(1-Mathf.InverseLerp(.35f,1.1f,clock),3)) : Mathf.MoveTowards(shown,target,Time.deltaTime*.9f);
         Paint();
+        if(companionIcon!=null)
+        {
+            if(companionJumping)
+            {
+                float t=Mathf.Clamp01((clock-companionJumpAt)/SapererecaCompanion.EntranceDuration);
+                companionIcon.sprite=companionArt.frames[t<.12f?1:2];
+                companionIcon.rectTransform.anchoredPosition=Vector2.Lerp(companionStart,companionLanding,t)+Vector2.up*(Mathf.Sin(t*Mathf.PI)*170);
+                companionIcon.rectTransform.sizeDelta=Vector2.Lerp(companionStartSize,companionEndSize,t);
+                if(t>=1){companionJumping=false;companionGone=true;companionIcon.enabled=false;}
+            }
+            else if(!companionGone)companionIcon.sprite=companionArt.frames[Mathf.Repeat(clock,3.7f)<.13f?5:0];
+            if(companionName!=null && companionGone && clock-companionJumpAt>3.2f)companionName.enabled=false;
+        }
     }
     private void Paint()
     {
