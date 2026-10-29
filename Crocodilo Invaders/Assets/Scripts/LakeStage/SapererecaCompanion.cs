@@ -3,7 +3,7 @@ using UnityEngine;
 // Shares the encounter's health/lifetime; she is an assisting character, not a second boss.
 public sealed class SapererecaCompanion : MonoBehaviour
 {
-    public enum State { InHud, Entering, Rest, Warning, Jump, Landing, Spit, Stopped }
+    public enum State { InHud, Entering, Rest, Warning, Jump, Landing, Spit, Stopped, Dive, Swim, Surface, Ready }
     public const float EntranceDuration=1.25f,WarningDuration=.65f,HopDuration=.9f;
     public const float WorldScale=1.65f;
     private SapoDoPneuCombat combat;
@@ -21,10 +21,19 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private Vector2 from,landing,lockedAim;
     private float timer,clock,nextAttack,contactCooldown,nextDamage;
     private int berth;
+    private int burstShots;
+    private bool tongueCombo;
+    private LakeDiveBubbles bubbles;
+    public int Dives { get; private set; }
+    public int Combos { get; private set; }
+    public int Volleys { get; private set; }
+    public Vector2 LastLaunch { get; private set; }
+    public Vector2 LastVelocity { get; private set; }
+    public float LastTravel { get; private set; }
     private readonly Collider2D[] contacts=new Collider2D[8];
     private ContactFilter2D filter;
     public State CurrentState { get; private set; }=State.InHud;
-    public bool Busy => CurrentState==State.Entering || CurrentState==State.Warning || CurrentState==State.Jump || CurrentState==State.Landing || CurrentState==State.Spit || ActiveDrops>0;
+    public bool Busy => (Joined && CurrentState!=State.Rest && CurrentState!=State.Stopped) || CurrentState==State.Entering || ActiveDrops>0;
     public bool Joined { get; private set; }
     public int Entries { get; private set; }
     public int Hops { get; private set; }
@@ -66,8 +75,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
         if(combat==null || !combat.Active){Stop();return;}
         if(combat.IsVulnerable){if(Joined)body.MovePosition(WaterBerth(standingFraction));return;}
         float dt=Time.fixedDeltaTime;clock+=dt;timer+=dt;contactCooldown-=dt;
-        if(CurrentState==State.Entering || CurrentState==State.Warning || CurrentState==State.Jump)landing=WaterBerth(landingFraction);
-        if(Joined && (CurrentState==State.Warning || CurrentState==State.Landing || CurrentState==State.Spit))body.MovePosition(WaterBerth(standingFraction));
+        if(CurrentState==State.Entering)landing=WaterBerth(landingFraction);
         switch(CurrentState)
         {
             case State.Entering:
@@ -79,10 +87,32 @@ public sealed class SapererecaCompanion : MonoBehaviour
                 break;
             case State.Rest:
                 body.MovePosition(WaterBerth(standingFraction));
-                if(clock>=nextAttack && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.HasWaterDrops)BeginHop();
+                if(clock>=nextAttack && ActiveDrops==0 && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.HasWaterDrops && !combat.Tongue.MealPending)BeginDive(false);
+                break;
+            case State.Dive:
+                body.MovePosition(Vector2.Lerp(from,from+Vector2.down*1.9f,Mathf.SmoothStep(0,1,timer/.42f)));
+                if(timer>=.42f){visual.enabled=false;from=body.position;SetState(State.Swim);}
+                break;
+            case State.Swim:
+                body.MovePosition(Vector2.Lerp(from,landing+Vector2.down*1.9f,Mathf.SmoothStep(0,1,timer/.72f)));
+                if(timer>=.72f)
+                {
+                    lockedAim=target.GetComponent<Rigidbody2D>().position;
+                    bubbles.ShowAim(lockedAim);SetState(State.Warning);
+                }
                 break;
             case State.Warning:
-                if(timer>=WarningDuration){from=body.position;if(cue!=null)Destroy(cue.gameObject);SetState(State.Jump);}
+                if(timer>=WarningDuration){visual.enabled=true;from=body.position;LandingRipple();SetState(State.Surface);}
+                break;
+            case State.Surface:
+                body.MovePosition(Vector2.Lerp(from,landing,Mathf.SmoothStep(0,1,timer/.25f)));
+                if(timer>=.25f){body.position=landing;standingFraction=landingFraction;SetState(State.Ready);}
+                break;
+            case State.Ready:
+                body.MovePosition(WaterBerth(standingFraction));
+                // Preparation overlaps the tongue, but damaging shots wait until it has fully retracted.
+                if(timer>=.28f && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.Tongue.Busy)
+                {burstShots=0;Volleys++;SetState(State.Spit);}
                 break;
             case State.Jump:
                 float t=Mathf.Clamp01(timer/HopDuration);Vector2 point=Vector2.Lerp(from,landing,Mathf.SmoothStep(0,1,t));point.y+=Mathf.Sin(t*Mathf.PI)*1.8f;
@@ -92,37 +122,50 @@ public sealed class SapererecaCompanion : MonoBehaviour
                 if(t>=1){body.position=landing;standingFraction=landingFraction;Hops++;LandingRipple();SetState(State.Landing);}
                 break;
             case State.Landing:
-                if(timer>=.2f){if(Hops==0){SetState(State.Rest);}else{Emit();SetState(State.Spit);}}
+                if(timer>=.2f)SetState(State.Rest);
                 break;
             case State.Spit:
-                if(timer>=.3f){nextAttack=clock+3.8f;SetState(State.Rest);}
+                if(burstShots<3 && timer>=burstShots*.11f){Emit(burstShots-1);burstShots++;}
+                if(timer>=.5f)
+                {
+                    if(cue!=null)Destroy(cue.gameObject);if(bubbles!=null)Destroy(bubbles.gameObject);
+                    nextAttack=clock+(tongueCombo?2.6f:2.2f);tongueCombo=false;SetState(State.Rest);
+                }
                 break;
         }
     }
-    private void BeginHop()
+    public void PrepareTongueCombo()
     {
-        berth++;float fraction=berth%2==0?.46f:.60f;
-        if(Mathf.Abs(WaterBerth(fraction).x-combat.transform.position.x)<3)fraction=fraction==.46f?.60f:.46f;
+        if(Joined && CurrentState==State.Rest && ActiveDrops==0)BeginDive(true);
+    }
+    private void BeginDive(bool combo)
+    {
+        berth++;Dives++;tongueCombo=combo;if(combo)Combos++;
+        float playerFraction=(target.transform.position.x-combat.Arena.xMin)/combat.Arena.width;
+        float fraction=Mathf.Clamp(playerFraction+(berth%2==0?.22f:-.22f),.15f,.85f);
+        if(Mathf.Abs(WaterBerth(fraction).x-combat.transform.position.x)<2.7f)
+            fraction=combat.transform.position.x<combat.Arena.center.x?.78f:.22f;
         landingFraction=fraction;landing=WaterBerth(landingFraction);
-        lockedAim=target.transform.position;
-        cue=LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),1.1f,true);SetState(State.Warning);
+        from=body.position;LakeWaterFX.Create(threats,new Vector2(from.x,combat.WaterY),.75f);
+        cue=LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),1.1f,true);
+        bubbles=LakeDiveBubbles.Create(threats,new Vector2(landing.x,combat.WaterY),lake!=null?lake.WaterFXMaterial:null);
+        SetState(State.Dive);
     }
     private void LandingRipple()
     {
         if(lake!=null)LakeSurfaceRipple.Create(threats,new Vector2(landing.x,combat.WaterY),.45f,lake.WaterFXMaterial);
     }
-    private void Emit()
+    private void Emit(int spread)
     {
-        Vector2 start=body.position+new Vector2(-.42f,.52f)*WorldScale;
-        // Three widely spaced, aimed arcs with a fixed target established before the hop.
-        const float travel=.8f;
+        float side=lockedAim.x<body.position.x?-1:1;
+        Vector2 start=body.position+new Vector2(side*.42f,.52f)*WorldScale;
+        // Solve the actual ballistic intercept, including the top of the arena. No vertical clamp.
+        float travel=Mathf.Clamp(Vector2.Distance(start,lockedAim)/11f,.65f,1.15f);
         Vector2 aim=(lockedAim-start)/travel+Vector2.up*(.5f*LakeDroplet.Gravity*travel);
-        aim.x=Mathf.Clamp(aim.x,-8,8);aim.y=Mathf.Clamp(aim.y,3.4f,7.8f);
-        for(int i=-1;i<=1;i++)
-        {
-            var node=new GameObject("SapererecaWaterDrop",typeof(Rigidbody2D),typeof(SpriteRenderer));node.transform.SetParent(threats,false);
-            node.AddComponent<LakeDroplet>().Configure(combat,target,combat.DropletSprite,start,aim+new Vector2(i*1.6f,i*.25f),combat.WaterY,this);Shots++;
-        }
+        Vector2 velocity=aim+new Vector2(-aim.y,aim.x).normalized*(spread*.85f);
+        LastLaunch=start;LastVelocity=velocity;LastTravel=travel;
+        var node=new GameObject("SapererecaWaterDrop",typeof(Rigidbody2D),typeof(SpriteRenderer));node.transform.SetParent(threats,false);
+        node.AddComponent<LakeDroplet>().Configure(combat,target,combat.DropletSprite,start,velocity,combat.WaterY,this);Shots++;
     }
     public bool TryHit()
     {
@@ -132,8 +175,8 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private void LateUpdate()
     {
         if(art==null || !Joined || CurrentState==State.Stopped)return;
-        int frame=CurrentState==State.Warning?1:CurrentState==State.Jump?2:CurrentState==State.Landing?3:CurrentState==State.Spit?4:Mathf.Repeat(clock,3.7f)<.13f?5:0;
-        visual.sprite=art.frames[frame];visual.flipX=CurrentState==State.Jump && landing.x>from.x;
+        int frame=CurrentState==State.Dive || CurrentState==State.Warning?1:CurrentState==State.Jump || CurrentState==State.Surface?2:CurrentState==State.Landing?3:CurrentState==State.Spit || CurrentState==State.Ready?4:Mathf.Repeat(clock,3.7f)<.13f?5:0;
+        visual.sprite=art.frames[frame];visual.flipX=CurrentState==State.Spit || CurrentState==State.Ready?lockedAim.x>body.position.x:CurrentState==State.Jump && landing.x>from.x;
         float breath=CurrentState==State.Rest?Mathf.Sin(clock*2.4f)*.018f:0;transform.localScale=new Vector3(1-breath*.5f,1+breath,1)*WorldScale;
         if(waterProperties!=null)
         {
