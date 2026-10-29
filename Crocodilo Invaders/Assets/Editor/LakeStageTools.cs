@@ -14,6 +14,21 @@ public static class LakeStageTools
     public const string BossPath = "Assets/Prefabs/Boss/SapoDoPneu.prefab";
     private const string Art = "Assets/Art/LakeStage/";
     private static readonly string[] LayerNames = { "01_ceu", "02_nuvens_distantes", "03_margem_distante", "04_vegetacao_intermediaria", "05_margem_proxima", "06_agua_base", "07_superficie_agua", "08_primeiro_plano" };
+    [MenuItem("Crocodilo/Lago do Pneu/Upgrade scrolling and water drops v03")]
+    public static void UpgradeScrollingAndDrops()
+    {
+        UpgradeWaterMotion();
+        AssetDatabase.Refresh(); Import(Art + "gota-lago-v03.png", 1000, Vector2.one * .5f);
+        var root = PrefabUtility.LoadPrefabContents(BossPath);
+        try
+        {
+            JungleStageTools.Set(root.GetComponent<SapoDoPneuCombat>(), "dropletSprite", AssetDatabase.LoadAssetAtPath<Sprite>(Art + "gota-lago-v03.png"));
+            PrefabUtility.SaveAsPrefabAsset(root, BossPath);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+        AssetDatabase.SaveAssets();
+        Debug.Log("LAKE_SCROLL_DROPS_V03_INSTALL_OK");
+    }
     [MenuItem("Crocodilo/Lago do Pneu/Upgrade fluid water v02")]
     public static void UpgradeWaterMotion()
     {
@@ -101,7 +116,7 @@ public static class LakeStageTools
         if (!scenes.Any(s => s.path == Stage)) scenes.Add(new EditorBuildSettingsScene(Stage, true));
         EditorBuildSettings.scenes = scenes.ToArray();
         AssetDatabase.SaveAssets(); Validate();
-        UpgradeWaterMotion();
+        UpgradeScrollingAndDrops();
         EditorSceneManager.OpenScene(Stage);
         Debug.Log("LAKE_STAGE_INSTALL_OK");
     }
@@ -122,7 +137,7 @@ public static class LakeStageTools
         view.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(Art + "sapo-master.png"); view.sortingOrder = 15;
         var combat = root.AddComponent<SapoDoPneuCombat>();
         JungleStageTools.Set(combat, "visual", view);
-        JungleStageTools.Set(combat, "dropletSprite", AssetDatabase.LoadAssetAtPath<Sprite>(Art + "gota.png"));
+        JungleStageTools.Set(combat, "dropletSprite", AssetDatabase.LoadAssetAtPath<Sprite>(Art + "gota-lago-v03.png"));
         JungleStageTools.Set(combat, "hudFont", AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>("Assets/Fonts/PressStart2P/PressStart2P SDF.asset"));
         Directory.CreateDirectory("Assets/Prefabs/Boss"); PrefabUtility.SaveAsPrefabAsset(root, BossPath); Object.DestroyImmediate(root);
     }

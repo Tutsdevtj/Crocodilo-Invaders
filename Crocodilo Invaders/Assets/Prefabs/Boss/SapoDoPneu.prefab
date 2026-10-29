@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SapoDoPneuCombat
   visual: {fileID: 2108764473403845964}
-  dropletSprite: {fileID: 21300000, guid: 52653cb08b592364cb962b5ee206ae92, type: 3}
+  dropletSprite: {fileID: 21300000, guid: 50ccbebafa2bccc498e53f1d92c112a7, type: 3}
   hudFont: {fileID: 11400000, guid: 4c0b391dfa9f4bd4c9a44ddfa735ec41, type: 2}
   jumpDuration: 1.45
   warningDuration: 0.9
