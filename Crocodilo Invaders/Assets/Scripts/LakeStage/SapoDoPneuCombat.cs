@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Boss), typeof(Rigidbody2D))]
 public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
 {
-    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped }
+    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped, Tongue }
     [SerializeField] private SpriteRenderer visual;
     [SerializeField] private Sprite dropletSprite;
     [SerializeField] private TMPro.TMP_FontAsset hudFont;
@@ -11,6 +11,9 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     [SerializeField, Min(.6f)] private float jumpDuration = 1.45f;
     [SerializeField, Min(.5f)] private float warningDuration = .9f;
     [SerializeField, Min(1)] private float restDuration = 2.4f;
+    private LakeTongueAttack tongue;
+    private int attackCycle;
+    public LakeTongueAttack Tongue => tongue;
     private Boss boss;
     private Rigidbody2D body;
     private Health target;
@@ -48,7 +51,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     private float RestY => WaterY + FloatHeight;
     private void Awake()
     {
-        boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>();
+        boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>(); tongue=GetComponent<LakeTongueAttack>();
         backdrop = FindAnyObjectByType<LakeBackdrop>(); arenaCamera = Camera.main;
         visualScale = visual != null ? visual.transform.localScale : Vector3.one;
         filter = LakeHit.PlayerFilter();
@@ -60,6 +63,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     {
         target = player; stopped = false;
         if (effects == null) { effects = new GameObject("SapoWaterThreats").transform; effects.SetParent(transform.parent, false); }
+        if(tongue!=null)tongue.PrepareField(player,effects,Arena);
     }
     private void FixedUpdate()
     {
@@ -77,7 +81,15 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
             case State.Float:
                 float clock = backdrop != null ? backdrop.MotionClock : Time.time;
                 body.MovePosition(new Vector2(body.position.x, RestY + Mathf.Sin(clock * 1.7f) * .065f + Mathf.Sin(clock * 3.1f) * .018f));
-                if (timer >= (Enraged ? restDuration * .72f : restDuration)) BeginJump();
+                if (timer >= (attackCycle==0?1f:(Enraged ? restDuration * .72f : restDuration)))
+                {
+                    if(attackCycle%2==1 || tongue==null || !tongue.ArtReady)BeginJump();
+                    else TryBeginTongue(Enraged?4:3);
+                }
+                break;
+            case State.Tongue:
+                body.linearVelocity=Vector2.zero;
+                if(tongue.Step(dt) && Active) { SetState(State.Float);timer=Mathf.Max(0,(Enraged?restDuration*.72f:restDuration)-.8f); }
                 break;
             case State.Prepare:
                 if (timer >= warningDuration)
@@ -102,12 +114,19 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
                 if (timer >= .25f) SetState(State.Recover);
                 break;
             case State.Recover:
-                if (timer >= .7f) SetState(State.Float);
+                if (timer >= .7f) { SetState(State.Float);timer=Mathf.Max(0,(Enraged?restDuration*.72f:restDuration)-1f); }
                 break;
         }
     }
+    public bool TryBeginTongue(int flies)
+    {
+        if(!Active || !boss.Ready || state!=State.Float || tongue==null || effects==null || effects.GetComponentInChildren<LakeDroplet>()!=null)return false;
+        if(!tongue.Begin(flies,target,effects,Arena))return false;
+        attackCycle++;SetState(State.Tongue);return true;
+    }
     private void BeginJump()
     {
+        attackCycle++;
         var area = Arena;
         // Alternate right-side berths; no last-frame tracking or landing on the player's corridor.
         float x = area.xMin + area.width * (sequence % 2 == 0 ? .64f : .82f);
@@ -156,6 +175,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
             float breath = Mathf.Sin((backdrop != null ? backdrop.MotionClock : Time.time)*2.2f);
             stretch = new Vector2(1 + breath*.012f,1 + breath*.024f);
         }
+        else if (state == State.Tongue && tongue!=null && tongue.MouthOpen) stretch=new Vector2(1.025f,.98f);
         else if (state == State.Prepare) stretch = Vector2.Lerp(Vector2.one, new Vector2(1.12f, .82f), Mathf.Clamp01(timer / warningDuration));
         else if (state == State.Rise) stretch = new Vector2(.93f, 1.1f);
         else if (state == State.Fall) stretch = new Vector2(1.03f, 1.03f);
@@ -166,6 +186,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     public void StopCombat()
     {
         stopped = true; state = State.Stopped;
+        if(tongue!=null)tongue.Stop();
         if (body != null) body.linearVelocity = Vector2.zero;
         if (effects != null) { effects.gameObject.SetActive(false); Destroy(effects.gameObject); effects = null; }
         cue = null;
