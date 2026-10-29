@@ -14,6 +14,8 @@ public sealed class BossBarFX : MonoBehaviour
     [SerializeField] private Sprite[] scarfFrames, hitFrames, glintFrames;
 
     private MacaquiniBossBar jungle;
+    private LakeBossBar lake;
+    public LakeBossBar LakeView => lake != null ? lake : (lake = GetComponent<LakeBossBar>());
     public MacaquiniBossBar JungleView => jungle != null ? jungle : (jungle = GetComponent<MacaquiniBossBar>());
     private readonly float[] sparkStarted = new float[3];
     private float clock, targetHp, initialHp, shownHp, lagHoldUntil;
@@ -33,7 +35,7 @@ public sealed class BossBarFX : MonoBehaviour
     // A cloned instance keeps the exact frame, anchoring and health feedback of the original HUD.
     public void SetIdentity(Sprite title, Sprite portrait)
     {
-        if (JungleView != null) { return; }
+        if (LakeView != null || JungleView != null) { return; }
         foreach (Image image in GetComponentsInChildren<Image>(true))
         {
             if (image.name == "name_text" && title != null)
@@ -48,6 +50,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void Show(float fraction)
     {
+        if (LakeView != null) { LakeView.Show(fraction); return; }
         if (JungleView != null) { JungleView.Show(fraction); return; }
         phaseTwo = transformationHold = false;
         if (phaseOneFill != null)
@@ -67,6 +70,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void SetHealth(float fraction)
     {
+        if (LakeView != null) { LakeView.SetHealth(fraction); return; }
         if (JungleView != null) { JungleView.SetHealth(fraction); return; }
         if (transformationHold) return;
         targetHp = Mathf.Clamp01(fraction);
@@ -76,6 +80,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void HoldEmpty()
     {
+        if (LakeView != null) { LakeView.SetHealth(0); return; }
         if (JungleView != null) { JungleView.HoldEmpty(); return; }
         transformationHold = true; chargeFinished = true;
         targetHp = shownHp = 0f;
@@ -85,6 +90,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     public void BeginPhaseTwoCharge(float fraction, float elapsed = 0f)
     {
+        if (LakeView != null) { LakeView.Show(fraction); return; }
         if (JungleView != null) { JungleView.Reveal(fraction); return; }
         Show(fraction);
         phaseTwo = true;
@@ -129,7 +135,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     private void Update()
     {
-        if (JungleView != null) { return; }
+        if (LakeView != null || JungleView != null) { return; }
         clock += Time.deltaTime;
         if (!chargeFinished)
         {
@@ -230,7 +236,7 @@ public sealed class BossBarFX : MonoBehaviour
 
     private void OnDisable()
     {
-        if (JungleView != null) { return; }
+        if (LakeView != null || JungleView != null) { return; }
         shimmerActive = false;
         motion.anchoredPosition = Vector2.zero;
         shimmer.enabled = fillEdge.enabled = glint.enabled = false;

@@ -1,0 +1,5 @@
+Create ONLY one isolated gameplay water droplet projectile sprite for Crocodilo Invaders 2D horizontal shooter. Reference 1 finish: crisp square pixel art dark outline. Reference 2 blue droplets identity. One teardrop pointing UP, compact round lower bulb with tapered pointed tip at top. Intense royal blue core, cyan rim and small white square highlight, navy outline. Coarse clear pixel steps as if drawn on 24x32 pixel grid. One whole shape centered, generous empty margin. TRUE transparent alpha background. No glow outside silhouette, no trails, no splashes, no water, no characters, no text, no scenery. Sprite will rotate along ballistic velocity in game. Do not draw sheet or multiple droplets. Uniform hard colors, no blur no antialiasing no gradient.
+
+Ferramenta: image_gen integrada; transparent_background=true.
+Referências: Assets/Art/Player/Bombardiro/Idle/bombardiro_idle_0.png e SourceArt/SapoDoPneu_Master_v01/referencia-lago.png.
+Saída original preservada sem edição no PNG em Assets/Art/LakeStage/gota.png.

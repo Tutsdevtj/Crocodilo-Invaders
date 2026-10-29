@@ -1,0 +1,58 @@
+[
+  {
+    "layer": "01_ceu",
+    "width": 1672,
+    "height": 941,
+    "format": "Format24bppRgb",
+    "cornerAlpha": 255
+  },
+  {
+    "layer": "02_nuvens_distantes",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "03_margem_distante",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "04_vegetacao_intermediaria",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "05_margem_proxima",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "06_agua_base",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "07_superficie_agua",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  },
+  {
+    "layer": "08_primeiro_plano",
+    "width": 1672,
+    "height": 941,
+    "format": "Format32bppArgb",
+    "cornerAlpha": 0
+  }
+]

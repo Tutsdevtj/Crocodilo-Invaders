@@ -35,15 +35,15 @@ public sealed class MainMenuController : MonoBehaviour
         LeaderboardSession.Cancel();
         developerMenu = gameObject.AddComponent<DeveloperMenuView>();
         developerMenu.Initialize(this, playButton != null ? playButton.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null);
-        if (SceneUtility.GetBuildIndexByScenePath(JungleStageScene) >= 0)
+        if (SceneUtility.GetBuildIndexByScenePath(LakeStageScene) >= 0)
         {
             jungleEntry = DevelopmentUI.Canvas("JungleMissionEntry");
             jungleEntry.AddComponent<CanvasGroup>();
             jungleEntry.GetComponent<Canvas>().sortingOrder = 40;
             var button = DevelopmentUI.Button("JungleMission", jungleEntry.transform,
                 playButton != null ? playButton.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null,
-                "FASE 2 · SELVA", PlayJungle, 44);
-            DevelopmentUI.Corner(button, Vector2.zero, new Vector2(24, 24), new Vector2(286, 44));
+                "FASE 2 · LAGO DO PNEU", PlayLake, 44);
+            DevelopmentUI.Corner(button, Vector2.zero, new Vector2(24, 24), new Vector2(390, 44));
         }
     }
 
@@ -83,10 +83,10 @@ public sealed class MainMenuController : MonoBehaviour
 
     public bool BeginDevelopmentBoss(int boss, int phase)
     {
-        string scene = boss == 1 ? gameplayScene : JungleStageScene;
+        string scene = boss == 1 ? gameplayScene : boss == 2 ? JungleStageScene : LakeStageScene;
         if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
         DevelopmentCardSession.End();
-        DevelopmentBossSession.Begin(phase);
+        DevelopmentBossSession.Begin(boss == 3 ? 1 : phase);
         LeaderboardSession.Cancel();
         var loading = Instantiate(loadingPrefab);
         if (!loading.Begin(scene))
@@ -157,6 +157,8 @@ public sealed class MainMenuController : MonoBehaviour
         => PlayChapter(gameplayScene);
 
     public const string JungleStageScene = "Assets/Scenes/StageTwoJungle.unity";
+    public const string LakeStageScene = "Assets/Scenes/StageTwoLake.unity";
+    public void PlayLake() => PlayChapter(LakeStageScene);
     public void PlayJungle() => PlayChapter(JungleStageScene);
 
     private void PlayChapter(string scenePath)

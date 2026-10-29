@@ -8,7 +8,7 @@ public sealed class BossHUD : MonoBehaviour
     private Health health;
     private GusiniPhaseTwo phaseTwo;
     private BossBarPhaseTwo phaseTwoBar;
-    private BossBarFX otherBar, activeBar;
+    private BossBarFX otherBar, activeBar, lakeBar;
     private MacaquiniPhaseTwo macaquiniPhase;
     public BossBarFX ActiveBar => activeBar;
     private void OnEnable()
@@ -27,11 +27,23 @@ public sealed class BossHUD : MonoBehaviour
         Unsubscribe();
         if (gusiniBar != null) gusiniBar.gameObject.SetActive(false);
         if (otherBar != null) otherBar.gameObject.SetActive(false);
+        if (lakeBar != null) lakeBar.gameObject.SetActive(false);
         activeBar = null;
         if (target == null || target.Health.IsDead || gusiniBar == null) return;
         health = target.Health; health.HealthChanged += Refresh; health.Died += OnBossDied;
         bool gusini = target.GetComponent<GusiniCombat>() != null;
-        if (!gusini)
+        bool lake = target.GetComponent<SapoDoPneuCombat>() != null;
+        if (lake)
+        {
+            if (lakeBar == null)
+            {
+                lakeBar = Instantiate(gusiniBar, gusiniBar.transform.parent);
+                lakeBar.name = "SapoDoPneuBar";
+                lakeBar.gameObject.AddComponent<LakeBossBar>();
+            }
+            activeBar = lakeBar;
+        }
+        else if (!gusini)
         {
             if (otherBar == null)
             {
@@ -44,6 +56,11 @@ public sealed class BossHUD : MonoBehaviour
         activeBar.gameObject.SetActive(true);
         var phaseSkin = activeBar.GetComponent<BossBarPhaseTwo>();
         if (phaseSkin != null) { phaseSkin.ResetPhase(); phaseSkin.enabled = gusini; }
+        if (lake)
+        {
+            lakeBar.GetComponent<LakeBossBar>().SetIdentity(target.GetComponentInChildren<SpriteRenderer>().sprite,
+                target.GetComponent<SapoDoPneuCombat>().HudFont, target.GetComponent<LakeFrogExpressions>());
+        }
         if (!gusini)
         {
             var macaquini = target.GetComponent<MacaquiniPresentation>();
@@ -91,13 +108,14 @@ public sealed class BossHUD : MonoBehaviour
     private void OnBossDied()
     {
         // Chapter endings do not emit the legacy RunEnded event.
-        if (activeBar != null && activeBar.JungleView != null) Hide(false);
+        if (activeBar != null && (activeBar.JungleView != null || lakeBar == activeBar)) Hide(false);
     }
     private void Hide(bool completed)
     {
         Unsubscribe();
         if (gusiniBar != null) gusiniBar.gameObject.SetActive(false);
         if (otherBar != null) otherBar.gameObject.SetActive(false);
+        if (lakeBar != null) lakeBar.gameObject.SetActive(false);
         activeBar = null;
     }
     private void Unsubscribe()
