@@ -54,6 +54,11 @@ public sealed class EnemyMovement : MonoBehaviour
     }
 
     public void ReturnToPatrol() => ConfigurePatrol(patrolArea);
+    public void CompleteScriptedArrival(Vector2 point)
+    {
+        body.position=point;body.linearVelocity=Vector2.zero;destination=point;
+        HasArrived=true;holding=false;IsDashing=false;
+    }
 
     public void ApplyHitSlow()
     {

@@ -39,7 +39,11 @@ public sealed class WavesUI : MonoBehaviour
         int token = heldAnnouncement;
         heldAnnouncement = 0;
         if (announcer != null) announcer.Cancel();
-        if (token != 0) waves.ReleaseAnnouncement(token);
+        if(waves!=null)
+        {
+            var lake=waves.GetComponent<LakeBossEntrance>();if(lake!=null)lake.Cancel(false);
+            if (token != 0) waves.ReleaseAnnouncement(token);
+        }
     }
 
     private void ShowWave(int current, int total)
@@ -50,6 +54,11 @@ public sealed class WavesUI : MonoBehaviour
         heldAnnouncement = token;
         // A onda do boss é decidida pelo WaveController; o tema é do próprio boss.
         Boss boss = waves.IsBossWave(current) ? waves.BossPrefab : null;
+        var lake=waves.GetComponent<LakeBossEntrance>();
+        if(boss!=null && lake!=null && boss.GetComponent<SapoDoPneuCombat>()!=null)
+        {
+            lake.Play(announcer,current,()=>FinishAnnouncement(token));return;
+        }
         announcer.Play(current, boss != null ? boss.AlertTheme : null, () => FinishAnnouncement(token));
     }
 
@@ -63,6 +72,7 @@ public sealed class WavesUI : MonoBehaviour
     {
         heldAnnouncement = 0;
         if (announcer != null) announcer.Cancel();
+        var lake=waves.GetComponent<LakeBossEntrance>();if(lake!=null)lake.Cancel();
         RefreshPanel();
         if (returnButton != null && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(returnButton.gameObject);
         AudioClip clip = completed ? winSound : lossSound;
