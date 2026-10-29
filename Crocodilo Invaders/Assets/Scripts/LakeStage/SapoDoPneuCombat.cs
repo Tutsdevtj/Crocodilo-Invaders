@@ -44,7 +44,8 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         }
     }
     public float WaterY => backdrop != null ? backdrop.WaterY : Arena.yMin + Arena.height * .28f;
-    private float RestY => WaterY + .78f;
+    public const float FloatHeight = .43f;
+    private float RestY => WaterY + FloatHeight;
     private void Awake()
     {
         boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>();
@@ -74,11 +75,17 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         switch (state)
         {
             case State.Float:
-                body.MovePosition(new Vector2(body.position.x, RestY + Mathf.Sin(timer * 3) * .06f));
+                float clock = backdrop != null ? backdrop.MotionClock : Time.time;
+                body.MovePosition(new Vector2(body.position.x, RestY + Mathf.Sin(clock * 1.7f) * .065f + Mathf.Sin(clock * 3.1f) * .018f));
                 if (timer >= (Enraged ? restDuration * .72f : restDuration)) BeginJump();
                 break;
             case State.Prepare:
-                if (timer >= warningDuration) { from = body.position; SetState(State.Rise); }
+                if (timer >= warningDuration)
+                {
+                    from = body.position;
+                    LakeWaterFX.Create(effects, new Vector2(from.x, WaterY), .85f);
+                    SetState(State.Rise);
+                }
                 break;
             case State.Rise:
             case State.Fall:
