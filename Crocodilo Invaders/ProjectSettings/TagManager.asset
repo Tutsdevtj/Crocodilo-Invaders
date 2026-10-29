@@ -71,6 +71,12 @@ TagManager:
   - name: AmbientEffects
     uniqueID: 1968000416
     locked: 0
+  - name: LakeForeground
+    uniqueID: 1201220537
+    locked: 0
+  - name: LakeHUD
+    uniqueID: 1201220538
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
