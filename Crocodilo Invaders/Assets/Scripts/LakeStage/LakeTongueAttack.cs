@@ -23,6 +23,9 @@ public sealed class LakeTongueAttack : MonoBehaviour
     private int sequenceLength, mapCursor,selectionCursor;
     private float nextSpawn;
     private bool rearIntroduced;
+    private Vector2 campingAnchor;
+    private float campingTime;
+    public int CampingFlies { get; private set; }
     public bool MealPending { get; private set; }
     public int AliveFlyCount { get { int n=0;for(int i=0;i<count;i++)if(flies[i]!=null && flies[i].Present)n++;return n; } }
     public int FliesSpawned { get; private set; }
@@ -76,7 +79,9 @@ public sealed class LakeTongueAttack : MonoBehaviour
     public void PrepareField(Health player,Transform effects,Rect bounds)
     {
         target=player;playerBody=player!=null?player.GetComponent<Rigidbody2D>():null;
-        dash=player!=null?player.GetComponent<PlayerDash>():null;fieldRoot=effects;arena=bounds;EnsureField();
+        dash=player!=null?player.GetComponent<PlayerDash>():null;fieldRoot=effects;arena=bounds;
+        if(count==0 && playerBody!=null)campingAnchor=playerBody.position;
+        EnsureField();
     }
     private Vector2 BehindPlayer()
     {
@@ -116,6 +121,14 @@ public sealed class LakeTongueAttack : MonoBehaviour
     private void SpawnFly(int slot)
     {
         Vector2 point=!rearIntroduced?BehindPlayer():Station(mapCursor++);
+        if(rearIntroduced && campingTime>=1.5f && mapCursor%2==0)
+        {
+            // Approach from either side of a camp, including high lanes; only the first fly is forced behind.
+            Vector2 offset=new Vector2(mapCursor%4==0?1.1f:-1.1f,.25f);
+            point=playerBody.position+offset;
+            point.x=Mathf.Clamp(point.x,arena.xMin+.7f,arena.xMax-.7f);
+            point.y=Mathf.Clamp(point.y,combat.WaterY+.9f,arena.yMax-.6f);CampingFlies++;
+        }
         rearIntroduced=true;introduced[slot]=true;flies[slot].Place(point);FliesSpawned++;
     }
     public void FinishMeal()
@@ -127,6 +140,11 @@ public sealed class LakeTongueAttack : MonoBehaviour
     {
         if(combat==null || !combat.Active)return;
         clock+=Time.fixedDeltaTime;
+        if(playerBody!=null)
+        {
+            if(Vector2.Distance(playerBody.position,campingAnchor)>.85f){campingAnchor=playerBody.position;campingTime=0;}
+            else campingTime+=Time.fixedDeltaTime;
+        }
         for(int i=0;i<count;i++)if(flies[i]!=null)flies[i].Tick(Time.fixedDeltaTime);
         if(!MealPending && combat.CurrentState!=SapoDoPneuCombat.State.Burp && clock>=nextSpawn)
         {
