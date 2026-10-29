@@ -118,6 +118,14 @@ public static class LakeStageTools
         AssetDatabase.SaveAssets(); Validate();
         UpgradeScrollingAndDrops();
         LakeHudArtTools.ImportExpressions();
+        LakeTongueArtTools.Install();
+        LakeWildlifeTools.Install();
+        SapeneuRageTools.Install();
+        SapeneuBurpTools.Install();
+        LakeLilyPadImport.Install();
+        LakeLilyPadStageTools.Install();
+        LakeBossEntranceTools.Install();
+        LakeDistantBirdsTools.Install();
         EditorSceneManager.OpenScene(Stage);
         Debug.Log("LAKE_STAGE_INSTALL_OK");
     }
@@ -131,7 +139,7 @@ public static class LakeStageTools
         box.size = new Vector2(2.85f, 2.65f); box.offset = new Vector2(0, .3f);
         var health = root.AddComponent<Health>(); JungleStageTools.Set(health, "maxHealth", 200);
         var movement = root.AddComponent<EnemyMovement>(); JungleStageTools.Set(movement, "moveSpeed", 4f);
-        var boss = root.AddComponent<Boss>(); JungleStageTools.Set(boss, "displayName", "SAPO DO PNEU");
+        var boss = root.AddComponent<Boss>(); JungleStageTools.Set(boss, "displayName", "SAPENEU CURURU");
         JungleStageTools.Set(boss, "defeatDuration", 2f);
         var data = new SerializedObject(boss); data.FindProperty("patrolArea").rectValue = new Rect(4, -1.5f, .05f, .05f); data.ApplyModifiedPropertiesWithoutUndo();
         var view = new GameObject("SapoVisual").AddComponent<SpriteRenderer>(); view.transform.SetParent(root.transform, false);
