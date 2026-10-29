@@ -5,6 +5,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
 {
     public enum State { InHud, Entering, Rest, Warning, Jump, Landing, Spit, Stopped }
     public const float EntranceDuration=1.25f,WarningDuration=.65f,HopDuration=.9f;
+    public const float WorldScale=1.65f;
     private SapoDoPneuCombat combat;
     private SapererecaAssets art;
     private Health target;
@@ -13,6 +14,8 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private Transform threats;
     private LakeBossBar hud;
     private LakeBackdrop lake;
+    private float standingFraction=.46f,landingFraction=.46f;
+    private Vector2 WaterBerth(float fraction) => new Vector2(combat.Arena.xMin+combat.Arena.width*fraction,combat.WaterY+.06f+Mathf.Sin((lake!=null?lake.MotionClock:Time.time)*1.7f+fraction*8)*.025f);
     private LakeWaterFX cue;
     private MaterialPropertyBlock waterProperties,reflectionProperties;
     private Vector2 from,landing,lockedAim;
@@ -41,6 +44,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
         visual=GetComponent<SpriteRenderer>();visual.sortingOrder=19;visual.enabled=false;
         threats=new GameObject("SapererecaWaterThreats").transform;threats.SetParent(transform,false);
         filter=LakeHit.PlayerFilter();
+        transform.localScale=Vector3.one*WorldScale;
         var material=Resources.Load<Material>("SapererecaV12/water-contact");
         if(material!=null)
         {
@@ -52,7 +56,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
     public void Enter()
     {
         if(CurrentState!=State.InHud || art==null)return;
-        Entries++;landing=new Vector2(combat.Arena.xMin+combat.Arena.width*.59f,combat.WaterY+.06f);
+        Entries++;landingFraction=standingFraction=.46f;landing=WaterBerth(landingFraction);
         body.position=landing;hud=FindAnyObjectByType<LakeBossBar>();
         if(hud!=null)hud.BeginCompanionJump(landing);SetState(State.Entering);
     }
@@ -60,18 +64,21 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private void FixedUpdate()
     {
         if(combat==null || !combat.Active){Stop();return;}
+        if(combat.IsVulnerable){if(Joined)body.MovePosition(WaterBerth(standingFraction));return;}
         float dt=Time.fixedDeltaTime;clock+=dt;timer+=dt;contactCooldown-=dt;
+        if(CurrentState==State.Entering || CurrentState==State.Warning || CurrentState==State.Jump)landing=WaterBerth(landingFraction);
+        if(Joined && (CurrentState==State.Warning || CurrentState==State.Landing || CurrentState==State.Spit))body.MovePosition(WaterBerth(standingFraction));
         switch(CurrentState)
         {
             case State.Entering:
                 if(timer>=EntranceDuration)
                 {
                     Joined=true;visual.enabled=true;visual.sprite=art.frames[3];body.position=landing;
-                    LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),.9f);nextAttack=clock+1.3f;SetState(State.Landing);
+                    LandingRipple();nextAttack=clock+1.3f;SetState(State.Landing);
                 }
                 break;
             case State.Rest:
-                body.MovePosition(new Vector2(body.position.x,combat.WaterY+.06f+Mathf.Sin(clock*2.3f)*.025f));
+                body.MovePosition(WaterBerth(standingFraction));
                 if(clock>=nextAttack && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.HasWaterDrops)BeginHop();
                 break;
             case State.Warning:
@@ -79,10 +86,10 @@ public sealed class SapererecaCompanion : MonoBehaviour
                 break;
             case State.Jump:
                 float t=Mathf.Clamp01(timer/HopDuration);Vector2 point=Vector2.Lerp(from,landing,Mathf.SmoothStep(0,1,t));point.y+=Mathf.Sin(t*Mathf.PI)*1.8f;
-                if(contactCooldown<=0 && LakeHit.Touch(target,body.position,point,.35f,filter,contacts))
+                if(contactCooldown<=0 && LakeHit.Touch(target,body.position,point,.35f*WorldScale,filter,contacts))
                 {contactCooldown=.8f;TryHit();if(!combat.Active){Stop();return;}}
                 body.MovePosition(point);
-                if(t>=1){body.position=landing;Hops++;LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),.9f);SetState(State.Landing);}
+                if(t>=1){body.position=landing;standingFraction=landingFraction;Hops++;LandingRipple();SetState(State.Landing);}
                 break;
             case State.Landing:
                 if(timer>=.2f){if(Hops==0){SetState(State.Rest);}else{Emit();SetState(State.Spit);}}
@@ -94,13 +101,19 @@ public sealed class SapererecaCompanion : MonoBehaviour
     }
     private void BeginHop()
     {
-        berth++;landing=new Vector2(combat.Arena.xMin+combat.Arena.width*(berth%2==0?.59f:.78f),combat.WaterY+.06f);
+        berth++;float fraction=berth%2==0?.46f:.60f;
+        if(Mathf.Abs(WaterBerth(fraction).x-combat.transform.position.x)<3)fraction=fraction==.46f?.60f:.46f;
+        landingFraction=fraction;landing=WaterBerth(landingFraction);
         lockedAim=target.transform.position;
         cue=LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),1.1f,true);SetState(State.Warning);
     }
+    private void LandingRipple()
+    {
+        if(lake!=null)LakeSurfaceRipple.Create(threats,new Vector2(landing.x,combat.WaterY),.45f,lake.WaterFXMaterial);
+    }
     private void Emit()
     {
-        Vector2 start=body.position+new Vector2(-.42f,.52f);
+        Vector2 start=body.position+new Vector2(-.42f,.52f)*WorldScale;
         // Three widely spaced, aimed arcs with a fixed target established before the hop.
         const float travel=.8f;
         Vector2 aim=(lockedAim-start)/travel+Vector2.up*(.5f*LakeDroplet.Gravity*travel);
@@ -121,7 +134,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
         if(art==null || !Joined || CurrentState==State.Stopped)return;
         int frame=CurrentState==State.Warning?1:CurrentState==State.Jump?2:CurrentState==State.Landing?3:CurrentState==State.Spit?4:Mathf.Repeat(clock,3.7f)<.13f?5:0;
         visual.sprite=art.frames[frame];visual.flipX=CurrentState==State.Jump && landing.x>from.x;
-        float breath=CurrentState==State.Rest?Mathf.Sin(clock*2.4f)*.018f:0;transform.localScale=new Vector3(1-breath*.5f,1+breath,1);
+        float breath=CurrentState==State.Rest?Mathf.Sin(clock*2.4f)*.018f:0;transform.localScale=new Vector3(1-breath*.5f,1+breath,1)*WorldScale;
         if(waterProperties!=null)
         {
             waterProperties.SetFloat("_WaterY",combat.WaterY);waterProperties.SetFloat("_Clock",clock);waterProperties.SetFloat("_Reflection",0);visual.SetPropertyBlock(waterProperties);
