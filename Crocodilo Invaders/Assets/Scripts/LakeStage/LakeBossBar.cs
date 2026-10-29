@@ -8,14 +8,18 @@ public sealed class LakeBossBar : MonoBehaviour
     private const float FillWidth = 292f;
     public Sprite FrameSprite { get; private set; }
     private CanvasGroup alpha;
-    private UnityEngine.UI.Image fill, lag, flash;
-    private RectTransform[] ripples;
+    private LakeHudWater water;
+    private LakeHudSpill spill;
+    public LakeHudWater Water => water;
+    public int Spills => spill != null ? spill.Bursts : 0;
+    public float SpilledVolume => spill != null ? spill.LostVolume : 0;
+    public bool IsPouring => spill != null && spill.IsPouring;
     private TMP_Text title;
     private UnityEngine.UI.Image blinkEyes;
     private LakeFrogExpressions expression;
     private Sprite eyePatch;
     public bool IsBlinking => blinkEyes != null && blinkEyes.enabled;
-    private float clock, target, shown, lagUntil, hitAt = -10;
+    private float clock, target, shown, hitAt = -10;
     public bool IsBuilt { get; private set; }
     public float DisplayedHealth => shown;
     public bool IsCritical => target > 0 && target <= .4f;
@@ -40,35 +44,28 @@ public sealed class LakeBossBar : MonoBehaviour
                 new Vector2(476f*285f/2172f,(476f/3f)*93f/724f),Color.white);
             blinkEyes.sprite=eyePatch; blinkEyes.enabled=false;
         }
-        lag = Image("DamageWake",panel,new Vector2(335,39),new Vector2(FillWidth,18),new Color(.87f,.88f,.58f));
-        fill = Image("LakeHealth",panel,new Vector2(335,39),new Vector2(FillWidth,18),new Color(.09f,.63f,.60f));
-        flash = Image("HitFoam",panel,new Vector2(335,39),new Vector2(FillWidth,18),Color.white);
-        foreach (var image in new[] {lag,fill,flash}) image.rectTransform.pivot = new Vector2(1,0);
-        var waterClip = Node("WaterSurface",panel,new Vector2(43,39),new Vector2(FillWidth,18));
-        waterClip.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
-        ripples = new RectTransform[12];
-        for (int i=0;i<ripples.Length;i++)
-            ripples[i] = Image("Foam"+i,waterClip,Vector2.zero,new Vector2(13+i%3*4,2),new Color(.63f,.96f,.83f,.7f)).rectTransform;
+        water=Node("WaterSurface",panel,new Vector2(43,39),new Vector2(FillWidth,18)).gameObject.AddComponent<LakeHudWater>();
+        spill=Node("SpilledLife",panel,Vector2.zero,new Vector2(476,112)).gameObject.AddComponent<LakeHudSpill>();
         title = Label("BossName","SAPO DO PNEU",font,panel,new Vector2(203,69),new Vector2(124,15),9,new Color(.91f,.94f,.72f));
         title.alignment = TextAlignmentOptions.Center;
         IsBuilt = true;
     }
     public void Show(float value)
     {
-        clock=shown=0; target=Mathf.Clamp01(value); hitAt=-10; lagUntil=0;
-        if (IsBuilt) { lag.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,0); Paint(); }
+        clock=shown=0; target=Mathf.Clamp01(value); hitAt=-10;
+        if (IsBuilt) { spill.ResetWater(); Paint(); }
     }
     public void SetHealth(float value)
     {
         value=Mathf.Clamp01(value);
-        if (value<target) { hitAt=clock; lagUntil=clock+.4f; }
+        if (value<target) { hitAt=clock; if(spill!=null)spill.Release(target-value,clock,shown); }
         target=value;
     }
     private void Update()
     {
         if (!IsBuilt) return;
         clock+=Time.deltaTime;
-        shown=clock<1.1f ? target*(1-Mathf.Pow(1-Mathf.InverseLerp(.35f,1.1f,clock),3)) : target;
+        shown=clock<1.1f ? target*(1-Mathf.Pow(1-Mathf.InverseLerp(.35f,1.1f,clock),3)) : Mathf.MoveTowards(shown,target,Time.deltaTime*.9f);
         Paint();
     }
     private void Paint()
@@ -77,21 +74,10 @@ public sealed class LakeBossBar : MonoBehaviour
         float intro=1-Mathf.Pow(1-Mathf.Clamp01(clock/.4f),3);
         float shake=Mathf.Clamp01(1-(clock-hitAt)/.16f);
         panel.anchoredPosition=new Vector2(50*(1-intro)+Mathf.Sin(clock*170)*2*shake,Mathf.Cos(clock*190)*shake);
-        fill.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,FillWidth*shown);
-        float width=Mathf.Max(lag.rectTransform.sizeDelta.x,FillWidth*shown);
-        if (clock>=lagUntil) width=Mathf.MoveTowards(width,FillWidth*shown,220*Time.deltaTime);
-        lag.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,width);
-        flash.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,FillWidth*shown);
-        flash.color=new Color(.85f,1,.91f,.8f*Mathf.Clamp01(1-(clock-hitAt)/.16f));
+        water.Present(clock,shown,Mathf.Clamp01(1-(clock-hitAt)/.65f));
+        spill.Present(clock,shown);
         float pulse=.5f+.5f*Mathf.Sin(clock*8);
-        fill.color=IsCritical ? Color.Lerp(new Color(.07f,.48f,.54f),new Color(.22f,.82f,.73f),pulse) : new Color(.09f,.63f,.60f);
         title.color=IsCritical ? Color.Lerp(new Color(.91f,.94f,.72f),new Color(1,.76f,.33f),pulse) : new Color(.91f,.94f,.72f);
-        for (int i=0;i<ripples.Length;i++)
-        {
-            float x=Mathf.Repeat(i*27-clock*(9+i%3*3),310)-17;
-            ripples[i].gameObject.SetActive(x>=FillWidth*(1-shown));
-            ripples[i].anchoredPosition=new Vector2(Mathf.Round(x),3+(i%3)*5+Mathf.Round(Mathf.Sin(clock*2+i)));
-        }
     }
     private void LateUpdate()
     {
