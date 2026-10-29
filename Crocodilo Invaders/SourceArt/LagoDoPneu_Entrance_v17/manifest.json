@@ -1,0 +1,12 @@
+[
+  {
+    "source": "SourceArt\\LagoDoPneu_Entrance_v17\\water-swell.wav",
+    "runtime": "Assets\\Resources\\LakeEntranceV17\\water-swell.wav",
+    "sha256": "5E491FCABC3551364B39FE7517C8437970B70F5335D41F7BD26D6A2C049AD9A3"
+  },
+  {
+    "source": "SourceArt\\LagoDoPneu_Entrance_v17\\cururu-croak.wav",
+    "runtime": "Assets\\Resources\\LakeEntranceV17\\cururu-croak.wav",
+    "sha256": "6DBE82EE46C3E76B47E32A9304D822A9E8C4332B8840F09C2B57E764C546209C"
+  }
+]
