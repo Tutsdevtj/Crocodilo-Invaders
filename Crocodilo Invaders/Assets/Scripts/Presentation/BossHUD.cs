@@ -59,7 +59,7 @@ public sealed class BossHUD : MonoBehaviour
         if (lake)
         {
             lakeBar.GetComponent<LakeBossBar>().SetIdentity(target.GetComponentInChildren<SpriteRenderer>().sprite,
-                target.GetComponent<SapoDoPneuCombat>().HudFont);
+                target.GetComponent<SapoDoPneuCombat>().HudFont, target.GetComponent<LakeFrogExpressions>());
         }
         if (!gusini)
         {

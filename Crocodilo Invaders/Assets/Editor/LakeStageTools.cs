@@ -117,6 +117,7 @@ public static class LakeStageTools
         EditorBuildSettings.scenes = scenes.ToArray();
         AssetDatabase.SaveAssets(); Validate();
         UpgradeScrollingAndDrops();
+        LakeHudArtTools.ImportExpressions();
         EditorSceneManager.OpenScene(Stage);
         Debug.Log("LAKE_STAGE_INSTALL_OK");
     }

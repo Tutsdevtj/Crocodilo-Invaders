@@ -11,14 +11,19 @@ public sealed class LakeBossBar : MonoBehaviour
     private UnityEngine.UI.Image fill, lag, flash;
     private RectTransform[] ripples;
     private TMP_Text title;
+    private UnityEngine.UI.Image blinkEyes;
+    private LakeFrogExpressions expression;
+    private Sprite eyePatch;
+    public bool IsBlinking => blinkEyes != null && blinkEyes.enabled;
     private float clock, target, shown, lagUntil, hitAt = -10;
     public bool IsBuilt { get; private set; }
     public float DisplayedHealth => shown;
     public bool IsCritical => target > 0 && target <= .4f;
     public float AnimationClock => clock;
 
-    public void SetIdentity(Sprite sprite, TMP_FontAsset font)
+    public void SetIdentity(Sprite sprite, TMP_FontAsset font, LakeFrogExpressions expressions = null)
     {
+        expression=expressions;
         if (IsBuilt) return;
         foreach (Transform child in transform) child.gameObject.SetActive(false);
         panel = Node("LakeTireHUD", transform, Vector2.zero, new Vector2(476,112));
@@ -27,6 +32,14 @@ public sealed class LakeBossBar : MonoBehaviour
         FrameSprite = Resources.Load<Sprite>("LakeHudV05/hud-frame");
         var frame = Image("LakeArtwork",panel,new Vector2(0,-12),new Vector2(476,476f/3f),Color.white);
         frame.sprite = FrameSprite;
+        var closed = Resources.Load<Sprite>("LakeExpressionsV06/hud-closed");
+        if (closed != null)
+        {
+            eyePatch=LakeFrogExpressions.EyePatch(closed,new Rect(1675f/2172f,295f/724f,285f/2172f,93f/724f));
+            blinkEyes=Image("PortraitBlink",panel,new Vector2(476f*1675f/2172f,-12f+(476f/3f)*336f/724f),
+                new Vector2(476f*285f/2172f,(476f/3f)*93f/724f),Color.white);
+            blinkEyes.sprite=eyePatch; blinkEyes.enabled=false;
+        }
         lag = Image("DamageWake",panel,new Vector2(335,39),new Vector2(FillWidth,18),new Color(.87f,.88f,.58f));
         fill = Image("LakeHealth",panel,new Vector2(335,39),new Vector2(FillWidth,18),new Color(.09f,.63f,.60f));
         flash = Image("HitFoam",panel,new Vector2(335,39),new Vector2(FillWidth,18),Color.white);
@@ -80,6 +93,12 @@ public sealed class LakeBossBar : MonoBehaviour
             ripples[i].anchoredPosition=new Vector2(Mathf.Round(x),3+(i%3)*5+Mathf.Round(Mathf.Sin(clock*2+i)));
         }
     }
+    private void LateUpdate()
+    {
+        if (blinkEyes != null) blinkEyes.enabled=expression != null && expression.IsBlinking;
+    }
+    private void OnDisable() { if(blinkEyes!=null)blinkEyes.enabled=false; }
+    private void OnDestroy() { if(eyePatch!=null)Destroy(eyePatch); }
     private static RectTransform Node(string name,Transform parent,Vector2 at,Vector2 size)
     {
         var rect=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();

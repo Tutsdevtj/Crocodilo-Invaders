@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6260179408376828186}
   - component: {fileID: 4997734144625250880}
   - component: {fileID: 6296905709049730076}
+  - component: {fileID: 6453273139831760318}
   m_Layer: 9
   m_Name: SapoDoPneu
   m_TagString: Untagged
@@ -198,6 +199,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LakeBossWaterContact
   visual: {fileID: 2108764473403845964}
   contactMaterial: {fileID: 2100000, guid: fe6c0e0e3ecc9f440b6a870001523cbf, type: 2}
+--- !u!114 &6453273139831760318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930932088081904515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9293f9ae9b14a4784f661148d93c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LakeFrogExpressions
 --- !u!1 &7424690234810371412
 GameObject:
   m_ObjectHideFlags: 0

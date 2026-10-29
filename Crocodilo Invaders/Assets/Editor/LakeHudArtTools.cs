@@ -8,6 +8,21 @@ public static class LakeHudArtTools
         ImportSprite("Assets/Resources/LakeHudV05/hud-frame.png");
         Debug.Log("LAKE_HUD_V05_ART_IMPORTED");
     }
+    public static void ImportExpressions()
+    {
+        Import();
+        ImportSprite("Assets/Resources/LakeExpressionsV06/sapo-closed.png");
+        ImportSprite("Assets/Resources/LakeExpressionsV06/hud-closed.png");
+        var root=PrefabUtility.LoadPrefabContents(LakeStageTools.BossPath);
+        try
+        {
+            if(root.GetComponent<LakeFrogExpressions>()==null)root.AddComponent<LakeFrogExpressions>();
+            PrefabUtility.SaveAsPrefabAsset(root,LakeStageTools.BossPath);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+        AssetDatabase.SaveAssets();
+        Debug.Log("LAKE_EXPRESSIONS_V06_IMPORTED");
+    }
     private static void ImportSprite(string path)
     {
         AssetDatabase.Refresh();

@@ -151,7 +151,12 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         hitFlash = Mathf.Max(0, hitFlash - Time.deltaTime);
         visual.color = hitFlash > 0 ? new Color(1, .65f, .65f) : Enraged ? new Color(1, .92f, .8f) : Color.white;
         Vector2 stretch = Vector2.one;
-        if (state == State.Prepare) stretch = Vector2.Lerp(Vector2.one, new Vector2(1.12f, .82f), Mathf.Clamp01(timer / warningDuration));
+        if (state == State.Float)
+        {
+            float breath = Mathf.Sin((backdrop != null ? backdrop.MotionClock : Time.time)*2.2f);
+            stretch = new Vector2(1 + breath*.012f,1 + breath*.024f);
+        }
+        else if (state == State.Prepare) stretch = Vector2.Lerp(Vector2.one, new Vector2(1.12f, .82f), Mathf.Clamp01(timer / warningDuration));
         else if (state == State.Rise) stretch = new Vector2(.93f, 1.1f);
         else if (state == State.Fall) stretch = new Vector2(1.03f, 1.03f);
         else if (state == State.Impact) stretch = new Vector2(1.16f, .78f);
