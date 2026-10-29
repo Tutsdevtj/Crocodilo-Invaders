@@ -37,7 +37,8 @@ public sealed class LakeBackdrop : MonoBehaviour
             if (child == null) { child = new GameObject("Layer_" + i).transform; child.SetParent(transform, false); }
             views[i] = child.GetComponent<SpriteRenderer>();
             if (views[i] == null) views[i] = child.gameObject.AddComponent<SpriteRenderer>();
-            views[i].sprite = layers[i]; views[i].sortingOrder = -180 + i;
+            views[i].sprite = layers[i]; views[i].sortingOrder = i == 7 ? 32000 : -240 + i * 10;
+            views[i].sortingLayerName = i == 7 ? "LakeForeground" : "Default";
             if (motionMaterial != null && (i >= 3)) views[i].sharedMaterial = motionMaterial;
             tiles[i, 1] = views[i];
             if (i == 0) continue;
@@ -48,6 +49,7 @@ public sealed class LakeBackdrop : MonoBehaviour
                 var copy = tile.GetComponent<SpriteRenderer>();
                 if (copy == null) copy = tile.gameObject.AddComponent<SpriteRenderer>();
                 copy.sprite = layers[i]; copy.sortingOrder = views[i].sortingOrder;
+                copy.sortingLayerID = views[i].sortingLayerID;
                 copy.sharedMaterial = views[i].sharedMaterial;
                 tiles[i, t] = copy;
             }
