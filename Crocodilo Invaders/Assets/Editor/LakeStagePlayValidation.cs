@@ -81,8 +81,14 @@ public static class LakeStagePlayValidation
         Check(contact != null && lake.GetComponent<LakeSurfaceMotion>().CrestCount == 22, "Contato com água e 22 cristas ambientes presentes");
         yield return Until(() => combat.CurrentState == SapoDoPneuCombat.State.Float, "flutuação");
         yield return Wait(.3f);
+        var hud = Object.FindAnyObjectByType<LakeBossBar>();
+        Check(hud != null && hud.IsBuilt, "HUD exclusiva do pneu criada na entrada real do boss");
+        Check(hud.DisplayedHealth > 0, "HUD carrega vida na entrada");
+        Check(hud.FrameSprite != null && hud.FrameSprite.name == "hud-frame" && hud.transform.Find("LakeTireHUD/WaterSurface").childCount == 12, "Arte do lago com rosto e pneu e doze reflexos de agua presentes");
+        Check(hud.GetComponentsInChildren<TMPro.TMP_Text>().Any(t=>t.text=="SAPO DO PNEU"), "Nome proprio legivel na HUD do sapo");
         Check(contact.ContactWeight > .7f && contact.Reflection != null, "Pneu flutua com menisco e reflexo");
         Check(boss.GetComponentInChildren<SpriteRenderer>().sharedMaterial.shader.name == "Crocodilo/LakeWaterContact", "Recorte de submersão aplicado ao sprite aprovado");
+        Capture("hud-normal.png");
         float oldClock = lake.MotionClock;
         float oldShoreDistance = lake.ScrollDistance(4), oldFarDistance = lake.ScrollDistance(2);
         var shore = lake.transform.Find("Layer_4").GetComponent<SpriteRenderer>();
@@ -100,9 +106,11 @@ public static class LakeStagePlayValidation
         double wait = EditorApplication.timeSinceStartup + .25; float time = Time.time;
         Time.timeScale = 0;
         float pausedClock = lake.MotionClock;
+        float pausedHudClock = hud.AnimationClock;
         float pausedShore = shore.transform.position.x;
         while (EditorApplication.timeSinceStartup < wait) yield return null;
         Check(Time.time == time && Vector2.Distance(position, boss.GetComponent<Rigidbody2D>().position) < .001f, "Pausa congela aviso e boss");
+        Check(hud.AnimationClock == pausedHudClock, "Pausa congela agua e animacao da HUD");
         Check(lake.MotionClock == pausedClock, "Pausa congela também água, vento e reflexo");
         Check(shore.transform.position.x == pausedShore, "Pausa congela a rolagem do cenário");
         Time.timeScale = 1;
@@ -154,7 +162,8 @@ public static class LakeStagePlayValidation
         yield return Until(() => combat.Landings > landed, "salto em fúria");
         Check(combat.DropsLaunched - launched == 7, "Fúria mantém leque legível de sete gotas");
         // A visual capture is for art/layout integration, separate from the physics assertions.
-        yield return Wait(.45f); Capture();
+        yield return Wait(.45f); Check(hud.IsCritical && Mathf.Abs(hud.DisplayedHealth-boss.Health.Fraction)<.001f, "HUD mostra furia e acompanha dano real");
+        Capture();
         StartMovie(); yield return Wait(12); StopMovie();
         Check(lake.ScrollDistance(4) > lake.GameplayCamera.orthographicSize * 2 * lake.GameplayCamera.aspect * 1.025f, "Rolagem atravessa a largura de um tile durante a sessão");
         var flow = Object.FindAnyObjectByType<ChapterFlow>(); flow.enabled = false;
@@ -169,7 +178,7 @@ public static class LakeStagePlayValidation
         var go = new GameObject("ValidationDrop"); go.AddComponent<Rigidbody2D>(); go.AddComponent<SpriteRenderer>();
         go.AddComponent<LakeDroplet>().Configure(combat, player.Health, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/LakeStage/gota-lago-v03.png"), p, velocity, combat.WaterY);
     }
-    private static void Capture()
+    private static void Capture(string filename = "gameplay.png")
     {
         var camera = Camera.main; var old = camera.targetTexture;
         var overlays = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).Where(c => c.isRootCanvas && c.renderMode == RenderMode.ScreenSpaceOverlay).ToArray();
@@ -179,14 +188,14 @@ public static class LakeStagePlayValidation
         Object.FindAnyObjectByType<LakeBackdrop>().SendMessage("LateUpdate");
         Canvas.ForceUpdateCanvases(); camera.Render(); var previous = RenderTexture.active; RenderTexture.active = rt;
         tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
-        Directory.CreateDirectory("Docs/ArtPreviews/LagoDoPneu_v03");
-        File.WriteAllBytes("Docs/ArtPreviews/LagoDoPneu_v03/gameplay.png", tex.EncodeToPNG());
+        Directory.CreateDirectory("Docs/ArtPreviews/LagoDoPneu_HUD_v05");
+        File.WriteAllBytes("Docs/ArtPreviews/LagoDoPneu_HUD_v05/" + filename, tex.EncodeToPNG());
         RenderTexture.active = previous; camera.targetTexture = old; rt.Release(); Object.Destroy(rt); Object.Destroy(tex);
         foreach (var canvas in overlays) { canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.worldCamera = null; }
     }
     private static void StartMovie()
     {
-        Directory.CreateDirectory("Logs/LagoDoPneu/v03/Frames"); movieCamera = Camera.main;
+        Directory.CreateDirectory("Logs/LagoDoPneu/v05/Frames"); movieCamera = Camera.main;
         movieTarget = new RenderTexture(960, 540, 24); moviePixels = new Texture2D(960, 540, TextureFormat.RGB24, false);
         movieCamera.targetTexture = movieTarget;
         movieCanvases = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).Where(c => c.isRootCanvas && c.renderMode == RenderMode.ScreenSpaceOverlay).ToArray();
@@ -198,7 +207,7 @@ public static class LakeStagePlayValidation
         if (movieTimes == null || Time.unscaledTime - movieStarted < nextMovieFrame) return;
         Canvas.ForceUpdateCanvases(); movieCamera.Render(); var previous = RenderTexture.active; RenderTexture.active = movieTarget;
         moviePixels.ReadPixels(new Rect(0, 0, 960, 540), 0, 0); moviePixels.Apply(); RenderTexture.active = previous;
-        File.WriteAllBytes("Logs/LagoDoPneu/v03/Frames/frame_" + movieTimes.Count.ToString("D5") + ".png", moviePixels.EncodeToPNG());
+        File.WriteAllBytes("Logs/LagoDoPneu/v05/Frames/frame_" + movieTimes.Count.ToString("D5") + ".png", moviePixels.EncodeToPNG());
         movieTimes.Add(Time.unscaledTime - movieStarted); nextMovieFrame = Time.unscaledTime - movieStarted + .05f;
     }
     private static void StopMovie()
@@ -210,7 +219,7 @@ public static class LakeStagePlayValidation
             text.Append("file 'frame_" + i.ToString("D5") + ".png'\n");
             text.Append("duration " + (i + 1 < movieTimes.Count ? movieTimes[i + 1] - movieTimes[i] : .05f).ToString("F6", System.Globalization.CultureInfo.InvariantCulture) + "\n");
         }
-        File.WriteAllText("Logs/LagoDoPneu/v03/Frames/frames.ffconcat", text.ToString());
+        File.WriteAllText("Logs/LagoDoPneu/v05/Frames/frames.ffconcat", text.ToString());
         movieTimes = null; movieCamera.targetTexture = null;
         foreach (var canvas in movieCanvases) { canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.worldCamera = null; }
         movieTarget.Release(); Object.Destroy(movieTarget); Object.Destroy(moviePixels);
