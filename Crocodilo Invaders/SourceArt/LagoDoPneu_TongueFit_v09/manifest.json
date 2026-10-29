@@ -1,0 +1,12 @@
+{
+  "generator": "built-in image_gen",
+  "dimensions": [
+    2172,
+    724
+  ],
+  "master": "tongue-full-master.png",
+  "prompt": "prompt.txt",
+  "runtime": "Assets/Resources/LakeTongueV09/tongue-full.png",
+  "sha256": "b88312cfcf1bdbb268fc380e9a2ef726d6d7e337999e3508754262b9b3408709",
+  "status": "local prototype; no commit or push"
+}

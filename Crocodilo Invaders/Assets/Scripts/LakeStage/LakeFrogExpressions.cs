@@ -32,6 +32,7 @@ public sealed class LakeFrogExpressions : MonoBehaviour
     {
         if (combat == null || !combat.Active) { IsBlinking=false; return; }
         clock += Time.deltaTime;
+        if(combat.Tongue!=null && combat.Tongue.MouthOpen) { IsBlinking=false;return; }
         if (clock >= nextBlink)
         {
             IsBlinking=true; closedUntil=clock+.13f; Blinks++;
