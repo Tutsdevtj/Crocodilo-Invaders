@@ -13,13 +13,19 @@ public sealed class LakeTongueAttack : MonoBehaviour
     private Health target;
     private PlayerDash dash;
     [SerializeField] private Vector2[] stationPositions={new Vector2(.13f,.66f),new Vector2(.27f,.48f),new Vector2(.36f,.58f),new Vector2(.46f,.44f),new Vector2(.51f,.51f)};
-    private readonly LakeTongueFly[] flies=new LakeTongueFly[6];
+    private readonly LakeTongueFly[] flies=new LakeTongueFly[3];
+    private readonly bool[] introduced=new bool[3];
     private readonly int[] plan=new int[4];
     private Transform fieldRoot;
     private Rigidbody2D playerBody;
     private SapoDoPneuCombat combat;
     private Rect arena;
-    private int sequenceLength, mapCursor;
+    private int sequenceLength, mapCursor,selectionCursor;
+    private float nextSpawn;
+    private bool rearIntroduced;
+    public bool MealPending { get; private set; }
+    public int AliveFlyCount { get { int n=0;for(int i=0;i<count;i++)if(flies[i]!=null && flies[i].Present)n++;return n; } }
+    public int FliesSpawned { get; private set; }
     private readonly Collider2D[] contacts=new Collider2D[8];
     private ContactFilter2D filter;
     private int count, current;
@@ -93,40 +99,58 @@ public sealed class LakeTongueAttack : MonoBehaviour
     private void EnsureField()
     {
         if(count>0 || !ArtReady || visual==null || fieldRoot==null || playerBody==null)return;
-        count=Mathf.Min(flies.Length,stationPositions.Length+1);
+        count=flies.Length;
         for(int i=0;i<count;i++)
         {
-            Vector2 station=i==0?BehindPlayer():new Vector2(arena.xMin+stationPositions[i-1].x*arena.width,arena.yMin+stationPositions[i-1].y*arena.height);
-            var node=new GameObject(i==0?"PlayerRearFly":"LakeStationFly_"+i);node.transform.SetParent(fieldRoot,false);
+            Vector2 station=Station(i);
+            var node=new GameObject("RoamingLakeFly_"+i);node.transform.SetParent(fieldRoot,false);
             flies[i]=node.AddComponent<LakeTongueFly>();flies[i].Configure(art,this,station,i);
         }
+        SpawnFly(0);nextSpawn=clock+1.35f;
     }
+    private Vector2 Station(int slot)
+    {
+        Vector2 point=stationPositions.Length>0?stationPositions[slot%stationPositions.Length]:new Vector2(.3f,.65f);
+        return new Vector2(arena.xMin+point.x*arena.width,arena.yMin+point.y*arena.height);
+    }
+    private void SpawnFly(int slot)
+    {
+        Vector2 point=!rearIntroduced?BehindPlayer():Station(mapCursor++);
+        rearIntroduced=true;introduced[slot]=true;flies[slot].Place(point);FliesSpawned++;
+    }
+    public void FinishMeal()
+    {
+        MealPending=false;System.Array.Clear(introduced,0,introduced.Length);nextSpawn=clock+3.5f;
+    }
+    public void CancelSequence() { FinishSequence(); }
     private void FixedUpdate()
     {
         if(combat==null || !combat.Active)return;
         clock+=Time.fixedDeltaTime;
         for(int i=0;i<count;i++)if(flies[i]!=null)flies[i].Tick(Time.fixedDeltaTime);
+        if(!MealPending && combat.CurrentState!=SapoDoPneuCombat.State.Burp && clock>=nextSpawn)
+        {
+            for(int i=0;i<count;i++)if(flies[i].Caught && !introduced[i])
+            {
+                SpawnFly(i);int spawned=0;foreach(bool value in introduced)if(value)spawned++;
+                nextSpawn=clock+(spawned==1?1.35f:3.1f);break;
+            }
+        }
     }
     public bool Begin(int number,Health player,Transform effects,Rect bounds)
     {
         if(Busy || !ArtReady || player==null || player.IsDead)return false;
-        PrepareField(player,effects,bounds);if(count==0)return false;
-        sequenceLength=Mathf.Clamp(number,1,Mathf.Min(plan.Length,count));current=0;progress=0;
+        PrepareField(player,effects,bounds);if(AliveFlyCount==0 || MealPending)return false;
+        sequenceLength=Mathf.Clamp(number,1,Mathf.Min(plan.Length,AliveFlyCount));current=0;progress=0;
         for(int i=0;i<count;i++)flies[i].ReleaseFocus();
-        flies[0].Place(BehindPlayer());plan[0]=0;
-        for(int i=1;i<sequenceLength;i++)
+        for(int i=0;i<sequenceLength;i++)
         {
             int chosen=-1;
-            for(int attempt=0;attempt<count-1;attempt++)
+            for(int attempt=0;attempt<count;attempt++)
             {
-                int candidate=1+mapCursor++%(count-1);bool used=false;
+                int candidate=selectionCursor++%count;bool used=false;
                 for(int p=0;p<i;p++)if(plan[p]==candidate)used=true;
                 if(!used && !flies[candidate].Caught) { chosen=candidate;break; }
-            }
-            if(chosen<0)for(int candidate=1;candidate<count;candidate++)
-            {
-                bool used=false;for(int p=0;p<i;p++)if(plan[p]==candidate)used=true;
-                if(!used) { chosen=candidate;flies[candidate].Revive();break; }
             }
             plan[i]=chosen;
         }
@@ -146,7 +170,7 @@ public sealed class LakeTongueAttack : MonoBehaviour
             if(!Busy || target==null || target.IsDead) { Stop();return true; }
         }
         var fly=TargetFly;
-        if(timer>=ExtendTime && fly!=null && !fly.Caught) { fly.Catch();CapturedFlies++; }
+        if(timer>=ExtendTime && fly!=null && !fly.Caught) { fly.Catch();CapturedFlies++;if(AliveFlyCount==0)MealPending=true; }
         if(timer>=ExtendTime+HoldTime)Change(Phase.Retract);
         return false;
     }
@@ -211,7 +235,7 @@ public sealed class LakeTongueAttack : MonoBehaviour
     {
         FinishSequence();
         for(int i=0;i<flies.Length;i++)if(flies[i]!=null) { flies[i].gameObject.SetActive(false);Destroy(flies[i].gameObject);flies[i]=null; }
-        count=sequenceLength=0;fieldRoot=null;
+        count=sequenceLength=0;fieldRoot=null;MealPending=false;System.Array.Clear(introduced,0,introduced.Length);
     }
     private void OnDisable() { Stop(); }
 }
