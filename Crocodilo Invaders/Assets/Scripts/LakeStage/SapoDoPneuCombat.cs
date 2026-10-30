@@ -3,7 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Boss), typeof(Rigidbody2D))]
 public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
 {
-    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped }
+    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped, Tongue, Rage, Burp }
+    public const float BurpDuration=1.4f;
+    private Sprite restingSprite,burpSprite;
+    private float normalDamageMultiplier;
+    public bool IsVulnerable => state==State.Burp && Active;
+    public int Burps { get; private set; }
     [SerializeField] private SpriteRenderer visual;
     [SerializeField] private Sprite dropletSprite;
     [SerializeField] private TMPro.TMP_FontAsset hudFont;
@@ -11,6 +16,17 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     [SerializeField, Min(.6f)] private float jumpDuration = 1.45f;
     [SerializeField, Min(.5f)] private float warningDuration = .9f;
     [SerializeField, Min(1)] private float restDuration = 2.4f;
+    private LakeTongueAttack tongue;
+    private int attackCycle;
+    private SapererecaCompanion companion;
+    private bool rageTriggered;
+    public SapererecaCompanion Companion => companion;
+    public Sprite DropletSprite => dropletSprite;
+    public bool HasWaterDrops => highWaveDelay>0 || (effects!=null && effects.GetComponentInChildren<LakeDroplet>()!=null);
+    private float highWaveDelay;
+    public int LowWaves { get; private set; }
+    public int HighWaves { get; private set; }
+    public LakeTongueAttack Tongue => tongue;
     private Boss boss;
     private Rigidbody2D body;
     private Health target;
@@ -32,7 +48,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     public int DropsLaunched { get; private set; }
     public int DropsReturned { get; private set; }
     public bool Active => !stopped && boss != null && boss.BattleActive && !boss.Health.IsDead && target != null && !target.IsDead;
-    public bool Enraged => boss != null && boss.Health.Fraction <= .4f;
+    public bool Enraged => rageTriggered;
     public Rect Arena
     {
         get
@@ -48,9 +64,10 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     private float RestY => WaterY + FloatHeight;
     private void Awake()
     {
-        boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>();
+        boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>(); tongue=GetComponent<LakeTongueAttack>();
         backdrop = FindAnyObjectByType<LakeBackdrop>(); arenaCamera = Camera.main;
         visualScale = visual != null ? visual.transform.localScale : Vector3.one;
+        restingSprite=visual!=null?visual.sprite:null;burpSprite=Resources.Load<Sprite>("SapeneuBurpV13/burp");
         filter = LakeHit.PlayerFilter();
     }
     private void OnEnable() { GetComponent<Health>().Damaged += Flash; }
@@ -60,6 +77,12 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     {
         target = player; stopped = false;
         if (effects == null) { effects = new GameObject("SapoWaterThreats").transform; effects.SetParent(transform.parent, false); }
+        if(tongue!=null)tongue.PrepareField(player,effects,Arena);
+        if(companion==null)
+        {
+            var node=new GameObject("Saperereca, a mulher do sapo",typeof(Rigidbody2D),typeof(SpriteRenderer));
+            node.transform.SetParent(transform.parent,false);companion=node.AddComponent<SapererecaCompanion>();companion.Configure(this,player);
+        }
     }
     private void FixedUpdate()
     {
@@ -72,12 +95,35 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
             SetState(State.Float);
         }
         float dt = Time.fixedDeltaTime; timer += dt; contactCooldown -= dt;
+        if(highWaveDelay>0 && (highWaveDelay-=dt)<=0)EmitHighWave();
+        if(!rageTriggered && boss.Health.Fraction<=.5f && state!=State.Burp)BeginRage();
+        if(state==State.Float && tongue!=null && tongue.MealPending && !HasWaterDrops && (companion==null || !companion.Busy))BeginBurp();
         switch (state)
         {
+            case State.Burp:
+                body.MovePosition(new Vector2(body.position.x,RestY+Mathf.Sin(timer*5)*.035f));
+                if(timer>=BurpDuration){EndBurp();SetState(State.Float);}
+                break;
+            case State.Rage:
+                body.MovePosition(new Vector2(body.position.x,RestY+Mathf.Sin(timer*28)*.035f));
+                if(timer>=SapererecaCompanion.EntranceDuration+.35f)SetState(State.Float);
+                break;
             case State.Float:
                 float clock = backdrop != null ? backdrop.MotionClock : Time.time;
                 body.MovePosition(new Vector2(body.position.x, RestY + Mathf.Sin(clock * 1.7f) * .065f + Mathf.Sin(clock * 3.1f) * .018f));
-                if (timer >= (Enraged ? restDuration * .72f : restDuration)) BeginJump();
+                if ((companion==null || !companion.Busy) && timer >= (attackCycle==0?1f:(Enraged ? restDuration * .72f : restDuration)))
+                {
+                    if(attackCycle%2==1 || tongue==null || !tongue.ArtReady || tongue.AliveFlyCount==0)BeginJump();
+                    else TryBeginTongue(Enraged?4:3);
+                }
+                break;
+            case State.Tongue:
+                body.linearVelocity=Vector2.zero;
+                if(tongue.Step(dt) && Active)
+                {
+                    if(tongue.MealPending && (companion==null || !companion.Busy))BeginBurp();
+                    else {SetState(State.Float);timer=Mathf.Max(0,(Enraged?restDuration*.72f:restDuration)-.8f);}
+                }
                 break;
             case State.Prepare:
                 if (timer >= warningDuration)
@@ -94,7 +140,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
                 point.y = RestY + Mathf.Sin(t * Mathf.PI) * jumpHeight;
                 if (t >= .5f) state = State.Fall;
                 if (contactCooldown <= 0 && LakeHit.Touch(target, body.position, point, .7f, filter, contacts))
-                { target.TakeDamage(2); contactCooldown = .8f; }
+                { target.TakeDamage(2); contactCooldown = .8f;if(!Active)return; }
                 body.MovePosition(point);
                 if (t >= 1) Land();
                 break;
@@ -102,19 +148,53 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
                 if (timer >= .25f) SetState(State.Recover);
                 break;
             case State.Recover:
-                if (timer >= .7f) SetState(State.Float);
+                if (timer >= .7f) { SetState(State.Float);timer=Mathf.Max(0,(Enraged?restDuration*.72f:restDuration)-1f); }
                 break;
         }
     }
+    public bool TryBeginTongue(int flies)
+    {
+        if(!Active || !boss.Ready || state!=State.Float || tongue==null || effects==null || HasWaterDrops || (companion!=null && companion.Busy))return false;
+        if(!tongue.Begin(flies,target,effects,Arena))return false;
+        attackCycle++;SetState(State.Tongue);
+        if(Enraged && companion!=null)companion.PrepareTongueCombo();
+        return true;
+    }
     private void BeginJump()
     {
+        attackCycle++;
         var area = Arena;
-        // Alternate right-side berths; no last-frame tracking or landing on the player's corridor.
-        float x = area.xMin + area.width * (sequence % 2 == 0 ? .64f : .82f);
-        landing = new Vector2(Mathf.Clamp(x, area.center.x + .8f, area.xMax - 1.7f), RestY);
-        jumpHeight = Mathf.Min(3.4f, Mathf.Max(1.2f, area.yMax - RestY - 1.8f));
+        // Snapshot before the warning: moving away during the cue always changes the outcome.
+        Vector2 aim=target.GetComponent<Rigidbody2D>().position;
+        landing = new Vector2(Mathf.Clamp(aim.x, area.xMin + 1.7f, area.xMax - 1.7f), RestY);
+        jumpHeight = Mathf.Clamp(aim.y-RestY+.65f,2.1f,Mathf.Max(2.1f,area.yMax-RestY-1.3f));
         cue = LakeWaterFX.Create(effects, new Vector2(landing.x, WaterY), 2.35f, true);
         SetState(State.Prepare);
+    }
+    private void BeginRage()
+    {
+        rageTriggered=true;
+        highWaveDelay=0;
+        if(cue!=null){Destroy(cue.gameObject);cue=null;}
+        if(tongue!=null)tongue.CancelSequence();
+        if(effects!=null)foreach(var drop in effects.GetComponentsInChildren<LakeDroplet>()){drop.gameObject.SetActive(false);Destroy(drop.gameObject);}
+        body.position=new Vector2(body.position.x,RestY);body.linearVelocity=Vector2.zero;
+        SetState(State.Rage);if(companion!=null)companion.Enter();
+        LakeWaterFX.Create(effects,new Vector2(body.position.x,WaterY),1.4f);
+    }
+    private void BeginBurp()
+    {
+        if(IsVulnerable)return;
+        Burps++;normalDamageMultiplier=boss.Health.IncomingDamageMultiplier;boss.Health.IncomingDamageMultiplier=normalDamageMultiplier*2;
+        SetState(State.Burp);body.linearVelocity=Vector2.zero;
+        if(visual!=null && burpSprite!=null)visual.sprite=burpSprite;
+    }
+    private void EndBurp()
+    {
+        if(state!=State.Burp)return;
+        boss.Health.IncomingDamageMultiplier=normalDamageMultiplier;
+        if(visual!=null && restingSprite!=null)visual.sprite=restingSprite;
+        if(tongue!=null)tongue.FinishMeal();
     }
     private void Land()
     {
@@ -125,15 +205,26 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     }
     private void EmitDrops()
     {
-        int count = Enraged ? 7 : 5;
-        // A staggered fan: velocity gaps remain wide enough for the ship plus a dash.
+        int count = Enraged ? 4 : 3;LowWaves++;
+        // Fast, low crossing arcs first. The second, higher wave arrives after a clear gap.
         for (int i = 0; i < count; i++)
         {
             float direction = i % 2 == 0 ? -1 : 1;
-            float speedX = direction * (1.35f + i * .48f);
-            float speedY = 6.6f + (i % 3) * .65f;
+            float speedX = direction * (4.7f + i * .55f);
+            float speedY = 3.8f + (i % 2) * .35f;
             Vector2 start = new Vector2(landing.x + direction * (.8f + i * .09f), WaterY + .04f);
             SpawnDrop(start, new Vector2(speedX, speedY));
+        }
+        highWaveDelay=.32f;
+    }
+    private void EmitHighWave()
+    {
+        HighWaves++;int count=Enraged?3:2;
+        LakeWaterFX.Create(effects,new Vector2(landing.x,WaterY),.75f);
+        for(int i=0;i<count;i++)
+        {
+            float direction=i%2==0?-1:1;
+            SpawnDrop(new Vector2(landing.x+direction*(.7f+i*.18f),WaterY+.04f),new Vector2(direction*(1.5f+i*.5f),8.7f+i*.35f));
         }
     }
     private void SpawnDrop(Vector2 start, Vector2 velocity)
@@ -149,13 +240,16 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     {
         if (visual == null || Time.timeScale <= 0) return;
         hitFlash = Mathf.Max(0, hitFlash - Time.deltaTime);
-        visual.color = hitFlash > 0 ? new Color(1, .65f, .65f) : Enraged ? new Color(1, .92f, .8f) : Color.white;
+        visual.color = hitFlash > 0 ? new Color(1, .65f, .65f) : state==State.Burp ? new Color(1,1,.82f) : state==State.Rage ? Color.Lerp(new Color(1,.5f,.32f),new Color(1,.83f,.52f),.5f+.5f*Mathf.Sin(timer*24)) : Enraged ? new Color(1, .82f, .64f) : Color.white;
         Vector2 stretch = Vector2.one;
-        if (state == State.Float)
+        if(state==State.Burp)stretch=new Vector2(1.02f+Mathf.Sin(timer*9)*.018f,.99f+Mathf.Cos(timer*9)*.015f);
+        else if(state==State.Rage)stretch=new Vector2(1.08f+Mathf.Sin(timer*24)*.02f,.92f);
+        else if (state == State.Float)
         {
             float breath = Mathf.Sin((backdrop != null ? backdrop.MotionClock : Time.time)*2.2f);
             stretch = new Vector2(1 + breath*.012f,1 + breath*.024f);
         }
+        else if (state == State.Tongue && tongue!=null && tongue.MouthOpen) stretch=new Vector2(1.025f,.98f);
         else if (state == State.Prepare) stretch = Vector2.Lerp(Vector2.one, new Vector2(1.12f, .82f), Mathf.Clamp01(timer / warningDuration));
         else if (state == State.Rise) stretch = new Vector2(.93f, 1.1f);
         else if (state == State.Fall) stretch = new Vector2(1.03f, 1.03f);
@@ -165,7 +259,11 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     }
     public void StopCombat()
     {
+        EndBurp();
+        highWaveDelay=0;
         stopped = true; state = State.Stopped;
+        if(tongue!=null)tongue.Stop();
+        if(companion!=null)companion.Stop();
         if (body != null) body.linearVelocity = Vector2.zero;
         if (effects != null) { effects.gameObject.SetActive(false); Destroy(effects.gameObject); effects = null; }
         cue = null;
