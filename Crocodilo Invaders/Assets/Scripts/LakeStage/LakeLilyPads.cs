@@ -12,6 +12,8 @@ public sealed class LakeLilyPads : MonoBehaviour
     private static readonly float[] Depths={-.40f,-.82f,-.28f,-.62f,-.36f,-1.05f};
     public int Count => pads[0]!=null?pads.Length:0;
     public SpriteRenderer Pad(int index) => pads[index];
+    // Reuse only the approved small, shallow leaves for creatures at the waterline.
+    public Sprite CreatureLeaf(int index) => sprites[new[]{0,2}[Mathf.Abs(index)%2]];
     private void Start()
     {
         lake=GetComponent<LakeBackdrop>();if(lake==null || sprites==null || sprites.Length!=6){enabled=false;return;}
