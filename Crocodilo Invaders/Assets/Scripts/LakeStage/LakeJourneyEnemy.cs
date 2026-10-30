@@ -14,6 +14,12 @@ public sealed class LakeJourneyEnemy : EnemyAttack
     private float clock,timer,nextAttack,flash,patrolAt;
     private int slot;
     private bool fired,contactSpent;
+    private LakeEnemyLily lily;
+    public LakeEnemyLily Lily => lily;
+    public bool UsesLily => species==Species.Frog || species==Species.Beetle;
+    private float FootOffset => -art.Frame((int)species,0).bounds.min.y;
+    public Vector2 Feet => body.position+Vector2.down*FootOffset;
+    private Vector2 LilyRest => lily.Seat+Vector2.up*FootOffset;
     private ContactFilter2D filter;
     private readonly Collider2D[] contacts=new Collider2D[8];
     public Species Kind => species;
@@ -32,13 +38,13 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         float x=a.xMin+a.width*(.63f+(number%3)*.12f);
         float y=Mathf.Lerp(owner.WaterY+1.65f,a.yMax-.85f,lane);
         berth=new Vector2(x,species==Species.Frog?owner.WaterY+.15f:y);
-        if(species==Species.Beetle)berth.y=Mathf.Clamp(y,owner.WaterY+1.6f,a.yMax-1.3f);
         Enemy.Movement.CompleteScriptedArrival(body.position);Enemy.Movement.enabled=false;
         nextAttack=1.3f+(number%3)*.6f;Enemy.Health.Damaged+=Damaged;
-        if(species==Species.Frog)
+        if(UsesLily)
         {
-            var log=new GameObject("SapinhoBankLog").AddComponent<SpriteRenderer>();log.transform.SetParent(transform,false);
-            log.sprite=art.props[0];log.sortingOrder=12;log.transform.localPosition=new Vector3(0,-.17f,0);log.transform.localScale=Vector3.one*.9f;
+            float anchor=owner.ReserveLily(this);var leaves=owner.GetComponent<LakeLilyPads>();
+            lily=LakeEnemyLily.Create(owner,leaves.CreatureLeaf(number),body.position.x,anchor,species==Species.Beetle?1.85f:1.65f,number);
+            body.position=LilyRest;berth=LilyRest;
         }
     }
     private void Damaged(){flash=.12f;}
@@ -48,11 +54,12 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         if(director==null)return;
         if(!director.CombatActive || Enemy.Health.IsDead){Stop();return;}
         float dt=Time.fixedDeltaTime;clock+=dt;timer+=dt;
+        if(UsesLily && lily!=null)berth=LilyRest;
         Vector2 previous=body.position,point=previous;
         if(CurrentMotion==Motion.Arriving)
         {
-            point=Vector2.MoveTowards(previous,berth,3.2f*dt);
-            if(Vector2.Distance(point,berth)<.03f)SetMotion(Motion.Patrol);
+            point=UsesLily?berth:Vector2.MoveTowards(previous,berth,3.2f*dt);
+            if(UsesLily?lily.Arrived:Vector2.Distance(point,berth)<.03f)SetMotion(Motion.Patrol);
         }
         else if(species==Species.Mosquito)
         {
@@ -64,37 +71,46 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         else switch(CurrentMotion)
         {
             case Motion.Patrol:
-                point=berth+new Vector2(Mathf.Sin(clock*1.1f+slot)*.25f,species==Species.Frog?Mathf.Sin(clock*1.6f)*.035f:Mathf.Sin(clock*1.5f+slot)*.18f);
+                point=UsesLily?berth:berth+new Vector2(Mathf.Sin(clock*1.1f+slot)*.25f,Mathf.Sin(clock*1.5f+slot)*.18f);
                 if(clock>=nextAttack && director.Prepare(this))
                 {aim=Target.GetComponent<Rigidbody2D>().position;from=point;BeginTelegraph(aim);SetMotion(Motion.Warning);}
                 break;
             case Motion.Warning:
-                point=from;
+                point=UsesLily?berth:from;
                 if(timer>=.8f && director.Strike(this))
                 {
                     destination=new Vector2(Mathf.Clamp(aim.x,director.Arena.xMin+.6f,director.Arena.xMax-.6f),Mathf.Clamp(aim.y,director.WaterY+.65f,director.Arena.yMax-.65f));
-                    if(species==Species.Beetle)destination=from+Vector2.ClampMagnitude(destination-from,3.2f);
+                    if(UsesLily)from=point;
+                    if(species==Species.Beetle){destination=from+Vector2.ClampMagnitude(destination-from,3.2f);lily.Land();}
                     Attacks++;contactSpent=false;fired=false;EndTelegraph();SetMotion(Motion.Strike);
                 }
                 break;
             case Motion.Strike:
                 if(species==Species.Frog)
                 {
+                    point=berth;
                     if(!fired){fired=true;Spit();}
                     if(timer>=.35f){SetMotion(Motion.Recover);}
                 }
                 else
                 {
-                    float duration=species==Species.Dragonfly?.5f:.65f;
-                    float t=Mathf.Clamp01(timer/duration);point=Vector2.Lerp(from,destination,Mathf.SmoothStep(0,1,t));
-                    if(t>=1)SetMotion(species==Species.Beetle?Motion.Exposed:Motion.Recover);
+                    float duration=species==Species.Dragonfly?.5f:.95f;
+                    float t=Mathf.Clamp01(timer/duration);
+                    if(species==Species.Beetle)
+                    {
+                        float arc=Mathf.Sin(t*Mathf.PI);
+                        point=berth+new Vector2(Mathf.Clamp(aim.x-from.x,-2.6f,2.6f)*arc,Mathf.Clamp(aim.y-from.y+.35f,1.4f,3.4f)*arc);
+                    }
+                    else point=Vector2.Lerp(from,destination,Mathf.SmoothStep(0,1,t));
+                    if(t>=1){if(species==Species.Beetle)lily.Land();SetMotion(species==Species.Beetle?Motion.Exposed:Motion.Recover);}
                 }
                 break;
             case Motion.Exposed:
+                if(UsesLily)point=berth;
                 if(timer>=1.35f)SetMotion(Motion.Recover);
                 break;
             case Motion.Recover:
-                point=Vector2.MoveTowards(previous,berth,(species==Species.Frog?0:3.5f)*dt);
+                point=UsesLily?berth:Vector2.MoveTowards(previous,berth,3.5f*dt);
                 if(timer>=(species==Species.Frog?1.25f:.8f) && (species==Species.Frog || Vector2.Distance(point,berth)<.05f))
                 {director.Release(this);nextAttack=clock+(director.Section==2?1.65f:2.4f);SetMotion(Motion.Patrol);}
                 break;
@@ -133,6 +149,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
     {
         if(CurrentMotion==Motion.Stopped)return;
         SetMotion(Motion.Stopped);EndTelegraph();
+        if(lily!=null)lily.Release();if(director!=null)director.ReleaseLily(this);
         if(director!=null)director.Release(this);if(body!=null)body.linearVelocity=Vector2.zero;
     }
     protected override void OnDisable(){base.OnDisable();Stop();if(Enemy!=null && Enemy.Health!=null)Enemy.Health.Damaged-=Damaged;}

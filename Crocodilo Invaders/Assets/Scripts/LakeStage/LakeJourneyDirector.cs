@@ -12,6 +12,7 @@ public sealed class LakeJourneyDirector : MonoBehaviour
     private LakeJourneyEnemy striking;
     private readonly HashSet<LakeJourneyEnemy> preparing=new HashSet<LakeJourneyEnemy>();
     private readonly Queue<LakeJourneyEnemy> preparationOrder=new Queue<LakeJourneyEnemy>();
+    private readonly LakeJourneyEnemy[] lilyOwners=new LakeJourneyEnemy[7];
     private Transform threats;
     private float clock,nextStrike,nextDamage;
     private int ordinal;
@@ -62,7 +63,15 @@ public sealed class LakeJourneyDirector : MonoBehaviour
         var actor=enemy.GetComponent<LakeJourneyEnemy>();if(actor==null)return;
         actor.Join(this,ordinal++);Spawned++;
     }
-    private void Announced(int wave,int total){ordinal=0;preparing.Clear();preparationOrder.Clear();striking=null;nextStrike=clock+.9f;ClearThreats();}
+    private void Announced(int wave,int total){ordinal=0;System.Array.Clear(lilyOwners,0,lilyOwners.Length);preparing.Clear();preparationOrder.Clear();striking=null;nextStrike=clock+.9f;ClearThreats();}
+    public float ReserveLily(LakeJourneyEnemy enemy)
+    {
+        for(int i=0;i<lilyOwners.Length;i++)if(lilyOwners[i]==null)
+        {lilyOwners[i]=enemy;return Arena.xMin+Arena.width*(.89f-i*.135f);}
+        return Arena.center.x;
+    }
+    public void ReleaseLily(LakeJourneyEnemy enemy)
+    {for(int i=0;i<lilyOwners.Length;i++)if(lilyOwners[i]==enemy)lilyOwners[i]=null;}
     public bool Prepare(LakeJourneyEnemy enemy)
     {
         if(!CombatActive || enemy==null)return false;
