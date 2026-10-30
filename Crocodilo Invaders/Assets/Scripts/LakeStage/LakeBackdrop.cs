@@ -15,6 +15,8 @@ public sealed class LakeBackdrop : MonoBehaviour
     private SpriteRenderer[] views;
     private SpriteRenderer[,] tiles;
     private float clock;
+    public float JourneyDensity { get; set; }=1;
+    public float TravelScale { get; set; }=1;
     private MaterialPropertyBlock properties;
     public float MotionClock => clock;
     public Material WaterFXMaterial => waterFXMaterial;
@@ -57,7 +59,7 @@ public sealed class LakeBackdrop : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (Application.isPlaying) clock += Time.deltaTime;
+        if (Application.isPlaying) clock += Time.deltaTime*TravelScale;
         Fit();
     }
     private void Fit()
@@ -68,6 +70,8 @@ public sealed class LakeBackdrop : MonoBehaviour
         for (int i = 0; i < views.Length; i++)
         {
             var view = views[i]; if (view == null || view.sprite == null) continue;
+            float densityAlpha=i==3?Mathf.Lerp(.62f,1,JourneyDensity):i==4?Mathf.Lerp(.32f,1,JourneyDensity):1;
+            view.color=new Color(1,1,1,densityAlpha);
             float extra = i == 0 ? 1f : 1.025f;
             float tileWidth = width * extra;
             double travelled = (double)clock * scrollSpeed[i];
@@ -86,6 +90,7 @@ public sealed class LakeBackdrop : MonoBehaviour
                     copy.transform.localPosition = new Vector3((t - 1) * view.sprite.bounds.size.x, 0, 0);
                     copy.transform.localScale = Vector3.one;
                     copy.flipX = ((cycle + t - 1) & 1) != 0;
+                    copy.color=view.color;
                 }
             }
             if (motionMaterial != null && i >= 3)
