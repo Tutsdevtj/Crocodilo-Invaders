@@ -11,6 +11,7 @@ public sealed class LakeWildlife : MonoBehaviour
     private Rigidbody2D playerBody;
     private Collider2D hull;
     private WaveController waves;
+    private LakeJourneyDirector journey;
     private Transform effects;
     private readonly SpriteRenderer[] fish=new SpriteRenderer[8];
     private readonly float[] fishX=new float[8];
@@ -43,13 +44,13 @@ public sealed class LakeWildlife : MonoBehaviour
             return new Rect(camera.transform.position.x-width*.5f,camera.transform.position.y-height*.5f,width,height);
         }
     }
-    private bool Playable => player!=null && !player.Health.IsDead && player.Movement.isActiveAndEnabled && waves!=null &&
+    private bool Playable => (journey==null || journey.PiranhasEnabled) && player!=null && !player.Health.IsDead && player.Movement.isActiveAndEnabled && waves!=null &&
         (waves.Phase==WaveController.RunPhase.Combat || waves.Phase==WaveController.RunPhase.Boss || waves.Phase==WaveController.RunPhase.Announcing);
     private void Start()
     {
         lake=GetComponent<LakeBackdrop>();if(art==null)art=Resources.Load<LakeWildlifeAssets>("LakeWildlifeV11/art");
         if(lake==null || art==null || art.fishFrames.Length!=4 || art.piranhaFrames.Length!=6) { enabled=false;return; }
-        waves=FindAnyObjectByType<WaveController>();if(waves!=null)waves.RunEnded+=Ended;
+        waves=FindAnyObjectByType<WaveController>();journey=GetComponent<LakeJourneyDirector>();if(waves!=null)waves.RunEnded+=Ended;
         effects=new GameObject("LakeWildlifeEffects").transform;effects.SetParent(transform,false);
         for(int i=0;i<fish.Length;i++)
         {
