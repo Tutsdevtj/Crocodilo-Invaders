@@ -98,7 +98,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
                 if(timer>=.72f)
                 {
                     lockedAim=target.GetComponent<Rigidbody2D>().position;
-                    bubbles.ShowAim(lockedAim);SetState(State.Warning);
+                    SetState(State.Warning);
                 }
                 break;
             case State.Warning:
