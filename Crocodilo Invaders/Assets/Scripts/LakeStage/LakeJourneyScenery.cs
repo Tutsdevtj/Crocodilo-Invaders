@@ -37,7 +37,7 @@ public sealed class LakeJourneyScenery : MonoBehaviour
         {
             props[i]=new GameObject("JourneyBankProp_"+i).AddComponent<SpriteRenderer>();props[i].transform.SetParent(transform,false);
             props[i].sprite=art.props[i%4];props[i].sortingOrder=-175;
-            props[i].color=new Color(.8f,.91f,.82f,.95f);props[i].transform.localScale=Vector3.one*(i%4==0?1.3f:i%4==2?.8f:1);
+            props[i].color=new Color(.8f,.91f,.82f,1);props[i].transform.localScale=Vector3.one*(i%4==0?1.3f:i%4==2?.8f:1);
             positions[i]=director.Arena.xMin+director.Arena.width*(i/12f);
         }
         silhouette=new GameObject("DistantCururuHint").AddComponent<SpriteRenderer>();silhouette.transform.SetParent(transform,false);
