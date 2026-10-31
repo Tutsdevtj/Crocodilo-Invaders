@@ -25,7 +25,8 @@ public sealed class LakeEnemyLily : MonoBehaviour
     public SpriteRenderer Drawing => drawing;
     public static LakeEnemyLily Create(LakeJourneyDirector owner,Sprite sprite,float startX,float targetX,float width,int slot)
     {
-        var node=new GameObject("OccupiedLakeLily",typeof(Rigidbody2D),typeof(SpriteRenderer));node.transform.SetParent(owner.transform,false);
+        var node=new GameObject("OccupiedLakeLily");node.transform.SetParent(owner.transform,false);
+        node.transform.position=new Vector3(startX,owner.WaterY-.12f,0);node.AddComponent<Rigidbody2D>();node.AddComponent<SpriteRenderer>();
         var pad=node.AddComponent<LakeEnemyLily>();pad.director=owner;pad.anchor=targetX;pad.phase=slot*1.8f;
         pad.body=node.GetComponent<Rigidbody2D>();pad.body.bodyType=RigidbodyType2D.Kinematic;pad.body.gravityScale=0;
         pad.body.interpolation=RigidbodyInterpolation2D.Interpolate;pad.body.position=new Vector2(startX,owner.WaterY-.12f);

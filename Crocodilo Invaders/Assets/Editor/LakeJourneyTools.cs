@@ -99,6 +99,7 @@ public static class LakeJourneyTools
         EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
         if(!waves.ValidateWaves(out string error))throw new InvalidOperationException(error);
         if(waves.CombatWaveCount!=9 || waves.WaveCount!=10)throw new InvalidOperationException("Lake journey must have nine waves and one boss");
+        LakeMosquitoRegistrationTools.Install();
         Debug.Log("LAKE_JOURNEY_V22_INSTALLED: 4 enemies / 27 compositions / 9 waves / 1 boss / 16 animation frames / 4 props");
     }
     private static Texture2D Import(string name,bool readable,float ppu=100)
