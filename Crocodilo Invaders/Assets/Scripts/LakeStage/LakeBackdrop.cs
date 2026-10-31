@@ -70,8 +70,7 @@ public sealed class LakeBackdrop : MonoBehaviour
         for (int i = 0; i < views.Length; i++)
         {
             var view = views[i]; if (view == null || view.sprite == null) continue;
-            float densityAlpha=i==3?Mathf.Lerp(.62f,1,JourneyDensity):i==4?Mathf.Lerp(.32f,1,JourneyDensity):1;
-            view.color=new Color(1,1,1,densityAlpha);
+            view.color=Color.white;
             float extra = i == 0 ? 1f : 1.025f;
             float tileWidth = width * extra;
             double travelled = (double)clock * scrollSpeed[i];
