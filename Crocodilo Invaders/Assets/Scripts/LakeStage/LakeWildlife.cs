@@ -17,7 +17,8 @@ public sealed class LakeWildlife : MonoBehaviour
     private readonly float[] fishX=new float[8];
     private readonly LakePiranha[] predators=new LakePiranha[10];
     private readonly LakePiranha[] queue=new LakePiranha[5];
-    private LakeWaterFX warning;
+    private float nextAmbient=6;
+    public int AmbientJumps { get; private set; }
     private float clock,nextPack,warningAt,nextLaunch,nextBite;
     private int launched,queued;
     private bool winding,launching;
@@ -26,7 +27,7 @@ public sealed class LakeWildlife : MonoBehaviour
     public Health PlayerHealth => player!=null?player.Health:null;
     public Vector2 PlayerPosition => playerBody!=null?playerBody.position:Vector2.zero;
     public bool WaterDangerActive { get; private set; }
-    public bool CanHurt => WaterDangerActive && Playable;
+    public bool CanHurt => Playable;
     public int Warnings { get; private set; }
     public int Packs { get; private set; }
     public int Launches { get; private set; }
@@ -75,7 +76,7 @@ public sealed class LakeWildlife : MonoBehaviour
         if(lake==null || art==null)return;
         float dt=Time.fixedDeltaTime;clock+=dt;
         if(player==null)FindPlayer();
-        if(!Playable) { StopPredators(true);return; }
+        if(!Playable) { StopPredators(false);foreach(var p in predators)if(p!=null)p.Tick(dt);return; }
         float bottom=hull!=null?hull.bounds.min.y:playerBody.position.y-.4f;
         if(!WaterDangerActive && bottom<=WaterY+EntryMargin) { WaterDangerActive=true;nextPack=clock; }
         else if(WaterDangerActive && bottom>WaterY+ClearMargin)StopPredators(false);
@@ -85,25 +86,36 @@ public sealed class LakeWildlife : MonoBehaviour
             if(winding && clock-warningAt>=WarningTime)
             {
                 winding=false;launching=true;launched=0;nextLaunch=clock;
-                if(warning!=null) { Destroy(warning.gameObject);warning=null; }
+
             }
             if(launching && clock>=nextLaunch)
             {
                 Vector2 aim=PlayerPosition+Vector2.right*Mathf.Clamp(playerBody.linearVelocity.x*.1f,-.5f,.5f);
-                aim.y=Mathf.Min(aim.y,WaterY+.8f);queue[launched].Launch(aim);Launches++;launched++;nextLaunch=clock+.12f;
+                aim.y=Mathf.Min(aim.y,WaterY+.8f);if(aim.y>WaterY-.18f){queue[launched].Launch(aim);Launches++;}else queue[launched].Retreat();launched++;nextLaunch=clock+.3f;
                 if(launched>=queued)launching=false;
             }
+        }
+        if(!WaterDangerActive && clock>=nextAmbient)
+        {
+            nextAmbient=clock+Random.Range(7f,11f);
+            foreach(var p in predators)if(p.Available && Mathf.Abs(p.Position.x-PlayerPosition.x)>2.4f)
+            {p.Launch(new Vector2(p.Position.x+(p.Velocity.x<0?-1.2f:1.2f),WaterY+.35f),true);AmbientJumps++;break;}
         }
         foreach(var p in predators)if(p!=null)p.Tick(dt);
     }
     private void BeginPack()
     {
         queued=0;
-        for(int i=0;i<predators.Length && queued<queue.Length;i++)if(!predators[i].Active)
-        { queue[queued]=predators[i];predators[i].Gather(GatherPoint(i));queued++; }
+        for(int k=0;k<2;k++)
+        {
+            LakePiranha nearest=null;float distance=4;
+            foreach(var p in predators)if(p.Available && Vector2.Distance(p.Position,PlayerPosition)<distance)
+            {nearest=p;distance=Vector2.Distance(p.Position,PlayerPosition);}
+            if(nearest==null)break;queue[queued++]=nearest;nearest.Gather(PlayerPosition);
+        }
         if(queued==0) { nextPack=clock+.2f;return; }
-        warningAt=clock;nextPack=clock+1.65f;winding=true;Warnings++;Packs++;
-        warning=LakeWaterFX.Create(effects,new Vector2(PlayerPosition.x,WaterY),2.25f,true);warning.name="PiranhaSurfaceWarning";
+        warningAt=clock;nextPack=clock+1.85f;winding=true;Warnings++;Packs++;
+
     }
     public Vector2 GatherPoint(int slot)
     {
@@ -119,7 +131,7 @@ public sealed class LakeWildlife : MonoBehaviour
     private void StopPredators(bool immediate)
     {
         WaterDangerActive=false;winding=launching=false;
-        if(warning!=null) { Destroy(warning.gameObject);warning=null; }
+
         foreach(var p in predators)if(p!=null) { if(immediate)p.Park();else p.Retreat(); }
     }
     private void Ended(bool completed) { StopPredators(true); }
