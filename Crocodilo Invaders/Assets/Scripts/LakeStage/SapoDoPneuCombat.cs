@@ -3,9 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Boss), typeof(Rigidbody2D))]
 public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
 {
-    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped, Tongue, Rage, Burp }
+    public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped, Tongue, Rage, Burp, Tire }
     public const float BurpDuration=1.4f;
-    private Sprite restingSprite,burpSprite;
+    public const float RageWarningDuration=1.15f;
+    public float RageTime => state==State.Rage?timer:0;
+    public float LeftLimit => Arena.center.x+.15f;
+    private Sprite restingSprite,burpSprite,angrySprite;
     private float normalDamageMultiplier;
     public bool IsVulnerable => state==State.Burp && Active;
     public int Burps { get; private set; }
@@ -17,6 +20,8 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     [SerializeField, Min(.5f)] private float warningDuration = .9f;
     [SerializeField, Min(1)] private float restDuration = 2.4f;
     private LakeTongueAttack tongue;
+    private LakeTireAttack tire;
+    public LakeTireAttack Tire => tire;
     private int attackCycle;
     private SapererecaCompanion companion;
     private bool rageTriggered;
@@ -67,6 +72,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         boss = GetComponent<Boss>(); body = GetComponent<Rigidbody2D>(); tongue=GetComponent<LakeTongueAttack>();
         backdrop = FindAnyObjectByType<LakeBackdrop>(); arenaCamera = Camera.main;
         visualScale = visual != null ? visual.transform.localScale : Vector3.one;
+        var rework=Resources.Load<LakeReworkArt>("LakeReworkV26/art");angrySprite=rework!=null?rework.angryBoss:null;
         restingSprite=visual!=null?visual.sprite:null;burpSprite=Resources.Load<Sprite>("SapeneuBurpV13/burp");
         filter = LakeHit.PlayerFilter();
     }
@@ -77,6 +83,8 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     {
         target = player; stopped = false;
         if (effects == null) { effects = new GameObject("SapoWaterThreats").transform; effects.SetParent(transform.parent, false); }
+        tire=GetComponent<LakeTireAttack>();if(tire==null)tire=gameObject.AddComponent<LakeTireAttack>();
+        tire.Configure(this,player,effects,visual);
         if(tongue!=null)tongue.PrepareField(player,effects,Arena);
         if(companion==null)
         {
@@ -106,16 +114,23 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
                 break;
             case State.Rage:
                 body.MovePosition(new Vector2(body.position.x,RestY+Mathf.Sin(timer*28)*.035f));
-                if(timer>=SapererecaCompanion.EntranceDuration+.35f)SetState(State.Float);
+                if(timer>=RageWarningDuration && companion!=null && companion.CurrentState==SapererecaCompanion.State.InHud)companion.Enter();
+                if(timer>=RageWarningDuration+SapererecaCompanion.EntranceDuration+.35f)SetState(State.Float);
                 break;
             case State.Float:
                 float clock = backdrop != null ? backdrop.MotionClock : Time.time;
                 body.MovePosition(new Vector2(body.position.x, RestY + Mathf.Sin(clock * 1.7f) * .065f + Mathf.Sin(clock * 3.1f) * .018f));
                 if ((companion==null || !companion.Busy) && timer >= (attackCycle==0?1f:(Enraged ? restDuration * .72f : restDuration)))
                 {
-                    if(attackCycle%2==1 || tongue==null || !tongue.ArtReady || tongue.AliveFlyCount==0)BeginJump();
+                    if(attackCycle%3==2 && tire!=null && tire.ArtReady)TryBeginTire();
+                    else if(attackCycle%2==1 || tongue==null || !tongue.ArtReady || tongue.AliveFlyCount==0)BeginJump();
                     else TryBeginTongue(Enraged?4:3);
                 }
+                break;
+            case State.Tire:
+                body.MovePosition(new Vector2(body.position.x,RestY+Mathf.Sin(timer*3)*.025f));
+                if(tire.Step(dt) && Active)
+                {SetState(State.Float);timer=Mathf.Max(0,(Enraged?restDuration*.72f:restDuration)-.9f);}
                 break;
             case State.Tongue:
                 body.linearVelocity=Vector2.zero;
@@ -160,26 +175,33 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         if(Enraged && companion!=null)companion.PrepareTongueCombo();
         return true;
     }
+    public bool TryBeginTire()
+    {
+        if(!Active || !boss.Ready || state!=State.Float || tire==null || !tire.ArtReady || HasWaterDrops || (companion!=null && companion.Busy))return false;
+        if(!tire.Begin())return false;
+        attackCycle++;SetState(State.Tire);return true;
+    }
     private void BeginJump()
     {
         attackCycle++;
         var area = Arena;
         // Snapshot before the warning: moving away during the cue always changes the outcome.
         Vector2 aim=target.GetComponent<Rigidbody2D>().position;
-        landing = new Vector2(Mathf.Clamp(aim.x, area.xMin + 1.7f, area.xMax - 1.7f), RestY);
+        landing = new Vector2(Mathf.Clamp(aim.x, LeftLimit, area.xMax - 1.7f), RestY);
         jumpHeight = Mathf.Clamp(aim.y-RestY+.65f,2.1f,Mathf.Max(2.1f,area.yMax-RestY-1.3f));
-        cue = LakeWaterFX.Create(effects, new Vector2(landing.x, WaterY), 2.35f, true);
+        cue = null; // Crouching body is the warning; no target ring.
         SetState(State.Prepare);
     }
     private void BeginRage()
     {
         rageTriggered=true;
         highWaveDelay=0;
+        if(tire!=null)tire.Cancel();
         if(cue!=null){Destroy(cue.gameObject);cue=null;}
         if(tongue!=null)tongue.CancelSequence();
         if(effects!=null)foreach(var drop in effects.GetComponentsInChildren<LakeDroplet>()){drop.gameObject.SetActive(false);Destroy(drop.gameObject);}
         body.position=new Vector2(body.position.x,RestY);body.linearVelocity=Vector2.zero;
-        SetState(State.Rage);if(companion!=null)companion.Enter();
+        SetState(State.Rage);
         LakeWaterFX.Create(effects,new Vector2(body.position.x,WaterY),1.4f);
     }
     private void BeginBurp()
@@ -240,6 +262,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     {
         if (visual == null || Time.timeScale <= 0) return;
         hitFlash = Mathf.Max(0, hitFlash - Time.deltaTime);
+        if(state!=State.Burp && (tongue==null || !tongue.MouthOpen))visual.sprite=Enraged && angrySprite!=null?angrySprite:restingSprite;
         visual.color = hitFlash > 0 ? new Color(1, .65f, .65f) : state==State.Burp ? new Color(1,1,.82f) : state==State.Rage ? Color.Lerp(new Color(1,.5f,.32f),new Color(1,.83f,.52f),.5f+.5f*Mathf.Sin(timer*24)) : Enraged ? new Color(1, .82f, .64f) : Color.white;
         Vector2 stretch = Vector2.one;
         if(state==State.Burp)stretch=new Vector2(1.02f+Mathf.Sin(timer*9)*.018f,.99f+Mathf.Cos(timer*9)*.015f);
@@ -250,6 +273,8 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
             stretch = new Vector2(1 + breath*.012f,1 + breath*.024f);
         }
         else if (state == State.Tongue && tongue!=null && tongue.MouthOpen) stretch=new Vector2(1.025f,.98f);
+        else if (state == State.Tire && tire!=null && tire.Preparing)
+            stretch=Vector2.Lerp(Vector2.one,new Vector2(1.09f,.89f),Mathf.Clamp01(tire.PhaseTime/LakeTireAttack.PreparationTime));
         else if (state == State.Prepare) stretch = Vector2.Lerp(Vector2.one, new Vector2(1.12f, .82f), Mathf.Clamp01(timer / warningDuration));
         else if (state == State.Rise) stretch = new Vector2(.93f, 1.1f);
         else if (state == State.Fall) stretch = new Vector2(1.03f, 1.03f);
@@ -263,6 +288,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         highWaveDelay=0;
         stopped = true; state = State.Stopped;
         if(tongue!=null)tongue.Stop();
+        if(tire!=null)tire.Cancel();
         if(companion!=null)companion.Stop();
         if (body != null) body.linearVelocity = Vector2.zero;
         if (effects != null) { effects.gameObject.SetActive(false); Destroy(effects.gameObject); effects = null; }

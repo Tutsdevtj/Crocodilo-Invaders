@@ -16,6 +16,7 @@ public sealed class LakeBossBar : MonoBehaviour
     public bool IsPouring => spill != null && spill.IsPouring;
     private TMP_Text title;
     private TMP_Text vulnerableLabel;
+    private TMP_Text rageLabel;
     private SapoDoPneuCombat combat;
     public TMP_Text Title => title;
     private UnityEngine.UI.Image blinkEyes;
@@ -75,6 +76,8 @@ public sealed class LakeBossBar : MonoBehaviour
             companionName=Label("CompanionEntranceName","SAPERERECA\nA MULHER DO SAPO",font,panel,new Vector2(30,160),new Vector2(290,35),9,new Color(1,.87f,.68f));
             companionName.alignment=TextAlignmentOptions.Center;companionName.enabled=false;
         }
+        rageLabel=Label("SapeneuRageWarning","SAPENEU FICOU FURIOSO!",font,panel,new Vector2(-130,205),new Vector2(430,28),14,new Color(1,.45f,.18f));
+        rageLabel.alignment=TextAlignmentOptions.Center;rageLabel.enabled=false;
         IsBuilt = true;
     }
     public void BeginCompanionJump(Vector2 landing)
@@ -121,7 +124,12 @@ public sealed class LakeBossBar : MonoBehaviour
                 companionIcon.rectTransform.sizeDelta=Vector2.Lerp(companionStartSize,companionEndSize,t);
                 if(t>=1){companionJumping=false;companionGone=true;companionIcon.enabled=false;}
             }
-            else if(!companionGone)companionIcon.sprite=companionArt.frames[Mathf.Repeat(clock,3.7f)<.13f?5:0];
+            else if(!companionGone)
+            {
+                bool angry=combat!=null && combat.CurrentState==SapoDoPneuCombat.State.Rage;
+                companionIcon.sprite=companionArt.frames[angry?1:Mathf.Repeat(clock,3.7f)<.13f?5:0];
+                companionIcon.rectTransform.anchoredPosition=new Vector2(386,110+(angry?Mathf.Sin(clock*22)*2:0));
+            }
             if(companionName!=null && companionGone && clock-companionJumpAt>3.2f)companionName.enabled=false;
         }
     }
@@ -136,6 +144,12 @@ public sealed class LakeBossBar : MonoBehaviour
         float pulse=.5f+.5f*Mathf.Sin(clock*8);
         title.color=IsCritical ? Color.Lerp(new Color(.91f,.94f,.72f),new Color(1,.76f,.33f),pulse) : new Color(.91f,.94f,.72f);
         vulnerableLabel.enabled=combat!=null && combat.IsVulnerable;
+        rageLabel.enabled=combat!=null && combat.CurrentState==SapoDoPneuCombat.State.Rage;
+        if(rageLabel.enabled)
+        {
+            rageLabel.text=combat.RageTime<SapoDoPneuCombat.RageWarningDuration?"SAPENEU FICOU FURIOSO!":"SAPERERECA VEM AJUDAR!";
+            rageLabel.color=Color.Lerp(new Color(1,.78f,.32f),new Color(1,.38f,.16f),.5f+.5f*Mathf.Sin(clock*8));
+        }
     }
     private void LateUpdate()
     {

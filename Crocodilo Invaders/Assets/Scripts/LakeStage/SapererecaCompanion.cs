@@ -16,14 +16,16 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private LakeBackdrop lake;
     private float standingFraction=.46f,landingFraction=.46f;
     private Vector2 WaterBerth(float fraction) => new Vector2(combat.Arena.xMin+combat.Arena.width*fraction,combat.WaterY+.06f+Mathf.Sin((lake!=null?lake.MotionClock:Time.time)*1.7f+fraction*8)*.025f);
-    private LakeWaterFX cue;
+    private SpriteRenderer surfaceEyes;
+    public bool EyesVisible => surfaceEyes!=null && surfaceEyes.enabled;
+    public Vector2 EyesPosition => surfaceEyes!=null?(Vector2)surfaceEyes.transform.position:Vector2.zero;
     private MaterialPropertyBlock waterProperties,reflectionProperties;
     private Vector2 from,landing,lockedAim;
     private float timer,clock,nextAttack,contactCooldown,nextDamage;
     private int berth;
     private int burstShots;
     private bool tongueCombo;
-    private LakeDiveBubbles bubbles;
+
     public int Dives { get; private set; }
     public int Combos { get; private set; }
     public int Volleys { get; private set; }
@@ -54,10 +56,16 @@ public sealed class SapererecaCompanion : MonoBehaviour
         threats=new GameObject("SapererecaWaterThreats").transform;threats.SetParent(transform,false);
         filter=LakeHit.PlayerFilter();
         transform.localScale=Vector3.one*WorldScale;
+        var rework=Resources.Load<LakeReworkArt>("LakeReworkV26/art");
+        if(rework!=null && rework.surfaceEyes!=null)
+        {
+            surfaceEyes=new GameObject("SapererecaWatchingEyes").AddComponent<SpriteRenderer>();surfaceEyes.transform.SetParent(threats,false);
+            surfaceEyes.sprite=rework.surfaceEyes;surfaceEyes.sortingOrder=25;surfaceEyes.transform.localScale=Vector3.one;surfaceEyes.enabled=false;
+        }
         var material=Resources.Load<Material>("SapererecaV12/water-contact");
         if(material!=null)
         {
-            visual.sharedMaterial=material;waterProperties=new MaterialPropertyBlock();reflectionProperties=new MaterialPropertyBlock();
+            visual.sharedMaterial=material;if(surfaceEyes!=null)surfaceEyes.sharedMaterial=material;waterProperties=new MaterialPropertyBlock();reflectionProperties=new MaterialPropertyBlock();
             reflection=new GameObject("SapererecaWaterReflection").AddComponent<SpriteRenderer>();reflection.transform.SetParent(transform,false);
             reflection.sharedMaterial=material;reflection.sortingOrder=9;reflection.enabled=false;
         }
@@ -111,7 +119,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
             case State.Ready:
                 body.MovePosition(WaterBerth(standingFraction));
                 // Preparation overlaps the tongue, but damaging shots wait until it has fully retracted.
-                if(timer>=.28f && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.Tongue.Busy)
+                if(timer>=.4f && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.Tongue.Busy)
                 {burstShots=0;Volleys++;SetState(State.Spit);}
                 break;
             case State.Jump:
@@ -125,10 +133,10 @@ public sealed class SapererecaCompanion : MonoBehaviour
                 if(timer>=.2f)SetState(State.Rest);
                 break;
             case State.Spit:
-                if(burstShots<3 && timer>=burstShots*.11f){Emit(burstShots-1);burstShots++;}
-                if(timer>=.5f)
+                if(burstShots<3 && timer>=burstShots*.16f){Emit(burstShots-1);burstShots++;}
+                if(timer>=.65f)
                 {
-                    if(cue!=null)Destroy(cue.gameObject);if(bubbles!=null)Destroy(bubbles.gameObject);
+                    if(surfaceEyes!=null)surfaceEyes.enabled=false;
                     nextAttack=clock+(tongueCombo?2.6f:2.2f);tongueCombo=false;SetState(State.Rest);
                 }
                 break;
@@ -147,8 +155,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
             fraction=combat.transform.position.x<combat.Arena.center.x?.78f:.22f;
         landingFraction=fraction;landing=WaterBerth(landingFraction);
         from=body.position;LakeWaterFX.Create(threats,new Vector2(from.x,combat.WaterY),.75f);
-        cue=LakeWaterFX.Create(threats,new Vector2(landing.x,combat.WaterY),1.1f,true);
-        bubbles=LakeDiveBubbles.Create(threats,new Vector2(landing.x,combat.WaterY),lake!=null?lake.WaterFXMaterial:null);
+
         SetState(State.Dive);
     }
     private void LandingRipple()
@@ -159,13 +166,13 @@ public sealed class SapererecaCompanion : MonoBehaviour
     {
         float side=lockedAim.x<body.position.x?-1:1;
         Vector2 start=body.position+new Vector2(side*.42f,.52f)*WorldScale;
-        // Solve the actual ballistic intercept, including the top of the arena. No vertical clamp.
-        float travel=Mathf.Clamp(Vector2.Distance(start,lockedAim)/11f,.65f,1.15f);
+        // The same compact arcs and vertical spacing as the small frogs.
+        const float travel=.95f;
         Vector2 aim=(lockedAim-start)/travel+Vector2.up*(.5f*LakeDroplet.Gravity*travel);
-        Vector2 velocity=aim+new Vector2(-aim.y,aim.x).normalized*(spread*.85f);
+        Vector2 velocity=aim+Vector2.up*(spread*.65f);
         LastLaunch=start;LastVelocity=velocity;LastTravel=travel;
         var node=new GameObject("SapererecaWaterDrop",typeof(Rigidbody2D),typeof(SpriteRenderer));node.transform.SetParent(threats,false);
-        node.AddComponent<LakeDroplet>().Configure(combat,target,combat.DropletSprite,start,velocity,combat.WaterY,this);Shots++;
+        node.AddComponent<LakeDroplet>().Configure(combat,target,Resources.Load<Sprite>("LakeJourneyV22/water-drop"),start,velocity,combat.WaterY,this);Shots++;
     }
     public bool TryHit()
     {
@@ -175,12 +182,19 @@ public sealed class SapererecaCompanion : MonoBehaviour
     private void LateUpdate()
     {
         if(art==null || !Joined || CurrentState==State.Stopped)return;
+        if(surfaceEyes!=null)
+        {
+            surfaceEyes.enabled=CurrentState==State.Warning || CurrentState==State.Swim;
+            surfaceEyes.transform.position=new Vector3(body.position.x,combat.WaterY+.015f,0);
+            surfaceEyes.flipX=target!=null && target.transform.position.x>body.position.x;
+            surfaceEyes.color=new Color(.85f,1,.82f,CurrentState==State.Warning?1:Mathf.Clamp01(timer/.25f)*.65f);
+        }
         int frame=CurrentState==State.Dive || CurrentState==State.Warning?1:CurrentState==State.Jump || CurrentState==State.Surface?2:CurrentState==State.Landing?3:CurrentState==State.Spit || CurrentState==State.Ready?4:Mathf.Repeat(clock,3.7f)<.13f?5:0;
         visual.sprite=art.frames[frame];visual.flipX=CurrentState==State.Spit || CurrentState==State.Ready?lockedAim.x>body.position.x:CurrentState==State.Jump && landing.x>from.x;
         float breath=CurrentState==State.Rest?Mathf.Sin(clock*2.4f)*.018f:0;transform.localScale=new Vector3(1-breath*.5f,1+breath,1)*WorldScale;
         if(waterProperties!=null)
         {
-            waterProperties.SetFloat("_WaterY",combat.WaterY);waterProperties.SetFloat("_Clock",clock);waterProperties.SetFloat("_Reflection",0);visual.SetPropertyBlock(waterProperties);
+            waterProperties.SetFloat("_WaterY",combat.WaterY);waterProperties.SetFloat("_Clock",clock);waterProperties.SetFloat("_Reflection",0);visual.SetPropertyBlock(waterProperties);if(surfaceEyes!=null)surfaceEyes.SetPropertyBlock(waterProperties);
             reflection.enabled=visual.enabled;reflection.sprite=visual.sprite;reflection.flipX=visual.flipX;
             reflection.transform.localScale=new Vector3(1,-.42f,1);reflection.transform.position=new Vector3(transform.position.x,combat.WaterY-(transform.position.y-combat.WaterY)*.42f,0);
             reflectionProperties.SetFloat("_WaterY",combat.WaterY);reflectionProperties.SetFloat("_Clock",clock);reflectionProperties.SetFloat("_Reflection",1);reflection.SetPropertyBlock(reflectionProperties);
@@ -190,7 +204,7 @@ public sealed class SapererecaCompanion : MonoBehaviour
     {
         if(CurrentState==State.Stopped)return;
         SetState(State.Stopped);if(visual!=null)visual.enabled=false;if(reflection!=null)reflection.enabled=false;
-        if(cue!=null)Destroy(cue.gameObject);if(threats!=null){threats.gameObject.SetActive(false);Destroy(threats.gameObject);threats=null;}
+        if(surfaceEyes!=null)surfaceEyes.enabled=false;if(threats!=null){threats.gameObject.SetActive(false);Destroy(threats.gameObject);threats=null;}
         if(hud!=null)hud.HideCompanion();if(body!=null)body.linearVelocity=Vector2.zero;
     }
     private void OnDisable(){Stop();}

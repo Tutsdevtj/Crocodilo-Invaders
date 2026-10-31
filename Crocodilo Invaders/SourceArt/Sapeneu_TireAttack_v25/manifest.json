@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen",
+  "files": [
+    {
+      "sha256": "285d158f04087c26517f3fcfa2c9c541150df1234d5a024faa8ddfc7b4593d64",
+      "path": "SourceArt/Sapeneu_TireAttack_v25/tire-master.png"
+    },
+    {
+      "sha256": "285d158f04087c26517f3fcfa2c9c541150df1234d5a024faa8ddfc7b4593d64",
+      "path": "Assets/Resources/LakeTireV25/tire.png"
+    },
+    {
+      "sha256": "47d4aa5edc50553497343b64f29f49b3e282f7f61c87be3e154af516ac030b86",
+      "path": "SourceArt/Sapeneu_TireAttack_v25/prompt.txt"
+    }
+  ],
+  "date": "2026-10-30"
+}
