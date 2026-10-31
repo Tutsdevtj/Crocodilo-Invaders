@@ -1,0 +1,21 @@
+{
+  "tool": "image_gen",
+  "files": [
+    {
+      "sha256": "ab1e2ce7373502bf185090eca6e7d7cb7a49018cc116d3985774a8425c33ed23",
+      "path": "SourceArt/LagoDoPneu_Rework_v26/right-wings-master.png"
+    },
+    {
+      "sha256": "ef9b227f69cd5662e0dc22d0e1018cea736096a06d5fd2a3b0e34d7e4483853f",
+      "path": "SourceArt/LagoDoPneu_Rework_v26/angry-boss-master.png"
+    },
+    {
+      "sha256": "ab1e2ce7373502bf185090eca6e7d7cb7a49018cc116d3985774a8425c33ed23",
+      "path": "Assets/Resources/LakeReworkV26/right-wings.png"
+    },
+    {
+      "sha256": "ef9b227f69cd5662e0dc22d0e1018cea736096a06d5fd2a3b0e34d7e4483853f",
+      "path": "Assets/Resources/LakeReworkV26/angry-boss.png"
+    }
+  ]
+}

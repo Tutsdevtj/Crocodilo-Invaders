@@ -32,10 +32,10 @@ public sealed class LakeDroplet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(launch.y, launch.x) * Mathf.Rad2Deg + 90);
         drawing = GetComponent<SpriteRenderer>(); drawing.sprite = sprite; drawing.sortingOrder = 34;
         float height = sprite != null ? sprite.bounds.size.y : 1;
-        drawingScale = .76f / Mathf.Max(.01f, height);
+        drawingScale = (helper!=null?.40f:.76f) / Mathf.Max(.01f, height) / Mathf.Max(.01f,transform.parent!=null?transform.parent.lossyScale.x:1);
         transform.localScale = Vector3.one * drawingScale;
         var lake = FindAnyObjectByType<LakeBackdrop>();
-        if (lake != null && lake.WaterFXMaterial != null)
+        if (helper==null && lake != null && lake.WaterFXMaterial != null)
         {
             trail = new GameObject("LiquidWaterStreak").AddComponent<LineRenderer>(); trail.transform.SetParent(transform, false);
             trail.sharedMaterial = lake.WaterFXMaterial; trail.useWorldSpace = true; trail.positionCount = history.Length;
