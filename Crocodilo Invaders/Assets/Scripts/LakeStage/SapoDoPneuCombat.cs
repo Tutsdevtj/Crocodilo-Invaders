@@ -1,10 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Boss), typeof(Rigidbody2D))]
 public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
 {
     public enum State { Entering, Float, Prepare, Rise, Fall, Impact, Recover, Stopped, Tongue, Rage, Burp, Tire }
     public const float BurpDuration=1.4f;
+    public event System.Action RageStarted;
     public const float RageWarningDuration=1.15f;
     public float RageTime => state==State.Rage?timer:0;
     public float LeftLimit => Arena.center.x+.15f;
@@ -203,6 +204,11 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
         body.position=new Vector2(body.position.x,RestY);body.linearVelocity=Vector2.zero;
         SetState(State.Rage);
         LakeWaterFX.Create(effects,new Vector2(body.position.x,WaterY),1.4f);
+        RageStarted?.Invoke();
+    }
+    public void FinishStoryRage()
+    {
+        if(state==State.Rage && companion!=null && companion.Joined)SetState(State.Float);
     }
     private void BeginBurp()
     {
@@ -261,11 +267,13 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController
     private void LateUpdate()
     {
         if (visual == null || Time.timeScale <= 0) return;
+        bool exhausted=boss.RetainedAfterDefeat && boss.Health.IsDead;
         hitFlash = Mathf.Max(0, hitFlash - Time.deltaTime);
-        if(state!=State.Burp && (tongue==null || !tongue.MouthOpen))visual.sprite=Enraged && angrySprite!=null?angrySprite:restingSprite;
-        visual.color = hitFlash > 0 ? new Color(1, .65f, .65f) : state==State.Burp ? new Color(1,1,.82f) : state==State.Rage ? Color.Lerp(new Color(1,.5f,.32f),new Color(1,.83f,.52f),.5f+.5f*Mathf.Sin(timer*24)) : Enraged ? new Color(1, .82f, .64f) : Color.white;
+        if(state!=State.Burp && (tongue==null || !tongue.MouthOpen))visual.sprite=!exhausted && Enraged && angrySprite!=null?angrySprite:restingSprite;
+        visual.color = exhausted ? Color.white : hitFlash > 0 ? new Color(1, .65f, .65f) : state==State.Burp ? new Color(1,1,.82f) : state==State.Rage ? Color.Lerp(new Color(1,.5f,.32f),new Color(1,.83f,.52f),.5f+.5f*Mathf.Sin(timer*24)) : Enraged ? new Color(1, .82f, .64f) : Color.white;
         Vector2 stretch = Vector2.one;
-        if(state==State.Burp)stretch=new Vector2(1.02f+Mathf.Sin(timer*9)*.018f,.99f+Mathf.Cos(timer*9)*.015f);
+        if(exhausted)stretch=new Vector2(1+Mathf.Sin(Time.time*1.5f)*.008f,.96f+Mathf.Sin(Time.time*1.5f)*.012f);
+        else if(state==State.Burp)stretch=new Vector2(1.02f+Mathf.Sin(timer*9)*.018f,.99f+Mathf.Cos(timer*9)*.015f);
         else if(state==State.Rage)stretch=new Vector2(1.08f+Mathf.Sin(timer*24)*.02f,.92f);
         else if (state == State.Float)
         {

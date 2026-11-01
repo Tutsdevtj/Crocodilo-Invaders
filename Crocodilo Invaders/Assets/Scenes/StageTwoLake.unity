@@ -1471,6 +1471,7 @@ GameObject:
   - component: {fileID: 1282230651}
   - component: {fileID: 1282230653}
   - component: {fileID: 1282230652}
+  - component: {fileID: 1282230654}
   m_Layer: 0
   m_Name: LakeBackdrop
   m_TagString: Untagged
@@ -1609,6 +1610,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1776ba29b7dd32743b8e859b04620895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LakeJourneyDirector
+--- !u!114 &1282230654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282230645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38bc69b3348b5e418c40bbd0b910324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LakeStoryWorld
+  art: {fileID: 11400000, guid: efb283841acf67b42b0cfc1127dc3749, type: 2}
+  lake: {fileID: 1282230646}
+  waves: {fileID: 1860622615}
 --- !u!1 &1286443872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3093,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124873ff2e17eb74980baec6a5e4987e, type: 3}
+--- !u!114 &1734789093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 250926884220464552, guid: 124873ff2e17eb74980baec6a5e4987e, type: 3}
+  m_PrefabInstance: {fileID: 1734789092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa99c7312e61b9047aeb3fe5487203c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueRunner
 --- !u!1 &1744028797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,6 +3442,7 @@ GameObject:
   - component: {fileID: 1860622612}
   - component: {fileID: 1860622615}
   - component: {fileID: 1860622616}
+  - component: {fileID: 1860622617}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -3951,6 +3979,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 1286443873}
   completeChapterOnBossDefeat: 1
   cutscenes: {fileID: 0}
+  lakeStory: {fileID: 1860622617}
 --- !u!114 &1860622616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3966,6 +3995,27 @@ MonoBehaviour:
   lily: {fileID: 1463110829, guid: 72695d3ede467b94984370f78e06bd14, type: 3}
   waterSound: {fileID: 8300000, guid: 1f1463d806e41284c8b7ca000c724820, type: 3}
   croakSound: {fileID: 8300000, guid: 145f674753d275b408ecae8d3df7e282, type: 3}
+--- !u!114 &1860622617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860622611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f21f98bb25c9a34e84ccb418a12de76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LakeStoryController
+  dialogue: {fileID: 1734789093}
+  player: {fileID: 7678123251341501768}
+  pause: {fileID: 1359425597}
+  waves: {fileID: 1860622615}
+  world: {fileID: 1282230654}
+  opening: {fileID: 11400000, guid: d4e1fa786e14199498ab6d81850020a3, type: 2}
+  encounter: {fileID: 11400000, guid: deb9af0815da15145b713804ad4eb7b5, type: 2}
+  fury: {fileID: 11400000, guid: 990edc58bed38a546820c0b269b0021d, type: 2}
+  finale: {fileID: 11400000, guid: 3c7654d262dc0764c81968af4ecd89a8, type: 2}
 --- !u!1 &1866635370
 GameObject:
   m_ObjectHideFlags: 0

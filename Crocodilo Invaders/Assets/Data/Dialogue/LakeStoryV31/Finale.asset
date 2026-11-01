@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661aa54ffdd7ae546b6ad3e9dc243230, type: 3}
+  m_Name: Finale
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  cast: {fileID: 11400000, guid: b2de6a34dbd8c744eb6c3d0cf84a2233, type: 2}
+  openDelay: 0.25
+  closeDelay: 0.2
+  lines:
+  - speakerId: saperereca
+    speakerName: 
+    text: "J\xE1 chega."
+    expressionId: firm
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Ent\xE3o deixa eu abrir o canal."
+    expressionId: determined
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: sapeneu
+    speakerName: 
+    text: Segura os pequenos!
+    expressionId: vulnerable
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "Segura a\xED. Eu abro do lado!"
+    expressionId: determined
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 1.5
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: channel
+  - speakerId: saperereca
+    speakerName: 
+    text: "T\xE1 baixando. Devagar."
+    expressionId: relieved
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: sapeneu
+    speakerName: 
+    text: Tu podia ter levado a barragem inteira.
+    expressionId: vulnerable
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: "A gente precisa dessa \xE1gua viva."
+    expressionId: sincere
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: sapeneu
+    speakerName: 
+    text: O canal fica aberto.
+    expressionId: serious
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: saperereca
+    speakerName: 
+    text: "E voc\xEAs seguram a sucata l\xE1 de cima."
+    expressionId: firm
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: Vou cobrar dos pilotos.
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: sapeneu
+    speakerName: 
+    text: Cobra com juros.
+    expressionId: proud
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
+  - speakerId: crocodilo
+    speakerName: 
+    text: Essa eu deixei pra tu.
+    expressionId: neutral
+    pauseBefore: 0
+    pauseStyle: 0
+    pauseAfter: 0.15
+    soundOverride: {fileID: 0}
+    startSound: {fileID: 0}
+    startSoundVolume: 0.5
+    effect: 0
+    glimpseSpeakerId: 
+    glimpseExpressionId: 
+    beat: 
