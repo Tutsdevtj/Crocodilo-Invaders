@@ -1,0 +1,36 @@
+{
+  "generator": "built-in image_gen",
+  "status": "local prototype; no commits until explicit user approval",
+  "assets": [
+    {
+      "master": "sapo-mouth-master.png",
+      "runtime": "sapo-mouth.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "d1697e0eaa74e663982e0e25e37123db6ecb2380dc82e30ff28bd1561394ddeb",
+      "prompt": "prompt-mouth.txt"
+    },
+    {
+      "master": "fly-flight-master.png",
+      "runtime": "fly-flight.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "2532afef36813326c13caaa415a238862cb67a22a4c9e4e9b6ab4ad054fff9b4",
+      "prompt": "prompt-fly.txt"
+    },
+    {
+      "master": "tongue-tip-master.png",
+      "runtime": "tongue-tip.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "60b80483d30e934880c327679b106aa8cbe89a679db7e0b5c38845b2bb4942e2",
+      "prompt": "prompt-tip.txt"
+    }
+  ]
+}

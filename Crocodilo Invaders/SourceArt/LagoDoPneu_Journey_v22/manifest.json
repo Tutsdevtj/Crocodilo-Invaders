@@ -1,0 +1,15 @@
+{
+  "generator": "image_gen built-in",
+  "reference": "Docs/ArtPreviews/SapeneuCururu_Difficulty_v21/aimed-volley.png",
+  "rasterEdits": false,
+  "files": {
+    "enemies-master.png": {
+      "bytes": 1117110,
+      "sha256": "026c9c86bd43867650d23198a3ec55aaa32f11d53286c67658d77399eb22c69a"
+    },
+    "props-master.png": {
+      "bytes": 1568129,
+      "sha256": "c5f4943f2a88e36f4b6970fb11797dd9fe982a18fcdd44785d1b8e9e3d5e42db"
+    }
+  }
+}

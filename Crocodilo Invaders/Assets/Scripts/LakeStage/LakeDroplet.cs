@@ -5,6 +5,7 @@ public sealed class LakeDroplet : MonoBehaviour
 {
     private SapoDoPneuCombat owner;
     private Health target;
+    private SapererecaCompanion helper;
     private Rigidbody2D body;
     private Vector2 origin, velocity;
     private float age, waterY;
@@ -21,9 +22,9 @@ public sealed class LakeDroplet : MonoBehaviour
     public const float Radius = .15f;
     public Vector2 Velocity => velocity + Vector2.down * Gravity * age;
     public bool Returning => Velocity.y < 0;
-    public void Configure(SapoDoPneuCombat source, Health player, Sprite sprite, Vector2 start, Vector2 launch, float surface)
+    public void Configure(SapoDoPneuCombat source, Health player, Sprite sprite, Vector2 start, Vector2 launch, float surface, SapererecaCompanion assistant = null)
     {
-        owner = source; target = player; origin = start; velocity = launch; waterY = surface;
+        owner = source; target = player; origin = start; velocity = launch; waterY = surface; helper = assistant;
         body = GetComponent<Rigidbody2D>(); body.bodyType = RigidbodyType2D.Kinematic;
         body.gravityScale = 0; body.interpolation = RigidbodyInterpolation2D.Interpolate;
         body.position = start; filter = LakeHit.PlayerFilter();
@@ -31,10 +32,10 @@ public sealed class LakeDroplet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(launch.y, launch.x) * Mathf.Rad2Deg + 90);
         drawing = GetComponent<SpriteRenderer>(); drawing.sprite = sprite; drawing.sortingOrder = 34;
         float height = sprite != null ? sprite.bounds.size.y : 1;
-        drawingScale = .76f / Mathf.Max(.01f, height);
+        drawingScale = (helper!=null?.40f:.76f) / Mathf.Max(.01f, height) / Mathf.Max(.01f,transform.parent!=null?transform.parent.lossyScale.x:1);
         transform.localScale = Vector3.one * drawingScale;
         var lake = FindAnyObjectByType<LakeBackdrop>();
-        if (lake != null && lake.WaterFXMaterial != null)
+        if (helper==null && lake != null && lake.WaterFXMaterial != null)
         {
             trail = new GameObject("LiquidWaterStreak").AddComponent<LineRenderer>(); trail.transform.SetParent(transform, false);
             trail.sharedMaterial = lake.WaterFXMaterial; trail.useWorldSpace = true; trail.positionCount = history.Length;
@@ -56,7 +57,7 @@ public sealed class LakeDroplet : MonoBehaviour
         if (LakeHit.Touch(target, previous, point, Radius, filter, contacts))
         {
             // A drop is spent even against dash invulnerability: it never waits inside the ship.
-            spent = true; target.TakeDamage(1); Destroy(gameObject); return;
+            spent = true; if(helper!=null)helper.TryHit();else target.TakeDamage(1); Destroy(gameObject); return;
         }
         body.MovePosition(point);
         if (trail != null)

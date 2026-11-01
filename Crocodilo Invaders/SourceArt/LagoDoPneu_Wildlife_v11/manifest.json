@@ -1,0 +1,12 @@
+[
+  {
+    "source": "SourceArt\\LagoDoPneu_Wildlife_v11\\fish-swim-master.png",
+    "runtime": "Assets\\Resources\\LakeWildlifeV11\\fish-swim.png",
+    "sha256": "7E8B677D9C4B8A6968F8F23174CC1F5F60970CC72AB397EFAB03355FA65288DD"
+  },
+  {
+    "source": "SourceArt\\LagoDoPneu_Wildlife_v11\\piranha-master.png",
+    "runtime": "Assets\\Resources\\LakeWildlifeV11\\piranha.png",
+    "sha256": "A2E7EDE1D727264B233AFE119EBD7E38DCFECD765CA8FB0C64F8583C92EC5839"
+  }
+]

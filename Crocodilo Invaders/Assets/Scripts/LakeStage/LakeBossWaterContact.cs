@@ -38,6 +38,7 @@ public sealed class LakeBossWaterContact : MonoBehaviour
     {
         if (reflection == null || Time.timeScale <= 0) return;
         float clock = lake.MotionClock;
+        reflection.sprite=visual.sprite;reflection.flipX=visual.flipX;
         SurfaceY = combat.WaterY;
         float altitude = Mathf.Max(0, transform.position.y - (SurfaceY + SapoDoPneuCombat.FloatHeight));
         float desired = combat.Active ? Mathf.Clamp01(1 - altitude / .65f) : 0;

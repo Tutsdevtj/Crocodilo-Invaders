@@ -1,0 +1,19 @@
+{
+  "version": 31,
+  "generator": "image_gen",
+  "sources": [
+    {
+      "file": "props.png",
+      "sha256": "6069a43c1f71e37019b4144d75ffb259cfccc035c116c674d6e38838abbd6799"
+    },
+    {
+      "file": "sapeneu.png",
+      "sha256": "27f2aa6abd57a24dfe718f78b15fd10544ae91773161919161070cde4fd6610c"
+    },
+    {
+      "file": "saperereca.png",
+      "sha256": "403f9cd4c3d7fe778ab25e576da67fcd5bcd2e6376f4aeb52814a8f40c61ff4e"
+    }
+  ],
+  "import": "LakeStoryTools.Install: native Sprite.Create; source pixels preserved; Point; no mipmaps; uncompressed"
+}
