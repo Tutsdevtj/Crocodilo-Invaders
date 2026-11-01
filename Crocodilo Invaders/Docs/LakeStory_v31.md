@@ -33,3 +33,7 @@ Integração v31 preparada para entrega na branch codex/sapo-do-pneu, com arte, 
 ## Versão jogável
 
 Build Windows-LakeStory-v31 concluída: 212383180 bytes. Inicialização por 8 s sem exceções detectadas. ZIP em Builds/Pacotes/CrocodiloInvaders-AguaParada-v31-TESTE-LOCAL-Windows.zip: 190 arquivos, 134361493 bytes, todas as entradas conferidas por SHA256. Hash do pacote: `d5c1a3c03d9300533c431ffb3c12a9832827ca1ae3e6203ae8967c49ee4dbc24`.
+
+## Vídeo
+
+[Prévia completa com áudio — 4min23s](ArtPreviews/LakeStory_v31/agua-parada-v31.mp4). Captura em Play Mode com corte entre abertura e teste do boss, jogador protegido e dano controlado nos trechos demonstrativos. Inclui todas as falas, entrada da Saperereca e abertura do canal; arquivo integralmente decodificado sem erros.
