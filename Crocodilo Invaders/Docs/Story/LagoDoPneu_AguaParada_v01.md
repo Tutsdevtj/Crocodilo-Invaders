@@ -1,7 +1,7 @@
 # Lago do Pneu — Água parada
-Roteiro proposto v01 · 31/10/2026
+Roteiro v01 · integração v31 · 31/10/2026
 
-Texto para revisão narrativa. Ainda não integrado às cenas ou aos diálogos do jogo. Sem novos commits.
+Integrado às cenas StageTwoLake e SapoDoPneuTest no sistema de diálogo do Croc/Gusini. Retratos próprios, quatro sequências, entrada da Saperereca por fala e abertura do canal.
 
 ## Premissa
 
@@ -215,8 +215,8 @@ Croc segue o curso do rio de volta à base. O casal fica no lago. A última imag
 - A água volta a abastecer a base. O acordo estabelece deveres dos dois lados.
 - Sapeneu e Saperereca continuam guardando o lago. Não entram para o esquadrão.
 - O berçário e o canal lateral precisam ser mostrados antes do final, para que a solução e a preocupação do casal sejam compreensíveis.
-- A derrota é um desarme/esgotamento do Sapeneu. Uma integração futura deve reter os personagens para o desfecho, sem confundir a vida zerada com sua morte.
+- A derrota é um desarme/esgotamento do Sapeneu. A integração retém os personagens para o desfecho, sem confundir a vida zerada com sua morte.
 - Na apresentação, aproveitar retratos, expressões, digitação e pausas do sistema de diálogos existente. Cada cena fecha por conclusão ou skip; a transição de fúria continua ligada aos 50% de HP já existentes.
-- Em futura implementação, o desfecho mostra a abertura do canal em uma cena curta. Não exige uma nova fase de combate nem uma ação de precisão obrigatória depois da vitória.
-- Este arquivo entrega apenas o roteiro. Não modifica campanha, progressão, combate ou assets de diálogo.
+- Na implementação v31, o desfecho mostra a abertura do canal em uma cena curta. Não exige uma nova fase de combate nem uma ação de precisão obrigatória depois da vitória.
+- Os assets editáveis de diálogo estão em Assets/Data/Dialogue/LakeStoryV31. A encenação usa o canal, o berçário e a remoção gradual do bloqueio; os pequenos gestos sugeridos no roteiro (mosca final/língua e deslocamento do avião) continuam sendo indicações narrativas, sem nova animação específica.
 
