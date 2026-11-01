@@ -77,7 +77,8 @@ public sealed class LakeJourneyScenery : MonoBehaviour
         {lastWave=director.Wave;if(lastWave==7 || lastWave==9)hintAt=clock;}
         lake.JourneyDensity=Mathf.MoveTowards(lake.JourneyDensity,section*.45f+.1f,dt*.15f);
         lake.TravelScale=Mathf.MoveTowards(lake.TravelScale,director.Calm?.15f:1,dt*.6f);
-        float t=clock-headingAt;heading.alpha=waves!=null && waves.Phase!=WaveController.RunPhase.Failed && director.Wave<10?Mathf.Clamp01(t/.3f)*Mathf.Clamp01((4-t)/.7f):0;
+        if(waves.Phase==WaveController.RunPhase.Intro)headingAt=clock;
+        float t=clock-headingAt;heading.alpha=waves!=null && waves.Phase!=WaveController.RunPhase.Intro && waves.Phase!=WaveController.RunPhase.Failed && director.Wave<10?Mathf.Clamp01(t/.3f)*Mathf.Clamp01((4-t)/.7f):0;
         Rect arena=director.Arena;
         for(int i=0;i<props.Length;i++)
         {

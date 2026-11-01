@@ -28,6 +28,7 @@ public sealed class WaveController : MonoBehaviour
     [SerializeField, Tooltip("Capítulo sem recuperação específica: conclui após a apresentação de derrota do boss.")]
     private bool completeChapterOnBossDefeat;
     [SerializeField, Tooltip("Opcional: cenas narrativas da abertura e do boss.")] private RunCutscenes cutscenes;
+    [SerializeField] private LakeStoryController lakeStory;
 
     private EnemySpawner spawner;
     private RunScore score;
@@ -203,6 +204,12 @@ public sealed class WaveController : MonoBehaviour
         LeaderboardSession.StartRun();
         player.GetComponent<PlayerRunUpgrades>()?.ResetForRun();
         // Uma vez por run nova; as ondas só começam quando a abertura termina ou é pulada.
+        if (playIntro && lakeStory != null && lakeStory.PlayIntro(FinishIntro))
+        {
+            Phase = RunPhase.Intro;
+            player.SetGameplayActive(false);
+            return;
+        }
         if (playIntro && cutscenes != null && cutscenes.PlayRunIntro(FinishIntro))
         {
             Phase = RunPhase.Intro;
@@ -273,6 +280,7 @@ public sealed class WaveController : MonoBehaviour
         if (reinforcements != null) reinforcements.Configure(spawner);
         // Antes de BeginBattle: a cena segura só o início do combate, nunca a entrada.
         if (cutscenes != null) cutscenes.PrepareBoss(ActiveBoss);
+        if (lakeStory != null) lakeStory.BindBoss(ActiveBoss);
         ActiveBoss.BeginBattle(playerHealth);
         BossStarted?.Invoke(ActiveBoss);
     }
@@ -288,6 +296,7 @@ public sealed class WaveController : MonoBehaviour
         // Boss resgatado: o fim de run antigo (RunEnded/painel de vitória) dá lugar à cena final e ao HUB.
         chapterEnding = true;
         player.SetGameplayActive(false);
+        if (lakeStory != null && lakeStory.PlayFinale(boss, CompleteChapter)) return;
         if (cutscenes == null || !cutscenes.PlayBossFinale(boss, CompleteChapter)) CompleteChapter();
     }
 
