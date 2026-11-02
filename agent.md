@@ -562,9 +562,33 @@ excluídos de BossHUD.prefab, junto de campos/eventos/fallback do Executor e Bos
 sem consumidores. Portraits dos diálogos são separados e continuam intactos.
 Não resolver esta limpeza apenas desativando os objetos velhos em Awake.
 
-Estado atual do HUB (pedido seguinte de 18/10/2026): novo `CrocHub.prefab` simplificado,
-três objetos (raiz física, VisualRoot, CameraTarget), master e seis frames originais do
-pacote `Croc_Hub_Simplified_Idle_v01.zip`. Sprite-swap a 6 FPS/1 s, PPU 80, **sem Run**.
+Estado atual do HUB (24/10/2026): as novas folhas fornecidas substituem a versão de
+21/10 nos mesmos assets. Idle 00–04 (grade 3×2, última célula vazia excluída), Run 01–08
+(grade 3×3), todas as células 47×73, PPU 80, pivô (23,5; 2) px. Idle 6 FPS, Run 12 FPS;
+Speed continua vindo da velocidade real, sem root motion. Run 00 excluído a pedido do
+usuário para corrigir o loop; oito quadros, duração 2/3 s. Não excluir o novo Idle 00:
+esta folha não tem o fundo opaco da versão antiga. Pixels dos PNGs intactos.
+VisualRoot 1,8× (altura opaca ~1,55), cápsula 0,792×1,53/offset 0,765 e alvo Y=0,765.
+Câmera ~11,1% mais aberta: PixelPerfect PPU 72, máximo ortográfico 5, largura 23,333,
+confins verticais -2,6..7,4. Panorama opaco com altura 10,25 cobre as bordas; terreno e
+construções preservados. ConfigureBaseFraming é idempotente, usado pelo instalador do
+personagem e do mapa. Preview dos clips nativos fora de Assets; manifesto/hash novo
+em SourceArt/CrocHubSimplifiedIdle/PixelLab_2026-10-24.json. Não restaurar as medidas
+ou a restrição de excluir Idle 00 das revisões anteriores.
+94 checks de Play passaram em Logs/CrocHub-20261024-PlayFinal.log; previews dos clips
+nativos em Docs/ArtPreviews/CrocHub_2026-10-24. PNGs de origem intactos por SHA-256.
+Após excluir Run 00, validação nativa do loop de oito quadros passou em
+Logs/CrocHub-RunEightFrames.log e Run.gif foi atualizado. Os 94 checks acima são
+anteriores a essa exclusão; não foram repetidos nesta revisão.
+Cauda fornecida depois em CrocHub_Tail.png: nove células 226×228, oito usadas (00–07),
+PPU 480, pivô (205;120). VisualRoot/Tail contém só SpriteRenderer, atrás do corpo,
+posição local (0,02;0,30), escala local 0,85× para ficar menor e mais dentro do corpo. Curvas do mesmo Animator mostram a cauda em Run e deixam
+sprite nulo em Idle. Herda o flip do VisualRoot, sem novo script ou física. Hierarquia
+atual de quatro objetos; preview Run.gif inclui a cauda. Não restaurar clip só de corpo
+ao rodar os instaladores/UpdateRunLoop: ConfigureTailClips mantém ambas as curvas.
+Validação da cauda em Logs/CrocHub-RunTailPlay.log: 172 checks do mapa e seis de Play
+(Idle, oito poses, ambas as direções, pausa e retorno a Idle) passaram. Repetidos após
+o pull da main em 02/11/2026, com escala final 0,85×, em Logs/CrocHub-PostPull-20261102.log.
 `HubPlayerInput` lê ações HUB próprias; `HubCharacterMotor2D` aplica velocidade em
 FixedUpdate; `HubCameraController2D` usa janela 20%, foco direcional 12%, amortecimento,
 altura fixa e limites visuais. Built-in preservado; Pixel Perfect standalone 6.0.0 somente

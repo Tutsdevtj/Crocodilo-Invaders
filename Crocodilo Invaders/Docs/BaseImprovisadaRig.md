@@ -51,3 +51,11 @@ O pedido seguinte substituiu o marcador por `CrocHub.prefab`: corpo físico, Vis
 com seis frames do Idle aprovado e CameraTarget estável. Movimento horizontal próprio
 e câmera com janela/antecipação/limites, sem restaurar o rig anterior e **sem Run**.
 Estado atual, ajustes e testes em `Docs/BaseImprovisadaCamera.md`.
+
+## Idle e Run fornecidos em 21/10/2026
+
+O CrocHub passou a usar as duas folhas PNG novas: seis quadros de Idle (excluindo o primeiro com fundo) e 13 de Run. São sprites completos, sem restaurar o rig antigo. `HubCharacterPresentation` conecta a velocidade real ao Animator existente. Collider, câmera, movimento e pause conservam a implementação anterior. Detalhes atuais em `Docs/BaseImprovisadaCamera.md`.
+
+## Revisão de 24/10/2026
+
+Idle substituído por cinco quadros e Run por oito (01–08; primeiro quadro excluído a pedido do usuário), das novas folhas fornecidas. VisualRoot reduzido para 1,8×, cápsula 0,792×1,53 e alvo Y=0,765. Câmera com área visível 11,1% maior e panorama ajustado para cobrir as bordas. Mantidos três objetos e o mesmo movimento/Animator/pause. Fonte e validação atuais em `Docs/BaseImprovisadaCamera.md`.

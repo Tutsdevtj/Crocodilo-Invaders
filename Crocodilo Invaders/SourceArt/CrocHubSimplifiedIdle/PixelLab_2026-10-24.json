@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-24",
+  "provided_by": "user",
+  "pixels_modified": false,
+  "visual_scale": 1.8,
+  "render_reference_ppu": 72,
+  "sheets": [
+    {
+      "asset": "Assets/Art/Characters/CrocHub/CrocHub_Idle.png",
+      "source_filename": "idle crocodilo.png",
+      "sha256": "a914b885dd71df8c62b295273df9178bd5b925e415ad750be298d8af87e5bfff",
+      "grid": [
+        3,
+        2
+      ],
+      "cell_pixels": [
+        47,
+        73
+      ],
+      "first_index": 0,
+      "frame_count": 5,
+      "pixels_per_unit": 80,
+      "pivot_pixels": [
+        23.5,
+        2
+      ],
+      "frames_per_second": 6
+    },
+    {
+      "asset": "Assets/Art/Characters/CrocHub/CrocHub_Run.png",
+      "source_filename": "pixellab-Game-run-animation--a-smooth-s-1792864231108.png",
+      "sha256": "a52c1bc60ef31d323633630b928f0a46f113427bf3376b7ecd2af769f97695bf",
+      "grid": [
+        3,
+        3
+      ],
+      "cell_pixels": [
+        47,
+        73
+      ],
+      "first_index": 1,
+      "frame_count": 8,
+      "pixels_per_unit": 80,
+      "pivot_pixels": [
+        23.5,
+        2
+      ],
+      "frames_per_second": 12
+    },
+    {
+      "asset": "Assets/Art/Characters/CrocHub/CrocHub_Tail.png",
+      "source_filename": "pixellab-Very-subtle-seamless-idle-loop-1792871227103.png",
+      "sha256": "c3ea9c220b6450f18fbadf2a96197c0d61290c3e3ba2384df3d9506f4db2a842",
+      "grid": [
+        3,
+        3
+      ],
+      "cell_pixels": [
+        226,
+        228
+      ],
+      "first_index": 0,
+      "frame_count": 8,
+      "excluded_indices": [
+        8
+      ],
+      "pixels_per_unit": 480,
+      "pivot_pixels": [
+        205,
+        120
+      ],
+      "frames_per_second": 12,
+      "local_position": [
+        0.02,
+        0.3
+      ],
+      "local_scale": [
+        0.85,
+        0.85,
+        1
+      ]
+    }
+  ]
+}

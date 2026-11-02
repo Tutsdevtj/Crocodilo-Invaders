@@ -355,6 +355,7 @@ public static class BaseImprovisadaMapTools
 
         var random = new System.Random(20261018);
         BuildBackground(camera, random);
+        if (camera.GetComponent<HubCameraController2D>() != null) HubCharacterTools.ConfigureBaseFraming(camera);
         BuildGround(collisions, random);
         BuildZones(environment, random);
         BuildForeground(camera, random);
@@ -696,17 +697,20 @@ public static class BaseImprovisadaMapTools
         var all = roots.SelectMany(r => r.GetComponentsInChildren<Transform>(true)).ToArray();
         Require(all.All(t => GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject) == 0), "No missing scripts");
         var renderers = roots.SelectMany(r => r.GetComponentsInChildren<SpriteRenderer>(true)).ToArray();
-        Require(renderers.All(r => r.sprite != null), $"All {renderers.Length} sprite renderers have sprites");
+        Require(renderers.All(r => r.sprite != null || (r.GetComponentInParent<HubCharacterPresentation>() != null
+            && r.transform == r.GetComponentInParent<HubCharacterPresentation>().transform.Find("VisualRoot/Tail"))),
+            $"All {renderers.Length} sprite renderers have sprites except the deliberately hidden Idle tail");
         Require(renderers.All(r => layers.Contains(r.sortingLayerName) && r.sortingLayerName != "Default"), "Every renderer on a named base sorting layer");
         Require(roots.Count(r => r.GetComponentInChildren<Camera>(true) != null) == 1 && roots.SelectMany(r => r.GetComponentsInChildren<Camera>(true)).Count() == 1, "Single existing camera");
         var camera = roots.SelectMany(r => r.GetComponentsInChildren<Camera>(true)).Single();
-        Require(camera.orthographic && Mathf.Approximately(camera.orthographicSize, 4.5f)
-            && camera.GetComponents<MonoBehaviour>().All(c => c is HubCameraController2D || c is UnityEngine.U2D.PixelPerfectCamera), "Base camera: authored size 4.5, only dedicated HUB components");
-        var panorama = renderers.Where(r => r.sprite.texture.name.Contains("BG2")).ToArray();
+        Require(camera.orthographic && Mathf.Approximately(camera.orthographicSize, camera.GetComponent<HubCameraController2D>() != null ? 5f : 4.5f)
+            && camera.GetComponents<MonoBehaviour>().All(c => c is HubCameraController2D || c is UnityEngine.U2D.PixelPerfectCamera), "Base camera: current authored lens, only dedicated HUB components");
+        var panorama = renderers.Where(r => r.sprite != null && r.sprite.texture.name.Contains("BG2")).ToArray();
         Require(panorama.Length == 1, "Exactly one opaque panorama in the background");
-        var view = new Rect(camera.transform.position.x - 10.5f, camera.transform.position.y - 4.5f, 21f, 9f);
+        float halfHeight = camera.orthographicSize, width = halfHeight * (14f / 3f);
+        var view = new Rect(camera.transform.position.x - width * .5f, camera.transform.position.y - halfHeight, width, 2f * halfHeight);
         Require(panorama[0].bounds.min.x <= view.xMin && panorama[0].bounds.max.x >= view.xMax && panorama[0].bounds.min.y <= view.yMin && panorama[0].bounds.max.y >= view.yMax,
-            "Panorama covers a 21:9 view at the authored camera");
+            "Panorama covers the wider authored view");
         Require(roots.SelectMany(r => r.GetComponentsInChildren<PolygonCollider2D>(true)).Count() == 0, "No silhouette PolygonCollider2D");
         var boxes2D = roots.SelectMany(r => r.GetComponentsInChildren<BoxCollider2D>(true)).ToArray();
         Require(boxes2D.Length == 4, $"Only floor, two walls and the expansion blocker collide ({boxes2D.Length})");
@@ -725,7 +729,7 @@ public static class BaseImprovisadaMapTools
         Require(reference != null ? reference.CompareTag("EditorOnly") : all.Count(t => t.GetComponent<HubCharacterMotor2D>() != null) == 1, "Editor scale marker or single simplified HUB character");
         Require(roots.SelectMany(r => r.GetComponentsInChildren<ParallaxLayer2D>(true)).Count() == 4, "Four parallax layers with real art (BG0, BG3, BG4, foreground)");
         Require(roots.SelectMany(r => r.GetComponentsInChildren<MonoBehaviour>(true)).Count(b => !(b is ParallaxLayer2D) && !(b is BaseSector) && !(b is BaseLightFlicker)
-            && !(b is HubPlayerInput) && !(b is HubCharacterMotor2D) && !(b is HubCameraController2D) && !(b is UnityEngine.U2D.PixelPerfectCamera)
+            && !(b is HubPlayerInput) && !(b is HubCharacterMotor2D) && !(b is HubCharacterPresentation) && !(b is HubCameraController2D) && !(b is UnityEngine.U2D.PixelPerfectCamera)
             && b.GetComponentInParent<PauseMenuView>(true) == null && !(b is UnityEngine.EventSystems.EventSystem) && !(b is UnityEngine.InputSystem.UI.InputSystemUIInputModule)) == 0,
             "No per-decoration scripts (only parallax roots, sector states and one flicker manager)");
         Debug.Log($"BASE IMPROVISADA MAP VALIDATION PASSED: {checks} checks; {renderers.Length} sprite renderers.");

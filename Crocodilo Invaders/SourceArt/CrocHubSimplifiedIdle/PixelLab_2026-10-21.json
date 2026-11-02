@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-21",
+  "provided_by": "user",
+  "pixels_modified": false,
+  "idle_background_frame_excluded": 0,
+  "sheets": [
+    {
+      "asset": "Assets/Art/Characters/CrocHub/CrocHub_Idle.png",
+      "source_filename": "pixellab-Subtle-breathing-idle--standin-1792626125564.png",
+      "sha256": "fde1d4410e4e46bfb9d80aee13c4c4456407d75f9b416d3c06fe5b88c04424a9",
+      "grid": [
+        3,
+        3
+      ],
+      "cell_pixels": [
+        92,
+        137
+      ],
+      "first_index": 1,
+      "frame_count": 6,
+      "pixels_per_unit": 144,
+      "pivot_pixels": [
+        46,
+        5
+      ],
+      "frames_per_second": 6
+    },
+    {
+      "asset": "Assets/Art/Characters/CrocHub/CrocHub_Run.png",
+      "source_filename": "pixellab-Create-an-expressive--energeti-1792625062905.png",
+      "sha256": "8c0558cc811d82b53f828bd1ca5a4dd7d9f846e7a4e411bf72f90488b3e03851",
+      "grid": [
+        4,
+        4
+      ],
+      "cell_pixels": [
+        161,
+        247
+      ],
+      "first_index": 0,
+      "frame_count": 13,
+      "pixels_per_unit": 260,
+      "pivot_pixels": [
+        80.5,
+        11
+      ],
+      "frames_per_second": 16
+    }
+  ]
+}

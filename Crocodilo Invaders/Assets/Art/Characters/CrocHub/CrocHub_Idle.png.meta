@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 8ff185a286097604c97cf3f6e8440288
+guid: 34522009fb318cf47bbd1c450dd15e98
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1037703293917336432
-    second: croc_idle_04_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.013888889}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -128,23 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: croc_idle_04_0
+      name: CrocHub_Idle_01
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 47
+        y: 73
+        width: 47
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02739726}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData:
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0731238d5a9a66e00800000000000000
-      internalID: 1037703293917336432
+      spriteID: fb58297d904eef84f979377ed303e818
+      internalID: -1658418636
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrocHub_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 73
+        width: 47
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02739726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9892edbdf69b1843aa3615fd05fd2c6
+      internalID: -1286915768
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrocHub_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 47
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02739726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db0ae80e98fdc945962353c87505237
+      internalID: -1886111837
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrocHub_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 47
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02739726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b5d62f48478e9438e9ea4903243209
+      internalID: 1008788047
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrocHub_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 47
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.02739726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3effb352409954e9b0224d95236cb6
+      internalID: 1386789128
       vertices: []
       indices:
       edges: []
@@ -153,7 +238,7 @@ TextureImporter:
     customData:
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: bfb26d95137832443b242a9cfb823372
     internalID: 0
     vertices: []
     indices:
@@ -162,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CrocHub_Idle_00: 1386789128
+      CrocHub_Idle_01: -1658418636
+      CrocHub_Idle_02: -1286915768
+      CrocHub_Idle_03: -1886111837
+      CrocHub_Idle_04: 1008788047
   mipmapLimitGroupName:
   pSDRemoveMatte: 0
   userData:

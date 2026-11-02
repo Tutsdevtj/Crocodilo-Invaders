@@ -45,6 +45,8 @@ public static class HubPlayValidation
         RunValidation(false);
     }
 
+    public static void RunTail() { RunValidation(false, tailOnly: true); }
+
     [MenuItem("Crocodilo/Base/Validate and capture complete Croc map tour")]
     public static void RunMapTour()
     {
@@ -58,7 +60,7 @@ public static class HubPlayValidation
         RunValidation(false, true);
     }
 
-    private static void RunValidation(bool tourOnly, bool pauseOnly = false)
+    private static void RunValidation(bool tourOnly, bool pauseOnly = false, bool tailOnly = false)
     {
         if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         HubCharacterTools.Validate();
@@ -67,6 +69,7 @@ public static class HubPlayValidation
         SessionState.SetBool(Session, true);
         SessionState.SetBool(Session + ".TourOnly", tourOnly);
         SessionState.SetBool(Session + ".PauseOnly", pauseOnly);
+        SessionState.SetBool(Session + ".TailOnly", tailOnly);
         EditorApplication.isPlaying = true;
     }
 
@@ -85,10 +88,11 @@ public static class HubPlayValidation
         yield return Frames(10);
         Bind();
         Check(Screen.width == 1280 && Screen.height == 720, $"Actual Game View {Screen.width}x{Screen.height}");
-        Check(camera.orthographicSize == 4.5f, "720p uses the map's original nine-unit framing");
+        Check(Mathf.Abs(camera.orthographicSize - 5f) < .001f, "720p uses the wider ten-unit framing");
         yield return Seconds(.4f);
         Vector3 cam = camera.transform.position;
         var sprite = motor.GetComponentInChildren<SpriteRenderer>();
+        var animator = sprite.GetComponent<Animator>();
         var seen = new HashSet<string>();
         float minY = float.MaxValue, maxY = float.MinValue;
         yield return Seconds(1.4f, () =>
@@ -108,7 +112,10 @@ public static class HubPlayValidation
         key = Key.D;
         yield return Seconds(.3f);
         Check(body.position.x > 30.4f && Mathf.Abs(camera.transform.position.x - cam.x) < .0001f, "B: movement inside the actual camera window does not move the camera");
-        yield return Seconds(3f);
+        var runFrames = new HashSet<string>();
+        yield return Seconds(3f, () => runFrames.Add(sprite.sprite.name));
+        Check(animator.GetCurrentAnimatorStateInfo(0).IsName("Run") && runFrames.Count == 8 && runFrames.All(n => n.StartsWith("CrocHub_Run_") && n != "CrocHub_Run_00"),
+            "Rightward movement cycles the eight selected Run frames without frame 00");
         Check(body.linearVelocity.x > 2.9f && camera.transform.position.x > cam.x + 2f,
             $"D accelerates and camera follows: x={body.position.x:0.000}, vx={body.linearVelocity.x:0.000}, cam={camera.transform.position.x:0.000}, window={follow.WindowCenter.x:0.000}, input={motor.GetComponent<HubPlayerInput>().Horizontal:0.00}");
         float rightScreen = camera.WorldToViewportPoint(follow.TrackingTarget.position).x;
@@ -127,6 +134,7 @@ public static class HubPlayValidation
         float leftScreen = camera.WorldToViewportPoint(follow.TrackingTarget.position).x;
         Check(body.linearVelocity.x < -2.9f && leftScreen > .51f && leftScreen < .8f, $"C: left arrow moves left with opposite framing ({leftScreen:0.000})");
         Check(sprite.transform.localScale.x < 0f && motor.transform.localScale == Vector3.one, "Only VisualRoot mirrors left; physics and tracking keep their orientation");
+        Check(animator.GetCurrentAnimatorStateInfo(0).IsName("Run") && sprite.sprite.name.StartsWith("CrocHub_Run_"), "Leftward movement uses the mirrored Run");
         Check(biggestStep < .7f, $"Reversal is continuous (largest rendered frame displacement {biggestStep:0.000})");
         yield return Capture("C_left");
 
@@ -138,6 +146,8 @@ public static class HubPlayValidation
         cam = camera.transform.position;
         yield return Seconds(.8f);
         Check(Mathf.Abs(body.linearVelocity.x) < .001f && Mathf.Abs(camera.transform.position.x - cam.x) < .002f, "E: release decelerates to zero and camera settles");
+        Check(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && sprite.sprite.name.StartsWith("CrocHub_Idle_") && sprite.sprite.name != "CrocHub_Idle_05",
+            "Stopping returns immediately to the supplied transparent Idle");
         Check(Mathf.Abs(camera.transform.position.y - 2.4f) < .0001f, "Walking and Idle never change the base framing height");
         yield return Capture("E_stop");
 
@@ -154,14 +164,19 @@ public static class HubPlayValidation
         input.enabled = false;
         yield return Seconds(.4f);
         Check(Mathf.Abs(body.linearVelocity.x) < .001f && input.Horizontal == 0f, "Disable clears input and motor decelerates");
+        Check(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"), "Disabled movement input settles into Idle");
         input.enabled = true;
         yield return Seconds(.4f);
         Check(body.linearVelocity.x > 2.9f, "Re-enable reads the still-held arrow normally");
         Time.timeScale = 0f;
         cam = camera.transform.position;
         Vector2 paused = body.position;
+        yield return Frames(2);
+        var pausedSprite = sprite.sprite;
+        float animationTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         yield return Seconds(.4f);
         Check((camera.transform.position - cam).sqrMagnitude < .000001f && body.position == paused, "Pause freezes both physics and camera");
+        Check(sprite.sprite == pausedSprite && animator.GetCurrentAnimatorStateInfo(0).normalizedTime == animationTime, "Pause freezes the current Run frame and animation clock");
         key = Key.None;
         Time.timeScale = 1f;
         yield return Seconds(.4f);
@@ -170,6 +185,7 @@ public static class HubPlayValidation
         key = Key.D;
         yield return Seconds(1.5f);
         Check(body.position.x < BaseImprovisadaMapTools.ExpansionGateX && body.position.x > BaseImprovisadaMapTools.ExpansionGateX - .75f, "F: existing locked expansion gate blocks actual Croc");
+        Check(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && animator.GetFloat("Speed") < .02f, "A blocked character stops running even with movement held");
         cam = camera.transform.position;
         yield return Seconds(.8f);
         Check(Mathf.Abs(camera.transform.position.x - cam.x) < .02f, "Camera stops at a blocked character even with D held");
@@ -223,8 +239,8 @@ public static class HubPlayValidation
             SetGameViewSize(size.x, size.y);
             yield return Frames(15);
             Check(Screen.width == size.x && Screen.height == size.y, $"H: actual Game View resized to {Screen.width}x{Screen.height}");
-            float artPixelScale = Screen.height / (2f * camera.orthographicSize * 80f);
-            Check(Mathf.Abs(artPixelScale - Mathf.Round(artPixelScale)) < .001f && camera.orthographicSize <= 4.5001f,
+            float artPixelScale = Screen.height / (2f * camera.orthographicSize * 72f);
+            Check(Mathf.Abs(artPixelScale - Mathf.Round(artPixelScale)) < .001f && camera.orthographicSize <= 5.0001f,
                 $"Integer pixel scale {artPixelScale:0.00}, half-view {camera.orthographicSize:0.000}");
             foreach (float x in new[] { BaseImprovisadaMapTools.PlayableLeft + .4f, 30f, 78f, BaseImprovisadaMapTools.PlayableRight - .4f })
             {
@@ -399,7 +415,8 @@ public static class HubPlayValidation
         InputSystem.onBeforeUpdate += InjectInput;
         Application.logMessageReceived += OnLog;
         deadline = EditorApplication.timeSinceStartup + 200;
-        steps.Push(SessionState.GetBool(Session + ".PauseOnly", false) ? PauseScenario()
+        steps.Push(SessionState.GetBool(Session + ".TailOnly", false) ? TailScenario()
+            : SessionState.GetBool(Session + ".PauseOnly", false) ? PauseScenario()
             : SessionState.GetBool(Session + ".TourOnly", false) ? TourScenario() : Scenario());
         EditorApplication.update += Tick;
     }
@@ -444,6 +461,35 @@ public static class HubPlayValidation
     }
 
     private static IEnumerator WaitOperation(AsyncOperation operation) { while (!operation.isDone) yield return null; }
+
+    private static IEnumerator TailScenario()
+    {
+        yield return Frames(10);
+        Bind();
+        var visual = motor.transform.Find("VisualRoot");
+        var tail = visual.Find("Tail").GetComponent<SpriteRenderer>();
+        var sprite = visual.GetComponent<SpriteRenderer>();
+        Check(tail.sprite == null, "Idle starts with the additional tail hidden");
+        Warp(30f);
+        key = Key.D;
+        yield return Seconds(.5f);
+        var seen = new HashSet<string>();
+        yield return Seconds(1.5f, () => { if (tail.sprite != null) seen.Add(tail.sprite.name); });
+        Check(seen.Count == 8 && tail.sortingOrder < sprite.sortingOrder, "Eight tail poses animate behind the running body");
+        Check(tail.transform.lossyScale.x > 0f, "Tail follows right-facing VisualRoot");
+        key = Key.A;
+        yield return Seconds(.7f);
+        Check(tail.sprite != null && tail.transform.lossyScale.x < 0f, "Tail mirrors with leftward Run");
+        Time.timeScale = 0f;
+        yield return Frames(2);
+        var held = tail.sprite;
+        yield return Seconds(.3f);
+        Check(tail.sprite == held, "Pause freezes the tail with the body");
+        Time.timeScale = 1f;
+        key = Key.None;
+        yield return Seconds(.6f);
+        Check(tail.sprite == null, "Returning to Idle hides the additional tail");
+    }
     private static IEnumerator TourScenario()
     {
         yield return Frames(10);

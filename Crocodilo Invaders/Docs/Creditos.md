@@ -134,3 +134,13 @@ Arte do kit `BaseImprovisada_Kit_Implementacao_v01.zip` fornecido pelo usuário 
 ## B. Crocodilo simplificado — HUB (18/10/2026)
 
 Master 48×72 e seis quadros de Idle de `Croc_Hub_Simplified_Idle_v01.zip`, fornecidos pelo usuário e incorporados sem redesenho/alteração de pixels. ZIP, manifesto e guias preservados em `SourceArt/CrocHubSimplifiedIdle`; runtime em `Assets/Art/Characters/CrocHub`. Usa a alternativa de frames prontos autorizada pelo guia do pacote. Não se presume autoria/licença externa. Nenhuma Run foi incorporada.
+
+## B. Crocodilo — Idle/Run fornecidos em 21/10/2026
+
+Duas folhas PNG fornecidas pelo usuário, com nomes de origem `pixellab-Create-an-expressive--energeti-1792625062905.png` (Run) e `pixellab-Subtle-breathing-idle--standin-1792626125564.png` (Idle). Incorporadas sem redesenhar ou alterar pixels; os recortes são metadados nativos da Unity. Primeiro quadro da Idle, com fundo, excluído da animação. O ZIP anterior continua como histórico; os PNGs antigos sem uso foram retirados do runtime. Não se presume licença/autoria externa. Hashes e parâmetros em `SourceArt/CrocHubSimplifiedIdle/PixelLab_2026-10-21.json`.
+
+## B. Crocodilo — revisão de 24/10/2026
+
+Folhas fornecidas pelo usuário: `idle crocodilo.png` (cinco quadros) e `pixellab-Game-run-animation--a-smooth-s-1792864231108.png` (nove quadros de origem; usados somente 01–08, excluindo o primeiro a pedido do usuário). PNGs intactos, recorte por metadados Unity, sem redesenho. Substituem as folhas de 21/10 no runtime; hashes em `SourceArt/CrocHubSimplifiedIdle/PixelLab_2026-10-24.json`. Não se presume autoria/licença externa.
+
+Cauda adicional fornecida pelo usuário em `pixellab-Very-subtle-seamless-idle-loop-1792871227103.png`: nove poses de origem, oito utilizadas na Run. PNG preservado integralmente; recortes/pivô e escala feitos na Unity. Mesma política de autoria/licença e manifesto da revisão de 24/10.

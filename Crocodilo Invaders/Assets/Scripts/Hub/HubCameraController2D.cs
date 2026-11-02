@@ -14,13 +14,13 @@ public sealed class HubCameraController2D : MonoBehaviour
     [SerializeField, Min(.01f)] private float maxFollowSpeed = 12f;
     [SerializeField] private bool verticalFollow;
     [SerializeField] private float baseHeight = 2.4f;
-    [SerializeField, Min(.1f)] private float subjectHeight = 1.8f;
+    [SerializeField, Min(.1f)] private float subjectHeight = 1.65f;
     [SerializeField, Min(0f)] private float verticalDeadZone = .8f;
     [SerializeField, Min(.01f)] private float verticalDamping = .3f;
-    [SerializeField] private Rect cameraBounds = new Rect(-13.5f, -2.1f, 120f, 9f);
-    [SerializeField, Min(.1f)] private float maximumOrthoSize = 4.5f;
+    [SerializeField] private Rect cameraBounds = new Rect(-13.5f, -2.6f, 120f, 10f);
+    [SerializeField, Min(.1f)] private float maximumOrthoSize = 5f;
     [SerializeField, Min(1f), Tooltip("Maximum visible width supported by the existing parallax art.")]
-    private float maximumViewWidth = 21f;
+    private float maximumViewWidth = 23.333334f;
     [SerializeField] private PixelPerfectCamera pixelPerfect;
     [SerializeField] private bool drawGizmos = true;
     private Camera view;
