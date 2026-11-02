@@ -41,9 +41,6 @@ async function main(){
  await sharp(Buffer.concat(bigPages),{raw:{width:512,height:512*24,channels:4,pageHeight:512}}).gif({loop:0,delay,colours:32,dither:0,effort:7}).toFile(path.join(preview,'transformacao_pixelart_x4.gif'));
  const manifest={...base,version:3,canvas:[128,128],pixels_per_unit:40,root_pivot:[0.5,0.0625],palette:{file:'palette.json',opaque_colors:palette.length},spritesheet:{file:'spritesheet_8x3.png',columns:8,rows:3,cell:[128,128],order:'left_to_right_top_to_bottom'},frames};
  fs.writeFileSync(path.join(root,'animation.json'),JSON.stringify(manifest,null,2));fs.writeFileSync(path.join(root,'palette.json'),JSON.stringify({transparent:true,opaque_colors:hex.map(h=>'#'+h)},null,2));
- const inline=frames.map(f=>({...f,src:'data:image/png;base64,'+fs.readFileSync(path.join(root,f.file)).toString('base64')}));
- let html=fs.readFileSync(path.join(__dirname,'banana_transformacao_v02_preview.html'),'utf8').replace('__FRAMES__',JSON.stringify(inline)).replace('24 desenhos ·','Pixel art nativa 128×128 · 20 cores · 24 desenhos ·').replace('max-width:1150px','max-width:1050px').replace('minmax(320px,640px)','512px').replace('width:100%;image-rendering:pixelated','width:512px;max-width:100%;image-rendering:pixelated');
- new(require('node:vm').Script)(html.match(/<script>([\s\S]*?)<\/script>/)[1]);fs.writeFileSync(path.join(preview,'preview.html'),html);
  const gif=await sharp(path.join(preview,'transformacao_pixelart_x4.gif'),{animated:true}).metadata();if(gif.pages!==24)throw Error('Incorrect GIF frame count');
  const result={frames:24,distinct_frames:24,native_canvas:[128,128],palette_limit:20,actual_opaque_colors:used.size,binary_alpha:true,preview_integer_scale:4,gif_frames:gif.pages,duration_ms:base.duration_ms,frames_sha256:qa};fs.writeFileSync(path.join(root,'qa_report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({...result,frames_sha256:undefined}));
 }

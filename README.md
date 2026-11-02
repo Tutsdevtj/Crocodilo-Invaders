@@ -70,5 +70,5 @@ Diferentes fases
 O repositório mantém as duas versões:
 
 - **Portugol Studio:** abra `Gaming portugol/Crocodilo Invaders.por` no Portugol Studio e execute.
-- **Unity / WebGL:** abra a pasta `unity/` no Unity Hub. Veja o [guia da versão Unity](unity/README.md) para jogar no editor e gerar o build WebGL.
+- **Unity / WebGL:** abra a pasta `Crocodilo Invaders/` no Unity Hub. Veja o [guia da versão Unity](Crocodilo%20Invaders/README.md) para jogar no editor e gerar o build.
    

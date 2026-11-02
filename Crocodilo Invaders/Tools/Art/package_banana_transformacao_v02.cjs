@@ -69,15 +69,10 @@ async function main() {
   await animated().webp({loop:1,delay:durations,lossless:true,effort:5}).toFile(path.join(preview,'transformacao_24frames.webp'));
   const manifest={version:2,type:'frame_by_frame',frame_count:24,canvas:[384,384],duration_ms:durations.reduce((a,b)=>a+b,0),loop:false,pixels_per_unit:100,root_pivot:[0.5,1-352/384],spritesheet:{file:'spritesheet_8x3.png',columns:8,rows:3,cell:[384,384],order:'left_to_right_top_to_bottom'},frames};
   fs.writeFileSync(path.join(root,'animation.json'),JSON.stringify(manifest,null,2));
-  const inline=frames.map(f=>({...f,src:'data:image/png;base64,'+fs.readFileSync(path.join(root,f.file)).toString('base64')}));
-  const template=fs.readFileSync(path.join(__dirname,'banana_transformacao_v02_preview.html'),'utf8');
-  const html=template.replace('__FRAMES__',JSON.stringify(inline));
-  new (require('node:vm').Script)(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
-  fs.writeFileSync(path.join(preview,'preview.html'),html);
   await sharp(path.join(root,'spritesheet_8x3.png')).flatten({background:'#16202c'}).resize(1280,480,{kernel:'nearest'}).png().toFile(path.join(preview,'contact_sheet.png'));
   const gif=await sharp(path.join(preview,'transformacao_24frames.gif'),{animated:true}).metadata();
   if(gif.pages!==24 || JSON.stringify(gif.delay)!==JSON.stringify(durations))throw Error('Incorrect animation timing');
-  fs.writeFileSync(path.join(root,'qa_report.json'),JSON.stringify({frame_count:24,unique_frames:24,all_rgba:true,binary_alpha:true,canvas:[384,384],registered_feet:true,gif_frames:gif.pages,gif_delay_ms:gif.delay,preview_javascript_parses:true,browser_visual_check:false,unity_editor_validated:false,records},null,2));
+  fs.writeFileSync(path.join(root,'qa_report.json'),JSON.stringify({frame_count:24,unique_frames:24,all_rgba:true,binary_alpha:true,canvas:[384,384],registered_feet:true,gif_frames:gif.pages,gif_delay_ms:gif.delay,browser_visual_check:false,unity_editor_validated:false,records},null,2));
   console.log(JSON.stringify({frames:24,duration_ms:manifest.duration_ms,preview:path.join(preview,'transformacao_24frames.gif')}));
 }
 main().catch(e=>{console.error(e);process.exitCode=1});

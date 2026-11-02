@@ -1,0 +1,11 @@
+# Redundant project, delivery copies and archived cards removed in November 2026.
+/unity/
+/Unity/
+/Entregas/
+/Backup/Cartas/
+
+# Browser previews stay local; the production WebGL template remains versioned.
+*.html
+*.htm
+!/Crocodilo Invaders/Assets/WebGLTemplates/**/*.html
+!/Crocodilo Invaders/Assets/WebGLTemplates/**/*.htm

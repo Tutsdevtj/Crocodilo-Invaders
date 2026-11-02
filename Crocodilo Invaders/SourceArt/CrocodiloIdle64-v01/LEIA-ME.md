@@ -30,7 +30,7 @@ As partes foram copiadas por coordenadas inteiras no Aseprite. As máscaras incl
 
 Os quatro frames foram inspecionados visualmente em tamanho nativo e ampliado; cabeça, ombros, pescoço, ligações das mangas e transições foram comparados. A preservação técnica não substitui a avaliação do ritmo e da naturalidade.
 
-**Limitação da revisão:** a tentativa de reprodução no navegador falhou porque o navegador disponível não conseguiu alcançar a prévia local. A reprodução contínua, sua naturalidade e a revisão de dez ciclos permanecem pendentes. Não foi declarada fluidez garantida. O GIF e `preview.html` permitem essa revisão pelo usuário; a página oferece reprodução normal, lenta e avanço por frame.
+**Limitação da revisão:** a tentativa de reprodução no navegador falhou porque o navegador disponível não conseguiu alcançar a prévia local. A reprodução contínua, sua naturalidade e a revisão de dez ciclos permanecem pendentes. Não foi declarada fluidez garantida. O GIF permite essa revisão pelo usuário; a página HTML foi removida na limpeza de 02/11/2026.
 
 Não foi feita integração nem substituição de assets no jogo.
 
@@ -41,7 +41,7 @@ Não foi feita integração nem substituição de assets no jogo.
 - `crocodilo-idle-timing.json`: ordem, coordenadas, fases e durações.
 - `crocodilo-idle-preview-x8.gif`: prévia animada com fundo claro.
 - `crocodilo-idle-64.aseprite`: fonte editável.
-- `preview.html`: visualizador local; abrir junto à pasta `frames`.
+- Visualizador HTML removido na limpeza de 02/11/2026; GIF e quadros preservados.
 - `validation.json`: relatório técnico detalhado.
 - `working/editable-mask.png`, `working/head-mask.png`: máscaras de edição e identidade da cabeça.
 - `working/patches.json`: diferenças concretas de cada frame contra F0, com coordenadas e RGBA anterior/novo.

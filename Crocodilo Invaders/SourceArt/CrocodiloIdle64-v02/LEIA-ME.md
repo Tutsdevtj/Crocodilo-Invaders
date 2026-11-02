@@ -52,6 +52,6 @@ Validação automatizada em `validation.json`:
 - `crocodilo-idle-revisado-x8.gif`: prévia revisada em 512×512.
 - `crocodilo-idle-comparacao.gif`: anterior à esquerda, revisado à direita, 816×384, escala inteira 6×.
 - `crocodilo-idle-revisado-64.aseprite`: quatro frames editáveis, tag `Idle` e referência neutra oculta.
-- `preview.html` e `before/`: comparação local com reprodução, velocidade e avanço por frame. A imagem GIF de comparação é independente dos controles dos PNGs.
+- `before/` e o GIF preservam a comparação. O visualizador HTML foi removido na limpeza de 02/11/2026.
 - `validation.json`: relatório técnico e de revisão.
 - `working/`: máscaras usadas e diferenças RGBA contra os frames anteriores.
