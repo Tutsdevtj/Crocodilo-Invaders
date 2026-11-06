@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "mode": "built-in image_gen edit + native-grid finishing",
+  "canvas": [
+    160,
+    120
+  ],
+  "ppu": 100,
+  "pivot": [
+    0.45,
+    0.3333333333333333
+  ],
+  "frames": [
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_0.png",
+      "originalSha256": "711c22f5a8fca9105352a49594aa7eb08bcacfa3fbeb3e231a8a82058ea63c31",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_1.png",
+      "originalSha256": "ed857a5f91dfc92d1afc97286a1ba6a50c443631603ae6ffbfa85e3ddcf72bb9",
+      "sha256": "d4fabf49bc1017833fb1fcc3eafded378206ea80880511d99e8a9a67f7fd2246",
+      "offsetY": 0
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_2.png",
+      "originalSha256": "52a7795603a22c4c5dac0e6480e2cb943aa7e54a0c2ffafee5439a47066fd72c",
+      "sha256": "78a639d21645341c084fb537d4e54521c603e44c4ee03c3c62f095687a0889b2",
+      "offsetY": -1
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_3.png",
+      "originalSha256": "2c8a1f9477d1435e7cd186d61d8ca30fadab67393f0c129f836bbdc1b0e6d3db",
+      "sha256": "f72ff399c06b77e3498bd5ff2aa912e127539371dde942cc241466eaa028398e",
+      "offsetY": 0
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_0.png",
+      "originalSha256": "884bc5270fb7278554a9c9894c8c826aff076318fcfd6aa3d9673fb63800af2f",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_1.png",
+      "originalSha256": "1be7caf32ad2a605148eb85e76ec743d784da9fad06c7a0333423b6c3edd4170",
+      "sha256": "4619a16d2117b43d9c180965133f550fe5808f2c8881a8918374b82f9efc2b4f",
+      "offsetY": 0
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_2.png",
+      "originalSha256": "c955b068fc78f9f2d46ff495e37fd0424f89014e48543a6c9649ae5391f25e0e",
+      "sha256": "161a873c54b59f110402b3f506bfc58318803222ad969aa6f2d80efa23544586",
+      "offsetY": 0
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_3.png",
+      "originalSha256": "4c4447f3f75b16c3da9123fab288675f30ff64cf66d6bce5ecb8c7d02aea9589",
+      "sha256": "08b01595c0e50b563a5ce4fcb589e8ffb26ba280d7c66204ccc1e9b263f9b685",
+      "offsetY": -1
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_4.png",
+      "originalSha256": "aa1d9ab04ec1847a9169966efd0795aae5428e0d911f62b61f61aba0cee46abd",
+      "sha256": "78a639d21645341c084fb537d4e54521c603e44c4ee03c3c62f095687a0889b2",
+      "offsetY": -1
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_5.png",
+      "originalSha256": "a653a731d2a097c521b7bbbd480bb0ca3f71fef55acc24008c4c555bf56ab52b",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_0.png",
+      "originalSha256": "2ca96157e5c32458ef80f5276b960736150b94bb57eab5cd251808646ca6a8a0",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_1.png",
+      "originalSha256": "e5a0c986797a2702856b3c8fb2f628060015f416c50a4972ae4b4842795cd877",
+      "sha256": "40ef1333cff3ecfee8c7d4cccb8983e66f6e7273df3651c559ee79775d397cb6",
+      "offsetY": 0
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_2.png",
+      "originalSha256": "578018ef372bc74be9278b328aa3a24a38968cbf2dc4774e45011ad6e6038ceb",
+      "sha256": "b1164c60f452f56608c92b1c249fa2379762e832a0338544d404fdd6ac24819a",
+      "offsetY": 0
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_3.png",
+      "originalSha256": "88b0d36f484032799196e8090a3767f7ed735f0389bbe2b5e4a00909325d201b",
+      "sha256": "d66bacd701499c70e1d1a7536aec0bea47658ae559fa6a06115863cc56badc21",
+      "offsetY": -1
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_4.png",
+      "originalSha256": "cf8176aede99eba1abf0885f65b8d401afd501cdb9e2bc6a0c9f48815bbacc4c",
+      "sha256": "5d2a4d0115c7abbd040a31cc009aa05bf06397143ec72914a5af6e958c05f605",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_0.png",
+      "originalSha256": "8880ee5cff1bfd8953aeab2cff1c2f793cf740e87c6d6b5abb2e526956939788",
+      "sha256": "12345e0689fd62019401270471c311d8ed7ed32cd27b54a298ed0a1eec5af712",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_1.png",
+      "originalSha256": "7208fdb1a28028edbc91bc352f02df87b2505534e764b0ae3c15be53fdd30081",
+      "sha256": "bfb743b0eea368497a87f608e7bcd0fd5ba6b74cc360a391aeb0c52e81fa911c",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_2.png",
+      "originalSha256": "070b31a695087069a4c9ab0e06fd58d89f367c73855a37a19dfe2cc7970789b4",
+      "sha256": "28110e2dccc6895b49e97436703e0a3b4eed6b6cb8f71b14f4036ed6a85421e2",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_3.png",
+      "originalSha256": "a3f7f121bea64525134c3763739658ffedb3a97fa415d680603bb0ceb793007b",
+      "sha256": "532b9d4d1459e4db742951b45b1f2c5ae898e1307d1e89759875000b451fc094",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_4.png",
+      "originalSha256": "28a07c4123dce96466b6f8226a2b09a0330881fc682bdd43e0fa8b61456d462a",
+      "sha256": "8efe6b0cab018648a8da480ec307cfae173e7eef271634cd458ac098ac9b4f21",
+      "offsetY": -1
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_5.png",
+      "originalSha256": "500d67a57906ec79a4979d1ef7f581b3f53a4e49451d6a5c7bde01bb8630742b",
+      "sha256": "daf013ab99a97cf4769fc1b8b28f750e342c7fe637a1923eac57b079c15870aa",
+      "offsetY": 0
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_6.png",
+      "originalSha256": "96f21066ec2c797640f5600fa7e3be70b95a1447b60e34dd02e2838d65f07880",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_0.png",
+      "originalSha256": "e0659e83c2e1d6a47e91e10376368e4314f25fa3cba68db1998c4269b6279186",
+      "sha256": "b0bd07033513270eb1906c766fd8482fcbb7d184c04ef297027a9c4d62fb80e1",
+      "offsetY": 0
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_1.png",
+      "originalSha256": "f44636abf32a5dad0e5db582566543ab7cfe42913a94d88ea7d39324d19afadb",
+      "sha256": "ee4095fad4b06c79a2ff5bf9996881166131b6d76149768d50bc9f0e4295e80f",
+      "offsetY": -1
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_2.png",
+      "originalSha256": "cb13cd37352cb7e5e95e2447f31016ac7345ba5aa0ad1bd55a75455c3eaf879f",
+      "sha256": "94ea5bb2d63c586b35ebf38ce3919d69d0bae91782adffb890bf1d1861fea4b0",
+      "offsetY": 1
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_3.png",
+      "originalSha256": "c2d0023412247fcdc8da1a9783a33db5108c6679f47e6615128a8c47a5979901",
+      "sha256": "c77cf35a0fb61bf6f3bce2f0139b8446aca231b84dbe1b53f74123b9aa76f42b",
+      "offsetY": 0
+    }
+  ]
+}

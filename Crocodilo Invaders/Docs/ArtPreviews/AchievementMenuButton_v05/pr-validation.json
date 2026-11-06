@@ -1,0 +1,13 @@
+{
+  "baseRepository": "Tutsdevtj/Crocodilo-Invaders",
+  "baseCommit": "4299e4caca88fa43984b0c1ebd05e3874acdd5cc",
+  "unity": "6000.6.4f1",
+  "achievementDataChecks": 30,
+  "achievementPlayModeChecks": 66,
+  "menuAndDevPlayModeChecks": 20,
+  "errorsDuringSuites": 0,
+  "assetGuids": 2717,
+  "originalWorkspaceFilesPreservedBySha256": 925,
+  "editorStartupDiagnostic": "UnityEditor.Search.SearchDatabase throws ArgumentOutOfRangeException during startup in the fresh worktree. Tests were run after startup completed, using a temporary local harness that is not included in the PR.",
+  "buildNote": "The Windows v05 build was validated before preparing this PR. The rebased PR branch was compiled and exercised in Unity Play Mode; a new Windows build of the rebased branch was not generated."
+}

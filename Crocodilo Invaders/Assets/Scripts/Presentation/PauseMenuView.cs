@@ -38,6 +38,8 @@ public sealed class PauseMenuView : MonoBehaviour
     private void OnPauseChanged(bool paused)
     {
         if (animationRoutine != null) StopCoroutine(animationRoutine);
+        if (!paused && ShowingOptions && AchievementRuntime.Instance != null && AchievementRuntime.Instance.View.IsVisible)
+        { AchievementRuntime.Instance.View.HideImmediately(); RestoreMain(); }
         if (!paused && options != null) { options.HideImmediately(); RestoreMain(); }
         if (paused)
         {
@@ -65,8 +67,19 @@ public sealed class PauseMenuView : MonoBehaviour
 
     public void ShowMain()
     {
+        if (ShowingOptions && AchievementRuntime.Instance != null && AchievementRuntime.Instance.View.IsVisible)
+        { AchievementRuntime.Instance.View.Close(); return; }
         if (ShowingOptions && options != null && options.IsVisible) { options.Close(); return; }
         RestoreMain();
+    }
+
+    public void ShowAchievements()
+    {
+        var runtime = AchievementRuntime.Instance;
+        if (!pause.IsPaused || ShowingOptions || runtime == null) return;
+        ShowingOptions = true;
+        mainPage.SetActive(false); panel.gameObject.SetActive(false); logo.gameObject.SetActive(false);
+        runtime.View.Open(RestoreMain);
     }
 
     private void RestoreMain()
@@ -80,6 +93,7 @@ public sealed class PauseMenuView : MonoBehaviour
 
     public void HideForSceneChange()
     {
+        if (ShowingOptions && AchievementRuntime.Instance != null) AchievementRuntime.Instance.View.HideImmediately();
         if (animationRoutine != null) StopCoroutine(animationRoutine);
         group.interactable = false;
         animationRoutine = StartCoroutine(Animate(false));
@@ -126,6 +140,7 @@ public sealed class PauseMenuView : MonoBehaviour
 
     private void OnDisable()
     {
+        if (ShowingOptions && AchievementRuntime.Instance != null) AchievementRuntime.Instance.View.HideImmediately();
         pause.PauseChanged -= OnPauseChanged;
         if (animationRoutine != null) StopCoroutine(animationRoutine);
         animationRoutine = null;

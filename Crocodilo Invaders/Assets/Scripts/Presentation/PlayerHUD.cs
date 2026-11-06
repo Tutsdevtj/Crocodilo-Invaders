@@ -7,12 +7,23 @@ public sealed class PlayerHUD : MonoBehaviour
 
     private Health health;
     private PlayerCombat combat;
+    private RunUpgradeView upgradeView;
 
     // Sincroniza também depois dos Awakes dos componentes de gameplay.
-    private void Start() => ResetDisplay();
+    private void Start()
+    {
+        ResetDisplay();
+        var prefab = Resources.Load<RunUpgradeView>("RunUpgrades/RunUpgrades");
+        if (prefab != null && player != null)
+        {
+            upgradeView = Instantiate(prefab);
+            upgradeView.Bind(player.GetComponent<PlayerRunUpgrades>());
+        }
+    }
 
-    private void OnEnable() => Bind(player);
-    private void OnDisable() => Unsubscribe();
+    private void OnEnable() { Bind(player); if (upgradeView != null) upgradeView.gameObject.SetActive(true); }
+    private void OnDisable() { Unsubscribe(); if (upgradeView != null) upgradeView.gameObject.SetActive(false); }
+    private void OnDestroy() { if (upgradeView != null) Destroy(upgradeView.gameObject); }
 
     public void Bind(Player target)
     {
@@ -21,6 +32,7 @@ public sealed class PlayerHUD : MonoBehaviour
         // Componentes podem existir antes de o Awake da fachada Player executar.
         health = player != null ? player.GetComponent<Health>() : null;
         combat = player != null ? player.GetComponent<PlayerCombat>() : null;
+        if (upgradeView != null) upgradeView.Bind(player != null ? player.GetComponent<PlayerRunUpgrades>() : null);
 
         if (isActiveAndEnabled)
         {

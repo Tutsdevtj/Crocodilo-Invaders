@@ -117,6 +117,8 @@ public static class CrocodiloLeaderboardSetup
             Ref(controller, "leaderboardPrefab", leaderboard);
             Ref(controller, "playButton", play);
             Ref(controller, "leaderboardButton", button);
+            if(menu.transform.Find("AchievementsButton")!=null && AssetDatabase.LoadAssetAtPath<Sprite>(AchievementMenuButtonTools.Artwork)!=null)
+                AchievementMenuButtonTools.ApplyToMenu(menu);
             PrefabUtility.SaveAsPrefabAsset(menu, MenuPrefab);
         }
         finally { PrefabUtility.UnloadPrefabContents(menu); }
