@@ -1,0 +1,44 @@
+{
+  "mode": "built-in image_gen",
+  "canvas": [
+    64,
+    64
+  ],
+  "icons": [
+    {
+      "id": "first_wave",
+      "prompt": "Use case: stylized-concept. Asset type: one square achievement icon for the existing pixel-art game Crocodilo Invaders. The attached image is STYLE AND CHARACTER reference, never a photo. Create a single cohesive 64x64 logical-pixel icon, displayed as a clean integer enlargement. Real chunky pixel art, crisp square pixels, one-pixel near-black outlines, 3-tone shading, limited 24-color palette. Large simple readable subject fills 80% of square. Solid very dark navy #101b26 background, with only a restrained 1-pixel dark steel edge. No typography, letters, numerals, words, UI, banner, watermarks or extra icons. Military cartoon arcade style of reference, muted olive, ivory, steel with one vivid accent. Must read clearly when reduced to 40px. No shoe, no clog, no Crocs, no goggles added to Croc, no smooth illustration or 3D. Achievement Primeiro Expediente: a compact gold military pilot badge with a single strong chevron and stylized silver aircraft wings. One central ivory star signifies the first victory. Clear heraldic silhouette, olive and brass military palette.",
+      "refs": [
+        "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png"
+      ]
+    },
+    {
+      "id": "sport_mode",
+      "prompt": "Use case: stylized-concept. Asset type: one square achievement icon for the existing pixel-art game Crocodilo Invaders. The attached image is STYLE AND CHARACTER reference, never a photo. Create a single cohesive 64x64 logical-pixel icon, displayed as a clean integer enlargement. Real chunky pixel art, crisp square pixels, one-pixel near-black outlines, 3-tone shading, limited 24-color palette. Large simple readable subject fills 80% of square. Solid very dark navy #101b26 background, with only a restrained 1-pixel dark steel edge. No typography, letters, numerals, words, UI, banner, watermarks or extra icons. Military cartoon arcade style of reference, muted olive, ivory, steel with one vivid accent. Must read clearly when reduced to 40px. No shoe, no clog, no Crocs, no goggles added to Croc, no smooth illustration or 3D. Achievement Modo Esportivo: the ORIGINAL gray-and-olive military AIRPLANE from reference, tiny Croc helmet silhouette visible, banking diagonally away from one bright red bullet, with two cyan speed afterimages. Depict successful evasion, dynamic but legible. The vehicle is a conventional airplane with tail and wings, NEVER a shoe.",
+      "refs": [
+        "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png"
+      ]
+    },
+    {
+      "id": "boss_special",
+      "prompt": "Use case: stylized-concept. Asset type: one square achievement icon for the existing pixel-art game Crocodilo Invaders. The attached image is STYLE AND CHARACTER reference, never a photo. Create a single cohesive 64x64 logical-pixel icon, displayed as a clean integer enlargement. Real chunky pixel art, crisp square pixels, one-pixel near-black outlines, 3-tone shading, limited 24-color palette. Large simple readable subject fills 80% of square. Solid very dark navy #101b26 background, with only a restrained 1-pixel dark steel edge. No typography, letters, numerals, words, UI, banner, watermarks or extra icons. Military cartoon arcade style of reference, muted olive, ivory, steel with one vivid accent. Must read clearly when reduced to 40px. No shoe, no clog, no Crocs, no goggles added to Croc, no smooth illustration or 3D. Achievement Bafo de Respeito: a powerful cyan-white plasma projectile with a small concentrated white core and electric blue flame tail striking a red bullseye target. Strong diagonal action, blue energy is the main subject. A couple ivory impact pixels only.",
+      "refs": [
+        "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png"
+      ]
+    },
+    {
+      "id": "clean_wave",
+      "prompt": "Use case: stylized-concept. Asset type: one square achievement icon for the existing pixel-art game Crocodilo Invaders. The attached image is STYLE AND CHARACTER reference, never a photo. Create a single cohesive 64x64 logical-pixel icon, displayed as a clean integer enlargement. Real chunky pixel art, crisp square pixels, one-pixel near-black outlines, 3-tone shading, limited 24-color palette. Large simple readable subject fills 80% of square. Solid very dark navy #101b26 background, with only a restrained 1-pixel dark steel edge. No typography, letters, numerals, words, UI, banner, watermarks or extra icons. Military cartoon arcade style of reference, muted olive, ivory, steel with one vivid accent. Must read clearly when reduced to 40px. No shoe, no clog, no Crocs, no goggles added to Croc, no smooth illustration or 3D. Achievement Casco Intacto: a sturdy intact olive-green military shield with a small silver airplane emblem in its center, one crisp ivory sparkle on the upper edge, subtle cyan protective rim. Communicate undamaged armor, no cracks or hearts.",
+      "refs": [
+        "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png"
+      ]
+    },
+    {
+      "id": "all_card_kinds",
+      "prompt": "Use case: stylized-concept. Asset type: one square achievement icon for the existing pixel-art game Crocodilo Invaders. The attached image is STYLE AND CHARACTER reference, never a photo. Create a single cohesive 64x64 logical-pixel icon, displayed as a clean integer enlargement. Real chunky pixel art, crisp square pixels, one-pixel near-black outlines, 3-tone shading, limited 24-color palette. Large simple readable subject fills 80% of square. Solid very dark navy #101b26 background, with only a restrained 1-pixel dark steel edge. No typography, letters, numerals, words, UI, banner, watermarks or extra icons. Military cartoon arcade style of reference, muted olive, ivory, steel with one vivid accent. Must read clearly when reduced to 40px. No shoe, no clog, no Crocs, no goggles added to Croc, no smooth illustration or 3D. Achievement Carteira Assinada: a fan of exactly FIVE overlapping small military upgrade cards, with steel borders and colored upper accents olive, cyan, violet, gold, crimson. Each card has a different simple pictogram, not writing: bullet, lightning, shield, wing, plasma star. Bold five-card silhouette, no character.",
+      "refs": [
+        "C:/Projetos/Crocodilo-Invaders/Crocodilo Invaders/Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png"
+      ]
+    }
+  ]
+}
