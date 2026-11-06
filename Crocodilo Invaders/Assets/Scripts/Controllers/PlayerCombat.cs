@@ -41,6 +41,7 @@ public sealed class PlayerCombat : MonoBehaviour
     public event Action SpecialStarted;
     public event Action ShotFired;
     public event Action SpecialFired;
+    public event Action<Projectile> SpecialProjectileCreated;
     public event Action<int, int> ChargeChanged;
 
     private void Awake()
@@ -99,6 +100,7 @@ public sealed class PlayerCombat : MonoBehaviour
         if (!isActiveAndEnabled || health.IsDead) return;
         activeSpecialShot = Instantiate(specialProjectile, specialOrigin.position, specialOrigin.rotation);
         activeSpecialShot.Launch(specialOrigin.right, ownerCollider, damageMultiplier: specialDamageMultiplier);
+        SpecialProjectileCreated?.Invoke(activeSpecialShot);
         SetCharge(0);
         SpecialFired?.Invoke();
     }

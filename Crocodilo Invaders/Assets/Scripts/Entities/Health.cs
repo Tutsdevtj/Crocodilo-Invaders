@@ -27,6 +27,7 @@ public sealed class Health : MonoBehaviour
     private void OnDisable() { invulnerable = false; protectionOwners.Clear(); }
     public event Action<int, int> HealthChanged;
     public event Action Damaged;
+    public event Action DamagePrevented;
     public event Action Healed;
     public event Action Died;
     // Uma entidade multifase pode consumir o esgotamento antes da morte definitiva.
@@ -44,7 +45,8 @@ public sealed class Health : MonoBehaviour
 
     public bool TakeDamage(float amount)
     {
-        if (!isActiveAndEnabled || IsDead || IsInvulnerable || amount <= 0f || float.IsNaN(amount)) return false;
+        if (!isActiveAndEnabled || IsDead || amount <= 0f || float.IsNaN(amount)) return false;
+        if (IsInvulnerable) { DamagePrevented?.Invoke(); return false; }
 
         remainingHealth -= Mathf.Min(amount * Mathf.Max(0f, IncomingDamageMultiplier), remainingHealth);
         if (remainingHealth < .0001f) remainingHealth = 0f;

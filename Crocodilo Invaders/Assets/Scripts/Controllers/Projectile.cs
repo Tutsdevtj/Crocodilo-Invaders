@@ -9,6 +9,7 @@ public sealed class Projectile : MonoBehaviour
     [SerializeField, Min(1)] private int damage = 1;
     [SerializeField] private LayerMask targetLayers = 1 << 9;
     public event Action<Vector2> Hit;
+    public event Action<Health> DamagedTarget;
 
     private Rigidbody2D body;
     private bool spent;
@@ -48,7 +49,7 @@ public sealed class Projectile : MonoBehaviour
 
         spent = true;
         GetComponent<Collider2D>().enabled = false;
-        if (damaged) Hit?.Invoke(hitPosition);
+        if (damaged) { Hit?.Invoke(hitPosition); DamagedTarget?.Invoke(target); }
         Destroy(gameObject);
     }
 }
