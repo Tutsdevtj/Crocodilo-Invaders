@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerCrocs
+  m_Controller: {fileID: 9100000, guid: 6d9ed7b6d82860644838c9d54bf1532c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 716d11fa4af6f534bad161462a5eeb8a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 41eac51679c6f0549b3541f05e6ca199, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 05c17028d52272646ae4fbd7d95a6a30, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 98346025f58d772469c2e96d1f69bbdb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f1806cb0fcf51c640bb91507e3094cfe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5998445a0f98e4b4abe22be1e5374b40, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f1a02862b94dad843812318e8771fc10, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c8c96445e2208b8428138b0bd1fff2b1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0f98bbf0cfe38204583ff7a280a83c1d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eb8e17e2589df1e4699fd210f72d1870, type: 2}

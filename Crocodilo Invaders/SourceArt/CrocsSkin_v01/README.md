@@ -1,0 +1,15 @@
+# Crocs skin v01 — archived, not equipped
+
+Reference: `Assets/Art/Player/Bombardiro/Idle/bombardiro_idle_0.png`, enlarged by nearest neighbor to `Docs/ArtPreviews/CrocsSkin_v01/original-idle-x6.png`.
+
+Source: built-in `image_gen`, precise-object-edit mode. `generated-master.png` is the immutable generated source. `prepare_crocs_skin_v01.cjs` finishes only the new hull on the native grid, retains production pilot pixels and the original blink/hurt/recoil cels, and exports 26 sprites. The original airplane PNGs are never changed.
+
+Prompt used:
+
+> Use case: precise-object-edit. Edit target: attached exact production pixel art sprite from Crocodilo Invaders. Create the Crocs shoe spaceship skin of THIS EXACT SPRITE. Keep the entire original crocodile pilot above the hull IDENTICAL: same enormous head proportions, olive military helmet and headphones, amber eye, broad long snout with teeth, same face expression, side-facing RIGHT. No goggles. Only replace the small gray airplane below his head with a single Crocs-style olive/lime-green foam clog shoe as the vehicle. Heel at LEFT, wide rounded perforated toe at RIGHT, horizontal SIDE VIEW with just a little top surface showing. Croc sits inside heel opening under his neck. Clearly recognizable shoe silhouette: deep rounded toe, 5-7 dark ventilation holes across top/toe, thick ridged foam sole along bottom, distinctive curved heel strap with round button at left of cockpit. Shoe occupies SAME approximate area as original airplane body, no larger than the original aircraft. Remove airplane wings, tail fin and landing wheels. Retain a tiny inset metal gun port near original gun muzzle at right so it still shoots right. One discreet tiny rear engine at left heel, no large flames. Match EXACT original low-resolution game style: true 160x120 pixel logical canvas upscaled 6x to 960x720, big crisp square pixels 6px, dark near-black outline one logical pixel thick, flat limited palette olive/lime greens and ivory sole highlights, 3 shade ramps. Absolutely no smooth illustration, no painterly detail, no gradients, no glossy 3D. Preserve framing, transparent padding, original pilot position and scale, original facing right. The Crocs vehicle must be BELOW his face, NOT swallow or cover his snout. Single sprite on transparent background, no text or mockup.
+
+Regenerate native exports with `node Tools/Art/prepare_crocs_skin_v01.cjs`, then call `CrocsSkinTools.Install` in Unity. The installer creates/updates saved animation overrides without equipping them. `Crocodilo > Skins > Equip original airplane` restores the original appearance.
+
+Canvas 160×120; Point; full rect; uncompressed; no mipmaps; 100 PPU; pivot (0.45, 1/3). Base controller, animations, events, hitboxes, movement and combat code are preserved.
+
+Current status (05/11/2026): saved for future use at the user's request. The original airplane is equipped. No build scene or Resources asset may depend on this skin. The old Play Mode validator is preserved in ArchivedTools outside Assets. All 26 sprites, animation clips, controller, source art and export recipe remain stored.
