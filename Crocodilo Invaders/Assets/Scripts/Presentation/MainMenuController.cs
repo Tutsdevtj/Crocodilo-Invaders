@@ -17,6 +17,7 @@ public sealed class MainMenuController : MonoBehaviour
     [SerializeField] private LeaderboardView leaderboardPrefab;
     [SerializeField] private Button playButton;
     [SerializeField] private Button leaderboardButton;
+    [SerializeField] private Button achievementsButton;
     [SerializeField, Min(.01f)] private float exitDuration = .2f;
 
     private bool leaving;
@@ -25,26 +26,16 @@ public sealed class MainMenuController : MonoBehaviour
     private LeaderboardView leaderboard;
     private DeveloperMenuView developerMenu;
     private string selectedGameplayScene;
-    private GameObject jungleEntry;
 
     private void Awake()
     {
         DevelopmentCardSession.End();
         DevelopmentBossSession.End();
+        DevelopmentStageSession.End();
         LeaderboardSession.SaveCompletedRun();
         LeaderboardSession.Cancel();
         developerMenu = gameObject.AddComponent<DeveloperMenuView>();
         developerMenu.Initialize(this, playButton != null ? playButton.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null);
-        if (SceneUtility.GetBuildIndexByScenePath(LakeStageScene) >= 0)
-        {
-            jungleEntry = DevelopmentUI.Canvas("JungleMissionEntry");
-            jungleEntry.AddComponent<CanvasGroup>();
-            jungleEntry.GetComponent<Canvas>().sortingOrder = 40;
-            var button = DevelopmentUI.Button("JungleMission", jungleEntry.transform,
-                playButton != null ? playButton.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null,
-                "FASE 2 · LAGO DO PNEU", PlayLake, 44);
-            DevelopmentUI.Corner(button, Vector2.zero, new Vector2(24, 24), new Vector2(390, 44));
-        }
     }
 
     public bool TryOpenDeveloperMenu()
@@ -60,6 +51,7 @@ public sealed class MainMenuController : MonoBehaviour
     {
         if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(gameplayScene) < 0) return false;
         DevelopmentCardSession.Begin();
+        DevelopmentStageSession.End();
         LeaderboardSession.Cancel();
         GameplayLoadingController loading = Instantiate(loadingPrefab);
         if (!loading.Begin(gameplayScene))
@@ -81,11 +73,20 @@ public sealed class MainMenuController : MonoBehaviour
         leaderboard.Open(() => RestoreMenu(leaderboardButton));
     }
 
+    public void ShowAchievements()
+    {
+        var runtime = AchievementRuntime.Instance;
+        if (leaving || !menuGroup.interactable || runtime == null) return;
+        menuGroup.interactable = false;
+        runtime.View.Open(() => RestoreMenu(achievementsButton));
+    }
+
     public bool BeginDevelopmentBoss(int boss, int phase)
     {
         string scene = boss == 1 ? gameplayScene : boss == 2 ? JungleStageScene : LakeStageScene;
         if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
         DevelopmentCardSession.End();
+        DevelopmentStageSession.End();
         DevelopmentBossSession.Begin(boss == 3 ? 1 : phase);
         LeaderboardSession.Cancel();
         var loading = Instantiate(loadingPrefab);
@@ -102,9 +103,19 @@ public sealed class MainMenuController : MonoBehaviour
         const string scene = "Assets/Scenes/BaseImprovisada.unity";
         if (leaving || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
         DevelopmentCardSession.End(); DevelopmentBossSession.End(); LeaderboardSession.Cancel();
+        DevelopmentStageSession.End();
         leaving = true; menuGroup.interactable = false;
         SceneManager.LoadSceneAsync(scene);
         return true;
+    }
+
+    public bool BeginDevelopmentLake()
+    {
+        if(leaving || loadingPrefab==null || SceneUtility.GetBuildIndexByScenePath(LakeStageScene)<0)return false;
+        DevelopmentCardSession.End();DevelopmentBossSession.End();DevelopmentStageSession.Begin();LeaderboardSession.Cancel();
+        var loading=Instantiate(loadingPrefab);
+        if(!loading.Begin(LakeStageScene)){Destroy(loading.gameObject);DevelopmentStageSession.End();return false;}
+        leaving=true;menuGroup.interactable=false;return true;
     }
 
     private void RestoreMenu(Button selected)
@@ -129,23 +140,17 @@ public sealed class MainMenuController : MonoBehaviour
 
     private void Update()
     {
-        if (jungleEntry != null)
-        {
-            var group = jungleEntry.GetComponent<CanvasGroup>();
-            group.alpha = menuGroup.alpha;
-            group.interactable = group.blocksRaycasts = !leaving && menuGroup.interactable;
-        }
         if ((Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             && (Gamepad.current == null || !Gamepad.current.buttonEast.wasPressedThisFrame)) return;
         if (developerMenu != null && developerMenu.IsVisible) developerMenu.Back();
         else if (options != null && options.IsVisible) options.Close();
         else if (nameView != null && nameView.IsVisible) nameView.Close();
         else if (leaderboard != null && leaderboard.IsVisible) leaderboard.Close();
+        else if (AchievementRuntime.Instance != null && AchievementRuntime.Instance.View.IsVisible) AchievementRuntime.Instance.View.Close();
     }
 
     private void OnDestroy()
     {
-        if (jungleEntry != null) Destroy(jungleEntry);
         if (options != null) Destroy(options.gameObject);
         if (nameView != null) Destroy(nameView.gameObject);
         if (leaderboard != null) Destroy(leaderboard.gameObject);
@@ -158,8 +163,10 @@ public sealed class MainMenuController : MonoBehaviour
 
     public const string JungleStageScene = "Assets/Scenes/StageTwoJungle.unity";
     public const string LakeStageScene = "Assets/Scenes/StageTwoLake.unity";
+#if UNITY_EDITOR
+    // Existing campaign validation harnesses; no public shortcut in the built game.
     public void PlayLake() => PlayChapter(LakeStageScene);
-    public void PlayJungle() => PlayChapter(JungleStageScene);
+#endif
 
     private void PlayChapter(string scenePath)
     {
