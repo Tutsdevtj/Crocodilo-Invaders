@@ -56,7 +56,7 @@ public sealed class CardOptionView : MonoBehaviour, ISelectHandler, IDeselectHan
         else if (!show && rarityFeedback != null) rarityFeedback.Hide();
         FrontShowing = show;
         face.sprite = show ? front : back;
-        preview.gameObject.SetActive(show);
+        UpdatePreview();
         outline.enabled = show;
     }
     public void SetPose(float y, float scale, float angle, float alpha)
@@ -77,9 +77,11 @@ public sealed class CardOptionView : MonoBehaviour, ISelectHandler, IDeselectHan
     {
         button.interactable = value;
         if (!value) selected = pointed = false;
+        else selected = EventSystem.current != null && EventSystem.current.currentSelectedGameObject == button.gameObject;
     }
     private void LateUpdate()
     {
+        UpdatePreview();
         if (paused) return;
         revealFlash = Mathf.MoveTowards(revealFlash, 0f, Time.unscaledDeltaTime * 3.5f);
         focus = Mathf.MoveTowards(focus, (selected || pointed) && button.interactable ? 1f : 0f, Time.unscaledDeltaTime * 9f);
@@ -94,6 +96,7 @@ public sealed class CardOptionView : MonoBehaviour, ISelectHandler, IDeselectHan
         outline.effectColor = new Color(rarityColor.r, rarityColor.g, rarityColor.b,
             Mathf.Clamp01(.2f + focus * .55f + revealFlash * ((int)rarity + 1) * .09f));
     }
+    private void UpdatePreview() => preview.gameObject.SetActive(FrontShowing && button.interactable && (selected || pointed));
     public void OnSelect(BaseEventData data) => selected = true;
     public void OnDeselect(BaseEventData data) => selected = false;
     public void OnPointerEnter(PointerEventData data)

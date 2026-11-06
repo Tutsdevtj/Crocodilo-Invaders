@@ -153,8 +153,7 @@ public sealed class CardRewardView : MonoBehaviour
             navigation.selectOnDown = reroll.interactable ? reroll : null;
             option.Button.navigation = navigation;
         }
-        rerollLabel.text = unlimited ? "REROLL INFINITO  ·  DEV  [R]"
-            : remaining > 0 ? "REROLL GRATUITO  ·  1/1  [R]" : "REROLL USADO  ·  0/1";
+        rerollLabel.text = unlimited ? "TROCAR CARTAS (∞)" : $"TROCAR CARTAS ({remaining})";
         rerollLabel.color = available ? new Color(1f, .85f, .55f) : new Color(.6f, .6f, .65f);
         if (ready && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(options[1].Button.gameObject);
     }
@@ -164,7 +163,7 @@ public sealed class CardRewardView : MonoBehaviour
         SetPaused(false);
         backdrop.Capture();
         content.SetActive(true);
-        title.text = $"ONDA {wave} CONCLUÍDA";
+        title.text = "ESCOLHA UMA MELHORIA";
         Bind(offers, catalog, upgrades);
         for (int i = 0; i < options.Length; i++) options[i].SetPose(-620f, .86f, (i - 1) * 9f, 0f);
         SetInteraction(false, 1);
@@ -209,7 +208,7 @@ public sealed class CardRewardView : MonoBehaviour
             string name = card.kind == UpgradeKind.AttackDamage ? "Dano" : card.kind == UpgradeKind.AttackSpeed ? "Tiros/s"
                 : card.kind == UpgradeKind.MaximumHealth ? "HP máx." : card.kind == UpgradeKind.MoveSpeed ? "Velocidade" : "Especial";
             string format = card.kind == UpgradeKind.MaximumHealth ? "0" : "0.##";
-            string comparison = $"{name}: {upgrades.Value(card.kind).ToString(format)} → {upgrades.Value(card.kind, card.percent).ToString(format)}\nTotal: +{upgrades.Bonus(card.kind) + card.percent}%";
+            string comparison = $"{name}: {upgrades.Value(card.kind).ToString(format)} → {upgrades.Value(card.kind, card.percent).ToString(format)}";
             options[i].Bind(card, catalog.Artwork(card), comparison);
             var sound = options[i].GetComponentInChildren<CardRarityAudio>(true);
             if (sound != null) sound.ConfigureOverlap(highRarityCount, card.rarity);
@@ -281,7 +280,8 @@ public sealed class CardRewardView : MonoBehaviour
     }
     private void RefreshTotals(PlayerRunUpgrades upgrades)
     {
-        totals.text = $"DANO +{upgrades.Bonus(UpgradeKind.AttackDamage)}%     CADÊNCIA +{upgrades.Bonus(UpgradeKind.AttackSpeed)}%     HP +{upgrades.Bonus(UpgradeKind.MaximumHealth)}%     MOVIMENTO +{upgrades.Bonus(UpgradeKind.MoveSpeed)}%     ESPECIAL +{upgrades.Bonus(UpgradeKind.SpecialDamage)}%";
+        // Accumulated values live in the run summary, away from the card choice.
+        totals.gameObject.SetActive(false);
     }
     private void Play(AudioClip clip, float pitch) { if (clip == null) return; audioSource.pitch = pitch; audioSource.PlayOneShot(clip, .55f); }
     public void HideImmediately()
