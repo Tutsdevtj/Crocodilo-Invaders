@@ -22,7 +22,6 @@ public static class LakePresentationCleanupValidation
         yield return Frames(5);LeaderboardSession.Cancel();CampaignProgress.UseDirectory("Logs/LagoDoPneu/v32/TestSave-"+Guid.NewGuid().ToString("N"));
         var waves=Object.FindAnyObjectByType<WaveController>();var lake=Object.FindAnyObjectByType<LakeBackdrop>();var player=Object.FindAnyObjectByType<Player>();var runner=Object.FindAnyObjectByType<DialogueRunner>();
         player.GetComponent<PlayerInputReader>().enabled=false;player.Health.SetInvulnerable(true);
-        Check(Object.FindAnyObjectByType<LakeStoryController>()==null && Object.FindAnyObjectByType<LakeStoryWorld>()==null,"Rejected story components absent");
         foreach(string name in new[]{"SideChannel","TadpoleNursery","DryIntake","ChannelDebris","RestoredWater"})Check(GameObject.Find(name)==null,"No stationary landmark: "+name);
         Check(!runner.IsPlaying,"No water-story dialogue starts");
         if(!SessionState.GetBool(Key+".Boss",false))

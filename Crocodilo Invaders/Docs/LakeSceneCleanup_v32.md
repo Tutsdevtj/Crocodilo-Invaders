@@ -14,3 +14,7 @@ LakeStoryTools.RemoveFromScenes aplica a remoção com APIs nativas do Unity. A 
 Publicada na PR #26, sobre a base com conquistas, cartas limpas e status no Tab; a suíte acima foi repetida nessa base.
 
 Build Windows-LakeSceneCleanup-v32 concluída (212376878 bytes) na base anterior, inicialização por 8 s sem exceções detectadas.
+
+## Remoção definitiva — 09/11/2026
+
+Componentes, ferramentas, validador, retratos e diálogos de Água parada saíram de `Assets`. As fontes continuam em `SourceArt/LakeStory_v31`, o roteiro em `Docs/Story` e o código no histórico do Git.

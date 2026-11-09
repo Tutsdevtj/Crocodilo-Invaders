@@ -93,7 +93,6 @@ public sealed class LakeBossEntrance : MonoBehaviour
             if(flyField!=null)flyField.SetActive(true);
         }
         ReleasePlayer();SetStage(Stage.Finished);if(canvas!=null)canvas.gameObject.SetActive(false);
-        waves.GetComponent<LakeStoryController>()?.PlayBossIntro(boss);
     }
     public void Cancel(bool releaseAnnouncement=true)
     {
