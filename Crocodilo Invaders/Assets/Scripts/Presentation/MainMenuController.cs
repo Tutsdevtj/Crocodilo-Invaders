@@ -29,9 +29,7 @@ public sealed class MainMenuController : MonoBehaviour
 
     private void Awake()
     {
-        DevelopmentCardSession.End();
-        DevelopmentBossSession.End();
-        DevelopmentStageSession.End();
+        DevelopmentSessions.EndAll();
         LeaderboardSession.SaveCompletedRun();
         LeaderboardSession.Cancel();
         developerMenu = gameObject.AddComponent<DeveloperMenuView>();
@@ -50,8 +48,8 @@ public sealed class MainMenuController : MonoBehaviour
     public bool BeginDevelopmentCards()
     {
         if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(gameplayScene) < 0) return false;
+        DevelopmentSessions.EndAll();
         DevelopmentCardSession.Begin();
-        DevelopmentStageSession.End();
         LeaderboardSession.Cancel();
         GameplayLoadingController loading = Instantiate(loadingPrefab);
         if (!loading.Begin(gameplayScene))
@@ -85,8 +83,7 @@ public sealed class MainMenuController : MonoBehaviour
     {
         string scene = boss == 1 ? gameplayScene : boss == 2 ? JungleStageScene : LakeStageScene;
         if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
-        DevelopmentCardSession.End();
-        DevelopmentStageSession.End();
+        DevelopmentSessions.EndAll();
         DevelopmentBossSession.Begin(boss == 3 ? 1 : phase);
         LeaderboardSession.Cancel();
         var loading = Instantiate(loadingPrefab);
@@ -102,8 +99,8 @@ public sealed class MainMenuController : MonoBehaviour
     {
         const string scene = "Assets/Scenes/BaseImprovisada.unity";
         if (leaving || SceneUtility.GetBuildIndexByScenePath(scene) < 0) return false;
-        DevelopmentCardSession.End(); DevelopmentBossSession.End(); LeaderboardSession.Cancel();
-        DevelopmentStageSession.End();
+        DevelopmentSessions.EndAll();
+        LeaderboardSession.Cancel();
         leaving = true; menuGroup.interactable = false;
         SceneManager.LoadSceneAsync(scene);
         return true;
@@ -111,11 +108,17 @@ public sealed class MainMenuController : MonoBehaviour
 
     public bool BeginDevelopmentLake()
     {
-        if(leaving || loadingPrefab==null || SceneUtility.GetBuildIndexByScenePath(LakeStageScene)<0)return false;
-        DevelopmentCardSession.End();DevelopmentBossSession.End();DevelopmentStageSession.Begin();LeaderboardSession.Cancel();
-        var loading=Instantiate(loadingPrefab);
-        if(!loading.Begin(LakeStageScene)){Destroy(loading.gameObject);DevelopmentStageSession.End();return false;}
-        leaving=true;menuGroup.interactable=false;return true;
+        if (leaving || loadingPrefab == null || SceneUtility.GetBuildIndexByScenePath(LakeStageScene) < 0) return false;
+        DevelopmentSessions.EndAll();
+        DevelopmentStageSession.Begin();
+        LeaderboardSession.Cancel();
+        var loading = Instantiate(loadingPrefab);
+        if (!loading.Begin(LakeStageScene))
+        {
+            Destroy(loading.gameObject); DevelopmentStageSession.End(); return false;
+        }
+        leaving = true; menuGroup.interactable = false;
+        return true;
     }
 
     private void RestoreMenu(Button selected)

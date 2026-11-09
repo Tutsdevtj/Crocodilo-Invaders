@@ -34,7 +34,7 @@ public sealed class DeveloperMenuView : MonoBehaviour
         categories = Group("Categories", panel);
         firstCategory = DevelopmentUI.Button("Cards", categories.transform, font, "CARTAS  >", () => ShowPage(1));
         DevelopmentUI.Button("FinalBoss", categories.transform, font, "BOSS FINAL  >", () => ShowPage(2));
-        DevelopmentUI.Button("StageTwoLake", categories.transform, font, "FASE 2 · LAGO DO PNEU", () => { if(owner.BeginDevelopmentLake())window.SetActive(false); });
+        DevelopmentUI.Button("StageTwoLake", categories.transform, font, "FASE 2 · LAGO DO PNEU", () => { if (owner.BeginDevelopmentLake()) window.SetActive(false); });
         DevelopmentUI.Button("Base", categories.transform, font, "BASE", LaunchBase);
         cards = Group("CardsPage", panel);
         mode = DevelopmentUI.Button("OfferMode", cards.transform, font, "", CycleMode);

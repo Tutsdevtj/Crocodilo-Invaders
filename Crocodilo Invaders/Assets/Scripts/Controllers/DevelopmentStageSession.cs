@@ -5,6 +5,6 @@ public static class DevelopmentStageSession
 {
     public static bool IsActive { get; private set; }
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    public static void End() => IsActive=false;
-    public static void Begin() => IsActive=true;
+    public static void End() => IsActive = false;
+    public static void Begin() => IsActive = true;
 }

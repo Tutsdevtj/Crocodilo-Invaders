@@ -14,7 +14,6 @@ public sealed class CardRewardView : MonoBehaviour
     [SerializeField] private Button reroll;
     [SerializeField] private TMP_Text rerollLabel;
     [SerializeField] private TMP_Text title;
-    [SerializeField] private TMP_Text totals;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip revealSound;
     [SerializeField] private AudioClip chooseSound;
@@ -211,7 +210,6 @@ public sealed class CardRewardView : MonoBehaviour
             if (sound != null) sound.ConfigureOverlap(highRarityCount, card.rarity);
             options[i].SetPose(0f, 1f, 0f, 1f);
         }
-        RefreshTotals(upgrades);
     }
 
     private IEnumerator DealAndReveal(UpgradeCard[] offers, bool entering)
@@ -263,7 +261,6 @@ public sealed class CardRewardView : MonoBehaviour
         StopTreasure(false);
         Play(chooseSound, 1f + (int)options[index].Rarity * .025f);
         options[index].CelebrateChoice();
-        RefreshTotals(upgrades);
         float duration = .32f + (int)options[index].Rarity * .06f;
         for (float time = 0f; time < duration; time += Delta)
         {
@@ -274,11 +271,6 @@ public sealed class CardRewardView : MonoBehaviour
         }
         for (float time = 0f; time < .18f; time += Delta) { window.alpha = 1f - Mathf.Clamp01(time / .18f); yield return null; }
         HideImmediately();
-    }
-    private void RefreshTotals(PlayerRunUpgrades upgrades)
-    {
-        // Accumulated values live in the run summary, away from the card choice.
-        totals.gameObject.SetActive(false);
     }
     private void Play(AudioClip clip, float pitch) { if (clip == null) return; audioSource.pitch = pitch; audioSource.PlayOneShot(clip, .55f); }
     public void HideImmediately()
