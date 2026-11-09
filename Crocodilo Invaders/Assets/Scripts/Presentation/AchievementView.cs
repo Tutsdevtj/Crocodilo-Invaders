@@ -102,7 +102,7 @@ public sealed class AchievementView : MonoBehaviour
         }
     }
     Sprite Icon(AchievementDefinition d)
-    { for (int i = 0; i < AchievementCatalog.All.Count; i++) if (AchievementCatalog.All[i].Id == d.Id) return i < icons.Length ? icons[i] : null; return null; }
+    { foreach (var sprite in icons) if (sprite != null && sprite.name == d.Id) return sprite; return null; }
     void Enqueue(AchievementDefinition definition) { if (definition != null) pending.Enqueue(definition); }
     void Update()
     {

@@ -96,3 +96,5 @@ Commits novos com author e committer **Picolii / bernardo.p2106@gmail.com**. Ski
 - Falha de gravação mantém a conquista em memória e tenta salvar de novo na próxima alteração, na troca de cena e ao fechar o jogo.
 
 Validação: 36 verificações de dados + 66 de Play Mode, zero erros.
+
+O som de conquista termina em Ré (Sol, Si, Ré), um acorde maior. Os ícones são localizados pelo nome do arquivo, e reordenar o catálogo não troca as imagens.

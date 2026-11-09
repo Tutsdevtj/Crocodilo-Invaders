@@ -249,6 +249,13 @@ public static class AchievementTools
         var root=AssetDatabase.LoadAssetAtPath<GameObject>(Prefab);
         if(root==null||root.GetComponent<AchievementRuntime>()==null||root.GetComponent<AchievementView>()==null||root.GetComponent<AchievementTracker>()==null)throw new Exception("Missing achievement runtime");
         if(root.GetComponentsInChildren<AchievementRow>(true).Length!=4)throw new Exception("Expected four paginated rows");
+        var icons=new SerializedObject(root.GetComponent<AchievementView>()).FindProperty("icons");
+        foreach(var definition in AchievementCatalog.All)
+        {
+            bool found=false;
+            for(int i=0;i<icons.arraySize;i++)found|=icons.GetArrayElementAtIndex(i).objectReferenceValue?.name==definition.Id;
+            if(!found)throw new Exception("Missing icon named "+definition.Id);
+        }
         foreach(var component in root.GetComponentsInChildren<Component>(true))if(component==null)throw new Exception("Missing script");
         Debug.Log("ACHIEVEMENTS_INSTALL_OK: persistent UI, menu/pause buttons, audio and gameplay tracker.");
     }
