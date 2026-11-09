@@ -35,7 +35,7 @@ Adaptação em 800×600:
 ## Correções da revisão de código — 09/11/2026
 
 - O status não abre durante diálogos nem depois de pular a cena com Tab ainda pressionado: é preciso soltar a tecla.
-- Linhas do painel ganharam fundo próprio com alfa 0,46 para leitura sobre nuvens; o fundo geral segue em 0,18.
+- Painel refeito com cabeçalho, moldura no retrato e cartões por atributo. Fundo geral com alfa 0,6 e cartões com alfa 0,62, translúcidos e legíveis sobre o combate.
 - A comparação da carta usa os mesmos nomes e números do painel (`UpgradeText`).
 
 Validação: 88 verificações de Play Mode, zero erros.

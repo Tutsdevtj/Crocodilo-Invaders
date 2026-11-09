@@ -113,7 +113,7 @@ public static class CleanCardUpgradeValidation
         Check(EventSystem.current.currentSelectedGameObject==selected,"Tab does not steal UI focus");
         InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Tab));yield return Frames(2);
         Check(summary.GetComponentsInChildren<TMP_Text>().All(t=>!t.text.Contains("TAB")&&!t.text.Contains("VOLTAR")),"only status text, without input hints or modal controls");
-        var panel=summary.transform.Find("Content/Panel");Check(panel.GetComponent<UnityEngine.UI.Image>().color.a<=.2f,"panel background almost transparent");Check(panel.Find("Stats/Stat0").GetComponent<UnityEngine.UI.Image>().color.a>=.4f,"status rows have a readable backing");
+        var panel=summary.transform.Find("Content/Panel");Check(panel.GetComponent<UnityEngine.UI.Image>().color.a>=.5f&&panel.GetComponent<UnityEngine.UI.Image>().color.a<=.7f,"panel background stays translucent and readable");Check(panel.Find("Stats/Stat0").GetComponent<UnityEngine.UI.Image>().color.a>=.4f,"status rows have a readable backing");
         Check(panel.GetComponentsInChildren<UnityEngine.UI.Image>().Count(i=>i.name.StartsWith("Pip"))==100,"five segmented status bars");
         foreach(var size in new[]{new Vector2Int(1200,720),new Vector2Int(800,600),new Vector2Int(1920,1080)})
         {yield return Capture("tab-status-"+size.x+"x"+size.y+".png",size.x,size.y);CheckText(summary);}

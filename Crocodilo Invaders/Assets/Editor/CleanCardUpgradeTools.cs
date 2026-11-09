@@ -65,28 +65,33 @@ public static class CleanCardUpgradeTools
             var view=root.GetComponent<RunUpgradeView>();if(view==null)view=root.AddComponent<RunUpgradeView>();
             var chip=root.transform.Find("HudUpgrades");if(chip!=null)chip.gameObject.SetActive(false);
             var content=Rect("Content",root.transform);Stretch(content);var dim=content.GetComponent<UnityEngine.UI.Image>();if(dim!=null)dim.enabled=false;
-            var panel=Rect("Panel",content);Place(panel,new Vector2(900,380),Vector2.one*.5f,Vector2.zero);Image(panel,new Color(.025f,.055f,.07f,.18f));
-            var outline=panel.GetComponent<UnityEngine.UI.Outline>();if(outline==null)outline=panel.gameObject.AddComponent<UnityEngine.UI.Outline>();outline.effectColor=new Color(.8f,.77f,.51f,.23f);outline.effectDistance=Vector2.one;
+            var panel=Rect("Panel",content);Place(panel,new Vector2(900,430),Vector2.one*.5f,Vector2.zero);Image(panel,new Color(.025f,.055f,.07f,.6f));
+            Border(panel,new Vector2(900,430),new Color(.89f,.75f,.4f,.65f));
             foreach(string name in new[]{"Heading","Count","Close","History"}){var child=panel.Find(name);if(child!=null)child.gameObject.SetActive(false);}
-            var portrait=Rect("Portrait",panel);Place(portrait,new Vector2(210,210),new Vector2(0,.5f),new Vector2(24,22));
+            var portrait=Rect("Portrait",panel);var gold=new Color(.89f,.75f,.4f);
+            var frame=Rect("PortraitFrame",panel);Place(frame,new Vector2(206,206),new Vector2(0,1),new Vector2(28,-107));Image(frame,new Color(.1f,.16f,.19f,.7f));frame.SetAsFirstSibling();
+            Border(frame,new Vector2(206,206),new Color(.89f,.75f,.4f,.4f));
+            Text("StatusTitle",panel,"STATUS DA NAVE",16,gold,new Vector2(400,26),new Vector2(0,1),new Vector2(28,-18),true);
+            var rule=Rect("HeaderRule",panel);Place(rule,new Vector2(844,1),new Vector2(0,1),new Vector2(28,-52));Image(rule,new Color(.89f,.75f,.4f,.3f));
+            Place(portrait,new Vector2(190,190),new Vector2(0,1),new Vector2(36,-115));
             var image=Image(portrait,Color.white);image.sprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/Portraits/Crocodilo/crocodilo_05_determinado.png");image.preserveAspect=true;
             if(image.sprite==null)throw new Exception("Original Croc portrait required");
-            Text("Name",panel,"CROC",18,Ink,new Vector2(210,30),new Vector2(0,.5f),new Vector2(24,-108),true).alignment=TextAlignmentOptions.Center;
-            var count=Text("EquippedCount",panel,"",13,Muted,new Vector2(210,26),new Vector2(0,.5f),new Vector2(24,-140));count.alignment=TextAlignmentOptions.Center;
-            var divider=Rect("Divider",panel);Place(divider,new Vector2(1,280),new Vector2(0,.5f),new Vector2(250,0));Image(divider,new Color(.8f,.77f,.51f,.23f));
-            var stats=Rect("Stats",panel);Place(stats,new Vector2(600,326),new Vector2(0,.5f),new Vector2(274,0));
+            Text("Name",panel,"CROC",18,Ink,new Vector2(206,30),new Vector2(0,1),new Vector2(28,-325),true).alignment=TextAlignmentOptions.Center;
+            var count=Text("EquippedCount",panel,"",13,Muted,new Vector2(300,22),Vector2.one,new Vector2(-28,-20));count.alignment=TextAlignmentOptions.Right;
+            var divider=Rect("Divider",panel);Place(divider,new Vector2(1,342),new Vector2(0,1),new Vector2(253,-60));Image(divider,new Color(.8f,.77f,.51f,.23f));
+            var stats=Rect("Stats",panel);Place(stats,new Vector2(600,342),new Vector2(0,1),new Vector2(272,-60));
             foreach(string name in new[]{"AttributeHeading","ValuesHeading","BonusHeading"}){var child=stats.Find(name);if(child!=null)child.gameObject.SetActive(false);}
             var values=new TMP_Text[5];var segments=new UnityEngine.UI.Image[100];
             for(int row=0;row<5;row++)
             {
-                var r=Rect("Stat"+row,stats);Place(r,new Vector2(600,58),new Vector2(0,1),new Vector2(0,-row*66));Image(r,new Color(.025f,.055f,.07f,.46f));
-                Text("Name",r,UpgradeText.Name((UpgradeKind)row).ToUpperInvariant(),16,Ink,new Vector2(190,24),new Vector2(0,1),Vector2.zero);
-                values[row]=Text("Value",r,"",16,Ink,new Vector2(390,24),Vector2.one,Vector2.zero);values[row].alignment=TextAlignmentOptions.Right;
+                var r=Rect("Stat"+row,stats);Place(r,new Vector2(600,62),new Vector2(0,1),new Vector2(0,-row*70));Image(r,new Color(.05f,.09f,.11f,.62f));
+                Text("Name",r,UpgradeText.Name((UpgradeKind)row).ToUpperInvariant(),15,Ink,new Vector2(220,22),new Vector2(0,1),new Vector2(21,-9));
+                values[row]=Text("Value",r,"",15,Ink,new Vector2(340,22),Vector2.one,new Vector2(-21,-9));values[row].alignment=TextAlignmentOptions.Right;
                 var bonus=r.Find("Bonus");if(bonus!=null)bonus.gameObject.SetActive(false);
-                var bar=Rect("Bar",r);Place(bar,new Vector2(600,20),Vector2.zero,new Vector2(0,3));
+                var bar=Rect("Bar",r);Place(bar,new Vector2(557,14),Vector2.zero,new Vector2(21,11));
                 for(int i=0;i<20;i++)
                 {
-                    var pip=Rect("Pip"+i,bar);Place(pip,new Vector2(26,17),Vector2.zero,new Vector2(i*30,0));segments[row*20+i]=Image(pip,new Color(.68f,.75f,.7f,.14f));
+                    var pip=Rect("Pip"+i,bar);Place(pip,new Vector2(25,14),Vector2.zero,new Vector2(i*28,0));segments[row*20+i]=Image(pip,new Color(.68f,.75f,.7f,.14f));
                     var edge=pip.GetComponent<UnityEngine.UI.Outline>();if(edge==null)edge=pip.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new Color(.02f,.035f,.03f,.45f);edge.effectDistance=Vector2.one;
                 }
             }
@@ -94,6 +99,16 @@ public static class CleanCardUpgradeTools
             content.gameObject.SetActive(false);PrefabUtility.SaveAsPrefabAsset(root,Prefab);
         }
         finally{if(existing)PrefabUtility.UnloadPrefabContents(root);else Object.DestroyImmediate(root);}
+    }
+    // uGUI Outline redraws the whole graphic behind it and would tint a translucent panel.
+    static void Border(RectTransform target,Vector2 size,Color color)
+    {
+        var outline=target.GetComponent<UnityEngine.UI.Outline>();if(outline!=null)Object.DestroyImmediate(outline);
+        void Edge(string name,Vector2 edge,Vector2 anchor){var r=Rect(name,target);Place(r,edge,anchor,Vector2.zero);Image(r,color);}
+        Edge("EdgeTop",new Vector2(size.x,1),Vector2.up);
+        Edge("EdgeBottom",new Vector2(size.x,1),Vector2.zero);
+        Edge("EdgeLeft",new Vector2(1,size.y),Vector2.zero);
+        Edge("EdgeRight",new Vector2(1,size.y),Vector2.right);
     }
     static RectTransform Rect(string name,Transform parent){var found=parent.Find(name);if(found!=null){found.gameObject.SetActive(true);return (RectTransform)found;}var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(parent,false);return r;}
     static void Place(RectTransform r,Vector2 size,Vector2 anchor,Vector2 pos){r.anchorMin=r.anchorMax=r.pivot=anchor;r.sizeDelta=size;r.anchoredPosition=pos;r.localScale=Vector3.one;}
