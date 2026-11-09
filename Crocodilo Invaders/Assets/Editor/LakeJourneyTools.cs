@@ -8,7 +8,7 @@ using Object=UnityEngine.Object;
 
 public static class LakeJourneyTools
 {
-    private const string Root="Assets/Resources/LakeJourneyV22/";
+    private const string Root="Assets/Art/LakeRuntime/LakeJourneyV22/";
     private const string Prefabs="Assets/Prefabs/Enemies/LakeV22/";
     [MenuItem("Crocodilo/Lago do Pneu/Install full journey v22")]
     public static void Install()
@@ -73,10 +73,30 @@ public static class LakeJourneyTools
         JungleStageTools.Set(scenery,"art",art);
         JungleStageTools.Set(scenery,"bossHint",AssetDatabase.LoadAssetAtPath<GameObject>(LakeStageTools.BossPath).GetComponentInChildren<SpriteRenderer>().sprite);
         JungleStageTools.Set(scenery,"font",AssetDatabase.LoadAssetAtPath<TMPro.TMP_FontAsset>("Assets/Fonts/PressStart2P/PressStart2P SDF.asset"));
-        JungleStageTools.Set(scenery,"distantCroak",Resources.Load<AudioClip>("LakeEntranceV17/cururu-croak"));
+        JungleStageTools.Set(scenery,"distantCroak",UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Art/LakeRuntime/LakeEntranceV17/cururu-croak.wav"));
+        ConfigureWaves(waves,prefabs);
+        JungleStageTools.Set(waves.GetComponent<EnemySpawner>(),"enemyPrefab",prefabs[0]);
+        EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
+        if(!waves.ValidateWaves(out string error))throw new InvalidOperationException(error);
+        if(waves.CombatWaveCount!=9 || waves.WaveCount!=10)throw new InvalidOperationException("Lake journey must have nine waves and one boss");
+        LakeMosquitoRegistrationTools.Install();
+        Debug.Log("LAKE_JOURNEY_V22_INSTALLED: 4 enemies / 27 compositions / 9 waves / 1 boss / 16 animation frames / 4 props");
+    }
+    [MenuItem("Crocodilo/Lago do Pneu/Apply journey waves")]
+    public static void ApplyWaves()
+    {
+        var scene=EditorSceneManager.OpenScene(LakeStageTools.Stage);var waves=Object.FindAnyObjectByType<WaveController>();
+        var prefabs=new Enemy[4];
+        for(int i=0;i<4;i++)prefabs[i]=AssetDatabase.LoadAssetAtPath<GameObject>(Prefabs+((LakeJourneyEnemy.Species)i)+".prefab").GetComponent<Enemy>();
+        ConfigureWaves(waves,prefabs);EditorSceneManager.SaveScene(scene);
+        if(!waves.ValidateWaves(out string error))throw new InvalidOperationException(error);
+        Debug.Log("LAKE_JOURNEY_WAVES_APPLIED");
+    }
+    private static void ConfigureWaves(WaveController waves,Enemy[] prefabs)
+    {
         var data=new SerializedObject(waves);var pools=data.FindProperty("wavePools");pools.arraySize=9;
         // Each row introduces a threat before mixing it with the next. Three compositions per wave.
-        int[][] counts={new[]{6,0,0,0},new[]{6,2,0,0},new[]{6,4,0,0},new[]{6,2,2,0},new[]{6,2,4,0},new[]{6,4,4,0},new[]{6,4,2,2},new[]{6,4,4,2},new[]{6,4,4,4}};
+        int[][] counts={new[]{10,0,0,0},new[]{10,3,0,0},new[]{10,6,0,0},new[]{10,4,4,0},new[]{10,4,6,0},new[]{10,6,6,0},new[]{10,6,4,4},new[]{10,8,4,5},new[]{10,8,6,6}};
         for(int wave=0;wave<9;wave++)
         {
             var options=pools.GetArrayElementAtIndex(wave).FindPropertyRelative("options");options.arraySize=3;
@@ -90,17 +110,11 @@ public static class LakeJourneyTools
                     int index=groups.arraySize++;var group=groups.GetArrayElementAtIndex(index);int amount=Mathf.Min(2,remaining[kind]);remaining[kind]-=amount;
                     group.FindPropertyRelative("prefab").objectReferenceValue=prefabs[kind];group.FindPropertyRelative("count").intValue=amount;
                 }
-                config.FindPropertyRelative("spawnInterval").vector2Value=new Vector2(Mathf.Lerp(2.3f,1.55f,wave/8f),Mathf.Lerp(3.1f,2.25f,wave/8f));
-                config.FindPropertyRelative("maxAlive").intValue=wave<2?4:wave<4?5:wave<6?6:7;
+                config.FindPropertyRelative("spawnInterval").vector2Value=new Vector2(Mathf.Lerp(2f,1.2f,wave/8f),Mathf.Lerp(2.7f,1.8f,wave/8f));
+                config.FindPropertyRelative("maxAlive").intValue=wave<2?5:wave<4?6:wave<6?8:9;
             }
         }
         data.FindProperty("waveComposition").arraySize=0;data.ApplyModifiedPropertiesWithoutUndo();
-        JungleStageTools.Set(waves.GetComponent<EnemySpawner>(),"enemyPrefab",prefabs[0]);
-        EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
-        if(!waves.ValidateWaves(out string error))throw new InvalidOperationException(error);
-        if(waves.CombatWaveCount!=9 || waves.WaveCount!=10)throw new InvalidOperationException("Lake journey must have nine waves and one boss");
-        LakeMosquitoRegistrationTools.Install();
-        Debug.Log("LAKE_JOURNEY_V22_INSTALLED: 4 enemies / 27 compositions / 9 waves / 1 boss / 16 animation frames / 4 props");
     }
     private static Texture2D Import(string name,bool readable,float ppu=100)
     {

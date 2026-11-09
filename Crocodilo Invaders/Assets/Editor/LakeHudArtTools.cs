@@ -5,14 +5,14 @@ public static class LakeHudArtTools
 {
     public static void Import()
     {
-        ImportSprite("Assets/Resources/LakeHudV05/hud-frame.png");
+        ImportSprite("Assets/Art/LakeRuntime/LakeHudV05/hud-frame.png");
         Debug.Log("LAKE_HUD_V05_ART_IMPORTED");
     }
     public static void ImportExpressions()
     {
         Import();
-        ImportSprite("Assets/Resources/LakeExpressionsV06/sapo-closed.png");
-        ImportSprite("Assets/Resources/LakeExpressionsV06/hud-closed.png");
+        ImportSprite("Assets/Art/LakeRuntime/LakeExpressionsV06/sapo-closed.png");
+        ImportSprite("Assets/Art/LakeRuntime/LakeExpressionsV06/hud-closed.png");
         var root=PrefabUtility.LoadPrefabContents(LakeStageTools.BossPath);
         try
         {

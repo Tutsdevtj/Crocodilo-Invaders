@@ -6,7 +6,7 @@ public static class SapeneuBurpTools
     public static void Install()
     {
         AssetDatabase.Refresh();
-        string path="Assets/Resources/SapeneuBurpV13/burp.png";
+        string path="Assets/Art/LakeRuntime/SapeneuBurpV13/burp.png";
         var original=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/LakeStage/sapo-master.png");
         var importer=(TextureImporter)AssetImporter.GetAtPath(path);
         importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;

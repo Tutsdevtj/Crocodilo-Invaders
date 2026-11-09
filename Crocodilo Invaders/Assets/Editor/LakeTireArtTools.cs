@@ -8,7 +8,7 @@ public static class LakeTireArtTools
 {
     public static void Install()
     {
-        const string root="Assets/Resources/LakeTireV25/";AssetDatabase.Refresh();
+        const string root="Assets/Art/LakeRuntime/LakeTireV25/";AssetDatabase.Refresh();
         var importer=(TextureImporter)AssetImporter.GetAtPath(root+"tire.png");
         importer.textureType=TextureImporterType.Default;importer.filterMode=FilterMode.Point;importer.mipmapEnabled=false;
         importer.textureCompression=TextureImporterCompression.Uncompressed;importer.alphaIsTransparency=true;importer.isReadable=true;

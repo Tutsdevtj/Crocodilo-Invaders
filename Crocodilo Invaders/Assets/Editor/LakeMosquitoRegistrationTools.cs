@@ -6,8 +6,8 @@ public static class LakeMosquitoRegistrationTools
 {
     public static void Install()
     {
-        const string artPath="Assets/Resources/LakeJourneyV22/art.asset";
-        const string texturePath="Assets/Resources/LakeJourneyV22/enemies.png";
+        const string artPath="Assets/Art/LakeRuntime/LakeJourneyV22/art.asset";
+        const string texturePath="Assets/Art/LakeRuntime/LakeJourneyV22/enemies.png";
         var art=AssetDatabase.LoadAssetAtPath<LakeJourneyArt>(artPath);
         if(art==null || art.enemies.Length<4)throw new InvalidOperationException("Missing original mosquito frames");
         var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);bool wasReadable=importer.isReadable;
