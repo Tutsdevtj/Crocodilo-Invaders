@@ -9,3 +9,6 @@
 *.htm
 !/Crocodilo Invaders/Assets/WebGLTemplates/**/*.html
 !/Crocodilo Invaders/Assets/WebGLTemplates/**/*.htm
+
+# Art previews and capture videos are generated locally; they made up most of the repository size.
+/Crocodilo Invaders/Docs/ArtPreviews/
