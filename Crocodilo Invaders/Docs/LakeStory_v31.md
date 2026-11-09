@@ -1,5 +1,7 @@
 # Água parada — integração v31
 
+> **Arquivada em v32:** o usuário rejeitou o roteiro e os adereços fixos. As quatro cenas de diálogo e os objetos do canal/berçário foram retirados de StageTwoLake e SapoDoPneuTest. O texto abaixo registra somente a entrega histórica v31.
+
 A fase 2 usa a mesma caixa de diálogo, os controles e os sons de digitação do encontro Croc/Gusini. O elenco e as sequências do lago são próprios: o original do Gusini não foi alterado.
 
 ## Quatro cenas

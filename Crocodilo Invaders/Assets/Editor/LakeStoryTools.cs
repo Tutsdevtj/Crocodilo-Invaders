@@ -11,6 +11,20 @@ public static class LakeStoryTools
     const string Data="Assets/Data/Dialogue/LakeStoryV31/";
     [Serializable] class CastPayload { public DialogueCast.Speaker[] speakers; }
     [Serializable] class SequencePayload { public DialogueCast cast; public float openDelay=.25f,closeDelay=.2f;public DialogueSequence.Line[] lines; }
+    public static void RemoveFromScenes()
+    {
+        foreach(string path in new[]{LakeStageTools.Stage,LakeStageTools.Test})
+        {
+            var scene=EditorSceneManager.OpenScene(path);
+            var waves=Object.FindAnyObjectByType<WaveController>();
+            JungleStageTools.Set(waves,"lakeStory",null);
+            foreach(var story in Object.FindObjectsByType<LakeStoryController>(FindObjectsInactive.Include))Object.DestroyImmediate(story);
+            foreach(var world in Object.FindObjectsByType<LakeStoryWorld>(FindObjectsInactive.Include))Object.DestroyImmediate(world);
+            EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);
+        }
+        EditorSceneManager.OpenScene(LakeStageTools.Stage);
+        Debug.Log("LAKE_STORY_REMOVED_V32_OK: rejected dialogue and stationary landmarks removed from campaign and boss test; entrance and combat preserved.");
+    }
     public static void Install()
     {
         AssetDatabase.Refresh();
