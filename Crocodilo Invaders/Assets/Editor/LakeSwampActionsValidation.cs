@@ -32,7 +32,7 @@ public static class LakeSwampActionsValidation
             var node=Object.Instantiate(prefab,new Vector3(director.Arena.xMax+.5f,2,0),Quaternion.identity);
             actors[i]=node.GetComponent<LakeJourneyEnemy>();actors[i].SetTarget(player.Health);actors[i].Join(director,i);
         }
-        
+
         Check(Mathf.Abs(actors[2].Lily.Drawing.transform.position.y-(director.WaterY-.12f))<.02f,"Folha nasce na �gua j� no primeiro quadro, sem aparecer no centro");
         Check(actors[2].Lily.Drawing.enabled && actors[3].Lily.Drawing.enabled && !actors[2].Visual.enabled && !actors[3].Visual.enabled,"Folhas vazias anunciam criaturas antes delas aparecerem");
         int hp=actors[2].GetComponent<Health>().CurrentHealth;
