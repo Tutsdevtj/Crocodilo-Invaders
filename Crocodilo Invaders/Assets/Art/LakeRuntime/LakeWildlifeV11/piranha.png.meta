@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 13b31b1a3d868b743acf6b314648632f
+guid: 2242761e1f0111d45b3c3a6dc317ae2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6158802113039044628
-    second: props_0
+      213: 6554660598349768955
+    second: piranha_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -74,7 +74,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -87,14 +87,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 25
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -102,7 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: props_0
+      name: piranha_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4101e9d14e5787550800000000000000
-      internalID: 6158802113039044628
+      spriteID: bf823eb0615d6fa50800000000000000
+      internalID: 6554660598349768955
       vertices: []
       indices: 
       edges: []

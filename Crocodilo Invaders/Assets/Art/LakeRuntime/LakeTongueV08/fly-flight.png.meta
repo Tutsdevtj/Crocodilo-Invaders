@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 742976819cd2a3c46aeb40552c412d30
+guid: 2d78338df4cafc64a8c140906adebe11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6611614931019211797
-    second: sapo-mouth_0
+      213: -3539123984385248113
+    second: fly-flight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,8 +50,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 9
-  spritePivot: {x: 0.5, y: 0.38}
-  spritePixelsToUnits: 300
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,14 +87,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 25
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
@@ -102,7 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sapo-mouth_0
+      name: fly-flight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: beb5ee40043de34a0800000000000000
-      internalID: -6611614931019211797
+      spriteID: f84f6aebc7182eec0800000000000000
+      internalID: -3539123984385248113
       vertices: []
       indices: 
       edges: []

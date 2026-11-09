@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc354899b1aac4643a1616cd89d0e080
+guid: 3ecc745a1251fc54f82bd605da23fdda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3219591957878321895
-    second: saperereca_0
+      213: -4971997154997060440
+    second: fish-swim_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -85,30 +85,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: saperereca_0
+      name: fish-swim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
-        height: 1024
+        width: 1254
+        height: 1254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +104,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e2ba0bd3d94eac20800000000000000
-      internalID: 3219591957878321895
+      spriteID: 8acb5282eeaeffab0800000000000000
+      internalID: -4971997154997060440
       vertices: []
       indices: 
       edges: []
