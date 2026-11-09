@@ -87,3 +87,12 @@ Branch `codex/conquistas-crocs-menu` preparada sobre `Tutsdevtj/main` em `4299e4
 A Unity apresentou `ArgumentOutOfRangeException` no índice interno `UnityEditor.Search.SearchDatabase` durante o startup do Editor na cópia nova. As suítes foram iniciadas depois dessa etapa com um auxiliar temporário, removido do PR. O build Windows v05 descrito acima é anterior à preparação da branch; a branch atual foi compilada e exercitada no Editor, sem gerar outro executável Windows.
 
 Commits novos com author e committer **Picolii / bernardo.p2106@gmail.com**. Skin Crocs guardada sem uso; mudanças locais anteriores de Lago e Macaquini ficaram fora deste PR.
+
+## Correções da revisão de código — 09/11/2026
+
+- Macaquini e Sapeneu ficam com `released: false` no catálogo: as duas fases só abrem pelo DEV, que não grava conquistas. Saem da lista e do total, que passa a 8. Ao liberar uma fase ao público, basta retirar esse argumento.
+- Popup movido para o canto superior direito, sem cobrir a barra do boss.
+- Mudar a meta de uma conquista não invalida mais o save: desbloqueios continuam válidos e progresso acima da nova meta fica a um passo de desbloquear.
+- Falha de gravação mantém a conquista em memória e tenta salvar de novo na próxima alteração, na troca de cena e ao fechar o jogo.
+
+Validação: 36 verificações de dados + 66 de Play Mode, zero erros.

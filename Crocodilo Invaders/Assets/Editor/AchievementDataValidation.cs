@@ -38,7 +38,19 @@ public static class AchievementDataValidation
         Check(!futureStore.Set(AchievementCatalog.FirstWave,1,out _)&&File.ReadAllText(futureStore.FilePath)==future,"future version protected");
         var blocked=Path.Combine(directory,"blocked");File.WriteAllText(blocked,"file, not a directory");
         var failed=new AchievementStore(blocked);
-        Check(!failed.Set(AchievementCatalog.FirstWave,1,out _)&&!failed.Get(AchievementCatalog.FirstWave).Unlocked,"disk failure rolls back unlock");
+        Check(failed.Set(AchievementCatalog.FirstWave,1,out unlocked)&&unlocked&&failed.HasUnsavedChanges&&failed.Error!=null,"disk failure keeps the award pending");
+        failed.RetrySave();Check(failed.HasUnsavedChanges,"retry while the disk still fails stays pending");
+        File.Delete(blocked);failed.RetrySave();
+        Check(!failed.HasUnsavedChanges&&new AchievementStore(blocked).Get(AchievementCatalog.FirstWave).Unlocked,"retry persists the pending award");
+        var tunedDir=Path.Combine(directory,"tuned");Directory.CreateDirectory(tunedDir);
+        File.WriteAllText(Path.Combine(tunedDir,"achievements.json"),"{\"version\":1,\"entries\":[{\"id\":\"sport_mode\",\"progress\":7,\"mask\":0,\"unlockedUtc\":100},{\"id\":\"first_wave\",\"progress\":1,\"mask\":0,\"unlockedUtc\":200}]}");
+        var tuned=new AchievementStore(tunedDir);
+        Check(tuned.Get(AchievementCatalog.Dodge).Unlocked&&tuned.Get(AchievementCatalog.Dodge).progress==10&&tuned.Get(AchievementCatalog.FirstWave).Unlocked,"changed goal keeps unlocks and the rest of the save");
+        File.WriteAllText(Path.Combine(tunedDir,"achievements.json"),"{\"version\":1,\"entries\":[{\"id\":\"sport_mode\",\"progress\":15,\"mask\":0,\"unlockedUtc\":0}]}");
+        var lowered=new AchievementStore(tunedDir);
+        Check(!lowered.Get(AchievementCatalog.Dodge).Unlocked&&lowered.Get(AchievementCatalog.Dodge).progress==9,"lowered goal stays one step from unlocking");
+        Check(AchievementCatalog.All.Count==10&&AchievementCatalog.Released.Count==8,"two achievements wait for a public route");
+        Check(AchievementCatalog.Get(AchievementCatalog.Macaquini).Released==false&&AchievementCatalog.Get(AchievementCatalog.Sapeneu).Released==false,"Macaquini and Sapeneu stay out of the list");
         Debug.Log("ACHIEVEMENTS_DATA_OK checks="+checks);return checks;
     }
 }

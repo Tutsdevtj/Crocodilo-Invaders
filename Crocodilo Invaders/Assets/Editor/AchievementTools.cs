@@ -69,7 +69,7 @@ public static class AchievementTools
     static void ConfigureCompactToast(GameObject feature)
     {
         var rect=(RectTransform)feature.transform.Find("UnlockNotification");
-        Position(rect,new Vector2(300,68),new Vector2(1,0),new Vector2(-12,12));
+        Position(rect,new Vector2(300,68),new Vector2(1,1),new Vector2(-12,-12));
         var background=rect.GetComponent<UnityEngine.UI.Image>();
         background.sprite=null;background.type=UnityEngine.UI.Image.Type.Simple;
         background.color=new Color(.095f,.115f,.14f,.98f);background.raycastTarget=false;

@@ -35,8 +35,10 @@ public sealed class AchievementRuntime : MonoBehaviour
     {
         if (mode == LoadSceneMode.Additive) return;
         View.HideImmediately();
+        Achievements.RetrySave();
         dialogue = FindAnyObjectByType<DialogueRunner>(); waves = FindAnyObjectByType<WaveController>();
         tracker.BindScene(scene);
     }
+    void OnApplicationQuit() => Achievements.RetrySave();
     void OnDestroy() { if (instance == this) { SceneManager.sceneLoaded -= Loaded; instance = null; } }
 }

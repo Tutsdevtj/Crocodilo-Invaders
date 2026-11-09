@@ -10,6 +10,7 @@ public static class Achievements
     public static event Action<AchievementDefinition> Unlocked;
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Reset() { store = null; Changed = null; Unlocked = null; }
+    public static void RetrySave() => store?.RetrySave();
     public static void UseDirectory(string directory) { store = new AchievementStore(directory); Changed?.Invoke(); }
     public static bool Award(string id) => Set(id, AchievementCatalog.Get(id)?.Goal ?? 0);
     public static bool Set(string id, int value)

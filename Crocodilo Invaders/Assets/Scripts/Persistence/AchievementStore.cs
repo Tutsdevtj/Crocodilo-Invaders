@@ -17,7 +17,8 @@ public sealed class AchievementStore
     [Serializable] sealed class SaveData
     { public int version = 1; public List<Entry> entries = new List<Entry>(); }
     SaveData data;
-    bool validPrimary, readOnly;
+    bool validPrimary, readOnly, unsaved;
+    public bool HasUnsavedChanges => unsaved;
     public string FilePath { get; }
     public string Error { get; private set; }
     public AchievementStore(string directory)
@@ -33,7 +34,7 @@ public sealed class AchievementStore
         return entry == null ? new Entry { id = id } : new Entry { id = id, progress = entry.progress, mask = entry.mask, unlockedUtc = entry.unlockedUtc };
     }
     public int UnlockedCount
-    { get { int n = 0; foreach (var d in AchievementCatalog.All) if (Get(d.Id).Unlocked) n++; return n; } }
+    { get { int n = 0; foreach (var d in AchievementCatalog.Released) if (Get(d.Id).Unlocked) n++; return n; } }
     public bool Set(string id, int progress, out bool unlocked) => Change(id, progress, 0, false, out unlocked);
     public bool Add(string id, int amount, out bool unlocked)
     { return Change(id, Get(id).progress + Mathf.Clamp(amount, 0, 100), 0, false, out unlocked); }
@@ -57,17 +58,12 @@ public sealed class AchievementStore
         progress = Mathf.Clamp(progress, old.progress, definition.Goal);
         if (old.progress == progress && (!useMask || old.mask == mask)) return false;
         var current = data.entries.Find(e => e.id == id);
-        bool added = current == null;
-        if (added) { current = new Entry { id = id }; data.entries.Add(current); }
+        if (current == null) { current = new Entry { id = id }; data.entries.Add(current); }
         current.progress = progress;
         if (useMask) current.mask = mask;
         if (progress >= definition.Goal) current.unlockedUtc = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        if (!Save())
-        {
-            if (added) data.entries.Remove(current);
-            else { current.progress = old.progress; current.mask = old.mask; current.unlockedUtc = old.unlockedUtc; }
-            return false;
-        }
+        // A failed write keeps the award in memory: boss defeats do not fire twice.
+        Save();
         unlocked = current.Unlocked;
         return true;
     }
@@ -86,8 +82,8 @@ public sealed class AchievementStore
                 if (e == null || string.IsNullOrWhiteSpace(e.id) || !ids.Add(e.id) || e.progress < 0 || e.unlockedUtc < 0)
                     throw new InvalidDataException("Invalid achievement entry");
                 var d = AchievementCatalog.Get(e.id);
-                if (d != null && (e.progress > d.Goal || (e.Unlocked && e.progress != d.Goal) || (!e.Unlocked && e.progress == d.Goal)))
-                    throw new InvalidDataException("Invalid achievement progress");
+                // Goals may change between versions; one tuned goal must not discard the whole save.
+                if (d != null) e.progress = e.Unlocked ? d.Goal : Mathf.Min(e.progress, d.Goal - 1);
                 if (e.id == AchievementCatalog.Cards && (e.mask < 0 || e.mask > 31)) throw new InvalidDataException("Invalid card collection");
                 if (e.id == AchievementCatalog.Cards)
                 {
@@ -100,6 +96,7 @@ public sealed class AchievementStore
         catch (Exception e) when (e is IOException || e is InvalidDataException || e is UnauthorizedAccessException || e is ArgumentException)
         { Error = "Não foi possível ler as conquistas. Tentando a cópia de segurança."; result = null; return false; }
     }
+    public void RetrySave() { if (unsaved) Save(); }
     bool Save()
     {
         if (readOnly) { Error = "Progresso criado por uma versão mais recente do jogo."; return false; }
@@ -112,9 +109,9 @@ public sealed class AchievementStore
             { stream.Write(bytes, 0, bytes.Length); stream.Flush(true); }
             if (File.Exists(FilePath)) File.Replace(temp, FilePath, validPrimary ? FilePath + ".bak" : null);
             else { File.Move(temp, FilePath); File.Copy(FilePath, FilePath + ".bak", true); }
-            validPrimary = true; Error = null; return true;
+            validPrimary = true; unsaved = false; Error = null; return true;
         }
         catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
-        { Error = "Não foi possível salvar as conquistas."; Debug.LogWarning(Error + " " + e.Message); return false; }
+        { unsaved = true; Error = "Não foi possível salvar as conquistas."; Debug.LogWarning(Error + " " + e.Message); return false; }
     }
 }

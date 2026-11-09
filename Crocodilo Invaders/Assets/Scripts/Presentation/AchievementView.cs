@@ -67,7 +67,7 @@ public sealed class AchievementView : MonoBehaviour
     void Refresh()
     {
         visible.Clear();
-        foreach (var definition in AchievementCatalog.All)
+        foreach (var definition in AchievementCatalog.Released)
         {
             bool unlocked = Achievements.Store.Get(definition.Id).Unlocked;
             if (filter == 0 || (filter == 1 && unlocked) || (filter == 2 && !unlocked)) visible.Add(definition);
@@ -81,8 +81,8 @@ public sealed class AchievementView : MonoBehaviour
             { var d = visible[index]; rows[i].Bind(d, Achievements.Store.Get(d.Id), Icon(d)); }
         }
         int count = Achievements.Store.UnlockedCount;
-        summary.text = count + " / " + AchievementCatalog.All.Count + " CONQUISTAS DESBLOQUEADAS";
-        completionFill.fillAmount = count / (float)AchievementCatalog.All.Count;
+        summary.text = count + " / " + AchievementCatalog.Released.Count + " CONQUISTAS DESBLOQUEADAS";
+        completionFill.fillAmount = count / (float)AchievementCatalog.Released.Count;
         pagination.text = "PÁGINA " + (page + 1) + " / " + PageCount;
         previousButton.interactable = page > 0; nextButton.interactable = page + 1 < PageCount;
         empty.gameObject.SetActive(visible.Count == 0);
