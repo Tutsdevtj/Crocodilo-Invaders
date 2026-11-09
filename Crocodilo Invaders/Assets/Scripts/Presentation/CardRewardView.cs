@@ -205,10 +205,7 @@ public sealed class CardRewardView : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             UpgradeCard card = offers[i];
-            string name = card.kind == UpgradeKind.AttackDamage ? "Dano" : card.kind == UpgradeKind.AttackSpeed ? "Tiros/s"
-                : card.kind == UpgradeKind.MaximumHealth ? "HP máx." : card.kind == UpgradeKind.MoveSpeed ? "Velocidade" : "Especial";
-            string format = card.kind == UpgradeKind.MaximumHealth ? "0" : "0.##";
-            string comparison = $"{name}: {upgrades.Value(card.kind).ToString(format)} → {upgrades.Value(card.kind, card.percent).ToString(format)}";
+            string comparison = $"{UpgradeText.Name(card.kind)}: {UpgradeText.Value(card.kind, upgrades.Value(card.kind))} → {UpgradeText.Value(card.kind, upgrades.Value(card.kind, card.percent))}";
             options[i].Bind(card, catalog.Artwork(card), comparison);
             var sound = options[i].GetComponentInChildren<CardRarityAudio>(true);
             if (sound != null) sound.ConfigureOverlap(highRarityCount, card.rarity);

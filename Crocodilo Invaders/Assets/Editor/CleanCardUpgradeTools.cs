@@ -79,7 +79,7 @@ public static class CleanCardUpgradeTools
             var values=new TMP_Text[5];var segments=new UnityEngine.UI.Image[100];
             for(int row=0;row<5;row++)
             {
-                var r=Rect("Stat"+row,stats);Place(r,new Vector2(600,58),new Vector2(0,1),new Vector2(0,-row*66));Image(r,Color.clear);
+                var r=Rect("Stat"+row,stats);Place(r,new Vector2(600,58),new Vector2(0,1),new Vector2(0,-row*66));Image(r,new Color(.025f,.055f,.07f,.46f));
                 Text("Name",r,UpgradeText.Name((UpgradeKind)row).ToUpperInvariant(),16,Ink,new Vector2(190,24),new Vector2(0,1),Vector2.zero);
                 values[row]=Text("Value",r,"",16,Ink,new Vector2(390,24),Vector2.one,Vector2.zero);values[row].alignment=TextAlignmentOptions.Right;
                 var bonus=r.Find("Bonus");if(bonus!=null)bonus.gameObject.SetActive(false);

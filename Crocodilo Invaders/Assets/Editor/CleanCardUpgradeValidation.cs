@@ -93,6 +93,14 @@ public static class CleanCardUpgradeValidation
             Check(upgrades.Apply(card),"applied "+card.kind);
         var pause=Object.FindAnyObjectByType<PauseController>();var input=upgrades.GetComponent<PlayerInputReader>();var combat=upgrades.GetComponent<PlayerCombat>();
         Check(summary.CanShow&&input.enabled,"Tab available during normal combat");
+        var dialogue=Object.FindAnyObjectByType<DialogueRunner>();var sequence=AssetDatabase.LoadAssetAtPath<DialogueSequence>("Assets/Data/Dialogue/RunIntro.asset");
+        Check(dialogue!=null&&sequence!=null&&dialogue.Play(sequence,null),"dialogue starts for the Tab conflict check");
+        InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Tab));yield return Frames(3);
+        Check(!summary.IsVisible&&!summary.CanShow,"holding Tab to skip dialogue keeps status closed");
+        dialogue.Skip();yield return Until(()=>!dialogue.IsPlaying,"dialogue skipped");yield return Frames(3);
+        Check(!summary.IsVisible,"status stays closed while the skip key is still held");
+        InputSystem.QueueStateEvent(keyboard,new KeyboardState());yield return Frames(3);
+        Check(summary.CanShow,"status available again after releasing Tab");
         yield return Capture("combat-no-shortcut.png",1200,720);
         Vector3 position=upgrades.transform.position;float time=Time.time;int shots=0;Action shot=()=>shots++;combat.ShotFired+=shot;
         var selected=EventSystem.current.currentSelectedGameObject;
@@ -105,7 +113,7 @@ public static class CleanCardUpgradeValidation
         Check(EventSystem.current.currentSelectedGameObject==selected,"Tab does not steal UI focus");
         InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.Tab));yield return Frames(2);
         Check(summary.GetComponentsInChildren<TMP_Text>().All(t=>!t.text.Contains("TAB")&&!t.text.Contains("VOLTAR")),"only status text, without input hints or modal controls");
-        var panel=summary.transform.Find("Content/Panel");Check(panel.GetComponent<UnityEngine.UI.Image>().color.a<=.2f,"panel background almost transparent");
+        var panel=summary.transform.Find("Content/Panel");Check(panel.GetComponent<UnityEngine.UI.Image>().color.a<=.2f,"panel background almost transparent");Check(panel.Find("Stats/Stat0").GetComponent<UnityEngine.UI.Image>().color.a>=.4f,"status rows have a readable backing");
         Check(panel.GetComponentsInChildren<UnityEngine.UI.Image>().Count(i=>i.name.StartsWith("Pip"))==100,"five segmented status bars");
         foreach(var size in new[]{new Vector2Int(1200,720),new Vector2Int(800,600),new Vector2Int(1920,1080)})
         {yield return Capture("tab-status-"+size.x+"x"+size.y+".png",size.x,size.y);CheckText(summary);}

@@ -16,10 +16,12 @@ public sealed class RunUpgradeView : MonoBehaviour
     private PlayerInputReader input;
     private PauseController pause;
     private CardRewardController rewards;
+    private DialogueRunner dialogue;
+    private bool waitingForRelease;
     private RectTransform canvasRect;
     public bool IsVisible => content.activeSelf;
     public bool CanShow => isActiveAndEnabled && upgrades != null && health != null && !health.IsDead && input != null && input.enabled
-        && Time.timeScale > 0f && (pause == null || !pause.IsPaused) && (rewards == null || rewards.State == CardRewardController.RewardState.Closed);
+        && Time.timeScale > 0f && (pause == null || !pause.IsPaused) && (rewards == null || rewards.State == CardRewardController.RewardState.Closed) && (dialogue == null || !dialogue.IsPlaying);
     private void Awake() { content.SetActive(false); canvasRect=(RectTransform)transform; }
     public void Bind(PlayerRunUpgrades target)
     {
@@ -27,14 +29,17 @@ public sealed class RunUpgradeView : MonoBehaviour
         upgrades=target;
         health=target!=null?target.GetComponent<Health>():null;
         input=target!=null?target.GetComponent<PlayerInputReader>():null;
-        pause=FindAnyObjectByType<PauseController>();rewards=FindAnyObjectByType<CardRewardController>();
+        pause=FindAnyObjectByType<PauseController>();rewards=FindAnyObjectByType<CardRewardController>();dialogue=FindAnyObjectByType<DialogueRunner>();
         if(upgrades != null) upgrades.Changed+=Refresh;
         Hide();Refresh();
     }
     private void LateUpdate()
     {
         bool held=Keyboard.current!=null&&Keyboard.current.tabKey.isPressed || Gamepad.current!=null&&Gamepad.current.selectButton.isPressed;
-        bool visible=held&&CanShow;
+        // Tab also skips dialogue: the held key must not open this panel afterwards.
+        if(!held)waitingForRelease=false;
+        else if(dialogue!=null&&dialogue.IsPlaying)waitingForRelease=true;
+        bool visible=held&&!waitingForRelease&&CanShow;
         if(content.activeSelf!=visible){if(visible)Refresh();content.SetActive(visible);}
         panel.localScale=Vector3.one*Mathf.Min(1f,Mathf.Max(.1f,(canvasRect.rect.width-48)/900f));
     }
