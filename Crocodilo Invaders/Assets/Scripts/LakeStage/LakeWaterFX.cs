@@ -3,98 +3,85 @@ using UnityEngine;
 // Small square particles and broken ripples remain separate from damaging projectiles.
 public sealed class LakeWaterFX : MonoBehaviour
 {
-    private SpriteRenderer[] particles;
-    private Vector3[] origins, velocities;
-    private float age, duration;
-    private bool warning;
-    private float width;
-    private static Sprite pixel;
+    public const float PixelGravity = 9f;
+    private const float Duration = .95f;
+    private const int SheetPoints = 17;
+    private static readonly AnimationCurve SheetWidth = new AnimationCurve(new Keyframe(0, .2f), new Keyframe(.35f, 1), new Keyframe(.8f, .65f), new Keyframe(1, 0));
+    private readonly Vector3[] points = new Vector3[SheetPoints];
     private LineRenderer[] sheets;
-    public static LakeWaterFX Create(Transform parent, Vector2 point, float size, bool cue = false)
+    private int activeSheets;
+    private float age, width;
+
+    public static void Create(Vector2 point, float size)
     {
-        var node = new GameObject(cue ? "LakeLandingWarning" : "LakeSplash");
-        node.transform.SetParent(parent, false); node.transform.position = point;
-        var fx = node.AddComponent<LakeWaterFX>(); fx.width = size; fx.warning = cue;
-        fx.duration = cue ? float.PositiveInfinity : .95f;
-        fx.Build();
-        if (!cue)
-        {
-            var lake = FindAnyObjectByType<LakeBackdrop>();
-            if (lake != null)
-            {
-                LakeSurfaceRipple.Create(parent, point, size, lake.WaterFXMaterial);
-                fx.BuildSheets(lake.WaterFXMaterial);
-            }
-        }
-        return fx;
+        var pool = LakeFxPool.Instance;
+        pool.TakeSplash().Begin(pool, point, size);
+        LakeSurfaceRipple.Create(point, size);
     }
-    private void BuildSheets(Material material)
+    public void Build(Material material)
     {
-        if (material == null) return;
-        sheets = new LineRenderer[width < .7f ? 2 : 4];
+        if (material == null)
+            return;
+        sheets = new LineRenderer[4];
         for (int i = 0; i < sheets.Length; i++)
         {
             var line = new GameObject("CurvedSplashSheet_" + i).AddComponent<LineRenderer>();
-            line.transform.SetParent(transform, false); line.useWorldSpace = false;
-            line.sharedMaterial = material; line.positionCount = 17; line.sortingOrder = 20;
-            line.widthCurve = new AnimationCurve(new Keyframe(0, .2f), new Keyframe(.35f, 1), new Keyframe(.8f, .65f), new Keyframe(1, 0));
-            line.widthMultiplier = width < .7f ? .045f : .13f; sheets[i] = line;
+            line.transform.SetParent(transform, false);
+            line.useWorldSpace = false;
+            line.sharedMaterial = material;
+            line.positionCount = SheetPoints;
+            line.sortingOrder = 20;
+            line.widthCurve = SheetWidth;
+            sheets[i] = line;
         }
     }
-    private void Build()
+    private void Begin(LakeFxPool pool, Vector2 point, float size)
     {
-        if (pixel == null) pixel = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 1, 1), Vector2.one * .5f, 1);
-        int count = warning ? 16 : width < .7f ? 8 : 20;
-        particles = new SpriteRenderer[count]; origins = new Vector3[count]; velocities = new Vector3[count];
+        transform.position = point;
+        width = size;
+        age = 0;
+        bool small = width < .7f;
+        activeSheets = sheets == null ? 0 : small ? 2 : 4;
+        if (sheets != null)
+            for (int i = 0; i < sheets.Length; i++)
+            {
+                sheets[i].enabled = i < activeSheets;
+                sheets[i].widthMultiplier = small ? .045f : .13f;
+            }
+        EmitPixels(pool, point, small ? 8 : 20);
+    }
+    private void EmitPixels(LakeFxPool pool, Vector2 point, int count)
+    {
+        var color = new Color(.48f, .89f, .96f, 1);
         for (int i = 0; i < count; i++)
         {
-            var view = new GameObject("WaterPixel").AddComponent<SpriteRenderer>(); view.transform.SetParent(transform, false);
-            view.sprite = pixel; view.sortingOrder = warning ? 27 : 24; particles[i] = view;
             float side = i % 2 == 0 ? -1 : 1, t = (i / 2f) / (count * .5f);
-            origins[i] = new Vector3(side * (.1f + width * .45f * t), 0, 0);
-            velocities[i] = new Vector3(side * (.8f + t * 2), .8f + (1 - t) * 3f, 0);
+            // Opening in the middle keeps the frog and dangerous drops legible.
+            float speedX = side * (.8f + t * 2 + width * .15f), speedY = .8f + (1 - t) * 3f;
+            float toWater = (speedY + Mathf.Sqrt(speedY * speedY + 2 * PixelGravity * .03f)) / PixelGravity;
+            pool.EmitPixel(point + Vector2.right * (side * (.1f + width * .45f * t)), new Vector2(speedX, speedY),
+                new Vector2(.055f + (i % 3) * .022f, .06f + (i % 4) * .025f), Mathf.Min(Duration, toWater), color);
         }
     }
     private void Update()
     {
         age += Time.deltaTime;
-        if (age >= duration) { Destroy(gameObject); return; }
-        if (sheets != null)
+        if (age >= Duration)
+        { LakeFxPool.Return(this); return; }
+        float impulse = Mathf.Sin(Mathf.Clamp01(age / Duration) * Mathf.PI);
+        var tint = new Color(.45f, .8f, .86f, (1 - age / Duration) * .8f);
+        for (int s = 0; s < activeSheets; s++)
         {
-            float impulse = Mathf.Sin(Mathf.Clamp01(age / duration) * Mathf.PI);
-            for (int s = 0; s < sheets.Length; s++)
+            float side = s % 2 == 0 ? -1 : 1;
+            float reach = (.3f + age * 1.9f) * Mathf.Min(1.1f, width);
+            float height = impulse * (.35f + width * .18f) * (s < 2 ? 1 : .65f);
+            for (int p = 0; p < SheetPoints; p++)
             {
-                float side = s % 2 == 0 ? -1 : 1;
-                float reach = (.3f + age * 1.9f) * Mathf.Min(1.1f, width);
-                for (int p = 0; p < 17; p++)
-                {
-                    float u = p / 16f;
-                    sheets[s].SetPosition(p, new Vector3(side * (width * .28f + u * reach),
-                        Mathf.Sin(u * Mathf.PI) * impulse * (.35f + width * .18f) * (s < 2 ? 1 : .65f), 0));
-                }
-                sheets[s].startColor = sheets[s].endColor = new Color(.45f, .8f, .86f, (1 - age / duration) * .8f);
+                float u = p / (SheetPoints - 1f);
+                points[p] = new Vector3(side * (width * .28f + u * reach), Mathf.Sin(u * Mathf.PI) * height, 0);
             }
-        }
-        for (int i = 0; i < particles.Length; i++)
-        {
-            var view = particles[i]; float side = i % 2 == 0 ? -1 : 1;
-            if (warning)
-            {
-                float angle = i * Mathf.PI * 2 / particles.Length;
-                view.transform.localPosition = new Vector3(Mathf.Cos(angle) * width * .5f, Mathf.Sin(angle) * .13f, 0);
-                view.transform.localScale = new Vector3(.12f, .045f, 1);
-                view.color = new Color(.2f, .85f, 1, .55f + .4f * Mathf.Sin(age * 12));
-            }
-            else
-            {
-                Vector3 p = origins[i] + velocities[i] * age + Vector3.down * (4.5f * age * age);
-                p.y = Mathf.Max(-.03f, p.y);
-                // Opening in the middle keeps the frog and dangerous drops legible.
-                p.x += side * age * width * .15f;
-                view.transform.localPosition = p;
-                view.transform.localScale = new Vector3(.055f + (i % 3) * .022f, .06f + (i % 4) * .025f, 1);
-                view.color = new Color(.48f, .89f, .96f, Mathf.Clamp01(1 - age / duration));
-            }
+            sheets[s].SetPositions(points);
+            sheets[s].startColor = sheets[s].endColor = tint;
         }
     }
 }

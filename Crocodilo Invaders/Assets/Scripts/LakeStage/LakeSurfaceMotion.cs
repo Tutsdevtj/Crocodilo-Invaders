@@ -9,21 +9,27 @@ public sealed class LakeSurfaceMotion : MonoBehaviour
     private void Start()
     {
         lake = GetComponent<LakeBackdrop>();
-        if (lake == null || lake.WaterFXMaterial == null) { enabled = false; return; }
+        if (lake == null || lake.WaterFXMaterial == null)
+        { enabled = false; return; }
         crests = new LineRenderer[22];
         for (int i = 0; i < crests.Length; i++)
         {
             var line = new GameObject("TravellingWaterCrest_" + i).AddComponent<LineRenderer>();
-            line.transform.SetParent(transform, false); line.useWorldSpace = true;
-            line.sharedMaterial = lake.WaterFXMaterial; line.positionCount = 9;
+            line.transform.SetParent(transform, false);
+            line.useWorldSpace = true;
+            line.sharedMaterial = lake.WaterFXMaterial;
+            line.positionCount = 9;
             line.startWidth = line.endWidth = i % 3 == 0 ? .025f : .014f;
-            line.sortingOrder = -171; crests[i] = line;
+            line.sortingOrder = -171;
+            crests[i] = line;
         }
     }
     private void LateUpdate()
     {
-        if (crests == null || lake.GameplayCamera == null) return;
-        var camera = lake.GameplayCamera; float time = lake.MotionClock;
+        if (crests == null || lake.GameplayCamera == null)
+            return;
+        var camera = lake.GameplayCamera;
+        float time = lake.MotionClock;
         float width = camera.orthographicSize * 2 * camera.aspect;
         float left = camera.transform.position.x - width * .5f;
         for (int i = 0; i < crests.Length; i++)

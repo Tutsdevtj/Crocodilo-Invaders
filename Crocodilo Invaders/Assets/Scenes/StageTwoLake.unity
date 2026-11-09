@@ -1502,6 +1502,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b145c84dde792404c8e0bb5d367a3733, type: 3}
   motionMaterial: {fileID: 2100000, guid: b6616e3de1072d04c9b45c2a28da1861, type: 2}
   waterFXMaterial: {fileID: 2100000, guid: 69d80e06752f1e548947a32f35bc7a36, type: 2}
+  difficulty: {fileID: 11400000, guid: 949d451f361fd2c468bf40e865b62dd3, type: 2}
+  art: {fileID: 11400000, guid: 0ef158cfd1e996346a33830efc063521, type: 2}
 --- !u!4 &1282230647
 Transform:
   m_ObjectHideFlags: 0
@@ -3499,9 +3501,17 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 2.3, y: 3.1}
-      maxAlive: 4
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 2, y: 2.7}
+      maxAlive: 5
     - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3510,8 +3520,8 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 2.3, y: 3.1}
-      maxAlive: 4
+      spawnInterval: {x: 2, y: 2.7}
+      maxAlive: 5
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3521,46 +3531,12 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 2.3, y: 3.1}
-      maxAlive: 4
-  - options:
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 2.20625, y: 2.9937499}
-      maxAlive: 4
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 1
-      spawnInterval: {x: 2.20625, y: 2.9937499}
-      maxAlive: 4
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      spawnInterval: {x: 2.20625, y: 2.9937499}
-      maxAlive: 4
+      spawnInterval: {x: 2, y: 2.7}
+      maxAlive: 5
   - options:
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3570,25 +3546,14 @@ MonoBehaviour:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      spawnInterval: {x: 2.1125, y: 2.8874998}
-      maxAlive: 5
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 2.1125, y: 2.8874998}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.9, y: 2.5875}
       maxAlive: 5
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3598,33 +3563,8 @@ MonoBehaviour:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
+        count: 1
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      spawnInterval: {x: 2.1125, y: 2.8874998}
-      maxAlive: 5
-  - options:
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      spawnInterval: {x: 2.01875, y: 2.78125}
-      maxAlive: 5
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3632,22 +3572,26 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 2.01875, y: 2.78125}
+      spawnInterval: {x: 1.9, y: 2.5875}
       maxAlive: 5
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 1
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 2.01875, y: 2.78125}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.9, y: 2.5875}
       maxAlive: 5
   - options:
     - groups:
@@ -3655,49 +3599,61 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.925, y: 2.675}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.8, y: 2.475}
       maxAlive: 6
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 1.925, y: 2.675}
+      spawnInterval: {x: 1.8, y: 2.475}
       maxAlive: 6
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.925, y: 2.675}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.8, y: 2.475}
       maxAlive: 6
   - options:
     - groups:
@@ -3715,26 +3671,11 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.83125, y: 2.56875}
-      maxAlive: 6
-    - groups:
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
-        count: 2
-      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 2
-      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
-        count: 2
-      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
-        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
-        count: 1
-      spawnInterval: {x: 1.83125, y: 2.56875}
+        count: 2
+      spawnInterval: {x: 1.7, y: 2.3625}
       maxAlive: 6
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3753,7 +3694,34 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.83125, y: 2.56875}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 1
+      spawnInterval: {x: 1.7, y: 2.3625}
+      maxAlive: 6
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.7, y: 2.3625}
       maxAlive: 6
   - options:
     - groups:
@@ -3763,16 +3731,22 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
-      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
-        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.7375, y: 2.4625}
-      maxAlive: 7
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.6, y: 2.25}
+      maxAlive: 8
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3780,18 +3754,24 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
-      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
-        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 1.7375, y: 2.4625}
-      maxAlive: 7
+      spawnInterval: {x: 1.6, y: 2.25}
+      maxAlive: 8
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3799,18 +3779,104 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
-      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.6, y: 2.25}
+      maxAlive: 8
+  - options:
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.5, y: 2.1375}
+      maxAlive: 8
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 1
+      spawnInterval: {x: 1.5, y: 2.1375}
+      maxAlive: 8
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.7375, y: 2.4625}
-      maxAlive: 7
+      spawnInterval: {x: 1.5, y: 2.1375}
+      maxAlive: 8
   - options:
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3827,10 +3893,18 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.64375, y: 2.35625}
-      maxAlive: 7
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.4000001, y: 2.025}
+      maxAlive: 9
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3845,13 +3919,21 @@ MonoBehaviour:
       - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 1.64375, y: 2.35625}
-      maxAlive: 7
+      spawnInterval: {x: 1.4000001, y: 2.025}
+      maxAlive: 9
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3867,12 +3949,20 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.64375, y: 2.35625}
-      maxAlive: 7
+      spawnInterval: {x: 1.4000001, y: 2.025}
+      maxAlive: 9
   - options:
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
@@ -3893,8 +3983,18 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.55, y: 2.25}
-      maxAlive: 7
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 1
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.3000001, y: 1.9124999}
+      maxAlive: 9
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3911,13 +4011,23 @@ MonoBehaviour:
       - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
         count: 2
       - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 1
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 1
-      spawnInterval: {x: 1.55, y: 2.25}
-      maxAlive: 7
+      spawnInterval: {x: 1.3000001, y: 1.9124999}
+      maxAlive: 9
     - groups:
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
@@ -3937,10 +4047,124 @@ MonoBehaviour:
         count: 2
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 1
       - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
         count: 2
-      spawnInterval: {x: 1.55, y: 2.25}
-      maxAlive: 7
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.3000001, y: 1.9124999}
+      maxAlive: 9
+  - options:
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.2, y: 1.8}
+      maxAlive: 9
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 1
+      spawnInterval: {x: 1.2, y: 1.8}
+      maxAlive: 9
+    - groups:
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3925590437597686055, guid: 9b9622cad59abf34cb2a237cdf3da166, type: 3}
+        count: 2
+      - prefab: {fileID: 4815630282485133034, guid: 4678f16ca5f15514896a6be892dbea79, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 6192753759333619176, guid: f9285a3afc1f77b45bd45b3ab3545bcd, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      - prefab: {fileID: 3993654994442137015, guid: 92f7b23ac91bf1a4eb14a9a1158d3814, type: 3}
+        count: 2
+      spawnInterval: {x: 1.2, y: 1.8}
+      maxAlive: 9
   useDebugSeed: 0
   debugSeed: 12345
   announcementDuration: 1.6
@@ -3951,7 +4175,6 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 1286443873}
   completeChapterOnBossDefeat: 1
   cutscenes: {fileID: 0}
-  lakeStory: {fileID: 0}
 --- !u!114 &1860622616
 MonoBehaviour:
   m_ObjectHideFlags: 0
