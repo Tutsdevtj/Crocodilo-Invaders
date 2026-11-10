@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class LakeTongueArtTools
 {
-    private const string Root="Assets/Resources/LakeTongueV08/";
+    private const string Root="Assets/Art/LakeRuntime/LakeTongueV08/";
     public static void Install()
     {
         AssetDatabase.Refresh();
@@ -46,7 +46,7 @@ public static class LakeTongueArtTools
         }
         finally { PrefabUtility.UnloadPrefabContents(root); }
         AssetDatabase.SaveAssets();
-        if(System.IO.File.Exists("Assets/Resources/LakeTongueV09/tongue-full.png"))LakeTongueSkinArtTools.Install();
+        if(System.IO.File.Exists("Assets/Art/LakeRuntime/LakeTongueV09/tongue-full.png"))LakeTongueSkinArtTools.Install();
         LakeTongueFieldTools.Apply();
         Debug.Log("LAKE_TONGUE_V08_INSTALLED");
     }

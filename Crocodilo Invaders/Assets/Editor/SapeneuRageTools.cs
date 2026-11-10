@@ -5,7 +5,7 @@ using Object=UnityEngine.Object;
 
 public static class SapeneuRageTools
 {
-    private const string Root="Assets/Resources/SapererecaV12/";
+    private const string Root="Assets/Art/LakeRuntime/SapererecaV12/";
     [MenuItem("Crocodilo/Lago do Pneu/Install Sapeneu and Saperereca v12")]
     public static void Install()
     {

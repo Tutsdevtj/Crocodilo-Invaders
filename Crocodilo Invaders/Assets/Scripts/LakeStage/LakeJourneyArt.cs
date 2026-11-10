@@ -5,5 +5,5 @@ public sealed class LakeJourneyArt : ScriptableObject
     public Sprite[] enemies;
     public Sprite[] props;
     public Vector2[] mosquitoRegistration;
-    public Sprite Frame(int kind,int pose) => enemies[Mathf.Clamp(kind,0,3)*4+Mathf.Clamp(pose,0,3)];
+    public Sprite Frame(int kind, int pose) => enemies[Mathf.Clamp(kind, 0, 3) * 4 + Mathf.Clamp(pose, 0, 3)];
 }

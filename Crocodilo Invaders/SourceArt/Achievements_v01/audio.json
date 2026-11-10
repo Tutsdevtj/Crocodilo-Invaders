@@ -1,0 +1,13 @@
+{
+  "recipe": "Tools/Audio/generate_achievement_chime.cjs",
+  "original": true,
+  "sampleRate": 44100,
+  "channels": 1,
+  "duration": 0.64,
+  "peak": 0.48,
+  "notesHz": [
+    783.991,
+    987.767,
+    1174.659
+  ]
+}

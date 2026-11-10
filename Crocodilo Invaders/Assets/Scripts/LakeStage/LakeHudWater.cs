@@ -5,56 +5,56 @@ using UnityEngine;
 public sealed class LakeHudWater : UnityEngine.UI.MaskableGraphic
 {
     private float clock, level, hit;
+    private static readonly int LevelId = Shader.PropertyToID("_Level"), HitId = Shader.PropertyToID("_Hit"), SizeId = Shader.PropertyToID("_Size");
+    private Material instance;
     public float Level => level;
-    public float FilledWidth => rectTransform.rect.width*level;
+    public float FilledWidth => rectTransform.rect.width * level;
     public float SurfaceSample => Surface(61);
     public override Texture mainTexture => Texture2D.whiteTexture;
-    protected override void Awake() { base.Awake(); raycastTarget=false; }
-    public void Present(float time,float fraction,float impact)
+    protected override void Awake() { base.Awake(); raycastTarget = false; maskable = false; }
+    protected override void OnDestroy() { base.OnDestroy(); if (instance != null) Destroy(instance); }
+    public void UseMaterial(Material source)
     {
-        clock=time; level=Mathf.Clamp01(fraction); hit=impact; SetVerticesDirty();
+        instance = new Material(source);
+        instance.SetVector(SizeId, rectTransform.rect.size);
+        material = instance;
+    }
+    public void Present(float time, float fraction, float impact)
+    {
+        clock = time;
+        level = Mathf.Clamp01(fraction);
+        hit = impact;
+        if (instance == null)
+            return;
+        instance.SetFloat(LakeShaderIds.Clock, clock);
+        instance.SetFloat(LevelId, level);
+        instance.SetFloat(HitId, hit);
     }
     private float Surface(float x)
     {
-        float ripple=(Mathf.Sin(x*.10f+clock*4.8f)*.48f+Mathf.Sin(x*.23f-clock*7.2f)*.25f)*(1+hit*1.6f);
-        return Mathf.Clamp(16.5f+ripple,.5f,17.7f);
+        float ripple = (Mathf.Sin(x * .10f + clock * 4.8f) * .48f + Mathf.Sin(x * .23f - clock * 7.2f) * .25f) * (1 + hit * 1.6f);
+        return Mathf.Clamp(16.5f + ripple, .5f, 17.7f);
     }
     protected override void OnPopulateMesh(UnityEngine.UI.VertexHelper mesh)
     {
-        mesh.Clear(); if(level<=0)return;
-        float width=FilledWidth;
-        for(float x=0;x<width;x+=2)
-        {
-            float top=Surface(x), right=Mathf.Min(width,x+2);
-            int n=mesh.currentVertCount;
-            var deep=new Color32(8,81,94,255); var aqua=new Color32(26,164,158,255);
-            mesh.AddVert(new Vector3(x,.3f),deep,Vector2.zero); mesh.AddVert(new Vector3(x,top),aqua,Vector2.zero);
-            mesh.AddVert(new Vector3(right,Surface(right)),aqua,Vector2.zero); mesh.AddVert(new Vector3(right,.3f),deep,Vector2.zero);
-            mesh.AddTriangle(n,n+1,n+2); mesh.AddTriangle(n,n+2,n+3);
-            Quad(mesh,x,Mathf.Max(.3f,top-1),right-x,1,new Color32(147,239,214,255));
-        }
-        // Rounded moving meniscus at the draining side.
-        for(int row=1;row<16;row++)
-            Quad(mesh,Mathf.Max(0,width-1.3f-Mathf.Sin(row*.42f+clock*5)*.45f),row,Mathf.Min(1.3f,width),1,new Color32(144,233,216,230));
-        for(int i=0;i<19;i++)
-        {
-            float x=Mathf.Repeat(i*19-clock*(21+i%3*5),width+18)-18;
-            float y=Surface(Mathf.Max(0,x))*(.22f+(i%3)*.22f);
-            float length=7+i%4*3, left=Mathf.Max(0,x), right=Mathf.Min(width,x+length);
-            if(right>left && level>.035f)Quad(mesh,left,Mathf.Floor(y),right-left,1,new Color32(59,190,184,210));
-        }
-        for(int i=0;i<7;i++)
-        {
-            float x=Mathf.Repeat(i*43-clock*12,Mathf.Max(1,width-1));
-            float y=Mathf.Repeat(clock*5+i*2.7f,18);
-            if(y+2<Surface(x))Quad(mesh,x,y,1,2,new Color32(138,228,211,190));
-        }
+        mesh.Clear();
+        Rect r = rectTransform.rect;
+        Color32 white = Color.white;
+        mesh.AddVert(new Vector3(r.xMin, r.yMin), white, new Vector2(0, 0));
+        mesh.AddVert(new Vector3(r.xMin, r.yMax), white, new Vector2(0, 1));
+        mesh.AddVert(new Vector3(r.xMax, r.yMax), white, new Vector2(1, 1));
+        mesh.AddVert(new Vector3(r.xMax, r.yMin), white, new Vector2(1, 0));
+        mesh.AddTriangle(0, 1, 2);
+        mesh.AddTriangle(0, 2, 3);
     }
-    public static void Quad(UnityEngine.UI.VertexHelper mesh,float x,float y,float w,float h,Color32 c)
+    public static void Quad(UnityEngine.UI.VertexHelper mesh, float x, float y, float w, float h, Color32 c)
     {
-        int n=mesh.currentVertCount;
-        mesh.AddVert(new Vector3(x,y),c,Vector2.zero); mesh.AddVert(new Vector3(x,y+h),c,Vector2.zero);
-        mesh.AddVert(new Vector3(x+w,y+h),c,Vector2.zero); mesh.AddVert(new Vector3(x+w,y),c,Vector2.zero);
-        mesh.AddTriangle(n,n+1,n+2); mesh.AddTriangle(n,n+2,n+3);
+        int n = mesh.currentVertCount;
+        mesh.AddVert(new Vector3(x, y), c, Vector2.zero);
+        mesh.AddVert(new Vector3(x, y + h), c, Vector2.zero);
+        mesh.AddVert(new Vector3(x + w, y + h), c, Vector2.zero);
+        mesh.AddVert(new Vector3(x + w, y), c, Vector2.zero);
+        mesh.AddTriangle(n, n + 1, n + 2);
+        mesh.AddTriangle(n, n + 2, n + 3);
     }
 }

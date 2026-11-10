@@ -1,82 +1,204 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
+// Whoever fires a drop decides what a hit means and how long the drop may live.
+public interface ILakeDropOwner
+{
+    bool DropsLive { get; }
+    Health DropTarget { get; }
+    float DropWaterY { get; }
+    Rect DropArena { get; }
+    void DropStarted();
+    void DropEnded();
+    void DropHit();
+    void DropReturned();
+}
+
+public readonly struct LakeDropStyle
+{
+    public readonly float Height, Radius, SplashSize, ArenaMargin, MaxAge;
+    public readonly bool Trail, Stretch, Halo;
+    private LakeDropStyle(float height, float radius, float splashSize, float arenaMargin, float maxAge, bool trail, bool stretch, bool halo)
+    {
+        Height = height;
+        Radius = radius;
+        SplashSize = splashSize;
+        ArenaMargin = arenaMargin;
+        MaxAge = maxAge;
+        Trail = trail;
+        Stretch = stretch;
+        Halo = halo;
+    }
+    public static readonly LakeDropStyle Boss = new LakeDropStyle(.76f, .15f, .42f, 1, 5, true, true, true);
+    public static readonly LakeDropStyle Helper = new LakeDropStyle(.56f, .15f, .42f, 1, 5, true, true, true);
+    public static readonly LakeDropStyle Journey = new LakeDropStyle(.56f, .13f, .3f, .8f, 4, true, false, true);
+}
+
+// The arc is analytic, so no Rigidbody2D is needed: physics only samples it for contacts.
+[RequireComponent(typeof(SpriteRenderer))]
 public sealed class LakeDroplet : MonoBehaviour
 {
-    private SapoDoPneuCombat owner;
+    public const float Gravity = 7.4f;
+    private static readonly Collider2D[] Contacts = new Collider2D[8];
+    private ILakeDropOwner owner;
+    private Object ownerObject;
     private Health target;
-    private SapererecaCompanion helper;
-    private Rigidbody2D body;
-    private Vector2 origin, velocity;
-    private float age, waterY;
-    private bool spent;
+    private LakeDropStyle style;
+    private Vector2 origin, launch, lastPoint;
+    private float age, waterY, drawingScale;
     private ContactFilter2D filter;
-    private readonly Collider2D[] contacts = new Collider2D[8];
     private SpriteRenderer drawing;
     private LineRenderer trail;
+    private SpriteRenderer halo;
+    private const float HaloScale = 1.34f;
     private readonly Vector3[] history = new Vector3[4];
-    private float drawingScale;
+
+    public bool Live { get; private set; }
+    public ILakeDropOwner Owner => owner;
     public Sprite Drawing => drawing != null ? drawing.sprite : null;
     public Vector2 FrontDirection => -transform.up;
-    public const float Gravity = 7.4f;
-    public const float Radius = .15f;
-    public Vector2 Velocity => velocity + Vector2.down * Gravity * age;
+    public Vector2 Velocity => launch + Vector2.down * Gravity * age;
     public bool Returning => Velocity.y < 0;
-    public void Configure(SapoDoPneuCombat source, Health player, Sprite sprite, Vector2 start, Vector2 launch, float surface, SapererecaCompanion assistant = null)
+    private bool OwnerAlive => ownerObject != null;
+
+    public static Vector2 Point(Vector2 start, Vector2 launch, float time)
+        => start + launch * time + Vector2.down * (.5f * Gravity * time * time);
+    public static Vector2 LaunchThrough(Vector2 start, Vector2 aim, float time, float gravity = Gravity)
+        => (aim - start) / time + Vector2.up * (.5f * gravity * time);
+    public static LakeDroplet Fire(ILakeDropOwner owner, Sprite sprite, Vector2 start, Vector2 velocity, LakeDropStyle style)
     {
-        owner = source; target = player; origin = start; velocity = launch; waterY = surface; helper = assistant;
-        body = GetComponent<Rigidbody2D>(); body.bodyType = RigidbodyType2D.Kinematic;
-        body.gravityScale = 0; body.interpolation = RigidbodyInterpolation2D.Interpolate;
-        body.position = start; filter = LakeHit.PlayerFilter();
-        // The rounded mass is drawn below the tip, so local down is the leading side.
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(launch.y, launch.x) * Mathf.Rad2Deg + 90);
-        drawing = GetComponent<SpriteRenderer>(); drawing.sprite = sprite; drawing.sortingOrder = 34;
-        float height = sprite != null ? sprite.bounds.size.y : 1;
-        drawingScale = (helper!=null?.40f:.76f) / Mathf.Max(.01f, height) / Mathf.Max(.01f,transform.parent!=null?transform.parent.lossyScale.x:1);
+        var drop = LakeFxPool.Instance.TakeDrop();
+        drop.Launch(owner, sprite, start, velocity, style);
+        return drop;
+    }
+    private void Awake()
+    {
+        drawing = GetComponent<SpriteRenderer>();
+        drawing.sortingOrder = 34;
+        filter = LakeHit.PlayerFilter();
+    }
+    private void Launch(ILakeDropOwner source, Sprite sprite, Vector2 start, Vector2 velocity, LakeDropStyle dropStyle)
+    {
+        owner = source;
+        ownerObject = source as Object;
+        style = dropStyle;
+        target = source.DropTarget;
+        waterY = source.DropWaterY;
+        origin = lastPoint = start;
+        launch = velocity;
+        age = 0;
+        Live = true;
+        source.DropStarted();
+        drawing.sprite = sprite;
+        drawingScale = style.Height / Mathf.Max(.01f, sprite != null ? sprite.bounds.size.y : 1);
         transform.localScale = Vector3.one * drawingScale;
-        var lake = FindAnyObjectByType<LakeBackdrop>();
-        if (helper==null && lake != null && lake.WaterFXMaterial != null)
+        Present(start, velocity);
+        if (halo == null && style.Halo)
+            BuildHalo();
+        if (halo != null)
         {
-            trail = new GameObject("LiquidWaterStreak").AddComponent<LineRenderer>(); trail.transform.SetParent(transform, false);
-            trail.sharedMaterial = lake.WaterFXMaterial; trail.useWorldSpace = true; trail.positionCount = history.Length;
-            trail.startWidth = .035f; trail.endWidth = 0; trail.sortingOrder = 33;
-            trail.startColor = new Color(.35f, .74f, .76f, .5f); trail.endColor = new Color(.35f, .74f, .76f, 0);
-            for (int i = 0; i < history.Length; i++) history[i] = start;
+            halo.enabled = style.Halo;
+            halo.sprite = sprite;
+        }
+        if (trail == null && style.Trail)
+            BuildTrail();
+        if (trail != null)
+        {
+            trail.enabled = style.Trail;
+            for (int i = 0; i < history.Length; i++)
+                history[i] = start;
             trail.SetPositions(history);
         }
     }
-    public static Vector2 Point(Vector2 start, Vector2 launch, float time)
-        => start + launch * time + Vector2.down * (.5f * Gravity * time * time);
+    // A solid light rim keeps the teal drop readable against the blue sky and the water.
+    private void BuildHalo()
+    {
+        var material = LakeBackdrop.Current != null ? LakeBackdrop.Current.Art.dropHalo : null;
+        if (material == null)
+            return;
+        halo = new GameObject("DropHalo").AddComponent<SpriteRenderer>();
+        halo.transform.SetParent(transform, false);
+        halo.transform.localScale = Vector3.one * HaloScale;
+        halo.sharedMaterial = material;
+        halo.sortingOrder = 33;
+        halo.color = new Color(1, 1, .86f, 1);
+        var block = new MaterialPropertyBlock();
+        block.SetFloat("_FlashAmount", 1);
+        halo.SetPropertyBlock(block);
+    }
+    private void BuildTrail()
+    {
+        var material = LakeBackdrop.Current != null ? LakeBackdrop.Current.WaterFXMaterial : null;
+        if (material == null)
+            return;
+        trail = new GameObject("LiquidWaterStreak").AddComponent<LineRenderer>();
+        trail.transform.SetParent(transform, false);
+        trail.sharedMaterial = material;
+        trail.useWorldSpace = true;
+        trail.positionCount = history.Length;
+        trail.startWidth = .05f;
+        trail.endWidth = 0;
+        trail.sortingOrder = 33;
+        trail.startColor = new Color(.86f, 1, .96f, .75f);
+        trail.endColor = new Color(.86f, 1, .96f, 0);
+    }
     private void FixedUpdate()
     {
-        if (spent) return;
-        if (owner == null || !owner.Active || target == null || target.IsDead) { Destroy(gameObject); return; }
-        Vector2 previous = body.position;
+        if (!Live)
+            return;
+        if (!OwnerAlive || !owner.DropsLive)
+        { Release(); return; }
         age += Time.fixedDeltaTime;
-        Vector2 point = Point(origin, velocity, age);
-        if (LakeHit.Touch(target, previous, point, Radius, filter, contacts))
+        Vector2 point = Point(origin, launch, age);
+        if (LakeHit.Touch(target, lastPoint, point, style.Radius, filter, Contacts))
         {
             // A drop is spent even against dash invulnerability: it never waits inside the ship.
-            spent = true; if(helper!=null)helper.TryHit();else target.TakeDamage(1); Destroy(gameObject); return;
+            owner.DropHit();
+            Release();
+            return;
         }
-        body.MovePosition(point);
-        if (trail != null)
+        lastPoint = point;
+        if (trail != null && style.Trail)
         {
-            for (int i = history.Length - 1; i > 0; i--) history[i] = history[i - 1];
-            history[0] = point; trail.SetPositions(history);
+            for (int i = history.Length - 1; i > 0; i--)
+                history[i] = history[i - 1];
+            history[0] = point;
+            trail.SetPositions(history);
         }
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg + 90);
         if (Returning && point.y <= waterY)
         {
-            LakeWaterFX.Create(transform.parent, new Vector2(point.x, waterY), .42f);
-            owner.RegisterReturnedDrop(); Destroy(gameObject);
+            LakeWaterFX.Create(new Vector2(point.x, waterY), style.SplashSize);
+            owner.DropReturned();
+            Release();
+            return;
         }
-        else if (age > 5 || point.x < owner.Arena.xMin - 1 || point.x > owner.Arena.xMax + 1) Destroy(gameObject);
+        Rect arena = owner.DropArena;
+        if (age > style.MaxAge || point.x < arena.xMin - style.ArenaMargin || point.x > arena.xMax + style.ArenaMargin)
+            Release();
     }
     private void LateUpdate()
     {
-        if (drawing == null || Time.timeScale <= 0) return;
-        float stretch = Mathf.SmoothStep(.78f, 1.16f, Mathf.Clamp01(Velocity.magnitude / 8));
+        if (!Live || Time.timeScale <= 0)
+            return;
+        float renderAge = age + Mathf.Clamp(Time.time - Time.fixedTime, 0, Time.fixedDeltaTime);
+        Present(Point(origin, launch, renderAge), launch + Vector2.down * Gravity * renderAge);
+    }
+    private void Present(Vector2 point, Vector2 velocity)
+    {
+        transform.SetPositionAndRotation(point, Quaternion.Euler(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90));
+        if (!style.Stretch)
+            return;
+        float stretch = Mathf.SmoothStep(.78f, 1.16f, Mathf.Clamp01(velocity.magnitude / 8));
         transform.localScale = new Vector3(drawingScale / Mathf.Sqrt(stretch), drawingScale * stretch, drawingScale);
+    }
+    public void Release()
+    {
+        if (!Live)
+            return;
+        Live = false;
+        if (OwnerAlive)
+            owner.DropEnded();
+        owner = null;
+        ownerObject = null;
+        LakeFxPool.Return(this);
     }
 }

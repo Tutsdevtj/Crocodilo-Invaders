@@ -1,0 +1,126 @@
+{
+  "mode": "built-in image_gen; nearest-neighbor export and shared pixel palette",
+  "size": [
+    64,
+    64
+  ],
+  "palette": [
+    "0b1018",
+    "101b26",
+    "213443",
+    "3d5464",
+    "575a62",
+    "7b7e86",
+    "b6bbc0",
+    "f1ead8",
+    "fff8df",
+    "26381e",
+    "3d5125",
+    "637734",
+    "879744",
+    "b4ba67",
+    "1b4f2a",
+    "367a3d",
+    "64a33a",
+    "9bc94c",
+    "75552b",
+    "b38b4b",
+    "e9c97b",
+    "8b601c",
+    "c69425",
+    "ecc445",
+    "fff0a6",
+    "5b1c28",
+    "972934",
+    "d94539",
+    "f17150",
+    "362148",
+    "613178",
+    "9255ad",
+    "c893cf",
+    "123e54",
+    "1e6e8b",
+    "22afc0",
+    "62e6e5",
+    "bafaff",
+    "114b92",
+    "207bbd",
+    "46b9ee",
+    "3f2c25",
+    "70503a",
+    "a77750",
+    "d4a77b"
+  ],
+  "icons": [
+    {
+      "id": "first_wave",
+      "source": "Sources/first_wave.png",
+      "sourceSha256": "e9212feaee6f6d4afee424881b027dfdbef865338ddb7fe43069c6ff530f2b03",
+      "sha256": "5d9040122540afbaa5ada9eccee6d9ad4e1d0793372aef912ba9e80afbce0e57",
+      "colors": 25
+    },
+    {
+      "id": "sport_mode",
+      "source": "Sources/sport_mode.png",
+      "sourceSha256": "e839d5835f9de290b5c1e63f26edcbcd3ed01f9f0e1fa99124a20f0fbbea2b4e",
+      "sha256": "ba922766e9cad521407494951578da15c98b04b779e917d77b2cfcf2890fd99e",
+      "colors": 34
+    },
+    {
+      "id": "boss_special",
+      "source": "Sources/boss_special.png",
+      "sourceSha256": "002d3819ecf6b98696126a1578823cc99c31d5a9d1c6311f5f7a6ca8dedc4f0d",
+      "sha256": "c0c7258cc0d876cdd56ea1c23e7d4fa4b83d1d98eb0f98428dd014a8c69a0837",
+      "colors": 35
+    },
+    {
+      "id": "clean_wave",
+      "source": "Sources/clean_wave.png",
+      "sourceSha256": "48b8add8d0f3c89da67dc90dc1a3ad96e3e17eae6bb779d097f8ac770ebdae39",
+      "sha256": "7176f34deaba44adf1cc2752b97517685b3052c0cabf7c6ca8be9f58c286e6d3",
+      "colors": 19
+    },
+    {
+      "id": "gusini_defeated",
+      "source": "Sources/gusini_defeated.png",
+      "sourceSha256": "87d8c3d475d62ca2facac0aeb5687e6eacf868366dd8bcfd8cf5775bf0be30e0",
+      "sha256": "66c3378e48cb2046e9ac7b8b25d92369c35a9c1c5ab648c8cb06d8818b979454",
+      "colors": 33
+    },
+    {
+      "id": "macaquini_defeated",
+      "source": "Sources/macaquini_defeated.png",
+      "sourceSha256": "14fba021f30bd00959e2750d98adfd07c5e088e40b89c36721ccd170787fef98",
+      "sha256": "333c37291beb347f353dd72634940705b89ebfa40db7373fc858ffca63a3e175",
+      "colors": 22
+    },
+    {
+      "id": "sapeneu_defeated",
+      "source": "Sources/sapeneu_defeated.png",
+      "sourceSha256": "238cc47359d13370003ef437a445b5dd8c545d4a2c658d13bd5628301ab0454e",
+      "sha256": "2350560f05e605ab3268ec297b0a6f2a52e72b2950442f51db125d84ce7e7347",
+      "colors": 26
+    },
+    {
+      "id": "all_card_kinds",
+      "source": "Sources/all_card_kinds.png",
+      "sourceSha256": "17e3e0e04743d6d19ea4a7979d85918431db1a2381181bcc3ed2832bf9b36a52",
+      "sha256": "d97adb9fa392b72d052c1d943ef4a6f1b8d687ffb59d8a2fe24381a7a6404074",
+      "colors": 34
+    },
+    {
+      "id": "first_mythic",
+      "source": "Sources/first_mythic.png",
+      "sourceSha256": "25ace0b35e5a2aaee96aae19e7c58d932c86743141ecc6459c9f612eee83cb24",
+      "sha256": "34ae34cf7129aa8b22240463d06553cac6af675244ed945fe06dbd48d082ced0",
+      "colors": 27
+    },
+    {
+      "id": "last_tooth",
+      "source": "Sources/last_tooth.png",
+      "sourceSha256": "70f86da2e8f8a42cfe0c08a9e356689bbdc0f20c17819a2d6638f555c029c8ad",
+      "sha256": "1ca9a4036c6ec12180143d8697fc3905e8be96a149191e4af5aba788fdd5e26d",
+      "colors": 20
+    }
+  ]
+}

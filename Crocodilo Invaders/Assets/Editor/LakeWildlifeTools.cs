@@ -5,7 +5,7 @@ using Object=UnityEngine.Object;
 
 public static class LakeWildlifeTools
 {
-    private const string Root="Assets/Resources/LakeWildlifeV11/";
+    private const string Root="Assets/Art/LakeRuntime/LakeWildlifeV11/";
     [MenuItem("Crocodilo/Lago do Pneu/Install wildlife v11")]
     public static void Install()
     {

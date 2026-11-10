@@ -1,7 +1,7 @@
 # Lago do Pneu — Água parada
 Roteiro v01 · integração v31 · 31/10/2026
 
-Integrado às cenas StageTwoLake e SapoDoPneuTest no sistema de diálogo do Croc/Gusini. Retratos próprios, quatro sequências, entrada da Saperereca por fala e abertura do canal.
+Roteiro arquivado após rejeição do usuário. A integração v31 foi retirada das cenas StageTwoLake e SapoDoPneuTest em v32; o jogo atual não usa estas falas nem os adereços do canal/berçário.
 
 ## Premissa
 

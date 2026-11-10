@@ -126,6 +126,7 @@ public static class LakeStageTools
         LakeLilyPadStageTools.Install();
         LakeBossEntranceTools.Install();
         LakeDistantBirdsTools.Install();
+        LakeStageDataTools.Install();
         EditorSceneManager.OpenScene(Stage);
         Debug.Log("LAKE_STAGE_INSTALL_OK");
     }
@@ -137,7 +138,7 @@ public static class LakeStageTools
         body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         var box = root.AddComponent<BoxCollider2D>(); box.isTrigger = true;
         box.size = new Vector2(2.85f, 2.65f); box.offset = new Vector2(0, .3f);
-        var health = root.AddComponent<Health>(); JungleStageTools.Set(health, "maxHealth", 200);
+        var health = root.AddComponent<Health>(); JungleStageTools.Set(health, "maxHealth", 320);
         var movement = root.AddComponent<EnemyMovement>(); JungleStageTools.Set(movement, "moveSpeed", 4f);
         var boss = root.AddComponent<Boss>(); JungleStageTools.Set(boss, "displayName", "SAPENEU CURURU");
         JungleStageTools.Set(boss, "defeatDuration", 2f);

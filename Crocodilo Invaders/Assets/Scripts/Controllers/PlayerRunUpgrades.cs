@@ -12,6 +12,7 @@ public sealed class PlayerRunUpgrades : MonoBehaviour
     private int baseMaxHealth;
     public int AcquiredCount { get; private set; }
     public event Action Changed;
+    public event Action<UpgradeCard> CardApplied;
     public int Bonus(UpgradeKind kind) => bonuses[(int)kind];
 
     private void Awake()
@@ -30,6 +31,7 @@ public sealed class PlayerRunUpgrades : MonoBehaviour
         AcquiredCount++;
         UpdateStats(card.kind == UpgradeKind.MaximumHealth);
         Changed?.Invoke();
+        CardApplied?.Invoke(card);
         return true;
     }
 

@@ -1,5 +1,7 @@
 # Água parada — integração v31
 
+> **Arquivada em v32:** o usuário rejeitou o roteiro e os adereços fixos. As quatro cenas de diálogo e os objetos do canal/berçário foram retirados de StageTwoLake e SapoDoPneuTest. O texto abaixo registra somente a entrega histórica v31.
+
 A fase 2 usa a mesma caixa de diálogo, os controles e os sons de digitação do encontro Croc/Gusini. O elenco e as sequências do lago são próprios: o original do Gusini não foi alterado.
 
 ## Quatro cenas
@@ -37,3 +39,7 @@ Build Windows-LakeStory-v31 concluída: 212383180 bytes. Inicialização por 8 s
 ## Vídeo
 
 [Prévia completa com áudio — 4min23s](ArtPreviews/LakeStory_v31/agua-parada-v31.mp4). Captura em Play Mode com corte entre abertura e teste do boss, jogador protegido e dano controlado nos trechos demonstrativos. Inclui todas as falas, entrada da Saperereca e abertura do canal; arquivo integralmente decodificado sem erros.
+
+## Remoção definitiva — 09/11/2026
+
+Componentes, ferramentas, validador, retratos e diálogos de Água parada saíram de `Assets`. As fontes continuam em `SourceArt/LakeStory_v31`, o roteiro em `Docs/Story` e o código no histórico do Git.

@@ -1,0 +1,16 @@
+{
+  "mode": "built-in image_gen edit; alpha trim and nearest-neighbor native export",
+  "size": [
+    128,
+    128
+  ],
+  "crop": {
+    "left": 196,
+    "top": 90,
+    "width": 971,
+    "height": 1013
+  },
+  "transparentPixels": 4539,
+  "sourceSha256": "5a487dcefeb75dc720b95fd47ea4a1772bac375ec2b966577fcb2766ffd1b1fd",
+  "sha256": "e3c6c0c8901386033907f2767262f4b5f1f139e64df815e7777d88b6d98adbfd"
+}

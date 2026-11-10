@@ -14,8 +14,8 @@ public static class LakeBossEntranceTools
             var scene=EditorSceneManager.OpenScene(path);var waves=Object.FindAnyObjectByType<WaveController>();
             var intro=waves.GetComponent<LakeBossEntrance>();if(intro==null)intro=waves.gameObject.AddComponent<LakeBossEntrance>();
             JungleStageTools.Set(intro,"lily",leaf);
-            JungleStageTools.Set(intro,"waterSound",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Resources/LakeEntranceV17/water-swell.wav"));
-            JungleStageTools.Set(intro,"croakSound",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Resources/LakeEntranceV17/cururu-croak.wav"));
+            JungleStageTools.Set(intro,"waterSound",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Art/LakeRuntime/LakeEntranceV17/water-swell.wav"));
+            JungleStageTools.Set(intro,"croakSound",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Art/LakeRuntime/LakeEntranceV17/cururu-croak.wav"));
             EditorSceneManager.SaveScene(scene);
         }
         AssetDatabase.SaveAssets();EditorSceneManager.OpenScene(LakeStageTools.Stage);Debug.Log("LAKE_BOSS_ENTRANCE_V17_INSTALLED");

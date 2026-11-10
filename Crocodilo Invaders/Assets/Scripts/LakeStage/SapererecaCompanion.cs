@@ -1,27 +1,31 @@
 using UnityEngine;
 
 // Shares the encounter's health/lifetime; she is an assisting character, not a second boss.
-public sealed class SapererecaCompanion : MonoBehaviour
+public sealed class SapererecaCompanion : MonoBehaviour, ILakeDropOwner
 {
-    public enum State { InHud, Entering, Rest, Warning, Jump, Landing, Spit, Stopped, Dive, Swim, Surface, Ready }
-    public const float EntranceDuration=1.25f,WarningDuration=.65f,HopDuration=.9f;
-    public const float WorldScale=1.65f;
+    public enum State { InHud, Entering, Rest, Warning, Landing, Spit, Stopped, Dive, Swim, Surface, Ready }
+    public const float EntranceDuration = 1.25f, WarningDuration = .65f;
+    public const float WorldScale = 1.65f;
+    private LakeDifficulty tuning;
     private SapoDoPneuCombat combat;
     private SapererecaAssets art;
     private Health target;
+    private Rigidbody2D targetBody;
+    private Sprite dropSprite;
+    private int activeDrops;
     private Rigidbody2D body;
-    private SpriteRenderer visual,reflection;
+    private SpriteRenderer visual, reflection;
     private Transform threats;
     private LakeBossBar hud;
     private LakeBackdrop lake;
-    private float standingFraction=.46f,landingFraction=.46f;
-    private Vector2 WaterBerth(float fraction) => new Vector2(combat.Arena.xMin+combat.Arena.width*fraction,combat.WaterY+.06f+Mathf.Sin((lake!=null?lake.MotionClock:Time.time)*1.7f+fraction*8)*.025f);
+    private float standingFraction = .46f, landingFraction = .46f;
+    private Vector2 WaterBerth(float fraction) => new Vector2(combat.Arena.xMin + combat.Arena.width * fraction, combat.WaterY + .06f + Mathf.Sin((lake != null ? lake.MotionClock : Time.time) * 1.7f + fraction * 8) * .025f);
     private SpriteRenderer surfaceEyes;
-    public bool EyesVisible => surfaceEyes!=null && surfaceEyes.enabled;
-    public Vector2 EyesPosition => surfaceEyes!=null?(Vector2)surfaceEyes.transform.position:Vector2.zero;
-    private MaterialPropertyBlock waterProperties,reflectionProperties;
-    private Vector2 from,landing,lockedAim;
-    private float timer,clock,nextAttack,contactCooldown,nextDamage;
+    public bool EyesVisible => surfaceEyes != null && surfaceEyes.enabled;
+    public Vector2 EyesPosition => surfaceEyes != null ? (Vector2)surfaceEyes.transform.position : Vector2.zero;
+    private MaterialPropertyBlock waterProperties, reflectionProperties;
+    private Vector2 from, landing, lockedAim;
+    private float timer, clock, nextAttack, nextDamage;
     private int berth;
     private int burstShots;
     private bool tongueCombo;
@@ -32,180 +36,274 @@ public sealed class SapererecaCompanion : MonoBehaviour
     public Vector2 LastLaunch { get; private set; }
     public Vector2 LastVelocity { get; private set; }
     public float LastTravel { get; private set; }
-    private readonly Collider2D[] contacts=new Collider2D[8];
-    private ContactFilter2D filter;
-    public State CurrentState { get; private set; }=State.InHud;
-    public bool Busy => (Joined && CurrentState!=State.Rest && CurrentState!=State.Stopped) || CurrentState==State.Entering || ActiveDrops>0;
+    public State CurrentState { get; private set; } = State.InHud;
+    public bool Busy => (Joined && CurrentState != State.Rest && CurrentState != State.Stopped) || CurrentState == State.Entering || ActiveDrops > 0;
     public bool Joined { get; private set; }
     public int Entries { get; private set; }
-    public int Hops { get; private set; }
     public int Shots { get; private set; }
     public int Hits { get; private set; }
-    public int ActiveDrops => threats!=null?threats.GetComponentsInChildren<LakeDroplet>().Length:0;
-    public Vector2 Position => body!=null?body.position:Vector2.zero;
+    public int ActiveDrops => activeDrops;
+    public bool DropsLive => combat != null && combat.Active;
+    public Health DropTarget => target;
+    public float DropWaterY => combat.WaterY;
+    public Rect DropArena => combat.Arena;
+    public void DropStarted() { activeDrops++; }
+    public void DropEnded() { activeDrops--; }
+    public void DropHit() { TryHit(); }
+    public void DropReturned() { combat.DropReturned(); }
+    public Vector2 Position => body != null ? body.position : Vector2.zero;
     public Vector2 LockedAim => lockedAim;
     public Vector2 Landing => landing;
     public SpriteRenderer Visual => visual;
     public float Clock => clock;
     public float PhaseTime => timer;
-    public void Configure(SapoDoPneuCombat owner,Health player)
+    public void Configure(SapoDoPneuCombat owner, Health player)
     {
-        combat=owner;target=player;art=Resources.Load<SapererecaAssets>("SapererecaV12/art");lake=FindAnyObjectByType<LakeBackdrop>();
-        body=GetComponent<Rigidbody2D>();body.bodyType=RigidbodyType2D.Kinematic;body.gravityScale=0;body.interpolation=RigidbodyInterpolation2D.Interpolate;
-        visual=GetComponent<SpriteRenderer>();visual.sortingOrder=19;visual.enabled=false;
-        threats=new GameObject("SapererecaWaterThreats").transform;threats.SetParent(transform,false);
-        filter=LakeHit.PlayerFilter();
-        transform.localScale=Vector3.one*WorldScale;
-        var rework=Resources.Load<LakeReworkArt>("LakeReworkV26/art");
-        if(rework!=null && rework.surfaceEyes!=null)
+        combat = owner;
+        target = player;
+        targetBody = player.GetComponent<Rigidbody2D>();
+        tuning = owner.Tuning;
+        art = LakeBackdrop.Current.Art.companion;
+        dropSprite = LakeBackdrop.Current.Art.waterDrop;
+        lake = LakeBackdrop.Current;
+        body = GetComponent<Rigidbody2D>();
+        body.bodyType = RigidbodyType2D.Kinematic;
+        body.gravityScale = 0;
+        body.interpolation = RigidbodyInterpolation2D.Interpolate;
+        visual = GetComponent<SpriteRenderer>();
+        visual.sortingOrder = 19;
+        visual.enabled = false;
+        threats = new GameObject("SapererecaWaterThreats").transform;
+        threats.SetParent(transform, false);
+        transform.localScale = Vector3.one * WorldScale;
+        var rework = LakeBackdrop.Current.Art.rework;
+        if (rework != null && rework.surfaceEyes != null)
         {
-            surfaceEyes=new GameObject("SapererecaWatchingEyes").AddComponent<SpriteRenderer>();surfaceEyes.transform.SetParent(threats,false);
-            surfaceEyes.sprite=rework.surfaceEyes;surfaceEyes.sortingOrder=25;surfaceEyes.transform.localScale=Vector3.one;surfaceEyes.enabled=false;
+            surfaceEyes = new GameObject("SapererecaWatchingEyes").AddComponent<SpriteRenderer>();
+            surfaceEyes.transform.SetParent(threats, false);
+            surfaceEyes.sprite = rework.surfaceEyes;
+            surfaceEyes.sortingOrder = 25;
+            surfaceEyes.transform.localScale = Vector3.one;
+            surfaceEyes.enabled = false;
         }
-        var material=Resources.Load<Material>("SapererecaV12/water-contact");
-        if(material!=null)
+        var material = LakeBackdrop.Current.Art.waterContact;
+        if (material != null)
         {
-            visual.sharedMaterial=material;if(surfaceEyes!=null)surfaceEyes.sharedMaterial=material;waterProperties=new MaterialPropertyBlock();reflectionProperties=new MaterialPropertyBlock();
-            reflection=new GameObject("SapererecaWaterReflection").AddComponent<SpriteRenderer>();reflection.transform.SetParent(transform,false);
-            reflection.sharedMaterial=material;reflection.sortingOrder=9;reflection.enabled=false;
+            visual.sharedMaterial = material;
+            if (surfaceEyes != null)
+                surfaceEyes.sharedMaterial = material;
+            waterProperties = new MaterialPropertyBlock();
+            reflectionProperties = new MaterialPropertyBlock();
+            reflection = new GameObject("SapererecaWaterReflection").AddComponent<SpriteRenderer>();
+            reflection.transform.SetParent(transform, false);
+            reflection.sharedMaterial = material;
+            reflection.sortingOrder = 9;
+            reflection.enabled = false;
         }
     }
     public void Enter()
     {
-        if(CurrentState!=State.InHud || art==null)return;
-        Entries++;landingFraction=standingFraction=.46f;landing=WaterBerth(landingFraction);
-        body.position=landing;hud=FindAnyObjectByType<LakeBossBar>();
-        if(hud!=null)hud.BeginCompanionJump(landing);SetState(State.Entering);
+        if (CurrentState != State.InHud || art == null)
+            return;
+        Entries++;
+        landingFraction = standingFraction = .46f;
+        landing = WaterBerth(landingFraction);
+        body.position = landing;
+        hud = FindAnyObjectByType<LakeBossBar>();
+        if (hud != null)
+            hud.BeginCompanionJump(landing);
+        SetState(State.Entering);
     }
-    private void SetState(State state) { CurrentState=state;timer=0; }
+    private void SetState(State state) { CurrentState = state; timer = 0; }
     private void FixedUpdate()
     {
-        if(combat==null || !combat.Active){Stop();return;}
-        if(combat.IsVulnerable){if(Joined)body.MovePosition(WaterBerth(standingFraction));return;}
-        float dt=Time.fixedDeltaTime;clock+=dt;timer+=dt;contactCooldown-=dt;
-        if(CurrentState==State.Entering)landing=WaterBerth(landingFraction);
-        switch(CurrentState)
+        if (combat == null || !combat.Active)
+        { Stop(); return; }
+        if (combat.IsVulnerable)
+        { if (Joined) body.MovePosition(WaterBerth(standingFraction)); return; }
+        float dt = Time.fixedDeltaTime;
+        clock += dt;
+        timer += dt;
+        if (CurrentState == State.Entering)
+            landing = WaterBerth(landingFraction);
+        switch (CurrentState)
         {
             case State.Entering:
-                if(timer>=EntranceDuration)
+                if (timer >= EntranceDuration)
                 {
-                    Joined=true;visual.enabled=true;visual.sprite=art.frames[3];body.position=landing;
-                    LandingRipple();nextAttack=clock+1.3f;SetState(State.Landing);
+                    Joined = true;
+                    visual.enabled = true;
+                    visual.sprite = art.frames[3];
+                    body.position = landing;
+                    LandingRipple();
+                    nextAttack = clock + tuning.helperFirstAttack;
+                    SetState(State.Landing);
                 }
                 break;
             case State.Rest:
                 body.MovePosition(WaterBerth(standingFraction));
-                if(clock>=nextAttack && ActiveDrops==0 && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.HasWaterDrops && !combat.Tongue.MealPending)BeginDive(false);
+                if (clock >= nextAttack && ActiveDrops == 0 && !combat.Tongue.Busy && !combat.Tongue.MealPending)
+                    BeginDive(false);
                 break;
             case State.Dive:
-                body.MovePosition(Vector2.Lerp(from,from+Vector2.down*1.9f,Mathf.SmoothStep(0,1,timer/.42f)));
-                if(timer>=.42f){visual.enabled=false;from=body.position;SetState(State.Swim);}
+                body.MovePosition(Vector2.Lerp(from, from + Vector2.down * 1.9f, Mathf.SmoothStep(0, 1, timer / .42f)));
+                if (timer >= .42f)
+                { visual.enabled = false; from = body.position; SetState(State.Swim); }
                 break;
             case State.Swim:
-                body.MovePosition(Vector2.Lerp(from,landing+Vector2.down*1.9f,Mathf.SmoothStep(0,1,timer/.72f)));
-                if(timer>=.72f)
+                body.MovePosition(Vector2.Lerp(from, landing + Vector2.down * 1.9f, Mathf.SmoothStep(0, 1, timer / .72f)));
+                if (timer >= .72f)
                 {
-                    lockedAim=target.GetComponent<Rigidbody2D>().position;
+                    lockedAim = targetBody.position;
                     SetState(State.Warning);
                 }
                 break;
             case State.Warning:
-                if(timer>=WarningDuration){visual.enabled=true;from=body.position;LandingRipple();SetState(State.Surface);}
+                if (timer >= WarningDuration)
+                { visual.enabled = true; from = body.position; LandingRipple(); SetState(State.Surface); LakeAudio.Play(LakeSound.SapererecaCroak); }
                 break;
             case State.Surface:
-                body.MovePosition(Vector2.Lerp(from,landing,Mathf.SmoothStep(0,1,timer/.25f)));
-                if(timer>=.25f){body.position=landing;standingFraction=landingFraction;SetState(State.Ready);}
+                body.MovePosition(Vector2.Lerp(from, landing, Mathf.SmoothStep(0, 1, timer / .25f)));
+                if (timer >= .25f)
+                { body.position = landing; standingFraction = landingFraction; SetState(State.Ready); }
                 break;
             case State.Ready:
                 body.MovePosition(WaterBerth(standingFraction));
                 // Preparation overlaps the tongue, but damaging shots wait until it has fully retracted.
-                if(timer>=.4f && combat.CurrentState==SapoDoPneuCombat.State.Float && !combat.Tongue.Busy)
-                {burstShots=0;Volleys++;SetState(State.Spit);}
-                break;
-            case State.Jump:
-                float t=Mathf.Clamp01(timer/HopDuration);Vector2 point=Vector2.Lerp(from,landing,Mathf.SmoothStep(0,1,t));point.y+=Mathf.Sin(t*Mathf.PI)*1.8f;
-                if(contactCooldown<=0 && LakeHit.Touch(target,body.position,point,.35f*WorldScale,filter,contacts))
-                {contactCooldown=.8f;TryHit();if(!combat.Active){Stop();return;}}
-                body.MovePosition(point);
-                if(t>=1){body.position=landing;standingFraction=landingFraction;Hops++;LandingRipple();SetState(State.Landing);}
+                if (combat.Tongue.Busy)
+                    timer = 0;
+                if (timer <= tuning.helperReadyTime - tuning.helperAimLock)
+                    lockedAim = PredictedAim();
+                if (timer >= tuning.helperReadyTime)
+                { burstShots = 0; Volleys++; SetState(State.Spit); }
                 break;
             case State.Landing:
-                if(timer>=.2f)SetState(State.Rest);
+                if (timer >= .2f)
+                    SetState(State.Rest);
                 break;
             case State.Spit:
-                if(burstShots<3 && timer>=burstShots*.16f){Emit(burstShots-1);burstShots++;}
-                if(timer>=.65f)
+                if (burstShots < tuning.helperShots && timer >= burstShots * tuning.helperShotInterval)
+                { Emit(burstShots - 1); burstShots++; }
+                if (timer >= .65f)
                 {
-                    if(surfaceEyes!=null)surfaceEyes.enabled=false;
-                    nextAttack=clock+(tongueCombo?2.6f:2.2f);tongueCombo=false;SetState(State.Rest);
+                    if (surfaceEyes != null)
+                        surfaceEyes.enabled = false;
+                    nextAttack = clock + (tongueCombo ? tuning.helperComboCooldown : tuning.helperCooldown);
+                    tongueCombo = false;
+                    SetState(State.Rest);
                 }
                 break;
         }
     }
     public void PrepareTongueCombo()
     {
-        if(Joined && CurrentState==State.Rest && ActiveDrops==0)BeginDive(true);
+        if (Joined && CurrentState == State.Rest && ActiveDrops == 0)
+            BeginDive(true);
+    }
+    private Vector2 PredictedAim()
+    {
+        return targetBody.position + Vector2.ClampMagnitude(targetBody.linearVelocity * tuning.helperAimLead, tuning.helperMaxAimLead);
     }
     private void BeginDive(bool combo)
     {
-        berth++;Dives++;tongueCombo=combo;if(combo)Combos++;
-        float playerFraction=(target.transform.position.x-combat.Arena.xMin)/combat.Arena.width;
-        float fraction=Mathf.Clamp(playerFraction+(berth%2==0?.22f:-.22f),.15f,.85f);
-        if(Mathf.Abs(WaterBerth(fraction).x-combat.transform.position.x)<2.7f)
-            fraction=combat.transform.position.x<combat.Arena.center.x?.78f:.22f;
-        landingFraction=fraction;landing=WaterBerth(landingFraction);
-        from=body.position;LakeWaterFX.Create(threats,new Vector2(from.x,combat.WaterY),.75f);
+        berth++;
+        Dives++;
+        tongueCombo = combo;
+        if (combo)
+            Combos++;
+        float playerFraction = (target.transform.position.x - combat.Arena.xMin) / combat.Arena.width;
+        float fraction = Mathf.Clamp(playerFraction + (berth % 2 == 0 ? .22f : -.22f), .15f, .85f);
+        if (Mathf.Abs(WaterBerth(fraction).x - combat.transform.position.x) < 2.7f)
+            fraction = combat.transform.position.x < combat.Arena.center.x ? .78f : .22f;
+        landingFraction = fraction;
+        landing = WaterBerth(landingFraction);
+        from = body.position;
+        LakeWaterFX.Create(new Vector2(from.x, combat.WaterY), .75f);
 
         SetState(State.Dive);
     }
     private void LandingRipple()
     {
-        if(lake!=null)LakeSurfaceRipple.Create(threats,new Vector2(landing.x,combat.WaterY),.45f,lake.WaterFXMaterial);
+        if (lake != null)
+            LakeSurfaceRipple.Create(new Vector2(landing.x, combat.WaterY), .45f);
     }
     private void Emit(int spread)
     {
-        float side=lockedAim.x<body.position.x?-1:1;
-        Vector2 start=body.position+new Vector2(side*.42f,.52f)*WorldScale;
+        float side = lockedAim.x < body.position.x ? -1 : 1;
+        Vector2 start = body.position + new Vector2(side * .42f, .52f) * WorldScale;
         // The same compact arcs and vertical spacing as the small frogs.
-        const float travel=.95f;
-        Vector2 aim=(lockedAim-start)/travel+Vector2.up*(.5f*LakeDroplet.Gravity*travel);
-        Vector2 velocity=aim+Vector2.up*(spread*.65f);
-        LastLaunch=start;LastVelocity=velocity;LastTravel=travel;
-        var node=new GameObject("SapererecaWaterDrop",typeof(Rigidbody2D),typeof(SpriteRenderer));node.transform.SetParent(threats,false);
-        node.AddComponent<LakeDroplet>().Configure(combat,target,Resources.Load<Sprite>("LakeJourneyV22/water-drop"),start,velocity,combat.WaterY,this);Shots++;
+        float travel = tuning.helperShotFlight;
+        Vector2 velocity = LakeDroplet.LaunchThrough(start, lockedAim, travel) + Vector2.up * (spread * tuning.helperShotSpread);
+        LastLaunch = start;
+        LastVelocity = velocity;
+        LastTravel = travel;
+        LakeDroplet.Fire(this, dropSprite, start, velocity, LakeDropStyle.Helper);
+        LakeAudio.Play(LakeSound.Spit);
+        Shots++;
     }
     public bool TryHit()
     {
-        if(combat==null || !combat.Active || target==null || clock<nextDamage)return false;
-        nextDamage=clock+.65f;if(!target.TakeDamage(1))return false;Hits++;return true;
+        if (combat == null || !combat.Active || target == null || clock < nextDamage)
+            return false;
+        nextDamage = clock + tuning.helperDamageGate;
+        if (!target.TakeDamage(tuning.helperDamage))
+            return false;
+        Hits++;
+        return true;
     }
     private void LateUpdate()
     {
-        if(art==null || !Joined || CurrentState==State.Stopped)return;
-        if(surfaceEyes!=null)
+        if (art == null || !Joined || CurrentState == State.Stopped)
+            return;
+        if (surfaceEyes != null)
         {
-            surfaceEyes.enabled=CurrentState==State.Warning || CurrentState==State.Swim;
-            surfaceEyes.transform.position=new Vector3(body.position.x,combat.WaterY+.015f,0);
-            surfaceEyes.flipX=target!=null && target.transform.position.x>body.position.x;
-            surfaceEyes.color=new Color(.85f,1,.82f,CurrentState==State.Warning?1:Mathf.Clamp01(timer/.25f)*.65f);
+            surfaceEyes.enabled = CurrentState == State.Warning || CurrentState == State.Swim;
+            surfaceEyes.transform.position = new Vector3(body.position.x, combat.WaterY + .015f, 0);
+            surfaceEyes.flipX = target != null && target.transform.position.x > body.position.x;
+            surfaceEyes.color = new Color(.85f, 1, .82f, CurrentState == State.Warning ? 1 : Mathf.Clamp01(timer / .25f) * .65f);
         }
-        int frame=CurrentState==State.Dive || CurrentState==State.Warning?1:CurrentState==State.Jump || CurrentState==State.Surface?2:CurrentState==State.Landing?3:CurrentState==State.Spit || CurrentState==State.Ready?4:Mathf.Repeat(clock,3.7f)<.13f?5:0;
-        visual.sprite=art.frames[frame];visual.flipX=CurrentState==State.Spit || CurrentState==State.Ready?lockedAim.x>body.position.x:CurrentState==State.Jump && landing.x>from.x;
-        float breath=CurrentState==State.Rest?Mathf.Sin(clock*2.4f)*.018f:0;transform.localScale=new Vector3(1-breath*.5f,1+breath,1)*WorldScale;
-        if(waterProperties!=null)
+        int frame = CurrentState == State.Dive || CurrentState == State.Warning ? 1 : CurrentState == State.Surface ? 2 : CurrentState == State.Landing ? 3 : CurrentState == State.Spit || CurrentState == State.Ready ? 4 : Mathf.Repeat(clock, 3.7f) < .13f ? 5 : 0;
+        visual.sprite = art.frames[frame];
+        visual.flipX = (CurrentState == State.Spit || CurrentState == State.Ready) && lockedAim.x > body.position.x;
+        float breath = CurrentState == State.Rest ? Mathf.Sin(clock * 2.4f) * .018f : 0;
+        transform.localScale = new Vector3(1 - breath * .5f, 1 + breath, 1) * WorldScale;
+        if (waterProperties != null)
         {
-            waterProperties.SetFloat("_WaterY",combat.WaterY);waterProperties.SetFloat("_Clock",clock);waterProperties.SetFloat("_Reflection",0);visual.SetPropertyBlock(waterProperties);if(surfaceEyes!=null)surfaceEyes.SetPropertyBlock(waterProperties);
-            reflection.enabled=visual.enabled;reflection.sprite=visual.sprite;reflection.flipX=visual.flipX;
-            reflection.transform.localScale=new Vector3(1,-.42f,1);reflection.transform.position=new Vector3(transform.position.x,combat.WaterY-(transform.position.y-combat.WaterY)*.42f,0);
-            reflectionProperties.SetFloat("_WaterY",combat.WaterY);reflectionProperties.SetFloat("_Clock",clock);reflectionProperties.SetFloat("_Reflection",1);reflection.SetPropertyBlock(reflectionProperties);
+            waterProperties.SetFloat(LakeShaderIds.WaterY, combat.WaterY);
+            waterProperties.SetFloat(LakeShaderIds.Clock, clock);
+            waterProperties.SetFloat(LakeShaderIds.Reflection, 0);
+            visual.SetPropertyBlock(waterProperties);
+            if (surfaceEyes != null)
+                surfaceEyes.SetPropertyBlock(waterProperties);
+            reflection.enabled = visual.enabled;
+            reflection.sprite = visual.sprite;
+            reflection.flipX = visual.flipX;
+            reflection.transform.localScale = new Vector3(1, -.42f, 1);
+            reflection.transform.position = new Vector3(transform.position.x, combat.WaterY - (transform.position.y - combat.WaterY) * .42f, 0);
+            reflectionProperties.SetFloat(LakeShaderIds.WaterY, combat.WaterY);
+            reflectionProperties.SetFloat(LakeShaderIds.Clock, clock);
+            reflectionProperties.SetFloat(LakeShaderIds.Reflection, 1);
+            reflection.SetPropertyBlock(reflectionProperties);
         }
     }
     public void Stop()
     {
-        if(CurrentState==State.Stopped)return;
-        SetState(State.Stopped);if(visual!=null)visual.enabled=false;if(reflection!=null)reflection.enabled=false;
-        if(surfaceEyes!=null)surfaceEyes.enabled=false;if(threats!=null){threats.gameObject.SetActive(false);Destroy(threats.gameObject);threats=null;}
-        if(hud!=null)hud.HideCompanion();if(body!=null)body.linearVelocity=Vector2.zero;
+        if (CurrentState == State.Stopped)
+            return;
+        SetState(State.Stopped);
+        if (visual != null)
+            visual.enabled = false;
+        if (reflection != null)
+            reflection.enabled = false;
+        if (surfaceEyes != null)
+            surfaceEyes.enabled = false;
+        LakeFxPool.ReleaseDrops(this);
+        if (threats != null)
+        { threats.gameObject.SetActive(false); Destroy(threats.gameObject); threats = null; }
+        if (hud != null)
+            hud.HideCompanion();
+        if (body != null)
+            body.linearVelocity = Vector2.zero;
     }
-    private void OnDisable(){Stop();}
+    private void OnDisable() { Stop(); }
 }

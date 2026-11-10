@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class LakeTongueSkinArtTools
 {
-    private const string Root="Assets/Resources/LakeTongueV09/";
+    private const string Root="Assets/Art/LakeRuntime/LakeTongueV09/";
     public static void Install()
     {
         AssetDatabase.Refresh();string imagePath=Root+"tongue-full.png";
@@ -27,7 +27,7 @@ public static class LakeTongueSkinArtTools
         material.mainTexture=texture;material.color=Color.white;EditorUtility.SetDirty(material);
         data.material=material;data.height=.38f;data.rootLength=.32f;data.tipLength=.48f;data.rootUv=.84f;data.tipUv=.24f;
         EditorUtility.SetDirty(data);
-        var art=AssetDatabase.LoadAssetAtPath<LakeTongueAssets>("Assets/Resources/LakeTongueV08/art.asset");
+        var art=AssetDatabase.LoadAssetAtPath<LakeTongueAssets>("Assets/Art/LakeRuntime/LakeTongueV08/art.asset");
         if(art==null)throw new System.InvalidOperationException("Install the v08 tongue assets first.");
         art.skin=data;EditorUtility.SetDirty(art);AssetDatabase.SaveAssets();
         importer.isReadable=false;importer.SaveAndReimport();AssetDatabase.SaveAssets();
