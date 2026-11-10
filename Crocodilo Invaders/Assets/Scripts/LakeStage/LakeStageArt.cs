@@ -8,6 +8,6 @@ public sealed class LakeStageArt : ScriptableObject
     public LakeReworkArt rework;
     public LakeWildlifeAssets wildlife;
     public SapererecaAssets companion;
-    public Material waterContact, hudWater;
+    public Material waterContact, hudWater, dropHalo;
     public Sprite waterDrop, burp, bossClosedEyes, hudFrame, hudClosedEyes;
 }

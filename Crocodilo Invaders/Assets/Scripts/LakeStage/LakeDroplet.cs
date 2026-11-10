@@ -16,8 +16,8 @@ public interface ILakeDropOwner
 public readonly struct LakeDropStyle
 {
     public readonly float Height, Radius, SplashSize, ArenaMargin, MaxAge;
-    public readonly bool Trail, Stretch;
-    private LakeDropStyle(float height, float radius, float splashSize, float arenaMargin, float maxAge, bool trail, bool stretch)
+    public readonly bool Trail, Stretch, Halo;
+    private LakeDropStyle(float height, float radius, float splashSize, float arenaMargin, float maxAge, bool trail, bool stretch, bool halo)
     {
         Height = height;
         Radius = radius;
@@ -26,10 +26,11 @@ public readonly struct LakeDropStyle
         MaxAge = maxAge;
         Trail = trail;
         Stretch = stretch;
+        Halo = halo;
     }
-    public static readonly LakeDropStyle Boss = new LakeDropStyle(.76f, .15f, .42f, 1, 5, true, true);
-    public static readonly LakeDropStyle Helper = new LakeDropStyle(.40f, .15f, .42f, 1, 5, false, true);
-    public static readonly LakeDropStyle Journey = new LakeDropStyle(.40f, .13f, .3f, .8f, 4, false, false);
+    public static readonly LakeDropStyle Boss = new LakeDropStyle(.76f, .15f, .42f, 1, 5, true, true, true);
+    public static readonly LakeDropStyle Helper = new LakeDropStyle(.56f, .15f, .42f, 1, 5, true, true, true);
+    public static readonly LakeDropStyle Journey = new LakeDropStyle(.56f, .13f, .3f, .8f, 4, true, false, true);
 }
 
 // The arc is analytic, so no Rigidbody2D is needed: physics only samples it for contacts.
@@ -47,6 +48,8 @@ public sealed class LakeDroplet : MonoBehaviour
     private ContactFilter2D filter;
     private SpriteRenderer drawing;
     private LineRenderer trail;
+    private SpriteRenderer halo;
+    private const float HaloScale = 1.34f;
     private readonly Vector3[] history = new Vector3[4];
 
     public bool Live { get; private set; }
@@ -89,6 +92,13 @@ public sealed class LakeDroplet : MonoBehaviour
         drawingScale = style.Height / Mathf.Max(.01f, sprite != null ? sprite.bounds.size.y : 1);
         transform.localScale = Vector3.one * drawingScale;
         Present(start, velocity);
+        if (halo == null && style.Halo)
+            BuildHalo();
+        if (halo != null)
+        {
+            halo.enabled = style.Halo;
+            halo.sprite = sprite;
+        }
         if (trail == null && style.Trail)
             BuildTrail();
         if (trail != null)
@@ -98,6 +108,22 @@ public sealed class LakeDroplet : MonoBehaviour
                 history[i] = start;
             trail.SetPositions(history);
         }
+    }
+    // A solid light rim keeps the teal drop readable against the blue sky and the water.
+    private void BuildHalo()
+    {
+        var material = LakeBackdrop.Current != null ? LakeBackdrop.Current.Art.dropHalo : null;
+        if (material == null)
+            return;
+        halo = new GameObject("DropHalo").AddComponent<SpriteRenderer>();
+        halo.transform.SetParent(transform, false);
+        halo.transform.localScale = Vector3.one * HaloScale;
+        halo.sharedMaterial = material;
+        halo.sortingOrder = 33;
+        halo.color = new Color(1, 1, .86f, 1);
+        var block = new MaterialPropertyBlock();
+        block.SetFloat("_FlashAmount", 1);
+        halo.SetPropertyBlock(block);
     }
     private void BuildTrail()
     {
@@ -109,11 +135,11 @@ public sealed class LakeDroplet : MonoBehaviour
         trail.sharedMaterial = material;
         trail.useWorldSpace = true;
         trail.positionCount = history.Length;
-        trail.startWidth = .035f;
+        trail.startWidth = .05f;
         trail.endWidth = 0;
         trail.sortingOrder = 33;
-        trail.startColor = new Color(.35f, .74f, .76f, .5f);
-        trail.endColor = new Color(.35f, .74f, .76f, 0);
+        trail.startColor = new Color(.86f, 1, .96f, .75f);
+        trail.endColor = new Color(.86f, 1, .96f, 0);
     }
     private void FixedUpdate()
     {

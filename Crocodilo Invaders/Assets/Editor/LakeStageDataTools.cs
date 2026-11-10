@@ -24,6 +24,7 @@ public static class LakeStageDataTools
         const string hudWaterPath="Assets/Materials/LakeHudWater.mat";
         if(AssetDatabase.LoadAssetAtPath<Material>(hudWaterPath)==null)AssetDatabase.CreateAsset(new Material(Shader.Find("Crocodilo/Lake HUD Water")),hudWaterPath);
         art.hudWater=AssetDatabase.LoadAssetAtPath<Material>(hudWaterPath);
+        art.dropHalo=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SpriteHitFlash.mat");
         art.waterDrop=Load<Sprite>("LakeJourneyV22/water-drop.png");
         art.burp=Load<Sprite>("SapeneuBurpV13/burp.png");
         art.bossClosedEyes=Load<Sprite>("LakeExpressionsV06/sapo-closed.png");
