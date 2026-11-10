@@ -102,6 +102,7 @@ public sealed class WaveController : MonoBehaviour
         if (playerHealth != null && valid)
         {
             if (GetComponent<WaveMusic>() == null) gameObject.AddComponent<WaveMusic>();
+            if (GetComponent<SkyAmbience>() == null && FindAnyObjectByType<BackgroundShipDrift>() != null) gameObject.AddComponent<SkyAmbience>();
             return;
         }
         Debug.LogError(playerHealth == null ? "Configure o Player no WaveController." : error, this);
