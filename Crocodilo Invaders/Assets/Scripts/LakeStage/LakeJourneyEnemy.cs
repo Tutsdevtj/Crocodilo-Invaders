@@ -100,9 +100,13 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         {
             Vector2 player = director.TargetBody.position;
             player.y = Mathf.Clamp(player.y, director.WaterY + .85f, director.Arena.yMax - .55f);
-            Vector2 desired = (player - previous).normalized * 1.4f;
+            // Always hunts from the front: the ship only fires forward, so a mosquito behind it could never be hit.
+            var tuning = director.Tuning;
+            float standoff = Mathf.Lerp(tuning.mosquitoStandoffMin, tuning.mosquitoStandoffMax, .5f + .5f * Mathf.Sin(clock * .9f + slot * 1.7f));
+            bool behind = previous.x < player.x + .2f;
+            Vector2 desired = (new Vector2(player.x + standoff, player.y) - previous).normalized * (behind ? tuning.mosquitoReturnSpeed : tuning.mosquitoSpeed);
             desired.y = Mathf.Clamp(desired.y, -.8f, .8f);
-            pursuitVelocity = Vector2.Lerp(pursuitVelocity, desired, 1 - Mathf.Exp(-dt * 2.6f));
+            pursuitVelocity = Vector2.Lerp(pursuitVelocity, desired, 1 - Mathf.Exp(-dt * (behind ? 7 : 2.6f)));
             point = previous + pursuitVelocity * dt;
             point.x = Mathf.Clamp(point.x, director.Arena.xMin + .25f, director.Arena.xMax - .25f);
             point.y = Mathf.Clamp(point.y, director.WaterY + .75f, director.Arena.yMax - .45f);

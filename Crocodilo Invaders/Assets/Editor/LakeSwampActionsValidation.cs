@@ -54,10 +54,11 @@ public static class LakeSwampActionsValidation
         Capture("leaf-landing.png");
         yield return Until(()=>actors[0].CurrentMotion==LakeJourneyEnemy.Motion.Patrol,"pequeno come�a persegui��o");
         Vector2 pos=actors[0].GetComponent<Rigidbody2D>().position;float before=Vector2.Distance(pos,rb.position);yield return Wait(1.3f);
-        Check(Vector2.Distance(actors[0].GetComponent<Rigidbody2D>().position,rb.position)<before-.5f,"Mosquito pequeno avan�a em dire��o ao jogador");
+        Check(actors[0].GetComponent<Rigidbody2D>().position.x>rb.position.x+.1f,"Mosquito pequeno caca pela frente da nave");
         rb.position=new Vector2(director.Arena.xMax-1,2);before=Vector2.Distance(actors[0].GetComponent<Rigidbody2D>().position,rb.position);
         yield return Wait(1.3f);
         Check(Vector2.Distance(actors[0].GetComponent<Rigidbody2D>().position,rb.position)<before-.3f && actors[0].Visual.flipX,"Persegui��o muda suavemente quando o jogador troca de lado");Capture("mosquito-chases.png");
+        rb.position=new Vector2(director.Arena.xMin+1.2f,2);yield return Wait(2.2f);Check(actors[0].GetComponent<Rigidbody2D>().position.x>rb.position.x+.1f,"Com a nave no canto esquerdo o mosquito fica na frente do tiro");
         int defeats=0;actors[0].GetComponent<Enemy>().Defeated+=e=>defeats++;
         actors[0].GetComponent<Health>().TakeDamage(1);yield return Frames(1);
         Check(Object.FindObjectsByType<LakeMosquitoSlap>().Length==0 && actors[0].Visual.enabled,"Acerto n�o fatal n�o esmaga mosquito vivo");

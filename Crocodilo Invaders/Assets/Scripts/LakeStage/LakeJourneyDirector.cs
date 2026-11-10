@@ -25,6 +25,7 @@ public sealed class LakeJourneyDirector : MonoBehaviour, ILakeDropOwner
     public float WaterY => lake.WaterY;
     public Health Target => player != null ? player.Health : null;
     public Rigidbody2D TargetBody { get; private set; }
+    public LakeDifficulty Tuning => lake.Difficulty;
     public Transform Threats => threats;
     public Material WaterMaterial => lake.WaterFXMaterial;
     public Sprite DropSprite { get; private set; }

@@ -99,4 +99,9 @@ public sealed class LakeDifficulty : ScriptableObject
     public float earlyStrikeGap = 1.18f;
     public float lateStrikeGap = .85f;
     public float journeyDamageGate = .7f;
+    [Tooltip("Distância mínima e máxima que o mosquito mantém à frente da nave.")]
+    public float mosquitoStandoffMin = .35f;
+    public float mosquitoStandoffMax = 3.1f;
+    public float mosquitoSpeed = 1.4f;
+    public float mosquitoReturnSpeed = 3.6f;
 }
