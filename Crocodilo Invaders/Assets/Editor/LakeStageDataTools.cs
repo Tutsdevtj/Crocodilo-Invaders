@@ -25,6 +25,7 @@ public static class LakeStageDataTools
         if(AssetDatabase.LoadAssetAtPath<Material>(hudWaterPath)==null)AssetDatabase.CreateAsset(new Material(Shader.Find("Crocodilo/Lake HUD Water")),hudWaterPath);
         art.hudWater=AssetDatabase.LoadAssetAtPath<Material>(hudWaterPath);
         art.dropHalo=AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SpriteHitFlash.mat");
+        art.audio=BuildAudioBank();
         art.waterDrop=Load<Sprite>("LakeJourneyV22/water-drop.png");
         art.burp=Load<Sprite>("SapeneuBurpV13/burp.png");
         art.bossClosedEyes=Load<Sprite>("LakeExpressionsV06/sapo-closed.png");
@@ -59,6 +60,37 @@ public static class LakeStageDataTools
             importer.SetPlatformTextureSettings(settings);importer.SaveAndReimport();count++;
         }
         Debug.Log("LAKE_TEXTURES_COMPRESSED "+count);
+    }
+    private static LakeAudioBank BuildAudioBank()
+    {
+        const string audio="Assets/Audio/Lake/";
+        foreach(string guid in AssetDatabase.FindAssets("t:AudioClip",new[]{"Assets/Audio/Lake","Assets/Resources/Audio/Ambience"}))ConfigureClip(AssetDatabase.GUIDToAssetPath(guid));
+        var bank=GetOrCreate<LakeAudioBank>(Folder+"LakeAudioBank.asset");
+        var names=(LakeSound[])Enum.GetValues(typeof(LakeSound));
+        float[] volumes={.42f,.28f,.55f,.45f,.4f,.7f,.45f,.7f,.5f,.5f,.22f,.4f,.45f,.22f,.5f,.42f,.45f,.5f,.55f,.22f,.4f,.38f,.3f,.5f,.42f};
+        float[] cooldowns={.04f,.09f,.12f,.05f,.05f,.3f,.2f,.2f,.2f,.08f,.07f,.06f,.06f,.14f,1f,.5f,.06f,.8f,.6f,.3f,.15f,.4f,.1f,.06f,.2f};
+        // Volumes already tuned in the Inspector survive a reinstall.
+        var previous=bank.sounds??new LakeAudioBank.Entry[0];
+        var entries=new LakeAudioBank.Entry[names.Length];
+        for(int i=0;i<names.Length;i++)
+        {
+            entries[i]=Array.Find(previous,e=>e.name==names[i].ToString())??new LakeAudioBank.Entry{name=names[i].ToString(),volume=volumes[i],cooldown=cooldowns[i],pitchVariance=.05f};
+            string clip=names[i]==LakeSound.Croak?"Assets/Art/LakeRuntime/LakeEntranceV17/cururu-croak.wav":audio+"SFX_Lake_"+names[i]+".wav";
+            entries[i].clip=AssetDatabase.LoadAssetAtPath<AudioClip>(clip);
+            if(entries[i].clip==null)throw new InvalidOperationException("Missing lake sound "+clip);
+        }
+        bank.sounds=entries;
+        bank.mosquitoBuzz=AssetDatabase.LoadAssetAtPath<AudioClip>(audio+"SFX_Lake_MosquitoBuzz.wav");
+        bank.ambience=AssetDatabase.LoadAssetAtPath<AudioClip>(audio+"AMB_Lake_Loop.wav");
+        EditorUtility.SetDirty(bank);
+        return bank;
+    }
+    private static void ConfigureClip(string path)
+    {
+        var importer=(AudioImporter)AssetImporter.GetAtPath(path);
+        var settings=importer.defaultSampleSettings;
+        settings.loadType=AudioClipLoadType.DecompressOnLoad;settings.compressionFormat=AudioCompressionFormat.PCM;settings.preloadAudioData=true;
+        importer.defaultSampleSettings=settings;importer.loadInBackground=false;importer.SaveAndReimport();
     }
     private static T GetOrCreate<T>(string path) where T:ScriptableObject
     {

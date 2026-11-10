@@ -9,5 +9,6 @@ public sealed class LakeStageArt : ScriptableObject
     public LakeWildlifeAssets wildlife;
     public SapererecaAssets companion;
     public Material waterContact, hudWater, dropHalo;
+    public LakeAudioBank audio;
     public Sprite waterDrop, burp, bossClosedEyes, hudFrame, hudClosedEyes;
 }

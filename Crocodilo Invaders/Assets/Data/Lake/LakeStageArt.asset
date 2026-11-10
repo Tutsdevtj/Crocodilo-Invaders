@@ -20,6 +20,7 @@ MonoBehaviour:
   waterContact: {fileID: 2100000, guid: 978039b01e5413247ba8e38ef6b85275, type: 2}
   hudWater: {fileID: 2100000, guid: a5327a0070d888843a9bddb1aa688f40, type: 2}
   dropHalo: {fileID: 2100000, guid: 58f55746b1f7b164dad74cbe8676f741, type: 2}
+  audio: {fileID: 11400000, guid: 110e9031ccbd8494ca30e4e248138795, type: 2}
   waterDrop: {fileID: 21300000, guid: 87b9bfa05463bab41ad5d72abb505f44, type: 3}
   burp: {fileID: 21300000, guid: b6ff03469554b724686d938957055557, type: 3}
   bossClosedEyes: {fileID: 21300000, guid: af8502f4b4459704d8eaf252e80f5ed1, type: 3}
