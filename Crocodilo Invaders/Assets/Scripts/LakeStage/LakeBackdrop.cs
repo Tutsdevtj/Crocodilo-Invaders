@@ -42,7 +42,10 @@ public sealed class LakeBackdrop : MonoBehaviour
     {
         // Builds the pools during loading, not on the first shot of the fight.
         if (Application.isPlaying)
+        {
             _ = LakeFxPool.Instance;
+            gameObject.AddComponent<LakeAudio>();
+        }
     }
     // Every projectile asks for these each tick; the camera only needs reading once per frame.
     private void RefreshView()

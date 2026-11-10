@@ -93,7 +93,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
     }
     private void OnEnable() { GetComponent<Health>().Damaged += Flash; }
     private void OnDisable() { GetComponent<Health>().Damaged -= Flash; StopCombat(); }
-    private void Flash() { hitFlash = .12f; }
+    private void Flash() { hitFlash = .12f; LakeAudio.Play(LakeSound.BossHit); }
     public void SetTarget(Health player)
     {
         target = player;
@@ -192,6 +192,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
                     from = body.position;
                     LakeWaterFX.Create(new Vector2(from.x, WaterY), .85f);
                     SetState(State.Rise);
+                    LakeAudio.Play(LakeSound.BossJump);
                 }
                 break;
             case State.Rise:
@@ -244,6 +245,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
     private void BeginJump()
     {
         attackCycle++;
+        LakeAudio.Play(LakeSound.SapeneuGrunt);
         landing = new Vector2(body.position.x, RestY);
         AimJump(0);
         // Crouching body is the warning; no target ring.
@@ -276,6 +278,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
         body.linearVelocity = Vector2.zero;
         SetState(State.Rage);
         LakeWaterFX.Create(new Vector2(body.position.x, WaterY), 1.4f);
+        LakeAudio.Play(LakeSound.Croak);
         RageStarted?.Invoke();
     }
     private void BeginBurp()
@@ -283,6 +286,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
         if (IsVulnerable || state == State.BurpWave)
             return;
         SetState(State.BurpWave);
+        LakeAudio.Play(LakeSound.Burp);
         body.linearVelocity = Vector2.zero;
         if (visual != null && burpSprite != null)
             visual.sprite = burpSprite;
@@ -320,6 +324,7 @@ public sealed class SapoDoPneuCombat : MonoBehaviour, IBossCombatController, ILa
     {
         body.position = landing;
         Landings++;
+        LakeAudio.Play(LakeSound.BossLand);
         sequence++;
         LakeWaterFX.Create(new Vector2(landing.x, WaterY), 2.1f);
         EmitDrops();

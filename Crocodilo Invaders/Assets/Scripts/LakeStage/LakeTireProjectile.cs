@@ -68,6 +68,7 @@ public sealed class LakeTireProjectile : MonoBehaviour
             { Cancel(); return; }
             bounces--;
             Bounces++;
+            LakeAudio.Play(LakeSound.TireBounce);
             point.y = owner.WaterY;
             velocity.y = Mathf.Max(-velocity.y * Restitution, MinBounceSpeed);
             float side = velocity.x < 0 ? -1 : 1;

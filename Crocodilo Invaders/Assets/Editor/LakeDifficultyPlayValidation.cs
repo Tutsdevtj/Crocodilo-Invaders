@@ -113,6 +113,7 @@ public static class LakeDifficultyPlayValidation
         combat.StopCombat();yield return Frames(4);
         Check(wife.CurrentState==SapererecaCompanion.State.Stopped && !wife.Visual.enabled,"Encerramento cancela sapa e visual");
         Check(Object.FindObjectsByType<LakeDroplet>().Length==0,"Encerramento limpa projéteis pendentes");
+        Check(LakeAudio.Played>0,"Ataques do lago tocam som");
         Check(LakeFxPool.Instance.LiveDropCount==0 && LakeFxPool.Instance.SpareDropCount>0,"Gotas voltam para o pool");
         Check(Object.FindObjectsByType<LakeDroplet>(FindObjectsInactive.Include).Length<=48,"Gotas reaproveitadas, sem criar objetos a cada tiro");
         Check(Object.FindObjectsByType<LakeWaterFX>(FindObjectsInactive.Include).Length<=32 && GameObject.Find("WaterPixel")==null,"Respingos reaproveitados, sem um objeto por pixel");

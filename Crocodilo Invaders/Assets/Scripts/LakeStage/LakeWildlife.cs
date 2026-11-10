@@ -161,7 +161,10 @@ public sealed class LakeWildlife : MonoBehaviour
             return;
         nextBite = clock + .65f;
         if (player.Health.TakeDamage(1))
+        {
             Bites++;
+            LakeAudio.Play(LakeSound.PiranhaChomp);
+        }
     }
     public void Splash(float x, float size) { LakeWaterFX.Create(new Vector2(x, WaterY), size); }
     private void StopPredators(bool immediate)

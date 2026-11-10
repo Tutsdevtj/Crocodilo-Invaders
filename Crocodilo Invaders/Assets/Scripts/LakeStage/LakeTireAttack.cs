@@ -56,6 +56,7 @@ public sealed class LakeTireAttack : MonoBehaviour
         side = LockedAim.x > transform.position.x ? 1 : -1;
         Projectile = null;
         CurrentPhase = Phase.Preparing;
+        LakeAudio.Play(LakeSound.SapeneuGrunt);
         timer = 0;
         held.enabled = true;
         PoseHeld();
@@ -87,6 +88,7 @@ public sealed class LakeTireAttack : MonoBehaviour
                     Projectile = node.AddComponent<LakeTireProjectile>();
                     Projectile.Configure(combat, this, target, sprite, LaunchPoint, LockedAim, combat.Enraged ? tuning.tireSpeedFury : tuning.tireSpeed, combat.Enraged ? tuning.tireBouncesFury : tuning.tireBounces);
                     Throws++;
+                    LakeAudio.Play(LakeSound.TireThrow);
                     CurrentPhase = Phase.Flying;
                     timer = 0;
                 }

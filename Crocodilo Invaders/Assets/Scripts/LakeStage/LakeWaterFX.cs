@@ -17,6 +17,7 @@ public sealed class LakeWaterFX : MonoBehaviour
         var pool = LakeFxPool.Instance;
         pool.TakeSplash().Begin(pool, point, size);
         LakeSurfaceRipple.Create(point, size);
+        LakeAudio.Play(size < .7f ? LakeSound.SplashSmall : LakeSound.SplashBig);
     }
     public void Build(Material material)
     {

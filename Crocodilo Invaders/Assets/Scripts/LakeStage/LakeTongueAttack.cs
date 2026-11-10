@@ -241,6 +241,7 @@ public sealed class LakeTongueAttack : MonoBehaviour
             flies[i].ReleaseFocus();
         var fly = flies[plan[current]];
         fly.Focused = true;
+        LakeAudio.Play(LakeSound.FlyBuzz);
         Aim = fly.Anchor;
         Change(Phase.Tracking);
     }
@@ -258,7 +259,7 @@ public sealed class LakeTongueAttack : MonoBehaviour
         }
         var fly = TargetFly;
         if (timer >= Tuning.extendTime && fly != null && !fly.Caught)
-        { fly.Catch(); CapturedFlies++; if (AliveFlyCount == 0) MealPending = true; }
+        { fly.Catch(); CapturedFlies++; LakeAudio.Play(LakeSound.Gulp); if (AliveFlyCount == 0) MealPending = true; }
         if (timer >= Tuning.extendTime + Tuning.holdTime)
             Change(Phase.Retract);
         return false;
@@ -282,6 +283,7 @@ public sealed class LakeTongueAttack : MonoBehaviour
                     PreviousStrikeTime = LastStrikeTime;
                     LastStrikeTime = Time.time;
                     Change(Phase.Extend);
+                    LakeAudio.Play(LakeSound.TongueLash);
                     timer = dt;
                     if (AdvanceStrike())
                         return true;

@@ -160,7 +160,7 @@ public sealed class SapererecaCompanion : MonoBehaviour, ILakeDropOwner
                 break;
             case State.Warning:
                 if (timer >= WarningDuration)
-                { visual.enabled = true; from = body.position; LandingRipple(); SetState(State.Surface); }
+                { visual.enabled = true; from = body.position; LandingRipple(); SetState(State.Surface); LakeAudio.Play(LakeSound.SapererecaCroak); }
                 break;
             case State.Surface:
                 body.MovePosition(Vector2.Lerp(from, landing, Mathf.SmoothStep(0, 1, timer / .25f)));
@@ -238,6 +238,7 @@ public sealed class SapererecaCompanion : MonoBehaviour, ILakeDropOwner
         LastVelocity = velocity;
         LastTravel = travel;
         LakeDroplet.Fire(this, dropSprite, start, velocity, LakeDropStyle.Helper);
+        LakeAudio.Play(LakeSound.Spit);
         Shots++;
     }
     public bool TryHit()

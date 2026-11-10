@@ -17,7 +17,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
     private Vector2 pursuitVelocity;
     public bool IsEnteringBank => UsesLily && (CurrentMotion == Motion.Arriving || CurrentMotion == Motion.WaitingLily || CurrentMotion == Motion.BankJump);
     private LakeEnemyLily lily;
-    private bool facingRight;
+    private bool facingRight, buzzing;
     private float horizontalSpeed;
     public LakeEnemyLily Lily => lily;
     public bool UsesLily => species == Species.Frog || species == Species.Beetle;
@@ -48,6 +48,8 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         Enemy.Movement.enabled = false;
         nextAttack = 1.3f + (number % 3) * .6f;
         Enemy.Health.Damaged += Damaged;
+        if (species == Species.Mosquito)
+        { buzzing = true; LakeAudio.AddMosquito(1); }
         if (UsesLily)
         {
             float anchor = owner.ReserveLily(this);
@@ -62,6 +64,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
     private void Damaged()
     {
         flash = .12f;
+        LakeAudio.Play(DamageSound());
         if (Enemy.Health.IsDead && !slapped && (species == Species.Mosquito || species == Species.Dragonfly))
         {
             slapped = true;
@@ -156,7 +159,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
                     if (CurrentMotion == Motion.Patrol && clock >= nextAttack && director.Prepare(this))
                         SetMotion(Motion.Queued);
                     if (CurrentMotion == Motion.Queued && director.Strike(this))
-                    { aim = director.TargetBody.position; from = point; BeginTelegraph(aim); SetMotion(Motion.Warning); }
+                    { aim = director.TargetBody.position; from = point; BeginTelegraph(aim); SetMotion(Motion.Warning); PlayWarningVoice(); }
                     break;
                 case Motion.Warning:
                     point = UsesLily ? berth : from + new Vector2(Mathf.Sign(from.x - aim.x) * Mathf.SmoothStep(0, .32f, timer / .58f), Mathf.Sin(timer * 13) * .06f);
@@ -167,6 +170,8 @@ public sealed class LakeJourneyEnemy : EnemyAttack
                         if (species == Species.Beetle)
                         { destination = from + Vector2.ClampMagnitude(destination - from, 3.2f); lily.Land(); }
                         Attacks++;
+                        if (species == Species.Dragonfly)
+                            LakeAudio.Play(LakeSound.DragonflyDash);
                         contactSpent = false;
                         fired = false;
                         EndTelegraph();
@@ -232,6 +237,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         Vector2 velocity = LakeDroplet.LaunchThrough(start, aim, travel);
         for (int i = 0; i < 2; i++)
         { LakeDroplet.Fire(director, director.DropSprite, start, velocity + Vector2.up * (i == 0 ? -.45f : .45f), LakeDropStyle.Journey); Shots++; }
+        LakeAudio.Play(LakeSound.Spit);
         NotifyShotFired();
     }
     private void Spit()
@@ -242,6 +248,7 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         int count = director.Section == 2 ? 3 : 2;
         for (int i = 0; i < count; i++)
         { float spread = (i - (count - 1) * .5f) * .65f; LakeDroplet.Fire(director, director.DropSprite, start, velocity + Vector2.up * spread, LakeDropStyle.Journey); Shots++; }
+        LakeAudio.Play(LakeSound.Spit);
         NotifyShotFired();
     }
     private void LateUpdate()
@@ -282,8 +289,27 @@ public sealed class LakeJourneyEnemy : EnemyAttack
         Color warningColor = species == Species.Dragonfly ? new Color(.45f, .9f, 1) : species == Species.Beetle ? new Color(1, .7f, .3f) : new Color(.7f, 1, .5f);
         visual.color = flash > 0 ? new Color(1, .55f, .42f) : Vulnerable ? new Color(.8f, 1, .65f) : CurrentMotion == Motion.Warning ? Color.Lerp(Color.white, warningColor, .28f) : Color.white;
     }
+    private LakeSound DamageSound()
+    {
+        bool dead = Enemy.Health.IsDead;
+        switch (species)
+        {
+            case Species.Frog: return dead ? LakeSound.FrogDie : LakeSound.EnemyHit;
+            case Species.Beetle: return dead ? LakeSound.BeetleDie : Vulnerable ? LakeSound.EnemyHit : LakeSound.BeetleShell;
+            default: return dead ? LakeSound.Slap : LakeSound.EnemyHit;
+        }
+    }
+    private void PlayWarningVoice()
+    {
+        if (species == Species.Frog)
+            LakeAudio.Play(LakeSound.FrogCroak);
+        else if (species == Species.Beetle)
+            LakeAudio.Play(LakeSound.BeetleChitter);
+    }
     private void Stop()
     {
+        if (buzzing)
+        { buzzing = false; LakeAudio.AddMosquito(-1); }
         if (CurrentMotion == Motion.Stopped)
             return;
         SetMotion(Motion.Stopped);
