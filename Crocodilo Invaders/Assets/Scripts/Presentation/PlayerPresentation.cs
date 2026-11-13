@@ -29,6 +29,7 @@ public sealed class PlayerPresentation : MonoBehaviour
         health = GetComponent<Health>();
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Wardrobe.ApplyShip(animator);
         if (visualRoot == null || visualRoot == transform || spriteRenderer == null)
         {
             Debug.LogError("Configure the Player's Visual child and its SpriteRenderer.", this);
