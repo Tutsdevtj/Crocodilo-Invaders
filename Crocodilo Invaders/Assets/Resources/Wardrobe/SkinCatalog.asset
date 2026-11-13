@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f1b9eae8feac44f9d6b788df29b1e3, type: 3}
+  m_Name: SkinCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::SkinCatalog
+  skins:
+  - id: original
+    displayName: Bombardiro Original
+    description: "O avi\xE3o de sempre do B. Crocodilo: confi\xE1vel, barulhento e cheio de remendo."
+    slot: 0
+    controller: {fileID: 9100000, guid: 6d9ed7b6d82860644838c9d54bf1532c, type: 2}
+    previewFrames:
+    - {fileID: 21300000, guid: 5067011b57405bf469d0e20732894b2e, type: 3}
+    - {fileID: 21300000, guid: affb500a57a3e614e89ad61049fcd9b0, type: 3}
+    - {fileID: 21300000, guid: 51bdd383b87573e49a67a9244a88582c, type: 3}
+    - {fileID: 21300000, guid: f932636fcec51574f847d888609e2416, type: 3}
+    - {fileID: 21300000, guid: f932636fcec51574f847d888609e2416, type: 3}
+    previewDurations:
+    - 0.14
+    - 0.2
+    - 0.13999999
+    - 0.20000002
+    - 0.0009999871
+    unlockAchievement: 
+    comingSoon: 0
+  - id: crocs
+    displayName: Bombardiro Crocs
+    description: 'Crocs a jato: asas, turbina no calcanhar e capacete de borracha com jibbitz de guerra nos furos. Mesmo desempenho, muito mais estilo.'
+    slot: 0
+    controller: {fileID: 22100000, guid: cd85bf1aedd0f564e97a0c180f49a5b8, type: 2}
+    previewFrames:
+    - {fileID: 21300000, guid: 8ecdbe5464ab63641adb317e10bce158, type: 3}
+    - {fileID: 21300000, guid: 4d2d565941455f749b5344c703a5cdba, type: 3}
+    - {fileID: 21300000, guid: d3b372744da512b4eb32ba90473926ee, type: 3}
+    - {fileID: 21300000, guid: 98551528a416e084cab9e7287cecfe50, type: 3}
+    - {fileID: 21300000, guid: 98551528a416e084cab9e7287cecfe50, type: 3}
+    previewDurations:
+    - 0.14
+    - 0.2
+    - 0.13999999
+    - 0.20000002
+    - 0.0009999871
+    unlockAchievement: 
+    comingSoon: 0
+  - id: prototype
+    displayName: "Prot\xF3tipo Secreto"
+    description: "Uma pintura nova ainda est\xE1 na prancheta do mec\xE2nico."
+    slot: 0
+    controller: {fileID: 0}
+    previewFrames: []
+    previewDurations: []
+    unlockAchievement: gusini_defeated
+    comingSoon: 1

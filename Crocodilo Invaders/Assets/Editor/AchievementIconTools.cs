@@ -54,13 +54,15 @@ public static class AchievementIconTools
                 throw new Exception("Invalid icon mapping: "+AchievementCatalog.All[i].Id);
         }
         var roots=EditorBuildSettings.scenes.Where(s=>s.enabled).Select(s=>s.path)
-            .Concat(AssetDatabase.FindAssets("",new[]{"Assets/Resources"}).Select(AssetDatabase.GUIDToAssetPath))
+            .Concat(AssetDatabase.FindAssets("",new[]{"Assets/Resources"}).Select(AssetDatabase.GUIDToAssetPath)
+                // The Hangar catalog is the only allowed path to Crocs: an opt-in cosmetic chosen by the player.
+                .Where(p=>!p.StartsWith("Assets/Resources/Wardrobe")))
             .Append("Assets/Prefabs/Player.prefab").ToArray();
         foreach(string dependency in AssetDatabase.GetDependencies(roots,true))
             if(dependency.StartsWith(CrocsSkinTools.Art+"/")||dependency.StartsWith(CrocsSkinTools.Animations+"/"))
                 throw new Exception("Saved Crocs skin is still used by playable content: "+dependency);
         if(Directory.GetFiles(CrocsSkinTools.Art,"*.png",SearchOption.AllDirectories).Length!=26||!File.Exists(CrocsSkinTools.Controller))
             throw new Exception("Archived Crocs assets must remain saved");
-        Debug.Log("ACHIEVEMENT_ICONS_OK: ten dedicated 64px icons; original airplane active; Crocs assets saved with no scene/Resources dependencies.");
+        Debug.Log("ACHIEVEMENT_ICONS_OK: ten dedicated 64px icons; original airplane active; Crocs reachable only through the Hangar catalog.");
     }
 }
