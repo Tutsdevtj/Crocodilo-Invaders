@@ -18,6 +18,7 @@ public sealed class MainMenuController : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button leaderboardButton;
     [SerializeField] private Button achievementsButton;
+    [SerializeField] private Button hangarButton;
     [SerializeField, Min(.01f)] private float exitDuration = .2f;
 
     private bool leaving;
@@ -25,6 +26,7 @@ public sealed class MainMenuController : MonoBehaviour
     private PlayerNameView nameView;
     private LeaderboardView leaderboard;
     private DeveloperMenuView developerMenu;
+    private WardrobeView hangar;
     private string selectedGameplayScene;
 
     private void Awake()
@@ -77,6 +79,19 @@ public sealed class MainMenuController : MonoBehaviour
         if (leaving || !menuGroup.interactable || runtime == null) return;
         menuGroup.interactable = false;
         runtime.View.Open(() => RestoreMenu(achievementsButton));
+    }
+
+    public void ShowHangar()
+    {
+        if (leaving || !menuGroup.interactable) return;
+        if (hangar == null)
+        {
+            var runtime = AchievementRuntime.Instance;
+            var font = runtime != null ? runtime.View.GetComponentInChildren<TMPro.TMP_Text>(true)?.font : null;
+            hangar = WardrobeView.Create(font);
+        }
+        menuGroup.interactable = false;
+        hangar.Open(() => RestoreMenu(hangarButton));
     }
 
     public bool BeginDevelopmentBoss(int boss, int phase)
@@ -147,6 +162,7 @@ public sealed class MainMenuController : MonoBehaviour
             && (Gamepad.current == null || !Gamepad.current.buttonEast.wasPressedThisFrame)) return;
         if (developerMenu != null && developerMenu.IsVisible) developerMenu.Back();
         else if (options != null && options.IsVisible) options.Close();
+        else if (hangar != null && hangar.IsVisible) hangar.Close();
         else if (nameView != null && nameView.IsVisible) nameView.Close();
         else if (leaderboard != null && leaderboard.IsVisible) leaderboard.Close();
         else if (AchievementRuntime.Instance != null && AchievementRuntime.Instance.View.IsVisible) AchievementRuntime.Instance.View.Close();
@@ -157,6 +173,7 @@ public sealed class MainMenuController : MonoBehaviour
         if (options != null) Destroy(options.gameObject);
         if (nameView != null) Destroy(nameView.gameObject);
         if (leaderboard != null) Destroy(leaderboard.gameObject);
+        if (hangar != null) Destroy(hangar.gameObject);
     }
 
     private void OnApplicationQuit() => LeaderboardSession.SaveCompletedRun();

@@ -1,0 +1,353 @@
+{
+  "version": 2,
+  "mode": "native-grid pixel art drawn by code over the v01 hull and production pilot cels",
+  "canvas": [
+    160,
+    120
+  ],
+  "ppu": 100,
+  "pivot": [
+    0.45,
+    0.3333333333333333
+  ],
+  "shoeHoles": [
+    [
+      76,
+      80
+    ],
+    [
+      84,
+      76
+    ],
+    [
+      89,
+      82
+    ],
+    [
+      96,
+      76
+    ],
+    [
+      103,
+      81
+    ],
+    [
+      113,
+      79
+    ]
+  ],
+  "frames": [
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_0.png",
+      "originalSha256": "711c22f5a8fca9105352a49594aa7eb08bcacfa3fbeb3e231a8a82058ea63c31",
+      "sha256": "0ecf76be67422cf83f5c0e2d83072910aa5baab2c963b0f61b2516adc6dc7049",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_1.png",
+      "originalSha256": "ed857a5f91dfc92d1afc97286a1ba6a50c443631603ae6ffbfa85e3ddcf72bb9",
+      "sha256": "857addc1a9a8cb25ba119e9c49377796e7f7f43a8d2ae75e7f2e01441146938d",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 61
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_2.png",
+      "originalSha256": "52a7795603a22c4c5dac0e6480e2cb943aa7e54a0c2ffafee5439a47066fd72c",
+      "sha256": "59eeffc842a628721998f1ed8a89bbc7cbb64316bf4e0e3217279f14375dff72",
+      "offsetY": -1,
+      "head": [
+        0,
+        -1
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Idle",
+      "name": "bombardiro_idle_3.png",
+      "originalSha256": "2c8a1f9477d1435e7cd186d61d8ca30fadab67393f0c129f836bbdc1b0e6d3db",
+      "sha256": "357835f17f771a1013fb357c90655b946ac99940c6ead70ad7c60e343286dcaf",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_0.png",
+      "originalSha256": "884bc5270fb7278554a9c9894c8c826aff076318fcfd6aa3d9673fb63800af2f",
+      "sha256": "050024a898bc327ffa5ed28c7f21f41f244fd9b103c2c473ac6c20edd15d1d9e",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_1.png",
+      "originalSha256": "1be7caf32ad2a605148eb85e76ec743d784da9fad06c7a0333423b6c3edd4170",
+      "sha256": "2f2c443be4872f0c37f266ebb7bccedee6f5f8247480b0f2466c0b6e419db269",
+      "offsetY": 0,
+      "head": [
+        -1,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_2.png",
+      "originalSha256": "c955b068fc78f9f2d46ff495e37fd0424f89014e48543a6c9649ae5391f25e0e",
+      "sha256": "a43c1bbe25019227cfe155fd7444dca9b3baddd191963517cddc740dd04f70ad",
+      "offsetY": 0,
+      "head": [
+        -1,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_3.png",
+      "originalSha256": "4c4447f3f75b16c3da9123fab288675f30ff64cf66d6bce5ecb8c7d02aea9589",
+      "sha256": "a4d42d8d257bb7f20ecb3e31e802d8f179176be749a08414338bae05f72ef596",
+      "offsetY": -1,
+      "head": [
+        -1,
+        -1
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_4.png",
+      "originalSha256": "aa1d9ab04ec1847a9169966efd0795aae5428e0d911f62b61f61aba0cee46abd",
+      "sha256": "53d86f873bb994a989352555e6220c2dce4628d0bc309e024dcecd825167cf0c",
+      "offsetY": -1,
+      "head": [
+        0,
+        -1
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Fly",
+      "name": "bombardiro_fly_5.png",
+      "originalSha256": "a653a731d2a097c521b7bbbd480bb0ca3f71fef55acc24008c4c555bf56ab52b",
+      "sha256": "94f6cb338849c14024dcbad2de7b8396094f8c1d654126ede3fae5585c00d877",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_0.png",
+      "originalSha256": "2ca96157e5c32458ef80f5276b960736150b94bb57eab5cd251808646ca6a8a0",
+      "sha256": "c5315a703c9c408ad977861de22820137df8d5563e534fa5930962f4a61a8e6b",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_1.png",
+      "originalSha256": "e5a0c986797a2702856b3c8fb2f628060015f416c50a4972ae4b4842795cd877",
+      "sha256": "432f0ccfafc35c5eb02a49d7ae06b5005aea52016fefd1f152476478babbda92",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_2.png",
+      "originalSha256": "578018ef372bc74be9278b328aa3a24a38968cbf2dc4774e45011ad6e6038ceb",
+      "sha256": "6e67c8d05787a30345a56b929649d0b926dd52e39ae8d8071d375fb1c8abb159",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_3.png",
+      "originalSha256": "88b0d36f484032799196e8090a3767f7ed735f0389bbe2b5e4a00909325d201b",
+      "sha256": "4a8bd25516baf9af2aeda880b1ebb99f671b18620fb8be75b261147214309fe6",
+      "offsetY": -1,
+      "head": [
+        -1,
+        -1
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Shoot",
+      "name": "bombardiro_shoot_4.png",
+      "originalSha256": "cf8176aede99eba1abf0885f65b8d401afd501cdb9e2bc6a0c9f48815bbacc4c",
+      "sha256": "050024a898bc327ffa5ed28c7f21f41f244fd9b103c2c473ac6c20edd15d1d9e",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_0.png",
+      "originalSha256": "8880ee5cff1bfd8953aeab2cff1c2f793cf740e87c6d6b5abb2e526956939788",
+      "sha256": "050024a898bc327ffa5ed28c7f21f41f244fd9b103c2c473ac6c20edd15d1d9e",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_1.png",
+      "originalSha256": "7208fdb1a28028edbc91bc352f02df87b2505534e764b0ae3c15be53fdd30081",
+      "sha256": "4ea498fd64561f5b2a1bdd6ecd7c3c28b1006edbd2b2e87611d452c37fc6ffcc",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_2.png",
+      "originalSha256": "070b31a695087069a4c9ab0e06fd58d89f367c73855a37a19dfe2cc7970789b4",
+      "sha256": "069620231dfc61f1b82a50cd074fda4b918d4d1f6ebc37831e9f4836c2175a1d",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_3.png",
+      "originalSha256": "a3f7f121bea64525134c3763739658ffedb3a97fa415d680603bb0ceb793007b",
+      "sha256": "57e32408a426ad74b834c815015443080fe8b82ab78293e3859310793202d9dc",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_4.png",
+      "originalSha256": "28a07c4123dce96466b6f8226a2b09a0330881fc682bdd43e0fa8b61456d462a",
+      "sha256": "68efe069cfefd4d9bd976d02c49e324cd3916cb2becfecbaf191c1386191f3c2",
+      "offsetY": -1,
+      "head": [
+        -2,
+        -1
+      ],
+      "filledNeckPixels": 51
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_5.png",
+      "originalSha256": "500d67a57906ec79a4979d1ef7f581b3f53a4e49451d6a5c7bde01bb8630742b",
+      "sha256": "28add106085f3fabffa9e2e66a3b7a8dba0792bddc87f72600bb7650827e166f",
+      "offsetY": 0,
+      "head": [
+        -1,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Special",
+      "name": "bombardiro_special_6.png",
+      "originalSha256": "96f21066ec2c797640f5600fa7e3be70b95a1447b60e34dd02e2838d65f07880",
+      "sha256": "050024a898bc327ffa5ed28c7f21f41f244fd9b103c2c473ac6c20edd15d1d9e",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_0.png",
+      "originalSha256": "e0659e83c2e1d6a47e91e10376368e4314f25fa3cba68db1998c4269b6279186",
+      "sha256": "ea985e806a15fe944e1d499481002a3fad846bdc5deb9d249c2fc0d6b97806d9",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_1.png",
+      "originalSha256": "f44636abf32a5dad0e5db582566543ab7cfe42913a94d88ea7d39324d19afadb",
+      "sha256": "c2700bcedc0c62f8f75ebf591f9a4dc1bc1ccbff7f80df7f88101f36e42f195e",
+      "offsetY": -1,
+      "head": [
+        0,
+        -1
+      ],
+      "filledNeckPixels": 57
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_2.png",
+      "originalSha256": "cb13cd37352cb7e5e95e2447f31016ac7345ba5aa0ad1bd55a75455c3eaf879f",
+      "sha256": "bffe0eb249d47d567c210b2be04add5107cbbcfd177e8fbd414531a89c4b706c",
+      "offsetY": 1,
+      "head": [
+        0,
+        1
+      ],
+      "filledNeckPixels": 61
+    },
+    {
+      "state": "Hurt",
+      "name": "bombardiro_hurt_3.png",
+      "originalSha256": "c2d0023412247fcdc8da1a9783a33db5108c6679f47e6615128a8c47a5979901",
+      "sha256": "1e21626e62a86f286689dc1c9c206fd3050fbdbacac09a4ab3e2b265c76c5fb9",
+      "offsetY": 0,
+      "head": [
+        0,
+        0
+      ],
+      "filledNeckPixels": 57
+    }
+  ]
+}
